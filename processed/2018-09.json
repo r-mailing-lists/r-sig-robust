@@ -1,0 +1,74 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2018-09",
+  "messages": [
+    {
+      "id": "msg-818b570aaf48",
+      "message_id": "<MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>",
+      "from_name": "Brenton Clarke",
+      "from_email_hash": "6e5a89558fbf64388b1af4815138fddc86cc2743c731f47e66b280356e517d91",
+      "date": "2018-09-05T03:13:14Z",
+      "subject": "[RsR] Translating .R file that uses MASS to robustbase and a question of weights when doing predicted values",
+      "subject_clean": "[RsR] Translating .R file that uses MASS to robustbase and a question of weights when doing predicted values",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n     I have two questions.  The first one is in using the MASS library I get a warning\nwhen I ask for predicted values...I've seen somewhere a suggestion that one should\nuse \"weights = 1/hhat\" .......can someone explain to me which weights I should use?\n\nSecondly,  I am teaching this in an applied statistics course...but using the library MASS.\n\nI am wondering if I should use robustbase and lmrob\n\nCan someone give me the code using lmrob that would do the same analysis\nas the attached file?\n\nI'm hoping this is not too onerous.\n\nCheers,\nBrenton\n\nDr Brenton R Clarke,\nSenior Lecturer in Mathematics and Statistics,\nSchool of Engineering and Information Technology,\nMurdoch University,\nMurdoch, WA 6150,\nAustralia\nTel +61 (0)8 93602578\n\n\n\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20180905/2ce531b3/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: Ripleys Estimates of the Telephone Data.R\nType: application/octet-stream\nSize: 2740 bytes\nDesc: Ripleys Estimates of the Telephone Data.R\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20180905/2ce531b3/attachment.obj>",
+      "body_snippet": "Hi,\n     I have two questions.  The first one is in using the MASS library I get a warning\nwhen I ask for predicted values...I've seen somewhere a suggestion that one should\nuse \"weights = 1/hhat\" ...",
+      "thread_id": "thread-818b570aaf48",
+      "thread_depth": 0,
+      "month": "2018-09"
+    },
+    {
+      "id": "msg-465a5367e97d",
+      "message_id": "<CAK+v9AH86YwtBtmufGvfs5gLR=Vz+Tv=zj=vVmP6A-amAfpdSg@mail.gmail.com>",
+      "from_name": "Fernando Marmolejo-Ramos",
+      "from_email_hash": "f622f29866dbc870c1219a83ab5ed63a0af340e396c6cac78804cd38eebdbce8",
+      "date": "2018-09-06T17:06:58+09:30",
+      "subject": "[RsR] Translating .R file that uses MASS to robustbase and a question of weights when doing predicted values",
+      "subject_clean": "[RsR] Translating .R file that uses MASS to robustbase and a question of weights when doing predicted values",
+      "in_reply_to": "<MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>",
+      "references": [
+        "<MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>"
+      ],
+      "body_plain": "dear brenton\n\nwhat about the robust fitting in the packages 'robust' and 'robustbase'?\n\nf\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "dear brenton\n\nwhat about the robust fitting in the packages 'robust' and 'robustbase'?\n\nf\n\n\t[[alternative HTML version deleted]]",
+      "thread_id": "thread-818b570aaf48",
+      "thread_depth": 1,
+      "month": "2018-09"
+    },
+    {
+      "id": "msg-7f02ca904252",
+      "message_id": "<477e19e6-cea6-ffaf-4125-2e220bfa22f6@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2018-09-06T14:54:16-07:00",
+      "subject": "[RsR] Translating .R file that uses MASS to robustbase and a question of weights when doing predicted values",
+      "subject_clean": "[RsR] Translating .R file that uses MASS to robustbase and a question of weights when doing predicted values",
+      "in_reply_to": "<MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>",
+      "references": [
+        "<MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>"
+      ],
+      "body_plain": "Hello Brenton,\n\nYes, lmrob() from robustbase can be expected to provide a better \nestimator, at least in the sense that the initial estimator used to \nsolve the M-estimating equations is better.\n\nYou should be able to replace every call to rlm() with lmrob() pretty \nmuch asthey are, making sure you use method=\"MM\", and you remove all \nother rlm-specific arguments. For example:\n\ninstead of\nmodelRF <- rlm(calls ~ year, maxit=50, data=phones, psi=psi.huber)\n\nyou can use\nmodelRF <- lmrob(calls ~ year, data=phones, method=\"MM\")\n\nall subsequent calls to summary, abline, etc. should work pretty much as \nthey are.\n\nHope this helps.\n\nMatias\n\n\nOn 2018-09-04 8:13 PM, Brenton Clarke wrote:\n>\n> Hi,\n>\n> ???? I have two questions.? The first one is in using the MASS library \n> I get a warning\n>\n> when I ask for predicted values?I?ve seen somewhere a suggestion that \n> one should\n>\n> use ?weights = 1/hhat? ??.can someone explain to me which weights I \n> should use?\n>\n> Secondly,? I am teaching this in an applied statistics course?but \n> using the library MASS.\n>\n> I am wondering if I should use robustbase and lmrob\n>\n> Can someone give me the code using lmrob that would do the same analysis\n>\n> as the attached file?\n>\n> I?m hoping this is not too onerous.\n>\n> Cheers,\n>\n> Brenton\n>\n> Dr Brenton R Clarke,\n>\n> Senior Lecturer in Mathematics and Statistics,\n>\n> School of Engineering and Information Technology,\n>\n> Murdoch University,\n>\n> Murdoch, WA 6150,\n>\n> Australia\n>\n> Tel +61 (0)8 93602578\n>\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n______________________________________________________________\nMatias Salibian-Barrera - Professor\nDepartment of Statistics - The University of British Columbia\nmatias at stat.ubc.ca | +1 (604) 822-3410\n\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello Brenton,\n\nYes, lmrob() from robustbase can be expected to provide a better \nestimator, at least in the sense that the initial estimator used to \nsolve the M-estimating equations is better.\n\nYou ",
+      "thread_id": "thread-818b570aaf48",
+      "thread_depth": 1,
+      "month": "2018-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-818b570aaf48",
+      "subject": "[RsR] Translating .R file that uses MASS to robustbase and a question of weights when doing predicted values",
+      "message_count": 3,
+      "participants": [
+        "Brenton Clarke",
+        "Fernando Marmolejo-Ramos",
+        "Matias Salibian-Barrera"
+      ],
+      "started": "2018-09-05T03:13:14+00:00",
+      "last_reply": "2018-09-06T14:54:16-07:00",
+      "root_message_id": "msg-818b570aaf48"
+    }
+  ]
+}

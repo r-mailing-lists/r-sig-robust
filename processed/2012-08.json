@@ -1,0 +1,306 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2012-08",
+  "messages": [
+    {
+      "id": "msg-55659745075c",
+      "message_id": "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+      "from_name": "Fabricio Vasselai",
+      "from_email_hash": "f43d1ca5dfe5de4a43a04ed898abd9cf78ab7df105c1d0f084f114d72d537fe6",
+      "date": "2012-08-26T02:20:28-03:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nI've been trying different models with lmRob for the past days and I was\nwondering: is there a maximum number of variables to include in a model so\nto avoid the following error in lmRob?\nThe error message is:\n\nError in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,  :\n  Singular matrix encountered.Erro em ans[[i]]$call : $ operator is\ninvalid for atomic vectors\n\n\nIt seems to me that there is a limit of 14 independent variables plus the\nintercept. It can run any combination of variables in any dataset I try, as\nfar as final parameters are not beyond this limit.\nIs it right? I did not find information about this yet. Is there a way to\ngo beyond this number of variables?\n\nThanks in advance!\nBest,\n\nFABRICIO\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear list,\n\nI've been trying different models with lmRob for the past days and I was\nwondering: is there a maximum number of variables to include in a model so\nto avoid the following error in lmRob?\nT",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 0,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-2837d46bdf4c",
+      "message_id": "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+      "from_name": "Fabricio Vasselai",
+      "from_email_hash": "f43d1ca5dfe5de4a43a04ed898abd9cf78ab7df105c1d0f084f114d72d537fe6",
+      "date": "2012-08-26T02:33:05-03:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>"
+      ],
+      "body_plain": "Dear list,\n\nI've been trying different models with lmRob for the past days and I was\nwondering: is there a maximum number of variables to include in a model so\nto avoid the following error in lmRob?\nThe error message is:\n\nError in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,  :\n  Singular matrix encountered.Erro em ans[[i]]$call : $ operator is\ninvalid for atomic vectors\n\n\nIt seems to me that there is a limit of 14 independent variables plus the\nintercept. It can run any combination of variables in any dataset I try, as\nfar as final parameters are not beyond this limit.\nIs it right? I did not find information about this yet. Is there a way to\ngo beyond this number of variables?\n\nThanks in advance!\nBest,\n\nFABRICIO\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear list,\n\nI've been trying different models with lmRob for the past days and I was\nwondering: is there a maximum number of variables to include in a model so\nto avoid the following error in lmRob?\nT",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 1,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-9459f289da1f",
+      "message_id": "<5039F380.7020801@wis.kuleuven.be>",
+      "from_name": "Kaveh Vakili",
+      "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
+      "date": "2012-08-26T11:59:28+02:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>"
+      ],
+      "body_plain": "whatever it is, it is specific to the dataset you are using, not the \nsoftware:\n\nlibrary(robust)\np<-20\nn<-200\nx<-matrix(rnorm(n*p),n,p)\nb<-rnorm(p+1)\ny<-cbind(1,x)%*%b+rnorm(n)\nlmRob(y~x)\n\n\nyou should therefore provide more informations about the dataset,\n\n\n\n\n\nOn 08/26/2012 07:33 AM, Fabricio Vasselai wrote:\n> Dear list,\n>\n> I've been trying different models with lmRob for the past days and I was\n> wondering: is there a maximum number of variables to include in a model so\n> to avoid the following error in lmRob?\n> The error message is:\n>\n> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,  :\n>    Singular matrix encountered.Erro em ans[[i]]$call : $ operator is\n> invalid for atomic vectors\n>\n>\n> It seems to me that there is a limit of 14 independent variables plus the\n> intercept. It can run any combination of variables in any dataset I try, as\n> far as final parameters are not beyond this limit.\n> Is it right? I did not find information about this yet. Is there a way to\n> go beyond this number of variables?\n>\n> Thanks in advance!\n> Best,\n>\n> FABRICIO\n>\n> \t[[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "whatever it is, it is specific to the dataset you are using, not the \nsoftware:\n\nlibrary(robust)\np<-20\nn<-200\nx<-matrix(rnorm(n*p),n,p)\nb<-rnorm(p+1)\ny<-cbind(1,x)%*%b+rnorm(n)\nlmRob(y~x)\n\n\nyou should",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 2,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-9d4b534e9961",
+      "message_id": "<CAEkXS9Km+_-KqW54b8jZkBbkhyU1WsGOqFq5NRea02Jc7aKHaQ@mail.gmail.com>",
+      "from_name": "Fabricio Vasselai",
+      "from_email_hash": "f43d1ca5dfe5de4a43a04ed898abd9cf78ab7df105c1d0f084f114d72d537fe6",
+      "date": "2012-08-26T11:18:09-03:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<5039F380.7020801@wis.kuleuven.be>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<5039F380.7020801@wis.kuleuven.be>"
+      ],
+      "body_plain": "Thank you very much for the fast reply.\n\nWhat info about the dataset would be helpful to figure out what's going on\nabout that error message? I am using a dataset wth N = 602, with\ninformation political institution in countries. Variables are almost all\ncontinuous and a few are binary. I am running two interation terms in the\nmodels. I'll be more than happy to provide any needed info.\n\n\n\n2012/8/26 Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>\n\n>\n>\n> whatever it is, it is specific to the dataset you are using, not the\n> software:\n>\n> library(robust)\n> p<-20\n> n<-200\n> x<-matrix(rnorm(n*p),n,p)\n> b<-rnorm(p+1)\n> y<-cbind(1,x)%*%b+rnorm(n)\n> lmRob(y~x)\n>\n>\n> you should therefore provide more informations about the dataset,\n>\n>\n>\n>\n>\n>\n> On 08/26/2012 07:33 AM, Fabricio Vasselai wrote:\n>\n>> Dear list,\n>>\n>> I've been trying different models with lmRob for the past days and I was\n>> wondering: is there a maximum number of variables to include in a model so\n>> to avoid the following error in lmRob?\n>> The error message is:\n>>\n>> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,\n>>  :\n>>    Singular matrix encountered.Erro em ans[[i]]$call : $ operator is\n>>\n>> invalid for atomic vectors\n>>\n>>\n>> It seems to me that there is a limit of 14 independent variables plus the\n>> intercept. It can run any combination of variables in any dataset I try,\n>> as\n>> far as final parameters are not beyond this limit.\n>> Is it right? I did not find information about this yet. Is there a way to\n>> go beyond this number of variables?\n>>\n>> Thanks in advance!\n>> Best,\n>>\n>> FABRICIO\n>>\n>>         [[alternative HTML version deleted]]\n>>\n>> ______________________________**_________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>\n>>\n>\n> ______________________________**_________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thank you very much for the fast reply.\n\nWhat info about the dataset would be helpful to figure out what's going on\nabout that error message? I am using a dataset wth N = 602, with\ninformation politic",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 3,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-a1fa3e9532ec",
+      "message_id": "<CA+VS_fYCKPAkhFdBkBFPs0UyKfeTM-pL5dsC4PBU4eGWPSpipA@mail.gmail.com>",
+      "from_name": "Andreas Alfons",
+      "from_email_hash": "411f44219352dac0106176b106771f5116dcbbfae9c2b5d346195dca3bd6185b",
+      "date": "2012-08-26T20:16:13+02:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<93a3bc2ae3c94e4c97856187b4756b24@ICTS-S-HUB3.luna.kuleuven.be>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<5039F380.7020801@wis.kuleuven.be>",
+        "<93a3bc2ae3c94e4c97856187b4756b24@ICTS-S-HUB3.luna.kuleuven.be>"
+      ],
+      "body_plain": "On Sun, Aug 26, 2012 at 4:18 PM, Fabricio Vasselai\n<fabriciovasselai at gmail.com> wrote:\n> Thank you very much for the fast reply.\n>\n> What info about the dataset would be helpful to figure out what's going on\n> about that error message? I am using a dataset wth N = 602, with\n> information political institution in countries. Variables are almost all\n> continuous and a few are binary. I am running two interation terms in the\n> models. I'll be more than happy to provide any needed info.\n\nWithout a fully reproducible example (data + code), I'm afraid there's\nnot much anybody can really do to help you.  If your data are\nconfidential, please try to reproduce the error with simulated data.\n\n-Andreas\n\n\n> 2012/8/26 Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>\n>\n>>\n>>\n>> whatever it is, it is specific to the dataset you are using, not the\n>> software:\n>>\n>> library(robust)\n>> p<-20\n>> n<-200\n>> x<-matrix(rnorm(n*p),n,p)\n>> b<-rnorm(p+1)\n>> y<-cbind(1,x)%*%b+rnorm(n)\n>> lmRob(y~x)\n>>\n>>\n>> you should therefore provide more informations about the dataset,\n>>\n>>\n>>\n>>\n>>\n>>\n>> On 08/26/2012 07:33 AM, Fabricio Vasselai wrote:\n>>\n>>> Dear list,\n>>>\n>>> I've been trying different models with lmRob for the past days and I was\n>>> wondering: is there a maximum number of variables to include in a model so\n>>> to avoid the following error in lmRob?\n>>> The error message is:\n>>>\n>>> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,\n>>>  :\n>>>    Singular matrix encountered.Erro em ans[[i]]$call : $ operator is\n>>>\n>>> invalid for atomic vectors\n>>>\n>>>\n>>> It seems to me that there is a limit of 14 independent variables plus the\n>>> intercept. It can run any combination of variables in any dataset I try,\n>>> as\n>>> far as final parameters are not beyond this limit.\n>>> Is it right? I did not find information about this yet. Is there a way to\n>>> go beyond this number of variables?\n>>>\n>>> Thanks in advance!\n>>> Best,\n>>>\n>>> FABRICIO\n>>>\n>>>         [[alternative HTML version deleted]]\n>>>\n>>> ______________________________**_________________\n>>> R-SIG-Robust at r-project.org mailing list\n>>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>\n>>>\n>>\n>> ______________________________**_________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>\n>>\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n\n\n-- \nAndreas Alfons\nFaculty of Business and Economics, KU Leuven\nwww.econ.kuleuven.be/andreas.alfons/public/",
+      "body_snippet": "On Sun, Aug 26, 2012 at 4:18 PM, Fabricio Vasselai\n<fabriciovasselai at gmail.com> wrote:\n> Thank you very much for the fast reply.\n>\n> What info about the dataset would be helpful to figure out what'",
+      "thread_id": "thread-a1fa3e9532ec",
+      "thread_depth": 0,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-f6125b7079d7",
+      "message_id": "<CAPUobv0iQ4u=fxHLs-K0B-DfpazVEB+x_FjxcUNe-7iuK7nNMQ@mail.gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "530ea8416ff84ccf4993b08b392a0ce8fbc0be5f566afe23ab26199efd0c1c29",
+      "date": "2012-08-27T17:27:48+02:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<CA+VS_fYCKPAkhFdBkBFPs0UyKfeTM-pL5dsC4PBU4eGWPSpipA@mail.gmail.com>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<5039F380.7020801@wis.kuleuven.be>",
+        "<93a3bc2ae3c94e4c97856187b4756b24@ICTS-S-HUB3.luna.kuleuven.be>",
+        "<CA+VS_fYCKPAkhFdBkBFPs0UyKfeTM-pL5dsC4PBU4eGWPSpipA@mail.gmail.com>"
+      ],
+      "body_plain": "Dear Fabricio,\n\nHave you tried to fit the data using lm? If it does not work there,\nthen the problem most likely lies with the dataset.\nDid you use lmRob (package robust) for a specific reason? The newer\nversions of lmrob (package robustbase) also support categorical\nvariables, even without reverting to M-S estimates. You could also try\nto fit your data using lmrob. Just make sure to use the most recent\nversion (0.9-3). You can check this by typing the command\nsessionInfo().\n\nBest regards,\n\nManuel\n\nOn Sun, Aug 26, 2012 at 8:16 PM, Andreas Alfons\n<andreas.alfons at kuleuven.be> wrote:\n> On Sun, Aug 26, 2012 at 4:18 PM, Fabricio Vasselai\n> <fabriciovasselai at gmail.com> wrote:\n>> Thank you very much for the fast reply.\n>>\n>> What info about the dataset would be helpful to figure out what's going on\n>> about that error message? I am using a dataset wth N = 602, with\n>> information political institution in countries. Variables are almost all\n>> continuous and a few are binary. I am running two interation terms in the\n>> models. I'll be more than happy to provide any needed info.\n>\n> Without a fully reproducible example (data + code), I'm afraid there's\n> not much anybody can really do to help you.  If your data are\n> confidential, please try to reproduce the error with simulated data.\n>\n> -Andreas\n>\n>\n>> 2012/8/26 Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>\n>>\n>>>\n>>>\n>>> whatever it is, it is specific to the dataset you are using, not the\n>>> software:\n>>>\n>>> library(robust)\n>>> p<-20\n>>> n<-200\n>>> x<-matrix(rnorm(n*p),n,p)\n>>> b<-rnorm(p+1)\n>>> y<-cbind(1,x)%*%b+rnorm(n)\n>>> lmRob(y~x)\n>>>\n>>>\n>>> you should therefore provide more informations about the dataset,\n>>>\n>>>\n>>>\n>>>\n>>>\n>>>\n>>> On 08/26/2012 07:33 AM, Fabricio Vasselai wrote:\n>>>\n>>>> Dear list,\n>>>>\n>>>> I've been trying different models with lmRob for the past days and I was\n>>>> wondering: is there a maximum number of variables to include in a model so\n>>>> to avoid the following error in lmRob?\n>>>> The error message is:\n>>>>\n>>>> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,\n>>>>  :\n>>>>    Singular matrix encountered.Erro em ans[[i]]$call : $ operator is\n>>>>\n>>>> invalid for atomic vectors\n>>>>\n>>>>\n>>>> It seems to me that there is a limit of 14 independent variables plus the\n>>>> intercept. It can run any combination of variables in any dataset I try,\n>>>> as\n>>>> far as final parameters are not beyond this limit.\n>>>> Is it right? I did not find information about this yet. Is there a way to\n>>>> go beyond this number of variables?\n>>>>\n>>>> Thanks in advance!\n>>>> Best,\n>>>>\n>>>> FABRICIO\n>>>>\n>>>>         [[alternative HTML version deleted]]\n>>>>\n>>>> ______________________________**_________________\n>>>> R-SIG-Robust at r-project.org mailing list\n>>>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>\n>>>>\n>>>\n>>> ______________________________**_________________\n>>> R-SIG-Robust at r-project.org mailing list\n>>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>\n>>>\n>>\n>>         [[alternative HTML version deleted]]\n>>\n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>\n>\n> --\n> Andreas Alfons\n> Faculty of Business and Economics, KU Leuven\n> www.econ.kuleuven.be/andreas.alfons/public/\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n\n\n-- \nManuel Koller <koller at stat.math.ethz.ch>\nSeminar f?r Statistik, HG G 18, R?mistrasse 101\nETH Z?rich  8092 Z?rich  SWITZERLAND\nphone: +41 44 632-4673 fax: ...-1228\nhttp://stat.ethz.ch/people/kollerma/",
+      "body_snippet": "Dear Fabricio,\n\nHave you tried to fit the data using lm? If it does not work there,\nthen the problem most likely lies with the dataset.\nDid you use lmRob (package robust) for a specific reason? The ne",
+      "thread_id": "thread-a1fa3e9532ec",
+      "thread_depth": 1,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-3d728fc59bbe",
+      "message_id": "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>",
+      "from_name": "S Ellison",
+      "from_email_hash": "57da6c308e3ff2213a4bfe13c89173d165dc7840e1a5fa2e3a797e8dd1f1dda3",
+      "date": "2012-08-28T14:46:00+01:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular\tmatrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular\tmatrix encountered",
+      "in_reply_to": "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>"
+      ],
+      "body_plain": "One 'obvious' possibility with interactions for a lot of predictors is that you might have no cells in the full interaction table with more than 1 observation. That would result in a singular model due to exact fitting.\n\nS Ellison\n\n\n> -----Original Message-----\n> From: r-sig-robust-bounces at r-project.org \n> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of \n> Fabricio Vasselai\n> Sent: 26 August 2012 06:33\n> To: r-sig-robust\n> Subject: [RsR] Maximum number of variables with lmRob? Error: \n> singular matrix encountered\n> \n> Dear list,\n> \n> I've been trying different models with lmRob for the past \n> days and I was\n> wondering: is there a maximum number of variables to include \n> in a model so to avoid the following error in lmRob?\n> The error message is:\n> \n> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, \n> nrep = nrep,  :\n>   Singular matrix encountered.Erro em ans[[i]]$call : $ \n> operator is invalid for atomic vectors\n> \n> \n> It seems to me that there is a limit of 14 independent \n> variables plus the intercept. It can run any combination of \n> variables in any dataset I try, as far as final parameters \n> are not beyond this limit.\n> Is it right? I did not find information about this yet. Is \n> there a way to go beyond this number of variables?\n> \n> Thanks in advance!\n> Best,\n> \n> FABRICIO\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> \n\n*******************************************************************\nThis email and any attachments are confidential. Any use...{{dropped:8}}",
+      "body_snippet": "One 'obvious' possibility with interactions for a lot of predictors is that you might have no cells in the full interaction table with more than 1 observation. That would result in a singular model du",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 2,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-4fee44b663d2",
+      "message_id": "<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>",
+      "from_name": "Fabricio Vasselai",
+      "from_email_hash": "f43d1ca5dfe5de4a43a04ed898abd9cf78ab7df105c1d0f084f114d72d537fe6",
+      "date": "2012-08-29T16:37:21-03:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>"
+      ],
+      "body_plain": "Dears, Thank you very much for your replies so far.\n\nFirst, about my dataset, I am not allowed to publish it here yet. But I am\narranging to simulate something similar to show you a data-baase example of\nthe problem.\n\nManuel: you just gave me a good idea. And indeed, the problem does not\nhappen when I use lmrob! Awesome. The only problem is: when I run smaller\nmodels, with 10 variables for instance, so lmRob does work for me, then the\nresults from lmRob and from lmrob are substantialy different. Sorry for the\nsilly question, but I would be very interesting in understanding why those\ntwo versions of the package could give such a difference. It can be very\ninteresting to asnwer many theoretical qusetions.\n\nS.Ellison: very right, it would make sense. But the problem still happens\nwith only one interaction, unfortunattely.\n\nThanks a lot right now for the insights.\n\nFABRICIO\n\n\n\n2012/8/28 S Ellison <S.Ellison at lgcgroup.com>\n\n> One 'obvious' possibility with interactions for a lot of predictors is\n> that you might have no cells in the full interaction table with more than 1\n> observation. That would result in a singular model due to exact fitting.\n>\n> S Ellison\n>\n>\n> > -----Original Message-----\n> > From: r-sig-robust-bounces at r-project.org\n> > [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of\n> > Fabricio Vasselai\n> > Sent: 26 August 2012 06:33\n> > To: r-sig-robust\n> > Subject: [RsR] Maximum number of variables with lmRob? Error:\n> > singular matrix encountered\n> >\n> > Dear list,\n> >\n> > I've been trying different models with lmRob for the past\n> > days and I was\n> > wondering: is there a maximum number of variables to include\n> > in a model so to avoid the following error in lmRob?\n> > The error message is:\n> >\n> > Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx,\n> > nrep = nrep,  :\n> >   Singular matrix encountered.Erro em ans[[i]]$call : $\n> > operator is invalid for atomic vectors\n> >\n> >\n> > It seems to me that there is a limit of 14 independent\n> > variables plus the intercept. It can run any combination of\n> > variables in any dataset I try, as far as final parameters\n> > are not beyond this limit.\n> > Is it right? I did not find information about this yet. Is\n> > there a way to go beyond this number of variables?\n> >\n> > Thanks in advance!\n> > Best,\n> >\n> > FABRICIO\n> >\n> >       [[alternative HTML version deleted]]\n> >\n> > _______________________________________________\n> > R-SIG-Robust at r-project.org mailing list\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> >\n>\n> *******************************************************************\n> This email and any attachments are confidential. Any u...{{dropped:12}}",
+      "body_snippet": "Dears, Thank you very much for your replies so far.\n\nFirst, about my dataset, I am not allowed to publish it here yet. But I am\narranging to simulate something similar to show you a data-baase example",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 3,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-908810f78a60",
+      "message_id": "<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "530ea8416ff84ccf4993b08b392a0ce8fbc0be5f566afe23ab26199efd0c1c29",
+      "date": "2012-08-30T08:26:14+02:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>",
+        "<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>"
+      ],
+      "body_plain": "Dear Fabricio\n\nGreat that it works with lmrob :-). Are the differences really that\n\"substantial\"? Even when taking the standard error into account?\nOf course, you would expect \"some\" differences, because the two\nmethods do not use the exact same algorithms and also use different\ndefault configuration parameters:\n\n- For datasets with categorical and continuous variables, lmRob uses\nan M-S-estimate as initial estimate (replacing the S-estimate). It is\nbasically an L1-estimate for the categorical part and an S-estimate\nfor the continuous part. lmrob does not need to split the estimation\ninto categorical and continuous parts, it just computes an S-estimate.\nThat's one source of differences.\n\n- The defaults for the psi- or rho-functions used are different. If I\nremember correctly, lmRob uses the so-called \"optimal\" while lmrob\nuses the bisquare psi-function. While \"optimal\" is clearly worse, both\nare prone to produce somewhat unstable estimates for small datasets\n(if you draw sensitivity curves of the initial estimates you will get\nnon-smooth curves with many jumps, etc). That's why we advocate to use\npsi-functions that redescend more slowly, like \"lqq\" (only available\nfor lmrob). That's another source of differences.\n\n- lmrob uses randomized algorithms and thus produces slightly\ndifferent results for different seeds.\n\nBTW: Have you considered using the config option setting=\"KS2011\" in\nlmrob? This is an alternative set of default options using the \"lqq\"\npsi-function and SMDM-estimates instead of MM-estimates. This will\ngive you better tests, especially if you have many predictors and a\nnot so large dataset.\n\nBest regards,\n\nManuel\n\nOn Wed, Aug 29, 2012 at 9:37 PM, Fabricio Vasselai\n<fabriciovasselai at gmail.com> wrote:\n> Dears, Thank you very much for your replies so far.\n>\n> First, about my dataset, I am not allowed to publish it here yet. But I am\n> arranging to simulate something similar to show you a data-baase example of\n> the problem.\n>\n> Manuel: you just gave me a good idea. And indeed, the problem does not\n> happen when I use lmrob! Awesome. The only problem is: when I run smaller\n> models, with 10 variables for instance, so lmRob does work for me, then the\n> results from lmRob and from lmrob are substantialy different. Sorry for the\n> silly question, but I would be very interesting in understanding why those\n> two versions of the package could give such a difference. It can be very\n> interesting to asnwer many theoretical qusetions.\n>\n> S.Ellison: very right, it would make sense. But the problem still happens\n> with only one interaction, unfortunattely.\n>\n> Thanks a lot right now for the insights.\n>\n> FABRICIO\n>\n>\n\n-- \nManuel Koller <koller at stat.math.ethz.ch>\nSeminar f?r Statistik, HG G 18, R?mistrasse 101\nETH Z?rich  8092 Z?rich  SWITZERLAND\nphone: +41 44 632-4673 fax: ...-1228\nhttp://stat.ethz.ch/people/kollerma/",
+      "body_snippet": "Dear Fabricio\n\nGreat that it works with lmrob :-). Are the differences really that\n\"substantial\"? Even when taking the standard error into account?\nOf course, you would expect \"some\" differences, beca",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 4,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-0cb02537971e",
+      "message_id": "<503F3AA1.3000805@wis.kuleuven.be>",
+      "from_name": "Kaveh Vakili",
+      "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
+      "date": "2012-08-30T12:04:17+02:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>",
+        "<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>",
+        "<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>"
+      ],
+      "body_plain": "Dear Manual,\n\nThis all sounds very existing, would you do by any chance\nhave a link to a white paper where these numerous\ninnovations are explained more in detail than in the\nlmRob help files?\n\nBest regards,\n\n\n\n\nOn 08/30/2012 08:26 AM, Manuel Koller wrote:\n> - lmrob uses randomized algorithms and thus produces slightly\n> different results for different seeds.",
+      "body_snippet": "Dear Manual,\n\nThis all sounds very existing, would you do by any chance\nhave a link to a white paper where these numerous\ninnovations are explained more in detail than in the\nlmRob help files?\n\nBest r",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 5,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-f2039c5d3742",
+      "message_id": "<503F3E7D.1030603@wis.kuleuven.be>",
+      "from_name": "Kaveh Vakili",
+      "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
+      "date": "2012-08-30T12:20:45+02:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<503F3AA1.3000805@wis.kuleuven.be>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>",
+        "<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>",
+        "<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>",
+        "<503F3AA1.3000805@wis.kuleuven.be>"
+      ],
+      "body_plain": "Sorry I accidentally send a draft message to the list\n  (maybe the heatwave).\n\nBelow the correct version\n\n\n\nDear Manuel,\n\nThis all sounds very exiting, would you by any chance\nhave a link to a white paper/technical report where\nthese innovations are documented in greater details\n  than in the help files associated with lmRob?\n\nBest regards,\n\n\nOn 08/30/2012 12:04 PM, Kaveh Vakili wrote:\n>\n> Dear Manual,\n>\n> This all sounds very existing, would you do by any chance\n> have a link to a white paper where these numerous\n> innovations are explained more in detail than in the\n> lmRob help files?\n>\n> Best regards,\n>\n>\n>\n>\n> On 08/30/2012 08:26 AM, Manuel Koller wrote:\n>> - lmrob uses randomized algorithms and thus produces slightly\n>> different results for different seeds.\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Sorry I accidentally send a draft message to the list\n  (maybe the heatwave).\n\nBelow the correct version\n\n\n\nDear Manuel,\n\nThis all sounds very exiting, would you by any chance\nhave a link to a white p",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 6,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-a5ad9523e58b",
+      "message_id": "<20543.17955.708721.286372@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2012-08-30T12:53:23+02:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<503F3E7D.1030603@wis.kuleuven.be>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>",
+        "<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>",
+        "<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>",
+        "<503F3AA1.3000805@wis.kuleuven.be>",
+        "<503F3E7D.1030603@wis.kuleuven.be>"
+      ],
+      "body_plain": ">>>>> \"KV\" == Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>\n>>>>>     on Thu, 30 Aug 2012 12:20:45 +0200 writes:\n\n    KV> Sorry I accidentally send a draft message to the list\n    KV> (maybe the heatwave).\n\n    KV> Below the correct version\n\n\n\n    KV> Dear Manuel,\n\n    KV> This all sounds very exiting, would you by any chance\n    KV> have a link to a white paper/technical report where\n    KV> these innovations are documented in greater details\n    KV> than in the help files associated with lmRob?\n\nI think you have understood that Manuel advocates using lmrob(),\n[not lmRob() !!]\n\nSo please do look at  ?lmrob\nIt has several references, most notably to\n\n  Koller, M. and Stahel, W.A. (2011), Sharpening Wald-type inference\n  in robust regression for small samples, _Computational Statistics\n  & Data Analysis_ *55*(8), 2504-2515.\n\nFor newer results, manual will provide newer links.\n\nUnfortunately, stupid editorial processes lead to papers not\nbeing published just because they want to publicize a simple\ngood idea for a new algorithm that has not been found by anyone\nin 20-30 years history, but the editor/referees still claim the\nidea to be too simple to be worth publishing .....\n\nMartin\n\n    KV> Best regards,\n\n\n    KV> On 08/30/2012 12:04 PM, Kaveh Vakili wrote:\n    >> \n    >> Dear Manual,\n    >> \n    >> This all sounds very existing, would you do by any chance\n    >> have a link to a white paper where these numerous\n    >> innovations are explained more in detail than in the\n    >> lmRob help files?\n    >> \n    >> Best regards,\n    >> \n    >> \n    >> \n    >> \n    >> On 08/30/2012 08:26 AM, Manuel Koller wrote:\n    >>> - lmrob uses randomized algorithms and thus produces slightly\n    >>> different results for different seeds.\n    >> \n    >> _______________________________________________\n    >> R-SIG-Robust at r-project.org mailing list\n    >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n    KV> _______________________________________________\n    KV> R-SIG-Robust at r-project.org mailing list\n    KV> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": ">>>>> \"KV\" == Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>\n>>>>>     on Thu, 30 Aug 2012 12:20:45 +0200 writes:\n\n    KV> Sorry I accidentally send a draft message to the list\n    KV> (maybe the heat",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 7,
+      "month": "2012-08"
+    },
+    {
+      "id": "msg-635486968247",
+      "message_id": "<CAPUobv2rQ4EzHexyk2sYQheEhfYPc5t45DFCQqXSd5TCyDy4+Q@mail.gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "530ea8416ff84ccf4993b08b392a0ce8fbc0be5f566afe23ab26199efd0c1c29",
+      "date": "2012-08-30T13:22:06+02:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<20543.17955.708721.286372@stat.math.ethz.ch>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>",
+        "<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>",
+        "<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>",
+        "<503F3AA1.3000805@wis.kuleuven.be>",
+        "<503F3E7D.1030603@wis.kuleuven.be>",
+        "<20543.17955.708721.286372@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Hi Kaveh\n\nMartin already gave the reference to paper where we develop the SMDM\nestimators. The second paper he mentions can be found on arxiv for now\n(arXiv:1208.5595v1, http://arxiv.org/abs/1208.5595). There you can\nfind the algorithm we implemented in lmrob that can also compute\nS-estimates when there are categorical variables present.\n\nBest regards,\n\nManuel\n\nOn Thu, Aug 30, 2012 at 12:53 PM, Martin Maechler\n<maechler at stat.math.ethz.ch> wrote:\n>>>>>> \"KV\" == Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>\n>>>>>>     on Thu, 30 Aug 2012 12:20:45 +0200 writes:\n>\n>     KV> Sorry I accidentally send a draft message to the list\n>     KV> (maybe the heatwave).\n>\n>     KV> Below the correct version\n>\n>\n>\n>     KV> Dear Manuel,\n>\n>     KV> This all sounds very exiting, would you by any chance\n>     KV> have a link to a white paper/technical report where\n>     KV> these innovations are documented in greater details\n>     KV> than in the help files associated with lmRob?\n>\n> I think you have understood that Manuel advocates using lmrob(),\n> [not lmRob() !!]\n>\n> So please do look at  ?lmrob\n> It has several references, most notably to\n>\n>   Koller, M. and Stahel, W.A. (2011), Sharpening Wald-type inference\n>   in robust regression for small samples, _Computational Statistics\n>   & Data Analysis_ *55*(8), 2504-2515.\n>\n> For newer results, manual will provide newer links.\n>\n> Unfortunately, stupid editorial processes lead to papers not\n> being published just because they want to publicize a simple\n> good idea for a new algorithm that has not been found by anyone\n> in 20-30 years history, but the editor/referees still claim the\n> idea to be too simple to be worth publishing .....\n>\n> Martin\n>\n>     KV> Best regards,\n>\n>\n>     KV> On 08/30/2012 12:04 PM, Kaveh Vakili wrote:\n>     >>\n>     >> Dear Manual,\n>     >>\n>     >> This all sounds very existing, would you do by any chance\n>     >> have a link to a white paper where these numerous\n>     >> innovations are explained more in detail than in the\n>     >> lmRob help files?\n>     >>\n>     >> Best regards,\n>     >>\n>     >>\n>     >>\n>     >>\n>     >> On 08/30/2012 08:26 AM, Manuel Koller wrote:\n>     >>> - lmrob uses randomized algorithms and thus produces slightly\n>     >>> different results for different seeds.\n>     >>\n>     >> _______________________________________________\n>     >> R-SIG-Robust at r-project.org mailing list\n>     >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>     KV> _______________________________________________\n>     KV> R-SIG-Robust at r-project.org mailing list\n>     KV> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n\n\n-- \nManuel Koller <koller at stat.math.ethz.ch>\nSeminar f?r Statistik, HG G 18, R?mistrasse 101\nETH Z?rich  8092 Z?rich  SWITZERLAND\nphone: +41 44 632-4673 fax: ...-1228\nhttp://stat.ethz.ch/people/kollerma/",
+      "body_snippet": "Hi Kaveh\n\nMartin already gave the reference to paper where we develop the SMDM\nestimators. The second paper he mentions can be found on arxiv for now\n(arXiv:1208.5595v1, http://arxiv.org/abs/1208.5595",
+      "thread_id": "thread-55659745075c",
+      "thread_depth": 8,
+      "month": "2012-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-55659745075c",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "message_count": 11,
+      "participants": [
+        "Fabricio Vasselai",
+        "Kaveh Vakili",
+        "Manuel Koller",
+        "Martin Maechler",
+        "S Ellison"
+      ],
+      "started": "2012-08-26T02:20:28-03:00",
+      "last_reply": "2012-08-30T13:22:06+02:00",
+      "root_message_id": "msg-55659745075c"
+    },
+    {
+      "id": "thread-a1fa3e9532ec",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "message_count": 2,
+      "participants": [
+        "Andreas Alfons",
+        "Manuel Koller"
+      ],
+      "started": "2012-08-26T20:16:13+02:00",
+      "last_reply": "2012-08-27T17:27:48+02:00",
+      "root_message_id": "msg-a1fa3e9532ec"
+    }
+  ]
+}

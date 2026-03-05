@@ -1,0 +1,75 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2021-08",
+  "messages": [
+    {
+      "id": "msg-9dc9c2a8f719",
+      "message_id": "<CAJt0zy_ZqbmnbKhd+HqGfp_5HvmGp=5jsBXzZ=aa-X5pAt-Zrg@mail.gmail.com>",
+      "from_name": "mina jahan",
+      "from_email_hash": "168de7531f29353fce6800161cfd111a0af322ab94bd3448b822dffccb1fd651",
+      "date": "2021-08-04T13:48:49+04:30",
+      "subject": "[RsR] Package robustlmm",
+      "subject_clean": "[RsR] Package robustlmm",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI want to use the rlmer function of package robustlmm on the real\nlongitudinal data, but I was exposed with this error:\nError in.local (x,y,...) : negative length vectors are not allowed.\n\nI sent R code (txt file) and data (csv file).\nI apologize for any inconvenience that my request may cause. I look forward\nto receiving your reply.\n\nThanks a lot in advance for your response.\n\n\ncheers\nMina\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20210804/ccad6af6/attachment-0001.html>\n\n-------------- next part --------------\nAn embedded and charset-unspecified text was scrubbed...\nName: code.txt\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20210804/ccad6af6/attachment-0001.txt>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: missing.csv\nType: application/vnd.ms-excel\nSize: 4216180 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20210804/ccad6af6/attachment-0001.xlb>",
+      "body_snippet": "Hi,\n\nI want to use the rlmer function of package robustlmm on the real\nlongitudinal data, but I was exposed with this error:\nError in.local (x,y,...) : negative length vectors are not allowed.\n\nI sent",
+      "thread_id": "thread-9dc9c2a8f719",
+      "thread_depth": 0,
+      "month": "2021-08"
+    },
+    {
+      "id": "msg-1df98ab1419e",
+      "message_id": "<fc09c00f-7be8-297d-db1a-b4c326fbb4cc@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2021-08-04T11:14:14-07:00",
+      "subject": "[RsR] Package robustlmm",
+      "subject_clean": "[RsR] Package robustlmm",
+      "in_reply_to": "<CAJt0zy_ZqbmnbKhd+HqGfp_5HvmGp=5jsBXzZ=aa-X5pAt-Zrg@mail.gmail.com>",
+      "references": [
+        "<CAJt0zy_ZqbmnbKhd+HqGfp_5HvmGp=5jsBXzZ=aa-X5pAt-Zrg@mail.gmail.com>"
+      ],
+      "body_plain": "Hello Mina,\n\nI tried to reproduce your error but couldn't so far because the line\n\nfit.robustlmer<-rlmer(dbp ~ age+sex+bmi+time+(1|id),data=A)\n\nis taking too long on my laptop.\n\nI suggest first using traceback() to try to narrow down where the error \noccurs, and then contacting the package maintainer with a smaller \nreproducible example if possible.\n\nSincerely,\n\nMatias\n\n______________________________________________________________\nMatias Salibian-Barrera - Professor\nDepartment of Statistics - The University of British Columbia\nmatias at stat.ubc.ca | +1 (604) 822-3410\n\n\nOn 2021-08-04 2:18 a.m., mina jahan wrote:\n> [*CAUTION:* Non-UBC Email]\n>\n> Hi,\n>\n> I want to use the rlmer function of package robustlmm on the real \n> longitudinal data, but I was exposed with this error:\n> Error in.local (x,y,...) : negative length vectors are not allowed.\n>\n> I sent R code (txt file) and data (csv file).\n> I apologize for any inconvenience that my request may cause.?I look \n> forward to?receiving?your reply.\n>\n> Thanks a lot in advance for your response.\n>\n>\n> cheers\n> Mina\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello Mina,\n\nI tried to reproduce your error but couldn't so far because the line\n\nfit.robustlmer<-rlmer(dbp ~ age+sex+bmi+time+(1|id),data=A)\n\nis taking too long on my laptop.\n\nI suggest first using ",
+      "thread_id": "thread-9dc9c2a8f719",
+      "thread_depth": 1,
+      "month": "2021-08"
+    },
+    {
+      "id": "msg-3eca95dca367",
+      "message_id": "<CAPUobv3HG58soL7O3a=cDHWGP+iM1CLJ8hN3ZK-Lm284rq-biA@mail.gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "2a2bc532df5431edcf7eb21908cc6024199c4e954cfbc1a71ca9144a25f3748f",
+      "date": "2021-08-15T21:10:51+02:00",
+      "subject": "[RsR] Package robustlmm",
+      "subject_clean": "[RsR] Package robustlmm",
+      "in_reply_to": "<fc09c00f-7be8-297d-db1a-b4c326fbb4cc@stat.ubc.ca>",
+      "references": [
+        "<CAJt0zy_ZqbmnbKhd+HqGfp_5HvmGp=5jsBXzZ=aa-X5pAt-Zrg@mail.gmail.com>",
+        "<fc09c00f-7be8-297d-db1a-b4c326fbb4cc@stat.ubc.ca>"
+      ],
+      "body_plain": "Dear Mina\n\nSorry for the late reply.\n\nThese random errors are usually due to the system running out of memory.\n\nYour data.frame A contains over 58'000 observations. The rlmer method\nrequires more complex equations than lmer, which allow for less memory\nefficiency. Maybe one could do more with sparse matrices, as your data\nseems to be factors only. Everything depends on how filled up the\nintermediate matrices actually are. So this would be a long shot.\n\nI would say your best bet is trying to get access to a machine with a lot\nof memory. You will need at least 64GB of ram. Just the matrix that is\nevaluated at the point of failure requires a bit more than 25GB.\n\nBest,\nManuel\n\n\n\n\nOn Wed, 4 Aug 2021, 20:14 Matias Salibian-Barrera, <matias at stat.ubc.ca>\nwrote:\n\n> Hello Mina,\n>\n> I tried to reproduce your error but couldn't so far because the line\n>\n> fit.robustlmer<-rlmer(dbp ~ age+sex+bmi+time+(1|id),data=A)\n>\n> is taking too long on my laptop.\n>\n> I suggest first using traceback() to try to narrow down where the error\n> occurs, and then contacting the package maintainer with a smaller\n> reproducible example if possible.\n>\n> Sincerely,\n>\n> Matias\n>\n> ______________________________________________________________\n> Matias Salibian-Barrera - Professor\n> Department of Statistics - The University of British Columbia\n> matias at stat.ubc.ca | +1 (604) 822-3410\n>\n>\n> On 2021-08-04 2:18 a.m., mina jahan wrote:\n> > [*CAUTION:* Non-UBC Email]\n> >\n> > Hi,\n> >\n> > I want to use the rlmer function of package robustlmm on the real\n> > longitudinal data, but I was exposed with this error:\n> > Error in.local (x,y,...) : negative length vectors are not allowed.\n> >\n> > I sent R code (txt file) and data (csv file).\n> > I apologize for any inconvenience that my request may cause. I look\n> > forward to receiving your reply.\n> >\n> > Thanks a lot in advance for your response.\n> >\n> >\n> > cheers\n> > Mina\n> >\n> > _______________________________________________\n> > R-SIG-Robust at r-project.org mailing list\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear Mina\n\nSorry for the late reply.\n\nThese random errors are usually due to the system running out of memory.\n\nYour data.frame A contains over 58'000 observations. The rlmer method\nrequires more comp",
+      "thread_id": "thread-9dc9c2a8f719",
+      "thread_depth": 2,
+      "month": "2021-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-9dc9c2a8f719",
+      "subject": "[RsR] Package robustlmm",
+      "message_count": 3,
+      "participants": [
+        "Manuel Koller",
+        "Matias Salibian-Barrera",
+        "mina jahan"
+      ],
+      "started": "2021-08-04T13:48:49+04:30",
+      "last_reply": "2021-08-15T21:10:51+02:00",
+      "root_message_id": "msg-9dc9c2a8f719"
+    }
+  ]
+}

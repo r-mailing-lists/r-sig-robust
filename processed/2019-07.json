@@ -1,0 +1,63 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2019-07",
+  "messages": [
+    {
+      "id": "msg-f318b878fbf6",
+      "message_id": "<CANx-k+XhAmadcXc0BiNmT4x2PAjxkR=X3fdhb31o+me6rLcD1A@mail.gmail.com>",
+      "from_name": "Emily Klein",
+      "from_email_hash": "922c2afe5d3d073e6149a50bed20da4c50736910d5edf95ed68b695df3b546b2",
+      "date": "2019-07-15T15:34:45-04:00",
+      "subject": "[RsR] use of lmrob() on ecological time series",
+      "subject_clean": "[RsR] use of lmrob() on ecological time series",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nI am using the lmrob() function from the robustbase package, and I have a\nfew questions. To keep the threads clear, I have a general inquiry here,\nand will ask more specific Qs in a second thread. NB: I don't typically\nupdate in the middle of a project, so am running on R version 3.4.1.\n\n(1) I am curious the community's thoughts on our approach: We have several\nhundred ecological time series and we're using robust linear models to\ndetermine if the time series are increasing, decreasing, or not changing,\nby looking at the modeled slope. This approach follows several others,\nincluding Lotze et al. 2017 (doi: 10.1111/cobi.12957) and Magare et al.\n2013 (doi:10.1371/journal.pone.0077908). I don't have much experience with\nRLMs, so any thoughts on this approach would be very welcome.\n\nMore specifically, following the work noted above, we are running (with the\ntime series indexed with \"DBx\"):\nlm_test<-lmrob(log(pop_status+1)~observation_year,DBx)\n\n(2)  Previous use of RLMs to identify the direction of ecological time\nseries was asked in peer review to use \"non-significant change\" to\nreference time series with a slope of zero within the 95% confidence\nintervals. I can see excluding time series where there is no agreement on\nthe direction of slope, but I think that slope=0 is more \"stable\" or \"no\nchange\" and is not necessarily \"non-significant\". Any thoughts?\n\nThank you all very much for any feedback you may have. I will start a\nsecond thread on a few warnings I am getting.\n\nEmily\n\n-- \n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nEmily S. Klein, Senior Postdoctoral Associate (she / her / hers)\nThe Frederick S. Pardee Center for the Study of the Longer-Range Future |\nBoston University\n*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)\nesklein04 at gmail.com\n\nhttp://www.bu.edu/pardee/\nhttp://www.ices.dk/community/groups/Pages/WGHIST.aspx\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear all,\n\nI am using the lmrob() function from the robustbase package, and I have a\nfew questions. To keep the threads clear, I have a general inquiry here,\nand will ask more specific Qs in a second ",
+      "thread_id": "thread-f318b878fbf6",
+      "thread_depth": 0,
+      "month": "2019-07"
+    },
+    {
+      "id": "msg-16497c548e9e",
+      "message_id": "<CANx-k+UEHw=7o-XLZoo0ggqyi=zi9c-9TyHtF4_rcEw1f4D2YQ@mail.gmail.com>",
+      "from_name": "Emily Klein",
+      "from_email_hash": "922c2afe5d3d073e6149a50bed20da4c50736910d5edf95ed68b695df3b546b2",
+      "date": "2019-07-15T15:45:00-04:00",
+      "subject": "[RsR] error/warning messages with lmrob()",
+      "subject_clean": "[RsR] error/warning messages with lmrob()",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nI am running lmrob() under the robustbase package, and I have a few\nerror/warning messages I would greatly appreciate help with - I am\nunfamiliar with robust linear models, so my apologies in advance if the\nanswers here are obvious. In addition, any discussion will help me get a\nhandle on what we're doing, which always helps.\n\n(1) I get the repeated error seemingly on random species when running a\nloop of lmrob() over all our ecological time series (different ones almost\nevery time):\n\nError in eigen(ret, symmetric = TRUE) : infinite or missing values in 'x'\n\nI have checked my data many times, and if I just repeatedly run lmrob() it\neventually works. Any idea what this error is in reference to? Could it be\nbecause I am using a previous version of R (3.4.1)?\n\n(2) I have several two error messages that come up with some time series; I\nhave some idea their meaning, but again, as a newbie with RLMS, I am\nwondering if those time series that garner these warnings should be\nexcluded from our meta-analysis. Also, any additional insight on the\nprocess or something I might be missing greatly welcomed!\n\nWarning in lmrob.S(x, y, control = control) :\n  find_scale() did not converge in 'maxit.scale' (= 200) iterations with\ntol=1e-10, last rel.diff=0\n\nWarning in lmrob.fit(x, y, control, init = init) :\n  M-step did NOT converge. Returning unconverged SM-estimate\n\nWarning in lmrob.S(x, y, control = control) :\n  S-estimated scale == 0:  Probably exact fit; check your data\n\n\nThank you very much in advance,\n\nEmily\n\n\n-- \n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nEmily S. Klein, Senior Postdoctoral Associate (she / her / hers)\nThe Frederick S. Pardee Center for the Study of the Longer-Range Future |\nBoston University\n*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)\nesklein04 at gmail.com\n\nhttp://www.bu.edu/pardee/\nhttp://www.ices.dk/community/groups/Pages/WGHIST.aspx\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear all,\n\nI am running lmrob() under the robustbase package, and I have a few\nerror/warning messages I would greatly appreciate help with - I am\nunfamiliar with robust linear models, so my apologies ",
+      "thread_id": "thread-16497c548e9e",
+      "thread_depth": 0,
+      "month": "2019-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f318b878fbf6",
+      "subject": "[RsR] use of lmrob() on ecological time series",
+      "message_count": 1,
+      "participants": [
+        "Emily Klein"
+      ],
+      "started": "2019-07-15T15:34:45-04:00",
+      "last_reply": "2019-07-15T15:34:45-04:00",
+      "root_message_id": "msg-f318b878fbf6"
+    },
+    {
+      "id": "thread-16497c548e9e",
+      "subject": "[RsR] error/warning messages with lmrob()",
+      "message_count": 1,
+      "participants": [
+        "Emily Klein"
+      ],
+      "started": "2019-07-15T15:45:00-04:00",
+      "last_reply": "2019-07-15T15:45:00-04:00",
+      "root_message_id": "msg-16497c548e9e"
+    }
+  ]
+}

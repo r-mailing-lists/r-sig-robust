@@ -1,0 +1,108 @@
+From kt1572757 @end|ng |rom gm@||@com  Sun Apr 24 18:32:08 2022
+From: kt1572757 @end|ng |rom gm@||@com (Kelly Thompson)
+Date: Sun, 24 Apr 2022 12:32:08 -0400
+Subject: [RsR] Where are the 2022 archives for this list (R-SIG-Robust)
+Message-ID: <CAHfBD2cNZCmt8F6nAZQui3_4Zms_LSmrSGUpxPuStoAoFdrvbg@mail.gmail.com>
+
+The archives here seem to stop in March 2021.
+https://stat.ethz.ch/pipermail/r-sig-robust/
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Apr 25 09:51:12 2022
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 25 Apr 2022 09:51:12 +0200
+Subject: [RsR] Where are the 2022 archives for this list (R-SIG-Robust)
+In-Reply-To: <CAHfBD2cNZCmt8F6nAZQui3_4Zms_LSmrSGUpxPuStoAoFdrvbg@mail.gmail.com>
+References: <CAHfBD2cNZCmt8F6nAZQui3_4Zms_LSmrSGUpxPuStoAoFdrvbg@mail.gmail.com>
+Message-ID: <25190.21232.283241.414638@stat.math.ethz.ch>
+
+>>>>> Kelly Thompson 
+>>>>>     on Sun, 24 Apr 2022 12:32:08 -0400 writes:
+
+    > The archives here seem to stop in March 2021.
+    > https://stat.ethz.ch/pipermail/r-sig-robust/
+
+Well, they no longer do -- guess why?  ;-)
+
+Yes, this is a low volume mailing list .. and it seems poeple do
+not use e-mail as much as 10 years ago.
+
+But in my experience you still get good answers on questions
+about using robust methods (estimation, inference, ...) with R.
+
+Best regards,
+Martin
+
+--
+Martin Maechler
+ETH Zurich   and  R Core team
+
+
+From kt1572757 @end|ng |rom gm@||@com  Tue May  3 14:57:05 2022
+From: kt1572757 @end|ng |rom gm@||@com (Kelly Thompson)
+Date: Tue, 3 May 2022 08:57:05 -0400
+Subject: [RsR] What R functions provide least median of squares regression
+ analysis?
+Message-ID: <CAHfBD2dsED+LFq+2n=r4jUHaqk6uhE4Z2tM21=V_LbhFiKF4Vg@mail.gmail.com>
+
+I know about these:
+
+lqs (with method = "lms", and lmsreg, which as I understand it is
+equivalent to lqs with method = "lms")
+
+Mentions:
+https://www.rdocumentation.org/packages/MASS/versions/7.3-56/topics/lqs
+
+https://stat.ethz.ch/pipermail/r-help/2006-October/115681.html
+
+https://stat.ethz.ch/pipermail/r-help/2007-March/126564.html
+-----
+ltsReg, https://www.rdocumentation.org/packages/robustbase/versions/0.1-2/topics/ltsReg
+nl.lmsNM, https://rdrr.io/cran/nlr/man/nl.lmsNM.html
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Tue May  3 18:40:09 2022
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Tue, 3 May 2022 09:40:09 -0700
+Subject: [RsR] 
+ What R functions provide least median of squares regression
+ analysis?
+In-Reply-To: <CAHfBD2dsED+LFq+2n=r4jUHaqk6uhE4Z2tM21=V_LbhFiKF4Vg@mail.gmail.com>
+References: <CAHfBD2dsED+LFq+2n=r4jUHaqk6uhE4Z2tM21=V_LbhFiKF4Vg@mail.gmail.com>
+Message-ID: <2c8976b4-e676-4102-e592-336f01d2555c@stat.ubc.ca>
+
+Hi Kelly,
+
+That's the only implementation I know, although I haven't used it in 
+many years. It is a notably difficult optimization problem, but I'm not 
+aware of any new developments in the algorithm after the mid- to 
+late-90's, so the implementation in MASS::lqs may very well the state of 
+the art version.
+
+Matias
+
+
+On 2022-05-03 5:57 a.m., Kelly Thompson wrote:
+> [CAUTION: Non-UBC Email]
+>
+> I know about these:
+>
+> lqs (with method = "lms", and lmsreg, which as I understand it is
+> equivalent to lqs with method = "lms")
+>
+> Mentions:
+> https://www.rdocumentation.org/packages/MASS/versions/7.3-56/topics/lqs
+>
+> https://stat.ethz.ch/pipermail/r-help/2006-October/115681.html
+>
+> https://stat.ethz.ch/pipermail/r-help/2007-March/126564.html
+> -----
+> ltsReg, https://www.rdocumentation.org/packages/robustbase/versions/0.1-2/topics/ltsReg
+> nl.lmsNM, https://rdrr.io/cran/nlr/man/nl.lmsNM.html
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+

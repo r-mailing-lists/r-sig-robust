@@ -1,0 +1,200 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2008-06",
+  "messages": [
+    {
+      "id": "msg-9ed2b4e031b3",
+      "message_id": "<Prayer.1.0.16.0806050145130.22830@wm1.tc.umn.edu>",
+      "from_name": "kh@@x131 m@iii@g oii um@@edu",
+      "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
+      "date": "2008-06-05T01:45:13-05:00",
+      "subject": "[RsR] simulating regression data",
+      "subject_clean": "[RsR] simulating regression data",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi dear listers,\n\nI wonder if somebody can be kind enough to share some information about \nsimulation. I want to simulate regression data in R like 1000 times so that \nevery time i can run my robust LTA code and store the results. any \ninformation is greatly affreciated. Thanks, Dost.",
+      "body_snippet": "Hi dear listers,\n\nI wonder if somebody can be kind enough to share some information about \nsimulation. I want to simulate regression data in R like 1000 times so that \nevery time i can run my robust L",
+      "thread_id": "thread-9ed2b4e031b3",
+      "thread_depth": 0,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-35d8c520b090",
+      "message_id": "<004e01c8c81f$3e996200$6f01a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2008-06-06T23:49:49+02:00",
+      "subject": "[RsR] Tutorial: Introduction to Robust Statistics with R",
+      "subject_clean": "[RsR] Tutorial: Introduction to Robust Statistics with R",
+      "in_reply_to": null,
+      "references": [
+        "<17496.39826.761987.626296@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Today I came across the announcement of the tutorial at the UseR! Conference \nin Dortmund \"Introduction to Robust Statistics with R\" and was surprised to \nsee that it will \"... use R functions mainly from packages 'MASS' and ...\"\n\n\n\nI wonder what does 'MASS' still has that 'robustbase' & cie do not have?\n\n\n\nBest regards,\n\nValentin",
+      "body_snippet": "Today I came across the announcement of the tutorial at the UseR! Conference \nin Dortmund \"Introduction to Robust Statistics with R\" and was surprised to \nsee that it will \"... use R functions mainly ",
+      "thread_id": "thread-35d8c520b090",
+      "thread_depth": 0,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-7d12a903fd0d",
+      "message_id": "<18506.62655.949770.282648@cmath-5.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-06-07T22:51:11+02:00",
+      "subject": "[RsR] Tutorial: Introduction to Robust Statistics with R",
+      "subject_clean": "[RsR] Tutorial: Introduction to Robust Statistics with R",
+      "in_reply_to": "<004e01c8c81f$3e996200$6f01a8c0@KILER>",
+      "references": [
+        "<17496.39826.761987.626296@stat.math.ethz.ch>",
+        "<004e01c8c81f$3e996200$6f01a8c0@KILER>"
+      ],
+      "body_plain": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Fri, 6 Jun 2008 23:49:49 +0200 writes:\n\n    ValenT> Today I came across the announcement of the tutorial at the UseR! Conference \n    ValenT> in Dortmund \"Introduction to Robust Statistics with R\" and was surprised to \n    ValenT> see that it will \"... use R functions mainly from packages 'MASS' and ...\"\n\ndidn't you guess I was the culprit ?  :-)\nI think I mainly mentioned MASS because it's been a standard R\npackage for a long time.\n\n    ValenT> I wonder what does 'MASS' still has that 'robustbase' & cie do not have?\n\nProbably not much, but\nsimple  M-estimate for regression with flexible choice of\npsi/rho function is something not available as \"high-level\"\nin robustbase::lmrob() nor robust::lmRob() I think.\n\nE.g. if you have only categorical predictors, such \"simple\" M estimates \nmay make much sense, no?\n\nRegards,\nMartin",
+      "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Fri, 6 Jun 2008 23:49:49 +0200 writes:\n\n    ValenT> Today I came across the announcement of the tutorial at the UseR! Co",
+      "thread_id": "thread-35d8c520b090",
+      "thread_depth": 1,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-d8449a02a36b",
+      "message_id": "<003601c8c8e9$773eaaf0$6f01a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2008-06-07T23:57:22+02:00",
+      "subject": "[RsR] Tutorial: Introduction to Robust Statistics with R",
+      "subject_clean": "[RsR] Tutorial: Introduction to Robust Statistics with R",
+      "in_reply_to": null,
+      "references": [
+        "<17496.39826.761987.626296@stat.math.ethz.ch>",
+        "<004e01c8c81f$3e996200$6f01a8c0@KILER>",
+        "<18506.62655.949770.282648@cmath-5.math.ethz.ch>"
+      ],
+      "body_plain": "Hey Martin, why do you read/write mails instead of watching the EM matches \n(sorry)?! I do not care much about soccer too but just opened a bottle of \nPortuguese wine to celebrate and would like to use the opportunity to \ncongratulate our Portuguese robastniks.\n\n    ValenT>Today I came across the announcement of the tutorial at the UseR! \nConference\n    ValenT>in Dortmund \"Introduction to Robust Statistics with R\" and was \nsurprised to\n    ValenT> see that it will \"... use R functions mainly from packages \n'MASS' and ...\"\n\n> didn't you guess I was the culprit?  :-)\n\nOf course I did, therefore I allowed myself to pull your leg.\n\n\n\n>I think I mainly mentioned MASS because it's been a standard R\n>package for a long time.\n\nThen you should mention also MINVOL, ROBETH, COVINTER, PROGRESS which were \naround for quite a long time so far and are in all caps too.\n\nBut seriously speaking, 'MASS' stroke my eyes and I am sure that this will \nbe what a newcomer will take home (the advantage of all caps you know, we \nshould rather have chosen ROBUSTBASE).\n\n\nBest regards,\n\nValentin",
+      "body_snippet": "Hey Martin, why do you read/write mails instead of watching the EM matches \n(sorry)?! I do not care much about soccer too but just opened a bottle of \nPortuguese wine to celebrate and would like to us",
+      "thread_id": "thread-35d8c520b090",
+      "thread_depth": 2,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-e283ea091fbc",
+      "message_id": "<20080608141944.GR276@lubyanka.local>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2008-06-08T19:49:44+05:30",
+      "subject": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
+      "subject_clean": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "There is no support for x12arima or Tramo/Seats in R. I am doing a\npoor man's seasonal adjustment procedure: For monthly data, I do a\nregression with no intercept and 12 dummy variables (i.e. a month\nfactor), and then calculating the residual.\n\nIf I did this using lm() the procedure is always feasible as long as\nthere are atleast 12 data points.\n\nWhen I started using this, I noticed that quite a few time series have\nextreme values and these were making the function generate wonky\nvalues. So I thought I should switch to a robust lm(). I was surprised\nto find that MASS:rlm() does not always converge. For quite a few\nseries I find that it breaks. I wonder what the gurus on this list\nthink. I can come back with concrete numerical examples of time-series\nwhere MASS:rlm() does not work, if that's interesting.\n\nMore generally, if you have any suggestions on how to do seasonal\nadjustment, they would be most interesting.\n\nMy code is:\n\n# A vector of data \"x\" and a vector of dates \"dates\" is supplied.\n# You must choose whether you want to focus on monthly or quarterly\n# seasonality. The function will then do the work of mapping from\n# \"dates\" into the relevant vector of dummy variables.\n#\n# x is assumed to be in levels.\n# A dummy variable regression is done.\n# NA values for x are correctly handled, but NA values for the\n# dates are not tolerated.\n# It is typical for you to send in c(NA,diff(log(levels))) in which case\n#  the dummy variables regression is additive seasonality in log\n#  differences.\n# You get back a vector which has the same length as what came in.\n# In addition, you also get back the results of the dummy variable\n# regression.\nlibrary(MASS)\n\ndate2month <- function(dates) {\n  factor(as.POSIXlt(dates)$mon, levels=0:11,\n         labels=c(\"Jan\", \"Feb\", \"Mar\", \"Apr\",\n           \"May\", \"Jun\", \"Jul\", \"Aug\",\n           \"Sep\", \"Oct\", \"Nov\", \"Dec\"))\n}\ndate2quarter <- function(dates) {\n  factor(c(1,1,1,2,2,2,3,3,3,4,4,4)[as.numeric(date2month(dates))],\n         levels=1:4, labels=c(\"Q1\",\"Q2\",\"Q3\",\"Q4\"))\n}\n\nsa.dummyvariableregression <- function(x, dates, seasonality=\"monthly\") {\n  d <- data.frame(x=x, date=dates)\n  if (seasonality == \"monthly\") {\n    d$pfactor <- date2month(d$date)\n  } else {\n    d$pfactor <- date2quarter(d$date)\n  }\n  non.na.locations <- !is.na(d$x)\n  d <- d[non.na.locations,]\n  # At this point, we're holding the clean non-NA data.\n  # Dummy variable regression: do rlm() if you can but use lm() otherwise.\n  m <- rlm(x ~ -1 + pfactor, data=d)\n  if (! m$converged) {\n     cat(\"rlm failed to converge; switching to lm().\\n\")\n     m <- lm(x ~ -1 + pfactor, data=d)\n  }\n\n  # Extract residuals\n  sa <- m$residuals               # m$residuals is one short\n  sa <- sa + mean(coef(m))        # Intercepts have soaked up the mean\n  # Place back into the original layout with NAs in the right places\n  sa.full <- rep(NA, length(non.na.locations))\n  sa.full[non.na.locations] <- sa\n\n  # Send back the goodies.\n  list(sa=sa.full, m=m)\n}\n\nHere's some data to experiment with this. It's a data frame \"n\"\ncontaining n$date and n$cpi.\n\nn <- structure(list(date = structure(c(7395, 7425, 7456, 7486, 7517, \n    7548, 7578, 7609, 7639, 7670, 7701, 7729, 7760, 7790, 7821, 7851, \n    7882, 7913, 7943, 7974, 8004, 8035, 8066, 8095, 8126, 8156, 8187, \n    8217, 8248, 8279, 8309, 8340, 8370, 8401, 8432, 8460, 8491, 8521, \n    8552, 8582, 8613, 8644, 8674, 8705, 8735, 8766, 8797, 8825, 8856, \n    8886, 8917, 8947, 8978, 9009, 9039, 9070, 9100, 9131, 9162, 9190, \n    9221, 9251, 9282, 9312, 9343, 9374, 9404, 9435, 9465, 9496, 9527, \n    9556, 9587, 9617, 9648, 9678, 9709, 9740, 9770, 9801, 9831, 9862, \n    9893, 9921, 9952, 9982, 10013, 10043, 10074, 10105, 10135, 10166, \n    10196, 10227, 10258, 10286, 10317, 10347, 10378, 10408, 10439, \n    10470, 10500, 10531, 10561, 10592, 10623, 10651, 10682, 10712, \n    10743, 10773, 10804, 10835, 10865, 10896, 10926, 10957, 10988, \n    11017, 11048, 11078, 11109, 11139, 11170, 11201, 11231, 11262, \n    11292, 11323, 11354, 11382, 11413, 11443, 11474, 11504, 11535, \n    11566, 11596, 11627, 11657, 11688, 11719, 11747, 11778, 11808, \n    11839, 11869, 11900, 11931, 11961, 11992, 12022, 12053, 12084, \n    12112, 12143, 12173, 12204, 12234, 12265, 12296, 12326, 12357, \n    12387, 12418, 12449, 12478, 12509, 12539, 12570, 12600, 12631, \n    12662, 12692, 12723, 12753, 12784, 12815, 12843, 12874, 12904, \n    12935, 12965, 12996, 13027, 13057, 13088, 13118, 13149, 13180, \n    13208, 13239, 13269, 13300, 13330, 13361, 13392, 13422, 13453, \n    13483, 13514, 13545, 13573, 13604, 13634, 13665, 13695, 13726, \n    13757, 13787, 13818, 13848, 13879, 13910, 13939, 13970), class = \"Date\"), \n        cpi = c(38.88, 39.31, 39.96, 40.82, 41.04, 41.25, 42.12, \n        42.76, 42.98, 43.63, 43.63, 43.41, 43.63, 44.06, 45.14, 46.22, \n        46.87, 47.73, 48.16, 48.6, 48.6, 49.24, 49.46, 49.46, 49.89, \n        50.54, 50.97, 52.27, 52.27, 52.48, 52.7, 52.7, 52.48, 52.05, \n        52.27, 52.48, 52.92, 53.13, 54, 54.64, 55.29, 55.94, 56.59, \n        57.24, 57.02, 56.8, 57.24, 57.67, 58.1, 58.75, 59.83, 60.69, \n        61.34, 62.2, 62.42, 62.85, 62.42, 62.42, 62.85, 63.28, 63.71, \n        64.79, 66.09, 67.6, 68.03, 68.47, 68.9, 69.33, 68.47, 68.03, \n        68.25, 68.9, 69.98, 70.84, 71.92, 73.22, 74.08, 74.3, 74.73, \n        75.38, 75.59, 75.59, 75.59, 75.81, 76.46, 76.03, 76.67, 77.32, \n        77.54, 77.97, 78.83, 79.05, 80.35, 82.94, 82.51, 82.07, 82.72, \n        84.02, 86.18, 88.77, 89.2, 90.71, 93.52, 94.6, 92.66, 90.71, \n        89.63, 89.42, 89.63, 90.5, 90.71, 91.58, 92.01, 92.66, 94.38, \n        94.6, 93.09, 93.09, 92.87, 93.74, 94.6, 95.03, 95.46, 96.11, \n        95.68, 95.9, 96.98, 97.19, 96.33, 96.11, 95.68, 96.11, 96.76, \n        97.41, 98.7, 100, 100.65, 100.43, 101.08, 101.94, 101.3, \n        100.86, 100.65, 101.08, 101.3, 101.94, 102.81, 103.89, 104.54, \n        104.75, 105.18, 105.62, 104.54, 104.32, 104.54, 105.18, 106.48, \n        106.7, 107.34, 108.21, 107.78, 107.78, 108.64, 108.86, 108.42, \n        108.86, 108.86, 108.86, 108.86, 109.72, 110.58, 111.66, 112.74, \n        112.96, 113.61, 113.39, 112.53, 113.61, 113.39, 113.39, 114.25, \n        113.82, 114.25, 116.2, 116.63, 117.06, 118.36, 119.44, 118.79, \n        119, 119, 119, 120, 121, 123, 124, 124, 125, 127, 127, 127, \n        127, 128, 127, 128, 129, 130, 132, 133, 133, 134, 134, 134, \n        134, 135, 137, 138)), .Names = c(\"date\", \"cpi\"), row.names = 4:220, class = \"data.frame\", na.action = structure(c(1L, \n    2L, 3L, 221L), .Names = c(\"1\", \"2\", \"3\", \"221\"), class = \"omit\"))\n    \n-- \nAjay Shah                                      http://www.mayin.org/ajayshah  \najayshah at mayin.org                             http://ajayshahblog.blogspot.com\n<*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": "There is no support for x12arima or Tramo/Seats in R. I am doing a\npoor man's seasonal adjustment procedure: For monthly data, I do a\nregression with no intercept and 12 dummy variables (i.e. a month\n",
+      "thread_id": "thread-e283ea091fbc",
+      "thread_depth": 0,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-9aca29be1358",
+      "message_id": "<971536df0806080814t3ee23e4avb198ddf28ff7b99a@mail.gmail.com>",
+      "from_name": "Gabor Grothendieck",
+      "from_email_hash": "2470cc61688c301322ff3a85f3fd51ddba9f1112f88f535ec93c41ab610332d1",
+      "date": "2008-06-08T11:14:27-04:00",
+      "subject": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
+      "subject_clean": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
+      "in_reply_to": "<20080608141944.GR276@lubyanka.local>",
+      "references": [
+        "<20080608141944.GR276@lubyanka.local>"
+      ],
+      "body_plain": "On Sun, Jun 8, 2008 at 10:19 AM, Ajay Shah <ajayshah at mayin.org> wrote:\n> There is no support for x12arima or Tramo/Seats in R. I am doing a\n\nCheck out:\n\nhttp://finzi.psych.upenn.edu/R/Rhelp02a/archive/40254.html\n\nAlso more below.\n\n> poor man's seasonal adjustment procedure: For monthly data, I do a\n> regression with no intercept and 12 dummy variables (i.e. a month\n> factor), and then calculating the residual.\n>\n> If I did this using lm() the procedure is always feasible as long as\n> there are atleast 12 data points.\n>\n> When I started using this, I noticed that quite a few time series have\n> extreme values and these were making the function generate wonky\n> values. So I thought I should switch to a robust lm(). I was surprised\n> to find that MASS:rlm() does not always converge. For quite a few\n> series I find that it breaks. I wonder what the gurus on this list\n> think. I can come back with concrete numerical examples of time-series\n> where MASS:rlm() does not work, if that's interesting.\n>\n> More generally, if you have any suggestions on how to do seasonal\n> adjustment, they would be most interesting.\n\nNoting that months(chron.object) and quarters(chron.object)\ngives an ordered factor, here are a few approaches to the coefs:\n\nlibrary(chron)\nlibrary(quantreg)\nrq(cpi ~ months(as.chron(date)) -1, data = n, method = \"fn\")\n\nor what is basically the same, the median\n\ntapply(n$cpi, list(month = months(as.chron(n$date))), median, na.rm = TRUE)\n\nor a trimmed mean:\n\ntapply(n$cpi, list(month = months(as.chron(n$date))), mean, trim =\n0.1, na.rm = TRUE)\n\n\nNote that we can simplify the adjustment function using ave. The\nfollowing subtracts out\nmonthly trimmed means from each data point:\n\nave(n$cpi, months(as.chron(n$date)), FUN = function(x) x - mean(x,\ntrim = 0.1, na.rm = TRUE))\n\n\n>\n> My code is:\n>\n> # A vector of data \"x\" and a vector of dates \"dates\" is supplied.\n> # You must choose whether you want to focus on monthly or quarterly\n> # seasonality. The function will then do the work of mapping from\n> # \"dates\" into the relevant vector of dummy variables.\n> #\n> # x is assumed to be in levels.\n> # A dummy variable regression is done.\n> # NA values for x are correctly handled, but NA values for the\n> # dates are not tolerated.\n> # It is typical for you to send in c(NA,diff(log(levels))) in which case\n> #  the dummy variables regression is additive seasonality in log\n> #  differences.\n> # You get back a vector which has the same length as what came in.\n> # In addition, you also get back the results of the dummy variable\n> # regression.\n> library(MASS)\n>\n> date2month <- function(dates) {\n>  factor(as.POSIXlt(dates)$mon, levels=0:11,\n>         labels=c(\"Jan\", \"Feb\", \"Mar\", \"Apr\",\n>           \"May\", \"Jun\", \"Jul\", \"Aug\",\n>           \"Sep\", \"Oct\", \"Nov\", \"Dec\"))\n> }\n> date2quarter <- function(dates) {\n>  factor(c(1,1,1,2,2,2,3,3,3,4,4,4)[as.numeric(date2month(dates))],\n>         levels=1:4, labels=c(\"Q1\",\"Q2\",\"Q3\",\"Q4\"))\n> }\n>\n> sa.dummyvariableregression <- function(x, dates, seasonality=\"monthly\") {\n>  d <- data.frame(x=x, date=dates)\n>  if (seasonality == \"monthly\") {\n>    d$pfactor <- date2month(d$date)\n>  } else {\n>    d$pfactor <- date2quarter(d$date)\n>  }\n>  non.na.locations <- !is.na(d$x)\n>  d <- d[non.na.locations,]\n>  # At this point, we're holding the clean non-NA data.\n>  # Dummy variable regression: do rlm() if you can but use lm() otherwise.\n>  m <- rlm(x ~ -1 + pfactor, data=d)\n>  if (! m$converged) {\n>     cat(\"rlm failed to converge; switching to lm().\\n\")\n>     m <- lm(x ~ -1 + pfactor, data=d)\n>  }\n>\n>  # Extract residuals\n>  sa <- m$residuals               # m$residuals is one short\n>  sa <- sa + mean(coef(m))        # Intercepts have soaked up the mean\n>  # Place back into the original layout with NAs in the right places\n>  sa.full <- rep(NA, length(non.na.locations))\n>  sa.full[non.na.locations] <- sa\n>\n>  # Send back the goodies.\n>  list(sa=sa.full, m=m)\n> }\n>\n> Here's some data to experiment with this. It's a data frame \"n\"\n> containing n$date and n$cpi.\n>\n> n <- structure(list(date = structure(c(7395, 7425, 7456, 7486, 7517,\n>    7548, 7578, 7609, 7639, 7670, 7701, 7729, 7760, 7790, 7821, 7851,\n>    7882, 7913, 7943, 7974, 8004, 8035, 8066, 8095, 8126, 8156, 8187,\n>    8217, 8248, 8279, 8309, 8340, 8370, 8401, 8432, 8460, 8491, 8521,\n>    8552, 8582, 8613, 8644, 8674, 8705, 8735, 8766, 8797, 8825, 8856,\n>    8886, 8917, 8947, 8978, 9009, 9039, 9070, 9100, 9131, 9162, 9190,\n>    9221, 9251, 9282, 9312, 9343, 9374, 9404, 9435, 9465, 9496, 9527,\n>    9556, 9587, 9617, 9648, 9678, 9709, 9740, 9770, 9801, 9831, 9862,\n>    9893, 9921, 9952, 9982, 10013, 10043, 10074, 10105, 10135, 10166,\n>    10196, 10227, 10258, 10286, 10317, 10347, 10378, 10408, 10439,\n>    10470, 10500, 10531, 10561, 10592, 10623, 10651, 10682, 10712,\n>    10743, 10773, 10804, 10835, 10865, 10896, 10926, 10957, 10988,\n>    11017, 11048, 11078, 11109, 11139, 11170, 11201, 11231, 11262,\n>    11292, 11323, 11354, 11382, 11413, 11443, 11474, 11504, 11535,\n>    11566, 11596, 11627, 11657, 11688, 11719, 11747, 11778, 11808,\n>    11839, 11869, 11900, 11931, 11961, 11992, 12022, 12053, 12084,\n>    12112, 12143, 12173, 12204, 12234, 12265, 12296, 12326, 12357,\n>    12387, 12418, 12449, 12478, 12509, 12539, 12570, 12600, 12631,\n>    12662, 12692, 12723, 12753, 12784, 12815, 12843, 12874, 12904,\n>    12935, 12965, 12996, 13027, 13057, 13088, 13118, 13149, 13180,\n>    13208, 13239, 13269, 13300, 13330, 13361, 13392, 13422, 13453,\n>    13483, 13514, 13545, 13573, 13604, 13634, 13665, 13695, 13726,\n>    13757, 13787, 13818, 13848, 13879, 13910, 13939, 13970), class = \"Date\"),\n>        cpi = c(38.88, 39.31, 39.96, 40.82, 41.04, 41.25, 42.12,\n>        42.76, 42.98, 43.63, 43.63, 43.41, 43.63, 44.06, 45.14, 46.22,\n>        46.87, 47.73, 48.16, 48.6, 48.6, 49.24, 49.46, 49.46, 49.89,\n>        50.54, 50.97, 52.27, 52.27, 52.48, 52.7, 52.7, 52.48, 52.05,\n>        52.27, 52.48, 52.92, 53.13, 54, 54.64, 55.29, 55.94, 56.59,\n>        57.24, 57.02, 56.8, 57.24, 57.67, 58.1, 58.75, 59.83, 60.69,\n>        61.34, 62.2, 62.42, 62.85, 62.42, 62.42, 62.85, 63.28, 63.71,\n>        64.79, 66.09, 67.6, 68.03, 68.47, 68.9, 69.33, 68.47, 68.03,\n>        68.25, 68.9, 69.98, 70.84, 71.92, 73.22, 74.08, 74.3, 74.73,\n>        75.38, 75.59, 75.59, 75.59, 75.81, 76.46, 76.03, 76.67, 77.32,\n>        77.54, 77.97, 78.83, 79.05, 80.35, 82.94, 82.51, 82.07, 82.72,\n>        84.02, 86.18, 88.77, 89.2, 90.71, 93.52, 94.6, 92.66, 90.71,\n>        89.63, 89.42, 89.63, 90.5, 90.71, 91.58, 92.01, 92.66, 94.38,\n>        94.6, 93.09, 93.09, 92.87, 93.74, 94.6, 95.03, 95.46, 96.11,\n>        95.68, 95.9, 96.98, 97.19, 96.33, 96.11, 95.68, 96.11, 96.76,\n>        97.41, 98.7, 100, 100.65, 100.43, 101.08, 101.94, 101.3,\n>        100.86, 100.65, 101.08, 101.3, 101.94, 102.81, 103.89, 104.54,\n>        104.75, 105.18, 105.62, 104.54, 104.32, 104.54, 105.18, 106.48,\n>        106.7, 107.34, 108.21, 107.78, 107.78, 108.64, 108.86, 108.42,\n>        108.86, 108.86, 108.86, 108.86, 109.72, 110.58, 111.66, 112.74,\n>        112.96, 113.61, 113.39, 112.53, 113.61, 113.39, 113.39, 114.25,\n>        113.82, 114.25, 116.2, 116.63, 117.06, 118.36, 119.44, 118.79,\n>        119, 119, 119, 120, 121, 123, 124, 124, 125, 127, 127, 127,\n>        127, 128, 127, 128, 129, 130, 132, 133, 133, 134, 134, 134,\n>        134, 135, 137, 138)), .Names = c(\"date\", \"cpi\"), row.names = 4:220, class = \"data.frame\", na.action = structure(c(1L,\n>    2L, 3L, 221L), .Names = c(\"1\", \"2\", \"3\", \"221\"), class = \"omit\"))\n>\n> --\n> Ajay Shah                                      http://www.mayin.org/ajayshah\n> ajayshah at mayin.org                             http://ajayshahblog.blogspot.com\n> <*(:-? - wizard who doesn't know the answer.\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "On Sun, Jun 8, 2008 at 10:19 AM, Ajay Shah <ajayshah at mayin.org> wrote:\n> There is no support for x12arima or Tramo/Seats in R. I am doing a\n\nCheck out:\n\nhttp://finzi.psych.upenn.edu/R/Rhelp02a/arch",
+      "thread_id": "thread-e283ea091fbc",
+      "thread_depth": 1,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-e7da4bea53ed",
+      "message_id": "<4c0e456b0806091312u58f675bfy244636f594cbd9cf@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2008-06-09T22:12:25+02:00",
+      "subject": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
+      "subject_clean": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
+      "in_reply_to": "<971536df0806080814t3ee23e4avb198ddf28ff7b99a@mail.gmail.com>",
+      "references": [
+        "<20080608141944.GR276@lubyanka.local>",
+        "<971536df0806080814t3ee23e4avb198ddf28ff7b99a@mail.gmail.com>"
+      ],
+      "body_plain": ">\n>\n> > There is no support for x12arima or Tramo/Seats in R. I am doing a\n>\n> Check out:\n>\n> http://finzi.psych.upenn.edu/R/Rhelp02a/archive/40254.html\n>\n>\nHi Gabor,\nI see often this posting cited, whenever the question about using X12 from\nwithin R arises, and every time I go to sourceforge to read if there is\nsomething new. But what I find is:\n\n1)  One can run R from within Gretl because:\"*gretl* is designed as a very\nuser-friendly econometrics package. While it is also reasonably\nsophisticated, it lacks some of the specialized statistical methods that a\nworking econometrician might desire..... From gretl, you can save the\ncurrent data set in a format suitable for analysis using R ...\".\n\n2) There is X12 support in Gretl in the sense that  X12 is __distributed__\nwith Gretl. Further, one can select a variable from his Gretl data set and\nrun X12 on it.The results will be saved into the current Gretl data set.\n\nI see the link as follows:\n\n                     R <---| Gretl |---> X12\n\nand what is asked for is R ---> X12, i.e. something like\n\n       data(mydata)\n       library(X12)\n       X12:::doSomething(mydata)\n\nI would very much appreciate if somebody can explain me how can I perform\nX12 analysis on my R data set? Has somebody considered 'packaging' X12 in R?\n\nBest regards,\nValentin\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": ">\n>\n> > There is no support for x12arima or Tramo/Seats in R. I am doing a\n>\n> Check out:\n>\n> http://finzi.psych.upenn.edu/R/Rhelp02a/archive/40254.html\n>\n>\nHi Gabor,\nI see often this posting cited, w",
+      "thread_id": "thread-e283ea091fbc",
+      "thread_depth": 2,
+      "month": "2008-06"
+    },
+    {
+      "id": "msg-402d6fa3b1ee",
+      "message_id": "<BAY113-W49100BA3BFF893C0F0151484A40@phx.gbl>",
+      "from_name": "PUJAN RAJ REGMI",
+      "from_email_hash": "9c2b052c52ca9bf21f72ba7458fa983758279a98a0609a0795f5e9a51d74b109",
+      "date": "2008-06-21T11:15:06Z",
+      "subject": "[RsR] Normality test using large sample size",
+      "subject_clean": "[RsR] Normality test using large sample size",
+      "in_reply_to": "<mailman.0.1214046642.32481.r-sig-robust@r-project.org>",
+      "references": [
+        "<mailman.0.1214046642.32481.r-sig-robust@r-project.org>"
+      ],
+      "body_plain": "Dear list,I am trying to perform normality test for my data set. my data set is quite large N>13000 with 4 valriables under study , so When I tried to do normality test for each variable using lillie.test of nortest package the p values is almost zero \"2.16e-16\". So for all variable the test reject the null hypothesis (p-value the same(\"2.16e-16\").i.e. it doesn't comes from normal distribution which I believe is not true and even this can be seen in histogram plot that fwe variable's plot shows normal distribution. Now I doubted that my approach to test for normality might not be correct becasue I am dealing with large number of samples. So I request you to provide me insight on the other efficient ways in R.Thanking youSincerely,Pujan\n_________________________________________________________________\n[[elided Hotmail spam]]\n\nntrosrchcashback\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear list,I am trying to perform normality test for my data set. my data set is quite large N>13000 with 4 valriables under study , so When I tried to do normality test for each variable using lillie.",
+      "thread_id": "thread-402d6fa3b1ee",
+      "thread_depth": 0,
+      "month": "2008-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-9ed2b4e031b3",
+      "subject": "[RsR] simulating regression data",
+      "message_count": 1,
+      "participants": [
+        "kh@@x131 m@iii@g oii um@@edu"
+      ],
+      "started": "2008-06-05T01:45:13-05:00",
+      "last_reply": "2008-06-05T01:45:13-05:00",
+      "root_message_id": "msg-9ed2b4e031b3"
+    },
+    {
+      "id": "thread-35d8c520b090",
+      "subject": "[RsR] Tutorial: Introduction to Robust Statistics with R",
+      "message_count": 3,
+      "participants": [
+        "Martin Maechler",
+        "Valentin Todorov"
+      ],
+      "started": "2008-06-06T23:49:49+02:00",
+      "last_reply": "2008-06-07T23:57:22+02:00",
+      "root_message_id": "msg-35d8c520b090"
+    },
+    {
+      "id": "thread-e283ea091fbc",
+      "subject": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
+      "message_count": 3,
+      "participants": [
+        "Ajay Shah",
+        "Gabor Grothendieck",
+        "Valentin Todorov"
+      ],
+      "started": "2008-06-08T19:49:44+05:30",
+      "last_reply": "2008-06-09T22:12:25+02:00",
+      "root_message_id": "msg-e283ea091fbc"
+    },
+    {
+      "id": "thread-402d6fa3b1ee",
+      "subject": "[RsR] Normality test using large sample size",
+      "message_count": 1,
+      "participants": [
+        "PUJAN RAJ REGMI"
+      ],
+      "started": "2008-06-21T11:15:06+00:00",
+      "last_reply": "2008-06-21T11:15:06+00:00",
+      "root_message_id": "msg-402d6fa3b1ee"
+    }
+  ]
+}

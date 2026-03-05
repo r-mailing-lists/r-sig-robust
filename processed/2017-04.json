@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2017-04",
+  "messages": [
+    {
+      "id": "msg-c2d2fa2e520d",
+      "message_id": "<BE69BD4B-6154-4582-8127-3449FBE24B64@student.uml.edu>",
+      "from_name": "Rush, Zachary W",
+      "from_email_hash": "f612e04bc8de972164dcf034cf025fc88b11037e39a0067b515847288fb0c580",
+      "date": "2017-04-19T19:57:09Z",
+      "subject": "[RsR] Strange Theoretical Correlation Question",
+      "subject_clean": "[RsR] Strange Theoretical Correlation Question",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello, I don?t know if this is the right place to ask, but robust statistics sounded correct to me. I apologize if I?m asking in the wrong place. I?m a college student and my statistics professor posed us a strange question that I haven?t been able to find an answer for. However, I?ve heard that R had found some sort of answer and had implemented it, leading to why I?m asking here. \n\nOnto the question.\n\nIf I have this right, the R^2 value is the correlation between a line and its data values. As such, the closer the value is to one, the better the line fits the data. However, this value does not work when the line is forced through the origin, that is, the y-intercept is forced to be 0. I had heard that R has corrected for this by changing the equation when using the cor() function with a line through (0,0). Is this true? If so, what is this new equation and where was this gathered from?\n\nAgain, if I?m asking in the wrong place or I have heard incorrectly about the function, I sincerely apologize.\n\nAny help is appreciated.\n\nThanks,\nZach",
+      "body_snippet": "Hello, I don?t know if this is the right place to ask, but robust statistics sounded correct to me. I apologize if I?m asking in the wrong place. I?m a college student and my statistics professor pose",
+      "thread_id": "thread-c2d2fa2e520d",
+      "thread_depth": 0,
+      "month": "2017-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-c2d2fa2e520d",
+      "subject": "[RsR] Strange Theoretical Correlation Question",
+      "message_count": 1,
+      "participants": [
+        "Rush, Zachary W"
+      ],
+      "started": "2017-04-19T19:57:09+00:00",
+      "last_reply": "2017-04-19T19:57:09+00:00",
+      "root_message_id": "msg-c2d2fa2e520d"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2007-01",
+  "messages": [
+    {
+      "id": "msg-489f01ff6638",
+      "message_id": "<45B3E804.9010907@businessdecision.com>",
+      "from_name": "Tobias Verbeke",
+      "from_email_hash": "a3faa1911a4aa0fc299e44e1921cb3b0e83de091a37697d6c3d3f61069b7def1",
+      "date": "2007-01-21T23:24:04+01:00",
+      "subject": "[RsR] port of LIBRA toolbox to R",
+      "subject_clean": "[RsR] port of LIBRA toolbox to R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear R-SIG-Robust,\n\nI am happy to announce that Mia Hubert and Sabine Verboven\ndecided to let me port all of the LIBRA functionality\n(cf.\n      http://wis.kuleuven.be/stat/robust/LIBRA.html\n)\nto R and release the resulting work under GPL.\n\nI will discuss progress on the list not only to\nkeep you posted but also to make the best decisions\ntogether in order to seamlessly integrate the functions\nwith the current framework.\n\nEverything should be available by October 2007.\n\nBest wishes,\nTobias\n\n-- \n\nTobias Verbeke - Consultant\nBusiness & Decision Benelux\nRue de la r?volution 8\n1000 Brussels - BELGIUM\n\n+32 499 36 33 15\ntobias.verbeke at businessdecision.com",
+      "body_snippet": "Dear R-SIG-Robust,\n\nI am happy to announce that Mia Hubert and Sabine Verboven\ndecided to let me port all of the LIBRA functionality\n(cf.\n      http://wis.kuleuven.be/stat/robust/LIBRA.html\n)\nto R and",
+      "thread_id": "thread-489f01ff6638",
+      "thread_depth": 0,
+      "month": "2007-01"
+    },
+    {
+      "id": "msg-7abfece6af04",
+      "message_id": "<45B4647F.6010007@tuwien.ac.at>",
+      "from_name": "Peter Filzmoser",
+      "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
+      "date": "2007-01-22T08:15:11+01:00",
+      "subject": "[RsR] port of LIBRA toolbox to R",
+      "subject_clean": "[RsR] port of LIBRA toolbox to R",
+      "in_reply_to": "<45B3E804.9010907@businessdecision.com>",
+      "references": [
+        "<45B3E804.9010907@businessdecision.com>"
+      ],
+      "body_plain": "Dear Tobias,\n\nThis is very good news. Your work will be an important\ncontribution to the project.\n\nBest regards,\nPeter\n\nTobias Verbeke wrote:\n> Dear R-SIG-Robust,\n> \n> I am happy to announce that Mia Hubert and Sabine Verboven\n> decided to let me port all of the LIBRA functionality\n> (cf.\n>       http://wis.kuleuven.be/stat/robust/LIBRA.html\n> )\n> to R and release the resulting work under GPL.\n> \n> I will discuss progress on the list not only to\n> keep you posted but also to make the best decisions\n> together in order to seamlessly integrate the functions\n> with the current framework.\n> \n> Everything should be available by October 2007.\n> \n> Best wishes,\n> Tobias\n> \n\n\n-- \n-------------------------------------------------------\nFrom: Prof. Dr. Peter Filzmoser\n       Dept. of Statistics & Probability Theory\n       Vienna University of Technology\n       Wiedner Hauptstrasse 8-10\n       A-1040 Vienna, Austria\n       Tel. +43 1 58801/10733\n       Fax. +43 1 58801/10799\n       E-mail: P.Filzmoser at tuwien.ac.at\n       Internet:\n       http://www.statistik.tuwien.ac.at/public/filz/",
+      "body_snippet": "Dear Tobias,\n\nThis is very good news. Your work will be an important\ncontribution to the project.\n\nBest regards,\nPeter\n\nTobias Verbeke wrote:\n> Dear R-SIG-Robust,\n> \n> I am happy to announce that Mia ",
+      "thread_id": "thread-489f01ff6638",
+      "thread_depth": 1,
+      "month": "2007-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-489f01ff6638",
+      "subject": "[RsR] port of LIBRA toolbox to R",
+      "message_count": 2,
+      "participants": [
+        "Peter Filzmoser",
+        "Tobias Verbeke"
+      ],
+      "started": "2007-01-21T23:24:04+01:00",
+      "last_reply": "2007-01-22T08:15:11+01:00",
+      "root_message_id": "msg-489f01ff6638"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2013-05",
+  "messages": [
+    {
+      "id": "msg-53fd70f46cc6",
+      "message_id": "<loom.20130501T130227-699@post.gmane.org>",
+      "from_name": "Kaveh Vakili",
+      "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
+      "date": "2013-05-01T11:11:20Z",
+      "subject": "[RsR] number of subsamples in robustbase::lmrob.S()",
+      "subject_clean": "[RsR] number of subsamples in robustbase::lmrob.S()",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\n\nI'm trying to estimate the same model\n twice using the FastS with a varying\n # of ('simple') sub-samples. \n\nThe man page for lmrob.control() defines \nan option 'mts' which seems to be what I \nwant:\n\nmts maximum number of samples to try in subsampling algorithm.\n\nHowever, when trying on a dataset:\n\nlibrary(robustbase)\n#my data:\nn<-500\np<-10\nx0<-matrix(rnorm(n*(p-1)),nc=p-1)\ny0<-rnorm(n)\n\ns1<-lmrob.control()\ns1$subsampling<-\"simple\"\ns1$max.it<-500\ns1$k.max<-500\ns1$maxit.scale<-500\n\n#\\# subsamples?\ns1$mts<-10000\nsystem.time(lmrob.S(x=cbind(1,x0),y=y0,control=s1))\n  user  system elapsed \n  0.084   0.000   0.081 \n#\\# subsamples?\ns1$mts<-100\nsystem.time(lmrob.S(x=cbind(1,x0),y=y0,control=s1))\n  user  system elapsed \n  0.076   0.000   0.077\n\n\nI find that the two timing are very close...I suspect \nthey both use a similar number of starting p-subsets \n(and that I set the options in lmrob.control() wrongly). \n\nHow can I check how many starting p-subsets were used \nin each estimations?\n\nBest regards,",
+      "body_snippet": "Dear All,\n\nI'm trying to estimate the same model\n twice using the FastS with a varying\n # of ('simple') sub-samples. \n\nThe man page for lmrob.control() defines \nan option 'mts' which seems to be what ",
+      "thread_id": "thread-53fd70f46cc6",
+      "thread_depth": 0,
+      "month": "2013-05"
+    },
+    {
+      "id": "msg-98ec5e868872",
+      "message_id": "<C49D0333-BE9F-4463-97A9-123057236D26@gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "2a2bc532df5431edcf7eb21908cc6024199c4e954cfbc1a71ca9144a25f3748f",
+      "date": "2013-05-01T17:32:52+02:00",
+      "subject": "[RsR] number of subsamples in robustbase::lmrob.S()",
+      "subject_clean": "[RsR] number of subsamples in robustbase::lmrob.S()",
+      "in_reply_to": "<loom.20130501T130227-699@post.gmane.org>",
+      "references": [
+        "<loom.20130501T130227-699@post.gmane.org>"
+      ],
+      "body_plain": "Dear Kaveh,\n\nmts sets just the number of samples the algorithm tries before giving up finding a nonsingular subsample (if simple subsampling is used).\nnResample is the parameter you want.\n\nBest,\n\nManuel\n\nOn 1. May 2013, at 13:11 , Kaveh Vakili <kaveh.vakili at wis.kuleuven.be> wrote:\n\n> \n> Dear All,\n> \n> I'm trying to estimate the same model\n> twice using the FastS with a varying\n> # of ('simple') sub-samples. \n> \n> The man page for lmrob.control() defines \n> an option 'mts' which seems to be what I \n> want:\n> \n> mts maximum number of samples to try in subsampling algorithm.\n> \n> However, when trying on a dataset:\n> \n> library(robustbase)\n> #my data:\n> n<-500\n> p<-10\n> x0<-matrix(rnorm(n*(p-1)),nc=p-1)\n> y0<-rnorm(n)\n> \n> s1<-lmrob.control()\n> s1$subsampling<-\"simple\"\n> s1$max.it<-500\n> s1$k.max<-500\n> s1$maxit.scale<-500\n> \n> #\\# subsamples?\n> s1$mts<-10000\n> system.time(lmrob.S(x=cbind(1,x0),y=y0,control=s1))\n>  user  system elapsed \n>  0.084   0.000   0.081 \n> #\\# subsamples?\n> s1$mts<-100\n> system.time(lmrob.S(x=cbind(1,x0),y=y0,control=s1))\n>  user  system elapsed \n>  0.076   0.000   0.077\n> \n> \n> I find that the two timing are very close...I suspect \n> they both use a similar number of starting p-subsets \n> (and that I set the options in lmrob.control() wrongly). \n> \n> How can I check how many starting p-subsets were used \n> in each estimations?\n> \n> Best regards,\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Dear Kaveh,\n\nmts sets just the number of samples the algorithm tries before giving up finding a nonsingular subsample (if simple subsampling is used).\nnResample is the parameter you want.\n\nBest,\n\nManu",
+      "thread_id": "thread-53fd70f46cc6",
+      "thread_depth": 1,
+      "month": "2013-05"
+    },
+    {
+      "id": "msg-22bd99147353",
+      "message_id": "<51816B19.7020700@wis.kuleuven.be>",
+      "from_name": "Kaveh Vakili",
+      "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
+      "date": "2013-05-01T21:20:57+02:00",
+      "subject": "[RsR] number of subsamples in robustbase::lmrob.S()",
+      "subject_clean": "[RsR] number of subsamples in robustbase::lmrob.S()",
+      "in_reply_to": "<C49D0333-BE9F-4463-97A9-123057236D26@gmail.com>",
+      "references": [
+        "<loom.20130501T130227-699@post.gmane.org>",
+        "<C49D0333-BE9F-4463-97A9-123057236D26@gmail.com>"
+      ],
+      "body_plain": "Oh, Ok, thanks Manuel!\nSorry for having missed that out,\n\nBest,\nKaveh\n\nOn 05/01/2013 05:32 PM, Manuel Koller wrote:\n> Dear Kaveh,\n>\n> mts sets just the number of samples the algorithm tries before giving up finding a nonsingular subsample (if simple subsampling is used).\n> nResample is the parameter you want.\n>\n> Best,\n>\n> Manuel\n>\n> On 1. May 2013, at 13:11 , Kaveh Vakili <kaveh.vakili at wis.kuleuven.be> wrote:\n>\n>> Dear All,\n>>\n>> I'm trying to estimate the same model\n>> twice using the FastS with a varying\n>> # of ('simple') sub-samples.\n>>\n>> The man page for lmrob.control() defines\n>> an option 'mts' which seems to be what I\n>> want:\n>>\n>> mts maximum number of samples to try in subsampling algorithm.\n>>\n>> However, when trying on a dataset:\n>>\n>> library(robustbase)\n>> #my data:\n>> n<-500\n>> p<-10\n>> x0<-matrix(rnorm(n*(p-1)),nc=p-1)\n>> y0<-rnorm(n)\n>>\n>> s1<-lmrob.control()\n>> s1$subsampling<-\"simple\"\n>> s1$max.it<-500\n>> s1$k.max<-500\n>> s1$maxit.scale<-500\n>>\n>> #\\# subsamples?\n>> s1$mts<-10000\n>> system.time(lmrob.S(x=cbind(1,x0),y=y0,control=s1))\n>>   user  system elapsed\n>>   0.084   0.000   0.081\n>> #\\# subsamples?\n>> s1$mts<-100\n>> system.time(lmrob.S(x=cbind(1,x0),y=y0,control=s1))\n>>   user  system elapsed\n>>   0.076   0.000   0.077\n>>\n>>\n>> I find that the two timing are very close...I suspect\n>> they both use a similar number of starting p-subsets\n>> (and that I set the options in lmrob.control() wrongly).\n>>\n>> How can I check how many starting p-subsets were used\n>> in each estimations?\n>>\n>> Best regards,\n>>\n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Oh, Ok, thanks Manuel!\nSorry for having missed that out,\n\nBest,\nKaveh\n\nOn 05/01/2013 05:32 PM, Manuel Koller wrote:\n> Dear Kaveh,\n>\n> mts sets just the number of samples the algorithm tries before giv",
+      "thread_id": "thread-53fd70f46cc6",
+      "thread_depth": 2,
+      "month": "2013-05"
+    },
+    {
+      "id": "msg-ae2c2dabb643",
+      "message_id": "<DUB108-W544A83DF6925A5215A3859D6BB0@phx.gbl>",
+      "from_name": "Anton Kochepasov",
+      "from_email_hash": "192540bab9102e5bcdf12a2176ed7e8bfbd43929571d19d33a14e56d45a209cf",
+      "date": "2013-05-08T08:51:28-07:00",
+      "subject": "[RsR] The robust regression confidence interval‏",
+      "subject_clean": "[RsR] The robust regression confidence interval‏",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi everyone,\n\nA few years ago there was a discussion about a robust regression confidence interval (https://stat.ethz.ch/pipermail/r-sig-robust/2008/000217.html) and I would like to resort your courtesy again.\n\nI'm trying to compare a few regression models for my data. For linear regression everything is quite understandable, but robust and quantile regressions are not so obvious. I could not find almost anything about calculating confidence interval for these regression models unless I looked for something wrong.\n\nMy code in R looks as follows:\n# Robust linear modeling\nlibrary(MASS)\nlibrary(robustbase)\nlibrary(robust)\nset.seed(343);?\nx <- rnorm(1000)\ny <- x + 2*rnorm(1000)\n\nlm1<-lm(y~x); rlm1<-rlm(y~x); rlm2 <- lmRob(y~x); rlm3 <- lmrob(y~x)\ncbind(summary(lm1)$coeff, ?confint(lm1))?\ncbind(summary(rlm1)$coeff, confint(rlm1))\ncbind(summary(rlm2)$coeff, confint(rlm2))\ncbind(summary(rlm3)$coeff, confint(rlm3))\n\nAnd produces the following result:\n> cbind(summary(lm1)$coeff, ?confint(lm1))\n? ? ? ? ? ? ? ?Estimate Std. Error ? t value ? ? Pr(>|t|) ? ? ?2.5 % ? ? 97.5 %\n(Intercept) -0.06973191 0.06408983 -1.088034 2.768429e-01 -0.1954982 0.05603438\nx ? ? ? ? ? ?0.97647196 0.06619635 14.751145 1.071805e-44 ?0.8465720 1.10637196\n> cbind(summary(rlm1)$coeff, confint(rlm1))\n? ? ? ? ? ? ? ? ? Value Std. Error ? ?t value 2.5 % 97.5 %\n(Intercept) -0.06131788 0.06714405 -0.9132288 ? ?NA ? ? NA\nx ? ? ? ? ? ?0.96016596 0.06935096 13.8450275 ? ?NA ? ? NA\n> cbind(summary(rlm2)$coeff, confint(rlm2))\nError in UseMethod(\"vcov\") :?\n? no applicable method for 'vcov' applied to an object of class \"lmRob\"\n> cbind(summary(rlm3)$coeff, confint(rlm3))\n? ? ? ? ? ? ? Estimate Std. Error ? ?t value ? ? Pr(>|t|) ? ? ?2.5 % ? ? 97.5 %\n(Intercept) -0.0568964 0.06608987 -0.8608945 3.895029e-01 -0.1865874 0.07279464\nx ? ? ? ? ? ?0.9612520 0.06821558 14.0913850 2.921913e-41 ?0.8273896 1.09511448\n\nIt's easy to spot that linear model works OK and only one robust regression gives a sensible result. Another observation is that lmrob(), which produces some actual confidence interval, calculates it in the same manner as lm(), with using 1.96 as the student coefficient.\n\nCould you share your opinion if it is a correct way to produce a confidence interval for the robust regression model (same as for the linear regression)? May the same method be used for the quantile regression model? If not, what should I use?\n\nThank you in advance,\nAnton",
+      "body_snippet": "Hi everyone,\n\nA few years ago there was a discussion about a robust regression confidence interval (https://stat.ethz.ch/pipermail/r-sig-robust/2008/000217.html) and I would like to resort your courte",
+      "thread_id": "thread-ae2c2dabb643",
+      "thread_depth": 0,
+      "month": "2013-05"
+    },
+    {
+      "id": "msg-d5718b0988c2",
+      "message_id": "<609D7868-112C-47D3-86AE-0E0F3B01D904@illinois.edu>",
+      "from_name": "Roger Koenker",
+      "from_email_hash": "caab05852b46798f8964879e7f95b188ba67e229ddef91199fd7a33a6219a018",
+      "date": "2013-05-08T11:07:31-05:00",
+      "subject": "[RsR] The robust regression confidence interval‏",
+      "subject_clean": "[RsR] The robust regression confidence interval‏",
+      "in_reply_to": "<410efbdbc0b24d5e9eaafcda38b6c739@CHIHT3.ad.uillinois.edu>",
+      "references": [
+        "<410efbdbc0b24d5e9eaafcda38b6c739@CHIHT3.ad.uillinois.edu>"
+      ],
+      "body_plain": "For quantile regression you can again just use summary(rq(...)).\n\n\nurl:    www.econ.uiuc.edu/~roger            Roger Koenker\nemail    rkoenker at uiuc.edu            Department of Economics\nvox:     217-333-4558                University of Illinois\nfax:       217-244-6678                Urbana, IL 61801\n\nOn May 8, 2013, at 10:51 AM, Anton Kochepasov wrote:\n\n> Hi everyone,\n> \n> A few years ago there was a discussion about a robust regression confidence interval (https://stat.ethz.ch/pipermail/r-sig-robust/2008/000217.html) and I would like to resort your courtesy again.\n> \n> I'm trying to compare a few regression models for my data. For linear regression everything is quite understandable, but robust and quantile regressions are not so obvious. I could not find almost anything about calculating confidence interval for these regression models unless I looked for something wrong.\n> \n> My code in R looks as follows:\n> # Robust linear modeling\n> library(MASS)\n> library(robustbase)\n> library(robust)\n> set.seed(343); \n> x <- rnorm(1000)\n> y <- x + 2*rnorm(1000)\n> \n> lm1<-lm(y~x); rlm1<-rlm(y~x); rlm2 <- lmRob(y~x); rlm3 <- lmrob(y~x)\n> cbind(summary(lm1)$coeff,  confint(lm1)) \n> cbind(summary(rlm1)$coeff, confint(rlm1))\n> cbind(summary(rlm2)$coeff, confint(rlm2))\n> cbind(summary(rlm3)$coeff, confint(rlm3))\n> \n> And produces the following result:\n>> cbind(summary(lm1)$coeff,  confint(lm1))\n>                Estimate Std. Error   t value     Pr(>|t|)      2.5 %     97.5 %\n> (Intercept) -0.06973191 0.06408983 -1.088034 2.768429e-01 -0.1954982 0.05603438\n> x            0.97647196 0.06619635 14.751145 1.071805e-44  0.8465720 1.10637196\n>> cbind(summary(rlm1)$coeff, confint(rlm1))\n>                   Value Std. Error    t value 2.5 % 97.5 %\n> (Intercept) -0.06131788 0.06714405 -0.9132288    NA     NA\n> x            0.96016596 0.06935096 13.8450275    NA     NA\n>> cbind(summary(rlm2)$coeff, confint(rlm2))\n> Error in UseMethod(\"vcov\") : \n>   no applicable method for 'vcov' applied to an object of class \"lmRob\"\n>> cbind(summary(rlm3)$coeff, confint(rlm3))\n>               Estimate Std. Error    t value     Pr(>|t|)      2.5 %     97.5 %\n> (Intercept) -0.0568964 0.06608987 -0.8608945 3.895029e-01 -0.1865874 0.07279464\n> x            0.9612520 0.06821558 14.0913850 2.921913e-41  0.8273896 1.09511448\n> \n> It's easy to spot that linear model works OK and only one robust regression gives a sensible result. Another observation is that lmrob(), which produces some actual confidence interval, calculates it in the same manner as lm(), with using 1.96 as the student coefficient.\n> \n> Could you share your opinion if it is a correct way to produce a confidence interval for the robust regression model (same as for the linear regression)? May the same method be used for the quantile regression model? If not, what should I use?\n> \n> Thank you in advance,\n> Anton \t\t \t   \t\t  \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "For quantile regression you can again just use summary(rq(...)).\n\n\nurl:    www.econ.uiuc.edu/~roger            Roger Koenker\nemail    rkoenker at uiuc.edu            Department of Economics\nvox:     2",
+      "thread_id": "thread-d5718b0988c2",
+      "thread_depth": 0,
+      "month": "2013-05"
+    },
+    {
+      "id": "msg-aaafb2b4d021",
+      "message_id": "<72e0f22813b7e5.518a2038@usc.edu>",
+      "from_name": "Rand Wilcox",
+      "from_email_hash": "85f7f34e1da9f5fb0186588d4ebbb4323445939c30b2ae8fa3e0056a0a50694f",
+      "date": "2013-05-08T09:51:52-07:00",
+      "subject": "[RsR] The robust regression confidence interval‏",
+      "subject_clean": "[RsR] The robust regression confidence interval‏",
+      "in_reply_to": "<609D7868-112C-47D3-86AE-0E0F3B01D904@illinois.edu>",
+      "references": [
+        "<410efbdbc0b24d5e9eaafcda38b6c739@CHIHT3.ad.uillinois.edu>",
+        "<609D7868-112C-47D3-86AE-0E0F3B01D904@illinois.edu>"
+      ],
+      "body_plain": "There are a collection of methods summarized in \n\nWilcox, R. R. (2012). Introduction to Robust Estimation and                \nHypothesis Testing 3rd Edition. New York: Elsevier.\n\nHeteroscedasticity is addressed as well. Descriptions and illustrations of R functions are included.\n\n\n\nRand Wilcox\nProfessor\nDept of Psychology\n3620 McClintock Ave\nUSC\nLos Angeles, CA 90089-1061\n\nFAX: 213-746-9082\nFor information about statistics books and software, see http://college.usc.edu/labs/rwilcox/home\n\n----- Original Message -----\nFrom: Roger Koenker <rkoenker at illinois.edu>\nDate: Wednesday, May 8, 2013 9:22 am\nSubject: Re: [RsR] The robust regression confidence interval?\nTo: Anton Kochepasov <akss at outlook.com>\nCc: \"r-sig-robust at r-project.org\" <r-sig-robust at r-project.org>\n\n> For quantile regression you can again just use summary(rq(...)).\n> \n> \n> url:    www.econ.uiuc.edu/~roger            Roger Koenker\n> email    rkoenker at uiuc.edu            Department of Economics\n> vox:     217-333-4558                University of Illinois\n> fax:       217-244-6678                Urbana, IL 61801\n> \n> On May 8, 2013, at 10:51 AM, Anton Kochepasov wrote:\n> \n> > Hi everyone,\n> > \n> > A few years ago there was a discussion about a robust regression \n> confidence interval (https://stat.ethz.ch/pipermail/r-sig-\n> robust/2008/000217.html) and I would like to resort your courtesy \n> again.> \n> > I'm trying to compare a few regression models for my data. For \n> linear regression everything is quite understandable, but robust \n> and quantile regressions are not so obvious. I could not find \n> almost anything about calculating confidence interval for these \n> regression models unless I looked for something wrong.\n> > \n> > My code in R looks as follows:\n> > # Robust linear modeling\n> > library(MASS)\n> > library(robustbase)\n> > library(robust)\n> > set.seed(343); \n> > x <- rnorm(1000)\n> > y <- x + 2*rnorm(1000)\n> > \n> > lm1<-lm(y~x); rlm1<-rlm(y~x); rlm2 <- lmRob(y~x); rlm3 <- lmrob(y~x)\n> > cbind(summary(lm1)$coeff,  confint(lm1)) \n> > cbind(summary(rlm1)$coeff, confint(rlm1))\n> > cbind(summary(rlm2)$coeff, confint(rlm2))\n> > cbind(summary(rlm3)$coeff, confint(rlm3))\n> > \n> > And produces the following result:\n> >> cbind(summary(lm1)$coeff,  confint(lm1))\n> >                Estimate Std. Error   t value     Pr(>|t|)      \n> 2.5 %     97.5 %\n> > (Intercept) -0.06973191 0.06408983 -1.088034 2.768429e-01 -\n> 0.1954982 0.05603438\n> > x            0.97647196 0.06619635 14.751145 1.071805e-44  \n> 0.8465720 1.10637196\n> >> cbind(summary(rlm1)$coeff, confint(rlm1))\n> >                   Value Std. Error    t value 2.5 % 97.5 %\n> > (Intercept) -0.06131788 0.06714405 -0.9132288    NA     NA\n> > x            0.96016596 0.06935096 13.8450275    NA     NA\n> >> cbind(summary(rlm2)$coeff, confint(rlm2))\n> > Error in UseMethod(\"vcov\") : \n> >   no applicable method for 'vcov' applied to an object of class \n> \"lmRob\">> cbind(summary(rlm3)$coeff, confint(rlm3))\n> >               Estimate Std. Error    t value     Pr(>|t|)      \n> 2.5 %     97.5 %\n> > (Intercept) -0.0568964 0.06608987 -0.8608945 3.895029e-01 -\n> 0.1865874 0.07279464\n> > x            0.9612520 0.06821558 14.0913850 2.921913e-41  \n> 0.8273896 1.09511448\n> > \n> > It's easy to spot that linear model works OK and only one robust \n> regression gives a sensible result. Another observation is that \n> lmrob(), which produces some actual confidence interval, calculates \n> it in the same manner as lm(), with using 1.96 as the student \n> coefficient.> \n> > Could you share your opinion if it is a correct way to produce a \n> confidence interval for the robust regression model (same as for \n> the linear regression)? May the same method be used for the \n> quantile regression model? If not, what should I use?\n> > \n> > Thank you in advance,\n> > Anton                                               \n> > _______________________________________________\n> > R-SIG-Robust at r-project.org mailing list\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "There are a collection of methods summarized in \n\nWilcox, R. R. (2012). Introduction to Robust Estimation and                \nHypothesis Testing 3rd Edition. New York: Elsevier.\n\nHeteroscedasticity is",
+      "thread_id": "thread-d5718b0988c2",
+      "thread_depth": 1,
+      "month": "2013-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-53fd70f46cc6",
+      "subject": "[RsR] number of subsamples in robustbase::lmrob.S()",
+      "message_count": 3,
+      "participants": [
+        "Kaveh Vakili",
+        "Manuel Koller"
+      ],
+      "started": "2013-05-01T11:11:20+00:00",
+      "last_reply": "2013-05-01T21:20:57+02:00",
+      "root_message_id": "msg-53fd70f46cc6"
+    },
+    {
+      "id": "thread-ae2c2dabb643",
+      "subject": "[RsR] The robust regression confidence interval‏",
+      "message_count": 1,
+      "participants": [
+        "Anton Kochepasov"
+      ],
+      "started": "2013-05-08T08:51:28-07:00",
+      "last_reply": "2013-05-08T08:51:28-07:00",
+      "root_message_id": "msg-ae2c2dabb643"
+    },
+    {
+      "id": "thread-d5718b0988c2",
+      "subject": "[RsR] The robust regression confidence interval‏",
+      "message_count": 2,
+      "participants": [
+        "Rand Wilcox",
+        "Roger Koenker"
+      ],
+      "started": "2013-05-08T11:07:31-05:00",
+      "last_reply": "2013-05-08T09:51:52-07:00",
+      "root_message_id": "msg-d5718b0988c2"
+    }
+  ]
+}

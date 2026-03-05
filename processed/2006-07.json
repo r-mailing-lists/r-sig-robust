@@ -1,0 +1,87 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2006-07",
+  "messages": [
+    {
+      "id": "msg-a6ea3cdcbb67",
+      "message_id": "<17579.46518.812020.585297@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-07-05T14:51:02+02:00",
+      "subject": "[RsR] [R] p-values for robust regression",
+      "subject_clean": "[RsR] [R] p-values for robust regression",
+      "in_reply_to": "<f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>",
+      "references": [
+        "<f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>"
+      ],
+      "body_plain": "[Oops! Written 6 hours ago, the following was accidentally not sent.]\n\n>>>>> \"Celso\" == Celso Barros <celso.barros at gmail.com>\n>>>>>     on Wed, 5 Jul 2006 04:09:17 -0300 writes:\n\n    Celso> When I run rlm to obtain robust standard errors, my output does not include\n    Celso> p-values. Is there any reason p-values should not be used in this case? \n\nyes (see also below).\n\n    Celso> Is there an argument I could use in rlm so that the output does\n    Celso> include p-values?\nno.\n\nWhat are the reasons?\n\nHow to properly do hypothesis testing in the context of robust\nregression has partly been an open research problem.  Whereas\nor has been solved in Elvezio Ronchetti's PhD thesis (1982)\nby tau-tests, see chapter 7 of  Hampel, Rousseeuw, Ronchetti,\nStahel (1986), these are not (directly) related to standard\nerrors, and t-tests with some degrees of freedom.\nHence they are not so intuitively explainable, and not entirely\ntrivial to implement.  Probably this is one of reasons, why they\n(tau-tests) haven't been programmed for MASS (the book and the R package).\n\nRecent research, namely,\n     Croux, C., Dhaene, G. and Hoorelbeke, D. (2003) _Robust standard\n     errors for robust estimators_, Discussion Papers Series 03.16,\n     K.U. Leuven, CES.\nhas been made use of by Matias Salibian-Barrera's roblm()\nfunction now available as  lmrob() from package 'robustbase'.\nThere,  mod <- lmrob(........);  summary( mod ) \ndoes provide you with P-values.\nBut we still recommend *not* to ``believe in the P-values''\nblindly, but rather base your data analysis on serious analysis\nof residuals and other model checking.",
+      "body_snippet": "[Oops! Written 6 hours ago, the following was accidentally not sent.]\n\n>>>>> \"Celso\" == Celso Barros <celso.barros at gmail.com>\n>>>>>     on Wed, 5 Jul 2006 04:09:17 -0300 writes:\n\n    Celso> When I ",
+      "thread_id": "thread-a6ea3cdcbb67",
+      "thread_depth": 0,
+      "month": "2006-07"
+    },
+    {
+      "id": "msg-a6ea3cdcbb67",
+      "message_id": "<17579.46518.812020.585297@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-07-05T14:51:02+02:00",
+      "subject": "[RsR] [R] p-values for robust regression",
+      "subject_clean": "[RsR] [R] p-values for robust regression",
+      "in_reply_to": "<f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>",
+      "references": [
+        "<f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>"
+      ],
+      "body_plain": "[Oops! Written 6 hours ago, the following was accidentally not sent.]\n\n>>>>> \"Celso\" == Celso Barros <celso.barros at gmail.com>\n>>>>>     on Wed, 5 Jul 2006 04:09:17 -0300 writes:\n\n    Celso> When I run rlm to obtain robust standard errors, my output does not include\n    Celso> p-values. Is there any reason p-values should not be used in this case? \n\nyes (see also below).\n\n    Celso> Is there an argument I could use in rlm so that the output does\n    Celso> include p-values?\nno.\n\nWhat are the reasons?\n\nHow to properly do hypothesis testing in the context of robust\nregression has partly been an open research problem.  Whereas\nor has been solved in Elvezio Ronchetti's PhD thesis (1982)\nby tau-tests, see chapter 7 of  Hampel, Rousseeuw, Ronchetti,\nStahel (1986), these are not (directly) related to standard\nerrors, and t-tests with some degrees of freedom.\nHence they are not so intuitively explainable, and not entirely\ntrivial to implement.  Probably this is one of reasons, why they\n(tau-tests) haven't been programmed for MASS (the book and the R package).\n\nRecent research, namely,\n     Croux, C., Dhaene, G. and Hoorelbeke, D. (2003) _Robust standard\n     errors for robust estimators_, Discussion Papers Series 03.16,\n     K.U. Leuven, CES.\nhas been made use of by Matias Salibian-Barrera's roblm()\nfunction now available as  lmrob() from package 'robustbase'.\nThere,  mod <- lmrob(........);  summary( mod ) \ndoes provide you with P-values.\nBut we still recommend *not* to ``believe in the P-values''\nblindly, but rather base your data analysis on serious analysis\nof residuals and other model checking.\n\n______________________________________________\nR-help at stat.math.ethz.ch mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-help\nPLEASE do read the posting guide! http://www.R-project.org/posting-guide.html",
+      "body_snippet": "[Oops! Written 6 hours ago, the following was accidentally not sent.]\n\n>>>>> \"Celso\" == Celso Barros <celso.barros at gmail.com>\n>>>>>     on Wed, 5 Jul 2006 04:09:17 -0300 writes:\n\n    Celso> When I ",
+      "thread_id": "thread-a6ea3cdcbb67",
+      "thread_depth": 0,
+      "month": "2006-07"
+    },
+    {
+      "id": "msg-4dba017b177c",
+      "message_id": "<44ABF48E.4090307@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2006-07-05T10:19:10-07:00",
+      "subject": "[RsR] [R] p-values for robust regression",
+      "subject_clean": "[RsR] [R] p-values for robust regression",
+      "in_reply_to": "<17579.46518.812020.585297@stat.math.ethz.ch>",
+      "references": [
+        "<f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>",
+        "<17579.46518.812020.585297@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear Celso,\n\nI would only add a few comments to Martin's explanation below:\n\n- tau-tests were primarily meant for general nested hypotheses, whereas \nfor a hypothesis of the form \"beta_j = 0\" for a single index \"j\" one can \nalso use (as it's done for glm estimators, say) *approximate* p-values \nbased on a normal approximation to the distribution of the ratio \n\"estimator / standard error\" -- these are the p-values that \n\"summary.lmrob\" currently reports, based on the *robust standard errors* \nof Croux et al. 2003 (full reference in Martin's e-mail below) that \nremain valid even when the data may contain asymmetric outliers;\n\n- the asymptotic distribution of tau-tests is known for symmetrically \ndistributed errors and, furthermore, it involves a weighted sum of \nindependent chi-squared distributions, with weights depending on the \neigenvalues of the (asymptotic) covariance matrix of the explanatory \nvariables. Not surprisingly, their p-values are rather difficult to \ncalculate in practice (although approximations do exist: see Alfio \nMarazzi's ROBETH and S-PLUS's robust libraries);\n\n- for nested linear hypotheses, the tests in Markatou and Hettmansperger \n(1990, \"Robust bounded-influence tests in linear models\", JASA, 85, \n187-190) provide an alternative to the tau-tests with the \"usual\" \nasymptotic chi-squared distribution, although this asymptotic \napproximation is also known to hold for symmetrically distributed \nerrors, and moreover, seems to be rather sensitive to the presence of \noutliers (see my paper in JSPI, 2005, 128, 241-257), while the Robust \nBootstrap performs quite well in estimating the p-values for these \nrobust tests.\n\n\nSummarizing:\n\n- the standard errors and p-values for individual hypotheses of the form \n\"beta_j=0\" reported by summary.lmrob (in robustbase) are (robust) \nasymptotic approximations, which should be interpreted and used accordingly;\n- if you're interested in nested linear hypotheses, there are some \nproposals in the literature to obtain robust p-values for robust tests \nalthough they have not been implemented in robustbase yet (hopefully \nthey will be in the near future).\n\nBest,\n\nMatias\n\n--\n______________________________________________________________\nMatias Salibian-Barrera - Department of Statistics\nUniversity of British Columbia - matias at stat.ubc.ca\nPhone: (604) 822-3410 - Fax: (604) 822-6960\n\n\nMartin Maechler wrote:\n>   [Oops! Written 6 hours ago, the following was accidentally not sent.]\n> \n>>>>>> \"Celso\" == Celso Barros <celso.barros at gmail.com>\n>>>>>>     on Wed, 5 Jul 2006 04:09:17 -0300 writes:\n> \n>     Celso> When I run rlm to obtain robust standard errors, my output does not include\n>     Celso> p-values. Is there any reason p-values should not be used in this case? \n> \n> yes (see also below).\n> \n>     Celso> Is there an argument I could use in rlm so that the output does\n>     Celso> include p-values?\n> no.\n> \n> What are the reasons?\n> \n> How to properly do hypothesis testing in the context of robust\n> regression has partly been an open research problem.  Whereas\n> or has been solved in Elvezio Ronchetti's PhD thesis (1982)\n> by tau-tests, see chapter 7 of  Hampel, Rousseeuw, Ronchetti,\n> Stahel (1986), these are not (directly) related to standard\n> errors, and t-tests with some degrees of freedom.\n> Hence they are not so intuitively explainable, and not entirely\n> trivial to implement.  Probably this is one of reasons, why they\n> (tau-tests) haven't been programmed for MASS (the book and the R package).\n> \n> Recent research, namely,\n>      Croux, C., Dhaene, G. and Hoorelbeke, D. (2003) _Robust standard\n>      errors for robust estimators_, Discussion Papers Series 03.16,\n>      K.U. Leuven, CES.\n> has been made use of by Matias Salibian-Barrera's roblm()\n> function now available as  lmrob() from package 'robustbase'.\n> There,  mod <- lmrob(........);  summary( mod ) \n> does provide you with P-values.\n> But we still recommend *not* to ``believe in the P-values''\n> blindly, but rather base your data analysis on serious analysis\n> of residuals and other model checking.\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> \n> \n\n\n--",
+      "body_snippet": "Dear Celso,\n\nI would only add a few comments to Martin's explanation below:\n\n- tau-tests were primarily meant for general nested hypotheses, whereas \nfor a hypothesis of the form \"beta_j = 0\" for a si",
+      "thread_id": "thread-a6ea3cdcbb67",
+      "thread_depth": 1,
+      "month": "2006-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a6ea3cdcbb67",
+      "subject": "[RsR] [R] p-values for robust regression",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2006-07-05T14:51:02+02:00",
+      "last_reply": "2006-07-05T14:51:02+02:00",
+      "root_message_id": "msg-a6ea3cdcbb67"
+    },
+    {
+      "id": "thread-a6ea3cdcbb67",
+      "subject": "[RsR] [R] p-values for robust regression",
+      "message_count": 2,
+      "participants": [
+        "Martin Maechler",
+        "Matias Salibian-Barrera"
+      ],
+      "started": "2006-07-05T14:51:02+02:00",
+      "last_reply": "2006-07-05T10:19:10-07:00",
+      "root_message_id": "msg-a6ea3cdcbb67"
+    }
+  ]
+}

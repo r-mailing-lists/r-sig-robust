@@ -1,0 +1,1318 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2005-12",
+  "messages": [
+    {
+      "id": "msg-8a62ba7a0450",
+      "message_id": "<17296.47912.627297.777639@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-02T22:22:48+01:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>"
+      ],
+      "body_plain": ">>>>> \"Rand\" == Rand Wilcox <rwilcox at usc.edu>\n>>>>>     on Fri, 02 Dec 2005 10:42:48 -0800 (PST) writes:\n\n    Rand> In the robust library of S+, it is possible to compute\n    Rand> Rocke's constrained M-estimator of scatter and\n    Rand> location. Can't find anything within R that does the\n    Rand> same thing. Can someone tell me whether any package\n    Rand> exists for computing it?\n\nI can't offhand.\nThere's the cov.rob functions in 'MASS' and the  'rrcov' package\nwhich do similar (better ? :-) things.\n\nNote that for a few weeks now, there's the R-SIG-robust mailing\nlist [--> CC to there],  on which we plan to talk about and coordinate the\ndevelopment of more robust methods for R --- as an offspring\nfrom the Treviso workshop \"Robustness and R\".\n\nUnfortunately, some things (e.g. workshop \"minutes\") are still a\nbit in a waiting state.\n\nOne thing we'd be very interested is the OGK estimator of\nMaronna and Zamar (JASA, 2002).  Unfortunately, there, too, some\nof the authors sold their code exclusively to Insightful (the\nS-plus company).\n\n    Rand> Thanks.\n\nYou're welcome.\n\n    Rand> \tRand Wilcox Professor Dept of Psychology\n    Rand> University of Southern California Los Angeles, CA\n    Rand> 90089-1061 FAX: 213-746-9082\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": ">>>>> \"Rand\" == Rand Wilcox <rwilcox at usc.edu>\n>>>>>     on Fri, 02 Dec 2005 10:42:48 -0800 (PST) writes:\n\n    Rand> In the robust library of S+, it is possible to compute\n    Rand> Rocke's constrai",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-ef8848fe255e",
+      "message_id": "<00be01c5f798$485d4950$1b01a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2005-12-03T00:29:46+01:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": null,
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear Rand,\nunfortunately, right now none of the R packages can compute Rocke's\nconstrained M-estimator of scatter and location. I have implemented this\nestimator as function covMTB in rrcov - see\nhttp://www.dst.unive.it/rsr/Todorov-treviso.pdf , slide 35 - but I have\nstill some open problems to solve before releasing it to CRAN. I hope to be\nable to do this even before Christmas. And if you look at the next slide in\nthis presentation, you will see that there is an working implementation of\nOGK, as mentioned by Martin. Again, I hope to release it very soon.\n\nBest regards,\nValentin\n\n\n\n----- Original Message ----- \nFrom: \"Martin Maechler\" <maechler at stat.math.ethz.ch>\nTo: \"Rand Wilcox\" <rwilcox at usc.edu>\nCc: <r-help at stat.math.ethz.ch>; <R-SIG-Robust at stat.math.ethz.ch>\nSent: Friday, December 02, 2005 10:22 PM\nSubject: Re: [RsR] [R] M-estimator R function question\n\n\n> >>>>> \"Rand\" == Rand Wilcox <rwilcox at usc.edu>\n> >>>>>     on Fri, 02 Dec 2005 10:42:48 -0800 (PST) writes:\n>\n>     Rand> In the robust library of S+, it is possible to compute\n>     Rand> Rocke's constrained M-estimator of scatter and\n>     Rand> location. Can't find anything within R that does the\n>     Rand> same thing. Can someone tell me whether any package\n>     Rand> exists for computing it?\n>\n> I can't offhand.\n> There's the cov.rob functions in 'MASS' and the  'rrcov' package\n> which do similar (better ? :-) things.\n>\n> Note that for a few weeks now, there's the R-SIG-robust mailing\n> list [--> CC to there],  on which we plan to talk about and coordinate the\n> development of more robust methods for R --- as an offspring\n> from the Treviso workshop \"Robustness and R\".\n>\n> Unfortunately, some things (e.g. workshop \"minutes\") are still a\n> bit in a waiting state.\n>\n> One thing we'd be very interested is the OGK estimator of\n> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some\n> of the authors sold their code exclusively to Insightful (the\n> S-plus company).\n>\n>     Rand> Thanks.\n>\n> You're welcome.\n>\n>     Rand> Rand Wilcox Professor Dept of Psychology\n>     Rand> University of Southern California Los Angeles, CA\n>     Rand> 90089-1061 FAX: 213-746-9082\n>\n> Martin Maechler, ETH Zurich\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Dear Rand,\nunfortunately, right now none of the R packages can compute Rocke's\nconstrained M-estimator of scatter and location. I have implemented this\nestimator as function covMTB in rrcov - see\nhttp",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-7fdf53a5b668",
+      "message_id": "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+      "from_name": "Ricardo Maronna",
+      "from_email_hash": "7e489ab9dc1f1f18dc72a97cfdb5cb3026cdddc40656fa05dd845a552bd12f7d",
+      "date": "2005-12-03T18:55:00-03:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": null,
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>"
+      ],
+      "body_plain": "One observation about the following.\n\n> One thing we'd be very interested is the OGK estimator of\n> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some\n> of the authors sold their code exclusively to Insightful (the\n> S-plus company).\n\n    Insightful has implemented the procedure in some way I ignore (actually, \nI don't like the way it works), but unfortunately I got not a single dollar \nfrom that!. Anybody is free to implement the method (which is extremely \nsimple) in whatever language.\n            Ricardo",
+      "body_snippet": "One observation about the following.\n\n> One thing we'd be very interested is the OGK estimator of\n> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some\n> of the authors sold their code ex",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-3a148e7e6915",
+      "message_id": "<17299.61301.345904.106734@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-05T08:42:45+01:00",
+      "subject": "[RsR] OGK covariance estimator",
+      "subject_clean": "[RsR] OGK covariance estimator",
+      "in_reply_to": "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>"
+      ],
+      "body_plain": ">>>>> \"Ricardo\" == Ricardo Maronna <rmaronna at mail.retina.ar>\n>>>>>     on Sat, 3 Dec 2005 18:55:00 -0300 writes:\n\n    Ricardo> One observation about the following.\n\n   [ so I *was* able to provoke some action on the R-SIG-Robust\n     list :-) ;-) ]\n\n    MM> One thing we'd be very interested is the OGK estimator of\n    MM> Maronna and Zamar (JASA, 2002).  Unfortunately, there,\n    MM> too, some of the authors sold their code exclusively to\n    MM> Insightful (the S-plus company).\n\n    Ricardo>     Insightful has implemented the procedure in\n    Ricardo> some way I ignore (actually, I don't like the way\n    Ricardo> it works), but unfortunately I got not a single\n    Ricardo> dollar from that!. Anybody is free to implement the\n    Ricardo> method (which is extremely simple) in whatever\n    Ricardo> language.  \n\nindeed.  I apologize for my remark above where I should have\ngiven either less or then more info. I'll do the latter now: \nI think even before the paper came out, I got in contact with a\nstudent from Ruben (Fatemah) who had programmed things for S-plus; I got\nthe code (S+ and C) but eventually learned I was not allowed to\nuse it for R because of a contract with Insightful. \n\nBut indeed, that shouldn't be a problem, since I think one\nshould program the OGK using R (S) code alone {just using\neigen() and other matrix operations},\nand have the univariate scale estimate be a plug-in, i.e.,\na function argument.  There, one could use  Qn, Sn  {I now have\nthese two in the not yet-released package on \"basic robust statistic\"},\nthe tau-estimate (from the 2002 JASA paper) or any other\nconsistent scale estimate -- ideally by passing it as an R\nfunction to the ``cov.okg(...)'' function {or should that be\n ``covRob(..., method=\"OGK\")'' ?}.\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": ">>>>> \"Ricardo\" == Ricardo Maronna <rmaronna at mail.retina.ar>\n>>>>>     on Sat, 3 Dec 2005 18:55:00 -0300 writes:\n\n    Ricardo> One observation about the following.\n\n   [ so I *was* able to provoke ",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-81a30bddef60",
+      "message_id": "<4393F42E.5070302@tuwien.ac.at>",
+      "from_name": "Peter Filzmoser",
+      "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
+      "date": "2005-12-05T09:02:54+01:00",
+      "subject": "[RsR] OGK covariance estimator",
+      "subject_clean": "[RsR] OGK covariance estimator",
+      "in_reply_to": "<17299.61301.345904.106734@stat.math.ethz.ch>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<17299.61301.345904.106734@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Martin Maechler wrote:\n\n> But indeed, that shouldn't be a problem, since I think one\n> should program the OGK using R (S) code alone {just using\n> eigen() and other matrix operations},\n> and have the univariate scale estimate be a plug-in, i.e.,\n> a function argument.  There, one could use  Qn, Sn  {I now have\n> these two in the not yet-released package on \"basic robust statistic\"},\n\nMartin, we are working now on a fast implementation of the\nQn, using C++ code in R. Have you done that similarly?\n\n\n> the tau-estimate (from the 2002 JASA paper) or any other\n> consistent scale estimate -- ideally by passing it as an R\n> function to the ``cov.okg(...)'' function {or should that be\n>  ``covRob(..., method=\"OGK\")'' ?}.\n> \n> Martin Maechler, ETH Zurich\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> \n> \n\n\n-- \n-------------------------------------------------------\nFrom: Prof. Dr. Peter Filzmoser\n       Dept. of Statistics & Probability Theory\n       Vienna University of Technology\n       Wiedner Hauptstrasse 8-10\n       A-1040 Vienna, Austria\n       Tel. +43 1 58801/10733\n       Fax. +43 1 58801/10799\n       E-mail: P.Filzmoser at tuwien.ac.at\n       Internet:\n       http://www.statistik.tuwien.ac.at/public/filz/",
+      "body_snippet": "Martin Maechler wrote:\n\n> But indeed, that shouldn't be a problem, since I think one\n> should program the OGK using R (S) code alone {just using\n> eigen() and other matrix operations},\n> and have the ",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 3,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-f82366f52b44",
+      "message_id": "<17300.827.804750.592569@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-05T10:07:07+01:00",
+      "subject": "[RsR] OGK covariance estimator",
+      "subject_clean": "[RsR] OGK covariance estimator",
+      "in_reply_to": "<4393F42E.5070302@tuwien.ac.at>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<17299.61301.345904.106734@stat.math.ethz.ch>",
+        "<4393F42E.5070302@tuwien.ac.at>"
+      ],
+      "body_plain": ">>>>> \"Peter\" == Peter Filzmoser <P.Filzmoser at tuwien.ac.at>\n>>>>>     on Mon, 05 Dec 2005 09:02:54 +0100 writes:\n\n    Peter> Martin Maechler wrote:\n    >> But indeed, that shouldn't be a problem, since I think\n    >> one should program the OGK using R (S) code alone {just\n    >> using eigen() and other matrix operations}, and have the\n    >> univariate scale estimate be a plug-in, i.e., a function\n    >> argument.  There, one could use Qn, Sn {I now have these\n    >> two in the not yet-released package on \"basic robust\n    >> statistic\"},\n\n    Peter> Martin, we are working now on a fast implementation\n    Peter> of the Qn, using C++ code in R. Have you done that\n    Peter> similarly?\n\nI have based it on C code which had been based on the original\nFortran code from Croux and Rousseeuw available from Antwerpen.\nIs there a faster algorithm now?\n\nGiven the traffic on this list, \nand the not-yet-publication of the Treviso working group\n\"minutes\", let me open the topic to which I alluded above as\nwell: Our working group (\"regression\", later joined by\n\"econometrics\") talked about the possibility and then\ndesirability of an R package on \"(basic) robust statitics\" which\n\n 1)  will be backed up by many `robustniks'\n 2)  will remain focused, and hence (at least initially)\n     primarily based on the methodology in the upcoming book \n     by Maronna, Martin and Yohai (=: MMY); and even from there,\n     primarily on\n      a) regression [including GLM, non-lin reg, maybe a bit more]\n      b) multivariate : \"location + scatter\"\n 3)  have quite a few authors (in the work group, we had some \"commitments\"),\n     with me as coordinator and maintainer.\n 4)  other \"Robustness in R\" packages would *build*\n     (i.e. \"Depend\" in  R package lingo) on that basic package,\n     and authors that contribute code from their own package\n     would of course remain authors and would also keep the\n     functions in their own packages (for a while at least; later their\n     package will load or even attach the \"basic robust\"\n     package, and hence have the functionality available indirectly).\n\n-- more details are in the minutes of our workgroup(s) that I've\n   sent to Matias {as Treviso co-organizer} to be put on the\n   (Treviso RSR) webpage.\n\nI think it would be great to get feedback from the R-SIG-robust\naudience on the above; particularly if you think that the idea\nis problematic or needs amendments/improvements before being\nworkable.\n\nLast week, I had added the following to (my latex version of) the minutes:\n\n------------------------\n\n Later notes -- by Martin Maechler, only\n ---------------------------------------\n\n  o  Proposed names for the `basic robust statistics' package:\n     1. robstats\n     2. robbase\n     3. baseRob\n\n   I'm choosing the first one for now.\n\n  o I've added (Rousseeuw & Croux)'s Qn and Sn estimators of\n    scale, based on an R package I had started in 2002, which is\n    based on the Fortran code from Antwerpen. \n\n  \\item I plan to add ``\\emph{psi - Function}'' objects, using an S4 class,\n    with instances for Huber, Hampel, Biweight, etc, at least for the\n    M-estimators (of location / regression).\n    Such an object should contain  $\\rho$, $\\psi$, $w(x) := \\psi(x)/x$,\n    $\\psi'$ (= $d/\\mathrm{dx} \\psi$) functions, default values for the tuning\n    constants, and functionals such as $E_X[\\psi(X)^2]$,  $E_X[\\psi'(X)]$,\n    for $X\\sim N(0,1)$ (these functionals are still \\emph{functions} of the\n    tuning parameters).\n\n    Very similarly, I'm interested also in the $\\chi$ functions used for\n    B-/V- optimal M-estimators of \\emph{scale}, both the monotone and the\n    redescending ones.\n\n    In general, I think we should add ``\\textbf{basic M-estimation}''\n    things to the package as well, similar to, but\n    more general than \\code{MASS::huber}; note that I'd like to\n    contribute \\code{sfsmisc::huberM} (my `improved' \\code{huber})\n    to the \\pkg{robstats} as well.\n\n------------------------\n\nand actually I've done the S4 class for \"psi-function\" objects\nlast Friday.\n\nNow I'm interested to hear more..\nMartin",
+      "body_snippet": ">>>>> \"Peter\" == Peter Filzmoser <P.Filzmoser at tuwien.ac.at>\n>>>>>     on Mon, 05 Dec 2005 09:02:54 +0100 writes:\n\n    Peter> Martin Maechler wrote:\n    >> But indeed, that shouldn't be a problem, s",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 4,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-2c8a932c6a9b",
+      "message_id": "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "44d6a4da65edf7efe090dfbaebe1a45311325a9bec43b2f3b375964424877755",
+      "date": "2005-12-05T10:29:11Z",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>"
+      ],
+      "body_plain": "Here is an implementation of the OGK estimator completely in R.  I  \nhaven't touched it for a while and I forget how thoroughly I tested  \nit so use it with a bit of caution.\n\n   http://www.stats.ox.ac.uk/~konis/pairwise.q\n\nRicardo, can you be more specific about what you don't like in the  \nimplementation of OGK in S-Plus?\n\nKjell\n\n\n\nOn Dec 3, 2005, at 9:55 PM, Ricardo Maronna wrote:\n\n> One observation about the following.\n>\n>> One thing we'd be very interested is the OGK estimator of\n>> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some\n>> of the authors sold their code exclusively to Insightful (the\n>> S-plus company).\n>\n>     Insightful has implemented the procedure in some way I ignore  \n> (actually,\n> I don't like the way it works), but unfortunately I got not a  \n> single dollar\n> from that!. Anybody is free to implement the method (which is  \n> extremely\n> simple) in whatever language.\n>             Ricardo\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Here is an implementation of the OGK estimator completely in R.  I  \nhaven't touched it for a while and I forget how thoroughly I tested  \nit so use it with a bit of caution.\n\n   http://www.stats.ox.a",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-7508899df505",
+      "message_id": "<17300.9156.266887.251826@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-05T12:25:56+01:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>"
+      ],
+      "body_plain": ">>>>> \"Kjell\" == Kjell Konis <konis at stats.ox.ac.uk>\n>>>>>     on Mon, 5 Dec 2005 10:29:11 +0000 writes:\n\n    Kjell> Here is an implementation of the OGK estimator\n    Kjell> completely in R.  I haven't touched it for a while\n    Kjell> and I forget how thoroughly I tested it so use it\n    Kjell> with a bit of caution.\n\n    Kjell>    http://www.stats.ox.ac.uk/~konis/pairwise.q\n\nexcellent!  That's exactly what I meant (in my post two hours\nago):\n\n  The general OGK algorithm, but with the  flexibility of the main\n  function having arguments for the \"building block\" functions, so\n  one can use different univariate sigma() or ``weight()'' functions!\n\nWhen we'll start to discuss things along the  covRobust()\nproposal(s) from the \"multivariate\" working group, we'll also\nhave to think about function name(s) and the returned object\n(\"output\"),  but I think our student will be able use your\nfunction \"as is\".\n\nThanks a lot, Kjell!\n\nMartin.",
+      "body_snippet": ">>>>> \"Kjell\" == Kjell Konis <konis at stats.ox.ac.uk>\n>>>>>     on Mon, 5 Dec 2005 10:29:11 +0000 writes:\n\n    Kjell> Here is an implementation of the OGK estimator\n    Kjell> completely in R.  I hav",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 3,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-c0018b086e8e",
+      "message_id": "<439426D9.6070603@econ.kuleuven.be>",
+      "from_name": "Kristel Joossens",
+      "from_email_hash": "230271aa143ed032bba6a2cff3ba9149e194d6ff527d00df1835267f49027e7a",
+      "date": "2005-12-05T12:39:05+01:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": "<17300.9156.266887.251826@stat.math.ethz.ch>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+        "<17300.9156.266887.251826@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Martin Maechler wrote:\n>>>>>>\"Kjell\" == Kjell Konis <konis at stats.ox.ac.uk>\n>>>>>>    on Mon, 5 Dec 2005 10:29:11 +0000 writes:\n>     Kjell> Here is an implementation of the OGK estimator\n>     Kjell> completely in R.  I haven't touched it for a while\n>     Kjell> and I forget how thoroughly I tested it so use it\n>     Kjell> with a bit of caution.\n>     Kjell>    http://www.stats.ox.ac.uk/~konis/pairwise.q\n> excellent!  That's exactly what I meant (in my post two hours\n> ago): \n>   The general OGK algorithm, but with the  flexibility of the main\n>   function having arguments for the \"building block\" functions, so\n>   one can use different univariate sigma() or ``weight()'' functions!\n> When we'll start to discuss things along the  covRobust()\n> proposal(s) from the \"multivariate\" working group, we'll also\n> have to think about function name(s) and the returned object\n> (\"output\"),  but I think our student will be able use your\n> function \"as is\".\n> \n> Thanks a lot, Kjell\nYes, thanks a lot already.\n\nConcerning the ``multivariate'' working group, I have put a preliminary \nTex and Pdf-file of what we discussed in Treviso online.\nIt can be retreived from: http://www.econ.kuleuven.be/public/ndbae49/R/\n\nIf anyone has comments or would like to change/update/add things to the \nTex/Pdf-file you can always contact me or send me an updated Tex-file.\n\nBest regards,\nKristel\n> Martin.\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n__________________________________________\nKristel Joossens        Ph.D. Student\nResearch Center ORSTAT  K.U. Leuven\nNaamsestraat 69         Tel: +32 16 326929\n3000 Leuven, Belgium    Fax: +32 16 326732\nE-mail:  Kristel.Joossens at econ.kuleuven.be\nhttp://www.econ.kuleuven.be/public/ndbae49\n\nDisclaimer: http://www.kuleuven.be/cwis/email_disclaimer.htm",
+      "body_snippet": "Martin Maechler wrote:\n>>>>>>\"Kjell\" == Kjell Konis <konis at stats.ox.ac.uk>\n>>>>>>    on Mon, 5 Dec 2005 10:29:11 +0000 writes:\n>     Kjell> Here is an implementation of the OGK estimator\n>     Kjel",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 4,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-8b9a5dc7a374",
+      "message_id": "<4c0e456b0512050427v2af94525n4aaf7e43847e257a@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2005-12-05T13:27:29+01:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": "<439426D9.6070603@econ.kuleuven.be>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+        "<17300.9156.266887.251826@stat.math.ethz.ch>",
+        "<439426D9.6070603@econ.kuleuven.be>"
+      ],
+      "body_plain": "Hi Kristel,\na couple of additions to your 'minutes' (Section 2.3 Other):\n\n1. The MATLAB implementation of D. Pe?na & F. Prieto can be found at:\nhttp://halweb.uc3m.es/fjp/kur.zip\n\n2. An R implementation of the estimator of D. Olive described in the\nCSDA paper can be found in\nhttp://www.math.siu.edu/olive/rpack.txt - function covmba()\n\n3. I have R interface to some of the FORTRAN programs of Hawkins, but\nmay be only the MWMCD (linear discriminant analysis)  is of interest.\n\nbest regards,\nValentin\n\nOn 12/5/05, Kristel Joossens <kristel.joossens at econ.kuleuven.be> wrote:\n> Martin Maechler wrote:\n> >>>>>>\"Kjell\" == Kjell Konis <konis at stats.ox.ac.uk>\n> >>>>>>    on Mon, 5 Dec 2005 10:29:11 +0000 writes:\n> >     Kjell> Here is an implementation of the OGK estimator\n> >     Kjell> completely in R.  I haven't touched it for a while\n> >     Kjell> and I forget how thoroughly I tested it so use it\n> >     Kjell> with a bit of caution.\n> >     Kjell>    http://www.stats.ox.ac.uk/~konis/pairwise.q\n> > excellent!  That's exactly what I meant (in my post two hours\n> > ago):\n> >   The general OGK algorithm, but with the  flexibility of the main\n> >   function having arguments for the \"building block\" functions, so\n> >   one can use different univariate sigma() or ``weight()'' functions!\n> > When we'll start to discuss things along the  covRobust()\n> > proposal(s) from the \"multivariate\" working group, we'll also\n> > have to think about function name(s) and the returned object\n> > (\"output\"),  but I think our student will be able use your\n> > function \"as is\".\n> >\n> > Thanks a lot, Kjell\n> Yes, thanks a lot already.\n>\n> Concerning the ``multivariate'' working group, I have put a preliminary\n> Tex and Pdf-file of what we discussed in Treviso online.\n> It can be retreived from: http://www.econ.kuleuven.be/public/ndbae49/R/\n>\n> If anyone has comments or would like to change/update/add things to the\n> Tex/Pdf-file you can always contact me or send me an updated Tex-file.\n>\n> Best regards,\n> Kristel\n> > Martin.\n> >\n> > _______________________________________________\n> > R-SIG-Robust at r-project.org mailing list\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n> --\n> __________________________________________\n> Kristel Joossens        Ph.D. Student\n> Research Center ORSTAT  K.U. Leuven\n> Naamsestraat 69         Tel: +32 16 326929\n> 3000 Leuven, Belgium    Fax: +32 16 326732\n> E-mail:  Kristel.Joossens at econ.kuleuven.be\n> http://www.econ.kuleuven.be/public/ndbae49\n>\n> Disclaimer: http://www.kuleuven.be/cwis/email_disclaimer.htm\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Hi Kristel,\na couple of additions to your 'minutes' (Section 2.3 Other):\n\n1. The MATLAB implementation of D. Pe?na & F. Prieto can be found at:\nhttp://halweb.uc3m.es/fjp/kur.zip\n\n2. An R implementatio",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 5,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-a46d5f2d2fa2",
+      "message_id": "<4394BDD4.10000@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2005-12-05T14:23:16-08:00",
+      "subject": "[RsR] OGK covariance estimator",
+      "subject_clean": "[RsR] OGK covariance estimator",
+      "in_reply_to": "<17300.827.804750.592569@stat.math.ethz.ch>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<17299.61301.345904.106734@stat.math.ethz.ch>",
+        "<4393F42E.5070302@tuwien.ac.at>",
+        "<17300.827.804750.592569@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Martin Maechler wrote:\n>   \\item I plan to add ``\\emph{psi - Function}'' objects, using an S4 class,\n>     with instances for Huber, Hampel, Biweight, etc, at least for the\n>     M-estimators (of location / regression).\n>     Such an object should contain  $\\rho$, $\\psi$, $w(x) := \\psi(x)/x$,\n>     $\\psi'$ (= $d/\\mathrm{dx} \\psi$) functions, default values for the tuning\n>     constants, and functionals such as $E_X[\\psi(X)^2]$,  $E_X[\\psi'(X)]$,\n>     for $X\\sim N(0,1)$ (these functionals are still \\emph{functions} of the\n>     tuning parameters).\n > [snip]\n> and actually I've done the S4 class for \"psi-function\" objects\n> last Friday.\n> \n> Now I'm interested to hear more..\n\nI think estimating functions are \"natural\" candidates to be treated as \nS4 objects, as Martin's blueprint shows above.\n\nOne question: I have written the \"workhorses\" of my code in C and the \n\"psi\" functions are defined inside the C code (tuning constants are \ntaken from R). If we move towards having the \"psi\" functions constructed \nin R (which I think is a good idea for many reasons), is there an easy \nway to have the C code use them? .Call() comes to mind, but of course, I \nwould want to re-write the least possible number of lines of my original \nC code.\n\nMatias\n\nPS: A website collecting the working groups minutes and other related \nmaterial to this project is already being set up and will be announced \nin this list when it becomes \"live\" (which should happen soon).",
+      "body_snippet": "Martin Maechler wrote:\n>   \\item I plan to add ``\\emph{psi - Function}'' objects, using an S4 class,\n>     with instances for Huber, Hampel, Biweight, etc, at least for the\n>     M-estimators (of loca",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 5,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-8ea56ff698a9",
+      "message_id": "<000501c5fa5c$2975ac00$89ca0ac8@MARONNA>",
+      "from_name": "Ricardo Maronna",
+      "from_email_hash": "7e489ab9dc1f1f18dc72a97cfdb5cb3026cdddc40656fa05dd845a552bd12f7d",
+      "date": "2005-12-05T21:02:22-03:00",
+      "subject": "[RsR] R function",
+      "subject_clean": "[RsR] R function",
+      "in_reply_to": null,
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>"
+      ],
+      "body_plain": "> Ricardo, can you be more specific about what you don't like in the\n> implementation of OGK in S-Plus?\n\nHi Kjell,\n    The \"pure\" OGK estimate works regardless of the collinearity of the \ndata.\n    The resulting estimate needs some improvement step. We thought of the \nsimple \"one-step hard rejection\". It was indicated in the paper that no \nexplicit matrix inversion is required for this step, so that it can be made \nto work even for collinear data.\n    I have tried the S-Plus version with data that were definitely not \ncollinear, and I got an error message of the sort \"matrix not invertible\". I \ncouldn't figure out why.\n\n    By the way, on later reflexion I have thought that a better improvement \nwould be to use the \"pure\" OGK as the starting point for the iterations of \nan S-estimate, which would be much cheaper than subsampling.\n                        Regards,\n                                Ricardo",
+      "body_snippet": "> Ricardo, can you be more specific about what you don't like in the\n> implementation of OGK in S-Plus?\n\nHi Kjell,\n    The \"pure\" OGK estimate works regardless of the collinearity of the \ndata.\n    Th",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 3,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-c46ec956b260",
+      "message_id": "<11544d000512060204j1c64fbcbr@mail.gmail.com>",
+      "from_name": "Jean-Christophe BOUETTE",
+      "from_email_hash": "1d968b515f84f2f6fd12032b34f153f8361dea9c7cedce8e97554405f57dc5d1",
+      "date": "2005-12-06T11:04:06+01:00",
+      "subject": "[RsR] Package title (was: OGK covariance estimator)",
+      "subject_clean": "[RsR] Package title (was: OGK covariance estimator)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "> Date: Mon, 5 Dec 2005 10:07:07 +0100\n> From: Martin Maechler <maechler at stat.math.ethz.ch>\n> Subject: Re: [RsR] OGK covariance estimator\n> To: Peter Filzmoser <P.Filzmoser at tuwien.ac.at>\n> Cc: R-SIG-Robust at stat.math.ethz.ch\n> Message-ID: <17300.827.804750.592569 at stat.math.ethz.ch>\n> Content-Type: text/plain; charset=us-ascii\n>\n>\n>  o  Proposed names for the `basic robust statistics' package:\n>     1. robstats\n>     2. robbase\n>     3. baseRob\n>\n\nWhat about:\nrobuSTats\n\nthe good thing with this name is that is contains the word \"robust\",\nso everybody knows what it is about, and you will find the package\neach time you search for \"robust\" on the R help archives...\n\njust my two cents...\n\nJean-Christophe.\n\n\n> Now I'm interested to hear more..\n> Martin",
+      "body_snippet": "> Date: Mon, 5 Dec 2005 10:07:07 +0100\n> From: Martin Maechler <maechler at stat.math.ethz.ch>\n> Subject: Re: [RsR] OGK covariance estimator\n> To: Peter Filzmoser <P.Filzmoser at tuwien.ac.at>\n> Cc: R",
+      "thread_id": "thread-c46ec956b260",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-a949360c2d04",
+      "message_id": "<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2005-12-06T15:53:32+01:00",
+      "subject": "[RsR] Package title (was: OGK covariance estimator)",
+      "subject_clean": "[RsR] Package title (was: OGK covariance estimator)",
+      "in_reply_to": "<11544d000512060204j1c64fbcbr@mail.gmail.com>",
+      "references": [
+        "<11544d000512060204j1c64fbcbr@mail.gmail.com>"
+      ],
+      "body_plain": "Why not simply 'robusta'\n\nIt is very easy also to find a logo for the package - robusta means:\n- a coffee plant - Coffea canephora (robusta)\nhttp://en.wikipedia.org/wiki/Image:Detail_of_Coffea_canephora_branch_and_leaves.jpg\n\n- a palm tree - Washingtonia robusta\n- a cactus - Opuntia robusta\n\nbest\nvalentin\n\n\nOn 12/6/05, Jean-Christophe BOUETTE <jcbouette at gmail.com> wrote:\n> > Date: Mon, 5 Dec 2005 10:07:07 +0100\n> > From: Martin Maechler <maechler at stat.math.ethz.ch>\n> > Subject: Re: [RsR] OGK covariance estimator\n> > To: Peter Filzmoser <P.Filzmoser at tuwien.ac.at>\n> > Cc: R-SIG-Robust at stat.math.ethz.ch\n> > Message-ID: <17300.827.804750.592569 at stat.math.ethz.ch>\n> > Content-Type: text/plain; charset=us-ascii\n> >\n> >\n> >  o  Proposed names for the `basic robust statistics' package:\n> >     1. robstats\n> >     2. robbase\n> >     3. baseRob\n> >\n>\n> What about:\n> robuSTats\n>\n> the good thing with this name is that is contains the word \"robust\",\n> so everybody knows what it is about, and you will find the package\n> each time you search for \"robust\" on the R help archives...\n>\n> just my two cents...\n>\n> Jean-Christophe.\n>\n>\n> > Now I'm interested to hear more..\n> > Martin\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Why not simply 'robusta'\n\nIt is very easy also to find a logo for the package - robusta means:\n- a coffee plant - Coffea canephora (robusta)\nhttp://en.wikipedia.org/wiki/Image:Detail_of_Coffea_canepho",
+      "thread_id": "thread-c46ec956b260",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-70d3614a5a55",
+      "message_id": "<17301.48042.657996.90972@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-06T17:26:18+01:00",
+      "subject": "[RsR] Package title (was: OGK covariance estimator)",
+      "subject_clean": "[RsR] Package title (was: OGK covariance estimator)",
+      "in_reply_to": "<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>",
+      "references": [
+        "<11544d000512060204j1c64fbcbr@mail.gmail.com>",
+        "<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> \"Valentin\" == Valentin Todorov <valentin.to at gmail.com>\n>>>>>     on Tue, 6 Dec 2005 15:53:32 +0100 writes:\n\n    Valentin> Why not simply 'robusta'\n    Valentin> It is very easy also to find a logo for the package - robusta means:\n    Valentin> - a coffee plant - Coffea canephora (robusta)\n    Valentin> http://en.wikipedia.org/wiki/Image:Detail_of_Coffea_canephora_branch_and_leaves.jpg\n\n    Valentin> - a palm tree - Washingtonia robusta\n    Valentin> - a cactus - Opuntia robusta\n\ncute!\n\nThank you, Valentin and Jean-Christophe!\nI think both proposals are better than my original ones\n{though I would not like to capitalize the 'ST' (in 'robuSTats')}.\n\nAs a Swiss, I should of course plan to organize a vote\nnow about the package *name* \n{ strictly speaking, the package \"title\" is something else: namely\n  the text after 'Title:' in package DESCRIPTION file.  \n  Currently, I have 'Title: Robust Statistics'\n  there, but that's something that can easily be changed later;\n  changing the package *name* however is much less desirable at\n  some later time.\n}\nbut instead of the vote, I'm waiting for more\ncomments/suggestions.\nWhere I'd personally slightly prefer 'robusta', I note that the\nname could also be a drawback, when searching for it, e.g., by google.\n\nMartin\n\n\n    Valentin> On 12/6/05, Jean-Christophe BOUETTE <jcbouette at gmail.com> wrote:\n    >> > Date: Mon, 5 Dec 2005 10:07:07 +0100\n    >> > From: Martin Maechler <maechler at stat.math.ethz.ch>\n    >> > Subject: Re: [RsR] OGK covariance estimator\n    >> > To: Peter Filzmoser <P.Filzmoser at tuwien.ac.at>\n    >> > Cc: R-SIG-Robust at stat.math.ethz.ch\n    >> >\n    >> >\n    >> >  o  Proposed names for the `basic robust statistics' package:\n    >> >     1. robstats\n    >> >     2. robbase\n    >> >     3. baseRob\n    >> >\n    >> \n    >> What about:\n    >> robuSTats\n    >> \n    >> the good thing with this name is that is contains the word \"robust\",\n    >> so everybody knows what it is about, and you will find the package\n    >> each time you search for \"robust\" on the R help archives...\n    >> \n    >> just my two cents...\n    >> \n    >> Jean-Christophe.\n    >> \n    >> \n    >> > Now I'm interested to hear more..\n    >> > Martin",
+      "body_snippet": ">>>>> \"Valentin\" == Valentin Todorov <valentin.to at gmail.com>\n>>>>>     on Tue, 6 Dec 2005 15:53:32 +0100 writes:\n\n    Valentin> Why not simply 'robusta'\n    Valentin> It is very easy also to find a",
+      "thread_id": "thread-c46ec956b260",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-4f65908c6b08",
+      "message_id": "<4c0e456b0512061111k3e129b8fg4e44cae807fa1e1c@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2005-12-06T20:11:00+01:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": "<4394428F.8040006@econ.kuleuven.be>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+        "<17300.9156.266887.251826@stat.math.ethz.ch>",
+        "<439426D9.6070603@econ.kuleuven.be>",
+        "<4c0e456b0512050427v2af94525n4aaf7e43847e257a@mail.gmail.com>",
+        "<4394428F.8040006@econ.kuleuven.be>"
+      ],
+      "body_plain": "1. The FORTRAN code of D. Hawkins can be found at\nftp://www.stat.umn.edu/pub/fsa/readme.ftp\n\nMy R interface is only on my local PC and I'll release the MWCD in rrcov.\n\n2. For completeness you can add to the list the exchange and branch\nand bound algorithms of Jose Agullo.\n\nBest regards,\nValentin\n\nOn 12/5/05, Kristel Joossens <kristel.joossens at econ.kuleuven.be> wrote:\n> Hello Valentin,\n>\n> Thanks a lot for the information. I will add it!\n> Just one question concerning 3. Can you give me a link where this can be\n> found?\n>\n> Best regards,\n> Kristel\n>\n> Valentin Todorov wrote:\n> > Hi Kristel,\n> > a couple of additions to your 'minutes' (Section 2.3 Other):\n> >\n> > 1. The MATLAB implementation of D. Pe?na & F. Prieto can be found at:\n> > http://halweb.uc3m.es/fjp/kur.zip\n> >\n> > 2. An R implementation of the estimator of D. Olive described in the\n> > CSDA paper can be found in\n> > http://www.math.siu.edu/olive/rpack.txt - function covmba()\n> >\n> > 3. I have R interface to some of the FORTRAN programs of Hawkins, but\n> > may be only the MWMCD (linear discriminant analysis)  is of interest.\n> >\n> > best regards,\n> > Valentin\n> >\n> > On 12/5/05, Kristel Joossens <kristel.joossens at econ.kuleuven.be> wrote:\n> >\n> >>Martin Maechler wrote:\n> >>\n> >>>>>>>>\"Kjell\" == Kjell Konis <konis at stats.ox.ac.uk>\n> >>>>>>>>   on Mon, 5 Dec 2005 10:29:11 +0000 writes:\n> >>>\n> >>>    Kjell> Here is an implementation of the OGK estimator\n> >>>    Kjell> completely in R.  I haven't touched it for a while\n> >>>    Kjell> and I forget how thoroughly I tested it so use it\n> >>>    Kjell> with a bit of caution.\n> >>>    Kjell>    http://www.stats.ox.ac.uk/~konis/pairwise.q\n> >>>excellent!  That's exactly what I meant (in my post two hours\n> >>>ago):\n> >>>  The general OGK algorithm, but with the  flexibility of the main\n> >>>  function having arguments for the \"building block\" functions, so\n> >>>  one can use different univariate sigma() or ``weight()'' functions!\n> >>>When we'll start to discuss things along the  covRobust()\n> >>>proposal(s) from the \"multivariate\" working group, we'll also\n> >>>have to think about function name(s) and the returned object\n> >>>(\"output\"),  but I think our student will be able use your\n> >>>function \"as is\".\n> >>>\n> >>>Thanks a lot, Kjell\n> >>\n> >>Yes, thanks a lot already.\n> >>\n> >>Concerning the ``multivariate'' working group, I have put a preliminary\n> >>Tex and Pdf-file of what we discussed in Treviso online.\n> >>It can be retreived from: http://www.econ.kuleuven.be/public/ndbae49/R/\n> >>\n> >>If anyone has comments or would like to change/update/add things to the\n> >>Tex/Pdf-file you can always contact me or send me an updated Tex-file.\n> >>\n> >>Best regards,\n> >>Kristel\n> >>\n> >>>Martin.\n> >>>\n> >>>_______________________________________________\n> >>>R-SIG-Robust at r-project.org mailing list\n> >>>https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> >>\n> >>--\n> >>__________________________________________\n> >>Kristel Joossens        Ph.D. Student\n> >>Research Center ORSTAT  K.U. Leuven\n> >>Naamsestraat 69         Tel: +32 16 326929\n> >>3000 Leuven, Belgium    Fax: +32 16 326732\n> >>E-mail:  Kristel.Joossens at econ.kuleuven.be\n> >>http://www.econ.kuleuven.be/public/ndbae49\n> >>\n> >>Disclaimer: http://www.kuleuven.be/cwis/email_disclaimer.htm\n> >>\n> >>_______________________________________________\n> >>R-SIG-Robust at r-project.org mailing list\n> >>https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> >>\n>\n> --\n> __________________________________________\n> Kristel Joossens        Ph.D. Student\n> Research Center ORSTAT  K.U. Leuven\n> Naamsestraat 69         Tel: +32 16 326929\n> 3000 Leuven, Belgium    Fax: +32 16 326732\n> E-mail:  Kristel.Joossens at econ.kuleuven.be\n> http://www.econ.kuleuven.be/public/ndbae49\n>\n> Disclaimer: http://www.kuleuven.be/cwis/email_disclaimer.htm\n>\n>",
+      "body_snippet": "1. The FORTRAN code of D. Hawkins can be found at\nftp://www.stat.umn.edu/pub/fsa/readme.ftp\n\nMy R interface is only on my local PC and I'll release the MWCD in rrcov.\n\n2. For completeness you can add ",
+      "thread_id": "thread-4f65908c6b08",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-c521dce83b2e",
+      "message_id": "<Pine.LNX.4.64.0512062009530.2696@egon.stats.ucl.ac.uk>",
+      "from_name": "Christian Hennig",
+      "from_email_hash": "c6936c049c63f68a3abe7b4feaaeafc46eca8c7f28450ceedf1c241a6852be24",
+      "date": "2005-12-06T21:01:13Z",
+      "subject": "[RsR] The descriptive statistics/EDA group in Treviso",
+      "subject_clean": "[RsR] The descriptive statistics/EDA group in Treviso",
+      "in_reply_to": "<4c0e456b0512061111k3e129b8fg4e44cae807fa1e1c@mail.gmail.com>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+        "<17300.9156.266887.251826@stat.math.ethz.ch>",
+        "<439426D9.6070603@econ.kuleuven.be>",
+        "<4c0e456b0512050427v2af94525n4aaf7e43847e257a@mail.gmail.com>",
+        "<4394428F.8040006@econ.kuleuven.be>",
+        "<4c0e456b0512061111k3e129b8fg4e44cae807fa1e1c@mail.gmail.com>"
+      ],
+      "body_plain": "Hi,\n\nI wanted to post the minutes of the descriptive statistics/EDA group in \nTreviso but unfortunately I lost my material from this group somewhere \nbetween Treviso, Cyprus and London. Sorry for that. (Anybody else of \nthe group is of course invited to add or correct something.)\n\nHere are some things that I remind.\n\nWe felt that we were in a difficult position with our group's topic \nbecause the field of descriptive statistics and EDA is very broad and though\nsome of us have written code that could be seen to belong to this topic, \nnobody of the Treviso group members is currently involved in any kind of \nproject concerning the implementation or unification of implementations of \nany existing methods - we just implemented our own stuff to make it \navailable.\n\nTherefore our group didn't start any continuing projects.\nInstead, we discussed some basic issues and tried to work \nthrough some existing functions and documentation.\n\nFirst we tried to demarcate our topic \"robust descriptive statistics and \nEDA\" somehow. Generally, more or less every technique in \nstatistics can be seen as descriptive or explorative as long as it is not \nused with a model-based background. This comprises more or less simple \nsummary statistics, smoothing methods, and the whole field of data visualization.\nRelated to robust statistics, model-free outlier identification rules and \nsensitivity curves can also be included.\n\nIt seems that some scientists use the term \"robust\" only in\nconnection with model-based settings while they prefer the term\n\"resistant\" for descriptive/EDA techniques, which refers to the change of \nthe results of a method caused by small changes in the data. Concepts such \nas minimax asymptotic variance are of course not of interest in \nnon-model-based settings. It is quite difficult to decide whether some \nmethods (especially graphical ones) are qualified to be called \"resistant\"\nor \"robust\".\n\nWe then excluded projection techniques such as PCA, which are usually \ndiscussed under the title \"multivariate analysis\" from what we tried to \ndiscuss.\n\nQuite few resistant techniques are implemented, and they are \ndifficult to find. Descriptive statistics and/or EDA are seemingly not \nofficial keywords (though \"robust\", \"smooth\" and something like \"graphics\"\nare). For example, only a very small part of the techniques suggested in \nTukey and co-author's legendary books seem to be implemented.\n\nThere is no unification of input/output procedures at all, and \nstandard techniques like the boxplot do not use plot/summary-methods \nand the like. However, given the variety in the whole field, we agreed \nthat full unification is not desirable.\n\nThe best thing to do is perhaps to give some non-binding recommendations \nsuch as\n* read documentation and code of existing related methods first (this \nrefers to methods serving the same purpose such as smoothing methods, \nprojection methods, visualization of univariate data etc.) and try to make \ninput and output similar,\n* use print/plot/summary-methods following the standard converntions \nwhenever possible,\n* if your method has an in-built outlier identification, give out an \noutlier identifier or score vector,\n* use \"robust\" in the keywords (and hope that eda or descriptive will be \nintroduced as official keyword, if it applies).\n\nNot too original, I'm afriad, but at least we kept in mind some valuable\nstimulations for our own next packages.\n\nAll the best,\nChristian Hennig\n\n\n\n*** --- ***\nChristian Hennig\nUniversity College London, Department of Statistical Science\nGower St., London WC1E 6BT, phone +44 207 679 1698\nchrish at stats.ucl.ac.uk, www.homepages.ucl.ac.uk/~ucakche",
+      "body_snippet": "Hi,\n\nI wanted to post the minutes of the descriptive statistics/EDA group in \nTreviso but unfortunately I lost my material from this group somewhere \nbetween Treviso, Cyprus and London. Sorry for that",
+      "thread_id": "thread-4f65908c6b08",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-bc451062fce4",
+      "message_id": "<B7C02093A9C6FB47B417FC3FAB0D72140368C0@langouste.zhwin.ch>",
+      "from_name": "Ruckstuhl Andreas (rks)",
+      "from_email_hash": "37bdf46d2d783a56a681e1b57b7a86bd102ccf080b7a413afac034d7f4b1ad36",
+      "date": "2005-12-07T08:57:22+01:00",
+      "subject": "[RsR] OGK covariance estimator",
+      "subject_clean": "[RsR] OGK covariance estimator",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear Martin\n\nMany thanks for starting the discussion.\n\nA few comments to your additional thoughts:\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von \n>> Martin Maechler\n>> Gesendet: Montag, 5. Dezember 2005 10:07\n>> An: Peter Filzmoser\n>> Cc: R-SIG-Robust at stat.math.ethz.ch\n>> Betreff: Re: [RsR] OGK covariance estimator\n>> \n>> Given the traffic on this list, \n>> and the not-yet-publication of the Treviso working group \n>> \"minutes\", let me open the topic to which I alluded above as\n>> well: Our working group (\"regression\", later joined by\n>> \"econometrics\") talked about the possibility and then \n>> desirability of an R package on \"(basic) robust statitics\" which\n>> \n>>  1)  will be backed up by many `robustniks'\n>>  2)  will remain focused, and hence (at least initially)\n>>      primarily based on the methodology in the upcoming book \n>>      by Maronna, Martin and Yohai (=: MMY); and even from there,\n>>      primarily on\n>>       a) regression [including GLM, non-lin reg, maybe a bit more]\n>>       b) multivariate : \"location + scatter\"\n>>  3)  have quite a few authors (in the work group, we had \n>> some \"commitments\"),\n>>      with me as coordinator and maintainer.\n>>  4)  other \"Robustness in R\" packages would *build*\n>>      (i.e. \"Depend\" in  R package lingo) on that basic package,\n>>      and authors that contribute code from their own package\n>>      would of course remain authors and would also keep the\n>>      functions in their own packages (for a while at least; \n>> later their\n>>      package will load or even attach the \"basic robust\"\n>>      package, and hence have the functionality available indirectly).\n>> \n>> -- more details are in the minutes of our workgroup(s) that I've\n>>    sent to Matias {as Treviso co-organizer} to be put on the\n>>    (Treviso RSR) webpage.\n>> \n>> I think it would be great to get feedback from the \n>> R-SIG-robust audience on the above; particularly if you \n>> think that the idea is problematic or needs \n>> amendments/improvements before being workable.\n>> \n>> Last week, I had added the following to (my latex version \n>> of) the minutes:\n>> \n>> ------------------------\n>> \n>>  Later notes -- by Martin Maechler, only\n>>  ---------------------------------------\n>> \n>>   o  Proposed names for the `basic robust statistics' package:\n>>      1. robstats\n>>      2. robbase\n>>      3. baseRob\n>> \n>>    I'm choosing the first one for now.\n\nI good name for the packages is need. Some of the criteria should be that it should be intuitive, easy to remember and easy to find by google. I give slightly more preferences to a names starting with rob....\n\n>> \n>>   o I've added (Rousseeuw & Croux)'s Qn and Sn estimators of\n>>     scale, based on an R package I had started in 2002, which is\n>>     based on the Fortran code from Antwerpen. \n>> \n>>   \\item I plan to add ``\\emph{psi - Function}'' objects, \n>> using an S4 class,\n>>     with instances for Huber, Hampel, Biweight, etc, at least for the\n>>     M-estimators (of location / regression).\n>>     Such an object should contain  $\\rho$, $\\psi$, $w(x) := \n>> \\psi(x)/x$,\n>>     $\\psi'$ (= $d/\\mathrm{dx} \\psi$) functions, default \n>> values for the tuning\n>>     constants, and functionals such as $E_X[\\psi(X)^2]$,  \n>> $E_X[\\psi'(X)]$,\n>>     for $X\\sim N(0,1)$ (these functionals are still \n>> \\emph{functions} of the\n>>     tuning parameters).\n\nI support this approach; in particular that these objects should return more elements than the current versions in MASS. However, this objects are needed not just for linear regression models but also for GLMs. So I wonder whether there are alternatives for including the functionals (based on the normal case) in the same object.\n\nEnclose, you find a temporary private package containing several functions. You are probably most interested in the robust fitting of Generalized Linear Models based on E. Cantoni and E. Ronchetti (2001). It is a new implementation. The fitting function is called rfglm(). There is also a function to compare two models: modsel.rfglm(). The name of this function is under revision. I going to call it anova (i.e. I will implement anova.rfglm()).\n\nTalking about names: how should we call functions which do i.e. robust fitting of a glm:\n\trfglm  (Robust Fitting of GLM)\n\trglm\n\trobglm\n\nAny comments to the naming or to the functions itself are very welcome.\n\n\n>> \n>>     Very similarly, I'm interested also in the $\\chi$ \n>> functions used for\n>>     B-/V- optimal M-estimators of \\emph{scale}, both the \n>> monotone and the\n>>     redescending ones.\n>> \n>>     In general, I think we should add ``\\textbf{basic M-estimation}''\n>>     things to the package as well, similar to, but\n>>     more general than \\code{MASS::huber}; note that I'd like to\n>>     contribute \\code{sfsmisc::huberM} (my `improved' \\code{huber})\n>>     to the \\pkg{robstats} as well.\n>> \n>> ------------------------\n>> \n>> and actually I've done the S4 class for \"psi-function\" \n>> objects last Friday.\n\nGreat! \n>> \n>> Now I'm interested to hear more..\n>> Martin\n\n\nAll the best\nAndreas\n>> \n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list \n>> https://stat.ethz.ch/mailman/listinfo/r-sig->> robust\n>> \n\n\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: RobFit_0.2.1.zip\nType: application/x-zip-compressed\nSize: 139091 bytes\nDesc: RobFit_0.2.1.zip\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20051207/1a0903fe/attachment.bin>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: RobFit_0.2.1.tar.gz\nType: application/x-gzip\nSize: 25777 bytes\nDesc: RobFit_0.2.1.tar.gz\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20051207/1a0903fe/attachment-0001.bin>",
+      "body_snippet": "Dear Martin\n\nMany thanks for starting the discussion.\n\nA few comments to your additional thoughts:\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig",
+      "thread_id": "thread-bc451062fce4",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-b6b0e17e5dea",
+      "message_id": "<17302.40069.407291.362568@stat.math.ethz.ch>",
+      "from_name": "Werner Stahel",
+      "from_email_hash": "101ca612b9f2346f74dcc9ac2f117318c822c9dbf0fb189a26e0662e2f574bdb",
+      "date": "2005-12-07T09:25:41+01:00",
+      "subject": "[RsR] Package title (was: OGK covariance estimator)",
+      "subject_clean": "[RsR] Package title (was: OGK covariance estimator)",
+      "in_reply_to": "<17301.48042.657996.90972@stat.math.ethz.ch>",
+      "references": [
+        "<11544d000512060204j1c64fbcbr@mail.gmail.com>",
+        "<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>",
+        "<17301.48042.657996.90972@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Hello\n\nNames are always nice to discuss. Let me add a simple proposal\nfor the name of the package:\nrobust\nSince this should be the well maintained collection of robust\nmethods, I would go for the \"generic\" name.\n\nWerner",
+      "body_snippet": "Hello\n\nNames are always nice to discuss. Let me add a simple proposal\nfor the name of the package:\nrobust\nSince this should be the well maintained collection of robust\nmethods, I would go for the \"gen",
+      "thread_id": "thread-c46ec956b260",
+      "thread_depth": 3,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-300b20248b2c",
+      "message_id": "<Pine.LNX.4.64.0512070956530.923@linaria.dst.unive.it>",
+      "from_name": "claudio",
+      "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
+      "date": "2005-12-07T10:00:17+01:00",
+      "subject": "[RsR] RSR slides",
+      "subject_clean": "[RsR] RSR slides",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\nI finally post today the slides of the talks in the RSR website under the \nfollowing address:\n\nwww.dst.unive.it/rsr/program.html\n\nIn case of problems in downloading the material, please contact me \ndirectly at my address.\n\nClaudio\n\n--------------------------------------------------------------\nClaudio Agostinelli\nDipartimento di Statistica\nUniversita' Ca' Foscari di Venezia\nSan Giobbe, Cannaregio 873\n30121 Venezia\nTel: 041 2347446, Fax: 041 2347444\nemail: claudio at unive.it, www: www.dst.unive.it/~claudio\n--------------------------------------------------------------\nPer favore non mandatemi allegati in Word o PowerPoint.\nSi veda http://www.gnu.org/philosophy/no-word-attachments.html\n\nPlease avoid sending me Word or PowerPoint attachments.\nSee http://www.gnu.org/philosophy/no-word-attachments.html",
+      "body_snippet": "Dear All,\nI finally post today the slides of the talks in the RSR website under the \nfollowing address:\n\nwww.dst.unive.it/rsr/program.html\n\nIn case of problems in downloading the material, please cont",
+      "thread_id": "thread-300b20248b2c",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-0df545a5faed",
+      "message_id": "<5.1.0.14.2.20051207121842.023b1008@pop.intranet.chuv>",
+      "from_name": "Alfio Marazzi",
+      "from_email_hash": "4514d3a4e9c3e492aafd6e6acb7664f13bf5babff1bd9748be4d0eed85f9577f",
+      "date": "2005-12-07T12:20:53+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hallo,\nI agree with Werner's proposal:   \"robust\"\nAlfio",
+      "body_snippet": "Hallo,\nI agree with Werner's proposal:   \"robust\"\nAlfio",
+      "thread_id": "thread-0df545a5faed",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-e68eb2268b08",
+      "message_id": "<4396EDFC.BE4FDE6F@tuwien.ac.at>",
+      "from_name": "Rudi Dutter",
+      "from_email_hash": "e60b984b9d28bf05c74cc3b85f84d6012cdb3d8cbec6b3cbbb69d154270b139c",
+      "date": "2005-12-07T15:13:16+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": null,
+      "references": [
+        "<5.1.0.14.2.20051207121842.023b1008@pop.intranet.chuv>"
+      ],
+      "body_plain": "Dear `robustniks',\n\nFirst I liked very much one of the proposed names in the letter by Martin on\nDec. 5, namely \n\"baseRob\".\nI thought that starting with 'base' is a good thing. Unfortunately it doesn't\ncontain the keyword 'robust'.\nTherefore I find that the name \"robust\" is short and contains the essential.\nRudi\n\nAlfio Marazzi wrote:\n> \n> Hallo,\n> I agree with Werner's proposal:   \"robust\"\n> Alfio\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\nFrom: Prof. Dr. Rudolf Dutter\n      Dept. of Statistics and Probability Theory\n      Vienna University of Technology,\n      Wiedner Hauptstr. 8-10\n      A-1040 Vienna, Austria\n      Tel. +43 1 58801/10730\n      FAX  +43 1 58801/10799\n      E-Mail: R.Dutter at tuwien.ac.at\n      Internet: http://www.statistik.tuwien.ac.at/public/dutt/\n~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=",
+      "body_snippet": "Dear `robustniks',\n\nFirst I liked very much one of the proposed names in the letter by Martin on\nDec. 5, namely \n\"baseRob\".\nI thought that starting with 'base' is a good thing. Unfortunately it doesn'",
+      "thread_id": "thread-0df545a5faed",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-f40188b0fd1b",
+      "message_id": "<17302.61918.196538.812904@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-07T15:29:50+01:00",
+      "subject": "[RsR] Package title (was: OGK covariance estimator)",
+      "subject_clean": "[RsR] Package title (was: OGK covariance estimator)",
+      "in_reply_to": "<17302.40069.407291.362568@stat.math.ethz.ch>",
+      "references": [
+        "<11544d000512060204j1c64fbcbr@mail.gmail.com>",
+        "<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>",
+        "<17301.48042.657996.90972@stat.math.ethz.ch>",
+        "<17302.40069.407291.362568@stat.math.ethz.ch>"
+      ],
+      "body_plain": ">>>>> \"Wst\" == Werner Stahel <stahel at stat.math.ethz.ch>\n>>>>>     on Wed, 7 Dec 2005 09:25:41 +0100 writes:\n\n    Wst> Hello Names are always nice to discuss. Let me add a\n    Wst> simple proposal for the name of the package: robust\n    Wst> Since this should be the well maintained collection of\n    Wst> robust methods, I would go for the \"generic\" name.\n\n(and Alfio Marazzi agreed with you).\n\nThere is one very good reason against 'robust':\nInsightful's  library(robust) for S-plus.\n\nOur package will certainly not be a clone, and probably quite\ndifferent in more than respect.  If we chose the same name,\nthat would lead to a *lot* of potential user confusion for those\nwho use both R and S-plus.\nI'm sorry but I think that \"robust\" is really already taken in\nthe world of S ...\n\nMartin",
+      "body_snippet": ">>>>> \"Wst\" == Werner Stahel <stahel at stat.math.ethz.ch>\n>>>>>     on Wed, 7 Dec 2005 09:25:41 +0100 writes:\n\n    Wst> Hello Names are always nice to discuss. Let me add a\n    Wst> simple proposal f",
+      "thread_id": "thread-c46ec956b260",
+      "thread_depth": 4,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-1997300ad768",
+      "message_id": "<124C4B7F63D7484DAE025A1154BF437384D963@MEX.kshad.hu>",
+      "from_name": "Kmetty Zoltan",
+      "from_email_hash": "74621fd3425ac1421253e31bd473d0ad9d766464e1ccd1feb7c644b0d80abccc",
+      "date": "2005-12-08T11:09:01+01:00",
+      "subject": "[RsR] sm",
+      "subject_clean": "[RsR] sm",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hy!\n\n \n\nIm not sure in the right place, but i have some question about R\nprogramming, I hope you should help me. Now im doing a statistical\nmatching (datafusion) microsimulation project, and i try to programme it\nin R.\n\nHas everybody any experience (R codes, which package to use...) in this\ntheme? \n\n \n\nZoltan Kmetty\n\nHungarian Central Statistical Office\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hy!\n\n \n\nIm not sure in the right place, but i have some question about R\nprogramming, I hope you should help me. Now im doing a statistical\nmatching (datafusion) microsimulation project, and i try to ",
+      "thread_id": "thread-1997300ad768",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-ab77d324b898",
+      "message_id": "<43980A43.20107@tuwien.ac.at>",
+      "from_name": "Peter Filzmoser",
+      "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
+      "date": "2005-12-08T11:26:11+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": "<17302.61918.196538.812904@stat.math.ethz.ch>",
+      "references": [
+        "<11544d000512060204j1c64fbcbr@mail.gmail.com>",
+        "<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>",
+        "<17301.48042.657996.90972@stat.math.ethz.ch>",
+        "<17302.40069.407291.362568@stat.math.ethz.ch>",
+        "<17302.61918.196538.812904@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Martin Maechler wrote:\n>>>>>>\"Wst\" == Werner Stahel <stahel at stat.math.ethz.ch>\n>>>>>>    on Wed, 7 Dec 2005 09:25:41 +0100 writes:\n> \n> \n>     Wst> Hello Names are always nice to discuss. Let me add a\n>     Wst> simple proposal for the name of the package: robust\n>     Wst> Since this should be the well maintained collection of\n>     Wst> robust methods, I would go for the \"generic\" name.\n> \n> (and Alfio Marazzi agreed with you).\n> \n> There is one very good reason against 'robust':\n> Insightful's  library(robust) for S-plus.\n> \n> Our package will certainly not be a clone, and probably quite\n> different in more than respect.  If we chose the same name,\n> that would lead to a *lot* of potential user confusion for those\n> who use both R and S-plus.\n> I'm sorry but I think that \"robust\" is really already taken in\n> the world of S ...\n\nHow about \"robust-base\"? I rather prefer longer abbreviations\nthan shorter if confusion can be avoided. The advantage is that\nwe can then also have packages \"robust-mva\", \"robust-glm\" etc.,\nand it is easy to find all \"robust\" packages since they are\nin alphabetical order.\n\nPeter\n\n> \n> Martin\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> \n> \n\n\n-- \n-------------------------------------------------------\nFrom: Prof. Dr. Peter Filzmoser\n       Dept. of Statistics & Probability Theory\n       Vienna University of Technology\n       Wiedner Hauptstrasse 8-10\n       A-1040 Vienna, Austria\n       Tel. +43 1 58801/10733\n       Fax. +43 1 58801/10799\n       E-mail: P.Filzmoser at tuwien.ac.at\n       Internet:\n       http://www.statistik.tuwien.ac.at/public/filz/",
+      "body_snippet": "Martin Maechler wrote:\n>>>>>>\"Wst\" == Werner Stahel <stahel at stat.math.ethz.ch>\n>>>>>>    on Wed, 7 Dec 2005 09:25:41 +0100 writes:\n> \n> \n>     Wst> Hello Names are always nice to discuss. Let me ad",
+      "thread_id": "thread-c46ec956b260",
+      "thread_depth": 5,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-b9161c9b3126",
+      "message_id": "<17305.21238.502015.472396@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-09T10:48:38+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": "<17305.15557.299642.91604@celebrian.ci.tuwien.ac.at>",
+      "references": [
+        "<11544d000512060204j1c64fbcbr@mail.gmail.com>",
+        "<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>",
+        "<17301.48042.657996.90972@stat.math.ethz.ch>",
+        "<17302.40069.407291.362568@stat.math.ethz.ch>",
+        "<17302.61918.196538.812904@stat.math.ethz.ch>",
+        "<43980A43.20107@tuwien.ac.at>",
+        "<17305.15557.299642.91604@celebrian.ci.tuwien.ac.at>"
+      ],
+      "body_plain": ">>>>> \"FrL\" == Friedrich Leisch <Friedrich.Leisch at tuwien.ac.at>\n>>>>>     on Fri, 9 Dec 2005 09:13:57 +0100 writes:\n\n>>>>> On Thu, 08 Dec 2005 11:26:11 +0100,\n>>>>> Peter Filzmoser (PF) wrote:\n\n\n    >> How about \"robust-base\"? I rather prefer longer abbreviations\n    >> than shorter if confusion can be avoided. The advantage is that\n    >> we can then also have packages \"robust-mva\", \"robust-glm\" etc.,\n    >> and it is easy to find all \"robust\" packages since they are\n    >> in alphabetical order.\n\n    FrL> The dash is not a legal character for package names, because, e.g.,\n\nyes, thank you Fritz;\nand thanks to the other proposals and thoughts.\n\n     .....\n\n    FrL> We could do robust.base, roubust.mva, ... though.\n\nAs long as packages cannot export their C API, and also for\nother reasons, I don't think I'd aim for more than one\n\"basic robustness\" package.\nOne of the major points has been that the package becomes so\nimportant (and \"well done\") that it will become a 'Recommended'\none.\nFor that very reason, it should not try to do \"everything\"\n(robust) but the *important* things, maybe in the sense that we\n(\"workgroup regression\" and others, at Treviso) had outlined\nearlier.\n\nOther people would build specialized packages that have \n'Depends: BasicRobustStatistics' in their DESCRIPTION setup,\n\nwhere, given the comments so far (and my taste..)\nI'd still vote for\n    'robusta'  (from Valentin)\nor  'robustats'\n\nI'd definitely like something easy to spell (correctly) and to\npronounce.  The 2nd proposal (above) is already at the border of\nbeing easily understood in oral communications.\n\nMartin",
+      "body_snippet": ">>>>> \"FrL\" == Friedrich Leisch <Friedrich.Leisch at tuwien.ac.at>\n>>>>>     on Fri, 9 Dec 2005 09:13:57 +0100 writes:\n\n>>>>> On Thu, 08 Dec 2005 11:26:11 +0100,\n>>>>> Peter Filzmoser (PF) wrote:\n\n\n  ",
+      "thread_id": "thread-b9161c9b3126",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-e6538519207a",
+      "message_id": "<11544d000512090447v7e112e6fo@mail.gmail.com>",
+      "from_name": "Jean-Christophe BOUETTE",
+      "from_email_hash": "1d968b515f84f2f6fd12032b34f153f8361dea9c7cedce8e97554405f57dc5d1",
+      "date": "2005-12-09T13:47:41+01:00",
+      "subject": "[RsR]  Package title",
+      "subject_clean": "[RsR]  Package title",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi everybody\n\nOk, if a votation is going to take place I vote for\nrobustat :-)\n\nI also volunteer for testing the package... I'd volunteer for\ndeveloping it if I were older than six months with R ;-)\n\nSo please feel free to send me private e-mails.\nJean-Christophe.\n\n> Date: Fri, 9 Dec 2005 10:48:38 +0100\n> From: Martin Maechler <maechler at stat.math.ethz.ch>\n> Subject: Re: [RsR] Package title\n> To: Friedrich.Leisch at tuwien.ac.at\n> Cc: r-sig-robust at r-project.org\n> Message-ID: <17305.21238.502015.472396 at stat.math.ethz.ch>\n> Content-Type: text/plain; charset=us-ascii\n>\n> >>>>> \"FrL\" == Friedrich Leisch <Friedrich.Leisch at tuwien.ac.at>\n> >>>>>     on Fri, 9 Dec 2005 09:13:57 +0100 writes:\n>\n> >>>>> On Thu, 08 Dec 2005 11:26:11 +0100,\n> >>>>> Peter Filzmoser (PF) wrote:\n>\n>\n>    >> How about \"robust-base\"? I rather prefer longer abbreviations\n>    >> than shorter if confusion can be avoided. The advantage is that\n>    >> we can then also have packages \"robust-mva\", \"robust-glm\" etc.,\n>    >> and it is easy to find all \"robust\" packages since they are\n>    >> in alphabetical order.\n>\n>    FrL> The dash is not a legal character for package names, because, e.g.,\n>\n> yes, thank you Fritz;\n> and thanks to the other proposals and thoughts.\n>\n>     .....\n>\n>    FrL> We could do robust.base, roubust.mva, ... though.\n>\n> As long as packages cannot export their C API, and also for\n> other reasons, I don't think I'd aim for more than one\n> \"basic robustness\" package.\n> One of the major points has been that the package becomes so\n> important (and \"well done\") that it will become a 'Recommended'\n> one.\n> For that very reason, it should not try to do \"everything\"\n> (robust) but the *important* things, maybe in the sense that we\n> (\"workgroup regression\" and others, at Treviso) had outlined\n> earlier.\n>\n> Other people would build specialized packages that have\n> 'Depends: BasicRobustStatistics' in their DESCRIPTION setup,\n>\n> where, given the comments so far (and my taste..)\n> I'd still vote for\n>    'robusta'  (from Valentin)\n> or  'robustats'\n>\n> I'd definitely like something easy to spell (correctly) and to\n> pronounce.  The 2nd proposal (above) is already at the border of\n> being easily understood in oral communications.\n>\n> Martin\n>\n>\n>\n> ------------------------------\n>\n> _______________________________________________\n> R-SIG-Robust mailing list\n> R-SIG-Robust at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Hi everybody\n\nOk, if a votation is going to take place I vote for\nrobustat :-)\n\nI also volunteer for testing the package... I'd volunteer for\ndeveloping it if I were older than six months with R ;-)\n\n",
+      "thread_id": "thread-e6538519207a",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-f1a9b9671381",
+      "message_id": "<17305.34945.268465.777346@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-09T14:37:05+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": "<11544d000512090447v7e112e6fo@mail.gmail.com>",
+      "references": [
+        "<11544d000512090447v7e112e6fo@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> \"Jean-Christophe\" == Jean-Christophe BOUETTE <jcbouette at gmail.com>\n>>>>>     on Fri, 9 Dec 2005 13:47:41 +0100 writes:\n\n    Jean-Christophe> Hi everybody\n    Jean-Christophe> Ok, if a votation is going to take place I vote for\n    Jean-Christophe> robustat :-)\n\nyou mean    mean(c(robusta, robustats)) \nor rather  huber(c(robusta, robustats))  ;-) ?\n\nThe reason for \"*stats\" was that there's already the basic\n\"stats\"  (and \"stats4\") package...",
+      "body_snippet": ">>>>> \"Jean-Christophe\" == Jean-Christophe BOUETTE <jcbouette at gmail.com>\n>>>>>     on Fri, 9 Dec 2005 13:47:41 +0100 writes:\n\n    Jean-Christophe> Hi everybody\n    Jean-Christophe> Ok, if a votatio",
+      "thread_id": "thread-e6538519207a",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-eb5a06095abd",
+      "message_id": "<17305.36909.632949.308900@celebrian.ci.tuwien.ac.at>",
+      "from_name": "Friedrich@Leisch m@iii@g oii tuwie@@@c@@t",
+      "from_email_hash": "32c138b6dfb45bb7af61fdccc8da40ad705cb2ec7823755e1be5f36f61d6450f",
+      "date": "2005-12-09T15:09:49+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": "<17305.34945.268465.777346@stat.math.ethz.ch>",
+      "references": [
+        "<11544d000512090447v7e112e6fo@mail.gmail.com>",
+        "<17305.34945.268465.777346@stat.math.ethz.ch>"
+      ],
+      "body_plain": ">>>>> On Fri, 9 Dec 2005 14:37:05 +0100,\n>>>>> Martin Maechler (MM) wrote:\n\n>>>>> \"Jean-Christophe\" == Jean-Christophe BOUETTE <jcbouette at gmail.com>\n>>>>>     on Fri, 9 Dec 2005 13:47:41 +0100 writes:\n\n  Jean-Christophe> Hi everybody\n  Jean-Christophe> Ok, if a votation is going to take place I vote for\n  Jean-Christophe> robustat :-)\n\n  > you mean    mean(c(robusta, robustats)) \n  > or rather  huber(c(robusta, robustats))  ;-) ?\n\n  > The reason for \"*stats\" was that there's already the basic\n  > \"stats\"  (and \"stats4\") package...\n\nUsing google to evaluate vocabulary seems popular these days (see the\nthread on Gibraltar on r-devel ;-), so let's see:\n\nAs someone (forgot who) has already mentioned in this thread, googling\ngives 2.1 million hits for \"robusta\", 70 for \"robustat\" and 9 for\n\"robustats\".\n\nSo together with the very good argument on \"stats\" and \"stats4\" by\nMartin I'd strongly vote for \"robustats\". If we put a package of that\nname on CRAN I expect it to be the Google top hit for its name within\na few weeks (if not days).\n\nJust my 2c,\nFritz\n\nPS: Of course we may also make the top hit for \"robusta\" ... googling\nfor the single letter \"R\" returns the R homepage as top link for a\ncouple of years now. But it is not really necessary to make searching\nhard ... and searching for \"robusta\", e.g., in publication databases\nmay return a large number of biological articles for a long time.",
+      "body_snippet": ">>>>> On Fri, 9 Dec 2005 14:37:05 +0100,\n>>>>> Martin Maechler (MM) wrote:\n\n>>>>> \"Jean-Christophe\" == Jean-Christophe BOUETTE <jcbouette at gmail.com>\n>>>>>     on Fri, 9 Dec 2005 13:47:41 +0100 writ",
+      "thread_id": "thread-e6538519207a",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-12b73bd0e2f6",
+      "message_id": "<11544d000512090626ib75e9b3w@mail.gmail.com>",
+      "from_name": "Jean-Christophe BOUETTE",
+      "from_email_hash": "1d968b515f84f2f6fd12032b34f153f8361dea9c7cedce8e97554405f57dc5d1",
+      "date": "2005-12-09T15:26:21+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": "<17305.36909.632949.308900@celebrian.ci.tuwien.ac.at>",
+      "references": [
+        "<11544d000512090447v7e112e6fo@mail.gmail.com>",
+        "<17305.34945.268465.777346@stat.math.ethz.ch>",
+        "<17305.36909.632949.308900@celebrian.ci.tuwien.ac.at>"
+      ],
+      "body_plain": "an example of \"publication database\" :\nhttp://scholar.google.com\nrobusta : more than 20 thousands hits\nrobustat : 14 hits\nrobustats : no hit.\n...\n\nJean-Christophe.\n\n2005/12/9, Friedrich.Leisch at tuwien.ac.at <Friedrich.Leisch at tuwien.ac.at>:\n> >>>>> On Fri, 9 Dec 2005 14:37:05 +0100,\n> >>>>> Martin Maechler (MM) wrote:\n>\n> >>>>> \"Jean-Christophe\" == Jean-Christophe BOUETTE <jcbouette at gmail.com>\n> >>>>>     on Fri, 9 Dec 2005 13:47:41 +0100 writes:\n>\n>  Jean-Christophe> Hi everybody\n>  Jean-Christophe> Ok, if a votation is going to take place I vote for\n>  Jean-Christophe> robustat :-)\n>\n>  > you mean    mean(c(robusta, robustats))\n>  > or rather  huber(c(robusta, robustats))  ;-) ?\n>\n>  > The reason for \"*stats\" was that there's already the basic\n>  > \"stats\"  (and \"stats4\") package...\n>\n> Using google to evaluate vocabulary seems popular these days (see the\n> thread on Gibraltar on r-devel ;-), so let's see:\n>\n> As someone (forgot who) has already mentioned in this thread, googling\n> gives 2.1 million hits for \"robusta\", 70 for \"robustat\" and 9 for\n> \"robustats\".\n>\n> So together with the very good argument on \"stats\" and \"stats4\" by\n> Martin I'd strongly vote for \"robustats\". If we put a package of that\n> name on CRAN I expect it to be the Google top hit for its name within\n> a few weeks (if not days).\n>\n> Just my 2c,\n> Fritz\n>\n> PS: Of course we may also make the top hit for \"robusta\" ... googling\n> for the single letter \"R\" returns the R homepage as top link for a\n> couple of years now. But it is not really necessary to make searching\n> hard ... and searching for \"robusta\", e.g., in publication databases\n> may return a large number of biological articles for a long time.\n>",
+      "body_snippet": "an example of \"publication database\" :\nhttp://scholar.google.com\nrobusta : more than 20 thousands hits\nrobustat : 14 hits\nrobustats : no hit.\n...\n\nJean-Christophe.\n\n2005/12/9, Friedrich.Leisch at tuwi",
+      "thread_id": "thread-e6538519207a",
+      "thread_depth": 3,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-dfb1530040cc",
+      "message_id": "<17305.43115.707102.174066@stat.math.ethz.ch>",
+      "from_name": "Werner Stahel",
+      "from_email_hash": "101ca612b9f2346f74dcc9ac2f117318c822c9dbf0fb189a26e0662e2f574bdb",
+      "date": "2005-12-09T16:53:15+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi\n\nThe name again ...\nI prefer \nrobustbase\nto \nrobustats\nas I am not sure everybody appreciates and remembers the lacking\nsecond st (that would lead to  robuststats )\n\nThis package should include all the stuff that you planned.\nIf there will be robust.mva, it will be additional material, while\nrobustbase \nshould include procedures for mva, regression, ...\n\nTake care\n\nWerner Stahel\n----------------- This message was sent by ---------------------------\nWerner Stahel                              http://stat.ethz.ch/~stahel\nSeminar fuer Statistik                     phone  :    +41 1 632 34 30\nETH-Zentrum, LEO D8                        fax    :    +41 1 632 12 28\nCH-8092 Zurich, Switzerland                meet me: Leonhardstr.27, D8",
+      "body_snippet": "Hi\n\nThe name again ...\nI prefer \nrobustbase\nto \nrobustats\nas I am not sure everybody appreciates and remembers the lacking\nsecond st (that would lead to  robuststats )\n\nThis package should include all",
+      "thread_id": "thread-dfb1530040cc",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-073829eef5b0",
+      "message_id": "<5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>",
+      "from_name": "Alfio Marazzi",
+      "from_email_hash": "4514d3a4e9c3e492aafd6e6acb7664f13bf5babff1bd9748be4d0eed85f9577f",
+      "date": "2005-12-10T19:32:59+01:00",
+      "subject": "[RsR] Package title",
+      "subject_clean": "[RsR] Package title",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nagain, I agree with Werner: robustbase (robust-base, robust.base) is much \neaser to remember than robstats (robstat) and more appropriate than robusta.\n\nAlfio",
+      "body_snippet": "Hi,\n\nagain, I agree with Werner: robustbase (robust-base, robust.base) is much \neaser to remember than robstats (robstat) and more appropriate than robusta.\n\nAlfio",
+      "thread_id": "thread-073829eef5b0",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-1bc57aa6a2d2",
+      "message_id": "<439D397A.7000808@tuwien.ac.at>",
+      "from_name": "Peter Filzmoser",
+      "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
+      "date": "2005-12-12T09:48:58+01:00",
+      "subject": "[RsR] Web page",
+      "subject_clean": "[RsR] Web page",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nIn Treviso we talked about an own web page for \"Robust\nStatistics and R\". Here it is:\n\nhttp://www.r-project.org/Robust\n\n(the real address is http://www.statistik.tuwien.ac.at/rsr/)\n\nYou can also find the page via the R web page\nhttp://www.r-project.org/\nunder \"Related Projects\", which is at\nhttp://www.r-project.org/other-projects.html\n\nThere is an entry\nRobust: Robust Statistics with R\n     This web page contains information about the development of tools \nin\n     R for methods in Robust Statistics.\n\nThe web page includes information on\n- our mailing list\n- important events\n- results of the working groups in Treviso\n- software on robustness\n\nOf course, it is far from being complete. One reason is also\nthat we didn't get the minutes from all working groups.\n\nPlease, feel free to make suggestions for improving the page!\n\nWe are also thinking about installing a tool like \"wiki\" to\nallow for a more interactive page.\n\nBest regards,\nPeter\n-- \n-------------------------------------------------------\nFrom: Prof. Dr. Peter Filzmoser\n       Dept. of Statistics & Probability Theory\n       Vienna University of Technology\n       Wiedner Hauptstrasse 8-10\n       A-1040 Vienna, Austria\n       Tel. +43 1 58801/10733\n       Fax. +43 1 58801/10799\n       E-mail: P.Filzmoser at tuwien.ac.at\n       Internet:\n       http://www.statistik.tuwien.ac.at/public/filz/",
+      "body_snippet": "Dear all,\n\nIn Treviso we talked about an own web page for \"Robust\nStatistics and R\". Here it is:\n\nhttp://www.r-project.org/Robust\n\n(the real address is http://www.statistik.tuwien.ac.at/rsr/)\n\nYou can",
+      "thread_id": "thread-1bc57aa6a2d2",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-b42c807711af",
+      "message_id": "<17312.13921.354305.320499@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-14T16:12:33+01:00",
+      "subject": "[RsR] Package name",
+      "subject_clean": "[RsR] Package name",
+      "in_reply_to": "<5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>",
+      "references": [
+        "<5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>"
+      ],
+      "body_plain": ">>>>> \"Alfio\" == Alfio Marazzi <Alfio.Marazzi at chuv.ch>\n>>>>>     on Sat, 10 Dec 2005 19:32:59 +0100 writes:\n\n    Alfio> Hi,\n    Alfio> again, I agree with Werner: robustbase (robust-base, robust.base) is much \n    Alfio> easer to remember than robstats (robstat) and more appropriate than robusta.\n\nand we haven't heard anything further.\nI'd like to reach a conclusion.\n\nOn some forums, the last answer is taken to be okay when nobody\nreplies anymore.  I doubt though that this would be the case\nhere :-)\n\nIn my (biased) view I think we have the following highest\nranking contenders (\"-\" and \".\" are not to be used in package names):\n\n 1  robustbase\n 2  robustats\n 3  robustat\n 4  robusta\n\nwith some google-statistics arguments against #4.\n\nUnless there are urgent new contenders, \ncan I collect votes, please?\nTo make it interesting, everyone would have 3 votes that can of\ncourse be partitioned as  3 or 2+1 or 1+1+1.\n\nIdeally, you send them privately to me {where you have to trust\nmy honesty ;-)}, or then (mis)use the list.\n\nIn order to easily collect the votes, a simple e-mail with only\none line such as \n\nAlfio  3 0 0 0\n       ( \"Alfio gives all his 3 votes to 'robustbase'\") \nor\nMartin 0 1 0 2\n       ( \"Martin gives 1 to 'robustats' and 2 to 'robusta')\n\nwould make things quite efficient for me\nsince I could use read.table() and rowSums() and colSums() to\ncheck and summarize.\n\nUnless we get new contenders (i.e. names for the above list)\nwithin the next 12 hours, I'll be collecting votes till\nSunday, Dec.18, midnight MET (= UTC+1).\n\nMartin",
+      "body_snippet": ">>>>> \"Alfio\" == Alfio Marazzi <Alfio.Marazzi at chuv.ch>\n>>>>>     on Sat, 10 Dec 2005 19:32:59 +0100 writes:\n\n    Alfio> Hi,\n    Alfio> again, I agree with Werner: robustbase (robust-base, robust.ba",
+      "thread_id": "thread-073829eef5b0",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-873ecf75ceac",
+      "message_id": "<17313.40798.623273.319760@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-15T17:52:46+01:00",
+      "subject": "[RsR] Package name voting state",
+      "subject_clean": "[RsR] Package name voting state",
+      "in_reply_to": "<17312.13921.354305.320499@stat.math.ethz.ch>",
+      "references": [
+        "<5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>",
+        "<17312.13921.354305.320499@stat.math.ethz.ch>"
+      ],
+      "body_plain": "I didn't get strong statements for yet another name, so the vote\n\"is it\" ...  Well, it seems pretty clear at the moment, but\nthen, many more people could still vote...\n\nA simple R script (and a cron job) auto-produces the\nwebpage\n\thttp://stat.ethz.ch/~maechler/R-sig-robust-vote.html\nfrom the data file {that I update manually}.\n\nI know from politics that it is strictly forbidden to publish\npolls when the vote is still happening {because of the\nwell-known \"the winner takes it all\" effect},\nbut then we want to have some fun, too...  ;-)\n\nMartin\n\n>>>>> \"MM\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Wed, 14 Dec 2005 16:12:33 +0100 writes:\n\n     .........\n\n    MM> I'd like to reach a conclusion.\n\n    MM> On some forums, the last answer is taken to be okay when nobody\n    MM> replies anymore.  I doubt though that this would be the case\n    MM> here :-)\n\n    MM> In my (biased) view I think we have the following highest\n    MM> ranking contenders (\"-\" and \".\" are not to be used in package names):\n\n    MM> 1  robustbase\n    MM> 2  robustats\n    MM> 3  robustat\n    MM> 4  robusta\n\n    MM> with some google-statistics arguments against #4.\n\n    MM> Unless there are urgent new contenders, \n    MM> can I collect votes, please?\n    MM> To make it interesting, everyone would have 3 votes that can of\n    MM> course be partitioned as  3 or 2+1 or 1+1+1.\n\n    MM> Ideally, you send them privately to me {where you have to trust\n    MM> my honesty ;-)}, or then (mis)use the list.\n\n    MM> In order to easily collect the votes, a simple e-mail with only\n    MM> one line such as \n\n    MM> Alfio  3 0 0 0\n    MM> ( \"Alfio gives all his 3 votes to 'robustbase'\") \n    MM> or\n    MM> Martin 0 1 0 2\n    MM> ( \"Martin gives 1 to 'robustats' and 2 to 'robusta')\n\n    MM> would make things quite efficient for me\n    MM> since I could use read.table() and rowSums() and colSums() to\n    MM> check and summarize.\n\n    MM> Unless we get new contenders (i.e. names for the above list)\n    MM> within the next 12 hours, I'll be collecting votes till\n    MM> Sunday, Dec.18, midnight MET (= UTC+1).",
+      "body_snippet": "I didn't get strong statements for yet another name, so the vote\n\"is it\" ...  Well, it seems pretty clear at the moment, but\nthen, many more people could still vote...\n\nA simple R script (and a cron j",
+      "thread_id": "thread-073829eef5b0",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-86638cf2890f",
+      "message_id": "<3048.83.253.15.61.1134996754.squirrel@poisson.statisticon.se>",
+      "from_name": "Henric Nilsson",
+      "from_email_hash": "47bce86a83d8ceb3e2c2f37a2810c5b1ba42b6ddcdd13095d20075d449854019",
+      "date": "2005-12-19T13:52:34+01:00",
+      "subject": "[RsR] Robust Statistical Methods with R book",
+      "subject_clean": "[RsR] Robust Statistical Methods with R book",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nWhile ordering some books at CRC Press, I stumbled on the \"Robust\nStatistical Methods with R\" by Jana Jureckova and Jan Picek.\n\nhttp://www.crcpress.com/shopping_cart/products/product_contents.asp?id=&parent_id=&sku=C4541\n\nIt seems it was released pretty recently, but maybe some of you have\nalready managed to obtain a copy. Any comments (before I'm spending the\nmoney)?\n\n\nThanks,\nHenric",
+      "body_snippet": "Dear list,\n\nWhile ordering some books at CRC Press, I stumbled on the \"Robust\nStatistical Methods with R\" by Jana Jureckova and Jan Picek.\n\nhttp://www.crcpress.com/shopping_cart/products/product_conte",
+      "thread_id": "thread-86638cf2890f",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-8c2d8aecba8c",
+      "message_id": "<43A7221B.2090909@uni-bayreuth.de>",
+      "from_name": "Peter Ruckdeschel",
+      "from_email_hash": "17c808d7718cd0c9159561d07c2bb28d544ea44aa13a5f06cdc2d1a76db2300f",
+      "date": "2005-12-19T22:11:55+01:00",
+      "subject": "[RsR] Minutes and/or reports of the working groups ...",
+      "subject_clean": "[RsR] Minutes and/or reports of the working groups ...",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA1\n \nhi\n\nfirst of all apologies for the late sending -- we will try to be\nbetter/earlier\nnext time;\n\non http://www.uni-bayreuth.de/departments/math/org/mathe7/RsR/\nyou may find  a report of the working group \"Time series\" of the\nRsR workshop ---\n\ngeneral remarks:\n\n*we would like to take you all in as to\n  point \"Open Questions / Wish list\"\n\n*all project proposals are open for\n  contributions / suggestions\n\nBest regards,\nPeter\n\n\n\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1.4.1 (MingW32)\nComment: GnuPT 2.6.2.1 by EQUIPMENTE.DE\nComment: Using GnuPG with Mozilla - http://enigmail.mozdev.org\n \niD8DBQFDpyIbx+/gN8KI3u0RAhTfAJ9Q2Ldj5fvZcpgntTdtqOW779z0lwCgrUXC\nPAFdyPahaPkrO5VZPlnmqIc=\n=xiwA\n-----END PGP SIGNATURE-----\n\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: Peter.Ruckdeschel.vcf\nType: text/x-vcard\nSize: 473 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20051219/c9e4dedf/attachment.vcf>",
+      "body_snippet": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA1\n \nhi\n\nfirst of all apologies for the late sending -- we will try to be\nbetter/earlier\nnext time;\n\non http://www.uni-bayreuth.de/departments/math/org/mathe",
+      "thread_id": "thread-8c2d8aecba8c",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-c57086cee776",
+      "message_id": "<4c0e456b0512200420n1425897ds3fca557cc584671e@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2005-12-20T13:20:33+01:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>"
+      ],
+      "body_plain": "Dear Kjell ,\n\nbeware of a minor error in the pairwise code that you posted: the\nweights in gk.sigmamu() will never become 0, even if abs(x) > c1.\n\nThe correction should be:\n\ngk.sigmamu <- function(x, c1 = 4.5, c2 = 3.0, mu.too = FALSE, ...)\n{\n  n <- length(x)\n  medx <- median(x)\n  sigma0 <- median(abs(x - medx))\n\n  # VT::19.12.2005 - should give 0 weights if abs(x - medx) / sigma0 > c1\n  #\n  #  w <- (x - medx) / sigma0\n  #  w <- (1.0 - (w / c1)^2)^2\n  #  w[w < 0.0] <- 0.0\n\n  w <- abs(x - medx) / sigma0\n  w <- ifelse(w<=c1,(1.0 - (w / c1)^2)^2,0)\n\n  # VT::19.12.2005 - END\n\n  mu <- sum(x * w) / sum(w)\n...... ... ... ..\n\n\nbest regard\nvalentin\n\nOn 12/5/05, Kjell Konis <konis at stats.ox.ac.uk> wrote:\n> Here is an implementation of the OGK estimator completely in R.  I\n> haven't touched it for a while and I forget how thoroughly I tested\n> it so use it with a bit of caution.\n>\n>    http://www.stats.ox.ac.uk/~konis/pairwise.q\n>\n> Ricardo, can you be more specific about what you don't like in the\n> implementation of OGK in S-Plus?\n>\n> Kjell\n>\n>\n>\n> On Dec 3, 2005, at 9:55 PM, Ricardo Maronna wrote:\n>\n> > One observation about the following.\n> >\n> >> One thing we'd be very interested is the OGK estimator of\n> >> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some\n> >> of the authors sold their code exclusively to Insightful (the\n> >> S-plus company).\n> >\n> >     Insightful has implemented the procedure in some way I ignore\n> > (actually,\n> > I don't like the way it works), but unfortunately I got not a\n> > single dollar\n> > from that!. Anybody is free to implement the method (which is\n> > extremely\n> > simple) in whatever language.\n> >             Ricardo\n> >\n> > _______________________________________________\n> > R-SIG-Robust at r-project.org mailing list\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Dear Kjell ,\n\nbeware of a minor error in the pairwise code that you posted: the\nweights in gk.sigmamu() will never become 0, even if abs(x) > c1.\n\nThe correction should be:\n\ngk.sigmamu <- function(x, ",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 3,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-6db6b95c0649",
+      "message_id": "<17320.2364.99323.779079@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-20T14:38:04+01:00",
+      "subject": "[RsR] Package name vote --> 'robustbase'",
+      "subject_clean": "[RsR] Package name vote --> 'robustbase'",
+      "in_reply_to": "<17313.40798.623273.319760@stat.math.ethz.ch>",
+      "references": [
+        "<5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>",
+        "<17312.13921.354305.320499@stat.math.ethz.ch>",
+        "<17313.40798.623273.319760@stat.math.ethz.ch>"
+      ],
+      "body_plain": "As most of you have probably seen in the mean time,\nthe name 'robustbase' wone by a large margin:\n\n robustbase 45\n robustats   9\n robusta     5\n robustat    1\n\nThanks to all 20 voters!  As a politically active Swiss, I'm\nused to voting differently than the majority ;-)\n\nI plan to make the `always current' state of the (source)\npackage available (by \"svn\" or \"subversion\", but also https) at\nthe same URL as other R packages already are;  I will announce\nit here, when it's ready. Probably, it will also make sense to submit it\nto CRAN even very early and unfinished, just for the reason that\nwindows users who can't build R packages from the source, can\neasily install the package.\n\nNow we can get to work on it, i.e. putting functionality there.\nWe might want to really consider Andreas Ruckstuhl's posted\nprivate package (on Dec 7) and his question\n\nARu> Talking about names: how should we call functions which do\nARu> i.e. robust fitting of a glm: \nARu>\nARu> \trfglm  (Robust Fitting of GLM)\nARu> \trglm\nARu> \trobglm\n\nDATA SETS\n---------\nOf course, since this package is somewhat focused on the\nMaronna-Martin-Yohai book, we should eventually get their\ndatasets in there, and Ricardo and Victor agreed in Treviso to\nprovide them eventually.\n\nOTOH, it's quite useful to have data sets available from the\nbeginning in order to write examples and tests using those data.\nI've already asked some individuals about this, but do ask here\nin public for useful / sensible / well known and non-large data sets\nto be also part of the package; such that the examples (on each\nhelp page!) could make use of those data sets.\nI've got already what I call 'Animals2' which is another version\nof the \"brain vs body weight\" data, namely the union of the two MASS\ndata sets 'Animals' and 'mammals'.\nOf course, Rousseeuw & Leroy (1990), contains a few dozens more\ndata sets, some of which would be interesting. \nSeveral of them are currently already in Valentin's 'rrcov'\npackage, and -- if Valentin agrees -- I would propose to just\n\"mirror them\" in the new 'robustbase' package.  Eventually, they\ncould be removed from 'rrcov', namely at least then when rrcov\nwould \"Depend\" on 'robustbase' (i.e. load or attach robustbase\nwhen rrov itself is loaded).\n\nNote BTW that the stackloss data *is* already in the core\npackage 'datasets' (and I don't understand why at least three\nother CRAN packages have *also* provided the stackloss data,\njust with slightly different variable names.. ; well, one of\nthem is package 'MPV' providing all data sets from the book 'Montgomery,\nPeck & Vining').\nAlso, we really don't need data sets that are already in\n\"standard\" or \"recommended\" R packages; i.e., notably we could\nwell make use of all those you see from\n     data(package = \"datasets\")  # standard\n     data(package = \"MASS\")      # recommended\n\nyou can always use datasets from other packages by\n    data(<name>, package = <packagename>)\ne.g.  data(mammals, package = \"MASS\")\n\nFurther note:  Apart from univariate data, if there are not very\n  good reasons , we'd only want data frames, not matrices or\n  single vectors, since the latter can always easily be\n  extracted from the data frames. \n\nNow if you'd consider \"donating\" data sets to the 'robustbase'\npackage, please send me two files,\n1) a table (*.tab, *.txt or *.csv) file, typically; or a binary *.rda\n   file, see the manual \"Writing R Extensions\", section 'Package\n   subdirectories'\n2) a *.Rd file as produced from  prompt(<your_dataframe>)\n   and edited __by you__ where you have filled in the relevant\n   information about the data.\n\nMartin Maechler.\n\n\n\n\n>>>>> \"MM\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Thu, 15 Dec 2005 17:52:46 +0100 writes:\n\n    MM> I didn't get strong statements for yet another name, so the vote\n    MM> \"is it\" ...  Well, it seems pretty clear at the moment, but\n    MM> then, many more people could still vote...\n\n    MM> A simple R script (and a cron job) auto-produces the\n    MM> webpage\n    MM> http://stat.ethz.ch/~maechler/R-sig-robust-vote.html\n    MM> from the data file {that I update manually}.\n\n    MM> I know from politics that it is strictly forbidden to publish\n    MM> polls when the vote is still happening {because of the\n    MM> well-known \"the winner takes it all\" effect},\n    MM> but then we want to have some fun, too...  ;-)",
+      "body_snippet": "As most of you have probably seen in the mean time,\nthe name 'robustbase' wone by a large margin:\n\n robustbase 45\n robustats   9\n robusta     5\n robustat    1\n\nThanks to all 20 voters!  As a political",
+      "thread_id": "thread-073829eef5b0",
+      "thread_depth": 3,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-1c3cf3e2a6a8",
+      "message_id": "<43A80B95.60105@tuwien.ac.at>",
+      "from_name": "Peter Filzmoser",
+      "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
+      "date": "2005-12-20T14:48:05+01:00",
+      "subject": "[RsR] Robust Statistical Methods with R book",
+      "subject_clean": "[RsR] Robust Statistical Methods with R book",
+      "in_reply_to": "<3048.83.253.15.61.1134996754.squirrel@poisson.statisticon.se>",
+      "references": [
+        "<3048.83.253.15.61.1134996754.squirrel@poisson.statisticon.se>"
+      ],
+      "body_plain": "Dear Henric,\n\nThe book is indeed brand new, and I also ordered it. I am sure\nit is very interesting and useful, the authors are well\nknown in the robustness community. Nice Christmas present!\n\nBest regards,\nPeter\n\nHenric Nilsson wrote:\n> Dear list,\n> \n> While ordering some books at CRC Press, I stumbled on the \"Robust\n> Statistical Methods with R\" by Jana Jureckova and Jan Picek.\n> \n> http://www.crcpress.com/shopping_cart/products/product_contents.asp?id=&parent_id=&sku=C4541\n> \n> It seems it was released pretty recently, but maybe some of you have\n> already managed to obtain a copy. Any comments (before I'm spending the\n> money)?\n> \n> \n> Thanks,\n> Henric\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> \n> \n\n\n-- \n-------------------------------------------------------\nFrom: Prof. Dr. Peter Filzmoser\n       Dept. of Statistics & Probability Theory\n       Vienna University of Technology\n       Wiedner Hauptstrasse 8-10\n       A-1040 Vienna, Austria\n       Tel. +43 1 58801/10733\n       Fax. +43 1 58801/10799\n       E-mail: P.Filzmoser at tuwien.ac.at\n       Internet:\n       http://www.statistik.tuwien.ac.at/public/filz/",
+      "body_snippet": "Dear Henric,\n\nThe book is indeed brand new, and I also ordered it. I am sure\nit is very interesting and useful, the authors are well\nknown in the robustness community. Nice Christmas present!\n\nBest re",
+      "thread_id": "thread-86638cf2890f",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-316e3a1545f2",
+      "message_id": "<17320.3313.620430.584005@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-20T14:53:53+01:00",
+      "subject": "[RsR] Mailing list archives -- public or only for subscribers?",
+      "subject_clean": "[RsR] Mailing list archives -- public or only for subscribers?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear R-SIG-Robust subscribers,\n\nmost of you got on this mailing list without having been\nexplicitly asked, namely just by attending the Treviso workshop\n(and by not explicitly *un*subscribing since the list has been\ncreated).\n\nFor this reason, and for \"data protection\" reasons, I had set up\nthe mailing list *archives* to be only available to list\nsubscribers (and you need to enter your e-mail address and\nmailing list password to get at them starting from the mailing\nlist \"site\"  https://stat.ethz.ch/mailman/listinfo/r-sig-robust )\n\nThere is one drawback with this approach, and that's the reason\nof my posting:\nYou cannot send an URL (\"link\") of the list archives or a specific\nmessage to outsiders; something which can be useful and happens\nquite frequently with the R-help list archives, e.g.\n >> please look at this interesting posting on R-help :\n >>   https://stat.ethz.ch/pipermail/r-help/2005-December/082432.html\n\nor any other list archives of public R (or other) mailing lists\non our server: All of these are open to the public.\n\nOf course, there is one single advantage of non-public mailing list\narchives: They cannot be misused by \"address harvesters\".\nThough E-mail addresses are automatically changed by replacing\nthe single character @-sign by the four letters \" at \" every\nwhere, this may not be enough protection for some people...\nOf course, this applies only to those *posting* to the list, not\nto everyone subscribed.\n\nNow I'm proposing to *open* the archives of R-SIG-robust to\npublic reading, and am interested in getting feedback on this,\nparticularly if you oppose it.  {non-feedback would mean\nimplicitly be taken as \"yes, of course, that's fine, go ahead!\"}\n\nMartin",
+      "body_snippet": "Dear R-SIG-Robust subscribers,\n\nmost of you got on this mailing list without having been\nexplicitly asked, namely just by attending the Treviso workshop\n(and by not explicitly *un*subscribing since th",
+      "thread_id": "thread-316e3a1545f2",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-a62d85f8e577",
+      "message_id": "<17320.8139.643201.670000@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-20T16:14:19+01:00",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "subject_clean": "[RsR] [R] M-estimator R function question",
+      "in_reply_to": "<4c0e456b0512200420n1425897ds3fca557cc584671e@mail.gmail.com>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+        "<4c0e456b0512200420n1425897ds3fca557cc584671e@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> \"Valentin\" == Valentin Todorov <valentin.to at gmail.com>\n>>>>>     on Tue, 20 Dec 2005 13:20:33 +0100 writes:\n\n    Valentin> Dear Kjell ,\n    Valentin> beware of a minor error in the pairwise code that you posted: the\n    Valentin> weights in gk.sigmamu() will never become 0, even if abs(x) > c1.\n\nIndeed!\n\n    Valentin> The correction should be:\n\n>>      gk.sigmamu <- function(x, c1 = 4.5, c2 = 3.0, mu.too = FALSE, ...)\n>>      {\n>> \tn <- length(x)\n>> \tmedx <- median(x)\n>> \tsigma0 <- median(abs(x - medx))\n>> \n>> \t# VT::19.12.2005 - should give 0 weights if abs(x - medx) / sigma0 > c1\n>> \t#\n>> \t#  w <- (x - medx) / sigma0\n>> \t#  w <- (1.0 - (w / c1)^2)^2\n>> \t#  w[w < 0.0] <- 0.0\n>> \n>> \tw <- abs(x - medx) / sigma0\n>> \tw <- ifelse(w<=c1,(1.0 - (w / c1)^2)^2,0)\n>> \n>> \t# VT::19.12.2005 - END\n>> \n>> \tmu <- sum(x * w) / sum(w)\n>> \t...... ... ... ..\n\n    Valentin> best regard\n    Valentin> valentin\n\nNote however that Kjell was trying to be smart, namely *not*\nusing ifelse() in such a case -- for efficiency reasons. But he\nforgot to do it properly: Here,  pmax()  is much more efficient\nthan ifelse().  Note that gk.sigmamu() is really the function that is called\nmany times, so it makes sense to write it as efficiently as possible\n--- still keeping it well readable.\n\nI had also applied a few minor cosmetic improvements to Kjell's\noriginal code --- but overlooked the obvious buglet ! ---  \nwhich now leads to \n\ngk.sigmamu <- function(x, c1 = 4.5, c2 = 3.0, mu.too = FALSE, ...)\n{\n    n <- length(x)\n    medx <- median(x)\n    x. <- abs(x - medx)\n    c.sigma0 <- c1 * median(x.)\n    w <- pmax(0, 1 - (x. / c.sigma0)^2)^2\n    mu <- sum(x * w) / sum(w)\n\n    x <- (x - mu) / sigma0\n    rho <- x^2\n    rho[rho > c2^2] <- c2^2\n    ## sigma2 <- sigma0^2 / n * sum(rho)\n\n    ## return\n    c(if(mu.too) mu,\n      ## sqrt(sigma2) == sqrt( sigma0^2 / n * sum(rho) ) :\n      sigma0 * sqrt(sum(rho)/n))\n}\n\n\nMartin Maechler, ETH Zurich\n\n\n    Valentin> On 12/5/05, Kjell Konis <konis at stats.ox.ac.uk> wrote:\n    >> Here is an implementation of the OGK estimator completely in R.  I\n    >> haven't touched it for a while and I forget how thoroughly I tested\n    >> it so use it with a bit of caution.\n    >> \n    >> http://www.stats.ox.ac.uk/~konis/pairwise.q\n    >> \n    >> Ricardo, can you be more specific about what you don't like in the\n    >> implementation of OGK in S-Plus?\n    >> \n    >> Kjell\n    >> \n    >> \n    >> \n    >> On Dec 3, 2005, at 9:55 PM, Ricardo Maronna wrote:\n    >> \n    >> > One observation about the following.\n    >> >\n    >> >> One thing we'd be very interested is the OGK estimator of\n    >> >> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some\n    >> >> of the authors sold their code exclusively to Insightful (the\n    >> >> S-plus company).\n    >> >\n    >> >     Insightful has implemented the procedure in some way I ignore\n    >> > (actually,\n    >> > I don't like the way it works), but unfortunately I got not a\n    >> > single dollar\n    >> > from that!. Anybody is free to implement the method (which is\n    >> > extremely\n    >> > simple) in whatever language.\n    >> >             Ricardo\n    >> >\n    >> > _______________________________________________\n    >> > R-SIG-Robust at r-project.org mailing list\n    >> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n    >> \n    >> _______________________________________________\n    >> R-SIG-Robust at r-project.org mailing list\n    >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n    >> \n\n    Valentin> _______________________________________________\n    Valentin> R-SIG-Robust at r-project.org mailing list\n    Valentin> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": ">>>>> \"Valentin\" == Valentin Todorov <valentin.to at gmail.com>\n>>>>>     on Tue, 20 Dec 2005 13:20:33 +0100 writes:\n\n    Valentin> Dear Kjell ,\n    Valentin> beware of a minor error in the pairwise c",
+      "thread_id": "thread-8a62ba7a0450",
+      "thread_depth": 4,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-9ed1f05842f5",
+      "message_id": "<43A840D7.5040308@metri.unige.ch>",
+      "from_name": "Eva Cantoni",
+      "from_email_hash": "2966a7fa6e727e8ff02811a0bd0605f638f54ded9c824143effbf9ad04b1f8cb",
+      "date": "2005-12-20T18:35:19+01:00",
+      "subject": "[RsR] Package name vote --> 'robustbase'",
+      "subject_clean": "[RsR] Package name vote --> 'robustbase'",
+      "in_reply_to": "<17320.2364.99323.779079@stat.math.ethz.ch>",
+      "references": [
+        "<5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>",
+        "<17312.13921.354305.320499@stat.math.ethz.ch>",
+        "<17313.40798.623273.319760@stat.math.ethz.ch>",
+        "<17320.2364.99323.779079@stat.math.ethz.ch>"
+      ],
+      "body_plain": ">\n>\n>ARu> Talking about names: how should we call functions which do\n>ARu> i.e. robust fitting of a glm: \n>ARu>\n>ARu> \trfglm  (Robust Fitting of GLM)\n>ARu> \trglm\n>ARu> \trobglm\n>\n>  \n>\nI have no preference, but consistency with the robust version of lm is \nprobably needed.\n\nHappy Christmas/ Season greetings to you all!\n\nEva\n\n-- \n\n Dr Eva Cantoni                 phone  : (+41) 22 379 8240\n Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299\n 40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at metri.unige.ch\n CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni",
+      "body_snippet": ">\n>\n>ARu> Talking about names: how should we call functions which do\n>ARu> i.e. robust fitting of a glm: \n>ARu>\n>ARu> \trfglm  (Robust Fitting of GLM)\n>ARu> \trglm\n>ARu> \trobglm\n>\n>  \n>\nI have no prefer",
+      "thread_id": "thread-073829eef5b0",
+      "thread_depth": 4,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-40ece0bac06b",
+      "message_id": "<43A93E9C.2060708@tuwien.ac.at>",
+      "from_name": "Peter Filzmoser",
+      "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
+      "date": "2005-12-21T12:38:04+01:00",
+      "subject": "[RsR] Minutes Treviso",
+      "subject_clean": "[RsR] Minutes Treviso",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Please, have a look at the RSR home page\n\nhttp://www.statistik.tuwien.ac.at/rsr/\n\nwhere you can find now minutes from the workshop in\nTreviso from *all* working groups!\n\nThanks a lot to the contributors.\n\nRegards,\nPeter\n-- \n-------------------------------------------------------\nFrom: Prof. Dr. Peter Filzmoser\n       Dept. of Statistics & Probability Theory\n       Vienna University of Technology\n       Wiedner Hauptstrasse 8-10\n       A-1040 Vienna, Austria\n       Tel. +43 1 58801/10733\n       Fax. +43 1 58801/10799\n       E-mail: P.Filzmoser at tuwien.ac.at\n       Internet:\n       http://www.statistik.tuwien.ac.at/public/filz/",
+      "body_snippet": "Please, have a look at the RSR home page\n\nhttp://www.statistik.tuwien.ac.at/rsr/\n\nwhere you can find now minutes from the workshop in\nTreviso from *all* working groups!\n\nThanks a lot to the contributo",
+      "thread_id": "thread-40ece0bac06b",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-67e8c8089cc1",
+      "message_id": "<11544d000512210513l5566a0f8w@mail.gmail.com>",
+      "from_name": "Jean-Christophe BOUETTE",
+      "from_email_hash": "1d968b515f84f2f6fd12032b34f153f8361dea9c7cedce8e97554405f57dc5d1",
+      "date": "2005-12-21T14:13:38+01:00",
+      "subject": "[RsR] Function names",
+      "subject_clean": "[RsR] Function names",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I wasn't in Treviso, but the question was adressed in\nhttp://www.dst.unive.it/rsr/Konis-treviso.pdf\nand the answer was glmRob... the same as in Insightful's library.\n\nOr do we need another vote? ;-)\n\nOf course it is not consistent with rlm, but it can be aliased as lmRob.\n\nJoyeux No?l ? tous,\nJean-Christophe.\n\n> >ARu> Talking about names: how should we call functions which do\n> >ARu> i.e. robust fitting of a glm:\n> >ARu>\n> >ARu>   rfglm  (Robust Fitting of GLM)\n> >ARu>   rglm\n> >ARu>   robglm\n> >\n> >\n> >\n> I have no preference, but consistency with the robust version of lm is\n> probably needed.\n>\n> Happy Christmas/ Season greetings to you all!\n>\n> Eva\n>\n> --\n>\n>  Dr Eva Cantoni                 phone  : (+41) 22 379 8240\n>  Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299\n>  40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at metri.unige.ch\n>  CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni\n>\n>\n>\n> ------------------------------\n>\n> _______________________________________________\n> R-SIG-Robust mailing list\n> R-SIG-Robust at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "I wasn't in Treviso, but the question was adressed in\nhttp://www.dst.unive.it/rsr/Konis-treviso.pdf\nand the answer was glmRob... the same as in Insightful's library.\n\nOr do we need another vote? ;-)\n\n",
+      "thread_id": "thread-67e8c8089cc1",
+      "thread_depth": 0,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-2503711c8d41",
+      "message_id": "<17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>",
+      "from_name": "Friedrich@Leisch m@iii@g oii tuwie@@@c@@t",
+      "from_email_hash": "32c138b6dfb45bb7af61fdccc8da40ad705cb2ec7823755e1be5f36f61d6450f",
+      "date": "2005-12-21T14:43:18+01:00",
+      "subject": "[RsR] Function names",
+      "subject_clean": "[RsR] Function names",
+      "in_reply_to": "<11544d000512210513l5566a0f8w@mail.gmail.com>",
+      "references": [
+        "<11544d000512210513l5566a0f8w@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> On Wed, 21 Dec 2005 14:13:38 +0100,\n>>>>> Jean-Christophe BOUETTE (JB) wrote:\n\n  > I wasn't in Treviso, but the question was adressed in\n  > http://www.dst.unive.it/rsr/Konis-treviso.pdf\n  > and the answer was glmRob... the same as in Insightful's library.\n\n  > Or do we need another vote? ;-)\n\nI'm not sure about another vote, but what I am sure about is, that we\nneed to be *very* careful when using the same names as S-Plus does: If\nwe use the same name, the functions should be fully compatible, i.e.,\ntake the same arguments (with same names) and return the same objects.\n\nSo the real question is not what name to use, but whether we want a\nclone of the S-Plus function or not.\n\n Pro clone: Code using the function can be used on both S-Plus and R\n\n Contra clone: The first solution to a given problem is not always the\n best one.\n\nKjells talk was mostly on recreating the existing S-Plus solution\n(based on the possible \"code donation\" by Insightful). If you remember\nthe discussion after his talk: there were several people (including\nmyself) who are not so enthusiastic about cloning the robust library,\nbecause we would make some design decisions differently.\n\nDon't get me wrong: I liked Kjell's talk very much and the Splus\nrobust library has a lot of good stuff in it, but time goes on, and\npeople tend to learn.\n\nWe are now at a point where we can get it right, and we have the\nadvantage of existing prototype code, which we can analyze for\nstrengths and weaknesses. All I'm saying is don't clone without\nthinking first. If we use a different name, we can play around and see\nwhat the outcome will be. If we use the same name, users will expect\nthat at some point in time it does (almost) exactly the same thing as\nthe S-plus function.\n\nJust my 2c\n\nBest,\nFritz\n\n-- \n-------------------------------------------------------------------\n                        Friedrich Leisch \nInstitut f?r Statistik                     Tel: (+43 1) 58801 10715\nTechnische Universit?t Wien                Fax: (+43 1) 58801 10798\nWiedner Hauptstra?e 8-10/1071\nA-1040 Wien, Austria             http://www.ci.tuwien.ac.at/~leisch",
+      "body_snippet": ">>>>> On Wed, 21 Dec 2005 14:13:38 +0100,\n>>>>> Jean-Christophe BOUETTE (JB) wrote:\n\n  > I wasn't in Treviso, but the question was adressed in\n  > http://www.dst.unive.it/rsr/Konis-treviso.pdf\n  > and",
+      "thread_id": "thread-67e8c8089cc1",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-13c4bc367c11",
+      "message_id": "<17321.23693.348508.367831@galadriel.ci.tuwien.ac.at>",
+      "from_name": "Friedrich@Leisch m@iii@g oii tuwie@@@c@@t",
+      "from_email_hash": "32c138b6dfb45bb7af61fdccc8da40ad705cb2ec7823755e1be5f36f61d6450f",
+      "date": "2005-12-21T14:45:49+01:00",
+      "subject": "[RsR] Function names",
+      "subject_clean": "[RsR] Function names",
+      "in_reply_to": "<17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>",
+      "references": [
+        "<11544d000512210513l5566a0f8w@mail.gmail.com>",
+        "<17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>"
+      ],
+      "body_plain": ">>>>> On Wed, 21 Dec 2005 14:43:18 +0100,\n>>>>> Friedrich Leisch (FL) wrote:\n\n>>>>> On Wed, 21 Dec 2005 14:13:38 +0100,\n>>>>> Jean-Christophe BOUETTE (JB) wrote:\n\n  >> I wasn't in Treviso,\n\n[...]\n\n  > Kjells talk was mostly on recreating the existing S-Plus solution\n  > (based on the possible \"code donation\" by Insightful). If you remember\n  > the discussion after his talk:\n\nSorry, meant to write \"If those of you whe were in Treviso remember\n...\"\n\nFritz\n\n-- \n-------------------------------------------------------------------\n                        Friedrich Leisch \nInstitut f?r Statistik                     Tel: (+43 1) 58801 10715\nTechnische Universit?t Wien                Fax: (+43 1) 58801 10798\nWiedner Hauptstra?e 8-10/1071\nA-1040 Wien, Austria             http://www.ci.tuwien.ac.at/~leisch",
+      "body_snippet": ">>>>> On Wed, 21 Dec 2005 14:43:18 +0100,\n>>>>> Friedrich Leisch (FL) wrote:\n\n>>>>> On Wed, 21 Dec 2005 14:13:38 +0100,\n>>>>> Jean-Christophe BOUETTE (JB) wrote:\n\n  >> I wasn't in Treviso,\n\n[...]\n\n  >",
+      "thread_id": "thread-67e8c8089cc1",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-15d02e05654c",
+      "message_id": "<17321.26872.29963.272433@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-21T15:38:48+01:00",
+      "subject": "[RsR] Function names",
+      "subject_clean": "[RsR] Function names",
+      "in_reply_to": "<17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>",
+      "references": [
+        "<11544d000512210513l5566a0f8w@mail.gmail.com>",
+        "<17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>"
+      ],
+      "body_plain": ">>>>> \"FrL\" == Friedrich Leisch <Friedrich.Leisch at tuwien.ac.at>\n>>>>>     on Wed, 21 Dec 2005 14:43:18 +0100 writes:\n\n>>>>> On Wed, 21 Dec 2005 14:13:38 +0100,\n>>>>> Jean-Christophe BOUETTE (JB) wrote:\n\n    >> I wasn't in Treviso, but the question was adressed in\n    >> http://www.dst.unive.it/rsr/Konis-treviso.pdf\n    >> and the answer was glmRob... the same as in Insightful's library.\n\n    >> Or do we need another vote? ;-)\n\nmaybe, but Fritz has almost entirely described my own thoughts on this:\n\n    FrL> I'm not sure about another vote, but what I am sure about is, that we\n    FrL> need to be *very* careful when using the same names as S-Plus does: If\n    FrL> we use the same name, the functions should be fully compatible, i.e.,\n    FrL> take the same arguments (with same names) and return the same objects.\n\n    FrL> So the real question is not what name to use, but whether we want a\n    FrL> clone of the S-Plus function or not.\n\n    FrL> Pro clone: Code using the function can be used on both S-Plus and R\n\n    FrL> Contra clone: The first solution to a given problem is not always the\n    FrL> best one.\n\n    FrL> Kjells talk was mostly on recreating the existing S-Plus solution\n    FrL> (based on the possible \"code donation\" by Insightful). If you remember\n    FrL> the discussion after his talk: there were several people (including\n    FrL> myself) who are not so enthusiastic about cloning the robust library,\n    FrL> because we would make some design decisions differently.\n\n    FrL> Don't get me wrong: I liked Kjell's talk very much and the Splus\n    FrL> robust library has a lot of good stuff in it, but time goes on, and\n    FrL> people tend to learn.\n\n    FrL> We are now at a point where we can get it right, and we have the\n    FrL> advantage of existing prototype code, which we can analyze for\n    FrL> strengths and weaknesses. All I'm saying is don't clone without\n    FrL> thinking first. If we use a different name, we can play around and see\n    FrL> what the outcome will be. If we use the same name, users will expect\n    FrL> that at some point in time it does (almost) exactly the same thing as\n    FrL> the S-plus function.\n\nAs a matter of fact, when talking about the name of the package\n'robustbase', I made quite clear that in my opinion, to take the name\n'robust' was absolutely wrong, for the same reasons Fritz has used above.\n\nWe will be developing functionality partly \"from scratch\", hopefully\nstate-of-the-art, and often will differ from what the S-plus\nlibrary section 'robust' has, sometimes very much on purpose.\nHence for the same reason that 'robust' was no option to me as\npackage name, the function names of S-plus 'robust' are not\nan option now, in general.\n*If* the donation (mentioned by Kjell, cited above by Fritz)\nwill ever happen {and with a reasonable licence, I'd say},  some\nof us might be interested to use that donation for producing a\n'robust' package which would probably strive to be a clone of S+\nlibrary(robust).\nIn specific cases (with no particular ones in mind), we\nmight consider using identical names; this would be even more\ntrue if the above donation happened quickly enough ((and would\nbe accompanied by a licence similar to (L)GPL. \"Only for\nacademic use\" or similar statements would make them unusable for\nthe 'robustbase' package IMO))\n\n    FrL> Just my 2c\nand my 2 Rp. :-)\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": ">>>>> \"FrL\" == Friedrich Leisch <Friedrich.Leisch at tuwien.ac.at>\n>>>>>     on Wed, 21 Dec 2005 14:43:18 +0100 writes:\n\n>>>>> On Wed, 21 Dec 2005 14:13:38 +0100,\n>>>>> Jean-Christophe BOUETTE (JB) wr",
+      "thread_id": "thread-67e8c8089cc1",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-d7cdef24f3e5",
+      "message_id": "<43A9D23B.2030207@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2005-12-21T14:07:55-08:00",
+      "subject": "[RsR] Robust regression",
+      "subject_clean": "[RsR] Robust regression",
+      "in_reply_to": "<43A93E9C.2060708@tuwien.ac.at>",
+      "references": [
+        "<43A93E9C.2060708@tuwien.ac.at>"
+      ],
+      "body_plain": "Dear List,\n\nA few days ago I uploaded the package \"roblm\" to CRAN. It implements \nMM-regression estimators and currently has some diagnostic plots as \nwell. The documentation needs quite a bit of work, but the main \ninformation is there.\n\nNote that the name of the package (and the corresponding class) is \n\"roblm\", but this does not mean that I necessarily prefer this name over \nothers. I've been working on this for some time now, and for the reasons \nthat I mentioned in Treviso (\"rlm\" and \"lmRob\" are already taken) I \nsettled for roblm.\n\nI took the liberty to re-organize the regression workgroup minutes \nrelating to linear regression in a format closer to a \"to-do\" list. I \nwould very much appreciate your feedback. Names within parenthesis \nindicate \"volunteers\" for a particular task. Please feel free to correct \nall my mistakes (and to add your name to the list of volunteers!)\n\nThanks.\n\nMatias\n\n-- An initial (partial) list of things that remain to be done for robust \nlinear regression\n\n- expose the \"initial estimator\" as a separate function.\n\tThis should include the fast-S (already built-in), the\n\talternate M-S estimator for the case of many factor\n\tvariables (Victor can provide code), and the heuristic\n\tinitial estimator of Yohai-Pena (Victor has code?)\n- explore how to use score (\"psi\") functions declared in\n\tR (as S4 objects) in the C code\n- decide which options should stay in the \"control\" function\n- add to summary.roblm(), print.roblm() and\n\tprint.summary.roblm() information on which estimation\n\tmethod was used (MM, etc)\n- write a model selection function (Victor has code for a robust\n\tbackward stepwise method (RFPE?); Elvezio may know of / have\n\tcode for the robust Cp; Eva can provide this part?)\n- write an \"anova\" function using robust F-, Wald tests\t(Matias)\n- add the robust weights to the returned object (Matias)\n- improve / complete roblm documentation (Matias)\n- incorporate more data sets (with documentation) (Matias)",
+      "body_snippet": "Dear List,\n\nA few days ago I uploaded the package \"roblm\" to CRAN. It implements \nMM-regression estimators and currently has some diagnostic plots as \nwell. The documentation needs quite a bit of work",
+      "thread_id": "thread-40ece0bac06b",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-b90416313891",
+      "message_id": "<17322.35143.535242.881553@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-22T12:08:55+01:00",
+      "subject": "[RsR] Robust regression",
+      "subject_clean": "[RsR] Robust regression",
+      "in_reply_to": "<43A9D23B.2030207@stat.ubc.ca>",
+      "references": [
+        "<43A93E9C.2060708@tuwien.ac.at>",
+        "<43A9D23B.2030207@stat.ubc.ca>"
+      ],
+      "body_plain": ">>>>> \"Matias\" == Matias Salibian-Barrera <matias at stat.ubc.ca>\n>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:\n\n    Matias> Dear List,\n\n    Matias> A few days ago I uploaded the package \"roblm\" to CRAN. It implements \n    Matias> MM-regression estimators and currently has some diagnostic plots as \n    Matias> well. The documentation needs quite a bit of work, but the main \n    Matias> information is there.\n\n\nThank you, Matias!\n\n    Matias> Note that the name of the package (and the corresponding class) is \n    Matias> \"roblm\", but this does not mean that I necessarily prefer this name over \n    Matias> others. I've been working on this for some time now, and for the reasons \n    Matias> that I mentioned in Treviso (\"rlm\" and \"lmRob\" are already taken) I \n    Matias> settled for roblm.\n\n(I'm replying to this in a different e-mail on  \n \"function naming ... \" )\n\n    Matias> I took the liberty to re-organize the regression\n    Matias> workgroup minutes relating to linear regression in a\n    Matias> format closer to a \"to-do\" list. I would very much\n    Matias> appreciate your feedback. Names within parenthesis\n    Matias> indicate \"volunteers\" for a particular task. Please\n    Matias> feel free to correct all my mistakes (and to add\n    Matias> your name to the list of volunteers!)\n\n\n    Matias> -- An initial (partial) list of things that remain\n    Matias>    to be done for robust linear regression\n\n>>     - expose the \"initial estimator\" as a separate function.\n>> \t    This should include the fast-S (already built-in), the\n>> \t    alternate M-S estimator for the case of many factor\n>> \t    variables (Victor can provide code), and the heuristic\n>> \t    initial estimator of Yohai-Pena (Victor has code?)\n\n>>     - explore how to use score (\"psi\") functions declared in\n>> \t    R (as S4 objects) in the C code\n\ngood point (which you've raised on this list earlier, but didn't\nget an answer)!\nI'm not yet sure what the optimal approach would be here.\nThere is some overhead calling the interpreted R code from the C\ncode.  In the mean time I had an idea which might be more\nflexible: The R class could have a slot which is (empty or) a\npointer (\"externalptr\") to a C function if that is available.\n\nHence for some score/psi/rho/.. functions one, R would call fast\nbuiltin C-code where one still would have the full flexibility\nof \"playing with\" new *-functions..\n\n>>     - decide which options should stay in the \"control\" function\n>>     - add to summary.roblm(), print.roblm() and\n>> \t    print.summary.roblm() information on which estimation\n>> \t    method was used (MM, etc)\n>>     - write a model selection function (Victor has code for a robust\n>> \t    backward stepwise method (RFPE?); Elvezio may know of / have\n>> \t    code for the robust Cp; Eva can provide this part?)\n>>     - write an \"anova\" function using robust F-, Wald tests\t(Matias)\n\nyes, in my view; I had argued in Treviso that 'anova' shoold be\nused as function for comparing nested models also in situations\nwhere it's really not an '[an]alysis [o]f [va]riance' anymore.\n\n>>     - add the robust weights to the returned object (Matias)\n\nI agree.  This applies to almost all robust procedures.\nHere we should also try to find a common name\n('wts','weights',..), and also 'standardize' I think; either\nrequiring \nmax_i w_i = 1 (natural for  w(r_i) = psi(r_i) / r_i)  or then  \nsum_i w_i = 1 (natural for  formulae using the weights)\n\n\n>>     - improve / complete roblm documentation (Matias)\n\n>>     - incorporate more data sets (with documentation) (Matias)\n\nI've also asked for this a few days ago, and Valentin has\npromised to provide quite a few from the Rousseeuw-Leroy book.\nHopefully, those from the MMY book (Maronna-Martin-Yohai) will\nalso be provided relatively soon.\n\nMartin",
+      "body_snippet": ">>>>> \"Matias\" == Matias Salibian-Barrera <matias at stat.ubc.ca>\n>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:\n\n    Matias> Dear List,\n\n    Matias> A few days ago I uploaded the package \"roblm",
+      "thread_id": "thread-40ece0bac06b",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-f407113ceb04",
+      "message_id": "<17322.35378.533261.42930@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-22T12:12:50+01:00",
+      "subject": "[RsR] function naming for \"robust ...\"",
+      "subject_clean": "[RsR] function naming for \"robust ...\"",
+      "in_reply_to": "<43A9D23B.2030207@stat.ubc.ca>",
+      "references": [
+        "<43A93E9C.2060708@tuwien.ac.at>",
+        "<43A9D23B.2030207@stat.ubc.ca>"
+      ],
+      "body_plain": ">>>>> \"Matias\" == Matias Salibian-Barrera <matias at stat.ubc.ca>\n>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:\n\n\t  .........\n\n    Matias> A few days ago I uploaded the package \"roblm\" to CRAN.\n    Matias>  ........\n\n    Matias> Note that the name of the package (and the\n    Matias> corresponding class) is \"roblm\", but this does not\n    Matias> mean that I necessarily prefer this name over\n    Matias> others. I've been working on this for some time now,\n    Matias> and for the reasons that I mentioned in Treviso\n    Matias> (\"rlm\" and \"lmRob\" are already taken) I settled for\n    Matias> roblm.\n\nyes. In Treviso, we had talked about trying to go for \"rlm\" and\nI had offered to try to resolve the name clash with MASS::rlm().\nI now think that this may not be a good idea:  rlm()\nin MASS is really relatively prominent in the MASS book with\nyears of tradition, and usage in many places.  Also its default\nmethod is \"M\", not \"MM\" { for a good reason: back compatibility\nwith older versions of rlm()}.\nHence our new  (robust|rob|rf|r)lm(Rob) function would never be\n'call-compatible' to MASS::rlm() and for that reason I think we\nshould strive for a different naming scheme.\n\nAndreas Ruckstuhl had raised the point already at Treviso, and\non this list (Dec 7, \"Re: [RsR] OGK covariance estimator\") where\nhe'd proposed\n     r*   [as 'rlm' in MASS]\n     rob* [as 'roblm' above]\n     rf*  [\"[R]obust [F]itting of ..\", used in Andreas' package]\n\nThe last one may be a bit more logical than all the others,\nsince in one sense there's just one linear model with different\nfitting methodologies, since in fact,\nthe error distribution hasn't been part of the\nmodel specification __for most statistical software__\n\nOTOH, \"rob\" is easy to pronounce/spell\n[OTOH, there's all the people called 'Rob' ...]\n\nAs you can guess, from Andreas' list, I'd either take\n'rob*' or 'rf*' and don't have strong preference.  \nOther opinions?\n\nMartin",
+      "body_snippet": ">>>>> \"Matias\" == Matias Salibian-Barrera <matias at stat.ubc.ca>\n>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:\n\n\t  .........\n\n    Matias> A few days ago I uploaded the package \"roblm\" to CRAN.",
+      "thread_id": "thread-40ece0bac06b",
+      "thread_depth": 2,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-398a335937e5",
+      "message_id": "<17323.55061.834485.995958@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-23T11:53:09+01:00",
+      "subject": "[RsR] Mailing list archives --> now public",
+      "subject_clean": "[RsR] Mailing list archives --> now public",
+      "in_reply_to": "<17320.3313.620430.584005@stat.math.ethz.ch>",
+      "references": [
+        "<17320.3313.620430.584005@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Since I didn't get any protests, (and one encouragement),\nI have now opened the mailing list *archives* for public\nreading.\n\nNote that for \"posting\" (i.e. sending anything to the list), you\nmust still be subscribed to the list (or be explicitly approved\nby one of {Claudio, Matias, Martin}).\n\nAs a consequence, we now can \"cite\"  R-SIG-robust postings such\nas the (only) one from Andreas, where he had asked for feedback:\n   https://stat.ethz.ch/pipermail/r-sig-robust/2005/000024.html\n\n(The 's' in \"https\" means that you will be asked *once* to\n approve a only semi-official certificate of our web server;\n just do approve and make sure the approval is remembered by\n your web browser.)\n\nMartin\n\n>>>>> \"MM\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Tue, 20 Dec 2005 14:53:53 +0100 writes:\n\n    MM> Dear R-SIG-Robust subscribers,\n    MM> most of you got on this mailing list without having been\n    MM> explicitly asked, namely just by attending the Treviso workshop\n    MM> (and by not explicitly *un*subscribing since the list has been\n    MM> created).\n\n    MM> For this reason, and for \"data protection\" reasons, I had set up\n    MM> the mailing list *archives* to be only available to list\n    MM> subscribers (and you need to enter your e-mail address and\n    MM> mailing list password to get at them starting from the mailing\n    MM> list \"site\"  https://stat.ethz.ch/mailman/listinfo/r-sig-robust )\n\n    MM> There is one drawback with this approach, and that's the reason\n    MM> of my posting:\n    MM> You cannot send an URL (\"link\") of the list archives or a specific\n    MM> message to outsiders; something which can be useful and happens\n    MM> quite frequently with the R-help list archives, e.g.\n    >>> please look at this interesting posting on R-help :\n    >>> https://stat.ethz.ch/pipermail/r-help/2005-December/082432.html\n\n    MM> or any other list archives of public R (or other) mailing lists\n    MM> on our server: All of these are open to the public.\n\n    MM> Of course, there is one single advantage of non-public mailing list\n    MM> archives: They cannot be misused by \"address harvesters\".\n    MM> Though E-mail addresses are automatically changed by replacing\n    MM> the single character @-sign by the four letters \" at \" every\n    MM> where, this may not be enough protection for some people...\n    MM> Of course, this applies only to those *posting* to the list, not\n    MM> to everyone subscribed.\n\n    MM> Now I'm proposing to *open* the archives of R-SIG-robust to\n    MM> public reading, and am interested in getting feedback on this,\n    MM> particularly if you oppose it.  {non-feedback would mean\n    MM> implicitly be taken as \"yes, of course, that's fine, go ahead!\"}\n\n    MM> Martin\n\n    MM> _______________________________________________\n    MM> R-SIG-Robust at r-project.org mailing list\n    MM> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Since I didn't get any protests, (and one encouragement),\nI have now opened the mailing list *archives* for public\nreading.\n\nNote that for \"posting\" (i.e. sending anything to the list), you\nmust still",
+      "thread_id": "thread-316e3a1545f2",
+      "thread_depth": 1,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-302fcd0ec8c0",
+      "message_id": "<005501c60d2e$8fd22b10$1b01a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2005-12-30T11:48:25+01:00",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "subject_clean": "[RsR] Traditional vs. lattice graphics",
+      "in_reply_to": null,
+      "references": [
+        "<43A93E9C.2060708@tuwien.ac.at>",
+        "<43A9D23B.2030207@stat.ubc.ca>",
+        "<17322.35378.533261.42930@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear RSR-List,\n\nI wish you all the best in the new 2006.\n\nMay be all of you are enjoying the holidays, but I want to ask (a stupid?)\nquestion about graphics - what type of graphics shall we prefer for\nimplementing the plot functions of a package, the traditional graphics or\nthe lattice package:\n\na) only traditional\nb) only lattice\nc) mixed (some of the plots are implemented using traditional graphics and\nothers - the lattice package)\nd) both - all plots in the package are implemented as traditional as well as\nlattice plots and the user has an option to choose one of them.\n\nBest regards,\nValentin",
+      "body_snippet": "Dear RSR-List,\n\nI wish you all the best in the new 2006.\n\nMay be all of you are enjoying the holidays, but I want to ask (a stupid?)\nquestion about graphics - what type of graphics shall we prefer for",
+      "thread_id": "thread-40ece0bac06b",
+      "thread_depth": 3,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-976a13e74438",
+      "message_id": "<Pine.LNX.4.58.0512301257350.23140@thorin.ci.tuwien.ac.at>",
+      "from_name": "Achim Zeileis",
+      "from_email_hash": "b10f5104546189818641bf69395d90db4093d0e2d9ed4aa9a3cb251bb0023bbe",
+      "date": "2005-12-30T13:03:06+01:00",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "subject_clean": "[RsR] Traditional vs. lattice graphics",
+      "in_reply_to": "<005501c60d2e$8fd22b10$1b01a8c0@KILER>",
+      "references": [
+        "<43A93E9C.2060708@tuwien.ac.at>",
+        "<43A9D23B.2030207@stat.ubc.ca>",
+        "<17322.35378.533261.42930@stat.math.ethz.ch>",
+        "<005501c60d2e$8fd22b10$1b01a8c0@KILER>"
+      ],
+      "body_plain": "On Fri, 30 Dec 2005, Valentin Todorov wrote:\n\n> Dear RSR-List,\n>\n> I wish you all the best in the new 2006.\n>\n> May be all of you are enjoying the holidays, but I want to ask (a stupid?)\n> question about graphics - what type of graphics shall we prefer for\n> implementing the plot functions of a package, the traditional graphics or\n> the lattice package:\n>\n> a) only traditional\n> b) only lattice\n> c) mixed (some of the plots are implemented using traditional graphics and\n> others - the lattice package)\n> d) both - all plots in the package are implemented as traditional as well as\n> lattice plots and the user has an option to choose one of them.\n\nLet me say two things about this:\n  1. base vs. lattice graphics is not the only choice. You can also write\n     graphics using grid directly and not via the lattice package. This\n     is particularly useful if you want to create plots that do not fit\n     directly in the lattice framework. We have done this for the vcd\n     package which contains some vignettes describing the ideas that went\n     into the creation of the package.\n  2. My experience from writing vcd is that - as long as you don't do very\n     sophisticated graphics that reach very deep into the base graphics or\n     grid routines - it is not very much work to write a core computation\n     engine and then render the plot either in base or grid. For example,\n     I've written spineplot() first in base graphics and then easily\n     transferred it to a grid implementation in spine() in vcd.\nJust my EUR 0.02 and my experience...\nZ\n\n\n> Best regards,\n> Valentin\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "On Fri, 30 Dec 2005, Valentin Todorov wrote:\n\n> Dear RSR-List,\n>\n> I wish you all the best in the new 2006.\n>\n> May be all of you are enjoying the holidays, but I want to ask (a stupid?)\n> question ab",
+      "thread_id": "thread-40ece0bac06b",
+      "thread_depth": 4,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-24123cf016ed",
+      "message_id": "<17333.40699.343111.247017@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-12-30T21:56:27+01:00",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "subject_clean": "[RsR] Traditional vs. lattice graphics",
+      "in_reply_to": "<005501c60d2e$8fd22b10$1b01a8c0@KILER>",
+      "references": [
+        "<005501c60d2e$8fd22b10$1b01a8c0@KILER>"
+      ],
+      "body_plain": ">>>>> \"Valentin\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Fri, 30 Dec 2005 11:48:25 +0100 writes:\n\n    Valentin> Dear RSR-List,\n    Valentin> I wish you all the best in the new 2006.\n\nand so do I.\n\n    Valentin> May be all of you are enjoying the holidays, but I want to ask (a stupid?)\n\nnot at all stupid; rather very interesting, and very good to ask early..\n\n    Valentin> question about graphics - what type of graphics shall we prefer for\n    Valentin> implementing the plot functions of a package, the traditional graphics or\n    Valentin> the lattice package:\n\n    Valentin> a) only traditional\n\nI'm slightly modifying  -- as Achim \"kind of mentioned\" -- your\nsubsequent points to include \"grid\".\nNote that lattice is written, using grid graphics, so the two\nbelong together.\n\n            b) only grid & lattice\n\n            c) mixed (some of the plots are implemented using traditional graphics and\n\t              others using the grid and/or lattice package)\n            d) both - all plots in the package are implemented as traditional as well as\n\t              grid or lattice plots and the user has an option to choose one of them.\n\nI'd be pragmatic and go for \"c)\" , at least for now,\nwith the following reasoning / arguments:\n\ngrid and lattice (which is based on grid) are clearly superior\nto traditional graphics in their design and possibilities {for 'grid'}.\nHowever, for some S / R programmers, the effort to work with\nlattice or grid may be considerably higher than traditional\ngraphics.  Now since 'robustbase' is really first about\ncomputation (and inference) with graphics only an important\ntool, I would hesitate to *require* that people provide plot()\nmethods via grid/lattice.\nIf novel plots are invented, they really ``should'' be done via\ngrid graphics {or maybe via lattice panel functions using grid\ngraphics};  but I'm not sure we will see such novel plots...\nOTOH, for really simple plots {lines, points,.. in only one\n'panel'}, the use of lattice/grid does not add much value (I\nthink) and actually may make it even make it considerably harder\nfor \"traditionalists\" to add to such a graphic.\n\nIt could be interesting to hear many more opinions...\n\nMartin",
+      "body_snippet": ">>>>> \"Valentin\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Fri, 30 Dec 2005 11:48:25 +0100 writes:\n\n    Valentin> Dear RSR-List,\n    Valentin> I wish you all the best in the new",
+      "thread_id": "thread-40ece0bac06b",
+      "thread_depth": 4,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-7a788f147394",
+      "message_id": "<Pine.LNX.4.58.0512310106510.23979@thorin.ci.tuwien.ac.at>",
+      "from_name": "Achim Zeileis",
+      "from_email_hash": "b10f5104546189818641bf69395d90db4093d0e2d9ed4aa9a3cb251bb0023bbe",
+      "date": "2005-12-31T01:15:44+01:00",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "subject_clean": "[RsR] Traditional vs. lattice graphics",
+      "in_reply_to": "<17333.40699.343111.247017@stat.math.ethz.ch>",
+      "references": [
+        "<005501c60d2e$8fd22b10$1b01a8c0@KILER>",
+        "<17333.40699.343111.247017@stat.math.ethz.ch>"
+      ],
+      "body_plain": "On Fri, 30 Dec 2005, Martin Maechler wrote:\n\n> If novel plots are invented, they really ``should'' be done via\n> grid graphics {or maybe via lattice panel functions using grid\n> graphics};  but I'm not sure we will see such novel plots...\n> OTOH, for really simple plots {lines, points,.. in only one\n> 'panel'}, the use of lattice/grid does not add much value (I\n> think) and actually may make it even make it considerably harder\n> for \"traditionalists\" to add to such a graphic.\n\nYes, good point. To expand a little: Single panel plots that are\nessentially of a scatter plot type, the base framework is usually\nsufficient and easier to use. If, in addition, a grid implementation is\nneeded, it's usually easy to add. For multiple panel plots, grid/lattice\nwill probably provide better tools.\nThe advantage of having the single panel plots available in grid and not\nonly in base graphics, is that they can be easily re-used in multi-panel\nplots. So personally, I usually start to write the single panel prototype\nin base graphics, then transform it to grid and possibly re-use it in\nother functions.\nZ",
+      "body_snippet": "On Fri, 30 Dec 2005, Martin Maechler wrote:\n\n> If novel plots are invented, they really ``should'' be done via\n> grid graphics {or maybe via lattice panel functions using grid\n> graphics};  but I'm no",
+      "thread_id": "thread-40ece0bac06b",
+      "thread_depth": 5,
+      "month": "2005-12"
+    },
+    {
+      "id": "msg-c5b5800581f3",
+      "message_id": "<1136048023.20398.250836441@webmail.messagingengine.com>",
+      "from_name": "Nicholas Lewin-Koh",
+      "from_email_hash": "db1e00ab5510a3449e0b3ccb12bc5842ab0ff9dc92e677241ea74ffd424c0ac9",
+      "date": "2005-12-31T11:53:43-05:00",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "subject_clean": "[RsR] Traditional vs. lattice graphics",
+      "in_reply_to": "<mailman.9.1136026801.16787.r-sig-robust@r-project.org>",
+      "references": [
+        "<mailman.9.1136026801.16787.r-sig-robust@r-project.org>"
+      ],
+      "body_plain": "Hi,\nIn general I agree with Martin and Achim except for one small point. \nIf you construct your basic plots using grid, it is very easy to\nincorporate \nthem into a lattice framework later, since each plot can sit in a\nviewport.\nEven better would be to use a framework so the plot is constructed as a\nlayout\nand a series of additions to the plot area, then it is very easy to\nwrite panel functions\nfor lattice, if conditioning is desired later. \n\nMy experience with base graphics has been that I can only go so far, and\nI have \nhad to switch to grid in the end. Also, grid seems to integrate pretty\nwell with s4\nclasses, even though Paul used s3 classes for grid. It is very natural\nto\nconstruct s4 graphics classes with a slot for a vieport tree, and\nvarious grobs.\n\nThat's my 2c\n\nCheers and happy new year\n\nNicholas",
+      "body_snippet": "Hi,\nIn general I agree with Martin and Achim except for one small point. \nIf you construct your basic plots using grid, it is very easy to\nincorporate \nthem into a lattice framework later, since each ",
+      "thread_id": "thread-c5b5800581f3",
+      "thread_depth": 0,
+      "month": "2005-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-8a62ba7a0450",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "message_count": 14,
+      "participants": [
+        "Kjell Konis",
+        "Kristel Joossens",
+        "Martin Maechler",
+        "Matias Salibian-Barrera",
+        "Peter Filzmoser",
+        "Ricardo Maronna",
+        "Valentin Todorov"
+      ],
+      "started": "2005-12-02T22:22:48+01:00",
+      "last_reply": "2005-12-20T16:14:19+01:00",
+      "root_message_id": "msg-8a62ba7a0450"
+    },
+    {
+      "id": "thread-c46ec956b260",
+      "subject": "[RsR] Package title (was: OGK covariance estimator)",
+      "message_count": 6,
+      "participants": [
+        "Jean-Christophe BOUETTE",
+        "Martin Maechler",
+        "Peter Filzmoser",
+        "Valentin Todorov",
+        "Werner Stahel"
+      ],
+      "started": "2005-12-06T11:04:06+01:00",
+      "last_reply": "2005-12-08T11:26:11+01:00",
+      "root_message_id": "msg-c46ec956b260"
+    },
+    {
+      "id": "thread-4f65908c6b08",
+      "subject": "[RsR] [R] M-estimator R function question",
+      "message_count": 2,
+      "participants": [
+        "Christian Hennig",
+        "Valentin Todorov"
+      ],
+      "started": "2005-12-06T20:11:00+01:00",
+      "last_reply": "2005-12-06T21:01:13+00:00",
+      "root_message_id": "msg-4f65908c6b08"
+    },
+    {
+      "id": "thread-bc451062fce4",
+      "subject": "[RsR] OGK covariance estimator",
+      "message_count": 1,
+      "participants": [
+        "Ruckstuhl Andreas (rks)"
+      ],
+      "started": "2005-12-07T08:57:22+01:00",
+      "last_reply": "2005-12-07T08:57:22+01:00",
+      "root_message_id": "msg-bc451062fce4"
+    },
+    {
+      "id": "thread-300b20248b2c",
+      "subject": "[RsR] RSR slides",
+      "message_count": 1,
+      "participants": [
+        "claudio"
+      ],
+      "started": "2005-12-07T10:00:17+01:00",
+      "last_reply": "2005-12-07T10:00:17+01:00",
+      "root_message_id": "msg-300b20248b2c"
+    },
+    {
+      "id": "thread-0df545a5faed",
+      "subject": "[RsR] Package title",
+      "message_count": 2,
+      "participants": [
+        "Alfio Marazzi",
+        "Rudi Dutter"
+      ],
+      "started": "2005-12-07T12:20:53+01:00",
+      "last_reply": "2005-12-07T15:13:16+01:00",
+      "root_message_id": "msg-0df545a5faed"
+    },
+    {
+      "id": "thread-1997300ad768",
+      "subject": "[RsR] sm",
+      "message_count": 1,
+      "participants": [
+        "Kmetty Zoltan"
+      ],
+      "started": "2005-12-08T11:09:01+01:00",
+      "last_reply": "2005-12-08T11:09:01+01:00",
+      "root_message_id": "msg-1997300ad768"
+    },
+    {
+      "id": "thread-b9161c9b3126",
+      "subject": "[RsR] Package title",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2005-12-09T10:48:38+01:00",
+      "last_reply": "2005-12-09T10:48:38+01:00",
+      "root_message_id": "msg-b9161c9b3126"
+    },
+    {
+      "id": "thread-e6538519207a",
+      "subject": "[RsR]  Package title",
+      "message_count": 4,
+      "participants": [
+        "Friedrich@Leisch m@iii@g oii tuwie@@@c@@t",
+        "Jean-Christophe BOUETTE",
+        "Martin Maechler"
+      ],
+      "started": "2005-12-09T13:47:41+01:00",
+      "last_reply": "2005-12-09T15:26:21+01:00",
+      "root_message_id": "msg-e6538519207a"
+    },
+    {
+      "id": "thread-dfb1530040cc",
+      "subject": "[RsR] Package title",
+      "message_count": 1,
+      "participants": [
+        "Werner Stahel"
+      ],
+      "started": "2005-12-09T16:53:15+01:00",
+      "last_reply": "2005-12-09T16:53:15+01:00",
+      "root_message_id": "msg-dfb1530040cc"
+    },
+    {
+      "id": "thread-073829eef5b0",
+      "subject": "[RsR] Package title",
+      "message_count": 5,
+      "participants": [
+        "Alfio Marazzi",
+        "Eva Cantoni",
+        "Martin Maechler"
+      ],
+      "started": "2005-12-10T19:32:59+01:00",
+      "last_reply": "2005-12-20T18:35:19+01:00",
+      "root_message_id": "msg-073829eef5b0"
+    },
+    {
+      "id": "thread-1bc57aa6a2d2",
+      "subject": "[RsR] Web page",
+      "message_count": 1,
+      "participants": [
+        "Peter Filzmoser"
+      ],
+      "started": "2005-12-12T09:48:58+01:00",
+      "last_reply": "2005-12-12T09:48:58+01:00",
+      "root_message_id": "msg-1bc57aa6a2d2"
+    },
+    {
+      "id": "thread-86638cf2890f",
+      "subject": "[RsR] Robust Statistical Methods with R book",
+      "message_count": 2,
+      "participants": [
+        "Henric Nilsson",
+        "Peter Filzmoser"
+      ],
+      "started": "2005-12-19T13:52:34+01:00",
+      "last_reply": "2005-12-20T14:48:05+01:00",
+      "root_message_id": "msg-86638cf2890f"
+    },
+    {
+      "id": "thread-8c2d8aecba8c",
+      "subject": "[RsR] Minutes and/or reports of the working groups ...",
+      "message_count": 1,
+      "participants": [
+        "Peter Ruckdeschel"
+      ],
+      "started": "2005-12-19T22:11:55+01:00",
+      "last_reply": "2005-12-19T22:11:55+01:00",
+      "root_message_id": "msg-8c2d8aecba8c"
+    },
+    {
+      "id": "thread-316e3a1545f2",
+      "subject": "[RsR] Mailing list archives -- public or only for subscribers?",
+      "message_count": 2,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2005-12-20T14:53:53+01:00",
+      "last_reply": "2005-12-23T11:53:09+01:00",
+      "root_message_id": "msg-316e3a1545f2"
+    },
+    {
+      "id": "thread-40ece0bac06b",
+      "subject": "[RsR] Minutes Treviso",
+      "message_count": 8,
+      "participants": [
+        "Achim Zeileis",
+        "Martin Maechler",
+        "Matias Salibian-Barrera",
+        "Peter Filzmoser",
+        "Valentin Todorov"
+      ],
+      "started": "2005-12-21T12:38:04+01:00",
+      "last_reply": "2005-12-31T01:15:44+01:00",
+      "root_message_id": "msg-40ece0bac06b"
+    },
+    {
+      "id": "thread-67e8c8089cc1",
+      "subject": "[RsR] Function names",
+      "message_count": 4,
+      "participants": [
+        "Friedrich@Leisch m@iii@g oii tuwie@@@c@@t",
+        "Jean-Christophe BOUETTE",
+        "Martin Maechler"
+      ],
+      "started": "2005-12-21T14:13:38+01:00",
+      "last_reply": "2005-12-21T15:38:48+01:00",
+      "root_message_id": "msg-67e8c8089cc1"
+    },
+    {
+      "id": "thread-c5b5800581f3",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "message_count": 1,
+      "participants": [
+        "Nicholas Lewin-Koh"
+      ],
+      "started": "2005-12-31T11:53:43-05:00",
+      "last_reply": "2005-12-31T11:53:43-05:00",
+      "root_message_id": "msg-c5b5800581f3"
+    }
+  ]
+}

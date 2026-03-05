@@ -1,0 +1,128 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2013-06",
+  "messages": [
+    {
+      "id": "msg-b9fc3f4c3cca",
+      "message_id": "<E71E7032F00FCA4AA40DC7943D3DB10E24D0C03B@MBX12.d.ethz.ch>",
+      "from_name": "Hertzog  Gladys",
+      "from_email_hash": "1d33f356e810e19152d8aa1ee7bf056117a5abb854a7da659df9d7f5d82547e5",
+      "date": "2013-06-07T12:04:06Z",
+      "subject": "[RsR] estimation of covariance matrix of a bivariate normal distribution using maximization of the log-likelihood",
+      "subject_clean": "[RsR] estimation of covariance matrix of a bivariate normal distribution using maximization of the log-likelihood",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nI?m new in R and I?m trying to estimate the covariance matrix of a bivariate normal distribution by maximizing the log-likelihood. The maximization really has to be performed with the non-linear minimization routine (nlm). The 2 means of the distribution are known and equal to 1.\nI?ve already tried 2 different ways to compute this covariance but for each of them I obtained a lot of warnings and illogical values for the covariance matrix.\n\nIn the first one, I defined the bivariate normal distribution with the command dmvnorm:\n\nx<-rnorm(6000, 2.4, 0.6)\nx <- matrix(c(x), ncol=1)\ny<-rlnorm(6000, 1.3,0.1)\ny <- matrix(c(y), ncol=1)\nXY <- cbind(x,y)\n\nL <- function(par,x,y) {\nreturn (-sum(log(par[4]*dmvnorm(XY, mean=c(1,1), sigma= matrix(c(par[1], par[1]*par[2]*par[3],par[1]*par[2]*par[3], par[2] ),nrow=2, ncol=2)) )))\n}\npar.start<- c(0.5, 0.5 ,0.5 ,0.5)\nresult<-nlm(L,par.start,y=y,x=x, hessian=TRUE)\npar.hat <- result$estimate\n\npar.hatIl y a eu 32 avis (utilisez warnings() pour les visionner)\n> par.hat <- result$estimate\n> par.hat\n[1] 5.149919e+01 2.520721e+02 8.734212e-03 3.996771e+02\n> warnings()\nMessages d'avis :\n1: In log(eigen(sigma, symmetric = TRUE, only.values = TRUE)$values) :\nproduction de NaN\n2: In nlm(L, par.start, y = y, x = x, hessian = TRUE) :\nNA/Inf replaced by maximum positive value\n3: In log(eigen(sigma, symmetric = TRUE, only.values = TRUE)$values) :\nproduction de NaN\n4: In nlm(L, par.start, y = y, x = x, hessian = TRUE) :\nNA/Inf replaced by maximum positive value\n5: In log(eigen(sigma, symmetric = TRUE, only.values = TRUE)$values) :\nproduction de NaN\n6: In nlm(L, par.start, y = y, x = x, hessian = TRUE) :\nNA/Inf replaced by maximum positive value\n7: In log(eigen(sigma, symmetric = TRUE, only.values = TRUE)$values) :\nproduction de NaN\n8: In nlm(L, par.start, y = y, x = x, hessian = TRUE) :\nNA/Inf replaced by maximum positive value\n9: In log(eigen(sigma, symmetric = TRUE, only.values = TRUE)$values) :\nproduction de NaN\n10: In nlm(L, par.start, y = y, x = x, hessian = TRUE) :\nNA/Inf replaced by maximum positive value\n11: In log(eigen(sigma, symmetric = TRUE, only.values = TRUE)$values) :\nproduction de NaN\n12: In nlm(L, par.start, y = y, x = x, hessian = TRUE) :\nNA/Inf replaced by maximum positive value\n13: In log(eigen(sigma, symmetric = TRUE, only.values = TRUE)$values) :\nproduction de NaN\n\nIn the second one, I wrote step by step the bivariate normal distribution in order to have each parameter separately (not in a matrix) but it didn?t work as well:\n\nx<-rnorm(6000, 2.4, 0.6)\ny<-rlnorm(6000, 1.3,0.1)\nL <- function(par,x,y) {\nreturn (-sum(log((1-par[4])*( (1/(2*pi*par[1]*par[2]*sqrt(1-par[3])))*exp( (-1/2*(1-par[3]^2))* ((y-1)/par[2])^2 +((x-1)/par[1])^2 - 2*(y-1)*(x-1)/(par[2]*par[1]) )) )))\n}\n#par [1]= sigma_x , par [2]= sigma_y par [3]= rho_xy par[4] is a mixing parameter. The final step of my calculation will be to have a mixture of bivariate normal and log-normal distributions.\npar.start<- c(0.5, 0.5 ,0.5 ,0.5)\nresult<-nlm(L,par.start,y=y,x=x, hessian=T)\npar.hat <- result$estimate\npar.ha\n\nWhen I run this script, I get always 50 advices like those below:\nMessages d'avis :\n1: In sqrt(1 - par[3]) : production de NaN\n2: In nlm(L, par.start, y = y, x = x, hessian = T) :\nNA/Inf replaced by maximum positive value\n3: In sqrt(1 - par[3]) : production de NaN\n4: In nlm(L, par.start, y = y, x = x, hessian = T) :\nNA/Inf replaced by maximum positive value\n5: In sqrt(1 - par[3]) : production de NaN\n6: In nlm(L, par.start, y = y, x = x, hessian = T) :\nNA/Inf replaced by maximum positive value\n7: In log((1 - par[4]) * ((1/(2 * pi * par[1] * par[2] * ... : production de NaN\n8: In nlm(L, par.start, y = y, x = x, hessian = T) :\nNA/Inf replaced by maximum positive value\n9: In log((1 - par[4]) * ((1/(2 * pi * par[1] * par[2] * ... : production de NaN\n10: In nlm(L, par.start, y = y, x = x, hessian = T) :\nNA/Inf replaced by maximum positive value\n11: In log((1 - par[4]) * ((1/(2 * pi * par[1] * par[2] * ... : production de NaN\n12: In nlm(L, par.start, y = y, x = x, hessian = T) :\nNA/Inf replaced by maximum positive value\n??\nDoes one of you know how to use the nlm method to estimate the covariance matrix (and mixing parameter ) of a bivariate normal distribution?\n\nThank you in advance for your help and answers.\n\nBest regards,\n\nGladys Hertzog\nMaster student in environmental engineering at ETH Zurich\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: message_to_mailing_list.pdf\nType: application/pdf\nSize: 200565 bytes\nDesc: message_to_mailing_list.pdf\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20130607/48131d20/attachment.pdf>",
+      "body_snippet": "Dear all,\n\nI?m new in R and I?m trying to estimate the covariance matrix of a bivariate normal distribution by maximizing the log-likelihood. The maximization really has to be performed with the non-l",
+      "thread_id": "thread-b9fc3f4c3cca",
+      "thread_depth": 0,
+      "month": "2013-06"
+    },
+    {
+      "id": "msg-0b0c116d8774",
+      "message_id": "<20913.64868.57300.869002@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2013-06-07T17:33:56+02:00",
+      "subject": "[RsR] estimation of covariance matrix of a bivariate normal distribution using maximization of the log-likelihood",
+      "subject_clean": "[RsR] estimation of covariance matrix of a bivariate normal distribution using maximization of the log-likelihood",
+      "in_reply_to": "<E71E7032F00FCA4AA40DC7943D3DB10E24D0C03B@MBX12.d.ethz.ch>",
+      "references": [
+        "<E71E7032F00FCA4AA40DC7943D3DB10E24D0C03B@MBX12.d.ethz.ch>"
+      ],
+      "body_plain": "Hi Gladys,\n\nyou've  cross posted the exactly same question to R-help.\nThis is considered very bad netiquette!\n\n{and as you are from ETHZ, I *am* embarrassed for you}.\n\nYou may get an answer on R-help, as your question is not much\nrelated to \"R-SIG-robust\" anyway.\n\nMartin Maechler\n\n>>>>> Hertzog Gladys <hertzogg at student.ethz.ch>\n>>>>>     on Fri, 7 Jun 2013 12:04:06 +0000 writes:\n\n    > Dear all,\n\n    > I?m new in R and I?m trying to estimate the covariance\n    > matrix of a bivariate normal distribution by maximizing\n    > the log-likelihood. \n\n    >    .....................\n    >    .....................",
+      "body_snippet": "Hi Gladys,\n\nyou've  cross posted the exactly same question to R-help.\nThis is considered very bad netiquette!\n\n{and as you are from ETHZ, I *am* embarrassed for you}.\n\nYou may get an answer on R-help,",
+      "thread_id": "thread-b9fc3f4c3cca",
+      "thread_depth": 1,
+      "month": "2013-06"
+    },
+    {
+      "id": "msg-4a21922162ba",
+      "message_id": "<1370946821.8874.YahooMailClassic@web28905.mail.ir2.yahoo.com>",
+      "from_name": "abdelhamid hebbouche",
+      "from_email_hash": "73a01b0d6ffdb686fcca3f99a24aeb6fce5984949a6a0102fcb11bc319f6a721",
+      "date": "2013-06-11T11:33:41+01:00",
+      "subject": "[RsR] Need Help for Sensitivity Analysis",
+      "subject_clean": "[RsR] Need Help for Sensitivity Analysis",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,?\nI am pleased to solicit you kindly for clarify this point. I have six victors as random variables considered like input variables and after simulation I got one vector random variable like output. I had the recommendations to use the sensitivity package of R software to estimate Sobol's indices, but I did not get to do.With your understanding, please help me make this sensitivity analysis.?With your understanding, please help me make this sensitivity analysis.?Best regards.\nMr. HEBBOUCHE AbdelhamidLaboratoire de la M?canique Appliqu?eEcole Nationale Sup?rieure de l'Hydraulique29 route de Soumaa,?B.P : 31 , (09000) BlidaAlg?rie\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,?\nI am pleased to solicit you kindly for clarify this point. I have six victors as random variables considered like input variables and after simulation I got one vector random variable like out",
+      "thread_id": "thread-4a21922162ba",
+      "thread_depth": 0,
+      "month": "2013-06"
+    },
+    {
+      "id": "msg-f76e505a74df",
+      "message_id": "<201306252223.r5PMNjjl031589@wallabie.isp.ip.pt>",
+      "from_name": "Eduardo Conceicao",
+      "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
+      "date": "2013-06-25T23:23:45+01:00",
+      "subject": "[RsR] Preliminary release of functions for robust nonlinear regression",
+      "subject_clean": "[RsR] Preliminary release of functions for robust nonlinear regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nI am making available some basic code for robust nonlinear regression. \nCurrently, there are available three functions for the tau-, CM-, and MTL-\nestimates with a rule for the adaptive choice of coverage.\n\nPlease, keep in mind that the code is in a very initial stage. However, if you find it \nuseful I want to use it, I would be delighted. License is GPL (>= 2).\n\nI would very much appreciate comments regarding in particular (a) issues of \nstatistical methodology and (b) ways of improving the code.\nYou can download file nonlinrobreg_0.0.1.zip from:\nhttps://www.dropbox.com/s/1oiqiansbgzed4j/nonlinrobreg_0.0.1.zip\n\n\n= A few details =\nThe implementation follows loosely the code of nlrob() from package \nrobustbase. The approach for computing the estimates is the direct solution of \nthe respective optimization problem using the Differential Evolution (DE) \nheuristic (coupled with an algorithm for dealing with constraints for the CM-\nestimates).\n\nThe code uses packages PolynomF, robustbase, and ggplot2.\n\nThe methods for predict(), coef(), resid(), etc. are those developed for nlrob(). \nHowever, summary() is not compatible.\n\n\n= Contents =\ndeopt.R: implementation of the jDE variant of the DE algorithm\ntest-funs.R: a few benchmark problems for unconstrained and constrained \noptimization\nnlrobreg.R:\n    nlrob.tau() (tau-estimator),\n    nlrob.CM() (CM-estimator),\n    nlrob.mtl() (MTL-estimator with adaptive coverage)\nexample_nlrobreg: example (based on the example for nlrob() from package \nrobustbase)\n\n\n= Running the example =\nlibrary(PolinomF)\nlibrary(robustbase)\nlibrary(ggplot2)\n\nsource(deopt.R)\nsource(nlrobreg.R)\n#run the code from the example file\n\nEduardo\n----------------------------------------\nEduardo L. T. Conceicao             econceicao at kanguru.pt\nCIEPQPF\nDepartment of Chemical Engineering\nUniversity of Coimbra, Portugal",
+      "body_snippet": "Hi all,\n\nI am making available some basic code for robust nonlinear regression. \nCurrently, there are available three functions for the tau-, CM-, and MTL-\nestimates with a rule for the adaptive choic",
+      "thread_id": "thread-f76e505a74df",
+      "thread_depth": 0,
+      "month": "2013-06"
+    },
+    {
+      "id": "msg-e12a64075bb5",
+      "message_id": "<20938.51873.869504.435938@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2013-06-26T13:04:01+02:00",
+      "subject": "[RsR] Preliminary release of functions for robust nonlinear\tregression",
+      "subject_clean": "[RsR] Preliminary release of functions for robust nonlinear\tregression",
+      "in_reply_to": "<201306252223.r5PMNjjl031589@wallabie.isp.ip.pt>",
+      "references": [
+        "<201306252223.r5PMNjjl031589@wallabie.isp.ip.pt>"
+      ],
+      "body_plain": ">>>>> Eduardo Conceicao <econceicao at kanguru.pt>\n>>>>>     on Tue, 25 Jun 2013 23:23:45 +0100 writes:\n\n    > Hi all,\n    > I am making available some basic code for robust nonlinear regression. \n    > Currently, there are available three functions for the tau-, CM-, and MTL-\n    > estimates with a rule for the adaptive choice of coverage.\n\n    > Please, keep in mind that the code is in a very initial\n    > stage. However, if you find it useful I want to use it, I\n    > would be delighted.\n\nYes, indeed, I find it very useful!\n    > License is GPL (>= 2).\n\n\nGood! Note that you should mention the licence, some people say,\nyou should do so (once) in every source file.\nI think you should do it in every file where you also say\n'Copyright Eduardo Conceicao'.\nBut of course you said things were preliminary anyway..\n\n    > I would very much appreciate comments regarding in particular \n    > (a) issues of statistical methodology and \n    > (b) ways of improving the code.\n\nI only have had a quick look, and __ if you know me then you\nknow this is always the case __  \"of course\" I have small ways\nof improving the code, that I can communicate to you,\nnot in this e-mail though, rather privately.\n\n    > You can download file nonlinrobreg_0.0.1.zip from:\n    > https://www.dropbox.com/s/1oiqiansbgzed4j/nonlinrobreg_0.0.1.zip\n\n\n    > = A few details =\n    > The implementation follows loosely the code of nlrob() from package \n    > robustbase. The approach for computing the estimates is the direct solution of \n    > the respective optimization problem using the Differential Evolution (DE) \n    > heuristic (coupled with an algorithm for dealing with constraints for the CM-\n    > estimates).\n\nSounds really interesting..  I didn't know that yet at all.\nInteresting how you then use the polynom arithmetic (from\n'PolynomF') there\n\n    > The code uses packages PolynomF, robustbase, and ggplot2.\n\n    > The methods for predict(), coef(), resid(), etc. are those developed for nlrob(). \n    > However, summary() is not compatible.\n\nYes...  I'd like to help you making them more compatible if\npossible.  \nTo make  vcov() work may be important, too, and linked to be\nable to provide a good summary().\n\nAlso, I've been changing  nlrob() in robustbase itself,\n(not yet finished, committed), notably allowing it to use the new\nMpsi(), Mchi(), Mwgt() functions in the latest release of\nrobustbase.\n\nAlso if you look at the latest research by Manuel Koller and\nWerner Stahel, you see that \"the optimal Psi\" function is really\nnot at all optimal in some situations,\nand it would be nice if the new  nlrob.*() estimators could also\nuse different  psi/chi/rho  functions.\n\nWe can (and should) talk about these details in private e-mail\nexchange I think.\n\n\n    > = Contents =\n    > deopt.R: implementation of the jDE variant of the DE algorithm\n    > test-funs.R: a few benchmark problems for unconstrained and constrained \n    > optimization\n    > nlrobreg.R:\n    > nlrob.tau() (tau-estimator),\n    > nlrob.CM() (CM-estimator),\n    > nlrob.mtl() (MTL-estimator with adaptive coverage)\n    > example_nlrobreg: example (based on the example for nlrob() from package \n    > robustbase)\n\n\n    > = Running the example =\n    > library(PolinomF)\n    > library(robustbase)\n    > library(ggplot2)\n\n    > source(deopt.R)\n    > source(nlrobreg.R)\n    > #run the code from the example file\n\nYes indeed, and that example is really very convincing!\n\nThank you very much Eduardo,\nfor this good and important contribution to  \n\"robustness with R\" !!\n\nMartin Maechler,\nETH Zurich\n\n\n    > Eduardo\n    > ----------------------------------------\n    > Eduardo L. T. Conceicao             econceicao at kanguru.pt\n    > CIEPQPF\n    > Department of Chemical Engineering\n    > University of Coimbra, Portugal\n\n    > _______________________________________________\n    > R-SIG-Robust at r-project.org mailing list\n    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": ">>>>> Eduardo Conceicao <econceicao at kanguru.pt>\n>>>>>     on Tue, 25 Jun 2013 23:23:45 +0100 writes:\n\n    > Hi all,\n    > I am making available some basic code for robust nonlinear regression. \n   ",
+      "thread_id": "thread-f76e505a74df",
+      "thread_depth": 1,
+      "month": "2013-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b9fc3f4c3cca",
+      "subject": "[RsR] estimation of covariance matrix of a bivariate normal distribution using maximization of the log-likelihood",
+      "message_count": 2,
+      "participants": [
+        "Hertzog  Gladys",
+        "Martin Maechler"
+      ],
+      "started": "2013-06-07T12:04:06+00:00",
+      "last_reply": "2013-06-07T17:33:56+02:00",
+      "root_message_id": "msg-b9fc3f4c3cca"
+    },
+    {
+      "id": "thread-4a21922162ba",
+      "subject": "[RsR] Need Help for Sensitivity Analysis",
+      "message_count": 1,
+      "participants": [
+        "abdelhamid hebbouche"
+      ],
+      "started": "2013-06-11T11:33:41+01:00",
+      "last_reply": "2013-06-11T11:33:41+01:00",
+      "root_message_id": "msg-4a21922162ba"
+    },
+    {
+      "id": "thread-f76e505a74df",
+      "subject": "[RsR] Preliminary release of functions for robust nonlinear regression",
+      "message_count": 2,
+      "participants": [
+        "Eduardo Conceicao",
+        "Martin Maechler"
+      ],
+      "started": "2013-06-25T23:23:45+01:00",
+      "last_reply": "2013-06-26T13:04:01+02:00",
+      "root_message_id": "msg-f76e505a74df"
+    }
+  ]
+}

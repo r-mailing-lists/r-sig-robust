@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2010-11",
+  "messages": [
+    {
+      "id": "msg-de1e364be1d0",
+      "message_id": "<4CF3BE18.10907@uab.cat>",
+      "from_name": "Pep Serra",
+      "from_email_hash": "217ccf4a34d2d0fb6d09944b3afc934cf006b079672c836e42588685ca021375",
+      "date": "2010-11-29T15:52:08+01:00",
+      "subject": "[RsR] choosing and plotting a model",
+      "subject_clean": "[RsR] choosing and plotting a model",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nTrying to choose between different curve fittings within different \nrobust models (what we would get with cftools in MATLAB, but I am \ndefinetly R-addicted).\n\nMaybe it is a trivial questions:\n\nlm1<-lmrob(y ~  x, data=a)\npl2<-lmrob(y ~   poly (x,2), data=a)\npl3<-lmrob(y ~   poly (x,3), data=a)\npl4<-lmrob(y ~   poly (x,4), data=a)\npl5<-lmrob(y ~   poly (x,5), data=a)\npl6<-lmrob(y ~   poly (x,6), data=a)\n\nI want to choose between different models according to the best fit, but \nthe problem is that there is no \"best fit\" in robust (or R2). How could \nI do that?\n\nIn addition, I would love to plot these models (scatterplot and than \nlater add the lines to see how the models look like)\n\nI tried, for instance:\n\nlines (x,predict (pl2),col=\"red\")\n\nbut I get many curves (I think) or a filled polygon. Is there any way to \nget a simple line out of the model?\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: josep_serra.vcf\nType: text/x-vcard\nSize: 448 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101129/e3029d89/attachment.vcf>",
+      "body_snippet": "Dear all,\n\nTrying to choose between different curve fittings within different \nrobust models (what we would get with cftools in MATLAB, but I am \ndefinetly R-addicted).\n\nMaybe it is a trivial question",
+      "thread_id": "thread-de1e364be1d0",
+      "thread_depth": 0,
+      "month": "2010-11"
+    },
+    {
+      "id": "msg-918a72f8dd9f",
+      "message_id": "<4CF46D5A.2070908@zhaw.ch>",
+      "from_name": "Andreas Ruckstuhl",
+      "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
+      "date": "2010-11-30T04:19:54+01:00",
+      "subject": "[RsR] choosing and plotting a model",
+      "subject_clean": "[RsR] choosing and plotting a model",
+      "in_reply_to": "<4CF3BE18.10907@uab.cat>",
+      "references": [
+        "<4CF3BE18.10907@uab.cat>"
+      ],
+      "body_plain": "Dear Pep\n\nTo choose between different models you can use anova() (i.e., \nanova.lmrob()) which runs robust tests; cf. example below. Since \nanova.lmrob() can not handle poly(x, ...) directly, you must run some \nmanual preparations on the data set (cf. below).\n\nFitting higher order polynomial can be very tricky. If there are \noutliers at one or both end of the range, it is hard to tell whether one \nshould fit a higher order polynomial or better a low order polynomial \nwith some outliers at the end of the range. - The goals of your analysis \nmay give a hint which solution is more preferred. The data themselves \nare often not decisive.\n\nIf there is no physical law supporting a high order polynomial I prefer \nto fit local regression smoother like lowess() or loess.\n\nTo plot the models you must install the current version of the package \n'robustbase' (cf. below) where predict.lmrob() is implemented.\n\n\nAll the best, Andreas\n\n--------------------- Example ----------------------------------\n\nADat <- data.frame(x=1:19)\nset.seed(3011)\nADat$y <- 4 + 0.02*(ADat$x - 9)^3 + rnorm(nrow(ADat),0,0.7)\nADat$y[c(5,12)] <- c(15,-5)\n\n\n## Data Preparation:\nX <- model.matrix(~   poly (x,6), data=ADat)\nADat2 <- data.frame(y=ADat$y, X[,-1])\nnames(ADat2)[-1] <- paste(\"P\", 1:6, sep=\"\")\n\n## Robust Fitting\nlibrary(robustbase)\npl1 <- lmrob(y ~  P1, data=ADat2)\npl2 <- lmrob(y ~  P1 + P2, data=ADat2)\npl3 <- lmrob(y ~  P1 + P2 + P3, data=ADat2)\npl4 <- lmrob(y ~  . - P5 - P6, data=ADat2)\npl5 <- lmrob(y ~  . - P6, data=ADat2)\npl6 <- lmrob(y ~  ., data=ADat2)\n\nsummary(pl6)\n\n## Model Selection\nanova(pl6, pl3, test=\"Wald\")\n## or alternatively\nanova(pl6, pl3, test=\"Deviance\")## Pr(>chisq) = 0.3652\n\nanova(pl6, pl2, test=\"Deviance\")## Pr(>chisq) = < 2.2e-16\n\n\n## Displaying Model Fits\n## For predict: Please load 'robustbase' from R-forge\n## see https://r-forge.r-project.org/R/?group_id=59\nplot(y ~x, data=ADat)\nlines(ADat$x, predict(pl1), col=2)\nlines(ADat$x, predict(pl2), col=3)\nlines(ADat$x, predict(pl3), col=4)\nlines(ADat$x, predict(pl4), col=5)\n\n----------------------------------------------------------------------------------\n\n\n------- Urspr?ngliche Nachricht --------\nVon: Pep Serra <josep.serra at uab.cat>\nGesendet: Mon, 29 Nov 2010 15:52:08 +0100\nAn: r-sig-robust at r-project.org\nBetreff: [RsR] choosing and plotting a model\n\n> Dear all,\n> \n> Trying to choose between different curve fittings within different \n> robust models (what we would get with cftools in MATLAB, but I am \n> definetly R-addicted).\n> \n> Maybe it is a trivial questions:\n> \n> lm1<-lmrob(y ~  x, data=a)\n> pl2<-lmrob(y ~   poly (x,2), data=a)\n> pl3<-lmrob(y ~   poly (x,3), data=a)\n> pl4<-lmrob(y ~   poly (x,4), data=a)\n> pl5<-lmrob(y ~   poly (x,5), data=a)\n> pl6<-lmrob(y ~   poly (x,6), data=a)\n> \n> I want to choose between different models according to the best fit, but \n> the problem is that there is no \"best fit\" in robust (or R2). How could \n> I do that?\n> \n> In addition, I would love to plot these models (scatterplot and than \n> later add the lines to see how the models look like)\n> \n> I tried, for instance:\n> \n> lines (x,predict (pl2),col=\"red\")\n> \n> but I get many curves (I think) or a filled polygon. Is there any way to \n> get a simple line out of the model?\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nIDP Institut f?r Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
+      "body_snippet": "Dear Pep\n\nTo choose between different models you can use anova() (i.e., \nanova.lmrob()) which runs robust tests; cf. example below. Since \nanova.lmrob() can not handle poly(x, ...) directly, you must ",
+      "thread_id": "thread-de1e364be1d0",
+      "thread_depth": 1,
+      "month": "2010-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-de1e364be1d0",
+      "subject": "[RsR] choosing and plotting a model",
+      "message_count": 2,
+      "participants": [
+        "Andreas Ruckstuhl",
+        "Pep Serra"
+      ],
+      "started": "2010-11-29T15:52:08+01:00",
+      "last_reply": "2010-11-30T04:19:54+01:00",
+      "root_message_id": "msg-de1e364be1d0"
+    }
+  ]
+}

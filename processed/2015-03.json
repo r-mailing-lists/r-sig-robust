@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2015-03",
+  "messages": [
+    {
+      "id": "msg-bcbaecee7d61",
+      "message_id": "<C1A5238848713043B7C18ED38FFEF1F829D1D7EB@STWMB01.ad.okstate.edu>",
+      "from_name": "Worthington, Thomas A",
+      "from_email_hash": "745c68ddf2abf55439a9d4ec7a772c843906c88a691a20c67ab3e432e9d03f62",
+      "date": "2015-03-03T20:45:42Z",
+      "subject": "[RsR] Robust ANOVA with no interaction",
+      "subject_clean": "[RsR] Robust ANOVA with no interaction",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All\n \nWe are trying to use the WRS2 package to run a robust ANOVA but am having some issues with model specification \n\nThe dependent variable is velocity and the predictors are temperature (Temp) and total suspended solids (TSS).  We would like to run a 2-way robust ANOVA using 't2way' however one of the groups of the interaction is missing. We therefore ran a 1-way robust ANOVA using the dummy variable Temp_TSS e.g. \n\nt1waybt(Velocity ~ Temp_TSS, data=data, tr=0.2, nboot=10000)\n\nThe result suggested that the interaction was not significant . Therefore we would like to run a robust ANOVA with both main effects but no interaction (due to the missing group). We tried  \n\nt1waybt(Velocity ~ TSS + Temp, data=data, tr=0.2, nboot=10000) \n\nbut this only tests for first variable stated (in this case TSS). Is this possible to run an ANOVA with just the main effects but no interaction?\n\nThanks \nTom",
+      "body_snippet": "Dear All\n \nWe are trying to use the WRS2 package to run a robust ANOVA but am having some issues with model specification \n\nThe dependent variable is velocity and the predictors are temperature (Temp)",
+      "thread_id": "thread-bcbaecee7d61",
+      "thread_depth": 0,
+      "month": "2015-03"
+    },
+    {
+      "id": "msg-b1686c2d7ffb",
+      "message_id": "<1425416428660.95182@usc.edu>",
+      "from_name": "Rand R Wilcox",
+      "from_email_hash": "85f7f34e1da9f5fb0186588d4ebbb4323445939c30b2ae8fa3e0056a0a50694f",
+      "date": "2015-03-03T21:00:29Z",
+      "subject": "[RsR] Robust ANOVA with no interaction",
+      "subject_clean": "[RsR] Robust ANOVA with no interaction",
+      "in_reply_to": "<C1A5238848713043B7C18ED38FFEF1F829D1D7EB@STWMB01.ad.okstate.edu>",
+      "references": [
+        "<C1A5238848713043B7C18ED38FFEF1F829D1D7EB@STWMB01.ad.okstate.edu>"
+      ],
+      "body_plain": "There is a paper regarding the strategy of testing for no interaction and using an additive model if the hypothesis of no interaction is not rejected:\n\nFabian, V. (1991). On the problem of interactions in the analysis of variance.\n  Journal of the American Statistical Association, 86, 362--367.\n\nThe conclusion is that this strategy is not recommended roughly because it is unclear when power is sufficient high to justify using an additive model. \n\nFor this reason, a method assuming an additive model has not been added to WRS2. If despite the results in Fabian there is some reason to include a function for an additive model, let me know and one will be added.\n\nBest,\n\nRand\n\nRand Wilcox\nProfessor\nUniversity of Southern California\n3620 McClintock Ave\nLos Angeles, CA  90089-1061\n\nAccess to some reprints:\nhttp://www.tandfonline.com/eprint/ypyq8ZKENfFXERFghYq7/full\n\n________________________________________\nFrom: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Worthington, Thomas A <thomas.worthington at okstate.edu>\nSent: Tuesday, March 3, 2015 12:45 PM\nTo: r-sig-robust at r-project.org\nSubject: [RsR] Robust ANOVA with no interaction\n\nDear All\n\nWe are trying to use the WRS2 package to run a robust ANOVA but am having some issues with model specification\n\nThe dependent variable is velocity and the predictors are temperature (Temp) and total suspended solids (TSS).  We would like to run a 2-way robust ANOVA using 't2way' however one of the groups of the interaction is missing. We therefore ran a 1-way robust ANOVA using the dummy variable Temp_TSS e.g.\n\nt1waybt(Velocity ~ Temp_TSS, data=data, tr=0.2, nboot=10000)\n\nThe result suggested that the interaction was not significant . Therefore we would like to run a robust ANOVA with both main effects but no interaction (due to the missing group). We tried\n\nt1waybt(Velocity ~ TSS + Temp, data=data, tr=0.2, nboot=10000)\n\nbut this only tests for first variable stated (in this case TSS). Is this possible to run an ANOVA with just the main effects but no interaction?\n\nThanks\nTom\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "There is a paper regarding the strategy of testing for no interaction and using an additive model if the hypothesis of no interaction is not rejected:\n\nFabian, V. (1991). On the problem of interaction",
+      "thread_id": "thread-bcbaecee7d61",
+      "thread_depth": 1,
+      "month": "2015-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-bcbaecee7d61",
+      "subject": "[RsR] Robust ANOVA with no interaction",
+      "message_count": 2,
+      "participants": [
+        "Rand R Wilcox",
+        "Worthington, Thomas A"
+      ],
+      "started": "2015-03-03T20:45:42+00:00",
+      "last_reply": "2015-03-03T21:00:29+00:00",
+      "root_message_id": "msg-bcbaecee7d61"
+    }
+  ]
+}

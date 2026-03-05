@@ -1,0 +1,1469 @@
+From jon@th@n@burn@1 @end|ng |rom gd|t@com  Wed Feb 11 18:41:39 2015
+From: jon@th@n@burn@1 @end|ng |rom gd|t@com (Jonathan Burns)
+Date: Wed, 11 Feb 2015 17:41:39 +0000 (UTC)
+Subject: [RsR] Prediction Intervals for Robust Regression
+Message-ID: <loom.20150211T184048-525@post.gmane.org>
+
+I have created robust regression models using least trimmed squares and MM-
+regression (using robustbase).
+
+I am now looking to create prediction intervals for the predicted 
+results.  While I have seen some discussion in the literature about 
+confidence intervals on the estimates for robust regression, I haven?t had 
+much success on prediction intervals for the results.  I was wondering 
+anyone would be able to provide some direction on how to create these 
+prediction intervals in the robust regression setting.
+
+Thanks,
+Jonathan Burns
+Sr. Statistician 
+General Dynamics Information Technology
+Medicare & Medicaid Solutions
+One West Pennsylvania Avenue
+Baltimore, MD 21204
+Jonathan.Burns1 at gdit.com
+
+From @@tro11 @end|ng |rom uky@edu  Mon Feb 16 21:14:06 2015
+From: @@tro11 @end|ng |rom uky@edu (Stromberg, Arnold)
+Date: Mon, 16 Feb 2015 20:14:06 +0000
+Subject: [RsR] Prediction Intervals for Robust Regression
+In-Reply-To: <loom.20150211T184048-525@post.gmane.org>
+References: <loom.20150211T184048-525@post.gmane.org>
+Message-ID: <8004D1B4C0A8DA4286D3C1C76B5CB1E87DCF9295@ex10mb02.ad.uky.edu>
+
+Jonathan,
+Seems straightforward theoretically, let's see if anyone has implemented them in R.
+
+Arny
+
+
+Arnold J. Stromberg
+Professor and Chair
+Department of Statistics
+University of Kentucky
+313 Multidisciplinary Science Building
+725 Rose Street
+Lexington, KY 40536-0082
+Phone: 859-257-6115
+Fax: 859-323-1973
+
+-----Original Message-----
+From: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Jonathan Burns
+Sent: Wednesday, February 11, 2015 12:42 PM
+To: r-sig-robust at r-project.org
+Subject: [RsR] Prediction Intervals for Robust Regression
+
+I have created robust regression models using least trimmed squares and MM- regression (using robustbase).
+
+I am now looking to create prediction intervals for the predicted results.  While I have seen some discussion in the literature about confidence intervals on the estimates for robust regression, I haven?t had much success on prediction intervals for the results.  I was wondering anyone would be able to provide some direction on how to create these prediction intervals in the robust regression setting.
+
+Thanks,
+Jonathan Burns
+Sr. Statistician
+General Dynamics Information Technology
+Medicare & Medicaid Solutions
+One West Pennsylvania Avenue
+Baltimore, MD 21204
+Jonathan.Burns1 at gdit.com
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+From m@ech|er @end|ng |rom |ynne@@t@t@m@th@ethz@ch  Fri Feb 20 17:10:15 2015
+From: m@ech|er @end|ng |rom |ynne@@t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 20 Feb 2015 17:10:15 +0100
+Subject: [RsR] Prediction Intervals for Robust Regression
+In-Reply-To: <8004D1B4C0A8DA4286D3C1C76B5CB1E87DCF9295@ex10mb02.ad.uky.edu>
+References: <loom.20150211T184048-525@post.gmane.org>
+	<8004D1B4C0A8DA4286D3C1C76B5CB1E87DCF9295@ex10mb02.ad.uky.edu>
+Message-ID: <21735.23655.276348.8527@stat.math.ethz.ch>
+
+>>>>> Stromberg, Arnold <astro11 at uky.edu>
+>>>>>     on Mon, 16 Feb 2015 20:14:06 +0000 writes:
+
+    > Jonathan,
+    > Seems straightforward theoretically, let's see if anyone has implemented them in R.
+
+    > Arny
+
+    > Arnold J. Stromberg
+    > Professor and Chair, Department of Statistics, University of Kentucky
+    [ ........... ]
+
+Well,  the predict() method for lmrob() fits (package
+'robustbase') has built in.
+I wonder why nobody has seen that and mentioned it here.
+
+In the mean time, Jonathan has also asked on R-help
+and got some advice there...
+and now has found predict.lmrob  "in some way" and asked me (as
+'robustbase' maintainer) about it.
+
+I'm taking the liberty of answering here -- so others are also
+helped in the future, *and* this thread is somewhat decently
+closed within the R-SIG-robust list :
+
+>>>>> Burns, Jonathan (NONUS) <Jonathan.Burns1 at GDIT.com>
+>>>>>     on Thu, 19 Feb 2015 21:37:26 +0000 writes:
+
+   [..........]
+
+    > I am interested in creating prediction intervals for the robust regression models.  I tried to use the function predict.lmrob(); however, R gave me an error - could not find function "predict.lmrob".  I thought perhaps this was because I was using an older version of the package.  I updated the package and I still get the error.  I am using R version 3.1.0.
+
+    > I also got the same error with the function print.lmrob, plot.lmrob() and anova.lmrob().  Lmrob() itself works fine.
+
+    > This is the result that I get when I list the functions in robustbase:
+
+    >> ls("package:robustbase")
+    > [1] "adjbox"              "adjboxStats"         "adjOutlyingness"
+    > [4] "aircraft"            "airmay"              "alcohol"
+    ......................
+    ......................
+    > [103] "vaso"                "wagnerGrowth"        "wgt.himedian"
+    > [106] "wood"
+
+print(), predict() etc are all generic functions,
+their   lmrob S3 methods *are* called  print.lmrob(), predict.lmrob(), etc,
+but they are *hidden* and you do not see them normally.
+
+Rather you should use  print(..), predict(...), etc.
+
+If you really need to see them you can use
+  getAnywhere("predict.lmrob")
+etc.
+
+{This is all general R knowledge - somewhat intermediate level -
+ about using S3 methods in R packages and namespaces}
+
+Note that you've also asked about this on the R-help mailing list on
+Feb 11, and you got two answers, the second one by Prof Brian
+Ripley explained to you  that matters *are* actually more complicated:
+
+If you use robustness for a good reason, it seems a bit
+optimistic to assume that a future observation has normal errors,
+(rather than a mixture of normal + "outlier") and so the
+standard assumptions about prediction intervals would be doubtful.
+
+But I agree (with you I assume) that sometimes you *want* to
+make this somewhat optimistic assumption.... and for that case,
+everything is ready for you on a silver plate :
+
+Why did you not just read the help page for predict.lmrob ?
+Even though the object is hidden -- because you should call predict() --
+it still has nice help page {well, that can be improved, and I
+will for the next version of robustbase}, and that help
+*does* answer your question on how to compute prediction intervals: 
+
+Andreas Ruckstuhl, the author of the function does provide them
+(under the optimistic assumption), in the exact same way as the
+predict() method for lm  {called "predict.lm"} does.
+
+==> Just use  predict( <fitted lmrob object>,  interval = "prediction")
+(or a variant where you specify new data, weights, etc).
+
+
+Best regards,
+Martin
+
+
+    > -----Original Message-----
+    > From: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Jonathan Burns
+    > Sent: Wednesday, February 11, 2015 12:42 PM
+    > To: r-sig-robust at r-project.org
+    > Subject: [RsR] Prediction Intervals for Robust Regression
+
+    > I have created robust regression models using least trimmed squares and MM- regression (using robustbase).
+
+    > I am now looking to create prediction intervals for the predicted results.  While I have seen some discussion in the literature about confidence intervals on the estimates for robust regression, I haven?t had much success on prediction intervals for the results.  I was wondering anyone would be able to provide some direction on how to create these prediction intervals in the robust regression setting.
+
+    > Thanks,
+    > Jonathan Burns
+    > Sr. Statistician
+    > General Dynamics Information Technology
+    > Medicare & Medicaid Solutions
+    > One West Pennsylvania Avenue
+    > Baltimore, MD 21204
+    > Jonathan.Burns1 at gdit.com
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Sat Feb 21 17:51:17 2015
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Stahel  Werner A.)
+Date: Sat, 21 Feb 2015 16:51:17 +0000
+Subject: [RsR] Prediction Intervals for Robust Regression
+In-Reply-To: <21735.23655.276348.8527@stat.math.ethz.ch>
+References: <loom.20150211T184048-525@post.gmane.org>
+	<8004D1B4C0A8DA4286D3C1C76B5CB1E87DCF9295@ex10mb02.ad.uky.edu>,
+	<21735.23655.276348.8527@stat.math.ethz.ch>
+Message-ID: <4D425E85D14B8F498B61123D2754C7A54061C70A@MBX13.d.ethz.ch>
+
+Hello Jonathan
+
+Even though it is straightforward, there is a twist to it: Robust methods are for data with outliers or -- a more sophisticated view -- long tailed distributions. The normal quantiles might be used to encompass "normal" observations -- but the probability of having a real observation in the interval woud be overestimated.
+An alternative may be to use an empirical quantile of the standardized residuals with scale equal to the standard deviation obtained from the formula for normal observations. 
+I wonder whether this argument has been formally written down in the literature.
+
+Good success!
+
+Werner Stahel
+M +41 79 784 9330 | P +41 44 364 6424
+
+________________________________________
+Von: R-SIG-Robust [r-sig-robust-bounces at r-project.org]&quot; im Auftrag von &quot;Martin Maechler [maechler at lynne.stat.math.ethz.ch]
+Gesendet: Freitag, 20. Februar 2015 17:10
+An: Jonathan Burns; Stromberg, Arnold
+Cc: mailman, r-sig-robust
+Betreff: Re: [RsR] Prediction Intervals for Robust Regression
+
+>>>>> Stromberg, Arnold <astro11 at uky.edu>
+>>>>>     on Mon, 16 Feb 2015 20:14:06 +0000 writes:
+
+    > Jonathan,
+    > Seems straightforward theoretically, let's see if anyone has implemented them in R.
+
+    > Arny
+
+    > Arnold J. Stromberg
+    > Professor and Chair, Department of Statistics, University of Kentucky
+    [ ........... ]
+
+Well,  the predict() method for lmrob() fits (package
+'robustbase') has built in.
+I wonder why nobody has seen that and mentioned it here.
+
+In the mean time, Jonathan has also asked on R-help
+and got some advice there...
+and now has found predict.lmrob  "in some way" and asked me (as
+'robustbase' maintainer) about it.
+
+I'm taking the liberty of answering here -- so others are also
+helped in the future, *and* this thread is somewhat decently
+closed within the R-SIG-robust list :
+
+>>>>> Burns, Jonathan (NONUS) <Jonathan.Burns1 at GDIT.com>
+>>>>>     on Thu, 19 Feb 2015 21:37:26 +0000 writes:
+
+   [..........]
+
+    > I am interested in creating prediction intervals for the robust regression models.  I tried to use the function predict.lmrob(); however, R gave me an error - could not find function "predict.lmrob".  I thought perhaps this was because I was using an older version of the package.  I updated the package and I still get the error.  I am using R version 3.1.0.
+
+    > I also got the same error with the function print.lmrob, plot.lmrob() and anova.lmrob().  Lmrob() itself works fine.
+
+    > This is the result that I get when I list the functions in robustbase:
+
+    >> ls("package:robustbase")
+    > [1] "adjbox"              "adjboxStats"         "adjOutlyingness"
+    > [4] "aircraft"            "airmay"              "alcohol"
+    ......................
+    ......................
+    > [103] "vaso"                "wagnerGrowth"        "wgt.himedian"
+    > [106] "wood"
+
+print(), predict() etc are all generic functions,
+their   lmrob S3 methods *are* called  print.lmrob(), predict.lmrob(), etc,
+but they are *hidden* and you do not see them normally.
+
+Rather you should use  print(..), predict(...), etc.
+
+If you really need to see them you can use
+  getAnywhere("predict.lmrob")
+etc.
+
+{This is all general R knowledge - somewhat intermediate level -
+ about using S3 methods in R packages and namespaces}
+
+Note that you've also asked about this on the R-help mailing list on
+Feb 11, and you got two answers, the second one by Prof Brian
+Ripley explained to you  that matters *are* actually more complicated:
+
+If you use robustness for a good reason, it seems a bit
+optimistic to assume that a future observation has normal errors,
+(rather than a mixture of normal + "outlier") and so the
+standard assumptions about prediction intervals would be doubtful.
+
+But I agree (with you I assume) that sometimes you *want* to
+make this somewhat optimistic assumption.... and for that case,
+everything is ready for you on a silver plate :
+
+Why did you not just read the help page for predict.lmrob ?
+Even though the object is hidden -- because you should call predict() --
+it still has nice help page {well, that can be improved, and I
+will for the next version of robustbase}, and that help
+*does* answer your question on how to compute prediction intervals:
+
+Andreas Ruckstuhl, the author of the function does provide them
+(under the optimistic assumption), in the exact same way as the
+predict() method for lm  {called "predict.lm"} does.
+
+==> Just use  predict( <fitted lmrob object>,  interval = "prediction")
+(or a variant where you specify new data, weights, etc).
+
+
+Best regards,
+Martin
+
+
+    > -----Original Message-----
+    > From: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Jonathan Burns
+    > Sent: Wednesday, February 11, 2015 12:42 PM
+    > To: r-sig-robust at r-project.org
+    > Subject: [RsR] Prediction Intervals for Robust Regression
+
+    > I have created robust regression models using least trimmed squares and MM- regression (using robustbase).
+
+    > I am now looking to create prediction intervals for the predicted results.  While I have seen some discussion in the literature about confidence intervals on the estimates for robust regression, I haven?t had much success on prediction intervals for the results.  I was wondering anyone would be able to provide some direction on how to create these prediction intervals in the robust regression setting.
+
+    > Thanks,
+    > Jonathan Burns
+    > Sr. Statistician
+    > General Dynamics Information Technology
+    > Medicare & Medicaid Solutions
+    > One West Pennsylvania Avenue
+    > Baltimore, MD 21204
+    > Jonathan.Burns1 at gdit.com
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From @@tro11 @end|ng |rom uky@edu  Mon Feb 23 08:19:58 2015
+From: @@tro11 @end|ng |rom uky@edu (Stromberg, Arnold)
+Date: Mon, 23 Feb 2015 07:19:58 +0000
+Subject: [RsR] Prediction Intervals for Robust Regression
+In-Reply-To: <4D425E85D14B8F498B61123D2754C7A54061C70A@MBX13.d.ethz.ch>
+References: <loom.20150211T184048-525@post.gmane.org>
+	<8004D1B4C0A8DA4286D3C1C76B5CB1E87DCF9295@ex10mb02.ad.uky.edu>,
+	<21735.23655.276348.8527@stat.math.ethz.ch>
+	<4D425E85D14B8F498B61123D2754C7A54061C70A@MBX13.d.ethz.ch>
+Message-ID: <8004D1B4C0A8DA4286D3C1C76B5CB1E87DD0188F@ex10mb02.ad.uky.edu>
+
+Seems to me that the user would have to decide on the issue of "real" vs "normal" observations for the prediction interval.
+
+Arnold J. Stromberg
+Professor and Chair
+Department of Statistics
+University of Kentucky
+313 Multidisciplinary Science Building
+725 Rose Street
+Lexington, KY 40536-0082
+Phone: 859-257-6115
+Fax: 859-323-1973
+
+-----Original Message-----
+From: Stahel Werner A. [mailto:stahel at stat.math.ethz.ch] 
+Sent: Saturday, February 21, 2015 11:51 AM
+To: M?chler Martin; Jonathan Burns; Stromberg, Arnold
+Cc: mailman, r-sig-robust
+Subject: AW: [RsR] Prediction Intervals for Robust Regression
+
+Hello Jonathan
+
+Even though it is straightforward, there is a twist to it: Robust methods are for data with outliers or -- a more sophisticated view -- long tailed distributions. The normal quantiles might be used to encompass "normal" observations -- but the probability of having a real observation in the interval woud be overestimated.
+An alternative may be to use an empirical quantile of the standardized residuals with scale equal to the standard deviation obtained from the formula for normal observations. 
+I wonder whether this argument has been formally written down in the literature.
+
+Good success!
+
+Werner Stahel
+M +41 79 784 9330 | P +41 44 364 6424
+
+________________________________________
+Von: R-SIG-Robust [r-sig-robust-bounces at r-project.org]&quot; im Auftrag von &quot;Martin Maechler [maechler at lynne.stat.math.ethz.ch]
+Gesendet: Freitag, 20. Februar 2015 17:10
+An: Jonathan Burns; Stromberg, Arnold
+Cc: mailman, r-sig-robust
+Betreff: Re: [RsR] Prediction Intervals for Robust Regression
+
+>>>>> Stromberg, Arnold <astro11 at uky.edu>
+>>>>>     on Mon, 16 Feb 2015 20:14:06 +0000 writes:
+
+    > Jonathan,
+    > Seems straightforward theoretically, let's see if anyone has implemented them in R.
+
+    > Arny
+
+    > Arnold J. Stromberg
+    > Professor and Chair, Department of Statistics, University of Kentucky
+    [ ........... ]
+
+Well,  the predict() method for lmrob() fits (package
+'robustbase') has built in.
+I wonder why nobody has seen that and mentioned it here.
+
+In the mean time, Jonathan has also asked on R-help and got some advice there...
+and now has found predict.lmrob  "in some way" and asked me (as 'robustbase' maintainer) about it.
+
+I'm taking the liberty of answering here -- so others are also helped in the future, *and* this thread is somewhat decently closed within the R-SIG-robust list :
+
+>>>>> Burns, Jonathan (NONUS) <Jonathan.Burns1 at GDIT.com>
+>>>>>     on Thu, 19 Feb 2015 21:37:26 +0000 writes:
+
+   [..........]
+
+    > I am interested in creating prediction intervals for the robust regression models.  I tried to use the function predict.lmrob(); however, R gave me an error - could not find function "predict.lmrob".  I thought perhaps this was because I was using an older version of the package.  I updated the package and I still get the error.  I am using R version 3.1.0.
+
+    > I also got the same error with the function print.lmrob, plot.lmrob() and anova.lmrob().  Lmrob() itself works fine.
+
+    > This is the result that I get when I list the functions in robustbase:
+
+    >> ls("package:robustbase")
+    > [1] "adjbox"              "adjboxStats"         "adjOutlyingness"
+    > [4] "aircraft"            "airmay"              "alcohol"
+    ......................
+    ......................
+    > [103] "vaso"                "wagnerGrowth"        "wgt.himedian"
+    > [106] "wood"
+
+print(), predict() etc are all generic functions,
+their   lmrob S3 methods *are* called  print.lmrob(), predict.lmrob(), etc,
+but they are *hidden* and you do not see them normally.
+
+Rather you should use  print(..), predict(...), etc.
+
+If you really need to see them you can use
+  getAnywhere("predict.lmrob")
+etc.
+
+{This is all general R knowledge - somewhat intermediate level -  about using S3 methods in R packages and namespaces}
+
+Note that you've also asked about this on the R-help mailing list on Feb 11, and you got two answers, the second one by Prof Brian Ripley explained to you  that matters *are* actually more complicated:
+
+If you use robustness for a good reason, it seems a bit optimistic to assume that a future observation has normal errors, (rather than a mixture of normal + "outlier") and so the standard assumptions about prediction intervals would be doubtful.
+
+But I agree (with you I assume) that sometimes you *want* to make this somewhat optimistic assumption.... and for that case, everything is ready for you on a silver plate :
+
+Why did you not just read the help page for predict.lmrob ?
+Even though the object is hidden -- because you should call predict() -- it still has nice help page {well, that can be improved, and I will for the next version of robustbase}, and that help
+*does* answer your question on how to compute prediction intervals:
+
+Andreas Ruckstuhl, the author of the function does provide them (under the optimistic assumption), in the exact same way as the
+predict() method for lm  {called "predict.lm"} does.
+
+==> Just use  predict( <fitted lmrob object>,  interval = "prediction") (or a variant where you specify new data, weights, etc).
+
+
+Best regards,
+Martin
+
+
+    > -----Original Message-----
+    > From: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Jonathan Burns
+    > Sent: Wednesday, February 11, 2015 12:42 PM
+    > To: r-sig-robust at r-project.org
+    > Subject: [RsR] Prediction Intervals for Robust Regression
+
+    > I have created robust regression models using least trimmed squares and MM- regression (using robustbase).
+
+    > I am now looking to create prediction intervals for the predicted results.  While I have seen some discussion in the literature about confidence intervals on the estimates for robust regression, I haven't had much success on prediction intervals for the results.  I was wondering anyone would be able to provide some direction on how to create these prediction intervals in the robust regression setting.
+
+    > Thanks,
+    > Jonathan Burns
+    > Sr. Statistician
+    > General Dynamics Information Technology
+    > Medicare & Medicaid Solutions
+    > One West Pennsylvania Avenue
+    > Baltimore, MD 21204
+    > Jonathan.Burns1 at gdit.com
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From thom@@@worth|ngton @end|ng |rom ok@t@te@edu  Tue Mar  3 21:45:42 2015
+From: thom@@@worth|ngton @end|ng |rom ok@t@te@edu (Worthington, Thomas A)
+Date: Tue, 3 Mar 2015 20:45:42 +0000
+Subject: [RsR] Robust ANOVA with no interaction
+Message-ID: <C1A5238848713043B7C18ED38FFEF1F829D1D7EB@STWMB01.ad.okstate.edu>
+
+Dear All
+ 
+We are trying to use the WRS2 package to run a robust ANOVA but am having some issues with model specification 
+
+The dependent variable is velocity and the predictors are temperature (Temp) and total suspended solids (TSS).  We would like to run a 2-way robust ANOVA using 't2way' however one of the groups of the interaction is missing. We therefore ran a 1-way robust ANOVA using the dummy variable Temp_TSS e.g. 
+
+t1waybt(Velocity ~ Temp_TSS, data=data, tr=0.2, nboot=10000)
+
+The result suggested that the interaction was not significant . Therefore we would like to run a robust ANOVA with both main effects but no interaction (due to the missing group). We tried  
+
+t1waybt(Velocity ~ TSS + Temp, data=data, tr=0.2, nboot=10000) 
+
+but this only tests for first variable stated (in this case TSS). Is this possible to run an ANOVA with just the main effects but no interaction?
+
+Thanks 
+Tom  
+
+
+
+From rw||cox @end|ng |rom u@c@edu  Tue Mar  3 22:00:29 2015
+From: rw||cox @end|ng |rom u@c@edu (Rand R Wilcox)
+Date: Tue, 3 Mar 2015 21:00:29 +0000
+Subject: [RsR] Robust ANOVA with no interaction
+In-Reply-To: <C1A5238848713043B7C18ED38FFEF1F829D1D7EB@STWMB01.ad.okstate.edu>
+References: <C1A5238848713043B7C18ED38FFEF1F829D1D7EB@STWMB01.ad.okstate.edu>
+Message-ID: <1425416428660.95182@usc.edu>
+
+There is a paper regarding the strategy of testing for no interaction and using an additive model if the hypothesis of no interaction is not rejected:
+
+Fabian, V. (1991). On the problem of interactions in the analysis of variance.
+  Journal of the American Statistical Association, 86, 362--367.
+
+The conclusion is that this strategy is not recommended roughly because it is unclear when power is sufficient high to justify using an additive model. 
+
+For this reason, a method assuming an additive model has not been added to WRS2. If despite the results in Fabian there is some reason to include a function for an additive model, let me know and one will be added.
+
+Best,
+
+Rand
+
+Rand Wilcox
+Professor
+University of Southern California
+3620 McClintock Ave
+Los Angeles, CA  90089-1061
+
+Access to some reprints:
+http://www.tandfonline.com/eprint/ypyq8ZKENfFXERFghYq7/full
+
+________________________________________
+From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Worthington, Thomas A <thomas.worthington at okstate.edu>
+Sent: Tuesday, March 3, 2015 12:45 PM
+To: r-sig-robust at r-project.org
+Subject: [RsR] Robust ANOVA with no interaction
+
+Dear All
+
+We are trying to use the WRS2 package to run a robust ANOVA but am having some issues with model specification
+
+The dependent variable is velocity and the predictors are temperature (Temp) and total suspended solids (TSS).  We would like to run a 2-way robust ANOVA using 't2way' however one of the groups of the interaction is missing. We therefore ran a 1-way robust ANOVA using the dummy variable Temp_TSS e.g.
+
+t1waybt(Velocity ~ Temp_TSS, data=data, tr=0.2, nboot=10000)
+
+The result suggested that the interaction was not significant . Therefore we would like to run a robust ANOVA with both main effects but no interaction (due to the missing group). We tried
+
+t1waybt(Velocity ~ TSS + Temp, data=data, tr=0.2, nboot=10000)
+
+but this only tests for first variable stated (in this case TSS). Is this possible to run an ANOVA with just the main effects but no interaction?
+
+Thanks
+Tom
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+From m|_we@tph@| @end|ng |rom y@hoo@com  Fri May 22 23:24:08 2015
+From: m|_we@tph@| @end|ng |rom y@hoo@com (michael westphal)
+Date: Fri, 22 May 2015 21:24:08 +0000 (UTC)
+Subject: [RsR] Comparing OLS and robust regression
+Message-ID: <415226696.655238.1432329848667.JavaMail.yahoo@mail.yahoo.com>
+
+Hello:
+I am using R 3.0.2.
+I have built robust regression models with rlm, because regression diagnostic tests (Q-Q plots) indicate there are large outliers. How do I best compare the goodness of fit between robust regression and OLS? ?Does it make sense to only compare residual standard error? ?If not, what do you suggest? Thanks.
+Michael
+
+	[[alternative HTML version deleted]]
+
+
+
+From rk@t @end|ng |rom zh@w@ch  Tue May 26 09:09:49 2015
+From: rk@t @end|ng |rom zh@w@ch (Andreas Ruckstuhl)
+Date: Tue, 26 May 2015 09:09:49 +0200
+Subject: [RsR] Comparing OLS and robust regression
+In-Reply-To: <415226696.655238.1432329848667.JavaMail.yahoo@mail.yahoo.com>
+References: <415226696.655238.1432329848667.JavaMail.yahoo@mail.yahoo.com>
+Message-ID: <55641C3D.2060700@zhaw.ch>
+
+Dear Michael
+
+I recommend to compare the graphical residual analysis of both fits. 
+This is done best when lmrob() of the package robustbase is used because 
+then you can proceed as follows
+
+library(robustbase)
+D.rlm <- lmrob(y ~ x1 + x2, data=D, setting='KS2011')
+par(mfrow=c(2,3))
+plot(D.rlm)
+
+
+If the robust fit does not show any outliers or any other strange 
+things, the classical and the robust fit should agree. If there are 
+outliers you cannot trust the output of the classical fit (i.e., 
+estimated coefficients, standard errors and test results). In this case 
+you must use the results of the robust fit.
+
+
+Best regards
+Andreas
+
+
+Am 22.05.2015 um 23:24 schrieb michael westphal via R-SIG-Robust:
+> Hello:
+> I am using R 3.0.2.
+> I have built robust regression models with rlm, because regression diagnostic tests (Q-Q plots) indicate there are large outliers. How do I best compare the goodness of fit between robust regression and OLS?  Does it make sense to only compare residual standard error?  If not, what do you suggest? Thanks.
+> Michael
+>
+> 	[[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+----------------------------------------------------------------------
+
+Prof. Dr. Andreas Ruckstuhl
+ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+IDP Institut f?r Datenanalyse und Prozessdesign
+Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+Postfach                          Fax   : +41 (0)58 935 78 12
+CH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch
+                                   WWW   : http://www.idp.zhaw.ch
+
+
+
+From Fr@nc|@@Bur@@ @end|ng |rom qu@nt|c@@co@uk  Mon May 25 12:12:20 2015
+From: Fr@nc|@@Bur@@ @end|ng |rom qu@nt|c@@co@uk (Francis Bursa)
+Date: Mon, 25 May 2015 11:12:20 +0100
+Subject: [RsR] Possible bug in rlm
+Message-ID: <0C52EDD1A3F3744598A6749A094A80590171753D21E1@QUANTICSSERVER.quantics.local>
+
+Hello,
+
+I think I have discovered a bug in rlm(). I have asked about this on the r-help mailing list, and also emailed Brian Ripley and Bill Venables about this directly, but have not received any replies, so I am hoping this list will be able to help.
+
+
+The issue is the following: occasionally when there are no outliers the scale estimate can be wrong. The following code snippet is an example:
+
+
+
+dose <- c(0,1,2,0,1,2)
+
+response <- c(0.659,1.633,3.621,1.803,3.093,4.424)
+
+line <- c(1,1,1,2,2,2)
+
+k2 <- seq(1.5,5,by=0.01)
+
+repNA <- rep(NA,length(k2))
+
+scale <- repNA
+
+niter <- repNA
+
+for (i in 1:length(k2)){
+
+  rlm.fit <- rlm(response~dose+factor(line), psi=psi.huber,k=1.345,
+
+                         scale.est="proposal 2",k2=k2[i])
+
+  scale[i] <- rlm.fit$s
+
+  niter[i] <- length(rlm.fit$conv)
+
+}
+
+plot(k2,scale,type="b",col=niter)
+
+
+
+For this dataset there are no outliers, so I would expect the scale to be a smooth function of k2 once k2 is reasonably large, certainly for k2 > 2. However, there is a funny jump in the scale estimate around k2 = 2.4, just at the point where the number of iterations to convergence falls from 3 to 1.
+
+
+
+Looking at the source code, it appears that on each iteration, the scale is updated, then the parameters, and then a check for convergence is carried out just for the parameters, not the scale. So I would guess that in the range around k2=2.5 convergence is being reached when in fact the scale estimate hasn't converged.
+
+
+
+I am using MASS version 7.3-33 and R version 3.1.0 on Windows.
+
+
+
+I am not sure how common this issue is but there does not seem to be anything special about my dataset so it could be quite generic. Am I right that this is a bug?
+
+Many thanks,
+Francis Bursa
+
+------------------
+Francis Bursa
+Statistician
+
+Quantics Consulting Ltd
+28 Drumsheugh Gardens
+Edinburgh
+EH3 7RN
+
+Telephone: +44 (0) 131 440 2781 ext 207
+
+Quantics - complex data into clear results
+Quantics is an ISO 9001 registered company
+www.quantics.co.uk<http://www.quantics.co.uk/>
+
+Please note that the contents of this e-mail (including any attachments) are confidential and may be legally privileged. If you are not the intended recipient you may not read, copy, distribute or make any other use of this email or its contents. If received in error, please tell us immediately by telephone on +44 (0) 131 440 2781 quoting the name of the sender and the intended recipient, then delete it from your system. Thank you.
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From m|_we@tph@| @end|ng |rom y@hoo@com  Wed Jun 10 16:17:57 2015
+From: m|_we@tph@| @end|ng |rom y@hoo@com (michael westphal)
+Date: Wed, 10 Jun 2015 14:17:57 +0000 (UTC)
+Subject: [RsR] robust regression and fixed effects models
+Message-ID: <224181400.242385.1433945877062.JavaMail.yahoo@mail.yahoo.com>
+
+Hello:?
+I am using R 3.0.2. ??
+
+I have panel data on countries' renewable energy net generation (and installed capacity) over time. ?I am regressing these dependent variables on various socioeconomic variables, as well as binary policy variables. ?I have have done basic OLS, but I wanted to explore both fixed effects models, as there are likely significant country effects and robust regression, as Q-Q plots indicate that there are some strong outliers. ?This might be a question of apples and oranges, but how do I compare the goodness of fit of the fixed effects models with the robust regression models? ?
+Any help would be appreciated.?
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Jun 12 11:53:12 2015
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 12 Jun 2015 11:53:12 +0200
+Subject: [RsR] robust regression and fixed effects models
+In-Reply-To: <224181400.242385.1433945877062.JavaMail.yahoo@mail.yahoo.com>
+References: <224181400.242385.1433945877062.JavaMail.yahoo@mail.yahoo.com>
+Message-ID: <21882.44040.824463.783601@stat.math.ethz.ch>
+
+>>>>> michael westphal via R-SIG-Robust <r-sig-robust at r-project.org>
+>>>>>     on Wed, 10 Jun 2015 14:17:57 +0000 writes:
+
+    > Hello:?
+    > I am using R 3.0.2. ??
+
+so you really should upgrade {unless you meant 3.2.0}... at
+least in a few days when  R 3.2.1 is released.
+     
+
+    > I have panel data on countries' renewable energy net generation (and installed capacity) over time. ?I am regressing these dependent variables on various socioeconomic variables, as well as binary policy variables. ?I have have done basic OLS, but I wanted to explore both fixed effects models, as there are likely significant country effects and robust regression, as Q-Q plots indicate that there are some strong outliers. ?This might be a question of apples and oranges, but how do I compare the goodness of fit of the fixed effects models with the robust regression models? ?
+    > Any help would be appreciated.?
+
+Package  robustbase  which has function  lmrob()  with many good
+and modern options for robust regression
+*also* has a 'Suggests: fit.models' in its own description file,
+
+because the package 'fit.models' with its function fit.models()
+tries to take fits of basically the same model and
+produce "comparison output" from that.
+
+It's quite useful in situations like yours,
+and I plan to add an example of its use to the 'robustbase'
+package documentation.
+
+
+
+    > [[alternative HTML version deleted]]
+
+  ((Because you used "HTML" aka "rich text" / "formatted text"
+    instead of simple plain text, your message ends up looking so
+    messy as above ...))
+
+
+
+Martin Maechler,
+ETH Zurich
+
+
+
+From rw||cox @end|ng |rom u@c@edu  Fri Jun 12 16:48:31 2015
+From: rw||cox @end|ng |rom u@c@edu (Rand R Wilcox)
+Date: Fri, 12 Jun 2015 14:48:31 +0000
+Subject: [RsR] robust regression and fixed effects models
+In-Reply-To: <21882.44040.824463.783601@stat.math.ethz.ch>
+References: <224181400.242385.1433945877062.JavaMail.yahoo@mail.yahoo.com>,
+	<21882.44040.824463.783601@stat.math.ethz.ch>
+Message-ID: <CY1PR0701MB1275B0F67FB6EB7A91D9F718B1BB0@CY1PR0701MB1275.namprd07.prod.outlook.com>
+
+You might also look at the Elsevier book  Robust Estimation and Hypothesis Testing. It provides some additional options that might help. 
+A couple of quick suggestions. Even when using a robust estimator with a high breakdown point, check on what happens when leverage points (outliers among the independent variables) are eliminated. Second, consider a method that allows a heteroscedastic error term.
+Third, take a look at robust smoothers. Illustrations on how to do this are in the book. My experience when working with various research teams is that they can be very important. 
+
+Hope this helps.
+
+Rand
+
+Rand Wilcox
+Professor
+University of Southern California
+3620 McClintock Ave
+Los Angeles, CA  90089-1061
+
+For information about Understanding and Applying Basic Statistical Methods Using R, Wiley (in preparation), and other recent books, go to
+Dornsife.usc.edu/cf/labs/wilcox/wilcox-faculty-display.cfm
+and click on books.
+Or go to https://www.amazon.com/author/randwilcox
+?
+
+________________________________________
+From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Martin Maechler <maechler at stat.math.ethz.ch>
+Sent: Friday, June 12, 2015 2:53 AM
+To: michael westphal
+Cc: r-sig-robust at r-project.org
+Subject: Re: [RsR] robust regression and fixed effects models
+
+>>>>> michael westphal via R-SIG-Robust <r-sig-robust at r-project.org>
+>>>>>     on Wed, 10 Jun 2015 14:17:57 +0000 writes:
+
+    > Hello:
+    > I am using R 3.0.2.
+
+so you really should upgrade {unless you meant 3.2.0}... at
+least in a few days when  R 3.2.1 is released.
+
+
+    > I have panel data on countries' renewable energy net generation (and installed capacity) over time.  I am regressing these dependent variables on various socioeconomic variables, as well as binary policy variables.  I have have done basic OLS, but I wanted to explore both fixed effects models, as there are likely significant country effects and robust regression, as Q-Q plots indicate that there are some strong outliers.  This might be a question of apples and oranges, but how do I compare the goodness of fit of the fixed effects models with the robust regression models?
+    > Any help would be appreciated.
+
+Package  robustbase  which has function  lmrob()  with many good
+and modern options for robust regression
+*also* has a 'Suggests: fit.models' in its own description file,
+
+because the package 'fit.models' with its function fit.models()
+tries to take fits of basically the same model and
+produce "comparison output" from that.
+
+It's quite useful in situations like yours,
+and I plan to add an example of its use to the 'robustbase'
+package documentation.
+
+
+
+    > [[alternative HTML version deleted]]
+
+  ((Because you used "HTML" aka "rich text" / "formatted text"
+    instead of simple plain text, your message ends up looking so
+    messy as above ...))
+
+
+
+Martin Maechler,
+ETH Zurich
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Jun 18 09:10:54 2015
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 18 Jun 2015 09:10:54 +0200
+Subject: [RsR] robust regression and fixed effects models
+In-Reply-To: <1976629323.739273.1434576332027.JavaMail.yahoo@mail.yahoo.com>
+References: <CY1PR0701MB1275B0F67FB6EB7A91D9F718B1BB0@CY1PR0701MB1275.namprd07.prod.outlook.com>
+	<1976629323.739273.1434576332027.JavaMail.yahoo@mail.yahoo.com>
+Message-ID: <21890.28414.170388.723918@stat.math.ethz.ch>
+
+(Putting this back to the R-SIG mailing list, where it
+ originates and belongs)
+>>>>> michael westphal <mi_westphal at yahoo.com>
+>>>>>     on Wed, 17 Jun 2015 21:25:32 +0000 writes:
+
+    > Thanks for the advice. ?Since I have panel data, does it make sense to explore fixed effects or random effects models? Robust regression will not address the changes in countries over time. ?It is easy to compare fixed effects and random effects with each other, but how do I compare their outputs with the outputs of the robust regression?
+
+In this case, I would recommend using the   robustlmm   CRAN
+package ( http://cran.r-project.org/package=robustlmm ) of
+Manuel Koller  (in CC) who has completed his Ph.D. thesis on the
+topic of robust mixed effects modeling.
+
+Best,
+Martin
+
+    > Cheers,
+    > Michael 
+
+
+    > On Friday, June 12, 2015 10:48 AM, Rand R Wilcox <rwilcox at usc.edu> wrote:
+   
+
+    > You might also look at the Elsevier book? Robust Estimation and Hypothesis Testing. It provides some additional options that might help. 
+    > A couple of quick suggestions. Even when using a robust estimator with a high breakdown point, check on what happens when leverage points (outliers among the independent variables) are eliminated. Second, consider a method that allows a heteroscedastic error term.
+    > Third, take a look at robust smoothers. Illustrations on how to do this are in the book. My experience when working with various research teams is that they can be very important. 
+
+    > Hope this helps.
+
+    > Rand
+
+    > Rand Wilcox
+    > Professor
+    > University of Southern California
+    > 3620 McClintock Ave
+    > Los Angeles, CA? 90089-1061
+
+    > For information about Understanding and Applying Basic Statistical Methods Using R, Wiley (in preparation), and other recent books, go to
+    > Dornsife.usc.edu/cf/labs/wilcox/wilcox-faculty-display.cfm
+    > and click on books.
+    > Or go to https://www.amazon.com/author/randwilcox
+    > ?
+
+    > ________________________________________
+    > From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Martin Maechler <maechler at stat.math.ethz.ch>
+    > Sent: Friday, June 12, 2015 2:53 AM
+    > To: michael westphal
+    > Cc: r-sig-robust at r-project.org
+    > Subject: Re: [RsR] robust regression and fixed effects models
+
+>>>>> michael westphal via R-SIG-Robust <r-sig-robust at r-project.org>
+    >>>>>> ? ? on Wed, 10 Jun 2015 14:17:57 +0000 writes:
+
+    > ? ? > Hello:
+    > ? ? > I am using R 3.0.2.
+
+    > so you really should upgrade {unless you meant 3.2.0}... at
+    > least in a few days when? R 3.2.1 is released.
+
+
+    > ? ? > I have panel data on countries' renewable energy net generation (and installed capacity) over time.? I am regressing these dependent variables on various socioeconomic variables, as well as binary policy variables.? I have have done basic OLS, but I wanted to explore both fixed effects models, as there are likely significant country effects and robust regression, as Q-Q plots indicate that there are some strong outliers.? This might be a question of apples and oranges, but how do I compare the goodness of fit of the fixed effects models with the robust regression models?
+    > ? ? > Any help would be appreciated.
+
+    > Package? robustbase? which has function? lmrob()? with many good
+    > and modern options for robust regression
+    > *also* has a 'Suggests: fit.models' in its own description file,
+
+    > because the package 'fit.models' with its function fit.models()
+    > tries to take fits of basically the same model and
+    > produce "comparison output" from that.
+
+    > It's quite useful in situations like yours,
+    > and I plan to add an example of its use to the 'robustbase'
+    > package documentation.
+
+
+
+    > ? ? > [[alternative HTML version deleted]]
+
+    > ? ((Because you used "HTML" aka "rich text" / "formatted text"
+    > ? ? instead of simple plain text, your message ends up looking so
+    > ? ? messy as above ...))
+
+
+
+    > Martin Maechler,
+    > ETH Zurich
+
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From @@@h@ro|| @end|ng |rom |eed@@@c@uk  Tue Jul  7 14:06:43 2015
+From: @@@h@ro|| @end|ng |rom |eed@@@c@uk (Serge Sharoff)
+Date: Tue, 7 Jul 2015 13:06:43 +0100
+Subject: [RsR] Robust estimation of word frequencies
+In-Reply-To: <DBXPR03MB4319975B09DD4CD1BAA6430EDAA0@DBXPR03MB431.eurprd03.prod.outlook.com>
+References: <AMSPR03MB42115662FB5EDA0210A06D5D2AA0@AMSPR03MB421.eurprd03.prod.outlook.com>
+	<DBXPR03MB4319975B09DD4CD1BAA6430EDAA0@DBXPR03MB431.eurprd03.prod.outlook.com>
+Message-ID: <559BC0D3.60000@leeds.ac.uk>
+
+Hello,
+
+My question is about applying robust location and scale estimates to 
+word frequencies.  Some words are prone to frequency spikes in a small 
+number of documents; there was a paper showing that if the probability 
+of seeing a word like 'gastric' in a document is /p/, then the 
+probability of seeing its second occurrence in a document is close to 
+/p/2/ rather than the expected /p^2/, so traditional stats overestimate 
+the frequency of such words.
+
+I want to experiment with robust statistics on word frequency lists, but 
+here I come across a problem that most words do not occur in most of the 
+documents, so that their medians and MADs are zero.  In my sample 
+dataset the only word with the non-zero median frequency is the word 
+/correct/ (as an adjective). Here are some examples:
+
+>load(url("http://corpus.leeds.ac.uk/serge/frq-example.Rdata"))
+> summary(vocab)
+    correct_J         correct_V         gastric_J            moon_N
+  Min.   :   0.00   Min.   :   0.00   Min.   :   0.000   Min.   :   0.00
+  1st Qu.:   0.00   1st Qu.:   0.00   1st Qu.:   0.000   1st Qu.:   0.00
+  Median :  33.30   Median :   0.00   Median :   0.000   Median :   0.00
+  Mean   :  79.81   Mean   :  33.94   Mean   :   5.766   Mean   :  27.75
+  3rd Qu.:  91.09   3rd Qu.:  27.96   3rd Qu.:   0.000   3rd Qu.:  18.55
+  Max.   :3105.59   Max.   :3897.79   Max.   :2957.449   Max.   :4143.39
+      moon_V         thoroughly_R      toothbrush_N
+  Min.   : 0.0000   Min.   :   0.00   Min.   :   0.000
+  1st Qu.: 0.0000   1st Qu.:   0.00   1st Qu.:   0.000
+  Median : 0.0000   Median :   0.00   Median :   0.000
+  Mean   : 0.3154   Mean   :  28.64   Mean   :   2.894
+  3rd Qu.: 0.0000   3rd Qu.:  30.02   3rd Qu.:   0.000
+  Max.   :79.3730   Max.   :2028.40   Max.   :1046.025
+
+The rows correspond to a measure of word frequencies in each document in 
+a collection.
+
+This mailing list had a couple of suggestions on a similar topic:
+https://stat.ethz.ch/pipermail/r-sig-robust/2009/000284.html
+https://stat.ethz.ch/pipermail/r-sig-robust/2011/000318.html
+suggesting the use of huberM, but the huberM estimates for this dataset 
+are still zeros, while the use of
+
+huberM(a,s=mean(abs(a - median(a))))
+
+doesn't help since the medians are zero, so s is reduced to mean(a).
+
+Trimmed means definitely help, but we need a principled way to estimate 
+the amount of trimming, since /gastric /occurs in just 65 documents out 
+of 4054, while /moon /as a verb in 32 documents, necessitating a very 
+low trimming threshold to avoid ignoring such words altogether.
+
+Does robustbase offer any more principled way for estimation of location 
+and its confidence intervals in such cases?
+
+Best,
+Serge
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From M@tth|@@@Koh| @end|ng |rom @t@m@t@@de  Thu Jul  9 20:02:11 2015
+From: M@tth|@@@Koh| @end|ng |rom @t@m@t@@de (Prof. Dr. Matthias Kohl)
+Date: Thu, 09 Jul 2015 20:02:11 +0200
+Subject: [RsR] Robust estimation of word frequencies
+In-Reply-To: <559BC0D3.60000@leeds.ac.uk>
+References: <AMSPR03MB42115662FB5EDA0210A06D5D2AA0@AMSPR03MB421.eurprd03.prod.outlook.com>	<DBXPR03MB4319975B09DD4CD1BAA6430EDAA0@DBXPR03MB431.eurprd03.prod.outlook.com>
+	<559BC0D3.60000@leeds.ac.uk>
+Message-ID: <559EB723.8050304@stamats.de>
+
+Dear Serge,
+
+you could try my package RobLox; e.g.
+library(RobLox)
+x <- rnorm(20)
+est <- roblox(x)
+est
+confint(est)
+
+But, the idea behind these robust methods is a normal location and scale 
+model surrounded by a neighborhood (Tukey's gross error model). That is, 
+your data should stem from some distribution
+
+Q = (1-eps) N(mean, sd) + eps H
+
+where H is an arbitrary (unknown) probability measure (possibly a Dirac 
+measure at some point). However, you only can get reasonable estimates 
+of mean and sd, if eps < 0.5.
+Therefore, I would propose that you try a different (robust) model. In 
+particular, I would say that the 0 values in your case are not really 
+outliers in the above sense and should be modelled as well.
+
+For some other robust parametric model (e.g. Binomial or Poisson) you 
+could try our packages ROptEst (see http://www.stamats.de/RRlong.pdf, 
+http://arxiv.org/abs/0901.3531) and distrMod (see 
+http://www.jstatsoft.org/v35/i10/).
+
+Best,
+Matthias
+
+
+Am 07.07.2015 um 14:06 schrieb Serge Sharoff:
+> Hello,
+>
+> My question is about applying robust location and scale estimates to
+> word frequencies.  Some words are prone to frequency spikes in a small
+> number of documents; there was a paper showing that if the probability
+> of seeing a word like 'gastric' in a document is /p/, then the
+> probability of seeing its second occurrence in a document is close to
+> /p/2/ rather than the expected /p^2/, so traditional stats overestimate
+> the frequency of such words.
+>
+> I want to experiment with robust statistics on word frequency lists, but
+> here I come across a problem that most words do not occur in most of the
+> documents, so that their medians and MADs are zero.  In my sample
+> dataset the only word with the non-zero median frequency is the word
+> /correct/ (as an adjective). Here are some examples:
+>
+>> load(url("http://corpus.leeds.ac.uk/serge/frq-example.Rdata"))
+>> summary(vocab)
+>      correct_J         correct_V         gastric_J            moon_N
+>    Min.   :   0.00   Min.   :   0.00   Min.   :   0.000   Min.   :   0.00
+>    1st Qu.:   0.00   1st Qu.:   0.00   1st Qu.:   0.000   1st Qu.:   0.00
+>    Median :  33.30   Median :   0.00   Median :   0.000   Median :   0.00
+>    Mean   :  79.81   Mean   :  33.94   Mean   :   5.766   Mean   :  27.75
+>    3rd Qu.:  91.09   3rd Qu.:  27.96   3rd Qu.:   0.000   3rd Qu.:  18.55
+>    Max.   :3105.59   Max.   :3897.79   Max.   :2957.449   Max.   :4143.39
+>        moon_V         thoroughly_R      toothbrush_N
+>    Min.   : 0.0000   Min.   :   0.00   Min.   :   0.000
+>    1st Qu.: 0.0000   1st Qu.:   0.00   1st Qu.:   0.000
+>    Median : 0.0000   Median :   0.00   Median :   0.000
+>    Mean   : 0.3154   Mean   :  28.64   Mean   :   2.894
+>    3rd Qu.: 0.0000   3rd Qu.:  30.02   3rd Qu.:   0.000
+>    Max.   :79.3730   Max.   :2028.40   Max.   :1046.025
+>
+> The rows correspond to a measure of word frequencies in each document in
+> a collection.
+>
+> This mailing list had a couple of suggestions on a similar topic:
+> https://stat.ethz.ch/pipermail/r-sig-robust/2009/000284.html
+> https://stat.ethz.ch/pipermail/r-sig-robust/2011/000318.html
+> suggesting the use of huberM, but the huberM estimates for this dataset
+> are still zeros, while the use of
+>
+> huberM(a,s=mean(abs(a - median(a))))
+>
+> doesn't help since the medians are zero, so s is reduced to mean(a).
+>
+> Trimmed means definitely help, but we need a principled way to estimate
+> the amount of trimming, since /gastric /occurs in just 65 documents out
+> of 4054, while /moon /as a verb in 32 documents, necessitating a very
+> low trimming threshold to avoid ignoring such words altogether.
+>
+> Does robustbase offer any more principled way for estimation of location
+> and its confidence intervals in such cases?
+>
+> Best,
+> Serge
+>
+>
+> 	[[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+-- 
+Prof. Dr. Matthias Kohl
+www.stamats.de
+
+
+
+From @@@h@ro|| @end|ng |rom |eed@@@c@uk  Fri Jul 10 13:01:01 2015
+From: @@@h@ro|| @end|ng |rom |eed@@@c@uk (Serge Sharoff)
+Date: Fri, 10 Jul 2015 12:01:01 +0100
+Subject: [RsR] Robust estimation of word frequencies
+In-Reply-To: <559EB723.8050304@stamats.de>
+References: <AMSPR03MB42115662FB5EDA0210A06D5D2AA0@AMSPR03MB421.eurprd03.prod.outlook.com>
+	<DBXPR03MB4319975B09DD4CD1BAA6430EDAA0@DBXPR03MB431.eurprd03.prod.outlook.com>
+	<559BC0D3.60000@leeds.ac.uk> <559EB723.8050304@stamats.de>
+Message-ID: <4681868.qdPuHIWpko@t3400>
+
+Thanks Matthias.  
+
+So far I had no time to study the ideas behind your packages.  I just applied 
+them as a black box. RobLox predictively complains about mad=0 and suggests 
+the means and the confidence interval as:
+ > confint(roblox(vocab$gastric_J))
+A[n] asymptotic (LAN-based) confidence interval:
+              2.5 %       97.5 %
+mean -6.796098e-07 6.796510e-07
+sd    1.503699e-05 1.604802e-05
+
+ > confint(roblox(vocab$toothbrush_N))
+A[n] asymptotic (LAN-based) confidence interval:
+              2.5 %       97.5 %
+mean -9.553116e-07 9.554188e-07
+sd    2.113769e-05 2.255891e-05
+
+Neither 'gastric' nor 'toothbrush' deserve a place to be in English ;-)
+
+Probably I wasn't clear in my first message.  The zeros are not the outliers.  
+However, from the viewpoint of any robust method which I tried the word 
+frequencies are dominated by zeros, therefore the robust estimate of frequency 
+becomes zero (with the exception of the top 2-3,000 most common words).
+
+I can formulate my problem as follows, using 'gastric' and 'toothbrush' as 
+examples, but this applies to all other words. Most of the words don't occur 
+in most of the documents.  A word like 'gastric' occurs only in 65 texts, 
+'toothbrush' in 123 (the collection in question is the BNC, a representative 
+sample of British English), i.e. I have thousands of data points to estimate 
+their probability as zero.
+
+However in the 65 texts in which 'gastric' does appear we have 55 texts, in 
+which its frequency is "normal":
+> summary(v.g[v.g<100])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  5.243  20.640  25.010  35.550  47.960  98.040 
+
+as well as 10 texts with clearly outlying frequency values:
+> summary(v.g[v.g>100])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  131.3   263.5  1021.0  1274.0  2123.0  2957.0 
+
+(the choice of 100 in this example is almost a guess coming from looking at 
+the histogram and also testing v.g with huberM).
+
+'toothbrush' has its outliers as well, but proportionally fewer.  My intuition 
+is that 'gastric' is much more prone to frequency bursts, and we need to 
+exclude a larger number of outlying observations for 'gastric', so that the 
+estimate of its frequency count becomes lower than the one for 'toothbrush' in 
+this collection.  The outlying observations should also have no effect on the 
+significance intervals for the probabilities.  
+
+However, this analysis is based on discarding the thousands of zeros and 
+making inferences on a small non-zero subset.  I'm not sure about the 
+statistical implications of this approach.  What if the non-zero section only 
+contains the outliers?  E.g. just ten texts that repeat a spam word thousands 
+of times?
+
+The question about the underlying distribution is also very interesting.  The 
+binomial (or Poisson) distribution for the word frequencies is not 
+appropriate, because the probability of seeing a word once *increases* its 
+chances to be seen the second time (because a word is always indicative of 
+either a topic or a genre).  Seeing a word twice is closer to p/2 rather than 
+p^2 as expected in the binomial model. Given that the probabilities for words 
+like 'toothbrush' are in the range of 1e-5, this is a very large difference (in 
+my examples above they were multiplied by 1e6 for presentational reasons).
+
+I'm not entirely sure about the best approximation.  One possibility is to use 
+the negative binomial distribution to model the probability of the *first* 
+appearance of a word in a text.  Once we know it's there, we can use another 
+model to approximate the probability of seeing it there N times.  However, 
+even using the negative binomial for the first appearance is likely to be far 
+from a good fit because of the co-occurrence statistics, e.g., seeing words 
+like 'ulcer' or 'duodenal' increases the probability of seeing 'gastric'.  I 
+will experiment with the distrMod package.
+
+Serge
+
+On 09/07/15 19:02, Prof. Dr. Matthias Kohl wrote:
+> Dear Serge,
+>
+> you could try my package RobLox; e.g.
+> library(RobLox)
+> x <- rnorm(20)
+> est <- roblox(x)
+> est
+> confint(est)
+>
+> But, the idea behind these robust methods is a normal location and scale
+> model surrounded by a neighborhood (Tukey's gross error model). That is,
+> your data should stem from some distribution
+>
+> Q = (1-eps) N(mean, sd) + eps H
+>
+> where H is an arbitrary (unknown) probability measure (possibly a Dirac
+> measure at some point). However, you only can get reasonable estimates
+> of mean and sd, if eps < 0.5.
+> Therefore, I would propose that you try a different (robust) model. In
+> particular, I would say that the 0 values in your case are not really
+> outliers in the above sense and should be modelled as well.
+>
+> For some other robust parametric model (e.g. Binomial or Poisson) you
+> could try our packages ROptEst (see http://www.stamats.de/RRlong.pdf,
+> http://arxiv.org/abs/0901.3531) and distrMod (see
+> http://www.jstatsoft.org/v35/i10/).
+>
+> Best,
+> Matthias
+>
+>
+> Am 07.07.2015 um 14:06 schrieb Serge Sharoff:
+>> Hello,
+>>
+>> My question is about applying robust location and scale estimates to
+>> word frequencies.  Some words are prone to frequency spikes in a small
+>> number of documents; there was a paper showing that if the probability
+>> of seeing a word like 'gastric' in a document is /p/, then the
+>> probability of seeing its second occurrence in a document is close to
+>> /p/2/ rather than the expected /p^2/, so traditional stats overestimate
+>> the frequency of such words.
+>>
+>> I want to experiment with robust statistics on word frequency lists, but
+>> here I come across a problem that most words do not occur in most of the
+>> documents, so that their medians and MADs are zero.  In my sample
+>> dataset the only word with the non-zero median frequency is the word
+>> /correct/ (as an adjective). Here are some examples:
+>>
+>>> load(url("http://corpus.leeds.ac.uk/serge/frq-example.Rdata"))
+>>> summary(vocab)
+>>      correct_J         correct_V         gastric_J            moon_N
+>>    Min.   :   0.00   Min.   :   0.00   Min.   :   0.000   Min.   :   0.00
+>>    1st Qu.:   0.00   1st Qu.:   0.00   1st Qu.:   0.000   1st Qu.:   0.00
+>>    Median :  33.30   Median :   0.00   Median :   0.000   Median :   0.00
+>>    Mean   :  79.81   Mean   :  33.94   Mean   :   5.766   Mean   :  27.75
+>>    3rd Qu.:  91.09   3rd Qu.:  27.96   3rd Qu.:   0.000   3rd Qu.:  18.55
+>>    Max.   :3105.59   Max.   :3897.79   Max.   :2957.449   Max.   :4143.39
+>>        moon_V         thoroughly_R      toothbrush_N
+>>    Min.   : 0.0000   Min.   :   0.00   Min.   :   0.000
+>>    1st Qu.: 0.0000   1st Qu.:   0.00   1st Qu.:   0.000
+>>    Median : 0.0000   Median :   0.00   Median :   0.000
+>>    Mean   : 0.3154   Mean   :  28.64   Mean   :   2.894
+>>    3rd Qu.: 0.0000   3rd Qu.:  30.02   3rd Qu.:   0.000
+>>    Max.   :79.3730   Max.   :2028.40   Max.   :1046.025
+>>
+>> The rows correspond to a measure of word frequencies in each document in
+>> a collection.
+>>
+>> This mailing list had a couple of suggestions on a similar topic:
+>> https://stat.ethz.ch/pipermail/r-sig-robust/2009/000284.html
+>> https://stat.ethz.ch/pipermail/r-sig-robust/2011/000318.html
+>> suggesting the use of huberM, but the huberM estimates for this dataset
+>> are still zeros, while the use of
+>>
+>> huberM(a,s=mean(abs(a - median(a))))
+>>
+>> doesn't help since the medians are zero, so s is reduced to mean(a).
+>>
+>> Trimmed means definitely help, but we need a principled way to estimate
+>> the amount of trimming, since /gastric /occurs in just 65 documents out
+>> of 4054, while /moon /as a verb in 32 documents, necessitating a very
+>> low trimming threshold to avoid ignoring such words altogether.
+>>
+>> Does robustbase offer any more principled way for estimation of location
+>> and its confidence intervals in such cases?
+>>
+>> Best,
+>> Serge
+>>
+>>
+>>     [[alternative HTML version deleted]]
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>
+>
+
+
+
+From S@E|||@on @end|ng |rom LGCGroup@com  Sat Aug 22 04:06:34 2015
+From: S@E|||@on @end|ng |rom LGCGroup@com (S Ellison)
+Date: Sat, 22 Aug 2015 03:06:34 +0100
+Subject: [RsR] cov.mcd vs covMcd - why the difference?
+Message-ID: <1A8C1289955EF649A09086A153E2672403B42E2A1A@GBTEDVPEXCMB04.corp.lgc-group.com>
+
+
+cov.mcd in MASS and covMcd in robustbase both calculate the Minimum Covariance Determinant (MCD) multivariate location and scale estimator.
+
+For a 2-variable problem, the two return identical correlation matrices but the covariance matrices differ. For the 2-variable case the difference seems to be a scaling factor, equal to the product of scaling factors returned as 'cnp2' in the 'mcd' object returned by robustbase. In the modified ?covMcd example below, the robustbase covariances are appreciably larger as a result. For multivariate problems (n>2) things aren't so simple.
+
+Is there a rationale for the difference? And of the two implementations, which might be the more defensible estimate of covariance for modestly outlier-contaminated data?
+
+
+S Ellison
+
+#Example (reduced to 2 variables)
+library(robustbase)
+library(MASS)
+ data(hbk)
+ hbk.x <- data.matrix(hbk[, 1:2])
+ set.seed(17)
+ (cH <- covMcd(hbk.x, cor=TRUE))$cov
+
+(cH.M <- cov.mcd(hbk.x, cor=TRUE))$cov
+ 
+cH$cov/cH.M$cov
+
+prod(cH$cnp2)
+
+
+*******************************************************************
+This email and any attachments are confidential. Any use...{{dropped:8}}
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Oct 27 19:20:11 2015
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 27 Oct 2015 19:20:11 +0100
+Subject: [RsR] question (seeds robustbase::ltsReg)
+In-Reply-To: <562A614C.8020609@wis.kuleuven.be>
+References: <CY1PR0701MB1275B0F67FB6EB7A91D9F718B1BB0@CY1PR0701MB1275.namprd07.prod.outlook.com>
+	<1976629323.739273.1434576332027.JavaMail.yahoo@mail.yahoo.com>
+	<21890.28414.170388.723918@stat.math.ethz.ch>
+	<562A614C.8020609@wis.kuleuven.be>
+Message-ID: <22063.49243.817162.87946@stat.math.ethz.ch>
+
+I'm answering on the dedicated mailing list,
+if others are asking the same question, they my now find it here
+via Google :
+
+>>>>> kaveh  <Kaveh.Vakili @ KU Leuven >
+>>>>>     on Fri, 23 Oct 2015 18:33:16 +0200 writes:
+
+    > Dear Prof. Maechler,
+
+    > I hope this email finds you well. I have a question about
+    > the way seeds are set in robustbase::ltsReg and I hope
+    > this is the correct way to ask it.
+
+    > It will be simpler to illustrate it with an example:
+
+    > -----------------------------------------------------------------------------------
+    > #I run a fastlts regression, say on the stackloss data:
+
+    > library(robustbase)
+    > mycont <- rrcov.control(seed=.Random.seed)
+    > lts1 <- ltsReg(stack.loss~.,data=stackloss,control=mycont)
+
+
+    > #Doing this changes the content of .Random.seed:
+    > .Random.seed[6]
+    > rm(.Random.seed);a1<-runif(1)
+    > #compare with above:
+    > .Random.seed[6]
+
+    > mycont <- rrcov.control(seed=.Random.seed)
+    > lts2 <- ltsReg(stack.loss~.,data=stackloss,control=mycont)
+
+    > #I am now expecting the fastlts fits to change a bit,
+    > since I used two different seeds. Yet, I systematically
+    > observe that:
+
+    > lts2$scale-lts1$scale
+
+is 0...
+
+Even more,
+
+  all.equal(lts1, lts2)
+
+actually confirms they are the same solutions.
+
+    > -----------------------------------------------------------------------------------
+
+    > My questions is: am I passing different seeds to lts1 and
+    > lts2 or do I not use the 'seed' function correctly?
+
+Yes, you *are* passing different seeds to lts1 and lts2
+
+(and even easier is to *NOT* set any seeds here: Then, ltsReg() uses R's
+ internal .Random.seed manipulation, which also gets different random
+ numbers every time !!)
+
+In this very small scale simple data set,  stackloss,
+
+many (or most ((or all)) ?) seeds may be sufficient to find the
+"minimal" / "optimal" subset of observations (i.e., the true LTS estimate)
+
+==> hence many (or most ((or all)) ?) of the ltsReg() solutions
+    coincide for such a small simple data set.
+
+    > Thanks in advance for your time,
+
+You are welcome!
+
+Best regards,
+Martin Maechler
+
+
+

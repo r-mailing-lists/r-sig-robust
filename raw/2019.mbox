@@ -1,0 +1,1748 @@
+From w@ngji@wei92 @ending from hotm@il@com  Fri Jan  4 05:46:17 2019
+From: w@ngji@wei92 @ending from hotm@il@com (=?gb2312?B?zfUgvM7svw==?=)
+Date: Fri, 4 Jan 2019 04:46:17 +0000
+Subject: [RsR] Error in gam function in names(x) <- value: 'names' attribute
+ must be the same length as the vector
+In-Reply-To: <TY2PR06MB310294C5531DFB29737640AFC28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>
+References: <TY2PR06MB310294C5531DFB29737640AFC28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>
+Message-ID: <TY2PR06MB310214DC0B3F1C8DA41FF026C28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>
+
+
+
+Dear R users,
+
+
+I am using the *mgcv package* to model the ozone pollution concentration according to some environmental covariates. The model takes the form :
+
+model1 <-gam(O3~s(X,Y,bs="tp",k=10)+wd+s(date,bs="cc",k=100)+district,data=mydata,family= gaussian(link ="log" ),na.action="na.omit", method="REML")
+
+And here is the strcture of  covariates
+> str(mydata)
+'data.frame': 7100 obs. of  286 variables:
+ $ date            : Date, format: "2016-01-01" "2016-01-01" "2016-01-01" ...
+ $ O3              : num  0.0141 0.0149 0.0102 0.0159 0.0186 ...
+ $ district        : Factor w/ 10 levels "bc","bh","dl",..: 1 8 7 8 2 6 4 4 10 2 ...
+ $ wd              : Factor w/ 16 levels "E","ENE","ESE",..: 13 13 13 13 13 2 9 9 11 13 ...
+ $ X               : num  0.389 0.365 1 0.44 0.892 ...
+ $ Y               : num  0.311 0.204 0.426 0.223 0.162 ...
+
+I am stuck on an error in R: 'names' attribute [1] must be the same length as the vector [0].
+
+I try to find where the problem is by delete the term of "s(date,bs="cc",k=100)" from the fomular and it could work well. It seems like  there is something wrong with date field.
+
+I'm not exactly sure how to fix this problem.  Any advice would be greatly
+appreciated!
+Jiawei Wang
+???? Outlook<http://aka.ms/weboutlook>
+
+	[[alternative HTML version deleted]]
+
+
+From M@rcelo@C@ji@@ @ending from p@trizi@@@g  Fri Jan  4 08:40:34 2019
+From: M@rcelo@C@ji@@ @ending from p@trizi@@@g (Cajias Marcelo)
+Date: Fri, 4 Jan 2019 07:40:34 +0000
+Subject: [RsR] 
+ Error in gam function in names(x) <- value: 'names' attribute
+ must be the same length as the vector
+In-Reply-To: <TY2PR06MB310214DC0B3F1C8DA41FF026C28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>
+References: <TY2PR06MB310294C5531DFB29737640AFC28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>
+ <TY2PR06MB310214DC0B3F1C8DA41FF026C28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>
+Message-ID: <77c914999261417b9265e30b62294afe@patrizia.ag>
+
+Dear Jiawei, 
+
+I work also with the MGVC package and believe that your gam is currently struggling to understand the content of the variable $date. The variable needs to be transformed to a "number" or a series of variables such as time dummies or an index. I recommend to transform $date in such a way that the gam understands the $date variable as a number. 
+
+Best
+
+Marcelo 
+
+
+-----Urspr?ngliche Nachricht-----
+Von: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von ? ??
+Gesendet: Freitag, 4. Januar 2019 05:46
+An: r-sig-robust at r-project.org
+Betreff: [RsR] Error in gam function in names(x) <- value: 'names' attribute must be the same length as the vector
+
+
+
+Dear R users,
+
+
+I am using the *mgcv package* to model the ozone pollution concentration according to some environmental covariates. The model takes the form :
+
+model1 <-gam(O3~s(X,Y,bs="tp",k=10)+wd+s(date,bs="cc",k=100)+district,data=mydata,family= gaussian(link ="log" ),na.action="na.omit", method="REML")
+
+And here is the strcture of  covariates
+> str(mydata)
+'data.frame': 7100 obs. of  286 variables:
+ $ date            : Date, format: "2016-01-01" "2016-01-01" "2016-01-01" ...
+ $ O3              : num  0.0141 0.0149 0.0102 0.0159 0.0186 ...
+ $ district        : Factor w/ 10 levels "bc","bh","dl",..: 1 8 7 8 2 6 4 4 10 2 ...
+ $ wd              : Factor w/ 16 levels "E","ENE","ESE",..: 13 13 13 13 13 2 9 9 11 13 ...
+ $ X               : num  0.389 0.365 1 0.44 0.892 ...
+ $ Y               : num  0.311 0.204 0.426 0.223 0.162 ...
+
+I am stuck on an error in R: 'names' attribute [1] must be the same length as the vector [0].
+
+I try to find where the problem is by delete the term of "s(date,bs="cc",k=100)" from the fomular and it could work well. It seems like  there is something wrong with date field.
+
+I'm not exactly sure how to fix this problem.  Any advice would be greatly
+appreciated!
+Jiawei Wang
+???? Outlook<http://aka.ms/weboutlook>
+
+	[[alternative HTML version deleted]]
+
+
+From em||y@k|e|n04 @end|ng |rom gm@||@com  Mon Jul 15 21:34:45 2019
+From: em||y@k|e|n04 @end|ng |rom gm@||@com (Emily Klein)
+Date: Mon, 15 Jul 2019 15:34:45 -0400
+Subject: [RsR] use of lmrob() on ecological time series
+Message-ID: <CANx-k+XhAmadcXc0BiNmT4x2PAjxkR=X3fdhb31o+me6rLcD1A@mail.gmail.com>
+
+Dear all,
+
+I am using the lmrob() function from the robustbase package, and I have a
+few questions. To keep the threads clear, I have a general inquiry here,
+and will ask more specific Qs in a second thread. NB: I don't typically
+update in the middle of a project, so am running on R version 3.4.1.
+
+(1) I am curious the community's thoughts on our approach: We have several
+hundred ecological time series and we're using robust linear models to
+determine if the time series are increasing, decreasing, or not changing,
+by looking at the modeled slope. This approach follows several others,
+including Lotze et al. 2017 (doi: 10.1111/cobi.12957) and Magare et al.
+2013 (doi:10.1371/journal.pone.0077908). I don't have much experience with
+RLMs, so any thoughts on this approach would be very welcome.
+
+More specifically, following the work noted above, we are running (with the
+time series indexed with "DBx"):
+lm_test<-lmrob(log(pop_status+1)~observation_year,DBx)
+
+(2)  Previous use of RLMs to identify the direction of ecological time
+series was asked in peer review to use "non-significant change" to
+reference time series with a slope of zero within the 95% confidence
+intervals. I can see excluding time series where there is no agreement on
+the direction of slope, but I think that slope=0 is more "stable" or "no
+change" and is not necessarily "non-significant". Any thoughts?
+
+Thank you all very much for any feedback you may have. I will start a
+second thread on a few warnings I am getting.
+
+Emily
+
+-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+Boston University
+*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+esklein04 at gmail.com
+
+http://www.bu.edu/pardee/
+http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+	[[alternative HTML version deleted]]
+
+
+From em||y@k|e|n04 @end|ng |rom gm@||@com  Mon Jul 15 21:45:00 2019
+From: em||y@k|e|n04 @end|ng |rom gm@||@com (Emily Klein)
+Date: Mon, 15 Jul 2019 15:45:00 -0400
+Subject: [RsR] error/warning messages with lmrob()
+Message-ID: <CANx-k+UEHw=7o-XLZoo0ggqyi=zi9c-9TyHtF4_rcEw1f4D2YQ@mail.gmail.com>
+
+Dear all,
+
+I am running lmrob() under the robustbase package, and I have a few
+error/warning messages I would greatly appreciate help with - I am
+unfamiliar with robust linear models, so my apologies in advance if the
+answers here are obvious. In addition, any discussion will help me get a
+handle on what we're doing, which always helps.
+
+(1) I get the repeated error seemingly on random species when running a
+loop of lmrob() over all our ecological time series (different ones almost
+every time):
+
+Error in eigen(ret, symmetric = TRUE) : infinite or missing values in 'x'
+
+I have checked my data many times, and if I just repeatedly run lmrob() it
+eventually works. Any idea what this error is in reference to? Could it be
+because I am using a previous version of R (3.4.1)?
+
+(2) I have several two error messages that come up with some time series; I
+have some idea their meaning, but again, as a newbie with RLMS, I am
+wondering if those time series that garner these warnings should be
+excluded from our meta-analysis. Also, any additional insight on the
+process or something I might be missing greatly welcomed!
+
+Warning in lmrob.S(x, y, control = control) :
+  find_scale() did not converge in 'maxit.scale' (= 200) iterations with
+tol=1e-10, last rel.diff=0
+
+Warning in lmrob.fit(x, y, control, init = init) :
+  M-step did NOT converge. Returning unconverged SM-estimate
+
+Warning in lmrob.S(x, y, control = control) :
+  S-estimated scale == 0:  Probably exact fit; check your data
+
+
+Thank you very much in advance,
+
+Emily
+
+
+-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+Boston University
+*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+esklein04 at gmail.com
+
+http://www.bu.edu/pardee/
+http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+	[[alternative HTML version deleted]]
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Sat Aug 24 22:53:22 2019
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Stahel  Werner A.)
+Date: Sat, 24 Aug 2019 20:53:22 +0000
+Subject: [RsR] use of lmrob() on ecological time series
+In-Reply-To: <CANx-k+XhAmadcXc0BiNmT4x2PAjxkR=X3fdhb31o+me6rLcD1A@mail.gmail.com>
+References: <CANx-k+XhAmadcXc0BiNmT4x2PAjxkR=X3fdhb31o+me6rLcD1A@mail.gmail.com>
+Message-ID: <06240b787ab344ef93f297682673dd5c@stat.math.ethz.ch>
+
+Dear Emily
+
+
+This is a late answer to your message from July 15.
+
+
+The first issue is the use of robust linear regression of log(abundance) on the year.
+
+I think that this is a very reasonable way to summarize the time series -- as long as
+
+a log-linear trend appears appropriate.
+
+The trend is then measured by the slope. A great advantage of using the log is that
+
+slopes are then on a common scale for rare and abundant species, as a certain slope
+
+corresponds to a certain percent increase or decrease per year.
+
+
+You then go on to question the classification into significantly increasing, and so on.
+
+This classification is common but unreasonable.
+
+A 5% increase per year can be significant for one species and insignificant for another,
+
+just because the former shows less random fluctuations than the latter.
+
+We should focus on estimation and supply confidence intervals for characterizing the
+
+(im-)precision.
+
+(You may have read about the controversy about "null hypothesis significance testing"
+
+and p values.)
+
+
+Since the slopes are used for further analysis, the classification is not needed nor helpful
+
+at all.
+
+In any case, I have not read in detail what is done with the slope. In one paper, it is used
+
+as the target variable in further regression models.
+
+I wonder if such regressions make sense when different species are used in the same
+
+regression. I thought it was a basic paradigm of biology that species have different
+
+ways to react to environments.
+
+If one simply want to show that management is helpful, one might compare managed and
+
+non-managed regions in terms of the number of species (within taxonomic groups?) that
+
+have recovered -- or directly in terms of average slopes for individual species or taxonomic
+
+groups.
+
+
+Nevertheless, let me add a thought about (2).
+
+I think the expression "non-significant change" is quite appropriate since a change of 0
+
+does not exist in real life. It is likely small (unless fluctuations are big and/or the time series
+
+short, which causes in-significance), but never precisely 0.
+
+Again, a confidence interval says it all: It contains all plausible values of the true slope.
+
+
+Are these thoughts helpful?
+
+
+Werner Stahel
+M +41 79 784 9330 | P +41 44 364 6424
+________________________________
+Von: R-SIG-Robust <r-sig-robust-bounces at r-project.org> im Auftrag von Emily Klein <emily.klein04 at gmail.com>
+Gesendet: Montag, 15. Juli 2019 21:34:45
+An: r-sig-robust at r-project.org
+Betreff: [RsR] use of lmrob() on ecological time series
+
+Dear all,
+
+I am using the lmrob() function from the robustbase package, and I have a
+few questions. To keep the threads clear, I have a general inquiry here,
+and will ask more specific Qs in a second thread. NB: I don't typically
+update in the middle of a project, so am running on R version 3.4.1.
+
+(1) I am curious the community's thoughts on our approach: We have several
+hundred ecological time series and we're using robust linear models to
+determine if the time series are increasing, decreasing, or not changing,
+by looking at the modeled slope. This approach follows several others,
+including Lotze et al. 2017 (doi: 10.1111/cobi.12957) and Magare et al.
+2013 (doi:10.1371/journal.pone.0077908). I don't have much experience with
+RLMs, so any thoughts on this approach would be very welcome.
+
+More specifically, following the work noted above, we are running (with the
+time series indexed with "DBx"):
+lm_test<-lmrob(log(pop_status+1)~observation_year,DBx)
+
+(2)  Previous use of RLMs to identify the direction of ecological time
+series was asked in peer review to use "non-significant change" to
+reference time series with a slope of zero within the 95% confidence
+intervals. I can see excluding time series where there is no agreement on
+the direction of slope, but I think that slope=0 is more "stable" or "no
+change" and is not necessarily "non-significant". Any thoughts?
+
+Thank you all very much for any feedback you may have. I will start a
+second thread on a few warnings I am getting.
+
+Emily
+
+--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+Boston University
+*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+esklein04 at gmail.com
+
+http://www.bu.edu/pardee/
+http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+        [[alternative HTML version deleted]]
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+	[[alternative HTML version deleted]]
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Sat Aug 24 23:04:04 2019
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Stahel  Werner A.)
+Date: Sat, 24 Aug 2019 21:04:04 +0000
+Subject: [RsR] error/warning messages with lmrob()
+In-Reply-To: <CANx-k+UEHw=7o-XLZoo0ggqyi=zi9c-9TyHtF4_rcEw1f4D2YQ@mail.gmail.com>
+References: <CANx-k+UEHw=7o-XLZoo0ggqyi=zi9c-9TyHtF4_rcEw1f4D2YQ@mail.gmail.com>
+Message-ID: <96422a64b1ac450ab488d06faaf9ebbc@stat.math.ethz.ch>
+
+Dear Emily
+
+
+A short answer also to your questions about non-convergence of lmrob.
+
+You are using it to characterize the trend in many time series.
+
+I assume that the problems are caused by the series being short.
+
+I would be interested in getting some of those that cause problems.
+
+
+For a simple regression, you may fall back on good old  rlm(...)
+
+In the meantime, I will again try to convince the maintainers of  lmrob
+
+to introduce the possibility of providing  initial  values that allow for
+
+avoiding the initial S step -- since this step causes the problems.
+
+
+Best regards. Werner
+
+
+Werner Stahel
+M +41 79 784 9330 | P +41 44 364 6424
+________________________________
+Von: R-SIG-Robust <r-sig-robust-bounces at r-project.org> im Auftrag von Emily Klein <emily.klein04 at gmail.com>
+Gesendet: Montag, 15. Juli 2019 21:45:00
+An: r-sig-robust at r-project.org
+Betreff: [RsR] error/warning messages with lmrob()
+
+Dear all,
+
+I am running lmrob() under the robustbase package, and I have a few
+error/warning messages I would greatly appreciate help with - I am
+unfamiliar with robust linear models, so my apologies in advance if the
+answers here are obvious. In addition, any discussion will help me get a
+handle on what we're doing, which always helps.
+
+(1) I get the repeated error seemingly on random species when running a
+loop of lmrob() over all our ecological time series (different ones almost
+every time):
+
+Error in eigen(ret, symmetric = TRUE) : infinite or missing values in 'x'
+
+I have checked my data many times, and if I just repeatedly run lmrob() it
+eventually works. Any idea what this error is in reference to? Could it be
+because I am using a previous version of R (3.4.1)?
+
+(2) I have several two error messages that come up with some time series; I
+have some idea their meaning, but again, as a newbie with RLMS, I am
+wondering if those time series that garner these warnings should be
+excluded from our meta-analysis. Also, any additional insight on the
+process or something I might be missing greatly welcomed!
+
+Warning in lmrob.S(x, y, control = control) :
+  find_scale() did not converge in 'maxit.scale' (= 200) iterations with
+tol=1e-10, last rel.diff=0
+
+Warning in lmrob.fit(x, y, control, init = init) :
+  M-step did NOT converge. Returning unconverged SM-estimate
+
+Warning in lmrob.S(x, y, control = control) :
+  S-estimated scale == 0:  Probably exact fit; check your data
+
+
+Thank you very much in advance,
+
+Emily
+
+
+--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+Boston University
+*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+esklein04 at gmail.com
+
+http://www.bu.edu/pardee/
+http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+        [[alternative HTML version deleted]]
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+	[[alternative HTML version deleted]]
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Aug 26 10:00:01 2019
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 26 Aug 2019 10:00:01 +0200
+Subject: [RsR] error/warning messages with lmrob()
+In-Reply-To: <96422a64b1ac450ab488d06faaf9ebbc@stat.math.ethz.ch>
+References: <CANx-k+UEHw=7o-XLZoo0ggqyi=zi9c-9TyHtF4_rcEw1f4D2YQ@mail.gmail.com>
+ <96422a64b1ac450ab488d06faaf9ebbc@stat.math.ethz.ch>
+Message-ID: <23907.37249.829497.824928@stat.math.ethz.ch>
+
+>>>>> Stahel Werner A 
+>>>>>     on Sat, 24 Aug 2019 21:04:04 +0000 writes:
+
+    > Dear Emily
+
+    >  A short answer also to your questions about
+    > non-convergence of lmrob.  You are using it to
+    > characterize the trend in many time series.  I assume that
+    > the problems are caused by the series being short.  I
+    > would be interested in getting some of those that cause problems.
+
+Indeed, me too. (we mean getting the datasets, e.g., sending us
+ 	the file  'lmrob-problm.rds'  after
+   
+   saveRDS(<your-data-frame>, file = "lmrob-problm.rds")
+
+)
+
+    > For a simple regression, you may fall back on good old
+    > rlm(...)  In the meantime, I will again try to convince
+    > the maintainers of lmrob to introduce the possibility of
+    > providing initial values that allow for avoiding the
+    > initial S step -- since this step causes the problems.
+
+Well, 'init' has been an argument of lmrob() "forever", and has
+quite a nice paragraph on the help page of lmrob (search for
+"initial estimator") *and* another paragraph in the 'Examples'
+of the help page, online versions of which are nowadays easily found by googling 
+'lmrob robustbase'), notably these two:
+- https://www.rdocumentation.org/packages/robustbase/versions/0.93-5/topics/lmrob
+- https://rdrr.io/cran/robustbase/man/lmrob.html
+
+[I really would not go back to use rlm().]
+
+Martin
+
+
+    > Best regards. Werner
+
+    > Werner Stahel M +41 79 784 9330 | P +41 44 364 6424
+    > ________________________________
+    >> Von: R-SIG-Robust <r-sig-robust-bounces at r-project.org> im
+    >> Auftrag von Emily Klein <emily.klein04 at gmail.com>
+    >> Gesendet: Montag, 15. Juli 2019 21:45:00 An:
+    >> r-sig-robust at r-project.org Betreff: [RsR] error/warning
+    >> messages with lmrob()
+    >> 
+    >> Dear all,
+    >> 
+    >> I am running lmrob() under the robustbase package, and I
+    >> have a few error/warning messages I would greatly
+    >> appreciate help with - I am unfamiliar with robust linear
+    >> models, so my apologies in advance if the answers here
+    >> are obvious. In addition, any discussion will help me get
+    >> a handle on what we're doing, which always helps.
+    >> 
+    >> (1) I get the repeated error seemingly on random species
+    >> when running a loop of lmrob() over all our ecological
+    >> time series (different ones almost every time):
+    >> 
+    >> Error in eigen(ret, symmetric = TRUE) : infinite or
+    >> missing values in 'x'
+    >> 
+    >> I have checked my data many times, and if I just
+    >> repeatedly run lmrob() it eventually works. Any idea what
+    >> this error is in reference to? Could it be because I am
+    >> using a previous version of R (3.4.1)?
+    >> 
+    >> (2) I have several two error messages that come up with
+    >> some time series; I have some idea their meaning, but
+    >> again, as a newbie with RLMS, I am wondering if those
+    >> time series that garner these warnings should be excluded
+    >> from our meta-analysis. Also, any additional insight on
+    >> the process or something I might be missing greatly
+    >> welcomed!
+    >> 
+    >> Warning in lmrob.S(x, y, control = control) :
+    >> find_scale() did not converge in 'maxit.scale' (= 200)
+    >> iterations with tol=1e-10, last rel.diff=0
+    >> 
+    >> Warning in lmrob.fit(x, y, control, init = init) : M-step
+    >> did NOT converge. Returning unconverged SM-estimate
+    >> 
+    >> Warning in lmrob.S(x, y, control = control) : S-estimated
+    >> scale == 0: Probably exact fit; check your data
+    >> 
+    >> Thank you very much in advance,
+    >> 
+    >> Emily
+    >> 
+    >> 
+    >> --
+    >> ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    >> Emily S. Klein, Senior Postdoctoral Associate (she / her
+    >> / hers) The Frederick S. Pardee Center for the Study of
+    >> the Longer-Range Future | Boston University *Co-Chair*,
+    >> ICES Working Group on the History of Fish & Fisheries
+    >> (WGHIST) esklein04 at gmail.com
+    >> 
+    >> http://www.bu.edu/pardee/
+    >> http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Aug 26 10:17:48 2019
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 26 Aug 2019 10:17:48 +0200
+Subject: [RsR] use of lmrob() on ecological time series
+In-Reply-To: <06240b787ab344ef93f297682673dd5c@stat.math.ethz.ch>
+References: <CANx-k+XhAmadcXc0BiNmT4x2PAjxkR=X3fdhb31o+me6rLcD1A@mail.gmail.com>
+ <06240b787ab344ef93f297682673dd5c@stat.math.ethz.ch>
+Message-ID: <23907.38316.115412.485306@stat.math.ethz.ch>
+
+>>>>> Stahel Werner A 
+>>>>>     on Sat, 24 Aug 2019 20:53:22 +0000 writes:
+
+    > Dear Emily
+
+    > This is a late answer to your message from July 15.
+    > The first issue is the use of robust linear regression of log(abundance) on the year.
+    > I think that this is a very reasonable way to summarize the time series -- as long as
+    > a log-linear trend appears appropriate.
+    > The trend is then measured by the slope. A great advantage of using the log is that
+    > slopes are then on a common scale for rare and abundant species, as a certain slope
+    > corresponds to a certain percent increase or decrease per year.
+
+    > You then go on to question the classification into significantly increasing, and so on.
+    > This classification is common but unreasonable.
+    > A 5% increase per year can be significant for one species and insignificant for another,
+    > just because the former shows less random fluctuations than the latter.
+    > We should focus on estimation and supply confidence intervals for characterizing the
+    > (im-)precision.
+    > (You may have read about the controversy about "null hypothesis significance testing"
+    > and p values.)
+
+    > Since the slopes are used for further analysis, the classification is not needed nor helpful
+    > at all.
+    > In any case, I have not read in detail what is done with the slope. In one paper, it is used
+    > as the target variable in further regression models.
+    > I wonder if such regressions make sense when different species are used in the same
+    > regression. I thought it was a basic paradigm of biology that species have different
+    > ways to react to environments.
+    > If one simply want to show that management is helpful, one might compare managed and
+    > non-managed regions in terms of the number of species (within taxonomic groups?) that
+    > have recovered -- or directly in terms of average slopes for individual species or taxonomic
+    > groups.
+
+    > Nevertheless, let me add a thought about (2).
+    > I think the expression "non-significant change" is quite appropriate since a change of 0
+    > does not exist in real life. It is likely small (unless fluctuations are big and/or the time series
+    > short, which causes in-significance), but never precisely 0.
+    > Again, a confidence interval says it all: It contains all plausible values of the true slope.
+
+Indeed! ... and the generic R function for confidence intervals,
+confint() also has a good methods for "lmrob" objects,  e.g.,
+
+    > (RlmST <- lmrob(log.light ~ log.Te, data = starsCYG))
+
+    Call:
+    lmrob(formula = log.light ~ log.Te, data = starsCYG)
+     \--> method = "MM"
+    Coefficients:
+    (Intercept)       log.Te  
+	 -4.969        2.253  
+
+    > confint(RlmST)
+		      2.5 %   97.5 %
+    (Intercept) -11.8375506 1.898775
+    log.Te        0.7041937 3.802129
+    > 
+
+
+  > Are these thoughts helpful?
+
+    > Werner Stahel
+    > M +41 79 784 9330 | P +41 44 364 6424
+
+    > ________________________________
+    > Von: R-SIG-Robust <r-sig-robust-bounces at r-project.org> im Auftrag von Emily Klein <emily.klein04 at gmail.com>
+    > Gesendet: Montag, 15. Juli 2019 21:34:45
+    > An: r-sig-robust at r-project.org
+    > Betreff: [RsR] use of lmrob() on ecological time series
+
+    > Dear all,
+
+    > I am using the lmrob() function from the robustbase package, and I have a
+    > few questions. To keep the threads clear, I have a general inquiry here,
+    > and will ask more specific Qs in a second thread. NB: I don't typically
+    > update in the middle of a project, so am running on R version 3.4.1.
+
+    > (1) I am curious the community's thoughts on our approach: We have several
+    > hundred ecological time series and we're using robust linear models to
+    > determine if the time series are increasing, decreasing, or not changing,
+    > by looking at the modeled slope. This approach follows several others,
+    > including Lotze et al. 2017 (doi: 10.1111/cobi.12957) and Magare et al.
+    > 2013 (doi:10.1371/journal.pone.0077908). I don't have much experience with
+    > RLMs, so any thoughts on this approach would be very welcome.
+
+    > More specifically, following the work noted above, we are running (with the
+    > time series indexed with "DBx"):
+    > lm_test<-lmrob(log(pop_status+1)~observation_year,DBx)
+
+    > (2)  Previous use of RLMs to identify the direction of ecological time
+    > series was asked in peer review to use "non-significant change" to
+    > reference time series with a slope of zero within the 95% confidence
+    > intervals. I can see excluding time series where there is no agreement on
+    > the direction of slope, but I think that slope=0 is more "stable" or "no
+    > change" and is not necessarily "non-significant". Any thoughts?
+
+    > Thank you all very much for any feedback you may have. I will start a
+    > second thread on a few warnings I am getting.
+
+    > Emily
+
+    > --
+    > ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    > Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+    > The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+    > Boston University
+    > *Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+    > esklein04 at gmail.com
+
+    > http://www.bu.edu/pardee/
+    > http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Mon Aug 26 22:40:51 2019
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Stahel  Werner A.)
+Date: Mon, 26 Aug 2019 20:40:51 +0000
+Subject: [RsR] error/warning messages with lmrob()
+In-Reply-To: <23907.37249.829497.824928@stat.math.ethz.ch>
+References: <CANx-k+UEHw=7o-XLZoo0ggqyi=zi9c-9TyHtF4_rcEw1f4D2YQ@mail.gmail.com>
+ <96422a64b1ac450ab488d06faaf9ebbc@stat.math.ethz.ch>,
+ <23907.37249.829497.824928@stat.math.ethz.ch>
+Message-ID: <7af6a936f9cb40739a0dba4bc7233629@stat.math.ethz.ch>
+
+Sorry, Martin and Emily, for this stupid mistake.
+
+Just to make things very concrete, you might use
+
+
+lmrob( y~year, method="M", init=lmrob.lar, psi="lqq")
+
+
+Please let us know if there are still warnings with this version.
+
+
+Best regards. Werner
+
+
+Werner Stahel
+M +41 79 784 9330 | P +41 44 364 6424
+________________________________
+Von: Martin Maechler <maechler at stat.math.ethz.ch>
+Gesendet: Montag, 26. August 2019 10:00:01
+An: Stahel Werner A.
+Cc: Emily Klein; r-sig-robust at r-project.org
+Betreff: Re: [RsR] error/warning messages with lmrob()
+
+>>>>> Stahel Werner A
+>>>>>     on Sat, 24 Aug 2019 21:04:04 +0000 writes:
+
+    > Dear Emily
+
+    >  A short answer also to your questions about
+    > non-convergence of lmrob.  You are using it to
+    > characterize the trend in many time series.  I assume that
+    > the problems are caused by the series being short.  I
+    > would be interested in getting some of those that cause problems.
+
+Indeed, me too. (we mean getting the datasets, e.g., sending us
+         the file  'lmrob-problm.rds'  after
+
+   saveRDS(<your-data-frame>, file = "lmrob-problm.rds")
+
+)
+
+    > For a simple regression, you may fall back on good old
+    > rlm(...)  In the meantime, I will again try to convince
+    > the maintainers of lmrob to introduce the possibility of
+    > providing initial values that allow for avoiding the
+    > initial S step -- since this step causes the problems.
+
+Well, 'init' has been an argument of lmrob() "forever", and has
+quite a nice paragraph on the help page of lmrob (search for
+"initial estimator") *and* another paragraph in the 'Examples'
+of the help page, online versions of which are nowadays easily found by googling
+'lmrob robustbase'), notably these two:
+- https://www.rdocumentation.org/packages/robustbase/versions/0.93-5/topics/lmrob
+- https://rdrr.io/cran/robustbase/man/lmrob.html
+
+[I really would not go back to use rlm().]
+
+Martin
+
+
+    > Best regards. Werner
+
+    > Werner Stahel M +41 79 784 9330 | P +41 44 364 6424
+    > ________________________________
+    >> Von: R-SIG-Robust <r-sig-robust-bounces at r-project.org> im
+    >> Auftrag von Emily Klein <emily.klein04 at gmail.com>
+    >> Gesendet: Montag, 15. Juli 2019 21:45:00 An:
+    >> r-sig-robust at r-project.org Betreff: [RsR] error/warning
+    >> messages with lmrob()
+    >>
+    >> Dear all,
+    >>
+    >> I am running lmrob() under the robustbase package, and I
+    >> have a few error/warning messages I would greatly
+    >> appreciate help with - I am unfamiliar with robust linear
+    >> models, so my apologies in advance if the answers here
+    >> are obvious. In addition, any discussion will help me get
+    >> a handle on what we're doing, which always helps.
+    >>
+    >> (1) I get the repeated error seemingly on random species
+    >> when running a loop of lmrob() over all our ecological
+    >> time series (different ones almost every time):
+    >>
+    >> Error in eigen(ret, symmetric = TRUE) : infinite or
+    >> missing values in 'x'
+    >>
+    >> I have checked my data many times, and if I just
+    >> repeatedly run lmrob() it eventually works. Any idea what
+    >> this error is in reference to? Could it be because I am
+    >> using a previous version of R (3.4.1)?
+    >>
+    >> (2) I have several two error messages that come up with
+    >> some time series; I have some idea their meaning, but
+    >> again, as a newbie with RLMS, I am wondering if those
+    >> time series that garner these warnings should be excluded
+    >> from our meta-analysis. Also, any additional insight on
+    >> the process or something I might be missing greatly
+    >> welcomed!
+    >>
+    >> Warning in lmrob.S(x, y, control = control) :
+    >> find_scale() did not converge in 'maxit.scale' (= 200)
+    >> iterations with tol=1e-10, last rel.diff=0
+    >>
+    >> Warning in lmrob.fit(x, y, control, init = init) : M-step
+    >> did NOT converge. Returning unconverged SM-estimate
+    >>
+    >> Warning in lmrob.S(x, y, control = control) : S-estimated
+    >> scale == 0: Probably exact fit; check your data
+    >>
+    >> Thank you very much in advance,
+    >>
+    >> Emily
+    >>
+    >>
+    >> --
+    >> ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    >> Emily S. Klein, Senior Postdoctoral Associate (she / her
+    >> / hers) The Frederick S. Pardee Center for the Study of
+    >> the Longer-Range Future | Boston University *Co-Chair*,
+    >> ICES Working Group on the History of Fish & Fisheries
+    >> (WGHIST) esklein04 at gmail.com
+    >>
+    >> http://www.bu.edu/pardee/
+    >> http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+	[[alternative HTML version deleted]]
+
+
+From em||y@k|e|n04 @end|ng |rom gm@||@com  Tue Aug 27 18:01:24 2019
+From: em||y@k|e|n04 @end|ng |rom gm@||@com (Emily Klein)
+Date: Tue, 27 Aug 2019 12:01:24 -0400
+Subject: [RsR] use of lmrob() on ecological time series
+In-Reply-To: <23907.38316.115412.485306@stat.math.ethz.ch>
+References: <CANx-k+XhAmadcXc0BiNmT4x2PAjxkR=X3fdhb31o+me6rLcD1A@mail.gmail.com>
+ <06240b787ab344ef93f297682673dd5c@stat.math.ethz.ch>
+ <23907.38316.115412.485306@stat.math.ethz.ch>
+Message-ID: <CANx-k+WZEdOedHgPppf9HTO9BR-BFXzzxFBh3V=S3tAqja+GZA@mail.gmail.com>
+
+Dear Martin and Werner,
+
+Thank you very much for your responses here; I appreciate your time!
+
+I know our initial use of the robust linear models is because of their use
+in previous research. I apologize for my naivete, but my understanding is
+that lmrob() fits a robust linear model to the data, and it then provides
+the model slope, which in my reading of previous work has been interpreted
+by others as the trend for that data and to indicate whether a population
+is increasing (positive slope) or decreasing (negative slope). That is, my
+reading suggests these authors used the earlier function lmRob() on logged
+abundance, and directly classified trends from that assessment. There was
+no further analyses beyond that (according to their R scripts).
+
+We have followed that process, and then have assessed (1) the proportion of
+species within terrestrial, marine fish, or marine mammal groups under
+different management regimes (recreational hunt, commercial harvest, no
+management) that have positive or negative slopes, and (2) if the average
+slope for each group is significantly different from other groups (e.g. is
+the average slope for terrestrial species under X management significantly
+different from the average slope for terrestrial species under Y
+management, but also marine species under X or Y management). Does this
+seem to make sense, or is there a bit we're missing?
+
+Unfortunately, we have very few species that have both managed and
+non-managed regions, as management doesn't really follow best experimental
+practices (which would be both really interesting but also potentially a
+problem for species being harvested or the people who would be banned from
+hunting them), although we have several that have had different management
+regions over time (and have looked at these more specifically - but only to
+compare slopes). In addition, we recognize the variability among species
+themselves (e.g. in response to environmental impacts, etc), but as we
+can't get around that, have instead aimed at using averages across many
+time series in each grouping.
+
+In terms of the "non-significant change" I have also followed previous
+researches and pulled the confidence intervals, using these to remove time
+series with 0 inside that interval.
+
+I may be missing more from your responses - apologies! Sometimes it takes
+me a bit longer to think through things. I very much appreciate your time
+and thoughts.
+
+Emily
+
+On Mon, Aug 26, 2019 at 4:19 AM Martin Maechler <maechler at stat.math.ethz.ch>
+wrote:
+
+> >>>>> Stahel Werner A
+> >>>>>     on Sat, 24 Aug 2019 20:53:22 +0000 writes:
+>
+>     > Dear Emily
+>
+>     > This is a late answer to your message from July 15.
+>     > The first issue is the use of robust linear regression of
+> log(abundance) on the year.
+>     > I think that this is a very reasonable way to summarize the time
+> series -- as long as
+>     > a log-linear trend appears appropriate.
+>     > The trend is then measured by the slope. A great advantage of using
+> the log is that
+>     > slopes are then on a common scale for rare and abundant species, as
+> a certain slope
+>     > corresponds to a certain percent increase or decrease per year.
+>
+>     > You then go on to question the classification into significantly
+> increasing, and so on.
+>     > This classification is common but unreasonable.
+>     > A 5% increase per year can be significant for one species and
+> insignificant for another,
+>     > just because the former shows less random fluctuations than the
+> latter.
+>     > We should focus on estimation and supply confidence intervals for
+> characterizing the
+>     > (im-)precision.
+>     > (You may have read about the controversy about "null hypothesis
+> significance testing"
+>     > and p values.)
+>
+>     > Since the slopes are used for further analysis, the classification
+> is not needed nor helpful
+>     > at all.
+>     > In any case, I have not read in detail what is done with the slope.
+> In one paper, it is used
+>     > as the target variable in further regression models.
+>     > I wonder if such regressions make sense when different species are
+> used in the same
+>     > regression. I thought it was a basic paradigm of biology that
+> species have different
+>     > ways to react to environments.
+>     > If one simply want to show that management is helpful, one might
+> compare managed and
+>     > non-managed regions in terms of the number of species (within
+> taxonomic groups?) that
+>     > have recovered -- or directly in terms of average slopes for
+> individual species or taxonomic
+>     > groups.
+>
+>     > Nevertheless, let me add a thought about (2).
+>     > I think the expression "non-significant change" is quite appropriate
+> since a change of 0
+>     > does not exist in real life. It is likely small (unless fluctuations
+> are big and/or the time series
+>     > short, which causes in-significance), but never precisely 0.
+>     > Again, a confidence interval says it all: It contains all plausible
+> values of the true slope.
+>
+> Indeed! ... and the generic R function for confidence intervals,
+> confint() also has a good methods for "lmrob" objects,  e.g.,
+>
+>     > (RlmST <- lmrob(log.light ~ log.Te, data = starsCYG))
+>
+>     Call:
+>     lmrob(formula = log.light ~ log.Te, data = starsCYG)
+>      \--> method = "MM"
+>     Coefficients:
+>     (Intercept)       log.Te
+>          -4.969        2.253
+>
+>     > confint(RlmST)
+>                       2.5 %   97.5 %
+>     (Intercept) -11.8375506 1.898775
+>     log.Te        0.7041937 3.802129
+>     >
+>
+>
+>   > Are these thoughts helpful?
+>
+>     > Werner Stahel
+>     > M +41 79 784 9330 | P +41 44 364 6424
+>
+>     > ________________________________
+>     > Von: R-SIG-Robust <r-sig-robust-bounces at r-project.org> im Auftrag
+> von Emily Klein <emily.klein04 at gmail.com>
+>     > Gesendet: Montag, 15. Juli 2019 21:34:45
+>     > An: r-sig-robust at r-project.org
+>     > Betreff: [RsR] use of lmrob() on ecological time series
+>
+>     > Dear all,
+>
+>     > I am using the lmrob() function from the robustbase package, and I
+> have a
+>     > few questions. To keep the threads clear, I have a general inquiry
+> here,
+>     > and will ask more specific Qs in a second thread. NB: I don't
+> typically
+>     > update in the middle of a project, so am running on R version 3.4.1.
+>
+>     > (1) I am curious the community's thoughts on our approach: We have
+> several
+>     > hundred ecological time series and we're using robust linear models
+> to
+>     > determine if the time series are increasing, decreasing, or not
+> changing,
+>     > by looking at the modeled slope. This approach follows several
+> others,
+>     > including Lotze et al. 2017 (doi: 10.1111/cobi.12957) and Magare et
+> al.
+>     > 2013 (doi:10.1371/journal.pone.0077908). I don't have much
+> experience with
+>     > RLMs, so any thoughts on this approach would be very welcome.
+>
+>     > More specifically, following the work noted above, we are running
+> (with the
+>     > time series indexed with "DBx"):
+>     > lm_test<-lmrob(log(pop_status+1)~observation_year,DBx)
+>
+>     > (2)  Previous use of RLMs to identify the direction of ecological
+> time
+>     > series was asked in peer review to use "non-significant change" to
+>     > reference time series with a slope of zero within the 95% confidence
+>     > intervals. I can see excluding time series where there is no
+> agreement on
+>     > the direction of slope, but I think that slope=0 is more "stable" or
+> "no
+>     > change" and is not necessarily "non-significant". Any thoughts?
+>
+>     > Thank you all very much for any feedback you may have. I will start a
+>     > second thread on a few warnings I am getting.
+>
+>     > Emily
+>
+>     > --
+>     > ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>     > Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+>     > The Frederick S. Pardee Center for the Study of the Longer-Range
+> Future |
+>     > Boston University
+>     > *Co-Chair*, ICES Working Group on the History of Fish & Fisheries
+> (WGHIST)
+>     > esklein04 at gmail.com
+>
+>     > http://www.bu.edu/pardee/
+>     > http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+>
+>
+>     > _______________________________________________
+>     > R-SIG-Robust at r-project.org mailing list
+>     > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+Boston University
+*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+esklein04 at gmail.com
+
+http://www.bu.edu/pardee/
+http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+	[[alternative HTML version deleted]]
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Tue Aug 27 19:54:42 2019
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Stahel  Werner A.)
+Date: Tue, 27 Aug 2019 17:54:42 +0000
+Subject: [RsR] use of lmrob() on ecological time series
+In-Reply-To: <CANx-k+WZEdOedHgPppf9HTO9BR-BFXzzxFBh3V=S3tAqja+GZA@mail.gmail.com>
+References: <CANx-k+XhAmadcXc0BiNmT4x2PAjxkR=X3fdhb31o+me6rLcD1A@mail.gmail.com>
+ <06240b787ab344ef93f297682673dd5c@stat.math.ethz.ch>
+ <23907.38316.115412.485306@stat.math.ethz.ch>,
+ <CANx-k+WZEdOedHgPppf9HTO9BR-BFXzzxFBh3V=S3tAqja+GZA@mail.gmail.com>
+Message-ID: <4a728d0e760247b1a928c1284b3583fd@stat.math.ethz.ch>
+
+Dear Emily
+
+
+Let me first ask the technical question:
+
+Do you still get convergence problems and the like when you apply
+
+lmrob(..., init=lmrob.lar, psi="lqq") ?
+
+
+It is of course helpful if papers dealing with the same problem use the same analysis procedures
+
+to make them comparable.
+
+On the other hand, alternative methods may give more precise and more interpretable answers.
+
+Thus, it would be interesting to compare the results that you get following the other papers' R script
+
+with those you get by an alternative procedure.
+
+If I understand correctly, you use the estimated slope your variable of interest, but then you classify
+
+these estimated slopes according to their statistical significance. With the three classes,
+
+significant positive, non-significant, significant negative you then do further analyses.
+
+This is at least my understanding of your analysis (1). Have you removed the non-significant series
+
+from the analysis?
+
+In (2), have you used the estimated slopes directly?
+
+Are these analyses also taken from the other papers, or does that only refer to the method of
+
+estimating the slopes?
+
+
+In any case, I have proposed that you use the estimated slope directly as the y variable
+
+(as you probably did in (2)) for two or more groups comparisons or in regression models.
+
+
+It will be more easy to explain what I mean if you send some of your time series as examples.
+
+
+Best regards. Werner
+
+
+Werner Stahel
+M +41 79 784 9330 | P +41 44 364 6424
+________________________________
+Von: Emily Klein <emily.klein04 at gmail.com>
+Gesendet: Dienstag, 27. August 2019 18:01:24
+An: M?chler Martin
+Cc: Stahel Werner A.; r-sig-robust at r-project.org
+Betreff: Re: [RsR] use of lmrob() on ecological time series
+
+Dear Martin and Werner,
+
+Thank you very much for your responses here; I appreciate your time!
+
+I know our initial use of the robust linear models is because of their use in previous research. I apologize for my naivete, but my understanding is that lmrob() fits a robust linear model to the data, and it then provides the model slope, which in my reading of previous work has been interpreted by others as the trend for that data and to indicate whether a population is increasing (positive slope) or decreasing (negative slope). That is, my reading suggests these authors used the earlier function lmRob() on logged abundance, and directly classified trends from that assessment. There was no further analyses beyond that (according to their R scripts).
+
+We have followed that process, and then have assessed (1) the proportion of species within terrestrial, marine fish, or marine mammal groups under different management regimes (recreational hunt, commercial harvest, no management) that have positive or negative slopes, and (2) if the average slope for each group is significantly different from other groups (e.g. is the average slope for terrestrial species under X management significantly different from the average slope for terrestrial species under Y management, but also marine species under X or Y management). Does this seem to make sense, or is there a bit we're missing?
+
+Unfortunately, we have very few species that have both managed and non-managed regions, as management doesn't really follow best experimental practices (which would be both really interesting but also potentially a problem for species being harvested or the people who would be banned from hunting them), although we have several that have had different management regions over time (and have looked at these more specifically - but only to compare slopes). In addition, we recognize the variability among species themselves (e.g. in response to environmental impacts, etc), but as we can't get around that, have instead aimed at using averages across many time series in each grouping.
+
+In terms of the "non-significant change" I have also followed previous researches and pulled the confidence intervals, using these to remove time series with 0 inside that interval.
+
+I may be missing more from your responses - apologies! Sometimes it takes me a bit longer to think through things. I very much appreciate your time and thoughts.
+
+Emily
+
+On Mon, Aug 26, 2019 at 4:19 AM Martin Maechler <maechler at stat.math.ethz.ch<mailto:maechler at stat.math.ethz.ch>> wrote:
+>>>>> Stahel Werner A
+>>>>>     on Sat, 24 Aug 2019 20:53:22 +0000 writes:
+
+    > Dear Emily
+
+    > This is a late answer to your message from July 15.
+    > The first issue is the use of robust linear regression of log(abundance) on the year.
+    > I think that this is a very reasonable way to summarize the time series -- as long as
+    > a log-linear trend appears appropriate.
+    > The trend is then measured by the slope. A great advantage of using the log is that
+    > slopes are then on a common scale for rare and abundant species, as a certain slope
+    > corresponds to a certain percent increase or decrease per year.
+
+    > You then go on to question the classification into significantly increasing, and so on.
+    > This classification is common but unreasonable.
+    > A 5% increase per year can be significant for one species and insignificant for another,
+    > just because the former shows less random fluctuations than the latter.
+    > We should focus on estimation and supply confidence intervals for characterizing the
+    > (im-)precision.
+    > (You may have read about the controversy about "null hypothesis significance testing"
+    > and p values.)
+
+    > Since the slopes are used for further analysis, the classification is not needed nor helpful
+    > at all.
+    > In any case, I have not read in detail what is done with the slope. In one paper, it is used
+    > as the target variable in further regression models.
+    > I wonder if such regressions make sense when different species are used in the same
+    > regression. I thought it was a basic paradigm of biology that species have different
+    > ways to react to environments.
+    > If one simply want to show that management is helpful, one might compare managed and
+    > non-managed regions in terms of the number of species (within taxonomic groups?) that
+    > have recovered -- or directly in terms of average slopes for individual species or taxonomic
+    > groups.
+
+    > Nevertheless, let me add a thought about (2).
+    > I think the expression "non-significant change" is quite appropriate since a change of 0
+    > does not exist in real life. It is likely small (unless fluctuations are big and/or the time series
+    > short, which causes in-significance), but never precisely 0.
+    > Again, a confidence interval says it all: It contains all plausible values of the true slope.
+
+Indeed! ... and the generic R function for confidence intervals,
+confint() also has a good methods for "lmrob" objects,  e.g.,
+
+    > (RlmST <- lmrob(log.light ~ log.Te, data = starsCYG))
+
+    Call:
+    lmrob(formula = log.light ~ log.Te, data = starsCYG)
+     \--> method = "MM"
+    Coefficients:
+    (Intercept)       log.Te
+         -4.969        2.253
+
+    > confint(RlmST)
+                      2.5 %   97.5 %
+    (Intercept) -11.8375506 1.898775
+    log.Te        0.7041937 3.802129
+    >
+
+
+  > Are these thoughts helpful?
+
+    > Werner Stahel
+    > M +41 79 784 9330 | P +41 44 364 6424
+
+    > ________________________________
+    > Von: R-SIG-Robust <r-sig-robust-bounces at r-project.org<mailto:r-sig-robust-bounces at r-project.org>> im Auftrag von Emily Klein <emily.klein04 at gmail.com<mailto:emily.klein04 at gmail.com>>
+    > Gesendet: Montag, 15. Juli 2019 21:34:45
+    > An: r-sig-robust at r-project.org<mailto:r-sig-robust at r-project.org>
+    > Betreff: [RsR] use of lmrob() on ecological time series
+
+    > Dear all,
+
+    > I am using the lmrob() function from the robustbase package, and I have a
+    > few questions. To keep the threads clear, I have a general inquiry here,
+    > and will ask more specific Qs in a second thread. NB: I don't typically
+    > update in the middle of a project, so am running on R version 3.4.1.
+
+    > (1) I am curious the community's thoughts on our approach: We have several
+    > hundred ecological time series and we're using robust linear models to
+    > determine if the time series are increasing, decreasing, or not changing,
+    > by looking at the modeled slope. This approach follows several others,
+    > including Lotze et al. 2017 (doi: 10.1111/cobi.12957) and Magare et al.
+    > 2013 (doi:10.1371/journal.pone.0077908). I don't have much experience with
+    > RLMs, so any thoughts on this approach would be very welcome.
+
+    > More specifically, following the work noted above, we are running (with the
+    > time series indexed with "DBx"):
+    > lm_test<-lmrob(log(pop_status+1)~observation_year,DBx)
+
+    > (2)  Previous use of RLMs to identify the direction of ecological time
+    > series was asked in peer review to use "non-significant change" to
+    > reference time series with a slope of zero within the 95% confidence
+    > intervals. I can see excluding time series where there is no agreement on
+    > the direction of slope, but I think that slope=0 is more "stable" or "no
+    > change" and is not necessarily "non-significant". Any thoughts?
+
+    > Thank you all very much for any feedback you may have. I will start a
+    > second thread on a few warnings I am getting.
+
+    > Emily
+
+    > --
+    > ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    > Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+    > The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+    > Boston University
+    > *Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+    > esklein04 at gmail.com<mailto:esklein04 at gmail.com>
+
+    > http://www.bu.edu/pardee/
+    > http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org<mailto:R-SIG-Robust at r-project.org> mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+The Frederick S. Pardee Center for the Study of the Longer-Range Future | Boston University
+Co-Chair, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+esklein04 at gmail.com<mailto:esklein04 at gmail.com>
+
+http://www.bu.edu/pardee/
+http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+
+
+
+	[[alternative HTML version deleted]]
+
+
+From em||y@k|e|n04 @end|ng |rom gm@||@com  Thu Aug 29 18:19:01 2019
+From: em||y@k|e|n04 @end|ng |rom gm@||@com (Emily Klein)
+Date: Thu, 29 Aug 2019 12:19:01 -0400
+Subject: [RsR] error/warning messages with lmrob()
+In-Reply-To: <7af6a936f9cb40739a0dba4bc7233629@stat.math.ethz.ch>
+References: <CANx-k+UEHw=7o-XLZoo0ggqyi=zi9c-9TyHtF4_rcEw1f4D2YQ@mail.gmail.com>
+ <96422a64b1ac450ab488d06faaf9ebbc@stat.math.ethz.ch>
+ <23907.37249.829497.824928@stat.math.ethz.ch>
+ <7af6a936f9cb40739a0dba4bc7233629@stat.math.ethz.ch>
+Message-ID: <CANx-k+VEN9ssXZG4W9-99Yxt6sehqypiZgV2V8ydmyfnA9SstQ@mail.gmail.com>
+
+Hi again both -
+
+My main question is that the lmrob() function quits seemingly randomly
+sometimes, but if I just keep calling it, eventually it works fine
+(although yes some time series report back errors in either case). I have
+run it on a new computer with the most recent version of R and had the same
+thing happen.
+
+In any case - attached is the .rds file of the database I am running for
+this. I have a function that runs lmrob() on time series of each species x
+management type x location (i.e. via the "gind" variable - or "group
+identifier"), which is then the subset as "DBx" from the original set "DB".
+The call for running lmrob() then is:
+
+lm_test<-tryCatch(lmrob(log(pop_status+1)~observation_year,DBx),
+finlly=print(i))
+
+I use "tryCatch" to print out where I have warnings so I can go back and
+look at these species, to determine if we should include them or not given
+the warnings.
+
+I did also try your suggestion, Werner, but this did not return results for
+a species, gind="perdix perdix_in_rec", and once that happened, the next
+steps in the function to gather certain aspects of the results returned an
+error message (as there weren't any results) and stopped the function via
+
+ Error in dimnames(ans$coefficients) <- list(names(est), cf.nms) :
+  length of 'dimnames' [1] not equal to array extent
+
+because there are no coefficients to reference, i.e. the issue is calling
+summary(lm_test)$coefficients. In any case, this species, gray partridge in
+Indiana under recreational hunt management, has only three observations
+over 15 years, and although they are clearly declining over that period -
+but it is not the only species with only 3 observations in the time series.
+
+In any case, I subset out this one time series and ran it again - results
+are the same as without it, but it does run to the end without the error.
+Any ideas why this one species is knocking this out?
+
+Attached is the .rds file, as well as the script I am using, and the
+terrestrial species .csv data file.
+
+Thank you again!
+Emily
+
+
+On Mon, Aug 26, 2019 at 4:40 PM Stahel Werner A. <stahel at stat.math.ethz.ch>
+wrote:
+
+> Sorry, Martin and Emily, for this stupid mistake.
+>
+> Just to make things very concrete, you might use
+>
+>
+> lmrob( y~year, method="M", init=lmrob.lar, psi="lqq")
+>
+>
+> Please let us know if there are still warnings with this version.
+>
+>
+> Best regards. Werner
+>
+>
+> Werner Stahel
+> M +41 79 784 9330 | P +41 44 364 6424
+> ------------------------------
+> *Von:* Martin Maechler <maechler at stat.math.ethz.ch>
+> *Gesendet:* Montag, 26. August 2019 10:00:01
+> *An:* Stahel Werner A.
+> *Cc:* Emily Klein; r-sig-robust at r-project.org
+> *Betreff:* Re: [RsR] error/warning messages with lmrob()
+>
+> >>>>> Stahel Werner A
+> >>>>>     on Sat, 24 Aug 2019 21:04:04 +0000 writes:
+>
+>     > Dear Emily
+>
+>     >  A short answer also to your questions about
+>     > non-convergence of lmrob.  You are using it to
+>     > characterize the trend in many time series.  I assume that
+>     > the problems are caused by the series being short.  I
+>     > would be interested in getting some of those that cause problems.
+>
+> Indeed, me too. (we mean getting the datasets, e.g., sending us
+>          the file  'lmrob-problm.rds'  after
+>
+>    saveRDS(<your-data-frame>, file = "lmrob-problm.rds")
+>
+> )
+>
+>     > For a simple regression, you may fall back on good old
+>     > rlm(...)  In the meantime, I will again try to convince
+>     > the maintainers of lmrob to introduce the possibility of
+>     > providing initial values that allow for avoiding the
+>     > initial S step -- since this step causes the problems.
+>
+> Well, 'init' has been an argument of lmrob() "forever", and has
+> quite a nice paragraph on the help page of lmrob (search for
+> "initial estimator") *and* another paragraph in the 'Examples'
+> of the help page, online versions of which are nowadays easily found by
+> googling
+> 'lmrob robustbase'), notably these two:
+> -
+> https://www.rdocumentation.org/packages/robustbase/versions/0.93-5/topics/lmrob
+> - https://rdrr.io/cran/robustbase/man/lmrob.html
+>
+> [I really would not go back to use rlm().]
+>
+> Martin
+>
+>
+>     > Best regards. Werner
+>
+>     > Werner Stahel M +41 79 784 9330 | P +41 44 364 6424
+>     > ________________________________
+>     >> Von: R-SIG-Robust <r-sig-robust-bounces at r-project.org> im
+>     >> Auftrag von Emily Klein <emily.klein04 at gmail.com>
+>     >> Gesendet: Montag, 15. Juli 2019 21:45:00 An:
+>     >> r-sig-robust at r-project.org Betreff: [RsR] error/warning
+>     >> messages with lmrob()
+>     >>
+>     >> Dear all,
+>     >>
+>     >> I am running lmrob() under the robustbase package, and I
+>     >> have a few error/warning messages I would greatly
+>     >> appreciate help with - I am unfamiliar with robust linear
+>     >> models, so my apologies in advance if the answers here
+>     >> are obvious. In addition, any discussion will help me get
+>     >> a handle on what we're doing, which always helps.
+>     >>
+>     >> (1) I get the repeated error seemingly on random species
+>     >> when running a loop of lmrob() over all our ecological
+>     >> time series (different ones almost every time):
+>     >>
+>     >> Error in eigen(ret, symmetric = TRUE) : infinite or
+>     >> missing values in 'x'
+>     >>
+>     >> I have checked my data many times, and if I just
+>     >> repeatedly run lmrob() it eventually works. Any idea what
+>     >> this error is in reference to? Could it be because I am
+>     >> using a previous version of R (3.4.1)?
+>     >>
+>     >> (2) I have several two error messages that come up with
+>     >> some time series; I have some idea their meaning, but
+>     >> again, as a newbie with RLMS, I am wondering if those
+>     >> time series that garner these warnings should be excluded
+>     >> from our meta-analysis. Also, any additional insight on
+>     >> the process or something I might be missing greatly
+>     >> welcomed!
+>     >>
+>     >> Warning in lmrob.S(x, y, control = control) :
+>     >> find_scale() did not converge in 'maxit.scale' (= 200)
+>     >> iterations with tol=1e-10, last rel.diff=0
+>     >>
+>     >> Warning in lmrob.fit(x, y, control, init = init) : M-step
+>     >> did NOT converge. Returning unconverged SM-estimate
+>     >>
+>     >> Warning in lmrob.S(x, y, control = control) : S-estimated
+>     >> scale == 0: Probably exact fit; check your data
+>     >>
+>     >> Thank you very much in advance,
+>     >>
+>     >> Emily
+>     >>
+>     >>
+>     >> --
+>     >> ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>     >> Emily S. Klein, Senior Postdoctoral Associate (she / her
+>     >> / hers) The Frederick S. Pardee Center for the Study of
+>     >> the Longer-Range Future | Boston University *Co-Chair*,
+>     >> ICES Working Group on the History of Fish & Fisheries
+>     >> (WGHIST) esklein04 at gmail.com
+>     >>
+>     >> http://www.bu.edu/pardee/
+>     >> http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+>
+
+
+-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+Boston University
+*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+esklein04 at gmail.com
+
+http://www.bu.edu/pardee/
+http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20190829/d8f90aa2/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: lmrob-problm.rds
+Type: application/octet-stream
+Size: 5681 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20190829/d8f90aa2/attachment.obj>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: run_RLMs.r
+Type: application/octet-stream
+Size: 7731 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20190829/d8f90aa2/attachment-0001.obj>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Terrestrial.csv
+Type: application/vnd.ms-excel
+Size: 1958386 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20190829/d8f90aa2/attachment.xlb>
+
+From X|onghu|@Zhou @end|ng |rom cchmc@org  Mon Nov 11 21:50:41 2019
+From: X|onghu|@Zhou @end|ng |rom cchmc@org (Zhou, Xionghui)
+Date: Mon, 11 Nov 2019 20:50:41 +0000
+Subject: [RsR] =?windows-1252?q?About_the_inconsistency_p-value_of__two_s?=
+ =?windows-1252?q?ample_Kolmogorov=96Smirnov_test_in_R_and_Matlab?=
+Message-ID: <44add41256f841679d0bfe2610a2bcc0@cchmc.org>
+
+Hi guys,
+
+
+Recently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with the same data and parameters (The p-value in R is greater than the one in Matlab). In the meanwhile, the p-values of two-sample ks-test are the same in Matlab and python. In addition, I also test the p-value in Mann-Whitney-Wilcoxon test and Poission test, the p-values for the tests in R and Matlab are also different. Of course, the difference in two-sample ks-test is the most significant. May anyone tell me the reason for that and which language is more reliable? Thanks in advance!
+
+
+Best,
+
+
+
+Xionghui
+
+
+Xionghui Zhou Ph.D.
+Research Fellow
+Division of Human Genetics
+Cincinnati Children?s Hospital Medical Center
+
+Phone: +1 (513) 636-4200
+Email: Xionghui.Zhou at cchmc.org<mailto:Yaping.Liu at cchmc.org>
+Office: R1.1026
+3333 Burnet Ave
+Cincinnati, OH 45229
+
+
+	[[alternative HTML version deleted]]
+
+
+From ph||||p@@|d@y @end|ng |rom mp|@n|  Mon Nov 18 17:25:51 2019
+From: ph||||p@@|d@y @end|ng |rom mp|@n| (Phillip Alday)
+Date: Mon, 18 Nov 2019 17:25:51 +0100
+Subject: [RsR] 
+ =?utf-8?q?About_the_inconsistency_p-value_of_two_sample_Ko?=
+ =?utf-8?q?lmogorov=E2=80=93Smirnov_test_in_R_and_Matlab?=
+In-Reply-To: <44add41256f841679d0bfe2610a2bcc0@cchmc.org>
+References: <44add41256f841679d0bfe2610a2bcc0@cchmc.org>
+Message-ID: <f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>
+
+Dear Xionghui,
+
+Cross-posting to two lists simultaneously generally isn't desirable.
+
+Can you provide a minimum working example (code+data) for this? 
+Otherwise, it's hard to see what's going on.
+
+Best,
+Phillip
+
+
+
+On 11/11/19 9:50 pm, Zhou, Xionghui wrote:
+> Hi guys,
+> 
+> 
+> Recently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with the same data and parameters (The p-value in R is greater than the one in Matlab). In the meanwhile, the p-values of two-sample ks-test are the same in Matlab and python. In addition, I also test the p-value in Mann-Whitney-Wilcoxon test and Poission test, the p-values for the tests in R and Matlab are also different. Of course, the difference in two-sample ks-test is the most significant. May anyone tell me the reason for that and which language is more reliable? Thanks in advance!
+> 
+> 
+> Best,
+> 
+> 
+> 
+> Xionghui
+> 
+> 
+> Xionghui Zhou Ph.D.
+> Research Fellow
+> Division of Human Genetics
+> Cincinnati Children?s Hospital Medical Center
+> 
+> Phone: +1 (513) 636-4200
+> Email: Xionghui.Zhou at cchmc.org<mailto:Yaping.Liu at cchmc.org>
+> Office: R1.1026
+> 3333 Burnet Ave
+> Cincinnati, OH 45229
+> 
+> 
+> 	[[alternative HTML version deleted]]
+> 
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+From X|onghu|@Zhou @end|ng |rom cchmc@org  Tue Nov 19 22:35:46 2019
+From: X|onghu|@Zhou @end|ng |rom cchmc@org (Zhou, Xionghui)
+Date: Tue, 19 Nov 2019 21:35:46 +0000
+Subject: [RsR] 
+ =?utf-8?q?About_the_inconsistency_p-value_of_two_sample_Ko?=
+ =?utf-8?q?lmogorov=E2=80=93Smirnov_test_in_R_and_Matlab?=
+In-Reply-To: <f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>
+References: <44add41256f841679d0bfe2610a2bcc0@cchmc.org>
+ <f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>
+Message-ID: <C5537B8D-BAED-4368-ABA4-BB3533DFEA24@cchmc.org>
+
+Dear Phillip,
+Thanks for your reply. If I use two-sample KS test in R to test whether one vector is significantly smaller than another vector, I use the command below as a demo:  p = ks.test((1:10), (20:200), alternative = "greater"). The p is 5.873e-09. However, If I use Matlab to do the same case: [~,p]=kstest2((1:10)',(20:200)','tail','larger'). P-value is 8.2222e-10. The differences are also present in other method, such as Wilcoxon rank sum test and Poission test. Thanks!
+
+Regards,
+
+
+Xionghui 
+
+?On 11/18/19, 11:26 AM, "Phillip Alday" <phillip.alday at mpi.nl> wrote:
+
+    Dear Xionghui,
+    
+    Cross-posting to two lists simultaneously generally isn't desirable.
+    
+    Can you provide a minimum working example (code+data) for this? 
+    Otherwise, it's hard to see what's going on.
+    
+    Best,
+    Phillip
+    
+    
+    
+    On 11/11/19 9:50 pm, Zhou, Xionghui wrote:
+    > Hi guys,
+    > 
+    > 
+    > Recently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with the same data and parameters (The p-value in R is greater than the one in Matlab). In the meanwhile, the p-values of two-sample ks-test are the same in Matlab and python. In addition, I also test the p-value in Mann-Whitney-Wilcoxon test and Poission test, the p-values for the tests in R and Matlab are also different. Of course, the difference in two-sample ks-test is the most significant. May anyone tell me the reason for that and which language is more reliable? Thanks in advance!
+    > 
+    > 
+    > Best,
+    > 
+    > 
+    > 
+    > Xionghui
+    > 
+    > 
+    > Xionghui Zhou Ph.D.
+    > Research Fellow
+    > Division of Human Genetics
+    > Cincinnati Children?s Hospital Medical Center
+    > 
+    > Phone: +1 (513) 636-4200
+    > Email: Xionghui.Zhou at cchmc.org<mailto:Yaping.Liu at cchmc.org>
+    > Office: R1.1026
+    > 3333 Burnet Ave
+    > Cincinnati, OH 45229
+    > 
+    > 
+    > 	[[alternative HTML version deleted]]
+    > 
+    > 
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+    > 
+    
+
+
+From ph||||p@@|d@y @end|ng |rom mp|@n|  Sun Nov 24 18:05:08 2019
+From: ph||||p@@|d@y @end|ng |rom mp|@n| (Phillip Alday)
+Date: Sun, 24 Nov 2019 11:05:08 -0600
+Subject: [RsR] 
+ =?utf-8?q?About_the_inconsistency_p-value_of_two_sample_Ko?=
+ =?utf-8?q?lmogorov=E2=80=93Smirnov_test_in_R_and_Matlab?=
+In-Reply-To: <C5537B8D-BAED-4368-ABA4-BB3533DFEA24@cchmc.org>
+References: <44add41256f841679d0bfe2610a2bcc0@cchmc.org>
+ <f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>
+ <C5537B8D-BAED-4368-ABA4-BB3533DFEA24@cchmc.org>
+Message-ID: <270188bb-4979-d251-0030-4d1de8acaf61@mpi.nl>
+
+Both MATLAB and R generate the same test statistic, but differ in their
+p-values. For a p-value that small, you're getting to the point where
+the probabilities involved are on the order of a random bit flip in your
+computer's memory, so I wouldn't worry about that too much. A quick look
+at the R documentation suggests that the approximation used can break
+down for small sample sizes and that an exact test is only possible with
+more data. MATLAB didn't provide as much detail about how they converted
+the test statistic to p-value.
+
+In other words, don't worry about it. You should be trying to interpret
+p values as a precise number anyway, especially on such a small sample.
+
+
+Best,
+
+Phillip
+
+On 19/11/2019 22:35, Zhou, Xionghui wrote:
+> Dear Phillip,
+> Thanks for your reply. If I use two-sample KS test in R to test whether one vector is significantly smaller than another vector, I use the command below as a demo:  p = ks.test((1:10), (20:200), alternative = "greater"). The p is 5.873e-09. However, If I use Matlab to do the same case: [~,p]=kstest2((1:10)',(20:200)','tail','larger'). P-value is 8.2222e-10. The differences are also present in other method, such as Wilcoxon rank sum test and Poission test. Thanks!
+>
+> Regards,
+>
+>
+> Xionghui 
+>
+> ?On 11/18/19, 11:26 AM, "Phillip Alday" <phillip.alday at mpi.nl> wrote:
+>
+>     Dear Xionghui,
+>     
+>     Cross-posting to two lists simultaneously generally isn't desirable.
+>     
+>     Can you provide a minimum working example (code+data) for this? 
+>     Otherwise, it's hard to see what's going on.
+>     
+>     Best,
+>     Phillip
+>     
+>     
+>     
+>     On 11/11/19 9:50 pm, Zhou, Xionghui wrote:
+>     > Hi guys,
+>     > 
+>     > 
+>     > Recently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with the same data and parameters (The p-value in R is greater than the one in Matlab). In the meanwhile, the p-values of two-sample ks-test are the same in Matlab and python. In addition, I also test the p-value in Mann-Whitney-Wilcoxon test and Poission test, the p-values for the tests in R and Matlab are also different. Of course, the difference in two-sample ks-test is the most significant. May anyone tell me the reason for that and which language is more reliable? Thanks in advance!
+>     > 
+>     > 
+>     > Best,
+>     > 
+>     > 
+>     > 
+>     > Xionghui
+>     > 
+>     > 
+>     > Xionghui Zhou Ph.D.
+>     > Research Fellow
+>     > Division of Human Genetics
+>     > Cincinnati Children?s Hospital Medical Center
+>     > 
+>     > Phone: +1 (513) 636-4200
+>     > Email: Xionghui.Zhou at cchmc.org<mailto:Yaping.Liu at cchmc.org>
+>     > Office: R1.1026
+>     > 3333 Burnet Ave
+>     > Cincinnati, OH 45229
+>     > 
+>     > 
+>     > 	[[alternative HTML version deleted]]
+>     > 
+>     > 
+>     > _______________________________________________
+>     > R-SIG-Robust at r-project.org mailing list
+>     > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>     > 
+>     
+>
+
+

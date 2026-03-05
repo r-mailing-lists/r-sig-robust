@@ -1,0 +1,100 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2013-03",
+  "messages": [
+    {
+      "id": "msg-2b7288fb1fab",
+      "message_id": "<1362356743.16501.YahooMailNeo@web163806.mail.gq1.yahoo.com>",
+      "from_name": "Wei-han Liu",
+      "from_email_hash": "66506e08d776c7f9ac44d47b599e85a0a841c8c3cfcb849d396ff51f85432d2d",
+      "date": "2013-03-03T16:25:43-08:00",
+      "subject": "[RsR] Kolmogrov-Smirov test and Wilcoxon test",
+      "subject_clean": "[RsR] Kolmogrov-Smirov test and Wilcoxon test",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi R users:\n\nInitially both Kolmogrov-Smirov dominance\ntest and Wilcoxon rank sum and signed rank test are designed for independent\nsamples but now there are algorithm developed for related samples.\n?\nI applied both Kolmogrov-Smirov dominance\ntest and Wilcoxon rank sum and signed rank test on two related financial series\nin order to find the ordering of the data involved. I have four series to\ncompare, so I need to conduct the same procedure to make 6 comparisons (take 2\nout of 4, 4C2) among the four data series.\n?\nHowever, the testing outcomes out of\nthese comparisons by the two tests are sometimes somewhat different or even\nconflicting. For example, K-S test summarizes A1<A2<A3<A4, but\nWilcozon test gives A1<A2?A3<A4 or K-S test summarizes A1<A2<A3<A4,\nbut Wilcozon test gives A1>A2>A3>A4 in other comparison round. What\ncan I interpret the difference? Any implication behind these?\n?\nBest regards,\n?\nWeihan\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi R users:\n\nInitially both Kolmogrov-Smirov dominance\ntest and Wilcoxon rank sum and signed rank test are designed for independent\nsamples but now there are algorithm developed for related samples.\n?",
+      "thread_id": "thread-2b7288fb1fab",
+      "thread_depth": 0,
+      "month": "2013-03"
+    },
+    {
+      "id": "msg-dcf27a01dfe6",
+      "message_id": "<CAC6XSHiTu_XoLJ4Ff2Rjxg04YemyGHjsKenW3YgtbwwQ7OS=PQ@mail.gmail.com>",
+      "from_name": "Ivan Li",
+      "from_email_hash": "33bce253cb259851ac6daaa4a9d2d87dea62a6cdafa224984af1d2cebe4a63f7",
+      "date": "2013-03-05T13:36:27-08:00",
+      "subject": "[RsR] Questions on implementing logistic regression",
+      "subject_clean": "[RsR] Questions on implementing logistic regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi there,\n\nI am trying to write a tool which involves implementing logistic\nregression. With the batch gradient descent method, the convergence is\nguaranteed as it is a convex problem. However, I find that with the\nstochastic gradient decent method, it typically converges to some random\npoints (i.e., not very close to the minimum point resulted from the batch\nmethod). I have tried different ways of decreasing the learning rate, and\ndifferent starting points of weights. However, the performance (e.g.,\naccuracy, precision/recall, ...) are comparable (to the batch method).\n\nI understand that this is possible, since SGD(stochastic gradient descent)\nuses an approximation to the real cost each step. Does it matter? I guess\nit does since otherwise the interpretation of the weights would not make\nmuch sense even the accuracy is comparable. If it matters, I wonder if you\nhave some suggestions on how to make it converge or getting close to the\nglobal optimal point.\n\n\n\nThanks!\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi there,\n\nI am trying to write a tool which involves implementing logistic\nregression. With the batch gradient descent method, the convergence is\nguaranteed as it is a convex problem. However, I find",
+      "thread_id": "thread-dcf27a01dfe6",
+      "thread_depth": 0,
+      "month": "2013-03"
+    },
+    {
+      "id": "msg-67eeb5c27d66",
+      "message_id": "<CACk-te1C1TRVw041fnCPEBh1F56_seTQZ-DKLp5WwzAb70kjgA@mail.gmail.com>",
+      "from_name": "Bert Gunter",
+      "from_email_hash": "fff944709cd4e01c43b94b925a795dc8ebb00f65da76c888c1d3901ec68b6b6b",
+      "date": "2013-03-05T14:58:00-08:00",
+      "subject": "[RsR] [R] Questions on implementing logistic regression",
+      "subject_clean": "[RsR] [R] Questions on implementing logistic regression",
+      "in_reply_to": "<CAC6XSHiTu_XoLJ4Ff2Rjxg04YemyGHjsKenW3YgtbwwQ7OS=PQ@mail.gmail.com>",
+      "references": [
+        "<CAC6XSHiTu_XoLJ4Ff2Rjxg04YemyGHjsKenW3YgtbwwQ7OS=PQ@mail.gmail.com>"
+      ],
+      "body_plain": "I may be missing something, but what does this have to do specifically\nwith R? I believe this is OT here and you need to post elsewhere, e.g.\nperhaps on stats.stackexchange.com.\n\n-- Bert\n\nOn Tue, Mar 5, 2013 at 1:36 PM, Ivan Li <machinelearning2010 at gmail.com> wrote:\n> Hi there,\n>\n> I am trying to write a tool which involves implementing logistic\n> regression. With the batch gradient descent method, the convergence is\n> guaranteed as it is a convex problem. However, I find that with the\n> stochastic gradient decent method, it typically converges to some random\n> points (i.e., not very close to the minimum point resulted from the batch\n> method). I have tried different ways of decreasing the learning rate, and\n> different starting points of weights. However, the performance (e.g.,\n> accuracy, precision/recall, ...) are comparable (to the batch method).\n>\n> I understand that this is possible, since SGD(stochastic gradient descent)\n> uses an approximation to the real cost each step. Does it matter? I guess\n> it does since otherwise the interpretation of the weights would not make\n> much sense even the accuracy is comparable. If it matters, I wonder if you\n> have some suggestions on how to make it converge or getting close to the\n> global optimal point.\n>\n>\n>\n> Thanks!\n>\n>         [[alternative HTML version deleted]]\n>\n> ______________________________________________\n> R-help at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-help\n> PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n> and provide commented, minimal, self-contained, reproducible code.\n\n\n\n-- \n\nBert Gunter\nGenentech Nonclinical Biostatistics\n\nInternal Contact Info:\nPhone: 467-7374\nWebsite:\nhttp://pharmadevelopment.roche.com/index/pdb/pdb-functional-groups/pdb-biostatistics/pdb-ncb-home.htm",
+      "body_snippet": "I may be missing something, but what does this have to do specifically\nwith R? I believe this is OT here and you need to post elsewhere, e.g.\nperhaps on stats.stackexchange.com.\n\n-- Bert\n\nOn Tue, Mar ",
+      "thread_id": "thread-dcf27a01dfe6",
+      "thread_depth": 1,
+      "month": "2013-03"
+    },
+    {
+      "id": "msg-4058a5f80321",
+      "message_id": "<CACk-te0++hu84cdUc+QDeZTSeaB_zbE5RMe4Vs=Gc2hRAUe9ig@mail.gmail.com>",
+      "from_name": "Bert Gunter",
+      "from_email_hash": "fff944709cd4e01c43b94b925a795dc8ebb00f65da76c888c1d3901ec68b6b6b",
+      "date": "2013-03-05T15:01:48-08:00",
+      "subject": "[RsR] [R] Questions on implementing logistic regression",
+      "subject_clean": "[RsR] [R] Questions on implementing logistic regression",
+      "in_reply_to": "<CAC6XSHiTu_XoLJ4Ff2Rjxg04YemyGHjsKenW3YgtbwwQ7OS=PQ@mail.gmail.com>",
+      "references": [
+        "<CAC6XSHiTu_XoLJ4Ff2Rjxg04YemyGHjsKenW3YgtbwwQ7OS=PQ@mail.gmail.com>"
+      ],
+      "body_plain": "Perhaps I should have added and FWIW, R, like essentially all\nstatistical software, has \"logistic regression\" already built in, if I\nunderstand what you mean by the term (which I may not), via glm's.\n\n-- Bert\n\nOn Tue, Mar 5, 2013 at 1:36 PM, Ivan Li <machinelearning2010 at gmail.com> wrote:\n> Hi there,\n>\n> I am trying to write a tool which involves implementing logistic\n> regression. With the batch gradient descent method, the convergence is\n> guaranteed as it is a convex problem. However, I find that with the\n> stochastic gradient decent method, it typically converges to some random\n> points (i.e., not very close to the minimum point resulted from the batch\n> method). I have tried different ways of decreasing the learning rate, and\n> different starting points of weights. However, the performance (e.g.,\n> accuracy, precision/recall, ...) are comparable (to the batch method).\n>\n> I understand that this is possible, since SGD(stochastic gradient descent)\n> uses an approximation to the real cost each step. Does it matter? I guess\n> it does since otherwise the interpretation of the weights would not make\n> much sense even the accuracy is comparable. If it matters, I wonder if you\n> have some suggestions on how to make it converge or getting close to the\n> global optimal point.\n>\n>\n>\n> Thanks!\n>\n>         [[alternative HTML version deleted]]\n>\n> ______________________________________________\n> R-help at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-help\n> PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n> and provide commented, minimal, self-contained, reproducible code.\n\n\n\n-- \n\nBert Gunter\nGenentech Nonclinical Biostatistics\n\nInternal Contact Info:\nPhone: 467-7374\nWebsite:\nhttp://pharmadevelopment.roche.com/index/pdb/pdb-functional-groups/pdb-biostatistics/pdb-ncb-home.htm",
+      "body_snippet": "Perhaps I should have added and FWIW, R, like essentially all\nstatistical software, has \"logistic regression\" already built in, if I\nunderstand what you mean by the term (which I may not), via glm's.\n",
+      "thread_id": "thread-dcf27a01dfe6",
+      "thread_depth": 1,
+      "month": "2013-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-2b7288fb1fab",
+      "subject": "[RsR] Kolmogrov-Smirov test and Wilcoxon test",
+      "message_count": 1,
+      "participants": [
+        "Wei-han Liu"
+      ],
+      "started": "2013-03-03T16:25:43-08:00",
+      "last_reply": "2013-03-03T16:25:43-08:00",
+      "root_message_id": "msg-2b7288fb1fab"
+    },
+    {
+      "id": "thread-dcf27a01dfe6",
+      "subject": "[RsR] Questions on implementing logistic regression",
+      "message_count": 3,
+      "participants": [
+        "Bert Gunter",
+        "Ivan Li"
+      ],
+      "started": "2013-03-05T13:36:27-08:00",
+      "last_reply": "2013-03-05T15:01:48-08:00",
+      "root_message_id": "msg-dcf27a01dfe6"
+    }
+  ]
+}

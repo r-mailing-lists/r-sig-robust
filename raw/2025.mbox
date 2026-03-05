@@ -1,0 +1,624 @@
+From jhb @end|ng |rom ude|@edu  Tue Jul  1 17:39:34 2025
+From: jhb @end|ng |rom ude|@edu (John Buggeln)
+Date: Tue, 1 Jul 2025 11:39:34 -0400
+Subject: [RsR] Case where options in mad() seemingly have no effect
+Message-ID: <25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>
+
+Hello!
+
+I have what seems to be a quick question. Below I have pasted the code for the mad() function, from ?package::stats?. 
+
+function (x, center = median(x), constant = 1.4826, na.rm = FALSE, 
+  low = FALSE, high = FALSE) 
+{
+  if (na.rm) 
+    x <- x[!is.na(x)]
+  n <- length(x)
+  constant * if ((low || high) && n%%2 == 0) {
+    if (low && high) 
+      stop("'low' and 'high' cannot be both TRUE")
+    n2 <- n%/%2 + as.integer(high)
+    sort(abs(x - center), partial = n2)[n2]
+  }
+  else median(abs(x - center))
+}
+
+The documentation states that the options ?low? and ?high? update the way the median is being calculated. However, in the code there is no update to ?center" from the value of low or high. What am I missing here? There must be something fundamental I don?t understand about R implementing this function. 
+
+I also have a small example where the options seemingly have to effect on the MAD calculation.
+
+###################VERSION INFO#############################
+
+R 4.5.0 on MacOSX 14.5 (M2 Apple Silicon)
+Sys.getlocale() is "en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8?
+
+Information on package ?stats?
+
+Description:
+
+Package: stats
+Version: 4.5.0
+Priority: base
+Title: The R Stats Package
+Author: R Core Team and contributors worldwide
+Maintainer: R Core Team <do-use-Contact-address at r-project.org>
+Contact: R-help mailing list <r-help at r-project.org>
+Description: R statistical functions.
+License: Part of R 4.5.0
+Imports: utils, grDevices, graphics
+Suggests: MASS, Matrix, SuppDists, methods, stats4
+NeedsCompilation: yes
+Encoding: UTF-8
+Enhances: Kendall, coin, multcomp, pcaPP, pspearman, robustbase
+Built: R 4.5.0; aarch64-apple-darwin20; 2025-04-11 20:15:23 UTC; unix
+
+###################EXAMPLE#############################
+
+> var <-scan(text="3.2 3.6 4.3 4.3 4.4 4.7 5.1 5.3 5.5 5.8 6.7 8.9")
+Read 12 items
+> mad(var) 
+[1] 0.88956
+> mad(var, high=TRUE)
+[1] 0.88956
+> mad(var, low=TRUE)
+[1] 0.88956
+
+This is confusing because when calculated manually the MAD is different:
+
+> # Manually
+> median(abs(var-median(var)))*1.4826
+[1] 0.88956
+> median(abs(var-4.7))*1.4826 # LOW for median
+[1] 1.03782
+> median(abs(var-5.1))*1.4826 # HIGH for median
+[1] 1.11195
+
+
+Best,
+
+John Buggeln, MS
+PhD Candidate
+University of Delaware
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Jul  2 12:51:27 2025
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 2 Jul 2025 12:51:27 +0200
+Subject: [RsR] Case where options in mad() seemingly have no effect
+In-Reply-To: <25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>
+References: <25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>
+Message-ID: <26725.3887.748024.245636@stat.math.ethz.ch>
+
+>>>>> John Buggeln 
+>>>>>     on Tue, 1 Jul 2025 11:39:34 -0400 writes:
+
+    > Hello!
+    > I have what seems to be a quick question. Below I have pasted the code for the mad() function, from ?package::stats?. 
+
+    > function (x, center = median(x), constant = 1.4826, na.rm = FALSE, 
+    > 	        low = FALSE, high = FALSE) 
+    > {
+    >   if (na.rm) 
+    >      x <- x[!is.na(x)]
+    >   n <- length(x)
+    >   constant * if ((low || high) && n%%2 == 0) {
+    >      if (low && high) 
+    >        stop("'low' and 'high' cannot be both TRUE")
+    >      n2 <- n%/%2 + as.integer(high)
+    >      sort(abs(x - center), partial = n2)[n2]
+    >   }
+    >   else median(abs(x - center))
+    > }
+
+    > The documentation states that the options ?low? and ?high?
+    > update the way the median is being calculated.
+
+Yes, but *not* the "inner" median(x) which is the default for `center`, 
+but rather the "outer" median( |x - center| ).
+
+> However, in the code there is no update to ?center" from the value of low or high. What am I missing here? There must be something fundamental I don?t understand about R implementing this function. 
+
+Yes.  I think you just need to read the help file more carefully.
+
+If you think the help file was not clear, can you propose an
+improvement there ?
+
+    > I also have a small example where the options seemingly have to effect on the MAD calculation.
+
+Yes, in that case there is no effect (of course, see below)
+
+    > ###################VERSION INFO#############################
+
+    > R 4.5.0 on MacOSX 14.5 (M2 Apple Silicon)
+    > Sys.getlocale() is "en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8?
+
+    > Information on package ?stats?
+
+    > Description:
+
+	..............
+	..............
+
+
+... the R version  4.5.0   is all that counts;  'stats' is part of R !
+
+    > ###################EXAMPLE#############################
+
+    >> var <-scan(text="3.2 3.6 4.3 4.3 4.4 4.7 5.1 5.3 5.5 5.8 6.7 8.9")
+    > Read 12 items
+    >> mad(var) 
+    > [1] 0.88956
+    >> mad(var, high=TRUE)
+    > [1] 0.88956
+    >> mad(var, low=TRUE)
+    > [1] 0.88956
+
+Indeed, in this case, the outer lo-median, median, and hi-median
+are identical (using 'x' instead of 'var' (which is after all
+the var() function)) :
+
+
+##--------------o<------------------o<------------------o<-----------
+x <- c(3.2, 3.6, 4.3, 4.3, 4.4, 4.7, 5.1, 5.3, 5.5, 5.8, 6.7, 8.9)
+mad(x)            # 0.88956
+mad(x, high=TRUE) # 0.88956
+mad(x, low =TRUE) # 0.88956
+
+## MM:  the same, yes, because in this case,
+sort(abs(x - median(x)))
+## [1] 0.2 0.2 0.4 0.5 0.6 0.6 0.6 0.9 1.3 1.7 1.8 4.0
+##      1   2   3   4   5   6   7   8   ..          12
+## the median(), lo-median() and hi-median  {w/o the constant factor}
+## are all == 0.6
+
+## MM: slightly more interesting (after all this is about robustness !
+x <- round(10*x)
+x[1:3] <- 1000 + 1:3
+dput(x) # c(1001, 1002, 1003, 43, 44, 47, 51, 53, 55, 58, 67, 89)
+## and now,
+cbind(mads <- c(lomad = mad(x, low=TRUE), mad = mad(x), himad = mad(x, high = TRUE))) / 1.4826
+## give
+
+## lomad 10.5
+## mad   11.5
+## himad 12.5
+##--------------o<------------------o<------------------o<-----------
+
+
+With best regards,
+Martin
+
+
+
+
+    > This is confusing because when calculated manually the MAD is different:
+
+This is not "the MAD" that we have defined; rather you use
+different *center*, i.e. lo_median, median, or hi_median for the __center__ 
+
+    >> # Manually
+    >> median(abs(var-median(var)))*1.4826
+    > [1] 0.88956
+    >> median(abs(var-4.7))*1.4826 # LOW for median
+    > [1] 1.03782
+    >> median(abs(var-5.1))*1.4826 # HIGH for median
+    > [1] 1.11195
+
+
+    > Best,
+
+    > John Buggeln, MS
+    > PhD Candidate
+    > University of Delaware
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+From jhb @end|ng |rom ude|@edu  Wed Jul  2 18:14:12 2025
+From: jhb @end|ng |rom ude|@edu (John Buggeln)
+Date: Wed, 2 Jul 2025 12:14:12 -0400
+Subject: [RsR] Case where options in mad() seemingly have no effect
+In-Reply-To: <26725.3887.748024.245636@stat.math.ethz.ch>
+References: <25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>
+ <26725.3887.748024.245636@stat.math.ethz.ch>
+Message-ID: <6ED83CC9-B60B-4912-9BB7-002CD9351CA0@udel.edu>
+
+This was clarifying, thank you for your response.
+
+A suggestion for the help file would be to specify which median the low/high options effect. E.g., 
+
+"if TRUE, compute the ?lo-median? of the absolute deviations, i.e., for even sample size, do not average the two middle values, but take the smaller one.?
+
+Best,
+
+John Buggeln, MS
+PhD Candidate
+University of Delaware
+
+
+> 
+> On Jul 2, 2025, at 6:51?AM, Martin Maechler <maechler at stat.math.ethz.ch> wrote:
+> 
+>>>>>> John Buggeln 
+>>>>>>    on Tue, 1 Jul 2025 11:39:34 -0400 writes:
+> 
+>> Hello!
+>> I have what seems to be a quick question. Below I have pasted the code for the mad() function, from ?package::stats?. 
+> 
+>> function (x, center = median(x), constant = 1.4826, na.rm = FALSE, 
+>>         low = FALSE, high = FALSE) 
+>> {
+>>  if (na.rm) 
+>>     x <- x[!is.na(x)]
+>>  n <- length(x)
+>>  constant * if ((low || high) && n%%2 == 0) {
+>>     if (low && high) 
+>>       stop("'low' and 'high' cannot be both TRUE")
+>>     n2 <- n%/%2 + as.integer(high)
+>>     sort(abs(x - center), partial = n2)[n2]
+>>  }
+>>  else median(abs(x - center))
+>> }
+> 
+>> The documentation states that the options ?low? and ?high?
+>> update the way the median is being calculated.
+> 
+> Yes, but *not* the "inner" median(x) which is the default for `center`, 
+> but rather the "outer" median( |x - center| ).
+> 
+>> However, in the code there is no update to ?center" from the value of low or high. What am I missing here? There must be something fundamental I don?t understand about R implementing this function. 
+> 
+> Yes.  I think you just need to read the help file more carefully.
+> 
+> If you think the help file was not clear, can you propose an
+> improvement there ?
+> 
+>> I also have a small example where the options seemingly have to effect on the MAD calculation.
+> 
+> Yes, in that case there is no effect (of course, see below)
+> 
+>> ###################VERSION INFO#############################
+> 
+>> R 4.5.0 on MacOSX 14.5 (M2 Apple Silicon)
+>> Sys.getlocale() is "en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8?
+> 
+>> Information on package ?stats?
+> 
+>> Description:
+> 
+> ..............
+> ..............
+> 
+> 
+> ... the R version  4.5.0   is all that counts;  'stats' is part of R !
+> 
+>> ###################EXAMPLE#############################
+> 
+>>> var <-scan(text="3.2 3.6 4.3 4.3 4.4 4.7 5.1 5.3 5.5 5.8 6.7 8.9")
+>> Read 12 items
+>>> mad(var) 
+>> [1] 0.88956
+>>> mad(var, high=TRUE)
+>> [1] 0.88956
+>>> mad(var, low=TRUE)
+>> [1] 0.88956
+> 
+> Indeed, in this case, the outer lo-median, median, and hi-median
+> are identical (using 'x' instead of 'var' (which is after all
+> the var() function)) :
+> 
+> 
+> ##--------------o<------------------o<------------------o<-----------
+> x <- c(3.2, 3.6, 4.3, 4.3, 4.4, 4.7, 5.1, 5.3, 5.5, 5.8, 6.7, 8.9)
+> mad(x)            # 0.88956
+> mad(x, high=TRUE) # 0.88956
+> mad(x, low =TRUE) # 0.88956
+> 
+> ## MM:  the same, yes, because in this case,
+> sort(abs(x - median(x)))
+> ## [1] 0.2 0.2 0.4 0.5 0.6 0.6 0.6 0.9 1.3 1.7 1.8 4.0
+> ##      1   2   3   4   5   6   7   8   ..          12
+> ## the median(), lo-median() and hi-median  {w/o the constant factor}
+> ## are all == 0.6
+> 
+> ## MM: slightly more interesting (after all this is about robustness !
+> x <- round(10*x)
+> x[1:3] <- 1000 + 1:3
+> dput(x) # c(1001, 1002, 1003, 43, 44, 47, 51, 53, 55, 58, 67, 89)
+> ## and now,
+> cbind(mads <- c(lomad = mad(x, low=TRUE), mad = mad(x), himad = mad(x, high = TRUE))) / 1.4826
+> ## give
+> 
+> ## lomad 10.5
+> ## mad   11.5
+> ## himad 12.5
+> ##--------------o<------------------o<------------------o<-----------
+> 
+> 
+> With best regards,
+> Martin
+> 
+> 
+> 
+> 
+>> This is confusing because when calculated manually the MAD is different:
+> 
+> This is not "the MAD" that we have defined; rather you use
+> different *center*, i.e. lo_median, median, or hi_median for the __center__ 
+> 
+>>> # Manually
+>>> median(abs(var-median(var)))*1.4826
+>> [1] 0.88956
+>>> median(abs(var-4.7))*1.4826 # LOW for median
+>> [1] 1.03782
+>>> median(abs(var-5.1))*1.4826 # HIGH for median
+>> [1] 1.11195
+> 
+> 
+>> Best,
+> 
+>> John Buggeln, MS
+>> PhD Candidate
+>> University of Delaware
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Jul  3 12:25:29 2025
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 3 Jul 2025 12:25:29 +0200
+Subject: [RsR] Case where options in mad() seemingly have no effect
+In-Reply-To: <6ED83CC9-B60B-4912-9BB7-002CD9351CA0@udel.edu>
+References: <25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>
+ <26725.3887.748024.245636@stat.math.ethz.ch>
+ <6ED83CC9-B60B-4912-9BB7-002CD9351CA0@udel.edu>
+Message-ID: <26726.23193.29034.817131@stat.math.ethz.ch>
+
+>>>>> John Buggeln 
+>>>>>     on Wed, 2 Jul 2025 12:14:12 -0400 writes:
+
+    > This was clarifying, thank you for your response.
+    > A suggestion for the help file would be to specify which median the low/high options effect. E.g., 
+
+    > "if TRUE, compute the ?lo-median? of the absolute deviations, i.e., for even sample size, do not average the two middle values, but take the smaller one.?
+
+    > Best,
+
+    > John Buggeln, MS
+    > PhD Candidate
+    > University of Delaware
+
+
+Ok, thank you.
+I now have added something like your proposal to R's sources
+help file for mad()  [ <Rsrc>/src/library/stats/man/mad.Rd ;
+svn rev 88376
+
+Best,
+Martin
+
+
+[......................]
+[......................]
+
+
+From tperezp| @end|ng |rom u@x@e@  Tue Oct 14 14:01:21 2025
+From: tperezp| @end|ng |rom u@x@e@ (=?iso-8859-1?Q?Teresa_P=E9rez-Pi=F1ar_L=F3pez?=)
+Date: Tue, 14 Oct 2025 12:01:21 +0000
+Subject: [RsR] Welcome to the "R-SIG-Robust" mailing list (Digest mode)
+In-Reply-To: <mailman.516.0.1760440594.50025.r-sig-robust@r-project.org>
+References: <mailman.516.0.1760440594.50025.r-sig-robust@r-project.org>
+Message-ID: <AM0PR03MB6164441660BFED3FE9D06F3CBBEBA@AM0PR03MB6164.eurprd03.prod.outlook.com>
+
+Dear R community,
+We analyzed a series of biological samples and obtained results for 60 primary metabolites. For some metabolites, the results are in absolute concentration units, and for others, in relative units, because they were measured using different machines.
+
+The goal is to build a predictive model that selects a small number of metabolites, which can then be measured on one machine to predict a rate associated with each sample. Each sample has a different regeneration rate.
+
+In total, 13 samples were analyzed, each with biological and technical replicates.
+
+First, I performed a forward stepwise regression. Then, I was advised to perform a Leave-One-Out Cross-Validation (LOOCV). I have done this in R, but I am not sure if it is correct, because the resulting predictive model contains only one metabolite.
+
+I would like guidance from the R community on whether my approach and LOOCV implementation are appropriate given this small dataset and the type of data I have. I can provide the R documents and scripts I used so that members can review them and advise whether the analysis is correct.
+
+Any suggestions or recommendations would be greatly appreciated.
+
+Thank you very much for your time and help.
+
+Best regards,
+Teresa
+
+________________________________
+De: R-SIG-Robust <r-sig-robust-bounces at r-project.org> en nombre de r-sig-robust-request at r-project.org <r-sig-robust-request at r-project.org>
+Enviado: martes, 14 de octubre de 2025 13:16
+Para: Teresa P?rez-Pi?ar L?pez <tperezpi at uax.es>
+Asunto: Welcome to the "R-SIG-Robust" mailing list (Digest mode)
+
+PRECAUCI?N: Este correo electr?nico se origin? fuera de la organizaci?n. No abra enlaces ni archivos adjuntos a menos que pueda confirmar que el remitente es conocido y que el contenido es seguro
+
+
+Welcome to the R-SIG-Robust at r-project.org mailing list!
+
+To post to this list, send your message to:
+
+  r-sig-robust at r-project.org
+
+General information about the mailing list is at:
+
+  https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+If you ever want to unsubscribe or change your options (eg, switch to
+or from digest mode, change your password, etc.), visit your
+subscription page at:
+
+  https://stat.ethz.ch/mailman/options/r-sig-robust/tperezpi%40uax.es
+
+You can also make such adjustments via email by sending a message to:
+
+  R-SIG-Robust-request at r-project.org
+
+with the word `help' in the subject or body (don't include the
+quotes), and you will get back a message with instructions.
+
+You must know your password to change your options (including changing
+the password, itself) or to unsubscribe without confirmation.  It is:
+
+  110902
+
+Normally, Mailman will remind you of your r-project.org mailing list
+passwords once every month, although you can disable this if you
+prefer.  This reminder will also include instructions on how to
+unsubscribe or change your account options.  There is also a button on
+your options page that will email your current password to you.
+
+CL?USULA DE CONFIDENCIALIDAD
+
+Este mensaje ha sido generado desde una cuenta de la Universidad Alfonso X el Sabio para los fines propios de la instituci?n. Su contenido se considera confidencial y, salvo que la naturaleza del mismo as? lo exija, no est? permitida su reproducci?n o distribuci?n sin la autorizaci?n expresa. Si Usted ha recibido indebidamente este correo le rogamos que advierta de ello al remitente y proceda a su eliminaci?n. Pol?tica de privacidad www.uax.com/politica-de-privacidad
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20251014/f3468ec0/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Regression model development_raw data_bueno.pdf
+Type: application/pdf
+Size: 77506 bytes
+Desc: Regression model development_raw data_bueno.pdf
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20251014/f3468ec0/attachment.pdf>
+
+From @o|ed@d@e@teb@n @end|ng |rom tr@n@m|tt|ng@c|ence@com  Sun Nov 23 18:56:23 2025
+From: @o|ed@d@e@teb@n @end|ng |rom tr@n@m|tt|ng@c|ence@com (Soledad De Esteban-Trivigno)
+Date: Sun, 23 Nov 2025 17:56:23 +0000
+Subject: [RsR] Online course: Host and manage your R projects with Git &
+ GitHub
+In-Reply-To: <97d9c68e6d12d90f8b33d7cd959a1cef@transmittingscience.com>
+References: <5861c3ea11854f9bef9369297762940e@transmittingscience.com>
+ <e4390af39ae79fa26000b73c185aaf67@transmittingscience.com>
+ <ec99d342c71b3e75828c7a49e5ea808d@transmittingscience.com>
+ <0c3f5f15bc62ae230ef0d526d3a46c89@transmittingscience.com>
+ <c94bb0e973e603e4358493a2a567663e@transmittingscience.com>
+ <78a88a8c2b538843ba44337093e4a221@transmittingscience.com>
+ <cc01b1ab0a5320f54f7306af619b56a2@transmittingscience.com>
+ <97d9c68e6d12d90f8b33d7cd959a1cef@transmittingscience.com>
+Message-ID: <81d36d91f9a991c7c0b011e4f07a29ce@transmittingscience.com>
+
+Dear colleagues,
+
+Transmitting Science is offering a new edition of the course "Host and 
+manage your R projects with Git & GitHub"
+
+Course webpage: 
+https://www.transmittingscience.com/courses/statistics-and-bioinformatics/host-and-manage-your-r-projects-with-git-on-github/
+
+Dates and schedule: online live sessions on December 9th, 11th and 12th, 
+2025.
+
+The aim of this course is to introduce participants to version control 
+with Git and GitHub tailored for R-based projects. The course will cover 
+both the theoretical background and practical workflow of initializing a 
+Git repository, branching, collaboration on GitHub, continuous 
+integration, and best practices for reproducible R projects.
+
+By the end of the course, students will be able to:
+* Understand the principles of version control and collaboration in Git.
+* Setup and manage R projects in Git / GitHub.
+* Use branching, pull requests and merge workflows.
+* Implement continuous integration and reproducible workflows for R.
+
+Instruction will combine lectures, guided examples, and practical 
+exercises.
+
+For any question, please write to courses at transmittingscience.com
+
+Best wishes
+
+Sole
+
+-- 
+Soledad De Esteban-Trivigno, PhD
+Director
+Transmitting Science
+www.transmittingscience.com/courses
+
+Bluesky @soledeesteban.bsky.social
+X @SoleDeEsteban
+Orcid: https://orcid.org/0000-0002-2049-0890
+
+Under the provisions of current regulations on the protection of 
+personal data, Regulation (EU) 2016/679 of 27 April 2016 (GDPR), we 
+inform you that personal data and email address, collected from the data 
+subject will be used by TRANSMITTING SCIENCE SL to manage communications 
+through email and properly manage the professional relationship with 
+you. The data are obtained based on a contractual relationship or the 
+legitimate interest of the Responsible, likewise the data will be kept 
+as long as there is a mutual interest for it. The data will not be 
+communicated to third parties, except for legal obligations. We inform 
+you that you can request detailed information on the processing as well 
+as exercise your rights of access, rectification, portability and 
+deletion of your data and those of limitation and opposition to its 
+treatment by contacting Calle Gardenia, 2 Urb. Can Claramunt de Piera 
+CP: 08784 (Barcelona) or sending an email to 
+info at transmittingscience.com or 
+http://transmittingscience.com/additional-terms. If you consider that 
+the processing does not comply with current legislation, you can 
+complain with the supervisory authority at www. aepd.es .
+Confidentiality. - The content of this communication, as well as that of 
+all the attached documentation, is confidential and is addressed to the 
+addressee. If you are not the recipient, we request that you indicate 
+this to us and do not communicate its contents to third parties, 
+proceeding to its destruction.
+  Disclaimer of liability. - The sending of this communication does not 
+imply any obligation on the part of the sender to control the absence of 
+viruses, worms, Trojan horses and/or any other harmful computer program, 
+and it corresponds to the recipient to have the necessary hardware and 
+software tools to guarantee both the security of its information system 
+and the detection and elimination of harmful computer programs. 
+TRANSMITTING SCIENCE SL shall not be liable.
+	[[alternative HTML version deleted]]
+
+
+From @o|ed@d@e@teb@n @end|ng |rom tr@n@m|tt|ng@c|ence@com  Tue Dec  9 22:42:41 2025
+From: @o|ed@d@e@teb@n @end|ng |rom tr@n@m|tt|ng@c|ence@com (Soledad De Esteban-Trivigno)
+Date: Tue, 09 Dec 2025 21:42:41 +0000
+Subject: [RsR] Online course: Introduction to Machine Learning in R -
+ January 2026
+Message-ID: <1e4cde6379dca886dfc8d47faa53780e@transmittingscience.com>
+
+Dear colleagues,
+
+Transmitting Science is offering a new edition of the course 
+"Introduction to Machine Learning in R".
+
+Course webpage: 
+https://www.transmittingscience.com/courses/statistics-and-bioinformatics/introduction-to-machine-learning-in-r/
+
+The aim of this course is to introduce participants to the main 
+components for implementing machine learning in R using the {tidymodels} 
+and {tidyverse} framework packages. The course will cover both the 
+theoretical background and practical workflow of defining the problem, 
+data preparation, applying algorithms such as Extreme Gradient Boosting 
+and Random Forests, and evaluating model performance.
+
+Instruction will combine lectures, guided examples, live-coding 
+sessions, and practical exercises.
+
+For any questions, please write to courses at transmittingscience.com
+
+Best regards
+
+Sole
+
+-- 
+Soledad De Esteban-Trivigno, PhD
+Director
+Transmitting Science
+www.transmittingscience.com/courses
+
+Bluesky @soledeesteban.bsky.social
+X @SoleDeEsteban
+Orcid: https://orcid.org/0000-0002-2049-0890
+	[[alternative HTML version deleted]]
+
+

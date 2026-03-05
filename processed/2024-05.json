@@ -1,0 +1,63 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2024-05",
+  "messages": [
+    {
+      "id": "msg-b18fae20505a",
+      "message_id": "<CAMvZauojacb-i=3Ym4QHy9rxt7m13zh5ty9=9Dc0O_Tt6rUvBA@mail.gmail.com>",
+      "from_name": "Srinidhi Jayakumar",
+      "from_email_hash": "47d6b1d1dd2db4df2f2fbf6c9ca5a6ef6924f5b64debed8fbe2598c7defe339e",
+      "date": "2024-05-04T16:07:41-04:00",
+      "subject": "[RsR] Error in time varying predictor model. Please help!",
+      "subject_clean": "[RsR] Error in time varying predictor model. Please help!",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI am running a multilevel growth curve model to examine predictors of\nsocial anhedonia (SA) trajectory through ages 12, 15 and 18. SA is a\ncontinuous numeric variable. The age variable (Index1) has been coded as 0\nfor age  12, 1 for age 15 and 2 for age 18. I am currently using a time\nvarying predictor, stress (LSI), which was measured at ages 12, 15 and 18,\nto examine whether trajectory/variation in LSI predicts difference in SA\ntrajectory. LSI is a continuous numeric variable. The data has been\nconverted to long format with SA in 1 column, LSI in the other, ID in\nanother and age in another column. I used the code below to run my model\nusing lmer. However, I get the following error. Please let me know how I\ncan solve this error. Please note that I have 50% missing data in SA at age\n12, which I am handling using the REML method.\nmodelLSI_maineff_RE <- lmer(SA ~ Index1* LSI+ (1 + Index1+LSI |ID),\n                            data = LSIDATA, control = lmerControl(optimizer\n=\"bobyqa\"), REML=TRUE)\nsummary(modelLSI_maineff_RE)\n\nError: number of observations (=1080) <= number of random effects\n(=1479) for term (1 + Index1 + LSI | ID); the random-effects\nparameters and the residual variance (or scale parameter) are probably\nunidentifiable\n\n\n I did test the within-person variance for the LSI variable and\nthe within-person variance is significant.\n[image: image.png]\n\nAlso, for some reason, the model runs if I specify the random effects as\neither of these 2 models. However, I want to know whether variation in LSI\npredicts variation in SA trajectory between and within people. Hence, I\nneed both age and LSI in the random effects.\n  modelLSI1 <- lmer(SA ~ Index1* LSI+ (1 + Index1 |ID),\n                            data = LSIDATA, control = lmerControl(optimizer\n=\"bobyqa\"), REML=TRUE)\n*OR*\n  modelLSI2 <- lmer(SA ~ Index1* LSI+ (1 +LSI |ID),\n                            data = LSIDATA, control = lmerControl(optimizer\n=\"bobyqa\"), REML=TRUE)\n\nPlease let me know how I can solve my error and examine the random effect\nof LSI.\n\nThank you,\nSrinidhi\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240504/2fca229e/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: image.png\nType: image/png\nSize: 95872 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240504/2fca229e/attachment.png>",
+      "body_snippet": "Hi,\n\nI am running a multilevel growth curve model to examine predictors of\nsocial anhedonia (SA) trajectory through ages 12, 15 and 18. SA is a\ncontinuous numeric variable. The age variable (Index1) h",
+      "thread_id": "thread-b18fae20505a",
+      "thread_depth": 0,
+      "month": "2024-05"
+    },
+    {
+      "id": "msg-339e4fcf9a03",
+      "message_id": "<CAMf5Kvy9s4JKK_yoTzGjGC57z0MajWNM_8qx-kuK0-ng2JMCtQ@mail.gmail.com>",
+      "from_name": "Juan J. Moreno Piña",
+      "from_email_hash": "f254adbbf83e581a3c6a4806ae179fced4ad7251b7a7b505e68fd86926211107",
+      "date": "2024-05-06T08:24:39-04:00",
+      "subject": "[RsR] (no subject)",
+      "subject_clean": "[RsR] (no subject)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "[[alternative HTML version deleted]]",
+      "body_snippet": "[[alternative HTML version deleted]]",
+      "thread_id": "thread-339e4fcf9a03",
+      "thread_depth": 0,
+      "month": "2024-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b18fae20505a",
+      "subject": "[RsR] Error in time varying predictor model. Please help!",
+      "message_count": 1,
+      "participants": [
+        "Srinidhi Jayakumar"
+      ],
+      "started": "2024-05-04T16:07:41-04:00",
+      "last_reply": "2024-05-04T16:07:41-04:00",
+      "root_message_id": "msg-b18fae20505a"
+    },
+    {
+      "id": "thread-339e4fcf9a03",
+      "subject": "[RsR] (no subject)",
+      "message_count": 1,
+      "participants": [
+        "Juan J. Moreno Piña"
+      ],
+      "started": "2024-05-06T08:24:39-04:00",
+      "last_reply": "2024-05-06T08:24:39-04:00",
+      "root_message_id": "msg-339e4fcf9a03"
+    }
+  ]
+}

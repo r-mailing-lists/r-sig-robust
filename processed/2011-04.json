@@ -1,0 +1,65 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2011-04",
+  "messages": [
+    {
+      "id": "msg-47cb0a87ff15",
+      "message_id": "<AANLkTindyW+MFEc5bN91=NbtoLKgv8QgcS6Tv4K=vLCZ@mail.gmail.com>",
+      "from_name": "James Shaw",
+      "from_email_hash": "d4dd5f4ef2329ee99732572a1c0555179aa3a6c623879d66e8895a803e7611c6",
+      "date": "2011-04-01T16:47:16-05:00",
+      "subject": "[RsR] Estimating robust distances in R (MVE vs. MCD)",
+      "subject_clean": "[RsR] Estimating robust distances in R (MVE vs. MCD)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I have been trying to estimate robust Mahalanobis distances in R for a\nset of three regressors that includes one dummy variable.  Initially,\nI tried generating robust MCD estimates and their associated VCE using\ncob.rob.  However, when I did so I received the following error\nmessage:  \"Error in solve.default(cov, ...) :  Lapack routine dgesv:\nsystem is exactly singular\".  I believe that the MCD estimator\ninvolves subsampling and that the parameter for the discrete variable\ncould not be identified in one of the subsamples due to insufficient\nvariance.  When using the minimum volume ellipsoid (MVE) estimator, I\ndid not experience any problems.  My code is given below.\n\n\nx<-cbind(c0[,3], c0[,7], c0[,8])\nrest<-cov.rob(x, method = \"mve\", nsamp = \"exact\", cor=FALSE)\nxrd<-mahalanobis(x, rest$center, rest$cov, inverted=FALSE)\nxrd<-xrd^.5\nd0<-ifelse(xrd> 3.0575159,1,0)\n\n\nCan anyone explain to me why the MVE estimator is able to accommodate\ndiscrete variables, whereas the MCD estimator cannot do so?  I would\nlike to be certain that the method I used to estimate robust distances\nis valid in light of the inclusion of a discrete variable in the\nregressor set.\n\n--\nJim\n\n\nJames W. Shaw, Ph.D., Pharm.D., M.P.H.\nAssistant Professor\nDepartment of Pharmacy Administration\nCollege of Pharmacy\nUniversity of Illinois at Chicago\n833 South Wood Street, M/C 871, Room 266\nChicago, IL 60612\nTel.: 312-355-5666\nFax: 312-996-0868\nMobile Tel.: 215-852-3045",
+      "body_snippet": "I have been trying to estimate robust Mahalanobis distances in R for a\nset of three regressors that includes one dummy variable.  Initially,\nI tried generating robust MCD estimates and their associate",
+      "thread_id": "thread-47cb0a87ff15",
+      "thread_depth": 0,
+      "month": "2011-04"
+    },
+    {
+      "id": "msg-3151552ac2b7",
+      "message_id": "<4D9C3370.3010007@unige.ch>",
+      "from_name": "Olivier Renaud",
+      "from_email_hash": "6d71b22d0e62134f96165c0875cd64df6e65b064c8150892f2d49dcb83e43c33",
+      "date": "2011-04-06T11:33:36+02:00",
+      "subject": "[RsR] VIF for robust regression?",
+      "subject_clean": "[RsR] VIF for robust regression?",
+      "in_reply_to": "<1301585710.32085.1435988005@webmail.messagingengine.com>",
+      "references": [
+        "<1301585710.32085.1435988005@webmail.messagingengine.com>"
+      ],
+      "body_plain": "I don't know if there is work on a robust VIF. Here are my two cents:\n- What type of variable do you have ? If some of them are discrete with \nvery few different values, this may cause problem to robust covariance \nmatrices estimation.\n- Your approach to apply the \"partialling out\"  of the robust matrix, as \nin the OLS case,  might or might not be correct, I don't know.\n- If you believe that 1/(1-R^2_i) is a good measure, then you might want \nto compute its direct robust equivalent.  The output of lmrob does not \nprovide a R^2, but the output of lmRob does. We have recently published \na paper however that shows that the robust R-squared provided by lmRob \nis biased, sometimes to a large extent. We provide a consistent and \nrobust estimator of R-squared and a version adjusted for the sample \nsize.  See my previous post for an example and the code at\nhttps://stat.ethz.ch/pipermail/r-sig-robust/2010/000290.html\n\nOlivier\n\nref: Renaud, O. & Victoria-Feser, M.-P. (2010). A robust coefficient of \ndetermination for regression. Journal of Statistical Planning and \nInference, 140, 1852-1862. http://dx.doi.org/10.1016/j.jspi.2010.01.008\n\n\n\n\n\n\nOn 31/03/2011 17:35, Nicholas Lewin-Koh wrote:\n> Hi,\n> I was looking at the vif function in the car package\n> and it it is trivial to modify to make a version for robust\n> regression. However, after trying it out I noticed  that what\n> were reasonable values under ols, jumped way up.\n> So my thought is that either,\n> I made a coding error, and the weights attribute needs to be used\n> to modify the variance covariance matrix of the coefficients\n> Or, the reduced variance from the robust regression, causes peripheral\n> points\n> (outside the mve) to have much more influence in the r^2's for each\n> predictor.\n> So that the standard vif measure, 1/(1-R^2_i) is not relevant in this\n> context.\n> Am I off base here?\n>\n> Thanks\n> Nicholas\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \nOlivier.Renaud at unige.ch               http://www.unige.ch/fapse/mad/\nMethodology&  Data Analysis - Psychology Dept - University of Geneva\nUniMail, Office 4138  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I don't know if there is work on a robust VIF. Here are my two cents:\n- What type of variable do you have ? If some of them are discrete with \nvery few different values, this may cause problem to robu",
+      "thread_id": "thread-3151552ac2b7",
+      "thread_depth": 0,
+      "month": "2011-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-47cb0a87ff15",
+      "subject": "[RsR] Estimating robust distances in R (MVE vs. MCD)",
+      "message_count": 1,
+      "participants": [
+        "James Shaw"
+      ],
+      "started": "2011-04-01T16:47:16-05:00",
+      "last_reply": "2011-04-01T16:47:16-05:00",
+      "root_message_id": "msg-47cb0a87ff15"
+    },
+    {
+      "id": "thread-3151552ac2b7",
+      "subject": "[RsR] VIF for robust regression?",
+      "message_count": 1,
+      "participants": [
+        "Olivier Renaud"
+      ],
+      "started": "2011-04-06T11:33:36+02:00",
+      "last_reply": "2011-04-06T11:33:36+02:00",
+      "root_message_id": "msg-3151552ac2b7"
+    }
+  ]
+}

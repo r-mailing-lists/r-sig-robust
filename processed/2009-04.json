@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2009-04",
+  "messages": [
+    {
+      "id": "msg-f8b5f4ce400a",
+      "message_id": "<e013b3630904150156kcd9dd2di1143d8d0d295977f@mail.gmail.com>",
+      "from_name": "Usuario R",
+      "from_email_hash": "6c1eed21635e2f078599b515973ca58cd0cf39a113f185b603fcbade87efbf9a",
+      "date": "2009-04-15T10:56:02+02:00",
+      "subject": "[RsR] Mann-Whitney Normal approximation formula in wilcox.test function",
+      "subject_clean": "[RsR] Mann-Whitney Normal approximation formula in wilcox.test function",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI have found the formula for the Mann-Whitney test when a normal\napproximation has to be computed, this is:\n\n\nNTIES <- table(r)\nSIGMA <- sqrt((n.x * n.y/12) * ((n.x + n.y + 1) - sum(NTIES^3 - NTIES)/((n.x\n+ n.y) * (n.x + n.y - 1))))\n\nWhere:\nr <- rank(c(x - mu, y))\nn.x <- as.double(length(x))\nn.y <- as.double(length(y))\n\n\nThis formula does not match with the ones found in the theory (\nhttp://en.wikipedia.org/wiki/Mann-Whitney_U_test#Normal_approximation )\n\nDoes anyone know why?\n\nThanks a lot.\nRegards\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi,\n\nI have found the formula for the Mann-Whitney test when a normal\napproximation has to be computed, this is:\n\n\nNTIES <- table(r)\nSIGMA <- sqrt((n.x * n.y/12) * ((n.x + n.y + 1) - sum(NTIES^3 - NTI",
+      "thread_id": "thread-f8b5f4ce400a",
+      "thread_depth": 0,
+      "month": "2009-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f8b5f4ce400a",
+      "subject": "[RsR] Mann-Whitney Normal approximation formula in wilcox.test function",
+      "message_count": 1,
+      "participants": [
+        "Usuario R"
+      ],
+      "started": "2009-04-15T10:56:02+02:00",
+      "last_reply": "2009-04-15T10:56:02+02:00",
+      "root_message_id": "msg-f8b5f4ce400a"
+    }
+  ]
+}

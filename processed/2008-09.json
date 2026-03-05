@@ -1,0 +1,668 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2008-09",
+  "messages": [
+    {
+      "id": "msg-f061df1b72b3",
+      "message_id": "<18619.51272.609063.498579@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-09-01T12:47:36+02:00",
+      "subject": "[RsR] Outlier identification  [FWD]",
+      "subject_clean": "[RsR] Outlier identification  [FWD]",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "This message was sent to me privately. I'm replying to the full\nR-SIG-robust audience\n\n------- start of forwarded message -------\nFrom: Luis Orlindo Tedeschi <luis.tedeschi at gmail.com>\nTo: Martin Maechler <maechler at stat.math.ethz.ch>\nSubject: Re: [RsR] CRAN task view \"robust\"\nDate: Sun, 31 Aug 2008 08:48:27 -0500\n\nDear Mr. Maechler, I am very happy you provided information about robust\nstats. The question I have for you is this. I visited your site but I\ncould not identify a procedure that checks on the raw data and tries to\nidentify outliers. For instance, one could use normal distribution\n1.96SD and elimiate the values outside of that range or use quartiles.\nIs this implemented in these packages and do you have any other method\nto check raw data? Thanks a lot.\n\n              Luis O. Tedeschi, PhD, PAS\n                 Assistant Professor\n                 Texas A&M University\n[........]\n------- end of forwarded message -------\n\n\nShort answer:   I'd recommend to use\n\n    rlm( y ~ 1, method = \"MM\") # package MASS  \n  or\n    lmrob(y ~ 1) # package 'robustbase'\n  and look at the ``robustness weights'' returned.\n\n But really you should *NOT* detect and reject outliers\n and then continue your analsys as if you hadn't done that.\n\n *Rather* do a fully robust analysis (as rlm() e.g. would do).\n\nLonger answer:\n\n  A typical procedure of       \n\n       Using 1) outlier detection\n             2)  drop outliers from the data;\n\n           with the remaining data :\n\n       \t     3a) estimation\n\t     3b) inference [tests, confidence intervals, diagnostics]\n\n  is  \"BAD\",\n  1) since the conclusions can be quite WRONG,\n    {all P-values / all inference of the combined procedure is wrong, \n     even when the underlying data was truly normally distributed}\n  2) since the procedure is quite unstable,\n     particularly for the important and interesting case of \n     \"borderline outliers\".\n\n\nThere's much more to say abou this.\nOne good and probably not often enough read and understood\nreference is\n\n@ARTICLE{HamF85,\n  author = \t\"Hampel, F.\",\n  title = \t\"The breakdown points of the mean combined with some\n\t\t  rejection rules\", \n  journal = \t\"Technometrics\",\n  year = \t1985,\n  volume = \t27,\n  pages = \t\"95--107\",\n}\n\n-------\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": "This message was sent to me privately. I'm replying to the full\nR-SIG-robust audience\n\n------- start of forwarded message -------\nFrom: Luis Orlindo Tedeschi <luis.tedeschi at gmail.com>\nTo: Martin Ma",
+      "thread_id": "thread-f061df1b72b3",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-1b8951170d58",
+      "message_id": "<20080907141350.GR301@lubyanka.local>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2008-09-07T19:43:50+05:30",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "subject_clean": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I have a regression where the lm() goes through fine. This mailing\nlist has always encouraged me to worry about how a robust regression\nmight do things differently. I tried two approaches and both don't\nwork.\n\nFirst I need to give you the dataset:\n\n> load(url(\"http://www.mayin.org/ajayshah/tmp/long.rda\"))\n\nThis gives you a data frame named \"long\". Here's the simple lm():\n\n> summary(lm(da.g1 ~ -1 + f.year +\n+            major.industry +\n+            i.x +\n+            lta.l1 + I(lta.l1^2), data=long))\n\nCall:\nlm(formula = da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1 + \n    I(lta.l1^2), data = long)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-632.563  -15.405   -5.090    7.797  543.972 \n\nCoefficients:\n                          Estimate Std. Error t value Pr(>|t|)    \nf.year2002                15.94994    4.52330   3.526 0.000424 ***\nf.year2003                15.89005    4.50107   3.530 0.000418 ***\nf.year2004                19.38506    4.48749   4.320 1.58e-05 ***\nf.year2005                23.65796    4.49146   5.267 1.43e-07 ***\nf.year2006                32.07334    4.48707   7.148 9.72e-13 ***\nf.year2007                35.88498    4.51369   7.950 2.16e-15 ***\nmajor.industryDiversified  1.74538    3.19979   0.545 0.585452    \nmajor.industryElectricity  3.61036    6.16091   0.586 0.557887    \nmajor.industryFood         1.52626    1.70112   0.897 0.369637    \nmajor.industryMachinery   -0.15078    1.40149  -0.108 0.914329    \nmajor.industryMetals       5.94554    1.66175   3.578 0.000349 ***\nmajor.industryMiscManuf    1.76956    2.17527   0.813 0.415965    \nmajor.industryNonMetalMin  1.49889    1.92084   0.780 0.435224    \nmajor.industryServ.IT      8.62764    1.86841   4.618 3.95e-06 ***\nmajor.industryServ.Other   6.43315    1.70598   3.771 0.000164 ***\nmajor.industryTextiles     0.07868    1.56312   0.050 0.959859    \nmajor.industryTransportEq  4.81549    1.76354   2.731 0.006338 ** \ni.xTRUE                    4.15376    0.97944   4.241 2.26e-05 ***\nlta.l1                    -3.91434    1.58494  -2.470 0.013546 *  \nI(lta.l1^2)                0.23105    0.13922   1.660 0.097045 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 \n\nResidual standard error: 34.48 on 6829 degrees of freedom\n  (1649 observations deleted due to missingness)\nMultiple R-squared: 0.2266,  Adjusted R-squared: 0.2244 \nF-statistic: 100.1 on 20 and 6829 DF,  p-value: < 2.2e-16 \n\nIn this, f.year is a factor and major.industry is a factor. i.x is a\nboolean. lta.l1 is a real number. The left hand side variable (da.g1)\nis a real number. I put a -1 on the regression to make space for the\ndummy variables.\n\nOn to my woes with robust regressions. MASS:rlm() breaks:\n\n> library(MASS)\n> summary(rlm(da.g1 ~ -1 + f.year +\n+            major.industry +\n+            i.x +\n+            lta.l1 + I(lta.l1^2), method=\"MM\", data=long))\nError in rlm.default(x, y, weights, method = method, wt.method = wt.method,  : \n  'x' is singular: singular fits are not implemented in rlm\n\nrobustbase::lmrob() breaks:\n\n> library(robustbase)\n> summary(lmrob(da.g1 ~ -1 + f.year +\n+            major.industry +\n+            i.x +\n+            lta.l1 + I(lta.l1^2), data=long))\n\nToo many singular resamples\nAborting fast_s_w_mem()\n\nError in lmrob.S(x = x, y = y, control = control) : \n  C function R_lmrob_S() exited prematurely\n\n\nIf you could guide me on what I'm doing wrong, that'll be great. How\nwould I do the above specification as a robust regression? I googled\naround and I found a few others asking these same questions in the\npast, but it didn't look like there was a clear answer.\n\n-- \nAjay Shah                                      http://www.mayin.org/ajayshah  \najayshah at mayin.org                             http://ajayshahblog.blogspot.com\n<*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": "I have a regression where the lm() goes through fine. This mailing\nlist has always encouraged me to worry about how a robust regression\nmight do things differently. I tried two approaches and both don",
+      "thread_id": "thread-1b8951170d58",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-1cafafa64ec5",
+      "message_id": "<971536df0809070806t4e17996ckcbb967d9b5db570b@mail.gmail.com>",
+      "from_name": "Gabor Grothendieck",
+      "from_email_hash": "2470cc61688c301322ff3a85f3fd51ddba9f1112f88f535ec93c41ab610332d1",
+      "date": "2008-09-07T11:06:33-04:00",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "subject_clean": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "in_reply_to": "<20080907141350.GR301@lubyanka.local>",
+      "references": [
+        "<20080907141350.GR301@lubyanka.local>"
+      ],
+      "body_plain": "Try quantreg (using the interior point method):\n\nfo <- da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1 + I(lta.l1^2)\nlibrary(quantreg)\nrq(fo, data = long, method = \"fn\")\n\n\nOn Sun, Sep 7, 2008 at 10:13 AM, Ajay Shah <ajayshah at mayin.org> wrote:\n> I have a regression where the lm() goes through fine. This mailing\n> list has always encouraged me to worry about how a robust regression\n> might do things differently. I tried two approaches and both don't\n> work.\n>\n> First I need to give you the dataset:\n>\n>> load(url(\"http://www.mayin.org/ajayshah/tmp/long.rda\"))\n>\n> This gives you a data frame named \"long\". Here's the simple lm():\n>\n>> summary(lm(da.g1 ~ -1 + f.year +\n> +            major.industry +\n> +            i.x +\n> +            lta.l1 + I(lta.l1^2), data=long))\n>\n> Call:\n> lm(formula = da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1 +\n>    I(lta.l1^2), data = long)\n>\n> Residuals:\n>     Min       1Q   Median       3Q      Max\n> -632.563  -15.405   -5.090    7.797  543.972\n>\n> Coefficients:\n>                          Estimate Std. Error t value Pr(>|t|)\n> f.year2002                15.94994    4.52330   3.526 0.000424 ***\n> f.year2003                15.89005    4.50107   3.530 0.000418 ***\n> f.year2004                19.38506    4.48749   4.320 1.58e-05 ***\n> f.year2005                23.65796    4.49146   5.267 1.43e-07 ***\n> f.year2006                32.07334    4.48707   7.148 9.72e-13 ***\n> f.year2007                35.88498    4.51369   7.950 2.16e-15 ***\n> major.industryDiversified  1.74538    3.19979   0.545 0.585452\n> major.industryElectricity  3.61036    6.16091   0.586 0.557887\n> major.industryFood         1.52626    1.70112   0.897 0.369637\n> major.industryMachinery   -0.15078    1.40149  -0.108 0.914329\n> major.industryMetals       5.94554    1.66175   3.578 0.000349 ***\n> major.industryMiscManuf    1.76956    2.17527   0.813 0.415965\n> major.industryNonMetalMin  1.49889    1.92084   0.780 0.435224\n> major.industryServ.IT      8.62764    1.86841   4.618 3.95e-06 ***\n> major.industryServ.Other   6.43315    1.70598   3.771 0.000164 ***\n> major.industryTextiles     0.07868    1.56312   0.050 0.959859\n> major.industryTransportEq  4.81549    1.76354   2.731 0.006338 **\n> i.xTRUE                    4.15376    0.97944   4.241 2.26e-05 ***\n> lta.l1                    -3.91434    1.58494  -2.470 0.013546 *\n> I(lta.l1^2)                0.23105    0.13922   1.660 0.097045 .\n> ---\n> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n>\n> Residual standard error: 34.48 on 6829 degrees of freedom\n>  (1649 observations deleted due to missingness)\n> Multiple R-squared: 0.2266,  Adjusted R-squared: 0.2244\n> F-statistic: 100.1 on 20 and 6829 DF,  p-value: < 2.2e-16\n>\n> In this, f.year is a factor and major.industry is a factor. i.x is a\n> boolean. lta.l1 is a real number. The left hand side variable (da.g1)\n> is a real number. I put a -1 on the regression to make space for the\n> dummy variables.\n>\n> On to my woes with robust regressions. MASS:rlm() breaks:\n>\n>> library(MASS)\n>> summary(rlm(da.g1 ~ -1 + f.year +\n> +            major.industry +\n> +            i.x +\n> +            lta.l1 + I(lta.l1^2), method=\"MM\", data=long))\n> Error in rlm.default(x, y, weights, method = method, wt.method = wt.method,  :\n>  'x' is singular: singular fits are not implemented in rlm\n>\n> robustbase::lmrob() breaks:\n>\n>> library(robustbase)\n>> summary(lmrob(da.g1 ~ -1 + f.year +\n> +            major.industry +\n> +            i.x +\n> +            lta.l1 + I(lta.l1^2), data=long))\n>\n> Too many singular resamples\n> Aborting fast_s_w_mem()\n>\n> Error in lmrob.S(x = x, y = y, control = control) :\n>  C function R_lmrob_S() exited prematurely\n>\n>\n> If you could guide me on what I'm doing wrong, that'll be great. How\n> would I do the above specification as a robust regression? I googled\n> around and I found a few others asking these same questions in the\n> past, but it didn't look like there was a clear answer.\n>\n> --\n> Ajay Shah                                      http://www.mayin.org/ajayshah\n> ajayshah at mayin.org                             http://ajayshahblog.blogspot.com\n> <*(:-? - wizard who doesn't know the answer.\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Try quantreg (using the interior point method):\n\nfo <- da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1 + I(lta.l1^2)\nlibrary(quantreg)\nrq(fo, data = long, method = \"fn\")\n\n\nOn Sun, Sep 7, 2008 at 1",
+      "thread_id": "thread-1b8951170d58",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-d28dff4f5851",
+      "message_id": "<18628.63853.332729.943469@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-09-08T12:07:41+02:00",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "subject_clean": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "in_reply_to": "<971536df0809070806t4e17996ckcbb967d9b5db570b@mail.gmail.com>",
+      "references": [
+        "<20080907141350.GR301@lubyanka.local>",
+        "<971536df0809070806t4e17996ckcbb967d9b5db570b@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>     on Sun, 7 Sep 2008 11:06:33 -0400 writes:\n\n    GaGr> Try quantreg (using the interior point method):\n\n    GaGr> fo <- da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1 + I(lta.l1^2)\n    GaGr> library(quantreg)\n    GaGr> rq(fo, data = long, method = \"fn\")\n\nWell, no: \nNote that quantreg  (with default tau = 0.5) \ndoes so-called \"L1\" regression, which is a Huber M-estimate (the\nmost-robust, least-efficient among the Hubers).\nBUT the influcence function of such an estimate is still linear\nin the predictor (x \\in \\R^p) and hence *un*bounded (in x).\nIn (too) short: Such estimates are robust against outliers in y\nbut *NOT* robust against outliers in x.\n\nFor this reason, more than 20 years ago, so called bounded\ninfluence regression estimators were invented and later\ncomplemented by high-breakdown and then MM-estimates (which\ncombine high breakdown with high efficiency).\n\nNow to the specific case\n(which also contains much more about the general problem):\n\n    GaGr> On Sun, Sep 7, 2008 at 10:13 AM, Ajay Shah <ajayshah at mayin.org> wrote:\n    >> I have a regression where the lm() goes through fine. This mailing\n    >> list has always encouraged me to worry about how a robust regression\n    >> might do things differently. I tried two approaches and both don't\n    >> work.\n    >> \n    >> First I need to give you the dataset:\n    >> \n    >>> load(url(\"http://www.mayin.org/ajayshah/tmp/long.rda\"))\n    >> \n    >> This gives you a data frame named \"long\". Here's the simple lm():\n    >> \n    >>> summary(lm(da.g1 ~ -1 + f.year +\n    >> +            major.industry +\n    >> +            i.x +\n    >> +            lta.l1 + I(lta.l1^2), data=long))\n    >> \n \n[............]\n\n    >> In this, f.year is a factor and major.industry is a factor. i.x is a\n    >> boolean. lta.l1 is a real number. The left hand side variable (da.g1)\n    >> is a real number. I put a -1 on the regression to make space for the\n    >> dummy variables.\n    >> \n    >> On to my woes with robust regressions. MASS:rlm() breaks:\n    >> \n    >>> library(MASS)\n    >>> summary(rlm(da.g1 ~ -1 + f.year +\n    >> +            major.industry +\n    >> +            i.x +\n    >> +            lta.l1 + I(lta.l1^2), method=\"MM\", data=long))\n    >> Error in rlm.default(x, y, weights, method = method, wt.method = wt.method,  :\n    >> 'x' is singular: singular fits are not implemented in rlm\n\nIf you do *NOT* use  method=\"MM\", i.e. use the default,\nthen  MASS::rlm() works\n*and* is (in my biased view) to be preferred over  L1(quantreg),\neven though the fits will probably be quite similar here.\n\n    >> robustbase::lmrob() breaks:\n    >> \n    >>> library(robustbase)\n    >>> summary(lmrob(da.g1 ~ -1 + f.year +\n    >> +            major.industry +\n    >> +            i.x +\n    >> +            lta.l1 + I(lta.l1^2), data=long))\n    >> \n    >> Too many singular resamples\n    >> Aborting fast_s_w_mem()\n    >> \n    >> Error in lmrob.S(x = x, y = y, control = control) :\n    >> C function R_lmrob_S() exited prematurely\n\nYes; the reason for robustbase::lmrob's failure is basically the\nsame as for  MASS::rlm(., method=\"MM\")'s one:\n\nThe MM-method of both require a high-breakdown initial estimate,\n*and* the high-breakdown initial estimates are based algorithms\nthat use resampling methods which are not at all adapted to this\n(and based on a theory of affine-invariance which does *not*\n apply in the case of factor-predictors...)\n\nWithin the small community of experts this is well-known.\nFor this reason,  Maronna & Yohai (1999) proposed the so-called\n\"S/M - estimate\" which is supposedly implemented in Insightful's\n\"Robust library\" and consequently in the 'robust' R package.\nThe 'robust.pdf' manual (of Insightful's original) says this on\npage 35: \n\n>   The Robust Library deals with this problem by using a new\n>   alternate S/M-estimate computing algorithm due to Maronna and\n>   Yohai (1999) for robustly fitting linear models which contain factor\n>   variables with possibly many levels. S-PLUS automatically uses the\n>   new S/M-estimate algorithm whenever your linear model data\n>   contains at least one factor variable. For further information see the\n>   Theoretical Details section Alternating S and M Initial Estimate.\n\n*AND* in last year's \"robust stats in R\" meeting in Banff,\nwe had decided that this algorithm should really become an\noption in 'robustbase' ((but it seems we hadn't made good\nenough work assignments there ... ;-))\n\nAnyway, I've tried\n\n library(robust)\n mLMR. <- lmRob(fo, data = long)\n\nand unfortunately, that failed too, even though I'd have\nexpected it would work thanks to using the S/M algorithm \nbut *ALAS* it gets into problems as well..\n\nI'm interested in more feedback, particularly from other experts \nabout S/M and/or its implementation in 'robust'.\n\n\n    >> If you could guide me on what I'm doing wrong, that'll be great. How\n    >> would I do the above specification as a robust regression? I googled\n    >> around and I found a few others asking these same questions in the\n    >> past, but it didn't look like there was a clear answer.\n\nIn short: The  \"MM\"  method hasn't been well implemented for\n   \t  this situation,\nand you need to stick with the default\n\nrlm( )  for now.\n\nMartin Maechler, ETH Zurich\n\n    >> \n    >> --\n    >> Ajay Shah                                      http://www.mayin.org/ajayshah\n    >> ajayshah at mayin.org                             http://ajayshahblog.blogspot.com",
+      "body_snippet": ">>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>     on Sun, 7 Sep 2008 11:06:33 -0400 writes:\n\n    GaGr> Try quantreg (using the interior point method):\n\n    GaGr> fo <- da.g1 ~ ",
+      "thread_id": "thread-1b8951170d58",
+      "thread_depth": 2,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-e13c6582756b",
+      "message_id": "<971536df0809080355k6dd2c9fbsdde45c838e6c2bee@mail.gmail.com>",
+      "from_name": "Gabor Grothendieck",
+      "from_email_hash": "2470cc61688c301322ff3a85f3fd51ddba9f1112f88f535ec93c41ab610332d1",
+      "date": "2008-09-08T06:55:12-04:00",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "subject_clean": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "in_reply_to": "<18628.63853.332729.943469@stat.math.ethz.ch>",
+      "references": [
+        "<20080907141350.GR301@lubyanka.local>",
+        "<971536df0809070806t4e17996ckcbb967d9b5db570b@mail.gmail.com>",
+        "<18628.63853.332729.943469@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Did you actually try it?\n\n> library(MASS)\n> rlm(fo, data = long)\nError in rlm.default(x, y, weights, method = method, wt.method = wt.method,  :\n  'x' is singular: singular fits are not implemented in rlm\n\nHowever, with rq:\n\n> library(quantreg)\n> rq(fo, data = long, method = \"fn\")\nCall:\nrq(formula = fo, data = long, method = \"fn\")\n\nCoefficients:\n               f.year2002                f.year2003                f.year2004\n               8.77440508               10.01745274               11.51253770\n               f.year2005                f.year2006                f.year2007\n              16.41821284               19.58352037               23.11792593\nmajor.industryDiversified major.industryElectricity        major.industryFood\n               0.82687643                0.28608694                0.87899802\n  major.industryMachinery      major.industryMetals   major.industryMiscManuf\n               1.98080897                5.44824581                0.09976173\nmajor.industryNonMetalMin     major.industryServ.IT  major.industryServ.Other\n               2.53125111                4.44879221                2.19568600\n   major.industryTextiles major.industryTransportEq                   i.xTRUE\n               0.07032491                5.34869366                2.94512801\n                   lta.l1               I(lta.l1^2)\n              -3.20155385                0.25836972\n\nDegrees of freedom: 6849 total; 6829 residual\n\n\nOn Mon, Sep 8, 2008 at 6:07 AM, Martin Maechler\n<maechler at stat.math.ethz.ch> wrote:\n>>>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>>     on Sun, 7 Sep 2008 11:06:33 -0400 writes:\n>\n>    GaGr> Try quantreg (using the interior point method):\n>\n>    GaGr> fo <- da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1 + I(lta.l1^2)\n>    GaGr> library(quantreg)\n>    GaGr> rq(fo, data = long, method = \"fn\")\n>\n> Well, no:\n> Note that quantreg  (with default tau = 0.5)\n> does so-called \"L1\" regression, which is a Huber M-estimate (the\n> most-robust, least-efficient among the Hubers).\n> BUT the influcence function of such an estimate is still linear\n> in the predictor (x \\in \\R^p) and hence *un*bounded (in x).\n> In (too) short: Such estimates are robust against outliers in y\n> but *NOT* robust against outliers in x.\n>\n> For this reason, more than 20 years ago, so called bounded\n> influence regression estimators were invented and later\n> complemented by high-breakdown and then MM-estimates (which\n> combine high breakdown with high efficiency).\n>\n> Now to the specific case\n> (which also contains much more about the general problem):\n>\n>    GaGr> On Sun, Sep 7, 2008 at 10:13 AM, Ajay Shah <ajayshah at mayin.org> wrote:\n>    >> I have a regression where the lm() goes through fine. This mailing\n>    >> list has always encouraged me to worry about how a robust regression\n>    >> might do things differently. I tried two approaches and both don't\n>    >> work.\n>    >>\n>    >> First I need to give you the dataset:\n>    >>\n>    >>> load(url(\"http://www.mayin.org/ajayshah/tmp/long.rda\"))\n>    >>\n>    >> This gives you a data frame named \"long\". Here's the simple lm():\n>    >>\n>    >>> summary(lm(da.g1 ~ -1 + f.year +\n>    >> +            major.industry +\n>    >> +            i.x +\n>    >> +            lta.l1 + I(lta.l1^2), data=long))\n>    >>\n>\n> [............]\n>\n>    >> In this, f.year is a factor and major.industry is a factor. i.x is a\n>    >> boolean. lta.l1 is a real number. The left hand side variable (da.g1)\n>    >> is a real number. I put a -1 on the regression to make space for the\n>    >> dummy variables.\n>    >>\n>    >> On to my woes with robust regressions. MASS:rlm() breaks:\n>    >>\n>    >>> library(MASS)\n>    >>> summary(rlm(da.g1 ~ -1 + f.year +\n>    >> +            major.industry +\n>    >> +            i.x +\n>    >> +            lta.l1 + I(lta.l1^2), method=\"MM\", data=long))\n>    >> Error in rlm.default(x, y, weights, method = method, wt.method = wt.method,  :\n>    >> 'x' is singular: singular fits are not implemented in rlm\n>\n> If you do *NOT* use  method=\"MM\", i.e. use the default,\n> then  MASS::rlm() works\n> *and* is (in my biased view) to be preferred over  L1(quantreg),\n> even though the fits will probably be quite similar here.\n>\n>    >> robustbase::lmrob() breaks:\n>    >>\n>    >>> library(robustbase)\n>    >>> summary(lmrob(da.g1 ~ -1 + f.year +\n>    >> +            major.industry +\n>    >> +            i.x +\n>    >> +            lta.l1 + I(lta.l1^2), data=long))\n>    >>\n>    >> Too many singular resamples\n>    >> Aborting fast_s_w_mem()\n>    >>\n>    >> Error in lmrob.S(x = x, y = y, control = control) :\n>    >> C function R_lmrob_S() exited prematurely\n>\n> Yes; the reason for robustbase::lmrob's failure is basically the\n> same as for  MASS::rlm(., method=\"MM\")'s one:\n>\n> The MM-method of both require a high-breakdown initial estimate,\n> *and* the high-breakdown initial estimates are based algorithms\n> that use resampling methods which are not at all adapted to this\n> (and based on a theory of affine-invariance which does *not*\n>  apply in the case of factor-predictors...)\n>\n> Within the small community of experts this is well-known.\n> For this reason,  Maronna & Yohai (1999) proposed the so-called\n> \"S/M - estimate\" which is supposedly implemented in Insightful's\n> \"Robust library\" and consequently in the 'robust' R package.\n> The 'robust.pdf' manual (of Insightful's original) says this on\n> page 35:\n>\n>>   The Robust Library deals with this problem by using a new\n>>   alternate S/M-estimate computing algorithm due to Maronna and\n>>   Yohai (1999) for robustly fitting linear models which contain factor\n>>   variables with possibly many levels. S-PLUS automatically uses the\n>>   new S/M-estimate algorithm whenever your linear model data\n>>   contains at least one factor variable. For further information see the\n>>   Theoretical Details section Alternating S and M Initial Estimate.\n>\n> *AND* in last year's \"robust stats in R\" meeting in Banff,\n> we had decided that this algorithm should really become an\n> option in 'robustbase' ((but it seems we hadn't made good\n> enough work assignments there ... ;-))\n>\n> Anyway, I've tried\n>\n>  library(robust)\n>  mLMR. <- lmRob(fo, data = long)\n>\n> and unfortunately, that failed too, even though I'd have\n> expected it would work thanks to using the S/M algorithm\n> but *ALAS* it gets into problems as well..\n>\n> I'm interested in more feedback, particularly from other experts\n> about S/M and/or its implementation in 'robust'.\n>\n>\n>    >> If you could guide me on what I'm doing wrong, that'll be great. How\n>    >> would I do the above specification as a robust regression? I googled\n>    >> around and I found a few others asking these same questions in the\n>    >> past, but it didn't look like there was a clear answer.\n>\n> In short: The  \"MM\"  method hasn't been well implemented for\n>          this situation,\n> and you need to stick with the default\n>\n> rlm( )  for now.\n>\n> Martin Maechler, ETH Zurich\n>\n>    >>\n>    >> --\n>    >> Ajay Shah                                      http://www.mayin.org/ajayshah\n>    >> ajayshah at mayin.org                             http://ajayshahblog.blogspot.com\n>",
+      "body_snippet": "Did you actually try it?\n\n> library(MASS)\n> rlm(fo, data = long)\nError in rlm.default(x, y, weights, method = method, wt.method = wt.method,  :\n  'x' is singular: singular fits are not implemented in ",
+      "thread_id": "thread-1b8951170d58",
+      "thread_depth": 3,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-35915fcd0e45",
+      "message_id": "<18629.5427.405515.790650@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-09-08T14:06:11+02:00",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "subject_clean": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "in_reply_to": "<971536df0809080355k6dd2c9fbsdde45c838e6c2bee@mail.gmail.com>",
+      "references": [
+        "<20080907141350.GR301@lubyanka.local>",
+        "<971536df0809070806t4e17996ckcbb967d9b5db570b@mail.gmail.com>",
+        "<18628.63853.332729.943469@stat.math.ethz.ch>",
+        "<971536df0809080355k6dd2c9fbsdde45c838e6c2bee@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>     on Mon, 8 Sep 2008 06:55:12 -0400 writes:\n\n    GaGr> Did you actually try it?\n\nyes,\nhowever  with a slightly cleaned version of the data :\nI've really worked with  'd.long' \nwhich I produced with the following\n\n## simplify it a bit\nd.long <- long\nrn <- abbreviate(row.names(long), 8, method=\"both\")\nrow.names(d.long) <- rn\n## Remove the (previous) na.action -- it is not relevant here\nattr(d.long, \"na.action\") <- NULL\nhead(d.long, 20)\nsummary(d.long) # f.year has level '2001' with *no* entry\nd.long <- within(d.long,\n                 f.year <- factor(f.year))\n\n--- so the important part was removing the factor level with no entry\n\nI apologize for having omitted that part -- \nwhich I'd find crucial in a pre-analysis \"data step\"\nbut erronously thought to not matter much here.\n\nMartin\n\n    >> library(MASS)\n    >> rlm(fo, data = long)\n    GaGr> Error in rlm.default(x, y, weights, method = method, wt.method = wt.method,  :\n    GaGr> 'x' is singular: singular fits are not implemented in rlm\n\n    GaGr> However, with rq:\n\n    >> library(quantreg)\n    >> rq(fo, data = long, method = \"fn\")\n    GaGr> Call:\n    GaGr> rq(formula = fo, data = long, method = \"fn\")\n\n    GaGr> Coefficients:\n    GaGr> f.year2002                f.year2003                f.year2004\n    GaGr> 8.77440508               10.01745274               11.51253770\n    GaGr> f.year2005                f.year2006                f.year2007\n    GaGr> 16.41821284               19.58352037               23.11792593\n    GaGr> major.industryDiversified major.industryElectricity        major.industryFood\n    GaGr> 0.82687643                0.28608694                0.87899802\n    GaGr> major.industryMachinery      major.industryMetals   major.industryMiscManuf\n    GaGr> 1.98080897                5.44824581                0.09976173\n    GaGr> major.industryNonMetalMin     major.industryServ.IT  major.industryServ.Other\n    GaGr> 2.53125111                4.44879221                2.19568600\n    GaGr> major.industryTextiles major.industryTransportEq                   i.xTRUE\n    GaGr> 0.07032491                5.34869366                2.94512801\n    GaGr> lta.l1               I(lta.l1^2)\n    GaGr> -3.20155385                0.25836972\n\n    GaGr> Degrees of freedom: 6849 total; 6829 residual\n\n\n    GaGr> On Mon, Sep 8, 2008 at 6:07 AM, Martin Maechler\n    GaGr> <maechler at stat.math.ethz.ch> wrote:\n    >>>>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n    >>>>>>> on Sun, 7 Sep 2008 11:06:33 -0400 writes:\n    >> \n    GaGr> Try quantreg (using the interior point method):\n    >> \n    GaGr> fo <- da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1 + I(lta.l1^2)\n    GaGr> library(quantreg)\n    GaGr> rq(fo, data = long, method = \"fn\")\n    >> \n    >> Well, no:\n    >> Note that quantreg  (with default tau = 0.5)\n    >> does so-called \"L1\" regression, which is a Huber M-estimate (the\n    >> most-robust, least-efficient among the Hubers).\n    >> BUT the influcence function of such an estimate is still linear\n    >> in the predictor (x \\in \\R^p) and hence *un*bounded (in x).\n    >> In (too) short: Such estimates are robust against outliers in y\n    >> but *NOT* robust against outliers in x.\n    >> \n    >> For this reason, more than 20 years ago, so called bounded\n    >> influence regression estimators were invented and later\n    >> complemented by high-breakdown and then MM-estimates (which\n    >> combine high breakdown with high efficiency).\n    >> \n    >> Now to the specific case\n    >> (which also contains much more about the general problem):\n    >> \n    GaGr> On Sun, Sep 7, 2008 at 10:13 AM, Ajay Shah <ajayshah at mayin.org> wrote:\n    >> >> I have a regression where the lm() goes through fine. This mailing\n    >> >> list has always encouraged me to worry about how a robust regression\n    >> >> might do things differently. I tried two approaches and both don't\n    >> >> work.\n    >> >>\n    >> >> First I need to give you the dataset:\n    >> >>\n    >> >>> load(url(\"http://www.mayin.org/ajayshah/tmp/long.rda\"))\n    >> >>\n    >> >> This gives you a data frame named \"long\". Here's the simple lm():\n    >> >>\n    >> >>> summary(lm(da.g1 ~ -1 + f.year +\n    >> >> +            major.industry +\n    >> >> +            i.x +\n    >> >> +            lta.l1 + I(lta.l1^2), data=long))\n    >> >>\n    >> \n    >> [............]\n    >> \n    >> >> In this, f.year is a factor and major.industry is a factor. i.x is a\n    >> >> boolean. lta.l1 is a real number. The left hand side variable (da.g1)\n    >> >> is a real number. I put a -1 on the regression to make space for the\n    >> >> dummy variables.\n    >> >>\n    >> >> On to my woes with robust regressions. MASS:rlm() breaks:\n    >> >>\n    >> >>> library(MASS)\n    >> >>> summary(rlm(da.g1 ~ -1 + f.year +\n    >> >> +            major.industry +\n    >> >> +            i.x +\n    >> >> +            lta.l1 + I(lta.l1^2), method=\"MM\", data=long))\n    >> >> Error in rlm.default(x, y, weights, method = method, wt.method = wt.method,  :\n    >> >> 'x' is singular: singular fits are not implemented in rlm\n    >> \n    >> If you do *NOT* use  method=\"MM\", i.e. use the default,\n    >> then  MASS::rlm() works\n    >> *and* is (in my biased view) to be preferred over  L1(quantreg),\n    >> even though the fits will probably be quite similar here.\n    >> \n    >> >> robustbase::lmrob() breaks:\n    >> >>\n    >> >>> library(robustbase)\n    >> >>> summary(lmrob(da.g1 ~ -1 + f.year +\n    >> >> +            major.industry +\n    >> >> +            i.x +\n    >> >> +            lta.l1 + I(lta.l1^2), data=long))\n    >> >>\n    >> >> Too many singular resamples\n    >> >> Aborting fast_s_w_mem()\n    >> >>\n    >> >> Error in lmrob.S(x = x, y = y, control = control) :\n    >> >> C function R_lmrob_S() exited prematurely\n    >> \n    >> Yes; the reason for robustbase::lmrob's failure is basically the\n    >> same as for  MASS::rlm(., method=\"MM\")'s one:\n    >> \n    >> The MM-method of both require a high-breakdown initial estimate,\n    >> *and* the high-breakdown initial estimates are based algorithms\n    >> that use resampling methods which are not at all adapted to this\n    >> (and based on a theory of affine-invariance which does *not*\n    >> apply in the case of factor-predictors...)\n    >> \n    >> Within the small community of experts this is well-known.\n    >> For this reason,  Maronna & Yohai (1999) proposed the so-called\n    >> \"S/M - estimate\" which is supposedly implemented in Insightful's\n    >> \"Robust library\" and consequently in the 'robust' R package.\n    >> The 'robust.pdf' manual (of Insightful's original) says this on\n    >> page 35:\n    >> \n    >>> The Robust Library deals with this problem by using a new\n    >>> alternate S/M-estimate computing algorithm due to Maronna and\n    >>> Yohai (1999) for robustly fitting linear models which contain factor\n    >>> variables with possibly many levels. S-PLUS automatically uses the\n    >>> new S/M-estimate algorithm whenever your linear model data\n    >>> contains at least one factor variable. For further information see the\n    >>> Theoretical Details section Alternating S and M Initial Estimate.\n    >> \n    >> *AND* in last year's \"robust stats in R\" meeting in Banff,\n    >> we had decided that this algorithm should really become an\n    >> option in 'robustbase' ((but it seems we hadn't made good\n    >> enough work assignments there ... ;-))\n    >> \n    >> Anyway, I've tried\n    >> \n    >> library(robust)\n    >> mLMR. <- lmRob(fo, data = long)\n    >> \n    >> and unfortunately, that failed too, even though I'd have\n    >> expected it would work thanks to using the S/M algorithm\n    >> but *ALAS* it gets into problems as well..\n    >> \n    >> I'm interested in more feedback, particularly from other experts\n    >> about S/M and/or its implementation in 'robust'.\n    >> \n    >> \n    >> >> If you could guide me on what I'm doing wrong, that'll be great. How\n    >> >> would I do the above specification as a robust regression? I googled\n    >> >> around and I found a few others asking these same questions in the\n    >> >> past, but it didn't look like there was a clear answer.\n    >> \n    >> In short: The  \"MM\"  method hasn't been well implemented for\n    >> this situation,\n    >> and you need to stick with the default\n    >> \n    >> rlm( )  for now.\n    >> \n    >> Martin Maechler, ETH Zurich\n    >> \n    >> >>\n    >> >> --\n    >> >> Ajay Shah                                      http://www.mayin.org/ajayshah\n    >> >> ajayshah at mayin.org                             http://ajayshahblog.blogspot.com\n    >> \n\n    GaGr> _______________________________________________\n    GaGr> R-SIG-Robust at r-project.org mailing list\n    GaGr> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": ">>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>     on Mon, 8 Sep 2008 06:55:12 -0400 writes:\n\n    GaGr> Did you actually try it?\n\nyes,\nhowever  with a slightly cleaned version o",
+      "thread_id": "thread-1b8951170d58",
+      "thread_depth": 4,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-ea8a3b184599",
+      "message_id": "<18629.20105.265631.156326@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-09-08T18:10:49+02:00",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "subject_clean": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "in_reply_to": "<18628.63853.332729.943469@stat.math.ethz.ch>",
+      "references": [
+        "<20080907141350.GR301@lubyanka.local>",
+        "<971536df0809070806t4e17996ckcbb967d9b5db570b@mail.gmail.com>",
+        "<18628.63853.332729.943469@stat.math.ethz.ch>"
+      ],
+      "body_plain": "[.................]\n\n    MM> Yes; the reason for robustbase::lmrob's failure is basically the\n    MM> same as for  MASS::rlm(., method=\"MM\")'s one:\n\n    MM> The MM-method of both require a high-breakdown initial estimate,\n    MM> *and* the high-breakdown initial estimates are based algorithms\n    MM> that use resampling methods which are not at all adapted to this\n    MM> (and based on a theory of affine-invariance which does *not*\n    MM> apply in the case of factor-predictors...)\n\n    MM> Within the small community of experts this is well-known.\n    MM> For this reason,  Maronna & Yohai (1999) proposed the so-called\n    MM> \"S/M - estimate\" which is supposedly implemented in Insightful's\n    MM> \"Robust library\" and consequently in the 'robust' R package.\n    MM> The 'robust.pdf' manual (of Insightful's original) says this on\n    MM> page 35: \n\n       > The Robust Library deals with this problem by using a new\n       > alternate S/M-estimate computing algorithm due to Maronna and\n       > Yohai (1999) for robustly fitting linear models which contain factor\n       > variables with possibly many levels. S-PLUS automatically uses the\n       > new S/M-estimate algorithm whenever your linear model data\n       > contains at least one factor variable. For further information see the\n       > Theoretical Details section Alternating S and M Initial Estimate.\n\n    MM> *AND* in last year's \"robust stats in R\" meeting in Banff,\n    MM> we had decided that this algorithm should really become an\n    MM> option in 'robustbase' ((but it seems we hadn't made good\n    MM> enough work assignments there ... ;-))\n\n    MM> Anyway, I've tried\n\n    MM> library(robust)\n    MM> mLMR. <- lmRob(fo, data = long)\n\n    MM> and unfortunately, that failed too, even though I'd have\n    MM> expected it would work thanks to using the S/M algorithm \n    MM> but *ALAS* it gets into problems as well..\n\nOk, I've debugged that.\nIt's from a somewhat embarrassing bug in package 'robust':\nthe internally used function splus.assign() has a bug\nwhich only triggers when there is no intercept --- as in your case.\n\n---> Ajay, you *can* fit by putting an intercept,\nusing the 'robust' package and lmRob()\n\nor by patching the bug and re-installing 'robust' :\n\nIn function splus.assign, instead of the wrong\n\n  if(min(asgn) == 0)\n    term.labels <- c(\"(Intercept)\", term.labels)\n  asgn <- asgn + 1\n\nyou must use\n\n  if(min(asgn) == 0) {\n    term.labels <- c(\"(Intercept)\", term.labels)\n    asgn <- asgn + 1\n  }\n\n\n---\nMartin Maechler, ETH Zurich\n\n    MM> I'm interested in more feedback, particularly from other experts \n    MM> about S/M and/or its implementation in 'robust'.\n\n\n    MM> If you could guide me on what I'm doing wrong, that'll be great. How\n    MM> would I do the above specification as a robust regression? I googled\n    MM> around and I found a few others asking these same questions in the\n    MM> past, but it didn't look like there was a clear answer.\n\n    MM> In short: The  \"MM\"  method hasn't been well implemented for\n    MM> this situation,\n    MM> and you need to stick with the default\n\n    MM> rlm( )  for now.\n\n    MM> Martin Maechler, ETH Zurich\n\n    MM> \n    MM> --\n    MM> Ajay Shah                                      http://www.mayin.org/ajayshah\n    MM> ajayshah at mayin.org                             http://ajayshahblog.blogspot.com\n\n    MM> _______________________________________________\n    MM> R-SIG-Robust at r-project.org mailing list\n    MM> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "[.................]\n\n    MM> Yes; the reason for robustbase::lmrob's failure is basically the\n    MM> same as for  MASS::rlm(., method=\"MM\")'s one:\n\n    MM> The MM-method of both require a high-breakd",
+      "thread_id": "thread-1b8951170d58",
+      "thread_depth": 3,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-91e76e22d399",
+      "message_id": "<591DE7CE-6C71-45A6-8787-EE318A758B01@dst.unive.it>",
+      "from_name": "Agostinelli Claudio",
+      "from_email_hash": "abcafd0d2c313479912e230ea02e248490463d3f0f624eb163438dc3a5fd5ea4",
+      "date": "2008-09-08T18:57:56+02:00",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "subject_clean": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "in_reply_to": "<18629.5427.405515.790650@stat.math.ethz.ch>",
+      "references": [
+        "<20080907141350.GR301@lubyanka.local>",
+        "<971536df0809070806t4e17996ckcbb967d9b5db570b@mail.gmail.com>",
+        "<18628.63853.332729.943469@stat.math.ethz.ch>",
+        "<971536df0809080355k6dd2c9fbsdde45c838e6c2bee@mail.gmail.com>",
+        "<18629.5427.405515.790650@stat.math.ethz.ch>"
+      ],
+      "body_plain": "To add noise on the discussion I had tried to run wle.lm function in  \npackage wle on the dataset (You can download the code and the Rimage  \nfrom www.dst.unive.it/~claudio/shah.[R,Rimage]. The method finds two  \nroots. But even if they assigned different weights to a small part of  \nthe observations, the roots are exactly the same but for one  \ncoefficient. Hence I think that the right root to choose is the first  \none. Would you mind to compare this result with the one you have from  \nrlm and quantreg?\n\nClaudio\n\n\nOn Sep 8, 2008, at 2:06 PM, Martin Maechler wrote:\n\n>>>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>>     on Mon, 8 Sep 2008 06:55:12 -0400 writes:\n>\n>     GaGr> Did you actually try it?\n>\n> yes,\n> however  with a slightly cleaned version of the data :\n> I've really worked with  'd.long'\n> which I produced with the following\n>\n> ## simplify it a bit\n> d.long <- long\n> rn <- abbreviate(row.names(long), 8, method=\"both\")\n> row.names(d.long) <- rn\n> ## Remove the (previous) na.action -- it is not relevant here\n> attr(d.long, \"na.action\") <- NULL\n> head(d.long, 20)\n> summary(d.long) # f.year has level '2001' with *no* entry\n> d.long <- within(d.long,\n>                  f.year <- factor(f.year))\n>\n> --- so the important part was removing the factor level with no entry\n>\n> I apologize for having omitted that part --\n> which I'd find crucial in a pre-analysis \"data step\"\n> but erronously thought to not matter much here.\n>\n> Martin\n>\n>>> library(MASS)\n>>> rlm(fo, data = long)\n>     GaGr> Error in rlm.default(x, y, weights, method = method,  \n> wt.method = wt.method,  :\n>     GaGr> 'x' is singular: singular fits are not implemented in rlm\n>\n>     GaGr> However, with rq:\n>\n>>> library(quantreg)\n>>> rq(fo, data = long, method = \"fn\")\n>     GaGr> Call:\n>     GaGr> rq(formula = fo, data = long, method = \"fn\")\n>\n>     GaGr> Coefficients:\n>     GaGr> f.year2002                f.year2003                 \n> f.year2004\n>     GaGr> 8.77440508               10.01745274                \n> 11.51253770\n>     GaGr> f.year2005                f.year2006                 \n> f.year2007\n>     GaGr> 16.41821284               19.58352037                \n> 23.11792593\n>     GaGr> major.industryDiversified  \n> major.industryElectricity        major.industryFood\n>     GaGr> 0.82687643                0.28608694                 \n> 0.87899802\n>     GaGr> major.industryMachinery      major.industryMetals    \n> major.industryMiscManuf\n>     GaGr> 1.98080897                5.44824581                 \n> 0.09976173\n>     GaGr> major.industryNonMetalMin     major.industryServ.IT   \n> major.industryServ.Other\n>     GaGr> 2.53125111                4.44879221                 \n> 2.19568600\n>     GaGr> major.industryTextiles  \n> major.industryTransportEq                   i.xTRUE\n>     GaGr> 0.07032491                5.34869366                 \n> 2.94512801\n>     GaGr> lta.l1               I(lta.l1^2)\n>     GaGr> -3.20155385                0.25836972\n>\n>     GaGr> Degrees of freedom: 6849 total; 6829 residual\n>\n>\n>     GaGr> On Mon, Sep 8, 2008 at 6:07 AM, Martin Maechler\n>     GaGr> <maechler at stat.math.ethz.ch> wrote:\n>>>>>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>>>> on Sun, 7 Sep 2008 11:06:33 -0400 writes:\n>>>\n>     GaGr> Try quantreg (using the interior point method):\n>>>\n>     GaGr> fo <- da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1  \n> + I(lta.l1^2)\n>     GaGr> library(quantreg)\n>     GaGr> rq(fo, data = long, method = \"fn\")\n>>>\n>>> Well, no:\n>>> Note that quantreg  (with default tau = 0.5)\n>>> does so-called \"L1\" regression, which is a Huber M-estimate (the\n>>> most-robust, least-efficient among the Hubers).\n>>> BUT the influcence function of such an estimate is still linear\n>>> in the predictor (x \\in \\R^p) and hence *un*bounded (in x).\n>>> In (too) short: Such estimates are robust against outliers in y\n>>> but *NOT* robust against outliers in x.\n>>>\n>>> For this reason, more than 20 years ago, so called bounded\n>>> influence regression estimators were invented and later\n>>> complemented by high-breakdown and then MM-estimates (which\n>>> combine high breakdown with high efficiency).\n>>>\n>>> Now to the specific case\n>>> (which also contains much more about the general problem):\n>>>\n>     GaGr> On Sun, Sep 7, 2008 at 10:13 AM, Ajay Shah  \n> <ajayshah at mayin.org> wrote:\n>>>>> I have a regression where the lm() goes through fine. This mailing\n>>>>> list has always encouraged me to worry about how a robust  \n>>>>> regression\n>>>>> might do things differently. I tried two approaches and both don't\n>>>>> work.\n>>>>>\n>>>>> First I need to give you the dataset:\n>>>>>\n>>>>>> load(url(\"http://www.mayin.org/ajayshah/tmp/long.rda\"))\n>>>>>\n>>>>> This gives you a data frame named \"long\". Here's the simple lm():\n>>>>>\n>>>>>> summary(lm(da.g1 ~ -1 + f.year +\n>>>>> +            major.industry +\n>>>>> +            i.x +\n>>>>> +            lta.l1 + I(lta.l1^2), data=long))\n>>>>>\n>>>\n>>> [............]\n>>>\n>>>>> In this, f.year is a factor and major.industry is a factor. i.x  \n>>>>> is a\n>>>>> boolean. lta.l1 is a real number. The left hand side variable  \n>>>>> (da.g1)\n>>>>> is a real number. I put a -1 on the regression to make space  \n>>>>> for the\n>>>>> dummy variables.\n>>>>>\n>>>>> On to my woes with robust regressions. MASS:rlm() breaks:\n>>>>>\n>>>>>> library(MASS)\n>>>>>> summary(rlm(da.g1 ~ -1 + f.year +\n>>>>> +            major.industry +\n>>>>> +            i.x +\n>>>>> +            lta.l1 + I(lta.l1^2), method=\"MM\", data=long))\n>>>>> Error in rlm.default(x, y, weights, method = method, wt.method  \n>>>>> = wt.method,  :\n>>>>> 'x' is singular: singular fits are not implemented in rlm\n>>>\n>>> If you do *NOT* use  method=\"MM\", i.e. use the default,\n>>> then  MASS::rlm() works\n>>> *and* is (in my biased view) to be preferred over  L1(quantreg),\n>>> even though the fits will probably be quite similar here.\n>>>\n>>>>> robustbase::lmrob() breaks:\n>>>>>\n>>>>>> library(robustbase)\n>>>>>> summary(lmrob(da.g1 ~ -1 + f.year +\n>>>>> +            major.industry +\n>>>>> +            i.x +\n>>>>> +            lta.l1 + I(lta.l1^2), data=long))\n>>>>>\n>>>>> Too many singular resamples\n>>>>> Aborting fast_s_w_mem()\n>>>>>\n>>>>> Error in lmrob.S(x = x, y = y, control = control) :\n>>>>> C function R_lmrob_S() exited prematurely\n>>>\n>>> Yes; the reason for robustbase::lmrob's failure is basically the\n>>> same as for  MASS::rlm(., method=\"MM\")'s one:\n>>>\n>>> The MM-method of both require a high-breakdown initial estimate,\n>>> *and* the high-breakdown initial estimates are based algorithms\n>>> that use resampling methods which are not at all adapted to this\n>>> (and based on a theory of affine-invariance which does *not*\n>>> apply in the case of factor-predictors...)\n>>>\n>>> Within the small community of experts this is well-known.\n>>> For this reason,  Maronna & Yohai (1999) proposed the so-called\n>>> \"S/M - estimate\" which is supposedly implemented in Insightful's\n>>> \"Robust library\" and consequently in the 'robust' R package.\n>>> The 'robust.pdf' manual (of Insightful's original) says this on\n>>> page 35:\n>>>\n>>>> The Robust Library deals with this problem by using a new\n>>>> alternate S/M-estimate computing algorithm due to Maronna and\n>>>> Yohai (1999) for robustly fitting linear models which contain  \n>>>> factor\n>>>> variables with possibly many levels. S-PLUS automatically uses the\n>>>> new S/M-estimate algorithm whenever your linear model data\n>>>> contains at least one factor variable. For further information  \n>>>> see the\n>>>> Theoretical Details section Alternating S and M Initial Estimate.\n>>>\n>>> *AND* in last year's \"robust stats in R\" meeting in Banff,\n>>> we had decided that this algorithm should really become an\n>>> option in 'robustbase' ((but it seems we hadn't made good\n>>> enough work assignments there ... ;-))\n>>>\n>>> Anyway, I've tried\n>>>\n>>> library(robust)\n>>> mLMR. <- lmRob(fo, data = long)\n>>>\n>>> and unfortunately, that failed too, even though I'd have\n>>> expected it would work thanks to using the S/M algorithm\n>>> but *ALAS* it gets into problems as well..\n>>>\n>>> I'm interested in more feedback, particularly from other experts\n>>> about S/M and/or its implementation in 'robust'.\n>>>\n>>>\n>>>>> If you could guide me on what I'm doing wrong, that'll be  \n>>>>> great. How\n>>>>> would I do the above specification as a robust regression? I  \n>>>>> googled\n>>>>> around and I found a few others asking these same questions in the\n>>>>> past, but it didn't look like there was a clear answer.\n>>>\n>>> In short: The  \"MM\"  method hasn't been well implemented for\n>>> this situation,\n>>> and you need to stick with the default\n>>>\n>>> rlm( )  for now.\n>>>\n>>> Martin Maechler, ETH Zurich\n>>>\n>>>>>\n>>>>> --\n>>>>> Ajay Shah                                      http:// \n>>>>> www.mayin.org/ajayshah\n>>>>> ajayshah at mayin.org                             http:// \n>>>>> ajayshahblog.blogspot.com\n>>>\n>\n>     GaGr> _______________________________________________\n>     GaGr> R-SIG-Robust at r-project.org mailing list\n>     GaGr> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n------------------------------------------------------------\nClaudio Agostinelli\nDipartimento di Statistica\nUniversita' Ca' Foscari di Venezia\nSan Giobbe, Cannaregio 873\n30121 Venezia\nTel: 041 2347446, Fax: 041 2347444\nemail: claudio at unive.it, www: www.dst.unive.it/~claudio\nskype: claudio.agostinelli\n------------------------------------------------------------\nVisita il sito di Pino Masciari www.pinomasciari.org\n------------------------------------------------------------\nPer favore non mandatemi allegati in Word o PowerPoint.\nSi veda http://www.gnu.org/philosophy/no-word-attachments.html\n\nPlease avoid sending me Word or PowerPoint attachments.\nSee http://www.gnu.org/philosophy/no-word-attachments.html",
+      "body_snippet": "To add noise on the discussion I had tried to run wle.lm function in  \npackage wle on the dataset (You can download the code and the Rimage  \nfrom www.dst.unive.it/~claudio/shah.[R,Rimage]. The method",
+      "thread_id": "thread-1b8951170d58",
+      "thread_depth": 5,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-3fcfd37760e4",
+      "message_id": "<8AC472AB-B320-4D6C-85CD-61B0F2779FFC@epfl.ch>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "dbde64352289953147e639af58ad94d54fbe314dd3ce76fa6c738d1b3f3626ca",
+      "date": "2008-09-09T11:27:19+02:00",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "subject_clean": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "in_reply_to": "<18629.20105.265631.156326@stat.math.ethz.ch>",
+      "references": [
+        "<20080907141350.GR301@lubyanka.local>",
+        "<971536df0809070806t4e17996ckcbb967d9b5db570b@mail.gmail.com>",
+        "<18628.63853.332729.943469@stat.math.ethz.ch>",
+        "<18629.20105.265631.156326@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Yup. That's me. Consider me embarrassed.\n\nHere is splus.assign with Martin's fix:\n\nsplus.assign <- function(asgn, term.labels)\n{\n   if(min(asgn) == 0) {\n     term.labels <- c(\"(Intercept)\", term.labels)\n     asgn <- asgn + 1\n   }\n   ans <- list()\n   n <- length(term.labels)\n   for(i in 1:n)\n     ans[[i]] <- which(asgn == i)\n   names(ans) <- term.labels\n   ans\n}\n\nYou can make a temporary fix but putting this function into your R  \nsession. I'll fix this in robust ASAP.\n\nKjell\n\n\n\nOn 8 sept. 08, at 18:10, Martin Maechler wrote:\n\n> Ok, I've debugged that.\n> It's from a somewhat embarrassing bug in package 'robust':\n> the internally used function splus.assign() has a bug\n> which only triggers when there is no intercept --- as in your case.",
+      "body_snippet": "Yup. That's me. Consider me embarrassed.\n\nHere is splus.assign with Martin's fix:\n\nsplus.assign <- function(asgn, term.labels)\n{\n   if(min(asgn) == 0) {\n     term.labels <- c(\"(Intercept)\", term.label",
+      "thread_id": "thread-1b8951170d58",
+      "thread_depth": 4,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-3628b923cd01",
+      "message_id": "<AB045755-C26D-4FC2-B929-33B0631DF7CC@unibas.ch>",
+      "from_name": "Stefan Herzog",
+      "from_email_hash": "127583f7f2cd300a2309a679d6bf66d543f47ae162729e0f94b3db7fbe3e2edc",
+      "date": "2008-09-11T21:56:03+02:00",
+      "subject": "[RsR] confidence intervals for lmRob",
+      "subject_clean": "[RsR] confidence intervals for lmRob",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\n\nI looked around, but couldn't find anything (and that's why I hope  \nthis is not an unnecessary, lazy newbie question):\n\n1) How do I compute confidence intervals for lmRob regression  \n(package \"robust\")?\n\n2) If this method is not yet implemented, would it make sense to  \nbootstrap lmRob and derive the CI, say using a percentile t method?\n\n\nThanx!\n\n\nCheers, Stefan\n\n\n-------------------------------------------------------------\nStefan Herzog, M. Sc.\nCenter for Cognitive and Decision Sciences\n\nDepartment of Psychology\nUniversity of Basel\nMissionsstrasse 64A\n4055 Basel\nSwitzerland\n\n+41 61 267 06 15\nstefan.herzog at unibas.ch\nhttp://www.psycho.unibas.ch/herzog/",
+      "body_snippet": "Hi,\n\n\nI looked around, but couldn't find anything (and that's why I hope  \nthis is not an unnecessary, lazy newbie question):\n\n1) How do I compute confidence intervals for lmRob regression  \n(package ",
+      "thread_id": "thread-3628b923cd01",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-d27766be93a4",
+      "message_id": "<48C9FB9F.4050607@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2008-09-11T22:18:23-07:00",
+      "subject": "[RsR] confidence intervals for lmRob",
+      "subject_clean": "[RsR] confidence intervals for lmRob",
+      "in_reply_to": "<AB045755-C26D-4FC2-B929-33B0631DF7CC@unibas.ch>",
+      "references": [
+        "<AB045755-C26D-4FC2-B929-33B0631DF7CC@unibas.ch>"
+      ],
+      "body_plain": "Hello Stefan,\n\nThe summary() method for lmRob objects in package robust returns \nestimated standard errors that are valid when the error distribution is \nsymmetric. If you either (a) don't have outliers in your data; or (b) \nhave atypical observations or model departures that are symmetric around \nthe regression line, then these estimated SDs could be used to construct \nconfidence intervals for each regression coefficient of the form \nestimate +/- qnorm(alpha/2) * SD.\n\nHowever, in package robustbase, the summary() method for lmrob objects \nreturns estimated SDs that are valid in more general cases (e.g \nasymmetric outliers), so they are in principle more reliable than the \nones above. They are based on Croux, C., Dhaene, G., Hoorelbeke, D. \n(2003), \"Robust Standard Errors for Robust Estimators.\" (available on \nline from Christophe Croux's website). See help(lmrob) for more details.\n\nThese estimated SDs in package robustbase can also be used to construct \nconfidence intervals for each regression coefficient of the form \nestimate +/- qnorm(alpha/2) * SD under weaker (more general) assumptions \nthan above.\n\nMoreover, note that bootstrapping robust estimators is not \nstraightforward. Although MM estimators are smooth enough to allow the \nbootstrap to be consistent, their high computational complexity together \nwith the potentially large number of outliers present in the bootstrap \nsamples makes direct bootstrapping of robust estimators not a good idea \nin general. There are some alternatives in the literature. See, for \nexample: SB and Zamar, R.H. (2002). Bootstrapping robust estimates of \nregression. The Annals of Statistics, 30, 556-582.\n\nThis fast and robust bootstrap can also be applied to obtain consistent \np-values for nested tests of hypotheses for linear regression models \nbased on robust estimators (SB, (2005). Estimating the p-values of \nrobust tests for the linear model. Journal of Statistical Planning and \nInference, 128, 241-257).\n\nThe fast and robust bootstrap has also been applied successfully to \nseveral other models (e.g. SB, Van Aelst, S. and Willems, G. (2006). PCA \nbased on multivariate MM-estimators with fast and robust bootstrap. \nJournal of the American Statistical Association, 101, 1198-1211; \nRoelant, E., Van Aelst, S., and Croux, C. (2008), \" Multivariate \nGeneralized S-estimators,\" Journal of Multivariate Analysis, to appear; \nVan Aelst, S., and Willems, G. (2005), \" Multivariate Regression \nS-Estimators for Robust Estimation and Inference,\" Statistica Sinica, \n15, 981-1001), and also to model selection for linear regression (SB, \nVan Aelst, S. (2008), \" Robust Model Selection Using Fast and Robust \nBootstrap, \" Computational Statistics and Data Analysis, 52, 5121-5135).\n\nI have some R plug-in code for the robustbase package that implements \nthis fast and robust bootstrap based on lmrob in package robustbase. If \nyou're interested, let me know and I will dig it out for you.\n\nHope this helps. I'll be happy to help if you have any further questions.\n\nBest,\n\nMatias\n\n-- \n_____________________________________________________\nMatias Salibian-Barrera - Department of Statistics\nThe University of British Columbia\nPhone: (604) 822-3410 - Fax: (604) 822-6960\n\"The plural of anecdote is not data\" (George Stigler?)\n\n\n\n\nStefan Herzog wrote:\n> Hi,\n> \n> \n> I looked around, but couldn't find anything (and that's why I hope this \n> is not an unnecessary, lazy newbie question):\n> \n> 1) How do I compute confidence intervals for lmRob regression (package \n> \"robust\")?\n> \n> 2) If this method is not yet implemented, would it make sense to \n> bootstrap lmRob and derive the CI, say using a percentile t method?\n> \n> \n> Thanx!\n> \n> \n> Cheers, Stefan\n> \n> \n> -------------------------------------------------------------\n> Stefan Herzog, M. Sc.\n> Center for Cognitive and Decision Sciences\n> \n> Department of Psychology\n> University of Basel\n> Missionsstrasse 64A\n> 4055 Basel\n> Switzerland\n> \n> +41 61 267 06 15\n> stefan.herzog at unibas.ch\n> http://www.psycho.unibas.ch/herzog/\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Hello Stefan,\n\nThe summary() method for lmRob objects in package robust returns \nestimated standard errors that are valid when the error distribution is \nsymmetric. If you either (a) don't have outlie",
+      "thread_id": "thread-3628b923cd01",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-c474f88c34fc",
+      "message_id": "<20080914051245.GA19844@lubyanka.local>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2008-09-14T10:42:45+05:30",
+      "subject": "[RsR] robustbase::lmrob() difficulty continued",
+      "subject_clean": "[RsR] robustbase::lmrob() difficulty continued",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Folks,\n\nA few days ago I had asked a question\nhttps://stat.ethz.ch/pipermail/r-sig-robust/2008/000208.html and got a\ntonne of help. One issue that was pointed out was recoding a factor so\nas to not have a missing level in it. Another issue that was pointed\nout was that excluding an intercept seems to tickle a bug.\n\nA few weeks later, various packages have revved. I have solved the\nproblem of factor coding. Now the intercept exclusion no longer seems\nto be an issue. Now MASS:rlm() works for me as does\nrobust::lmRob().\n\nBut robustbase::lmrob() still does not work (robustbase 0.4-3). Here's\na demo:\n\n---------------------------------------------------------------------------\n> load(url(\"http://www.mayin.org/ajayshah/tmp/demo.rda\"))\n> library(robustbase)\n> lmrob(spec.full, data=tmp)\n\nToo many singular resamples\nAborting fast_s_w_mem()\n\nError in lmrob.S(x = x, y = y, control = control) : \n  C function R_lmrob_S() exited prematurely\nCalls: lmrob -> lmrob.fit.MM -> lmrob.S\n---------------------------------------------------------------------------\n\nI'm keen to use robustbase::lmrob() in order to get the right\ninference (see\nhttps://stat.ethz.ch/pipermail/r-sig-robust/2008/000217.html). Do you\nhave a sense of how this might be achieved?\n\n-- \nAjay Shah                                      http://www.mayin.org/ajayshah  \najayshah at mayin.org                             http://ajayshahblog.blogspot.com\n<*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": "Folks,\n\nA few days ago I had asked a question\nhttps://stat.ethz.ch/pipermail/r-sig-robust/2008/000208.html and got a\ntonne of help. One issue that was pointed out was recoding a factor so\nas to not ha",
+      "thread_id": "thread-c474f88c34fc",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-56aac4cd57cb",
+      "message_id": "<48D0A7E6.40209@stamats.de>",
+      "from_name": "Matthias Kohl",
+      "from_email_hash": "e144ddb675681f3124c6e887dd63c8aec6f6b4e9911a8cda00f94c453a4cb173",
+      "date": "2008-09-17T08:47:02+02:00",
+      "subject": "[RsR] RobASt-Packages",
+      "subject_clean": "[RsR] RobASt-Packages",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "-----------------------------------------------------------------------------------------\nPackages for the computation of optimally robust estimators\n-----------------------------------------------------------------------------------------\n\nWe would like to announce the availability on CRAN (with possibly a\nminor delay until on every mirror) of new versions of our packages for\nthe computation of optimally robust estimators; i.e., \"RandVar\",\n\"ROptEst\", \"RobLox\" as well as a new package \"RobAStBase\" (not yet:\nROptRegTS and RobRex).\n\n-----------------------------------------------------------------------------------------\nDevel versions on R-forge\n-----------------------------------------------------------------------------------------\nThe development of these packages is under r-forge project RobASt\n(Robust Asymptotic Statistics):\n\nhttp://r-forge.r-project.org/projects/robast/\nhttp://robast.r-forge.r-project.org/\n\nIf you find this project interesting and would like to collaborate, you\nare warmly welcome.\n\nWe look forward to receiving questions, comments and suggestions.\n\nMatthias Kohl\nPeter Ruckdeschel\n\n-----------------------------------------------------------------------------------------\nRandVar - Implementation of random variables (version 0.6.3)\n-----------------------------------------------------------------------------------------\nThe package RandVar which includes an S4 implementation of random\nvariables together with the packages distr, distrEx and distrMod form\nthe basis of our packages on robust statistics.\n\n-----------------------------------------------------------------------------------------\nRobAStBase - Robust Asymptotic Statistics (version 0.1.0)\n-----------------------------------------------------------------------------------------\nThis is a new package including some necessary S4 class infrastructure\nlike neighborhoods, influence curves and robust models.\n\n-----------------------------------------------------------------------------------------\nROptEst - Optimally robust estimation (version 0.6.0)\n-----------------------------------------------------------------------------------------\nThis is the main package for the optimally robust estimation in smoothly\n(L2-differentiable) parametric models [optimal in the sense of the\nshrinking neighborhood setup]. By using S4 classes and methods\nthe implementation so far covers the optimally robust estimation for\nall(!) smooth (L2-differentiable/differentiable in quadratic mean)\nparametric models which are based on a univariate distribution. Many\nwell-known parametric (in particular, exponential) families (Binomial,\nPoission, Normal, Gamma, Gumbel, ...) are L2-differentiable.\nWe include several\n   +neighborhood types (convex contamination, total variation)\n   +risks (MSE, Hampel, overshoot/undershoot),\n   +bias-types (symmetric, one-sided, asymmetric)\n   +norms (unstandardized, self-standardized, information-standardized)\nfor all these models.\nAfter installation you find a folder \"scripts\" in the package directory\nwhich includes many example scripts.\nAs the computation of optimally robust estimators involves several\nsteps, we -- in this new version -- added an interface function\n\"roptest\" which can be used to perform all steps via one function.\n\n-----------------------------------------------------------------------------------------\nRobLox - Optimally robust influence curves for location and scale\n(version 0.6.0)\n-----------------------------------------------------------------------------------------\nThis package includes functions for the computation of many well known\ninfluence curves (e.g., Huber-, Hampel-, Tukey-, Andrews-type) for\nnormal location and scale in the framework of our asymptotic setup.\nMoreover, (and for us, more importantly) it includes the functions\n\"roblox\", \"rowRoblox\" and \"colRoblox\" which can be used to compute\noptimally robust estimators in case of normal location and scale. These\nfunctions are optimized for speed and can be applied to large scale\nproblems like for instance gene expression data. Using rowRobLox the\ncomputation for a 50000 x 20 matrix takes about 2 sec. on a Centrino Duo\nwith 1.66 GHz. As a comparison (all on the same system): using apply and\nhuberM (robustbase), resp. huber (MASS) takes about 168 sec. resp 197\nsec., using apply and roblox takes about 16 minutes and using apply and\nroptest (ROptEst) takes about 1 month.\n\n-----------------------------------------------------------------------------------------\nROptRegTS - Optimally robust estimation for regression-type models\nRobRex - Optimally robust influence curves for regression and scale\n-----------------------------------------------------------------------------------------\nThese two packages which provide S4 classes and methods for the\ncomputation of optimally robust estimators in regression-type models are\nnot yet adapted to the new implementation. If you are interested in\nworking with these packages you have to use the old versions of the\nabove packages which we are pleased to provide on request (the sources\ncan also be found in the CRAN archives). But, of course, we will try to\nupdate these packages as soon as possible.\n\n-- \nDr. Matthias Kohl\nwww.stamats.de",
+      "body_snippet": "-----------------------------------------------------------------------------------------\nPackages for the computation of optimally robust estimators\n--------------------------------------------------",
+      "thread_id": "thread-56aac4cd57cb",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-ee3e5a1e4bbc",
+      "message_id": "<Pine.LNX.4.64.0809181040010.8487@egon.stats.ucl.ac.uk>",
+      "from_name": "Christian Hennig",
+      "from_email_hash": "c6936c049c63f68a3abe7b4feaaeafc46eca8c7f28450ceedf1c241a6852be24",
+      "date": "2008-09-18T10:46:27+01:00",
+      "subject": "[RsR] MM-scale",
+      "subject_clean": "[RsR] MM-scale",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi there,\n\nI have finally decided to include the MM-estimator in my Data Analysis \ncourse and so I again had to think about it and its implementation a bit.\n\nApparently the scale estimator given out by lmrob is the S-scale. One could \nwonder whether the optimal value of the final MM-sum multiplied by a \nsuitable factor to get consistency under normality would be a more \nappropriate scale estimator because it is directly associated to the \nMM-estimator (which we eventually use in most situations) rather than\nto the S-estimator.\n\nWouldn't it be good to give this out as default scale estimator (or both)?\nThere could also be a control parameter specifying which scale is given \nout.\n\nAny thoughts?\n\nCheers,\nChristian\n\n\n*** --- ***\nChristian Hennig\nUniversity College London, Department of Statistical Science\nGower St., London WC1E 6BT, phone +44 207 679 1698\nchrish at stats.ucl.ac.uk, www.homepages.ucl.ac.uk/~ucakche",
+      "body_snippet": "Hi there,\n\nI have finally decided to include the MM-estimator in my Data Analysis \ncourse and so I again had to think about it and its implementation a bit.\n\nApparently the scale estimator given out b",
+      "thread_id": "thread-ee3e5a1e4bbc",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-3c4d49b772bd",
+      "message_id": "<18642.18120.411382.201416@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-09-18T14:17:12+02:00",
+      "subject": "[RsR] [R] Oja median",
+      "subject_clean": "[RsR] [R] Oja median",
+      "in_reply_to": "<ACA5481F0723DC4F9F5051F38E15D006D473A4@NSTMC104PEX1.ubsw.net>",
+      "references": [
+        "<ACA5481F0723DC4F9F5051F38E15D006D473A4@NSTMC104PEX1.ubsw.net>"
+      ],
+      "body_plain": ">>>>>   <Rahul-A.Agarwal at ubs.com>\n>>>>>     on Thu, 18 Sep 2008 05:20:56 -0400 writes:\n\n    > Hi,\n \n    > Can we get the code for calculating Oja median for\n    > multivariate data\n\nExcuse me, but must you really?\n\nThe Oja median has (finite) breakdown point 2/n, i.e., is not\nrobust in any reasonable sense, and is quite expensive to compute, etc etc.\n\nRather use a better robust method,\ntypically (start with)  cov.rob() from the recommended (hence\npart of every correct R installation) MASS package.\n\nThere are (somewhat) better methods available for robust\n\"location+scatter\" [aka \"(mu , Sigma)\"] from packages \n'rrcov', 'robustbase' and/or 'robust', e.g.,\nrobustbase::covMcd\n\nIf you need to know more, please divert to the \nSIG (special interest group) mailling list  R-SIG-robust\nto which I CC this.\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": ">>>>>   <Rahul-A.Agarwal at ubs.com>\n>>>>>     on Thu, 18 Sep 2008 05:20:56 -0400 writes:\n\n    > Hi,\n \n    > Can we get the code for calculating Oja median for\n    > multivariate data\n\nExcuse me, but ",
+      "thread_id": "thread-3c4d49b772bd",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-f820115cb366",
+      "message_id": "<ACA5481F0723DC4F9F5051F38E15D006D47477@NSTMC104PEX1.ubsw.net>",
+      "from_name": "R@hui-A@Ag@rw@i m@iii@g oii ubs@com",
+      "from_email_hash": "7fdc194c60e879ba6e76143013c031bd21f8760570bc74bbe15b4fbf8ca8dd78",
+      "date": "2008-09-18T08:25:47-04:00",
+      "subject": "[RsR] [R] Oja median",
+      "subject_clean": "[RsR] [R] Oja median",
+      "in_reply_to": "<18642.18120.411382.201416@stat.math.ethz.ch>",
+      "references": [
+        "<ACA5481F0723DC4F9F5051F38E15D006D473A4@NSTMC104PEX1.ubsw.net>",
+        "<18642.18120.411382.201416@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Thanks a lot Martin.\nI would definitely like to know more about calculating multivariate\nmedian.\nIt would be better if I can get some method where I can calculate the\nmedian using functions in R.\nWill wait for your reply\nThanks \n\n\nRahul Agarwal \nAnalyst \nEquities Quantitative Research \nUBS_ISC, Hyderabad \nOn Net: 19 533 6363 \n\n\n\n\n-----Original Message-----\nFrom: Martin Maechler [mailto:maechler at stat.math.ethz.ch] \nSent: Thursday, September 18, 2008 5:47 PM\nTo: Agarwal, Rahul-A\nCc: R-SIG-robust at r-project.org; r-help at r-project.org\nSubject: Re: [R] Oja median\n\n>>>>>   <Rahul-A.Agarwal at ubs.com>\n>>>>>     on Thu, 18 Sep 2008 05:20:56 -0400 writes:\n\n    > Hi,\n \n    > Can we get the code for calculating Oja median for\n    > multivariate data\n\nExcuse me, but must you really?\n\nThe Oja median has (finite) breakdown point 2/n, i.e., is not robust in\nany reasonable sense, and is quite expensive to compute, etc etc.\n\nRather use a better robust method,\ntypically (start with)  cov.rob() from the recommended (hence part of\nevery correct R installation) MASS package.\n\nThere are (somewhat) better methods available for robust\n\"location+scatter\" [aka \"(mu , Sigma)\"] from packages 'rrcov',\n'robustbase' and/or 'robust', e.g., robustbase::covMcd\n\nIf you need to know more, please divert to the SIG (special interest\ngroup) mailling list  R-SIG-robust to which I CC this.\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": "Thanks a lot Martin.\nI would definitely like to know more about calculating multivariate\nmedian.\nIt would be better if I can get some method where I can calculate the\nmedian using functions in R.\nWill",
+      "thread_id": "thread-3c4d49b772bd",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-8feeaf79bab6",
+      "message_id": "<18642.24456.550410.486482@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-09-18T16:02:48+02:00",
+      "subject": "[RsR] [R] Oja median",
+      "subject_clean": "[RsR] [R] Oja median",
+      "in_reply_to": "<ACA5481F0723DC4F9F5051F38E15D006D47477@NSTMC104PEX1.ubsw.net>",
+      "references": [
+        "<ACA5481F0723DC4F9F5051F38E15D006D473A4@NSTMC104PEX1.ubsw.net>",
+        "<18642.18120.411382.201416@stat.math.ethz.ch>",
+        "<ACA5481F0723DC4F9F5051F38E15D006D47477@NSTMC104PEX1.ubsw.net>"
+      ],
+      "body_plain": ">>>>>   <Rahul-A.Agarwal at ubs.com>\n>>>>>     on Thu, 18 Sep 2008 08:25:47 -0400 writes:\n\n    > Thanks a lot Martin.  I would definitely like to know more\n    > about calculating multivariate median.  It would be better\n    > if I can get some method where I can calculate the median\n    > using functions in R.  Will wait for your reply Thanks\n\nI don't understand.\n\nI gave several R functions that you should use *instead* of the\nOja median, and explained why the Oja median is *not* advisable.\n\nWhat do you want more?\n\n\n    > Rahul Agarwal Analyst Equities Quantitative Research\n    > UBS_ISC, Hyderabad On Net: 19 533 6363\n\n\n\n\n    > -----Original Message----- From: Martin Maechler\n    > [mailto:maechler at stat.math.ethz.ch] Sent: Thursday,\n    > September 18, 2008 5:47 PM To: Agarwal, Rahul-A Cc:\n    > R-SIG-robust at r-project.org; r-help at r-project.org Subject:\n    > Re: [R] Oja median\n\n>>>>>   <Rahul-A.Agarwal at ubs.com>\n>>>>>     on Thu, 18 Sep 2008 05:20:56 -0400 writes:\n\n    >> Hi,\n \n    >> Can we get the code for calculating Oja median for\n    >> multivariate data\n\n    > Excuse me, but must you really?\n\n    > The Oja median has (finite) breakdown point 2/n, i.e., is\n    > not robust in any reasonable sense, and is quite expensive\n    > to compute, etc etc.\n\n    > Rather use a better robust method, typically (start with)\n    > cov.rob() from the recommended (hence part of every\n    > correct R installation) MASS package.\n\n    > There are (somewhat) better methods available for robust\n    > \"location+scatter\" [aka \"(mu , Sigma)\"] from packages\n    > 'rrcov', 'robustbase' and/or 'robust', e.g.,\n    > robustbase::covMcd\n\n    > If you need to know more, please divert to the SIG\n    > (special interest group) mailling list R-SIG-robust to\n    > which I CC this.\n\n    > Martin Maechler, ETH Zurich",
+      "body_snippet": ">>>>>   <Rahul-A.Agarwal at ubs.com>\n>>>>>     on Thu, 18 Sep 2008 08:25:47 -0400 writes:\n\n    > Thanks a lot Martin.  I would definitely like to know more\n    > about calculating multivariate median.",
+      "thread_id": "thread-3c4d49b772bd",
+      "thread_depth": 2,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-8a62bff7a86e",
+      "message_id": "<4c0e456b0809180829wf4b7d55n3e11c1c1847f18ce@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2008-09-18T17:29:16+02:00",
+      "subject": "[RsR] [R] Oja median",
+      "subject_clean": "[RsR] [R] Oja median",
+      "in_reply_to": "<18642.24456.550410.486482@stat.math.ethz.ch>",
+      "references": [
+        "<ACA5481F0723DC4F9F5051F38E15D006D473A4@NSTMC104PEX1.ubsw.net>",
+        "<18642.18120.411382.201416@stat.math.ethz.ch>",
+        "<ACA5481F0723DC4F9F5051F38E15D006D47477@NSTMC104PEX1.ubsw.net>",
+        "<18642.24456.550410.486482@stat.math.ethz.ch>"
+      ],
+      "body_plain": "I also do not understand why do you need it, but since you insist, I assume\nyou have a good reason.\n\nAn S-Plus code (wrapper of a C++ algorithm) was to be found on the Tommi\nRonkainen's page, but now the link is dead:\n\nhttp://www.akustiko.fi/~wigy/?id=2 <http://www.akustiko.fi/%7Ewigy/?id=2>\n\nThe original article from ICORS 2001 is here:\n\nhttp://books.google.com/books?id=-7GD-U-L1e8C&pg=PA344&lpg=PA344&dq=Oja+median&source=web&ots=blmcF0v_ps&sig=2lamD1URFDdmcN_3AopXfRGyaIo&hl=en&sa=X&oi=book_result&resnum=1&ct=result\n\n\nI do not know if some of the authors is reading this list and I am copying\nto Hannu in CC.\n\nBest regards,\nValentin\n\n\n\nOn Thu, Sep 18, 2008 at 4:02 PM, Martin Maechler <maechler at stat.math.ethz.ch\n> wrote:\n\n> >>>>>   <Rahul-A.Agarwal at ubs.com>\n> >>>>>     on Thu, 18 Sep 2008 08:25:47 -0400 writes:\n>\n>    > Thanks a lot Martin.  I would definitely like to know more\n>    > about calculating multivariate median.  It would be better\n>    > if I can get some method where I can calculate the median\n>    > using functions in R.  Will wait for your reply Thanks\n>\n> I don't understand.\n>\n> I gave several R functions that you should use *instead* of the\n> Oja median, and explained why the Oja median is *not* advisable.\n>\n> What do you want more?\n>\n>\n>    > Rahul Agarwal Analyst Equities Quantitative Research\n>    > UBS_ISC, Hyderabad On Net: 19 533 6363\n>\n>\n>\n>\n>    > -----Original Message----- From: Martin Maechler\n>    > [mailto:maechler at stat.math.ethz.ch] Sent: Thursday,\n>    > September 18, 2008 5:47 PM To: Agarwal, Rahul-A Cc:\n>    > R-SIG-robust at r-project.org; r-help at r-project.org Subject:\n>    > Re: [R] Oja median\n>\n> >>>>>   <Rahul-A.Agarwal at ubs.com>\n> >>>>>     on Thu, 18 Sep 2008 05:20:56 -0400 writes:\n>\n>    >> Hi,\n>\n>    >> Can we get the code for calculating Oja median for\n>    >> multivariate data\n>\n>    > Excuse me, but must you really?\n>\n>    > The Oja median has (finite) breakdown point 2/n, i.e., is\n>    > not robust in any reasonable sense, and is quite expensive\n>    > to compute, etc etc.\n>\n>    > Rather use a better robust method, typically (start with)\n>    > cov.rob() from the recommended (hence part of every\n>    > correct R installation) MASS package.\n>\n>    > There are (somewhat) better methods available for robust\n>    > \"location+scatter\" [aka \"(mu , Sigma)\"] from packages\n>    > 'rrcov', 'robustbase' and/or 'robust', e.g.,\n>    > robustbase::covMcd\n>\n>    > If you need to know more, please divert to the SIG\n>    > (special interest group) mailling list R-SIG-robust to\n>    > which I CC this.\n>\n>    > Martin Maechler, ETH Zurich\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I also do not understand why do you need it, but since you insist, I assume\nyou have a good reason.\n\nAn S-Plus code (wrapper of a C++ algorithm) was to be found on the Tommi\nRonkainen's page, but now ",
+      "thread_id": "thread-3c4d49b772bd",
+      "thread_depth": 3,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-fc257542431a",
+      "message_id": "<20080918153616.GA6633@lubyanka.local>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2008-09-18T21:06:16+05:30",
+      "subject": "[RsR] Outliers in the market model that's used to estimate `beta' of a stock",
+      "subject_clean": "[RsR] Outliers in the market model that's used to estimate `beta' of a stock",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "In continuation of the discussion on `Winsorisation' that has taken\nplace on r-sig-finance today, I thought I'd present all of you with an\ninteresting dataset and a question.\n\nThis data is the daily stock returns of the large Indian software firm\n`Infosys'. (This is the symbol `INFY' on NASDAQ). It is a large number\nof observations of daily returns (i.e. percentage changes of the\nadjusted stock price).\n\nLoad the data in --\n\n    print(load(url(\"http://www.mayin.org/ajayshah/tmp/infosys_mm.rda\")))\n    str(x)\n    summary(x)\n    sd(x)\n\nThe name `rj' is used for returns on Infosys, and `rM' is used for\nreturns on the stock market index (Nifty). There are three really\nweird observations in this.\n\n    weird.rj <- c(1896,2395)\n    weird.rM <- 2672\n    x[weird.rj,]\n    x[weird.rM,]\n\nAs you can see, these observations are quite remarkable given the\nsmall standard deviations that we saw above. There is absolutely no\nmeasurement error here. These things actually happened.\n\nNow consider a typical application: using this to estimate a market\nmodel. The goal here is to estimate the coefficient of a regression of\nrj on rM.\n\n    # A regression with all obs\n    summary(lm(rj ~ rM, data=x))\n\n    # Drop the weird rj --\n    summary(lm(rj ~ rM, data=x[-weird.rj,]))\n\n    # Drop the weird rM --\n    summary(lm(rj ~ rM, data=x[-weird.rM,]))\n\n    # Drop both kinds of weird observations --\n    summary(lm(rj ~ rM, data=x[-c(weird.rM,weird.rj),]))\n\n    # Robust regressions\n    library(MASS)\n    summary(rlm(rj ~ rM, data=x))\n    summary(rlm(rj ~ rM, method=\"MM\", data=x))\n    library(robust)\n    summary(lmRob(rj ~ rM, data=x))\n    library(quantreg)\n    summary(rq(rj ~ rM, tau=0.5, data=x))\n\nSo you see, we have a variety of different estimates for the slope\n(which is termed `beta' in finance). What value would you trust the\nmost?\n\nAnd, would winsorisation using either my code\n(https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002921.html) or\nPatrick Burns' code\n(https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002923.html) be a\ngood idea here?\n\nI'm instinctively unhappy with any scheme based on discarding\nobservations that I'm absolutely sure have no measurement error. We\nhave to model the weirdness of this data generating process, not\nignore it.\n\n-- \nAjay Shah                                      http://www.mayin.org/ajayshah  \najayshah at mayin.org                             http://ajayshahblog.blogspot.com\n<*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": "In continuation of the discussion on `Winsorisation' that has taken\nplace on r-sig-finance today, I thought I'd present all of you with an\ninteresting dataset and a question.\n\nThis data is the daily s",
+      "thread_id": "thread-fc257542431a",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-58ccaf3866da",
+      "message_id": "<15833186.24323431221757082212.JavaMail.javamailuser@localhost>",
+      "from_name": "m@rkieeds m@iii@g oii verizo@@@et",
+      "from_email_hash": "5fdc5b9f7fef0d125cda3fff5f1f9eaad22b404ba957903b78d6fa30d8ddc3d4",
+      "date": "2008-09-18T11:58:02-05:00",
+      "subject": "[RsR] [R-SIG-Finance] Outliers in the market model that's used to estimate `beta' of a stock",
+      "subject_clean": "[RsR] [R-SIG-Finance] Outliers in the market model that's used to estimate `beta' of a stock",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi: i don't know if you read \"fooled by randomness\" by Nassim Taleb ( \nspelling )  but he essentially says using very non statistical arguments \nbut\nstrong nevertheless. ( it's not a stat or a quant finance book )  that \noutliers in finance are not modellable and don't claim that you can \nmodel\nthem because you'd be lying. In fact, he would say that a model works \nuntil it doesn't.\n\nAnyway, it's an interesting book that sort of indirectly talks ( for a \nlittle too long actually. you can get what's he saying in the first 50 \npages and\n  it's about 200 pages )  about your comment below so I figured I would \njust mention it in case you were interested.\n\n\nOn Thu, Sep 18, 2008 at 11:36 AM, Ajay Shah wrote:\n\n> In continuation of the discussion on `Winsorisation' that has taken\n> place on r-sig-finance today, I thought I'd present all of you with an\n> interesting dataset and a question.\n>\n> This data is the daily stock returns of the large Indian software firm\n> `Infosys'. (This is the symbol `INFY' on NASDAQ). It is a large number\n> of observations of daily returns (i.e. percentage changes of the\n> adjusted stock price).\n>\n> Load the data in --\n>\n> \n> print(load(url(\"http://www.mayin.org/ajayshah/tmp/infosys_mm.rda\")))\n>     str(x)\n>     summary(x)\n>     sd(x)\n>\n> The name `rj' is used for returns on Infosys, and `rM' is used for\n> returns on the stock market index (Nifty). There are three really\n> weird observations in this.\n>\n>     weird.rj <- c(1896,2395)\n>     weird.rM <- 2672\n>     x[weird.rj,]\n>     x[weird.rM,]\n>\n> As you can see, these observations are quite remarkable given the\n> small standard deviations that we saw above. There is absolutely no\n> measurement error here. These things actually happened.\n>\n> Now consider a typical application: using this to estimate a market\n> model. The goal here is to estimate the coefficient of a regression of\n> rj on rM.\n>\n>     # A regression with all obs\n>     summary(lm(rj ~ rM, data=x))\n>\n>     # Drop the weird rj --\n>     summary(lm(rj ~ rM, data=x[-weird.rj,]))\n>\n>     # Drop the weird rM --\n>     summary(lm(rj ~ rM, data=x[-weird.rM,]))\n>\n>     # Drop both kinds of weird observations --\n>     summary(lm(rj ~ rM, data=x[-c(weird.rM,weird.rj),]))\n>\n>     # Robust regressions\n>     library(MASS)\n>     summary(rlm(rj ~ rM, data=x))\n>     summary(rlm(rj ~ rM, method=\"MM\", data=x))\n>     library(robust)\n>     summary(lmRob(rj ~ rM, data=x))\n>     library(quantreg)\n>     summary(rq(rj ~ rM, tau=0.5, data=x))\n>\n> So you see, we have a variety of different estimates for the slope\n> (which is termed `beta' in finance). What value would you trust the\n> most?\n>\n> And, would winsorisation using either my code\n> (https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002921.html) or\n> Patrick Burns' code\n> (https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002923.html) be a\n> good idea here?\n>\n> I'm instinctively unhappy with any scheme based on discarding\n> observations that I'm absolutely sure have no measurement error. We\n> have to model the weirdness of this data generating process, not\n> ignore it.\n>\n> -- \n> Ajay Shah \n> http://www.mayin.org/ajayshah  ajayshah at mayin.org \n> http://ajayshahblog.blogspot.com\n> <*(:-? - wizard who doesn't know the answer.\n>\n> _______________________________________________\n> R-SIG-Finance at stat.math.ethz.ch mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-finance\n> -- Subscriber-posting only.\n> -- If you want to post, subscribe first.",
+      "body_snippet": "Hi: i don't know if you read \"fooled by randomness\" by Nassim Taleb ( \nspelling )  but he essentially says using very non statistical arguments \nbut\nstrong nevertheless. ( it's not a stat or a quant f",
+      "thread_id": "thread-58ccaf3866da",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-6d645949ac2f",
+      "message_id": "<48D28FE2.7090806@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2008-09-18T10:29:06-07:00",
+      "subject": "[RsR] [R-SIG-Finance] Outliers in the market model that's used to estimate `beta' of a stock",
+      "subject_clean": "[RsR] [R-SIG-Finance] Outliers in the market model that's used to estimate `beta' of a stock",
+      "in_reply_to": "<15833186.24323431221757082212.JavaMail.javamailuser@localhost>",
+      "references": [
+        "<15833186.24323431221757082212.JavaMail.javamailuser@localhost>"
+      ],
+      "body_plain": "Haven't read \"Fooled by randomness\", but did start reading Black Swan, \nand although in general I like provocative books that challenge my \npoints of view, I found his main thesis to be too short to warrant so \nmany words... I took it that his main argument was with those who \nmisinterpret and misuse statistics (particularly when they do it for \ntheir own benefit), not with statistics itself, which is always based on \nassumptions etc.\n\n> [snip] In fact, he would say that a model works \n> until it doesn't.\n\nWhich is a fair statement, that also applies to science in general, \n\"theories work until they are proved wrong\", and the whole \n\"falsifiability\" argument (cf. Popper vs. Kuhn vs. Feyerabend vs...). I \nbelieve robust statistics can help you determine when your model \n(theory) has stopped to work.\n\nIn any case, with respect to the old \"data cleaning versus robust \nestimators\" discussion, I would point the interest reader to the first \nchapter of Maronna, Martin and Yohai's book \n(http://books.google.com/books?id=YD--AAAACAAJ&dq=martin+maronna+yohai), \nand for some more specific inference implications, to the first chapter \nof my PhD dissertation. Essentially, a couple of main issues are: (a) \ndetecting outliers using non-robust estimators does not work well in \ngeneral (but even if / when it does, see my next point); (b) if you \nremove (or alter) observations, all subsequent probabilistic statements \n(p-values, standard errors, etc) are all conditional on the very \nnon-linear cleaning operation you did, and thus both wrong at face \nvalue, and not easy to correct. Robust estimators incorporate the \ndown-weighting and its effect on the corresponding inference at once, \nand are thus, IMHO, to be preferred.\n\nMatias\n\nmarkleeds at verizon.net wrote:\n> Hi: i don't know if you read \"fooled by randomness\" by Nassim Taleb ( \n> spelling )  but he essentially says using very non statistical arguments \n> but\n> strong nevertheless. ( it's not a stat or a quant finance book )  that \n> outliers in finance are not modellable and don't claim that you can model\n> them because you'd be lying. In fact, he would say that a model works \n> until it doesn't.\n> \n> Anyway, it's an interesting book that sort of indirectly talks ( for a \n> little too long actually. you can get what's he saying in the first 50 \n> pages and\n>  it's about 200 pages )  about your comment below so I figured I would \n> just mention it in case you were interested.\n> \n> \n> On Thu, Sep 18, 2008 at 11:36 AM, Ajay Shah wrote:\n> \n>> In continuation of the discussion on `Winsorisation' that has taken\n>> place on r-sig-finance today, I thought I'd present all of you with an\n>> interesting dataset and a question.\n>>\n>> This data is the daily stock returns of the large Indian software firm\n>> `Infosys'. (This is the symbol `INFY' on NASDAQ). It is a large number\n>> of observations of daily returns (i.e. percentage changes of the\n>> adjusted stock price).\n>>\n>> Load the data in --\n>>\n>>\n>> print(load(url(\"http://www.mayin.org/ajayshah/tmp/infosys_mm.rda\")))\n>>     str(x)\n>>     summary(x)\n>>     sd(x)\n>>\n>> The name `rj' is used for returns on Infosys, and `rM' is used for\n>> returns on the stock market index (Nifty). There are three really\n>> weird observations in this.\n>>\n>>     weird.rj <- c(1896,2395)\n>>     weird.rM <- 2672\n>>     x[weird.rj,]\n>>     x[weird.rM,]\n>>\n>> As you can see, these observations are quite remarkable given the\n>> small standard deviations that we saw above. There is absolutely no\n>> measurement error here. These things actually happened.\n>>\n>> Now consider a typical application: using this to estimate a market\n>> model. The goal here is to estimate the coefficient of a regression of\n>> rj on rM.\n>>\n>>     # A regression with all obs\n>>     summary(lm(rj ~ rM, data=x))\n>>\n>>     # Drop the weird rj --\n>>     summary(lm(rj ~ rM, data=x[-weird.rj,]))\n>>\n>>     # Drop the weird rM --\n>>     summary(lm(rj ~ rM, data=x[-weird.rM,]))\n>>\n>>     # Drop both kinds of weird observations --\n>>     summary(lm(rj ~ rM, data=x[-c(weird.rM,weird.rj),]))\n>>\n>>     # Robust regressions\n>>     library(MASS)\n>>     summary(rlm(rj ~ rM, data=x))\n>>     summary(rlm(rj ~ rM, method=\"MM\", data=x))\n>>     library(robust)\n>>     summary(lmRob(rj ~ rM, data=x))\n>>     library(quantreg)\n>>     summary(rq(rj ~ rM, tau=0.5, data=x))\n>>\n>> So you see, we have a variety of different estimates for the slope\n>> (which is termed `beta' in finance). What value would you trust the\n>> most?\n>>\n>> And, would winsorisation using either my code\n>> (https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002921.html) or\n>> Patrick Burns' code\n>> (https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002923.html) be a\n>> good idea here?\n>>\n>> I'm instinctively unhappy with any scheme based on discarding\n>> observations that I'm absolutely sure have no measurement error. We\n>> have to model the weirdness of this data generating process, not\n>> ignore it.\n>>\n>> -- \n>> Ajay Shah http://www.mayin.org/ajayshah  ajayshah at mayin.org \n>> http://ajayshahblog.blogspot.com\n>> <*(:-? - wizard who doesn't know the answer.\n>>\n>> _______________________________________________\n>> R-SIG-Finance at stat.math.ethz.ch mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-finance\n>> -- Subscriber-posting only.\n>> -- If you want to post, subscribe first.\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n_____________________________________________________\nMatias Salibian-Barrera - Department of Statistics\nThe University of British Columbia\nPhone: (604) 822-3410 - Fax: (604) 822-6960\n\"The plural of anecdote is not data\" (George Stigler?)",
+      "body_snippet": "Haven't read \"Fooled by randomness\", but did start reading Black Swan, \nand although in general I like provocative books that challenge my \npoints of view, I found his main thesis to be too short to w",
+      "thread_id": "thread-58ccaf3866da",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-d9d8fea808c4",
+      "message_id": "<30342326.24417231221760049994.JavaMail.javamailuser@localhost>",
+      "from_name": "m@rkieeds m@iii@g oii verizo@@@et",
+      "from_email_hash": "5fdc5b9f7fef0d125cda3fff5f1f9eaad22b404ba957903b78d6fa30d8ddc3d4",
+      "date": "2008-09-18T12:47:29-05:00",
+      "subject": "[RsR] [R-SIG-Finance] Outliers in the market model that's used to estimate `beta' of a stock",
+      "subject_clean": "[RsR] [R-SIG-Finance] Outliers in the market model that's used to estimate `beta' of a stock",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi Matias: yes, he wasn't dissing statistics for the most part. He was \ndefinitely talking about the miuses also but I think he was claiming\nthat models , be it statistics, physics and even non quant models  in \nfinance are kind of assumed to be right until they don't work.\n\nThat's true in all science but it puts finance on quite shaky ground \nbecause there are people trading serious money based on the idea that \nwhat they are doing is valid and working  correctly. This is obviously \nkind of relevant  to what's going on right now. Thanks for your \nreferences also.\n\n\n \nmark\n\n\nOn Thu, Sep 18, 2008 at  1:29 PM, Matias Salibian-Barrera wrote:\n\n> Haven't read \"Fooled by randomness\", but did start reading Black Swan, \n> and although in general I like provocative books that challenge my \n> points of view, I found his main thesis to be too short to warrant so \n> many words... I took it that his main argument was with those who \n> misinterpret and misuse statistics (particularly when they do it for \n> their own benefit), not with statistics itself, which is always based \n> on assumptions etc.\n>\n>> [snip] In fact, he would say that a model works until it doesn't.\n>\n> Which is a fair statement, that also applies to science in general, \n> \"theories work until they are proved wrong\", and the whole \n> \"falsifiability\" argument (cf. Popper vs. Kuhn vs. Feyerabend vs...). \n> I believe robust statistics can help you determine when your model \n> (theory) has stopped to work.\n>\n> In any case, with respect to the old \"data cleaning versus robust \n> estimators\" discussion, I would point the interest reader to the first \n> chapter of Maronna, Martin and Yohai's book \n> (http://books.google.com/books?id=YD--AAAACAAJ&dq=martin+maronna+yohai), \n> and for some more specific inference implications, to the first \n> chapter of my PhD dissertation. Essentially, a couple of main issues \n> are: (a) detecting outliers using non-robust estimators does not work \n> well in general (but even if / when it does, see my next point); (b) \n> if you remove (or alter) observations, all subsequent probabilistic \n> statements (p-values, standard errors, etc) are all conditional on the \n> very non-linear cleaning operation you did, and thus both wrong at \n> face value, and not easy to correct. Robust estimators incorporate the \n> down-weighting and its effect on the corresponding inference at once, \n> and are thus, IMHO, to be preferred.\n>\n> Matias\n>\n> markleeds at verizon.net wrote:\n>> Hi: i don't know if you read \"fooled by randomness\" by Nassim Taleb ( \n>> spelling )  but he essentially says using very non statistical \n>> arguments but\n>> strong nevertheless. ( it's not a stat or a quant finance book ) \n>> that outliers in finance are not modellable and don't claim that you \n>> can model\n>> them because you'd be lying. In fact, he would say that a model works \n>> until it doesn't.\n>>\n>> Anyway, it's an interesting book that sort of indirectly talks ( for \n>> a little too long actually. you can get what's he saying in the first \n>> 50 pages and\n>>  it's about 200 pages )  about your comment below so I figured I \n>> would just mention it in case you were interested.\n>>\n>>\n>> On Thu, Sep 18, 2008 at 11:36 AM, Ajay Shah wrote:\n>>\n>>> In continuation of the discussion on `Winsorisation' that has taken\n>>> place on r-sig-finance today, I thought I'd present all of you with \n>>> an\n>>> interesting dataset and a question.\n>>>\n>>> This data is the daily stock returns of the large Indian software \n>>> firm\n>>> `Infosys'. (This is the symbol `INFY' on NASDAQ). It is a large \n>>> number\n>>> of observations of daily returns (i.e. percentage changes of the\n>>> adjusted stock price).\n>>>\n>>> Load the data in --\n>>>\n>>>\n>>> print(load(url(\"http://www.mayin.org/ajayshah/tmp/infosys_mm.rda\")))\n>>>     str(x)\n>>>     summary(x)\n>>>     sd(x)\n>>>\n>>> The name `rj' is used for returns on Infosys, and `rM' is used for\n>>> returns on the stock market index (Nifty). There are three really\n>>> weird observations in this.\n>>>\n>>>     weird.rj <- c(1896,2395)\n>>>     weird.rM <- 2672\n>>>     x[weird.rj,]\n>>>     x[weird.rM,]\n>>>\n>>> As you can see, these observations are quite remarkable given the\n>>> small standard deviations that we saw above. There is absolutely no\n>>> measurement error here. These things actually happened.\n>>>\n>>> Now consider a typical application: using this to estimate a market\n>>> model. The goal here is to estimate the coefficient of a regression \n>>> of\n>>> rj on rM.\n>>>\n>>>     # A regression with all obs\n>>>     summary(lm(rj ~ rM, data=x))\n>>>\n>>>     # Drop the weird rj --\n>>>     summary(lm(rj ~ rM, data=x[-weird.rj,]))\n>>>\n>>>     # Drop the weird rM --\n>>>     summary(lm(rj ~ rM, data=x[-weird.rM,]))\n>>>\n>>>     # Drop both kinds of weird observations --\n>>>     summary(lm(rj ~ rM, data=x[-c(weird.rM,weird.rj),]))\n>>>\n>>>     # Robust regressions\n>>>     library(MASS)\n>>>     summary(rlm(rj ~ rM, data=x))\n>>>     summary(rlm(rj ~ rM, method=\"MM\", data=x))\n>>>     library(robust)\n>>>     summary(lmRob(rj ~ rM, data=x))\n>>>     library(quantreg)\n>>>     summary(rq(rj ~ rM, tau=0.5, data=x))\n>>>\n>>> So you see, we have a variety of different estimates for the slope\n>>> (which is termed `beta' in finance). What value would you trust the\n>>> most?\n>>>\n>>> And, would winsorisation using either my code\n>>> (https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002921.html) or\n>>> Patrick Burns' code\n>>> (https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002923.html) be \n>>> a\n>>> good idea here?\n>>>\n>>> I'm instinctively unhappy with any scheme based on discarding\n>>> observations that I'm absolutely sure have no measurement error. We\n>>> have to model the weirdness of this data generating process, not\n>>> ignore it.\n>>>\n>>> -- \n>>> Ajay Shah http://www.mayin.org/ajayshah  ajayshah at mayin.org \n>>> http://ajayshahblog.blogspot.com\n>>> <*(:-? - wizard who doesn't know the answer.\n>>>\n>>> _______________________________________________\n>>> R-SIG-Finance at stat.math.ethz.ch mailing list\n>>> https://stat.ethz.ch/mailman/listinfo/r-sig-finance\n>>> -- Subscriber-posting only.\n>>> -- If you want to post, subscribe first.\n>>\n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n> -- \n> _____________________________________________________\n> Matias Salibian-Barrera - Department of Statistics\n> The University of British Columbia\n> Phone: (604) 822-3410 - Fax: (604) 822-6960\n> \"The plural of anecdote is not data\" (George Stigler?)",
+      "body_snippet": "Hi Matias: yes, he wasn't dissing statistics for the most part. He was \ndefinitely talking about the miuses also but I think he was claiming\nthat models , be it statistics, physics and even non quant ",
+      "thread_id": "thread-d9d8fea808c4",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-9ab56a9e57d4",
+      "message_id": "<48D2BE81.60001@unige.ch>",
+      "from_name": "Eva Cantoni",
+      "from_email_hash": "c20436cc2133f3eaff2df4dd17c85c0eb749a001eaa6c3f3120dd9a31962497d",
+      "date": "2008-09-18T22:48:01+02:00",
+      "subject": "[RsR] Outliers in the market model that's used to estimate `beta' of a stock",
+      "subject_clean": "[RsR] Outliers in the market model that's used to estimate `beta' of a stock",
+      "in_reply_to": "<20080918153616.GA6633@lubyanka.local>",
+      "references": [
+        "<20080918153616.GA6633@lubyanka.local>"
+      ],
+      "body_plain": "As a complement of this discussion, I would like to bring to your \nattention a paper by Marc Genton and Elvezio Ronchetti entitled \"Robust \nPrediction of Beta\", available from the webpage of M. Genton\nhttp://www.unige.ch/ses/metri/genton/publications.html\n\nAbstract:\nThe estimation of \"beta\" plays a basic role in the evaluation of \nexpected return and market risk. Typically this is performed by ordinary \nleast squares (OLS). To cope with the high sensitivity of OLS to \noutlying observations and to deviations from the normality assumptions, \nseveral methods suggest to use robust estimators. It is argued that, \nfrom a predictive point of view, the simple use of either OLS or\nrobust estimators is not sufficient but that some shrinking of the \nrobust estimators toward OLS is necessary to reduce the mean squared \nerror. The performance of the proposed shrinkage robust estimator is \nshown by means of a small simulation study and on a real data set.\n\nBest regards,\nEva\n\nAjay Shah wrote:\n> In continuation of the discussion on `Winsorisation' that has taken\n> place on r-sig-finance today, I thought I'd present all of you with an\n> interesting dataset and a question.\n> \n> This data is the daily stock returns of the large Indian software firm\n> `Infosys'. (This is the symbol `INFY' on NASDAQ). It is a large number\n> of observations of daily returns (i.e. percentage changes of the\n> adjusted stock price).\n> \n> Load the data in --\n> \n>     print(load(url(\"http://www.mayin.org/ajayshah/tmp/infosys_mm.rda\")))\n>     str(x)\n>     summary(x)\n>     sd(x)\n> \n> The name `rj' is used for returns on Infosys, and `rM' is used for\n> returns on the stock market index (Nifty). There are three really\n> weird observations in this.\n> \n>     weird.rj <- c(1896,2395)\n>     weird.rM <- 2672\n>     x[weird.rj,]\n>     x[weird.rM,]\n> \n> As you can see, these observations are quite remarkable given the\n> small standard deviations that we saw above. There is absolutely no\n> measurement error here. These things actually happened.\n> \n> Now consider a typical application: using this to estimate a market\n> model. The goal here is to estimate the coefficient of a regression of\n> rj on rM.\n> \n>     # A regression with all obs\n>     summary(lm(rj ~ rM, data=x))\n> \n>     # Drop the weird rj --\n>     summary(lm(rj ~ rM, data=x[-weird.rj,]))\n> \n>     # Drop the weird rM --\n>     summary(lm(rj ~ rM, data=x[-weird.rM,]))\n> \n>     # Drop both kinds of weird observations --\n>     summary(lm(rj ~ rM, data=x[-c(weird.rM,weird.rj),]))\n> \n>     # Robust regressions\n>     library(MASS)\n>     summary(rlm(rj ~ rM, data=x))\n>     summary(rlm(rj ~ rM, method=\"MM\", data=x))\n>     library(robust)\n>     summary(lmRob(rj ~ rM, data=x))\n>     library(quantreg)\n>     summary(rq(rj ~ rM, tau=0.5, data=x))\n> \n> So you see, we have a variety of different estimates for the slope\n> (which is termed `beta' in finance). What value would you trust the\n> most?\n> \n> And, would winsorisation using either my code\n> (https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002921.html) or\n> Patrick Burns' code\n> (https://stat.ethz.ch/pipermail/r-sig-finance/2008q3/002923.html) be a\n> good idea here?\n> \n> I'm instinctively unhappy with any scheme based on discarding\n> observations that I'm absolutely sure have no measurement error. We\n> have to model the weirdness of this data generating process, not\n> ignore it.\n>",
+      "body_snippet": "As a complement of this discussion, I would like to bring to your \nattention a paper by Marc Genton and Elvezio Ronchetti entitled \"Robust \nPrediction of Beta\", available from the webpage of M. Genton",
+      "thread_id": "thread-fc257542431a",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-4fc46210471d",
+      "message_id": "<9064522880125945B98983BBAECBA1CC21CADE@exchsrv001.ebs.local>",
+      "from_name": "Adams, Zeno",
+      "from_email_hash": "7cba06d37e1c1d04ceebf8b959b327da6d7cef7a6c62950a99c6f85729ea5a7f",
+      "date": "2008-09-19T09:58:48+02:00",
+      "subject": "[RsR] [R-SIG-Finance] Outliers in the market model that's used toestimate `beta' of a stock",
+      "subject_clean": "[RsR] [R-SIG-Finance] Outliers in the market model that's used toestimate `beta' of a stock",
+      "in_reply_to": null,
+      "references": [
+        "<20080918153616.GA6633@lubyanka.local>"
+      ],
+      "body_plain": "just two small remarks,\n\n1. the point \n>     x[weird.rM,]\n                  rj        rM\n2004-05-17 -11.89823 -13.05386\n\nis actually not a distorting outlier since it lies pretty much on the regression lines.\n\nthis is what Martin and Simin (2003) in the article mentioned earlier in the winzorization topic call a \"good\" outlier, since it confirms rather than disproves the parameter estimates.\n\n2. except for the normal regression line, all other lines seem to be very similar so that choice does not really matter so much, dont you think so?\n\nZeno\n\n\n\nEBS European Business School gemeinnuetzige GmbH - Sitz der Gesellschaft: Wiesbaden, Amtsgericht Wiesbaden HRB 19951 - Umsatzsteuer-ID DE 113891213 Geschaeftsfuehrung: Prof. Dr. Christopher Jahns, Rektor; Dr. Reimar Palte, Kanzler;  Sabine Fuchs, Prokuristin; Verwaltungsrat: Dr. Hellmut K. Albrecht, Vorsitzender\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "just two small remarks,\n\n1. the point \n>     x[weird.rM,]\n                  rj        rM\n2004-05-17 -11.89823 -13.05386\n\nis actually not a distorting outlier since it lies pretty much on the regressio",
+      "thread_id": "thread-fc257542431a",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-ff670e0d36ff",
+      "message_id": "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>",
+      "from_name": "kh@@x131 m@iii@g oii um@@edu",
+      "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
+      "date": "2008-09-25T17:50:20-05:00",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "subject_clean": "[RsR] Robust nonlinear regression in R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi dear linsters,\n\nI am starting work on a robust nonlinear regression project. Is there any \ncode, stuff in R for robust estimation of nonlinear regression functions. \nany comments,material help, suggestions would be greatly appreciated. \nthanks in advance,\n\nDost.",
+      "body_snippet": "Hi dear linsters,\n\nI am starting work on a robust nonlinear regression project. Is there any \ncode, stuff in R for robust estimation of nonlinear regression functions. \nany comments,material help, sug",
+      "thread_id": "thread-ff670e0d36ff",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-7723c57f3039",
+      "message_id": "<02D49A492B2D2F46BF3FD743A8255A520104D94797@EX7FM02.ad.uky.edu>",
+      "from_name": "Stromberg, Arnold",
+      "from_email_hash": "c1889a124ea347429fcf3fedb737da64742f435373da47d1feb8cbe5a7ce9b23",
+      "date": "2008-09-26T00:35:36-04:00",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "subject_clean": "[RsR] Robust nonlinear regression in R",
+      "in_reply_to": "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>",
+      "references": [
+        "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>"
+      ],
+      "body_plain": "I would like to know about robust nonlinear regression R code as well.\n\nArny\n\n\nArnold J. Stromberg\nProfessor and Chair\nDepartment of Statistics\nUniversity of Kentucky\n817 Patterson Office Tower\nLexington, KY 40506-0027\nPhone: 859-257-6115\nFax: 859-323-1973\n\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of khanx131 at umn.edu\nSent: Thursday, September 25, 2008 6:50 PM\nTo: r-sig-robust at r-project.org\nSubject: [RsR] Robust nonlinear regression in R\n\nHi dear linsters,\n\nI am starting work on a robust nonlinear regression project. Is there any\ncode, stuff in R for robust estimation of nonlinear regression functions.\nany comments,material help, suggestions would be greatly appreciated.\nthanks in advance,\n\nDost.\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "I would like to know about robust nonlinear regression R code as well.\n\nArny\n\n\nArnold J. Stromberg\nProfessor and Chair\nDepartment of Statistics\nUniversity of Kentucky\n817 Patterson Office Tower\nLexing",
+      "thread_id": "thread-ff670e0d36ff",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-2c089471f530",
+      "message_id": "<41639.148.177.129.210.1222414198.squirrel@webmail.businessdecision.com>",
+      "from_name": "Tobias Verbeke",
+      "from_email_hash": "a3faa1911a4aa0fc299e44e1921cb3b0e83de091a37697d6c3d3f61069b7def1",
+      "date": "2008-09-26T09:29:58+02:00",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "subject_clean": "[RsR] Robust nonlinear regression in R",
+      "in_reply_to": "<02D49A492B2D2F46BF3FD743A8255A520104D94797@EX7FM02.ad.uky.edu>",
+      "references": [
+        "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>",
+        "<02D49A492B2D2F46BF3FD743A8255A520104D94797@EX7FM02.ad.uky.edu>"
+      ],
+      "body_plain": ">From the Robust Statistical Methods Task View on CRAN\nat\n\nhttp://cran.r-project.org/web/views/Robust.html\n\n\n\" Robust Nonlinear model fitting is available through robustbase  's nlrob().\"\n\ninstall.packages(\"robustbase\")\nlibrary(robustbase)\n?nlrob\n\nHTH,\nTobias\n\n> I would like to know about robust nonlinear regression R code as well.\n>\n> Arny\n>\n>\n> Arnold J. Stromberg\n> Professor and Chair\n> Department of Statistics\n> University of Kentucky\n> 817 Patterson Office Tower\n> Lexington, KY 40506-0027\n> Phone: 859-257-6115\n> Fax: 859-323-1973\n>\n>\n> -----Original Message-----\n> From: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org]\n> On Behalf Of khanx131 at umn.edu\n> Sent: Thursday, September 25, 2008 6:50 PM\n> To: r-sig-robust at r-project.org\n> Subject: [RsR] Robust nonlinear regression in R\n>\n> Hi dear linsters,\n>\n> I am starting work on a robust nonlinear regression project. Is there any\n> code, stuff in R for robust estimation of nonlinear regression functions.\n> any comments,material help, suggestions would be greatly appreciated.\n> thanks in advance,\n>\n> Dost.\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>",
+      "body_snippet": ">From the Robust Statistical Methods Task View on CRAN\nat\n\nhttp://cran.r-project.org/web/views/Robust.html\n\n\n\" Robust Nonlinear model fitting is available through robustbase  's nlrob().\"\n\ninstall.pac",
+      "thread_id": "thread-ff670e0d36ff",
+      "thread_depth": 2,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-774ed54afc69",
+      "message_id": "<18652.37736.391027.577560@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-09-26T09:46:48+02:00",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "subject_clean": "[RsR] Robust nonlinear regression in R",
+      "in_reply_to": "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>",
+      "references": [
+        "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>"
+      ],
+      "body_plain": ">>>>> \"k\" == khanx131  <khanx131 at umn.edu>\n>>>>>     on 25 Sep 2008 17:50:20 -0500 writes:\n\n    k> Hi dear linsters,\n    k> I am starting work on a robust nonlinear regression project. Is there any \n    k> code, stuff in R for robust estimation of nonlinear regression functions. \n    k> any comments,material help, suggestions would be greatly appreciated. \n    k> thanks in advance,\n\nHave you looked at  nlrob()  in package \"robustbase\" ?\n\nI think you should.\nNote that after  library(robustbase)\n    methods(class = \"nlrob\") \nshows you the list of available mehods to work on the result of\nnlrob().\nFurther note that we know the list of methods for such nlrob\nobjects is not as complete as we would like, and if you are\ninterested in computational methods for such models, we\n(notably also Andreas Ruckstuhl) should start collaborating\nhere.\n\nBest regards,\nMartin Maechler, ETH Zurich",
+      "body_snippet": ">>>>> \"k\" == khanx131  <khanx131 at umn.edu>\n>>>>>     on 25 Sep 2008 17:50:20 -0500 writes:\n\n    k> Hi dear linsters,\n    k> I am starting work on a robust nonlinear regression project. Is there any ",
+      "thread_id": "thread-ff670e0d36ff",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-33420f9eb116",
+      "message_id": "<e105ed14121d6.48dc7a7c@usc.edu>",
+      "from_name": "Rand Wilcox",
+      "from_email_hash": "85f7f34e1da9f5fb0186588d4ebbb4323445939c30b2ae8fa3e0056a0a50694f",
+      "date": "2008-09-26T06:00:28-07:00",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "subject_clean": "[RsR] Robust nonlinear regression in R",
+      "in_reply_to": "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>",
+      "references": [
+        "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>"
+      ],
+      "body_plain": "Dost,\n\nThere is  R code for a variety of nonlinear methods (smoothers) available from my web cite.\nhttp://www-rcf.usc.edu/~rwilcox/\n\nMost of these functions are described in my 2005 book. Any new functions are listed in the update file, which is also available from my web page. \n\nHope this helps.\n\nRand\n\nRand Wilcox\nProfessor\nDept of Psychology\nUSC\nLos Angeles, CA 90089-1061\n\nFAX: 213-746-9082\n\n----- Original Message -----\nFrom: khanx131 at umn.edu\nDate: Thursday, September 25, 2008 3:51 pm\nSubject: [RsR] Robust nonlinear regression in R\nTo: r-sig-robust at r-project.org\n\n> Hi dear linsters,\n> \n> I am starting work on a robust nonlinear regression project. Is \n> there any \n> code, stuff in R for robust estimation of nonlinear regression \n> functions. \n> any comments,material help, suggestions would be greatly \n> appreciated. \n> thanks in advance,\n> \n> Dost.\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Dost,\n\nThere is  R code for a variety of nonlinear methods (smoothers) available from my web cite.\nhttp://www-rcf.usc.edu/~rwilcox/\n\nMost of these functions are described in my 2005 book. Any new func",
+      "thread_id": "thread-ff670e0d36ff",
+      "thread_depth": 1,
+      "month": "2008-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f061df1b72b3",
+      "subject": "[RsR] Outlier identification  [FWD]",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2008-09-01T12:47:36+02:00",
+      "last_reply": "2008-09-01T12:47:36+02:00",
+      "root_message_id": "msg-f061df1b72b3"
+    },
+    {
+      "id": "thread-1b8951170d58",
+      "subject": "[RsR] MASS:rlm() and robustbase::lmrob() are both breaking",
+      "message_count": 8,
+      "participants": [
+        "Agostinelli Claudio",
+        "Ajay Shah",
+        "Gabor Grothendieck",
+        "Kjell Konis",
+        "Martin Maechler"
+      ],
+      "started": "2008-09-07T19:43:50+05:30",
+      "last_reply": "2008-09-09T11:27:19+02:00",
+      "root_message_id": "msg-1b8951170d58"
+    },
+    {
+      "id": "thread-3628b923cd01",
+      "subject": "[RsR] confidence intervals for lmRob",
+      "message_count": 2,
+      "participants": [
+        "Matias Salibian-Barrera",
+        "Stefan Herzog"
+      ],
+      "started": "2008-09-11T21:56:03+02:00",
+      "last_reply": "2008-09-11T22:18:23-07:00",
+      "root_message_id": "msg-3628b923cd01"
+    },
+    {
+      "id": "thread-c474f88c34fc",
+      "subject": "[RsR] robustbase::lmrob() difficulty continued",
+      "message_count": 1,
+      "participants": [
+        "Ajay Shah"
+      ],
+      "started": "2008-09-14T10:42:45+05:30",
+      "last_reply": "2008-09-14T10:42:45+05:30",
+      "root_message_id": "msg-c474f88c34fc"
+    },
+    {
+      "id": "thread-56aac4cd57cb",
+      "subject": "[RsR] RobASt-Packages",
+      "message_count": 1,
+      "participants": [
+        "Matthias Kohl"
+      ],
+      "started": "2008-09-17T08:47:02+02:00",
+      "last_reply": "2008-09-17T08:47:02+02:00",
+      "root_message_id": "msg-56aac4cd57cb"
+    },
+    {
+      "id": "thread-ee3e5a1e4bbc",
+      "subject": "[RsR] MM-scale",
+      "message_count": 1,
+      "participants": [
+        "Christian Hennig"
+      ],
+      "started": "2008-09-18T10:46:27+01:00",
+      "last_reply": "2008-09-18T10:46:27+01:00",
+      "root_message_id": "msg-ee3e5a1e4bbc"
+    },
+    {
+      "id": "thread-58ccaf3866da",
+      "subject": "[RsR] [R-SIG-Finance] Outliers in the market model that's used to estimate `beta' of a stock",
+      "message_count": 2,
+      "participants": [
+        "Matias Salibian-Barrera",
+        "m@rkieeds m@iii@g oii verizo@@@et"
+      ],
+      "started": "2008-09-18T11:58:02-05:00",
+      "last_reply": "2008-09-18T10:29:06-07:00",
+      "root_message_id": "msg-58ccaf3866da"
+    },
+    {
+      "id": "thread-d9d8fea808c4",
+      "subject": "[RsR] [R-SIG-Finance] Outliers in the market model that's used to estimate `beta' of a stock",
+      "message_count": 1,
+      "participants": [
+        "m@rkieeds m@iii@g oii verizo@@@et"
+      ],
+      "started": "2008-09-18T12:47:29-05:00",
+      "last_reply": "2008-09-18T12:47:29-05:00",
+      "root_message_id": "msg-d9d8fea808c4"
+    },
+    {
+      "id": "thread-3c4d49b772bd",
+      "subject": "[RsR] [R] Oja median",
+      "message_count": 4,
+      "participants": [
+        "Martin Maechler",
+        "R@hui-A@Ag@rw@i m@iii@g oii ubs@com",
+        "Valentin Todorov"
+      ],
+      "started": "2008-09-18T14:17:12+02:00",
+      "last_reply": "2008-09-18T17:29:16+02:00",
+      "root_message_id": "msg-3c4d49b772bd"
+    },
+    {
+      "id": "thread-fc257542431a",
+      "subject": "[RsR] Outliers in the market model that's used to estimate `beta' of a stock",
+      "message_count": 3,
+      "participants": [
+        "Adams, Zeno",
+        "Ajay Shah",
+        "Eva Cantoni"
+      ],
+      "started": "2008-09-18T21:06:16+05:30",
+      "last_reply": "2008-09-19T09:58:48+02:00",
+      "root_message_id": "msg-fc257542431a"
+    },
+    {
+      "id": "thread-ff670e0d36ff",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "message_count": 5,
+      "participants": [
+        "Martin Maechler",
+        "Rand Wilcox",
+        "Stromberg, Arnold",
+        "Tobias Verbeke",
+        "kh@@x131 m@iii@g oii um@@edu"
+      ],
+      "started": "2008-09-25T17:50:20-05:00",
+      "last_reply": "2008-09-26T06:00:28-07:00",
+      "root_message_id": "msg-ff670e0d36ff"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2014-04",
+  "messages": [
+    {
+      "id": "msg-558905cb4877",
+      "message_id": "<CAPRP4-c0BP-Ecc-ocydvY3FG3knqGxVgkXg5Y9KGsyo=YXFSzQ@mail.gmail.com>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2014-04-19T21:11:11+02:00",
+      "subject": "[RsR] nlrob()'s vcov() ?",
+      "subject_clean": "[RsR] nlrob()'s vcov() ?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I'm answering in public ... in the hope this help the next person googling ...\n\nOn Fri, Apr 18, 2014 at 4:57 PM, Chris K..........  wrote:\n\n> Dear Dr Maechler - I want to use the nlrob iterativelt\n> reweighted facility to perform nonlinear regression on\n> heteroscedastic data. I want to find out about the\n> covariance matrix calculated by the software - does\n> doCov simply call the vcov facility?\n\nwell, doCov is an argument of nlrob() and when TRUE does the same\ncomputations that vcov(<nlrob result>)\nwould do.  Note that  summary(<nlrob>) also uses the same\nvariance-covariance matrix for\nthe standard errors.\n\n\n> Are the loss function\n> corrections of the forms given in e.g. Huber 1973 (Ann.Stats.\n> 1, 799-821) implemented?\n\n> I would appreciate knowing the actual  mathematical forms used.\n\nWell, I don't have any ready, nor an electronic version of  Huber (1973),\nbut yes, it does use one version of Huber's correction formulas.\n\nNote that in the nonlinear case, the resulting vcov matrix is double\napproximate:\nthe *non*linear regression will use a linear approximation at the minimum,\nthe same that  vcov(nls( .. )) uses, and that's already not unproblematic.\n\nIn addition, we use Huber's approximate formula for the correction factor tau,\n\ntau =  ave_i psi( r_i /  s )  /  [ ave_i  psi'( r_i/d ) ] ^2\n where  ave_i  f(i) =   1/n sum_{i=1}^n   f(i)\n\nThe R code is\n\n    ## --- Estimated asymptotic covariance of the robust estimator\n    rw <- psi(res.sc <- resid/Scale)\n    asCov <- if(!converged || !doCov) NA else {\n        ## a version of  .vcov.m(.) below\n    AtWAinv <- chol2inv(out$m$Rmat())\n    dimnames(AtWAinv) <- list(names(coef), names(coef))\n    tau <- mean(rw^2) / mean(psi(res.sc, d=TRUE))^2\n    AtWAinv * Scale^2 * tau\n    }",
+      "body_snippet": "I'm answering in public ... in the hope this help the next person googling ...\n\nOn Fri, Apr 18, 2014 at 4:57 PM, Chris K..........  wrote:\n\n> Dear Dr Maechler - I want to use the nlrob iterativelt\n> r",
+      "thread_id": "thread-558905cb4877",
+      "thread_depth": 0,
+      "month": "2014-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-558905cb4877",
+      "subject": "[RsR] nlrob()'s vcov() ?",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2014-04-19T21:11:11+02:00",
+      "last_reply": "2014-04-19T21:11:11+02:00",
+      "root_message_id": "msg-558905cb4877"
+    }
+  ]
+}

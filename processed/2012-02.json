@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2012-02",
+  "messages": [
+    {
+      "id": "msg-aa50aa856e90",
+      "message_id": "<3234A46A64884DD9B9F317A9E49CF981@mail2world.com>",
+      "from_name": "Elisabetta Mattiolo",
+      "from_email_hash": "ed005502f355b96ffaa5975fd631a8cf8378bb73062c490491468a184da4965c",
+      "date": "2012-02-07T13:12:34-08:00",
+      "subject": "[RsR] library cox robust : weights?",
+      "subject_clean": "[RsR] library cox robust : weights?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I'm a italian student and I use R for my final degree thesis ... I want\nstudy a Robustly Proportional Hazards (Bednarski's teory) for a dataset\nof medical result. \nI have exstimate with library coxrobust a coxr model (exponential\nweights)\n\n> s=Surv(survival,status)\n\nsite , cyto5.6 and zeb1 are my esplicative variables so the model is:\n\n> exp=coxr(formula = s ~ site + cyto5.6 + zeb1, data = IHC, trunc =\n0.95, f.w= \"exp\" , singular.ok = TRUE, model = FALSE)\n\nwith plot(exp) I can see 5 graphs \n- the firs shows the standardizzed survival differences : one with Cox\nmodel, and one green with Kaplan -Meir stimator \n-other four show the same differences for four strata, defined by the\nquartiles of the estimated linear predictor. \n\nBut my problem is the I want a graphic the robust exponential weight\n(log trasformed) versus case number for the dataset..\nIf I ask R about weight of the model exp: \n> exp$weights\nNULL\nIf I write \n> plot(exp$weights)\nError in plot.window(...) : 'xlim' devono essere finiti\nInoltre: Warning messages:\n1: In min(x) : no non-missing arguments to min; returning Inf\n2: In max(x) : no non-missing arguments to max; returning -Inf\n3: In min(x) : no non-missing arguments to min; returning Inf\n4: In max(x) : no non-missing arguments to max; returning -Inf\n\n\nCan you help me?\nThanks and best regards\n\nElisabetta \n\n\n<P><p><font face=\"Arial, Helvetica, sans-serif\" size=\"2\" style=\"font-size:13.5px\">_______________________________________________________________<BR>1 richiesta di amicizia<br>\n<a href=\"http://www.facebook.com/pages/Excite-Italia/101704826535618\">Diventa fan di Excite su Facebook!</a></font>\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I'm a italian student and I use R for my final degree thesis ... I want\nstudy a Robustly Proportional Hazards (Bednarski's teory) for a dataset\nof medical result. \nI have exstimate with library coxrob",
+      "thread_id": "thread-aa50aa856e90",
+      "thread_depth": 0,
+      "month": "2012-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-aa50aa856e90",
+      "subject": "[RsR] library cox robust : weights?",
+      "message_count": 1,
+      "participants": [
+        "Elisabetta Mattiolo"
+      ],
+      "started": "2012-02-07T13:12:34-08:00",
+      "last_reply": "2012-02-07T13:12:34-08:00",
+      "root_message_id": "msg-aa50aa856e90"
+    }
+  ]
+}

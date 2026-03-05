@@ -1,0 +1,66 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2006-06",
+  "messages": [
+    {
+      "id": "msg-d5e3e7764a38",
+      "message_id": "<001501c68da4$f9c55550$0132a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2006-06-12T00:18:09+02:00",
+      "subject": "[RsR] covRob with M-estimates in S-Plus",
+      "subject_clean": "[RsR] covRob with M-estimates in S-Plus",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "In their talk at ICORS'2005 in Finland, \"Choosing a Multivariate Estimate for High Dimensional Data\", Maronna, Yohai and Villar say (about the problem of the S estimates with high dimensional data):\n\"Rocke (1996) realized this fact and proposed that rho depend on p: He defined a \"translated\nbisquare\" family of functions. It seems that his proposal had only limited diffusion, although it has\nbeen implemented in S-Plus.\"\n\nRecently, I was surprised to find out that unfortunately, although implemented in S-Plus, no body could use the translated biweight functions, proposed by Rocke, because of a simple error in the code.\n\nThe function Rho.param() which computes the parameters for the constrained M-estimator tries to choose between biweight, translated biweight and LWS:\n\n         # alpha <= alf.b\n         c1 <- uniroot(eq.rho.b, lower = 1, upper = 20, p = p, r = r)$root\n=>     alf.b <- 1 - pchisq(c1, p)\n         if(alpha <= alf.b)\n             return(list(rho = \"b\", r = r, alf.b = alf.b, alf.LWS = NA, c = c1,\n                 b0 = (r * c1 * c1)/6, M = 0))\n    ...\n\nThe line \n\n    >>> alf.b <- 1 - pchisq(c1, p) <<< \n\nalways chooses the biweight, although this should be the case only for p <= 3 (see Rocke 1996). \n\nThe proper condition should be \n\n    >>> alf.b <- 1 - pchisq(c1*c1, p) <<< \n\n[same in Kiel's robust package]\n\nBest regards,\n\nValentin\n\n\n\n\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "In their talk at ICORS'2005 in Finland, \"Choosing a Multivariate Estimate for High Dimensional Data\", Maronna, Yohai and Villar say (about the problem of the S estimates with high dimensional data):\n\"",
+      "thread_id": "thread-d5e3e7764a38",
+      "thread_depth": 0,
+      "month": "2006-06"
+    },
+    {
+      "id": "msg-978c467883bb",
+      "message_id": "<17563.43410.601845.498856@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-06-23T10:42:58+02:00",
+      "subject": "[RsR] High breakdown/efficiency statistics -- was RE: [R] Rosner's test",
+      "subject_clean": "[RsR] High breakdown/efficiency statistics -- was RE: [R] Rosner's test",
+      "in_reply_to": "<001701c6961b$2452fe20$0e7e11ac@gne.windows.gene.com>",
+      "references": [
+        "<17562.23802.793188.600782@stat.math.ethz.ch>",
+        "<001701c6961b$2452fe20$0e7e11ac@gne.windows.gene.com>"
+      ],
+      "body_plain": "I'm CC'ing this to the R-SIG-robust mailing list\n [R Special Interest Group on robust statistics]\nso it's properly archived there as well.\nFollow up ideally should only go there.\n\n{BTW: Did you know that to *search* mailing list archives of\n      such R-SIG-foo mailing lists, you can use google very\n      efficiently by prepending the mailing list name and 'site:stat.ethz.ch'?\n      e.g., use google search on\n      \"R-SIG-robust site:stat.ethz.ch lmrob\"\n}\n      \n>>>>> \"BertG\" == Berton Gunter <gunter.berton at gene.com>\n>>>>>     on Thu, 22 Jun 2006 09:44:33 -0700 writes:\n\n    BertG> Many thanks for this Martin. There now are several\n    BertG> packages with what appear to be overlapping functions\n    BertG> (or at least algorithms). Besides those you\n    BertG> mentioned, \"robust\" and \"roblm\" are at least two others.\n\nactually quite particular ones:\n\n- \"roblm\" by Matias Salibian-Barreras is really predecessor to\n  parts in 'robustbase'. His roblm() function is now  lmrob() in\n  robustbase, i.e., robustbase::lmrob(), and lmrob() is a bit\n  more efficient and further has a anova() method.\n\n- \"robust\" : by Kjell Konis -- is planned to become a full port\n\t   of the S-plus library section \"robust\" (from\n\t   Insightful, also mainly by Kjell Konis, built\n\t   on code of many more, see DESCRIPTION).\n   At the moment it comes with a 'Insightful Robust Library License'\n   which seems a kind of open source licence, but pretty \"peculiar\"\n   (to me: IANAL (I am not a lawyer)).\n\n   At the moment it only has \"robust covariance + location\", but\n   when it will contain everything from its S-plus counterpart,\n   it will be a very nice benchmark; in many parts \"first rate\".\n\n    BertG> Any recommendations about how or whether to\n    BertG> choose among these for us enthusiastic but non-expert\n    BertG> users?\n\nAs I said (in reply to Andy's suggestion) there will be a CRAN\ntask view \"real soon now\" \nin order to give some guidance on the diverse packages with\nrobustness functionality.\n\n    BertG> Cheers, Bert\n \n\n    >> -----Original Message----- From: Martin Maechler\n    >> [mailto:maechler at stat.math.ethz.ch] Sent: Thursday, June\n    >> 22, 2006 2:04 AM To: Berton Gunter Cc: 'Robert Powell';\n    >> r-help at stat.math.ethz.ch Subject: Re: [R] Rosner's test\n    >> \n    >> >>>>> \"BertG\" == Berton Gunter <gunter.berton at gene.com>\n    >> >>>>> on Tue, 13 Jun 2006 14:34:48 -0700 writes:\n    >> \n    BertG> RSiteSearch('Rosner') ?RSiteSearch or search directly\n    BertG> from CRAN.\n    >>\n    BertG> Incidentally, I'll repeat what I've said\n    BertG> before. Don't do outlier tests.  They're\n    BertG> dangerous. Use robust methods instead.\n    >>  Yes, yes, yes!!!\n    >> \n    >> Note that rlm() or cov.rob() from recommended package\n    >> MASS will most probably be sufficient for your needs.\n    >> \n    >> For slightly newer methodology, look at package\n    >> 'robustbase', or also 'rrcov'.\n    >> \n    >> Martin Maechler, ETH Zurich\n    >> \n    BertG> -- Bert Gunter Genentech Non-Clinical Statistics\n    BertG> South San Francisco, CA\n    >>\n    BertG> \"The business of the statistician is to catalyze the\n    BertG> scientific learning process.\"  - George E. P. Box\n    >>",
+      "body_snippet": "I'm CC'ing this to the R-SIG-robust mailing list\n [R Special Interest Group on robust statistics]\nso it's properly archived there as well.\nFollow up ideally should only go there.\n\n{BTW: Did you know t",
+      "thread_id": "thread-978c467883bb",
+      "thread_depth": 0,
+      "month": "2006-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-d5e3e7764a38",
+      "subject": "[RsR] covRob with M-estimates in S-Plus",
+      "message_count": 1,
+      "participants": [
+        "Valentin Todorov"
+      ],
+      "started": "2006-06-12T00:18:09+02:00",
+      "last_reply": "2006-06-12T00:18:09+02:00",
+      "root_message_id": "msg-d5e3e7764a38"
+    },
+    {
+      "id": "thread-978c467883bb",
+      "subject": "[RsR] High breakdown/efficiency statistics -- was RE: [R] Rosner's test",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2006-06-23T10:42:58+02:00",
+      "last_reply": "2006-06-23T10:42:58+02:00",
+      "root_message_id": "msg-978c467883bb"
+    }
+  ]
+}

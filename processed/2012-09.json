@@ -1,0 +1,46 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2012-09",
+  "messages": [
+    {
+      "id": "msg-01f03ba17815",
+      "message_id": "<CAEkXS9LyQegqhejgqq7CK0e48owJh7Uj5EQPzX-b1AAP+hUxgA@mail.gmail.com>",
+      "from_name": "Fabricio Vasselai",
+      "from_email_hash": "f43d1ca5dfe5de4a43a04ed898abd9cf78ab7df105c1d0f084f114d72d537fe6",
+      "date": "2012-09-03T15:14:25-03:00",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "subject_clean": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "in_reply_to": "<CAPUobv2rQ4EzHexyk2sYQheEhfYPc5t45DFCQqXSd5TCyDy4+Q@mail.gmail.com>",
+      "references": [
+        "<CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>",
+        "<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>",
+        "<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>",
+        "<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>",
+        "<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>",
+        "<503F3AA1.3000805@wis.kuleuven.be>",
+        "<503F3E7D.1030603@wis.kuleuven.be>",
+        "<20543.17955.708721.286372@stat.math.ethz.ch>",
+        "<CAPUobv2rQ4EzHexyk2sYQheEhfYPc5t45DFCQqXSd5TCyDy4+Q@mail.gmail.com>"
+      ],
+      "body_plain": "Dears,\n\nSorry for taking so long to get in touch again. But I really thank the\ninsights so far. Mainly, I really apreciate the detailed answer given by\nManuel.\n\n> Great that it works with lmrob :-). Are the differences really that\n> \"substantial\"? Even when taking the standard error into account?\n> Of course, you would expect \"some\" differences, because the two\n> methods do not use the exact same algorithms and also use different\n> default configuration parameters:\n\nIndeed, depending on the models I run, one or other results are quite\ndifferent when I use lmrob and lmRob. More clearly in the p-values. but you\nare right that (a) it is not the usual pattern, as generally results are\nsimilar but lmrob seems to be more efficient; (b) if considering the std\nerrors, most differences seems to be not that different anymor;\n\n> - For datasets with categorical and continuous variables, lmRob uses\n> an M-S-estimate as initial estimate (replacing the S-estimate). It is\n> basically an L1-estimate for the categorical part and an S-estimate\n> for the continuous part. lmrob does not need to split the estimation\n> into categorical and continuous parts, it just computes an S-estimate.\n> That's one source of differences.\n\nYep, this is a perfect point to be made. The models I've been trying they\nalways mix continuous and binary variables. LmRob goes directly for a M-S\nestimate. After I read your email, I tried separate models for continuous\nand for binary variables both with lmrob and lmRob. Differences in results\nfrom the models with only continuous variables were always tiny. Even\nsimulating data and models, I got the same results, i.e. I think most\ndifferences I've been experiencing between lmrob and lmRob were due to the\ndifferent approach to the mix of continuous and categorical variables.\n\n> - The defaults for the psi- or rho-functions used are different. If I\n> remember correctly, lmRob uses the so-called \"optimal\" while lmrob\n> uses the bisquare psi-function. While \"optimal\" is clearly worse, both\n> are prone to produce somewhat unstable estimates for small datasets\n> (if you draw sensitivity curves of the initial estimates you will get\n> non-smooth curves with many jumps, etc). That's why we advocate to use\n> psi-functions that redescend more slowly, like \"lqq\" (only available\n> for lmrob). That's another source of differences.\n\nOk. Acknowledged, it makes sense. I have a dataset of 600 cases, running\nmodels with 16 varaibles, 3 interactions. Even though, as I said I think\nthe main differences I found so far were due to how each function handles\nthe mix of different types of variables.\n\n> BTW: Have you considered using the config option setting=\"KS2011\" in\n> lmrob? This is an alternative set of default options using the \"lqq\"\n> psi-function and SMDM-estimates instead of MM-estimates. This will\n> give you better tests, especially if you have many predictors and a\n> not so large dataset.\n\nCool, I will try this, as it speaks to me: not so large dataset, not so\nsmall models.\n\nThanks a ton for the info, Manuel. And thanks everybody for the references.\n\nFABRICIO\n\n\n\n\n\n2012/8/30 Manuel Koller <koller at stat.math.ethz.ch>\n\n> Hi Kaveh\n>\n> Martin already gave the reference to paper where we develop the SMDM\n> estimators. The second paper he mentions can be found on arxiv for now\n> (arXiv:1208.5595v1, http://arxiv.org/abs/1208.5595). There you can\n> find the algorithm we implemented in lmrob that can also compute\n> S-estimates when there are categorical variables present.\n>\n> Best regards,\n>\n> Manuel\n>\n> On Thu, Aug 30, 2012 at 12:53 PM, Martin Maechler\n> <maechler at stat.math.ethz.ch> wrote:\n> >>>>>> \"KV\" == Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>\n> >>>>>>     on Thu, 30 Aug 2012 12:20:45 +0200 writes:\n> >\n> >     KV> Sorry I accidentally send a draft message to the list\n> >     KV> (maybe the heatwave).\n> >\n> >     KV> Below the correct version\n> >\n> >\n> >\n> >     KV> Dear Manuel,\n> >\n> >     KV> This all sounds very exiting, would you by any chance\n> >     KV> have a link to a white paper/technical report where\n> >     KV> these innovations are documented in greater details\n> >     KV> than in the help files associated with lmRob?\n> >\n> > I think you have understood that Manuel advocates using lmrob(),\n> > [not lmRob() !!]\n> >\n> > So please do look at  ?lmrob\n> > It has several references, most notably to\n> >\n> >   Koller, M. and Stahel, W.A. (2011), Sharpening Wald-type inference\n> >   in robust regression for small samples, _Computational Statistics\n> >   & Data Analysis_ *55*(8), 2504-2515.\n> >\n> > For newer results, manual will provide newer links.\n> >\n> > Unfortunately, stupid editorial processes lead to papers not\n> > being published just because they want to publicize a simple\n> > good idea for a new algorithm that has not been found by anyone\n> > in 20-30 years history, but the editor/referees still claim the\n> > idea to be too simple to be worth publishing .....\n> >\n> > Martin\n> >\n> >     KV> Best regards,\n> >\n> >\n> >     KV> On 08/30/2012 12:04 PM, Kaveh Vakili wrote:\n> >     >>\n> >     >> Dear Manual,\n> >     >>\n> >     >> This all sounds very existing, would you do by any chance\n> >     >> have a link to a white paper where these numerous\n> >     >> innovations are explained more in detail than in the\n> >     >> lmRob help files?\n> >     >>\n> >     >> Best regards,\n> >     >>\n> >     >>\n> >     >>\n> >     >>\n> >     >> On 08/30/2012 08:26 AM, Manuel Koller wrote:\n> >     >>> - lmrob uses randomized algorithms and thus produces slightly\n> >     >>> different results for different seeds.\n> >     >>\n> >     >> _______________________________________________\n> >     >> R-SIG-Robust at r-project.org mailing list\n> >     >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> >\n> >     KV> _______________________________________________\n> >     KV> R-SIG-Robust at r-project.org mailing list\n> >     KV> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> >\n> > _______________________________________________\n> > R-SIG-Robust at r-project.org mailing list\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>\n>\n> --\n> Manuel Koller <koller at stat.math.ethz.ch>\n> Seminar f?r Statistik, HG G 18, R?mistrasse 101\n> ETH Z?rich  8092 Z?rich  SWITZERLAND\n> phone: +41 44 632-4673 fax: ...-1228\n> http://stat.ethz.ch/people/kollerma/\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dears,\n\nSorry for taking so long to get in touch again. But I really thank the\ninsights so far. Mainly, I really apreciate the detailed answer given by\nManuel.\n\n> Great that it works with lmrob :-). A",
+      "thread_id": "thread-01f03ba17815",
+      "thread_depth": 0,
+      "month": "2012-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-01f03ba17815",
+      "subject": "[RsR] Maximum number of variables with lmRob? Error: singular matrix encountered",
+      "message_count": 1,
+      "participants": [
+        "Fabricio Vasselai"
+      ],
+      "started": "2012-09-03T15:14:25-03:00",
+      "last_reply": "2012-09-03T15:14:25-03:00",
+      "root_message_id": "msg-01f03ba17815"
+    }
+  ]
+}

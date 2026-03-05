@@ -1,0 +1,111 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2010-07",
+  "messages": [
+    {
+      "id": "msg-07c066ffb313",
+      "message_id": "<AANLkTim8AvhA3onqfqTE8LweE1KWvsqUD0WnHKoHV9jM@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2010-07-08T08:58:01+02:00",
+      "subject": "[RsR] S-estimates",
+      "subject_clean": "[RsR] S-estimates",
+      "in_reply_to": "<SNT141-w1C669474171FA03D0E8CDA3CB0@phx.gbl>",
+      "references": [
+        "<SNT141-w1C669474171FA03D0E8CDA3CB0@phx.gbl>"
+      ],
+      "body_plain": "library(robustbase)\n?lmrob.S\n\n\nBut have a look also at:\n\n?lmrob\n?lmrob.fit.MM\n\nBest regards,\nValentin\n\n\n\n\nOn Tue, Jun 29, 2010 at 9:35 PM, Nanda Mendez <nandixx at hotmail.com> wrote:\n>\n> I'd like to S-estimates of regression, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\n> Thanks!!!Nanda\n> _________________________________________________________________\n> Los cochazos de los famosos Patrick Dempsey, Tom Cruise o Michael Douglas presumen de autom?vil\n>\n> ? ? ? ?[[alternative HTML version deleted]]\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>",
+      "body_snippet": "library(robustbase)\n?lmrob.S\n\n\nBut have a look also at:\n\n?lmrob\n?lmrob.fit.MM\n\nBest regards,\nValentin\n\n\n\n\nOn Tue, Jun 29, 2010 at 9:35 PM, Nanda Mendez <nandixx at hotmail.com> wrote:\n>\n> I'd like to ",
+      "thread_id": "thread-07c066ffb313",
+      "thread_depth": 0,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-c12f7b6a239d",
+      "message_id": "<201007130345.o6D3j1Hb005177@wallabie.isp.ip.pt>",
+      "from_name": "Eduardo Conceição",
+      "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
+      "date": "2010-07-13T04:45:01+01:00",
+      "subject": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
+      "subject_clean": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI have recently conducted a Monte Carlo simulation study for robust univariate *nonlinear* regression estimators using small sample data taken from case studies in the chemical engineering field. The paper is available from doi:10.1016/j.compchemeng.2010.04.009\n\nA very unusual finding was that for *pure* Gaussian error some of the robust estimators could *outperform* the least squares estimator. Even though I do not known of any theoretical result which prevents this behavior to happen, I have never seen it reported either.\n\nI would like to known whether you find this acceptable or not and what you think might be causing it.\n\nThanks in advance for your help.\n\nEduardo L.T. Concei??o\nDept. of Chemical Engineering\nUniversity of Coimbra\nPortugal\ne-mail: econceicao at kanguru.pt; etc at eq.uc.pt",
+      "body_snippet": "Hi,\n\nI have recently conducted a Monte Carlo simulation study for robust univariate *nonlinear* regression estimators using small sample data taken from case studies in the chemical engineering field.",
+      "thread_id": "thread-c12f7b6a239d",
+      "thread_depth": 0,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-f706b94a3e97",
+      "message_id": "<4C3DF7B7.20904@stamats.de>",
+      "from_name": "Dr. Matthias Kohl",
+      "from_email_hash": "e144ddb675681f3124c6e887dd63c8aec6f6b4e9911a8cda00f94c453a4cb173",
+      "date": "2010-07-14T19:45:27+02:00",
+      "subject": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
+      "subject_clean": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
+      "in_reply_to": "<201007130345.o6D3j1Hb005177@wallabie.isp.ip.pt>",
+      "references": [
+        "<201007130345.o6D3j1Hb005177@wallabie.isp.ip.pt>"
+      ],
+      "body_plain": "Dear Eduardo,\n\nI think a key point is the median-based efficiency criterion which you \nuse to compare the estimators. In particular, do you know of a result \nwhich states that the least squares estimator is optimal with respect to \nmedian(|LS estimator - true parameter|)?\n\nBeside that, I'm not convinced that this median-based efficiency \ncriterion is a good choice for the comparison of estimators with the aim \nto investigate their robustness properties. But I will have a look at \nYou (1999) in the next days.\n\nJust my two cents.\nMatthias\n\nOn 13.07.2010 05:45, Eduardo Concei??o wrote:\n> Hi,\n>\n> I have recently conducted a Monte Carlo simulation study for robust univariate *nonlinear* regression estimators using small sample data taken from case studies in the chemical engineering field. The paper is available from doi:10.1016/j.compchemeng.2010.04.009\n>\n> A very unusual finding was that for *pure* Gaussian error some of the robust estimators could *outperform* the least squares estimator. Even though I do not known of any theoretical result which prevents this behavior to happen, I have never seen it reported either.\n>\n> I would like to known whether you find this acceptable or not and what you think might be causing it.\n>\n> Thanks in advance for your help.\n>\n> Eduardo L.T. Concei??o\n> Dept. of Chemical Engineering\n> University of Coimbra\n> Portugal\n> e-mail: econceicao at kanguru.pt; etc at eq.uc.pt\n>\n>    \n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>    \n\n-- \nDr. Matthias Kohl\nwww.stamats.de\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear Eduardo,\n\nI think a key point is the median-based efficiency criterion which you \nuse to compare the estimators. In particular, do you know of a result \nwhich states that the least squares estima",
+      "thread_id": "thread-c12f7b6a239d",
+      "thread_depth": 1,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-bd0edf42f6f2",
+      "message_id": "<201007161240.o6GCefFw025565@wallabie.isp.ip.pt>",
+      "from_name": "Eduardo Conceição",
+      "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
+      "date": "2010-07-16T13:40:41+01:00",
+      "subject": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
+      "subject_clean": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear Matthias,\n\nI'm not aware of any proof for the optimality of least squares with respect to median(|LS estimator - true parameter|). I just assumed it was since You (1999) used it in his simulation study.\n\nThe same behavior, although mitigated, is observed when using the common mean squared error (MSE) criterion as you can see in the attached figure. Therefore, it seems that in some, *but not all*, degree this a consequence of the robust efficiency criterion as you've pointed out.\n\nBest regards,\nEduardo\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: eff_mse_gaussian.pdf\nType: application/pdf\nSize: 282878 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20100716/e9375146/attachment.pdf>",
+      "body_snippet": "Dear Matthias,\n\nI'm not aware of any proof for the optimality of least squares with respect to median(|LS estimator - true parameter|). I just assumed it was since You (1999) used it in his simulation",
+      "thread_id": "thread-bd0edf42f6f2",
+      "thread_depth": 0,
+      "month": "2010-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-07c066ffb313",
+      "subject": "[RsR] S-estimates",
+      "message_count": 1,
+      "participants": [
+        "Valentin Todorov"
+      ],
+      "started": "2010-07-08T08:58:01+02:00",
+      "last_reply": "2010-07-08T08:58:01+02:00",
+      "root_message_id": "msg-07c066ffb313"
+    },
+    {
+      "id": "thread-c12f7b6a239d",
+      "subject": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
+      "message_count": 2,
+      "participants": [
+        "Dr. Matthias Kohl",
+        "Eduardo Conceição"
+      ],
+      "started": "2010-07-13T04:45:01+01:00",
+      "last_reply": "2010-07-14T19:45:27+02:00",
+      "root_message_id": "msg-c12f7b6a239d"
+    },
+    {
+      "id": "thread-bd0edf42f6f2",
+      "subject": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
+      "message_count": 1,
+      "participants": [
+        "Eduardo Conceição"
+      ],
+      "started": "2010-07-16T13:40:41+01:00",
+      "last_reply": "2010-07-16T13:40:41+01:00",
+      "root_message_id": "msg-bd0edf42f6f2"
+    }
+  ]
+}

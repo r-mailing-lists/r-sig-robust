@@ -1,0 +1,39 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2016-10",
+  "messages": [
+    {
+      "id": "msg-259dbfbdb1f3",
+      "message_id": "<794429861.151753.1475886960358@mail.yahoo.com>",
+      "from_name": "Eka Kusumawati",
+      "from_email_hash": "e6cca766d0dfbb2e8310dffa86a00a0deb4d982164c0cc5909fa20742efd3d7d",
+      "date": "2016-10-08T00:36:00Z",
+      "subject": "[RsR] efficieny estimator",
+      "subject_clean": "[RsR] efficieny estimator",
+      "in_reply_to": "<1672227249.157018.1475886721269@mail.yahoo.com>",
+      "references": [
+        "<1672227249.157018.1475886721269.ref@mail.yahoo.com>",
+        "<1672227249.157018.1475886721269@mail.yahoo.com>"
+      ],
+      "body_plain": "Dear to members,I want to ask syntax in R to investigate the efficiency of the OLS (ordinary least square) method in multivariate regression and robust multivariate regression. \nhow to calculate efficiency of coefficient multivariate regression (intercept and slope) using R? if p-variate predictors p=4, q-variate response=4, sample size n=50 from multivariate standart Gaussian distributions N(0,I_p+q), m=1000 replications, gamma=0.25. and formula to finite-sample efficiency of the slope is 1/var(B_hat) where\nand\nplease help me to make the syntax for OLS in multivariate regression...Thank you...\n\n\n   \n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20161008/5e407f75/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: datauri-file.png\nType: image/png\nSize: 4543 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20161008/5e407f75/attachment.png>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: datauri-file.png\nType: image/png\nSize: 2426 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20161008/5e407f75/attachment-0001.png>",
+      "body_snippet": "Dear to members,I want to ask syntax in R to investigate the efficiency of the OLS (ordinary least square) method in multivariate regression and robust multivariate regression. \nhow to calculate effic",
+      "thread_id": "thread-259dbfbdb1f3",
+      "thread_depth": 0,
+      "month": "2016-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-259dbfbdb1f3",
+      "subject": "[RsR] efficieny estimator",
+      "message_count": 1,
+      "participants": [
+        "Eka Kusumawati"
+      ],
+      "started": "2016-10-08T00:36:00+00:00",
+      "last_reply": "2016-10-08T00:36:00+00:00",
+      "root_message_id": "msg-259dbfbdb1f3"
+    }
+  ]
+}

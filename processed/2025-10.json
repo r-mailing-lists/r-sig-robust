@@ -1,0 +1,38 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2025-10",
+  "messages": [
+    {
+      "id": "msg-e0883a793bf1",
+      "message_id": "<AM0PR03MB6164441660BFED3FE9D06F3CBBEBA@AM0PR03MB6164.eurprd03.prod.outlook.com>",
+      "from_name": "Teresa Pérez-Piñar López",
+      "from_email_hash": "4c60dca7374e6be43309d18f85d75b87040713bdc2e83bae7f0d7380a27406d4",
+      "date": "2025-10-14T12:01:21Z",
+      "subject": "[RsR] Welcome to the \"R-SIG-Robust\" mailing list (Digest mode)",
+      "subject_clean": "[RsR] Welcome to the \"R-SIG-Robust\" mailing list (Digest mode)",
+      "in_reply_to": "<mailman.516.0.1760440594.50025.r-sig-robust@r-project.org>",
+      "references": [
+        "<mailman.516.0.1760440594.50025.r-sig-robust@r-project.org>"
+      ],
+      "body_plain": "Dear R community,\nWe analyzed a series of biological samples and obtained results for 60 primary metabolites. For some metabolites, the results are in absolute concentration units, and for others, in relative units, because they were measured using different machines.\n\nThe goal is to build a predictive model that selects a small number of metabolites, which can then be measured on one machine to predict a rate associated with each sample. Each sample has a different regeneration rate.\n\nIn total, 13 samples were analyzed, each with biological and technical replicates.\n\nFirst, I performed a forward stepwise regression. Then, I was advised to perform a Leave-One-Out Cross-Validation (LOOCV). I have done this in R, but I am not sure if it is correct, because the resulting predictive model contains only one metabolite.\n\nI would like guidance from the R community on whether my approach and LOOCV implementation are appropriate given this small dataset and the type of data I have. I can provide the R documents and scripts I used so that members can review them and advise whether the analysis is correct.\n\nAny suggestions or recommendations would be greatly appreciated.\n\nThank you very much for your time and help.\n\nBest regards,\nTeresa\n\n________________________________\nDe: R-SIG-Robust <r-sig-robust-bounces at r-project.org> en nombre de r-sig-robust-request at r-project.org <r-sig-robust-request at r-project.org>\nEnviado: martes, 14 de octubre de 2025 13:16\nPara: Teresa P?rez-Pi?ar L?pez <tperezpi at uax.es>\nAsunto: Welcome to the \"R-SIG-Robust\" mailing list (Digest mode)\n\nPRECAUCI?N: Este correo electr?nico se origin? fuera de la organizaci?n. No abra enlaces ni archivos adjuntos a menos que pueda confirmar que el remitente es conocido y que el contenido es seguro\n\n\nWelcome to the R-SIG-Robust at r-project.org mailing list!\n\nTo post to this list, send your message to:\n\n  r-sig-robust at r-project.org\n\nGeneral information about the mailing list is at:\n\n  https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\nIf you ever want to unsubscribe or change your options (eg, switch to\nor from digest mode, change your password, etc.), visit your\nsubscription page at:\n\n  https://stat.ethz.ch/mailman/options/r-sig-robust/tperezpi%40uax.es\n\nYou can also make such adjustments via email by sending a message to:\n\n  R-SIG-Robust-request at r-project.org\n\nwith the word `help' in the subject or body (don't include the\nquotes), and you will get back a message with instructions.\n\nYou must know your password to change your options (including changing\nthe password, itself) or to unsubscribe without confirmation.  It is:\n\n  110902\n\nNormally, Mailman will remind you of your r-project.org mailing list\npasswords once every month, although you can disable this if you\nprefer.  This reminder will also include instructions on how to\nunsubscribe or change your account options.  There is also a button on\nyour options page that will email your current password to you.\n\nCL?USULA DE CONFIDENCIALIDAD\n\nEste mensaje ha sido generado desde una cuenta de la Universidad Alfonso X el Sabio para los fines propios de la instituci?n. Su contenido se considera confidencial y, salvo que la naturaleza del mismo as? lo exija, no est? permitida su reproducci?n o distribuci?n sin la autorizaci?n expresa. Si Usted ha recibido indebidamente este correo le rogamos que advierta de ello al remitente y proceda a su eliminaci?n. Pol?tica de privacidad www.uax.com/politica-de-privacidad\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20251014/f3468ec0/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: Regression model development_raw data_bueno.pdf\nType: application/pdf\nSize: 77506 bytes\nDesc: Regression model development_raw data_bueno.pdf\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20251014/f3468ec0/attachment.pdf>",
+      "body_snippet": "Dear R community,\nWe analyzed a series of biological samples and obtained results for 60 primary metabolites. For some metabolites, the results are in absolute concentration units, and for others, in ",
+      "thread_id": "thread-e0883a793bf1",
+      "thread_depth": 0,
+      "month": "2025-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-e0883a793bf1",
+      "subject": "[RsR] Welcome to the \"R-SIG-Robust\" mailing list (Digest mode)",
+      "message_count": 1,
+      "participants": [
+        "Teresa Pérez-Piñar López"
+      ],
+      "started": "2025-10-14T12:01:21+00:00",
+      "last_reply": "2025-10-14T12:01:21+00:00",
+      "root_message_id": "msg-e0883a793bf1"
+    }
+  ]
+}

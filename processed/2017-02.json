@@ -1,0 +1,38 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2017-02",
+  "messages": [
+    {
+      "id": "msg-c4a2f6947c33",
+      "message_id": "<22673.51445.189361.285649@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2017-02-01T12:39:33+01:00",
+      "subject": "[RsR] glmrob - fit statistics: R^2 - r-squared ?",
+      "subject_clean": "[RsR] glmrob - fit statistics: R^2 - r-squared ?",
+      "in_reply_to": "<CAN072pOvw99ofNUz47Bgw0A1Rz6rzTDBRJxiJqLzZvj9gUZBww@mail.gmail.com>",
+      "references": [
+        "<CAN072pOvw99ofNUz47Bgw0A1Rz6rzTDBRJxiJqLzZvj9gUZBww@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> F... F... <.... at gmail.com>  on Tue, 31 Jan 2017 20:17:31 -0500 writes:\n\n    > Dear Prof. Maechler:\n    > I am using the glmrob function from your package and am interested in\n    > having fit statistics (r-squared). Summary doesn't give me that. Is there\n    > another way to obtain it?\n\nI'm replying to the dedicated mailing list, \"robust statistics with R\",\n(BCC'ing to F.F. who asked me in private):\n\nEven standard R's   glm()  does not provide an R^2 for\ngeneralized linear models, because it is doubtful how it should\nbe defined outside of least squares and the normal distribution\nassumption.\n\nBut of course, other goodness-of-fit (GOF) measures do make\nsense, and summary(glm(..)) provides deviances, dispersion\nparameter estimates and AIC  aiming in that direction.\n\n\nFor linear models with the 'normal' family, we typically use lmrob(),\nand there, the summary method now has been providing a _robust_\nversion of R^2, thanks to this research paper (and code contribution),\n\n     Renaud, O. and Victoria-Feser, M.-P. (2010).  A robust coefficient\n     of determination for regression, _Journal of Statistical Planning\n     and Inference_ *140*, 1852-1862.\n\nwe now have\n\n> mod1 <- lmrob(stack.loss ~ ., data = stackloss)\n> summary(mod1)\n\nCall:\nlmrob(formula = stack.loss ~ ., data = stackloss)\n \\--> method = \"MM\"\nResiduals:\n      Min        1Q    Median        3Q       Max \n-10.50974  -1.43819  -0.09134   1.02503   7.23113 \n\nCoefficients:\n             Estimate Std. Error t value Pr(>|t|)    \n(Intercept) -41.52462    5.29780  -7.838 4.82e-07 ***\nAir.Flow      0.93885    0.11743   7.995 3.68e-07 ***\nWater.Temp    0.57955    0.26296   2.204   0.0416 *  \nAcid.Conc.   -0.11292    0.06989  -1.616   0.1246    \n---\nSignif. codes:  0 ?***? 0.001 ?**? 0.01 ?*? 0.05 ?.? 0.1 ? ? 1\n\nRobust residual standard error: 1.912 \nMultiple R-squared:  0.9593,\tAdjusted R-squared:  0.9521 \n^^^^^^^^^^^^^^^^^^              ^^^^^^^^^^^^^^^^^^\n\n[.............]\n[.............]\n\nand the help page explains:\n\nr.squared: robust ?R squared? or R^2, a coefficient of determination:\n          This is the consistency corrected robust coefficient of\n          determination by Renaud and Victoria-Feser (2010).\n\n-----------------------------\n\nI have not known of similar research / proposals for\nnon-Gaussian robustified GLMs, and so there hasn't been anything\nin \"summary(glmrob(..))\" in the robustbase package,\nbut maybe there are proposals out there which the readers of\nR-SIG-robust know about ?\n\nWe would be interested to know...\n\nMartin Maechler\nETH Zurich",
+      "body_snippet": ">>>>> F... F... <.... at gmail.com>  on Tue, 31 Jan 2017 20:17:31 -0500 writes:\n\n    > Dear Prof. Maechler:\n    > I am using the glmrob function from your package and am interested in\n    > having fit",
+      "thread_id": "thread-c4a2f6947c33",
+      "thread_depth": 0,
+      "month": "2017-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-c4a2f6947c33",
+      "subject": "[RsR] glmrob - fit statistics: R^2 - r-squared ?",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2017-02-01T12:39:33+01:00",
+      "last_reply": "2017-02-01T12:39:33+01:00",
+      "root_message_id": "msg-c4a2f6947c33"
+    }
+  ]
+}

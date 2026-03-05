@@ -1,0 +1,105 @@
+From @r|n|dh|@j@y@kum@r @end|ng |rom @tonybrook@edu  Sat May  4 22:07:41 2024
+From: @r|n|dh|@j@y@kum@r @end|ng |rom @tonybrook@edu (Srinidhi Jayakumar)
+Date: Sat, 4 May 2024 16:07:41 -0400
+Subject: [RsR] Error in time varying predictor model. Please help!
+Message-ID: <CAMvZauojacb-i=3Ym4QHy9rxt7m13zh5ty9=9Dc0O_Tt6rUvBA@mail.gmail.com>
+
+Hi,
+
+I am running a multilevel growth curve model to examine predictors of
+social anhedonia (SA) trajectory through ages 12, 15 and 18. SA is a
+continuous numeric variable. The age variable (Index1) has been coded as 0
+for age  12, 1 for age 15 and 2 for age 18. I am currently using a time
+varying predictor, stress (LSI), which was measured at ages 12, 15 and 18,
+to examine whether trajectory/variation in LSI predicts difference in SA
+trajectory. LSI is a continuous numeric variable. The data has been
+converted to long format with SA in 1 column, LSI in the other, ID in
+another and age in another column. I used the code below to run my model
+using lmer. However, I get the following error. Please let me know how I
+can solve this error. Please note that I have 50% missing data in SA at age
+12, which I am handling using the REML method.
+modelLSI_maineff_RE <- lmer(SA ~ Index1* LSI+ (1 + Index1+LSI |ID),
+                            data = LSIDATA, control = lmerControl(optimizer
+="bobyqa"), REML=TRUE)
+summary(modelLSI_maineff_RE)
+
+Error: number of observations (=1080) <= number of random effects
+(=1479) for term (1 + Index1 + LSI | ID); the random-effects
+parameters and the residual variance (or scale parameter) are probably
+unidentifiable
+
+
+ I did test the within-person variance for the LSI variable and
+the within-person variance is significant.
+[image: image.png]
+
+Also, for some reason, the model runs if I specify the random effects as
+either of these 2 models. However, I want to know whether variation in LSI
+predicts variation in SA trajectory between and within people. Hence, I
+need both age and LSI in the random effects.
+  modelLSI1 <- lmer(SA ~ Index1* LSI+ (1 + Index1 |ID),
+                            data = LSIDATA, control = lmerControl(optimizer
+="bobyqa"), REML=TRUE)
+*OR*
+  modelLSI2 <- lmer(SA ~ Index1* LSI+ (1 +LSI |ID),
+                            data = LSIDATA, control = lmerControl(optimizer
+="bobyqa"), REML=TRUE)
+
+Please let me know how I can solve my error and examine the random effect
+of LSI.
+
+Thank you,
+Srinidhi
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240504/2fca229e/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image.png
+Type: image/png
+Size: 95872 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240504/2fca229e/attachment.png>
+
+From pro|@ju@nj@moreno @end|ng |rom gm@||@com  Mon May  6 14:24:39 2024
+From: pro|@ju@nj@moreno @end|ng |rom gm@||@com (=?UTF-8?Q?Juan_J=2E_Moreno_Pi=C3=B1a?=)
+Date: Mon, 6 May 2024 08:24:39 -0400
+Subject: [RsR] (no subject)
+Message-ID: <CAMf5Kvy9s4JKK_yoTzGjGC57z0MajWNM_8qx-kuK0-ng2JMCtQ@mail.gmail.com>
+
+
+
+	[[alternative HTML version deleted]]
+
+
+From mzyphur m@iii@g oii i@st@ts@org  Tue Aug 20 10:20:01 2024
+From: mzyphur m@iii@g oii i@st@ts@org (mzyphur m@iii@g oii i@st@ts@org)
+Date: Tue, 20 Aug 2024 08:20:01 +0000 (UTC)
+Subject: [RsR] Using ChatGPT and Copilot for Data Analysis in R - livestream
+ seminar
+Message-ID: <OxSrQsp0RUm81ee76a_vAg@geopod-ismtpd-canary-0>
+
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240820/2eb6f066/attachment.html>
+
+From mzyphur m@iii@g oii i@st@ts@org  Wed Sep  4 09:22:00 2024
+From: mzyphur m@iii@g oii i@st@ts@org (mzyphur m@iii@g oii i@st@ts@org)
+Date: Wed, 04 Sep 2024 07:22:00 +0000 (UTC)
+Subject: [RsR] Online courses: Instats Launches All-Access Subscriptions
+Message-ID: <rEPSL-QaSd-OSy1KsQaFdg@geopod-ismtpd-1>
+
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240904/e18ac21d/attachment.html>
+
+From mzyphur m@iii@g oii i@st@ts@org  Tue Sep 17 23:25:00 2024
+From: mzyphur m@iii@g oii i@st@ts@org (mzyphur m@iii@g oii i@st@ts@org)
+Date: Tue, 17 Sep 2024 21:25:00 +0000 (UTC)
+Subject: [RsR] Online Course: Statistics and Data Science using Tidyverse in
+ R
+Message-ID: <LuT1NIwLTCmooN0yjmr7QQ@geopod-ismtpd-16>
+
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240917/6f453274/attachment.html>
+

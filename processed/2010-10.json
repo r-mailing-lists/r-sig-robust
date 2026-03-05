@@ -1,0 +1,101 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2010-10",
+  "messages": [
+    {
+      "id": "msg-f250497db542",
+      "message_id": "<4CBDAC0A.2040908@uab.cat>",
+      "from_name": "Pep Serra",
+      "from_email_hash": "217ccf4a34d2d0fb6d09944b3afc934cf006b079672c836e42588685ca021375",
+      "date": "2010-10-19T16:32:42+02:00",
+      "subject": "[RsR] robust scatterplot with fits",
+      "subject_clean": "[RsR] robust scatterplot with fits",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear RsR list members,\n\n  I somehow got stuck wth lmRob and I am sure I am missing something and \nI do not know what. It is my first time using robust statistics and I \nhave read all your posts and pdfs recommended\n\nI think it is likely to be a newbie question. I ploted two variables and \nthe pictures shows a number of outliers that I want to identify given \nthat the main trend between those two measurements is positive. \n(although they look like a lot, it is more or less 800 points out of 6000)\n\n\n\n\n\nI used then\n\nrobust<-lmRob(WPROB~NPP,data=a)\n\n\nlmRob(formula = WPROB ~ NPP, data = a)\n\nCoefficients:\n  (Intercept)          NPP\n499.86274538  -0.00990502\n\nDegrees of freedom: 6002 total; 6000 residual\nResidual standard error: 250.3199\n\n1) I do not really understand the slope of the regression, why is it \nnegative???\n\nthen used plot.lmRob(robust) and choose for option 11 (scatter plot with \nfits)\n\n\n\nWhat is meant to be the x axis (WPROB) turns into the y axis.\nThe regression line and the confidence intervals shown have nothing to \ndo, of course, with the coefficients retrieved...what am I doing wrong?\n\nThank you in advance,\n\npep\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101019/aaa084eb/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: moz-screenshot-1.png\nType: image/png\nSize: 7291 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101019/aaa084eb/attachment.png>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: moz-screenshot-2.png\nType: image/png\nSize: 19908 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101019/aaa084eb/attachment-0001.png>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: josep_serra.vcf\nType: text/x-vcard\nSize: 448 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101019/aaa084eb/attachment.vcf>",
+      "body_snippet": "Dear RsR list members,\n\n  I somehow got stuck wth lmRob and I am sure I am missing something and \nI do not know what. It is my first time using robust statistics and I \nhave read all your posts and pd",
+      "thread_id": "thread-f250497db542",
+      "thread_depth": 0,
+      "month": "2010-10"
+    },
+    {
+      "id": "msg-d5e71cb4f461",
+      "message_id": "<4CBDCAFC.6030203@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2010-10-19T09:44:44-07:00",
+      "subject": "[RsR] robust scatterplot with fits",
+      "subject_clean": "[RsR] robust scatterplot with fits",
+      "in_reply_to": "<4CBDAC0A.2040908@uab.cat>",
+      "references": [
+        "<4CBDAC0A.2040908@uab.cat>"
+      ],
+      "body_plain": "Hello Pep,\n\nIf NPP is the response variable (the \"y\" variable) and WPROB is the \nexplanatory variable (the \"x\" variable), then you should have used\n\nlmrob(NPP ~ WPROB, data=a)\n\nAlso, I recommend you use the latest version of the \"robustbase\" package\n\n > install.packages('robustbase')\n > library(robustbase)\n\nThere the function for a robust regression fit is called lmrob (not \nlmRob, which is now deprecated).\n\nFinally, based on your plot, you might also want to consider a model \nincorporating log(WPROB), since the relationship does not appear to be \nquite linear to the naked eye.\n\nHope this helps.\n\nMatias\n\n\n\n\nOn 10-10-19 07:32 AM, Pep Serra sat down at the computer and wrote:\n>    Dear RsR list members,\n>\n> I somehow got stuck wth lmRob and I am sure I am missing something and I\n> do not know what. It is my first time using robust statistics and I have\n> read all your posts and pdfs recommended\n>\n> I think it is likely to be a newbie question. I ploted two variables and\n> the pictures shows a number of outliers that I want to identify given\n> that the main trend between those two measurements is positive.\n> (although they look like a lot, it is more or less 800 points out of 6000)\n>\n>\n>\n>\n>\n> I used then\n>\n> robust<-lmRob(WPROB~NPP,data=a)\n>\n>\n> lmRob(formula = WPROB ~ NPP, data = a)\n>\n> Coefficients:\n> (Intercept) NPP\n> 499.86274538 -0.00990502\n>\n> Degrees of freedom: 6002 total; 6000 residual\n> Residual standard error: 250.3199\n>\n> 1) I do not really understand the slope of the regression, why is it\n> negative???\n>\n> then used plot.lmRob(robust) and choose for option 11 (scatter plot with\n> fits)\n>\n>\n>\n> What is meant to be the x axis (WPROB) turns into the y axis.\n> The regression line and the confidence intervals shown have nothing to\n> do, of course, with the coefficients retrieved...what am I doing wrong?\n>\n> Thank you in advance,\n>\n> pep\n>\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n\n-- \n_____________________________________________________\nMatias Salibian-Barrera - Department of Statistics\nThe University of British Columbia\nPhone: (604) 822-3410 - Fax: (604) 822-6960\n\"The plural of anecdote is not data\" (George Stigler?)",
+      "body_snippet": "Hello Pep,\n\nIf NPP is the response variable (the \"y\" variable) and WPROB is the \nexplanatory variable (the \"x\" variable), then you should have used\n\nlmrob(NPP ~ WPROB, data=a)\n\nAlso, I recommend you u",
+      "thread_id": "thread-f250497db542",
+      "thread_depth": 1,
+      "month": "2010-10"
+    },
+    {
+      "id": "msg-0e80660d94b8",
+      "message_id": "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>",
+      "from_name": "Alex Holcombe",
+      "from_email_hash": "3ed21a7c3c59f46bdec6efcbcaeafde972db4d5d89ef3cde75066ca15265ec73",
+      "date": "2010-10-26T17:57:47+11:00",
+      "subject": "[RsR] calculating deviance for glmrob",
+      "subject_clean": "[RsR] calculating deviance for glmrob",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Standard glm returns a deviance field, which is apparently minus twice the maximized log-likelihood.\nglmrob claims to do the same in its help page, but seems to always return NULL for deviance.\n\nIt seems to be an unimplemented feature.  Does anyone have code or an algorithm that can calculate it?\n\nAny pointers appreciated\n\n\nAlex Holcombe\nwww.psych.usyd.edu.au/staff/alexh/",
+      "body_snippet": "Standard glm returns a deviance field, which is apparently minus twice the maximized log-likelihood.\nglmrob claims to do the same in its help page, but seems to always return NULL for deviance.\n\nIt se",
+      "thread_id": "thread-0e80660d94b8",
+      "thread_depth": 0,
+      "month": "2010-10"
+    },
+    {
+      "id": "msg-c058275d3b6a",
+      "message_id": "<4CCA4859.40301@zhaw.ch>",
+      "from_name": "Andreas Ruckstuhl",
+      "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
+      "date": "2010-10-29T06:06:49+02:00",
+      "subject": "[RsR] calculating deviance for glmrob",
+      "subject_clean": "[RsR] calculating deviance for glmrob",
+      "in_reply_to": "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>",
+      "references": [
+        "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>"
+      ],
+      "body_plain": "Dear Alex\n\nYes, the deviance is deliberately not implemented. Hence, the statement \nin the help file is incorrect.\n\nIf you want to compare your model with another model, please use anova \n(anova.glmrob). However, you don't find any deviance calculations there \nas well but the differences of robust quasi-likelihoods. The reason is \nthe difficulties with the interpretation of (\"raw\") robust \nquasi-likelihoods. - Do you have any particular applications of (\"raw\") \nrobust quasi-likelihoods in mind?\n\nThank you very much for pointing out the inconsistency in the help file.\n\nAll the best,\nAndreas\n\n\n\n\n------- Urspr?ngliche Nachricht --------\nVon: Alex Holcombe <holcombea at me.com>\nGesendet: Tue, 26 Oct 2010 17:57:47 +1100\nAn: r-sig-robust at r-project.org\nBetreff: [RsR] calculating deviance for glmrob\n\n> Standard glm returns a deviance field, which is apparently minus twice the maximized log-likelihood.\n> glmrob claims to do the same in its help page, but seems to always return NULL for deviance.\n> \n> It seems to be an unimplemented feature.  Does anyone have code or an algorithm that can calculate it?\n> \n> Any pointers appreciated\n> \n> \n> Alex Holcombe\n> www.psych.usyd.edu.au/staff/alexh/\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nIDP Institut f?r Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
+      "body_snippet": "Dear Alex\n\nYes, the deviance is deliberately not implemented. Hence, the statement \nin the help file is incorrect.\n\nIf you want to compare your model with another model, please use anova \n(anova.glmro",
+      "thread_id": "thread-0e80660d94b8",
+      "thread_depth": 1,
+      "month": "2010-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f250497db542",
+      "subject": "[RsR] robust scatterplot with fits",
+      "message_count": 2,
+      "participants": [
+        "Matias Salibian-Barrera",
+        "Pep Serra"
+      ],
+      "started": "2010-10-19T16:32:42+02:00",
+      "last_reply": "2010-10-19T09:44:44-07:00",
+      "root_message_id": "msg-f250497db542"
+    },
+    {
+      "id": "thread-0e80660d94b8",
+      "subject": "[RsR] calculating deviance for glmrob",
+      "message_count": 2,
+      "participants": [
+        "Alex Holcombe",
+        "Andreas Ruckstuhl"
+      ],
+      "started": "2010-10-26T17:57:47+11:00",
+      "last_reply": "2010-10-29T06:06:49+02:00",
+      "root_message_id": "msg-0e80660d94b8"
+    }
+  ]
+}

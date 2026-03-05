@@ -1,0 +1,106 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2013-11",
+  "messages": [
+    {
+      "id": "msg-b01ec2bcf7e8",
+      "message_id": "<21124.59223.496612.628512@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2013-11-14T16:08:07+01:00",
+      "subject": "[RsR] [R] MM estimator",
+      "subject_clean": "[RsR] [R] MM estimator",
+      "in_reply_to": "<8B2389BC-48CA-45D5-A834-C8C1C845C6B5@uni-bonn.de>",
+      "references": [
+        "<1384400242.93139.YahooMailNeo@web142501.mail.bf1.yahoo.com>",
+        "<8B2389BC-48CA-45D5-A834-C8C1C845C6B5@uni-bonn.de>"
+      ],
+      "body_plain": ">>>>> \"SZ\" == Simon Zehnder <szehnder at uni-bonn.de>\n>>>>>     on Thu, 14 Nov 2013 08:52:16 +0100 writes:\n\n    SZ> Check the gmm package with a weighting matrix equal to\n    SZ> the identity.  Best\n\n    SZ> Simon\n\nNo.    \"MM\" is ambigous: The  gmm package is about\n       \"Generalized Method of Moments\"\n\nbut Izhak is really asking about MM estimation in the field of\nrobust statistics, where an MM estimator is a special kind of \n\"M-Estimator\" (and these, introduced by Peter Huber (1964), Annals,\n\t       fortunately are well known unambigously,\n\t       as a generalization of ML estimators (= MLE)),\nnamely an M-estimator with redescending psi (==> non-convex\nproblem ==> solution typically depends on starting value),\nstarted with a high-breakdown point initial estimate.\n\nIzhak mentioned  nlrob() from package robustbase, and he is\nright that this does not provide an MM estimator, but only an M\nestimate started by Least Squares.\n\nFortunately, we have had contributions to the robustbase\npackage from Eduardo Concei??o since last summer.\nHe provided alternative versions of  nlrob(),\nnotably a  nlrob.MM()  \ncurrently *hidden* {and undocumented}.\n\nI.e. you need\n\n install.packages(\"robustbase\", repos=\"http://R-Forge.R-project.org\")\n\n library(robustbase)\n\nand then use  robustbase:::nlrob.MM(....)\n\nThe reason for all this is that I plan to have one nlrob()\nfunction  but with  a new argument  'method'\nand so eventually\n\n    nlrob.MM(...., method=\"MM\")\n\nwill correspond to current to the R-forge version\n\n    robustbase:::nlrob.MM(....)\n\n-------\nPlease for all more, use the dedicated mailing list\nR-SIG-robust only (i.e. do *not* just reply-all to this\ne-mail!).\n\nMartin Maechler,\nETH Zurich\n\n \n    SZ> On 14 Nov 2013, at 04:37, IZHAK shabsogh\n    SZ> <ishaqbaba at yahoo.com> wrote:\n\n    >> hi\n    >> \n    >> I have a nonlinear regression model with two parameter, i\n    >> have estimated using nls in R and i want to also find the\n    >> estimate using MM, someone refer me to this function\n    >> nlrob but this is main for only M estimate. can you\n    >> please help me findout a function in R for MM nonlinear\n    >> regression\n    >> \n    >> thanks\n    >> \n    >> [[alternative HTML version deleted]]\n    >> \n    >> ______________________________________________\n    >> R-help at r-project.org mailing list\n    >> https://stat.ethz.ch/mailman/listinfo/r-help PLEASE do\n    >> read the posting guide\n    >> http://www.R-project.org/posting-guide.html and provide\n    >> commented, minimal, self-contained, reproducible code.\n\n    SZ> ______________________________________________\n    SZ> R-help at r-project.org mailing list\n    SZ> https://stat.ethz.ch/mailman/listinfo/r-help PLEASE do\n    SZ> read the posting guide\n    SZ> http://www.R-project.org/posting-guide.html and provide\n    SZ> commented, minimal, self-contained, reproducible code.",
+      "body_snippet": ">>>>> \"SZ\" == Simon Zehnder <szehnder at uni-bonn.de>\n>>>>>     on Thu, 14 Nov 2013 08:52:16 +0100 writes:\n\n    SZ> Check the gmm package with a weighting matrix equal to\n    SZ> the identity.  Best\n\n",
+      "thread_id": "thread-b01ec2bcf7e8",
+      "thread_depth": 0,
+      "month": "2013-11"
+    },
+    {
+      "id": "msg-152ee94c38e0",
+      "message_id": "<2F7E7DC4-C4F3-459F-BBCE-FAA0DBFC6A03@uni-bonn.de>",
+      "from_name": "Simon Zehnder",
+      "from_email_hash": "da5b76725f1013c56060a39b28d0240b738b9d4478ececb0beb6e8f5d7370897",
+      "date": "2013-11-14T17:03:39+01:00",
+      "subject": "[RsR] [R] MM estimator",
+      "subject_clean": "[RsR] [R] MM estimator",
+      "in_reply_to": "<21124.59223.496612.628512@stat.math.ethz.ch>",
+      "references": [
+        "<1384400242.93139.YahooMailNeo@web142501.mail.bf1.yahoo.com>",
+        "<8B2389BC-48CA-45D5-A834-C8C1C845C6B5@uni-bonn.de>",
+        "<21124.59223.496612.628512@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Thanks Martin, for making this clear to me, I thought of Pearson?s Method-of-Moments.\nOn 14 Nov 2013, at 16:08, Martin Maechler <maechler at stat.math.ethz.ch> wrote:\n\n>>>>>> \"SZ\" == Simon Zehnder <szehnder at uni-bonn.de>\n>>>>>>    on Thu, 14 Nov 2013 08:52:16 +0100 writes:\n> \n>    SZ> Check the gmm package with a weighting matrix equal to\n>    SZ> the identity.  Best\n> \n>    SZ> Simon\n> \n> No.    \"MM\" is ambigous: The  gmm package is about\n>       \"Generalized Method of Moments\"\n> \n> but Izhak is really asking about MM estimation in the field of\n> robust statistics, where an MM estimator is a special kind of \n> \"M-Estimator\" (and these, introduced by Peter Huber (1964), Annals,\n> \t       fortunately are well known unambigously,\n> \t       as a generalization of ML estimators (= MLE)),\n> namely an M-estimator with redescending psi (==> non-convex\n> problem ==> solution typically depends on starting value),\n> started with a high-breakdown point initial estimate.\n> \n> Izhak mentioned  nlrob() from package robustbase, and he is\n> right that this does not provide an MM estimator, but only an M\n> estimate started by Least Squares.\n> \n> Fortunately, we have had contributions to the robustbase\n> package from Eduardo Concei??o since last summer.\n> He provided alternative versions of  nlrob(),\n> notably a  nlrob.MM()  \n> currently *hidden* {and undocumented}.\n> \n> I.e. you need\n> \n> install.packages(\"robustbase\", repos=\"http://R-Forge.R-project.org\")\n> \n> library(robustbase)\n> \n> and then use  robustbase:::nlrob.MM(....)\n> \n> The reason for all this is that I plan to have one nlrob()\n> function  but with  a new argument  'method'\n> and so eventually\n> \n>    nlrob.MM(...., method=\"MM\")\n> \n> will correspond to current to the R-forge version\n> \n>    robustbase:::nlrob.MM(....)\n> \n> -------\n> Please for all more, use the dedicated mailing list\n> R-SIG-robust only (i.e. do *not* just reply-all to this\n> e-mail!).\n> \n> Martin Maechler,\n> ETH Zurich\n> \n> \n>    SZ> On 14 Nov 2013, at 04:37, IZHAK shabsogh\n>    SZ> <ishaqbaba at yahoo.com> wrote:\n> \n>>> hi\n>>> \n>>> I have a nonlinear regression model with two parameter, i\n>>> have estimated using nls in R and i want to also find the\n>>> estimate using MM, someone refer me to this function\n>>> nlrob but this is main for only M estimate. can you\n>>> please help me findout a function in R for MM nonlinear\n>>> regression\n>>> \n>>> thanks\n>>> \n>>> [[alternative HTML version deleted]]\n>>> \n>>> ______________________________________________\n>>> R-help at r-project.org mailing list\n>>> https://stat.ethz.ch/mailman/listinfo/r-help PLEASE do\n>>> read the posting guide\n>>> http://www.R-project.org/posting-guide.html and provide\n>>> commented, minimal, self-contained, reproducible code.\n> \n>    SZ> ______________________________________________\n>    SZ> R-help at r-project.org mailing list\n>    SZ> https://stat.ethz.ch/mailman/listinfo/r-help PLEASE do\n>    SZ> read the posting guide\n>    SZ> http://www.R-project.org/posting-guide.html and provide\n>    SZ> commented, minimal, self-contained, reproducible code.",
+      "body_snippet": "Thanks Martin, for making this clear to me, I thought of Pearson?s Method-of-Moments.\nOn 14 Nov 2013, at 16:08, Martin Maechler <maechler at stat.math.ethz.ch> wrote:\n\n>>>>>> \"SZ\" == Simon Zehnder <sz",
+      "thread_id": "thread-b01ec2bcf7e8",
+      "thread_depth": 1,
+      "month": "2013-11"
+    },
+    {
+      "id": "msg-e2a249f0e3d1",
+      "message_id": "<CAAGWNjrusPks1R9+TCYw54DDNY2uvTwZyNAN9MgWE6g2hCxjVQ@mail.gmail.com>",
+      "from_name": "Fadong Chen",
+      "from_email_hash": "6f25084e203c2b9d7b7ba1e10421305ce31ef80c8b4d7d540b296bc08566b843",
+      "date": "2013-11-26T09:46:12+01:00",
+      "subject": "[RsR] Pseudo-R2 and AIC of robust regression",
+      "subject_clean": "[RsR] Pseudo-R2 and AIC of robust regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\n\nNow I am using the function \"flmrob\" from the package \"robustbase\" to do\nrobust regressions. But I cannot get Pseudo-R2 and AIC from the summary of\nthe regression result.\n\nCould you please tell me how to get these two values from the result of\nrobust regression?\n\nThanks in advance for your help!\n\nAll my best wishes,\nFadong\n\n-- \nFadong Chen\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear All,\n\nNow I am using the function \"flmrob\" from the package \"robustbase\" to do\nrobust regressions. But I cannot get Pseudo-R2 and AIC from the summary of\nthe regression result.\n\nCould you please ",
+      "thread_id": "thread-e2a249f0e3d1",
+      "thread_depth": 0,
+      "month": "2013-11"
+    },
+    {
+      "id": "msg-b92562553c8c",
+      "message_id": "<CAPUobv0n+DxRGcOEoa1kXBtUJQpufFas3uEgdL6NyRxfe8rcXA@mail.gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "2a2bc532df5431edcf7eb21908cc6024199c4e954cfbc1a71ca9144a25f3748f",
+      "date": "2013-11-26T12:17:22+01:00",
+      "subject": "[RsR] Pseudo-R2 and AIC of robust regression",
+      "subject_clean": "[RsR] Pseudo-R2 and AIC of robust regression",
+      "in_reply_to": "<CAAGWNjrusPks1R9+TCYw54DDNY2uvTwZyNAN9MgWE6g2hCxjVQ@mail.gmail.com>",
+      "references": [
+        "<CAAGWNjrusPks1R9+TCYw54DDNY2uvTwZyNAN9MgWE6g2hCxjVQ@mail.gmail.com>"
+      ],
+      "body_plain": "Dear Fadong,\n\nHave you seen this:\nhttps://stat.ethz.ch/pipermail/r-sig-robust/2010/000290.html ?\nThis has been on my/our to-do list for some time now. I did not have\ntime to look at it properly.\n\nIn the post I linked to above they provide some code that works with\nlmRob from the robust package. I took the liberty to modify it so that\nit works with lmrob objects from the robustbase package. See below.\n\nBest,\nManuel\n\n\nrobR2w <- function (rob.obj, correc=1.2076) {\n    ## R2 in robust regression, see\n    ## Renaud, O. & Victoria-Feser, M.-P. (2010).\n    ## A robust coefficient of determination for regression.\n    ## Journal of Statistical Planning and Inference, 140, 1852-???1862.\n\n    ## rob.obj is an lmrob object.\n    ## correc is the correction for consistancy\n    ##   (default is for bisquare with 95% efficiency)\n\n    ## Example:\n    ## require(robustbase)\n    ## m <- lmrob(Y ~ ., data=coleman)\n    ## robR2w(m)\n\n    if (attr(rob.obj, \"class\") != \"lmrob\")\n        stop(\"This function works only on lmrob objects\")\n    pred <- fitted(rob.obj)\n    resid <- resid(rob.obj)\n    resp <- resid+pred\n    wgt <- weights(rob.obj, \"robustness\")\n    scale.rob <- rob.obj$scale\n    resp.mean <- sum(wgt*resp)/sum(wgt)\n    pred.mean <- sum(wgt*pred)/sum(wgt)\n    yMy <- sum(wgt*(resp-resp.mean)^2)\n    rMr <- sum(wgt*resid^2)\n    r2 <- (yMy-rMr) / yMy\n    r2correc <- (yMy-rMr) / (yMy-rMr +rMr*correc)\n    r2adjcor <- 1-(1-r2correc) * (length(resid)-1) /\n        (length(resid)-length(rob.obj$coefficients)-1)\n    return(list(robR2w.NoCorrection = r2,\n                robR2w.WithCorrection = r2correc,\n                robR2w.AdjustedWithCorrection = r2adjcor))\n}\n\n\nOn Tue, Nov 26, 2013 at 9:46 AM, Fadong Chen <fadongchen at gmail.com> wrote:\n> Dear All,\n>\n> Now I am using the function \"flmrob\" from the package \"robustbase\" to do\n> robust regressions. But I cannot get Pseudo-R2 and AIC from the summary of\n> the regression result.\n>\n> Could you please tell me how to get these two values from the result of\n> robust regression?\n>\n> Thanks in advance for your help!\n>\n> All my best wishes,\n> Fadong\n>\n> --\n> Fadong Chen\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Dear Fadong,\n\nHave you seen this:\nhttps://stat.ethz.ch/pipermail/r-sig-robust/2010/000290.html ?\nThis has been on my/our to-do list for some time now. I did not have\ntime to look at it properly.\n\nIn t",
+      "thread_id": "thread-e2a249f0e3d1",
+      "thread_depth": 1,
+      "month": "2013-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b01ec2bcf7e8",
+      "subject": "[RsR] [R] MM estimator",
+      "message_count": 2,
+      "participants": [
+        "Martin Maechler",
+        "Simon Zehnder"
+      ],
+      "started": "2013-11-14T16:08:07+01:00",
+      "last_reply": "2013-11-14T17:03:39+01:00",
+      "root_message_id": "msg-b01ec2bcf7e8"
+    },
+    {
+      "id": "thread-e2a249f0e3d1",
+      "subject": "[RsR] Pseudo-R2 and AIC of robust regression",
+      "message_count": 2,
+      "participants": [
+        "Fadong Chen",
+        "Manuel Koller"
+      ],
+      "started": "2013-11-26T09:46:12+01:00",
+      "last_reply": "2013-11-26T12:17:22+01:00",
+      "root_message_id": "msg-e2a249f0e3d1"
+    }
+  ]
+}

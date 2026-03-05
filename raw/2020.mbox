@@ -1,0 +1,873 @@
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Feb 28 11:03:13 2020
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 28 Feb 2020 11:03:13 +0100
+Subject: [RsR] New maintainer?? Package 'robust' (original S+ "Library
+ 'robust') orphaned on CRAN
+Message-ID: <24152.58721.990592.737968@stat.math.ethz.ch>
+
+Dear R Robustniks,
+
+as I am the maintainer of package 'robustbase' and am submitting
+a new version of it to CRAN,
+it came to my knowledge that package 'robust' (= the original
+S-plus "Library 'robust', then released to CRAN, maintained by
+Kjell Konis for time) has been orphaned on CRAN relatively
+recently.
+As I have 'robust' among the 'Suggests: ' entries of "my"
+package 'robustbase' I now get a  NOTE   about suggesting an
+orphaned package.
+I've been formally a co-author of that package (togeth
+
+I personally would think it to be a loss for the "robustnik
+community" if this package would not remain easily available
+(notably on Windows, also the Mac where most people cannot
+ install package from the source but are used to install the
+ binary built package from CRAN).
+
+Are some you willing and capable to become the maintainer of
+'robust' (with the perspective to do this for a couple of years)?
+
+Best,
+Martin
+
+--
+Martin <Maechler at stat.math.ethz.ch>   http://stat.ethz.ch/~maechler
+Seminar f?r Statistik, ETH Z?rich   HG G 16         R?mistrasse 101
+CH-8092 Zurich, SWITZERLAND
+phone: +41-44-632-3408      fax: ...-1228     <><
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Fri Feb 28 22:31:21 2020
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Fri, 28 Feb 2020 22:31:21 +0100
+Subject: [RsR] New maintainer? Package 'robust' (original S+ "Library
+ 'robust') orphaned on CRAN
+Message-ID: <CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>
+
+Dear Martin,
+I was thinking of this since Kjell
+abandoned the package, but I was not sure to what extent would this be
+necessary - most of the functionality of 'robust' we already moved to
+'robustbase' and/or 'rrcov', therefore it suggests/imports these packages.
+Let us see in the next days what still remains there and is valuable and
+decide what to do.
+
+Best regards,
+Valentin
+
+On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <maechler at stat.math.ethz.ch>
+wrote:
+
+> Dear R Robustniks,
+>
+> as I am the maintainer of package 'robustbase' and am submitting
+> a new version of it to CRAN,
+> it came to my knowledge that package 'robust' (= the original
+> S-plus "Library 'robust', then released to CRAN, maintained by
+> Kjell Konis for time) has been orphaned on CRAN relatively
+> recently.
+> As I have 'robust' among the 'Suggests: ' entries of "my"
+> package 'robustbase' I now get a  NOTE   about suggesting an
+> orphaned package.
+> I've been formally a co-author of that package (togeth
+>
+> I personally would think it to be a loss for the "robustnik
+> community" if this package would not remain easily available
+> (notably on Windows, also the Mac where most people cannot
+>  install package from the source but are used to install the
+>  binary built package from CRAN).
+>
+> Are some you willing and capable to become the maintainer of
+> 'robust' (with the perspective to do this for a couple of years)?
+>
+> Best,
+> Martin
+
+	[[alternative HTML version deleted]]
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Mar  5 17:20:55 2020
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 5 Mar 2020 17:20:55 +0100
+Subject: [RsR] New maintainer? Package 'robust' (original S+ "Library
+ 'robust') orphaned on CRAN
+In-Reply-To: <CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>
+References: <CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>
+Message-ID: <24161.9959.584045.830876@stat.math.ethz.ch>
+
+>>>>> Valentin Todorov 
+>>>>>     on Fri, 28 Feb 2020 22:31:21 +0100 writes:
+
+    > Dear Martin,
+    > I was thinking of this since Kjell
+    > abandoned the package, but I was not sure to what extent would this be
+    > necessary - most of the functionality of 'robust' we already moved to
+    > 'robustbase' and/or 'rrcov', therefore it suggests/imports these packages.
+    > Let us see in the next days what still remains there and is valuable and
+    > decide what to do.
+
+    > Best regards,
+    > Valentin
+
+Thank you, Valentin.
+
+I had similar thoughts a long time ago, I think prompted
+indepedently by  Kjell  and Doug Martin ...
+
+I vaguely remember I found that there have been things in
+'Robust' which looked valuable and notably good to have for
+comparison reasons,
+*but* that were a lot work to "tear out" of the robust package
+(including the necessary underlying Fortran code, but *not*
+ taking all the Fortran code that would *not* be needed ...).
+
+In the mean time the CRAN team has archived the package
+'robust', and  I must adapt the 'Robustness' CRAN task view
+considerably (and remove the 'Suggests: robust'  from my
+robustbase package.
+
+I'd be grateful for help and suggestions in still trying
+'salvage' valuable resources out of 'robust'.
+
+BTW:  Why has  rrcovNA  be archived?
+
+Best,
+Martin
+
+
+    > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <maechler at stat.math.ethz.ch>
+    > wrote:
+
+    >> Dear R Robustniks,
+    >> 
+    >> as I am the maintainer of package 'robustbase' and am submitting
+    >> a new version of it to CRAN,
+    >> it came to my knowledge that package 'robust' (= the original
+    >> S-plus "Library 'robust', then released to CRAN, maintained by
+    >> Kjell Konis for time) has been orphaned on CRAN relatively
+    >> recently.
+    >> As I have 'robust' among the 'Suggests: ' entries of "my"
+    >> package 'robustbase' I now get a  NOTE   about suggesting an
+    >> orphaned package.
+    >> I've been formally a co-author of that package (togeth
+    >> 
+    >> I personally would think it to be a loss for the "robustnik
+    >> community" if this package would not remain easily available
+    >> (notably on Windows, also the Mac where most people cannot
+    >> install package from the source but are used to install the
+    >> binary built package from CRAN).
+    >> 
+    >> Are some you willing and capable to become the maintainer of
+    >> 'robust' (with the perspective to do this for a couple of years)?
+    >> 
+    >> Best,
+    >> Martin
+
+
+From o||v|er@ren@ud @end|ng |rom un|ge@ch  Thu Mar  5 18:55:26 2020
+From: o||v|er@ren@ud @end|ng |rom un|ge@ch (Olivier Renaud)
+Date: Thu, 5 Mar 2020 17:55:26 +0000
+Subject: [RsR] New maintainer? Package 'robust' (original S+ "Library
+ 'robust') orphaned on CRAN
+In-Reply-To: <24161.9959.584045.830876@stat.math.ethz.ch>
+References: <CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>
+ <24161.9959.584045.830876@stat.math.ethz.ch>
+Message-ID: <92da4d16-63f2-35b3-1e8c-9c35ac71fc1d@unige.ch>
+
+Dear Martin,
+
+First of all, thank you to you, to Kjell and to all contributors for 
+these two great packages. If I can add my two cents, mostly as a teacher 
+to non statistically inclined students. It is confusing for the basic 
+user to have robustbase and robust, to have lmrob and lmRob, covrob, 
+covRob, etc.
+
+Even if the 'Robustness' CRAN task view gives some explanations, for 
+somebody who did not study robustness, it is still not clear which one 
+to chose. So whatever the decision on these packages, it should be 
+clearer (in the task view and in the help files) what a basic user 
+should do.
+
+I do not know enough to advise whether to merge them, or to include only 
+a few functions or to let robust RIP, but here are two points:
+
+- Concerning lmrob and lmRob I have found differences, especially in the 
+initial estimator that may make a difference especially with a lot of 
+factors in the x.? Liked to that the aovRob was useful
+
+- I liked the possibility to compare 2 outputs with? fit.models (I 
+believe I add to add fmclass.add.class( "lmfm", "lmrob") to make it work 
+with lmrob)
+
+Olivier
+
+
+
+
+
+On 05/03/2020 16:20, Martin Maechler wrote:
+>>>>>> Valentin Todorov
+>>>>>>      on Fri, 28 Feb 2020 22:31:21 +0100 writes:
+>      > Dear Martin,
+>      > I was thinking of this since Kjell
+>      > abandoned the package, but I was not sure to what extent would this be
+>      > necessary - most of the functionality of 'robust' we already moved to
+>      > 'robustbase' and/or 'rrcov', therefore it suggests/imports these packages.
+>      > Let us see in the next days what still remains there and is valuable and
+>      > decide what to do.
+>
+>      > Best regards,
+>      > Valentin
+>
+> Thank you, Valentin.
+>
+> I had similar thoughts a long time ago, I think prompted
+> indepedently by  Kjell  and Doug Martin ...
+>
+> I vaguely remember I found that there have been things in
+> 'Robust' which looked valuable and notably good to have for
+> comparison reasons,
+> *but* that were a lot work to "tear out" of the robust package
+> (including the necessary underlying Fortran code, but *not*
+>   taking all the Fortran code that would *not* be needed ...).
+>
+> In the mean time the CRAN team has archived the package
+> 'robust', and  I must adapt the 'Robustness' CRAN task view
+> considerably (and remove the 'Suggests: robust'  from my
+> robustbase package.
+>
+> I'd be grateful for help and suggestions in still trying
+> 'salvage' valuable resources out of 'robust'.
+>
+> BTW:  Why has  rrcovNA  be archived?
+>
+> Best,
+> Martin
+>
+>
+>      > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <maechler at stat.math.ethz.ch>
+>      > wrote:
+>
+>      >> Dear R Robustniks,
+>      >>
+>      >> as I am the maintainer of package 'robustbase' and am submitting
+>      >> a new version of it to CRAN,
+>      >> it came to my knowledge that package 'robust' (= the original
+>      >> S-plus "Library 'robust', then released to CRAN, maintained by
+>      >> Kjell Konis for time) has been orphaned on CRAN relatively
+>      >> recently.
+>      >> As I have 'robust' among the 'Suggests: ' entries of "my"
+>      >> package 'robustbase' I now get a  NOTE   about suggesting an
+>      >> orphaned package.
+>      >> I've been formally a co-author of that package (togeth
+>      >>
+>      >> I personally would think it to be a loss for the "robustnik
+>      >> community" if this package would not remain easily available
+>      >> (notably on Windows, also the Mac where most people cannot
+>      >> install package from the source but are used to install the
+>      >> binary built package from CRAN).
+>      >>
+>      >> Are some you willing and capable to become the maintainer of
+>      >> 'robust' (with the perspective to do this for a couple of years)?
+>      >>
+>      >> Best,
+>      >> Martin
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+Prof. Olivier Renaud          https://www.unige.ch/fapse/mad/renaud/
+Methodology & Data Analysis - Psychology Dept - University of Geneva
+UniMail, Office 4138  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Thu Mar  5 19:07:19 2020
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Thu, 5 Mar 2020 19:07:19 +0100
+Subject: [RsR] New maintainer? Package 'robust' (original S+ "Library
+ 'robust') orphaned on CRAN
+In-Reply-To: <24161.9959.584045.830876@stat.math.ethz.ch>
+References: <CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>
+ <24161.9959.584045.830876@stat.math.ethz.ch>
+Message-ID: <CAOmnhGd0qWAkNRLX4GYnLzCSv0Ubtx61o4O5esSu6SHVhO06VA@mail.gmail.com>
+
+Dear Martin,
+
+The most interesting functionality in 'robust', that I see, is the
+possibility to compare  visually two or more different models.
+And maybe some people are used to and prefer the interface of 'robust'. Or
+some data sets.
+
+I rebuilt it and can take over the maintenance for the next "couple of
+years" as you said.
+
+And no, rrcovNA is not archived, see
+https://cran.r-project.org/web/packages/rrcovNA/index.html
+
+Best regards,
+Valentin
+
+
+On Thu, 5 Mar 2020 at 17:20, Martin Maechler <maechler at stat.math.ethz.ch>
+wrote:
+
+> >>>>> Valentin Todorov
+> >>>>>     on Fri, 28 Feb 2020 22:31:21 +0100 writes:
+>
+>     > Dear Martin,
+>     > I was thinking of this since Kjell
+>     > abandoned the package, but I was not sure to what extent would this
+> be
+>     > necessary - most of the functionality of 'robust' we already moved to
+>     > 'robustbase' and/or 'rrcov', therefore it suggests/imports these
+> packages.
+>     > Let us see in the next days what still remains there and is valuable
+> and
+>     > decide what to do.
+>
+>     > Best regards,
+>     > Valentin
+>
+> Thank you, Valentin.
+>
+> I had similar thoughts a long time ago, I think prompted
+> indepedently by  Kjell  and Doug Martin ...
+>
+> I vaguely remember I found that there have been things in
+> 'Robust' which looked valuable and notably good to have for
+> comparison reasons,
+> *but* that were a lot work to "tear out" of the robust package
+> (including the necessary underlying Fortran code, but *not*
+>  taking all the Fortran code that would *not* be needed ...).
+>
+> In the mean time the CRAN team has archived the package
+> 'robust', and  I must adapt the 'Robustness' CRAN task view
+> considerably (and remove the 'Suggests: robust'  from my
+> robustbase package.
+>
+> I'd be grateful for help and suggestions in still trying
+> 'salvage' valuable resources out of 'robust'.
+>
+> BTW:  Why has  rrcovNA  be archived?
+>
+> Best,
+> Martin
+>
+>
+>     > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <
+> maechler at stat.math.ethz.ch>
+>     > wrote:
+>
+>     >> Dear R Robustniks,
+>     >>
+>     >> as I am the maintainer of package 'robustbase' and am submitting
+>     >> a new version of it to CRAN,
+>     >> it came to my knowledge that package 'robust' (= the original
+>     >> S-plus "Library 'robust', then released to CRAN, maintained by
+>     >> Kjell Konis for time) has been orphaned on CRAN relatively
+>     >> recently.
+>     >> As I have 'robust' among the 'Suggests: ' entries of "my"
+>     >> package 'robustbase' I now get a  NOTE   about suggesting an
+>     >> orphaned package.
+>     >> I've been formally a co-author of that package (togeth
+>     >>
+>     >> I personally would think it to be a loss for the "robustnik
+>     >> community" if this package would not remain easily available
+>     >> (notably on Windows, also the Mac where most people cannot
+>     >> install package from the source but are used to install the
+>     >> binary built package from CRAN).
+>     >>
+>     >> Are some you willing and capable to become the maintainer of
+>     >> 'robust' (with the perspective to do this for a couple of years)?
+>     >>
+>     >> Best,
+>     >> Martin
+>
+
+	[[alternative HTML version deleted]]
+
+
+From m@ti@s m@iii@g oii st@t@ubc@c@  Thu Mar  5 20:28:07 2020
+From: m@ti@s m@iii@g oii st@t@ubc@c@ (m@ti@s m@iii@g oii st@t@ubc@c@)
+Date: Thu, 05 Mar 2020 11:28:07 -0800
+Subject: [RsR] New maintainer? Package 'robust' (original S+ "Library
+ 'robust') orphaned on CRAN
+In-Reply-To: <24161.9959.584045.830876@stat.math.ethz.ch>
+Message-ID: <de3786f7-038b-467d-b197-7a6da643f7fa@email.android.com>
+
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20200305/48551787/attachment.html>
+
+From em||y@k|e|n04 @end|ng |rom gm@||@com  Fri Mar  6 16:05:21 2020
+From: em||y@k|e|n04 @end|ng |rom gm@||@com (Emily Klein)
+Date: Fri, 6 Mar 2020 10:05:21 -0500
+Subject: [RsR] New maintainer? Package 'robust' (original S+ "Library
+ 'robust') orphaned on CRAN
+In-Reply-To: <de3786f7-038b-467d-b197-7a6da643f7fa@email.android.com>
+References: <24161.9959.584045.830876@stat.math.ethz.ch>
+ <de3786f7-038b-467d-b197-7a6da643f7fa@email.android.com>
+Message-ID: <CANx-k+UBD3=MXGcJU41YkEowvgAR=VfWXJgoKYOrfCwTZ-whWA@mail.gmail.com>
+
+Good morning all,
+
+A quick note just to mention that I am watching this conversation with
+interest - in large part because I am in the process of using it for
+analysis of ecological data. Previous papers have used lmRob(), but of
+course we only have lmrob() currently, so that's what we've applied. If
+both are available, I would try both and compare results, and would be very
+interested in any thoughts on how they differ. I had not previously found
+any documentation comparing the methods or package - could be very useful
+to have that written up somewhere, but as others have said, this is a
+thankless job, and I am sure you are all very busy.
+
+Happy Friday,
+
+Emily
+
+
+On Thu, Mar 5, 2020 at 2:28 PM <matias at stat.ubc.ca> wrote:
+
+> Martin,
+>
+> First I'd like to thank you again for your work on these "robustnik"
+> packages, and also on many other aspects of R. It's a thankless role, but
+> not an unnoticed one.
+>
+> IMHO an under-appreciated feature that is in "robust" and not in
+> robustbase is the visual comparison of different fits for the same model
+> (typically used to compare robust and non robust fits, but can in principle
+> be used to compare other fits).
+>
+> I believe that, fortunately, this functionality has already been extracted
+> to a stand alone package "fit.models". I haven't tried it with robustbase
+> yet, but I believe it'd be useful to have them work well with each other,
+> if they don't already.
+>
+> Matias
+>
+> PS: fit.models, particularly within robust, used lattice plots, which look
+> a bit dated now. I don't know how difficult it will be to update them, or
+> whether it's worth the effort.
+>
+>
+>
+> Sent from a phone
+>
+> On Mar. 5, 2020 8:20 a.m., Martin Maechler <maechler at stat.math.ethz.ch>
+> wrote:
+>
+> >>>>> Valentin Todorov
+> >>>>>     on Fri, 28 Feb 2020 22:31:21 +0100 writes:
+>
+>     > Dear Martin,
+>     > I was thinking of this since Kjell
+>     > abandoned the package, but I was not sure to what extent would this
+> be
+>     > necessary - most of the functionality of 'robust' we already moved
+> to
+>     > 'robustbase' and/or 'rrcov', therefore it suggests/imports these
+> packages.
+>     > Let us see in the next days what still remains there and is valuable
+> and
+>     > decide what to do.
+>
+>     > Best regards,
+>     > Valentin
+>
+> Thank you, Valentin.
+>
+> I had similar thoughts a long time ago, I think prompted
+> indepedently by  Kjell  and Doug Martin ...
+>
+> I vaguely remember I found that there have been things in
+> 'Robust' which looked valuable and notably good to have for
+> comparison reasons,
+> *but* that were a lot work to "tear out" of the robust package
+> (including the necessary underlying Fortran code, but *not*
+> taking all the Fortran code that would *not* be needed ...).
+>
+> In the mean time the CRAN team has archived the package
+> 'robust', and  I must adapt the 'Robustness' CRAN task view
+> considerably (and remove the 'Suggests: robust'  from my
+> robustbase package.
+>
+> I'd be grateful for help and suggestions in still trying
+> 'salvage' valuable resources out of 'robust'.
+>
+> BTW:  Why has  rrcovNA  be archived?
+>
+> Best,
+> Martin
+>
+>
+>     > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <
+> maechler at stat.math.ethz.ch>
+>     > wrote:
+>
+>     >> Dear R Robustniks,
+>     >>
+>     >> as I am the maintainer of package 'robustbase' and am submitting
+>     >> a new version of it to CRAN,
+>     >> it came to my knowledge that package 'robust' (= the original
+>     >> S-plus "Library 'robust', then released to CRAN, maintained by
+>     >> Kjell Konis for time) has been orphaned on CRAN relatively
+>     >> recently.
+>     >> As I have 'robust' among the 'Suggests: ' entries of "my"
+>     >> package 'robustbase' I now get a  NOTE   about suggesting an
+>     >> orphaned package.
+>     >> I've been formally a co-author of that package (togeth
+>     >>
+>     >> I personally would think it to be a loss for the "robustnik
+>     >> community" if this package would not remain easily available
+>     >> (notably on Windows, also the Mac where most people cannot
+>     >> install package from the source but are used to install the
+>     >> binary built package from CRAN).
+>     >>
+>     >> Are some you willing and capable to become the maintainer of
+>     >> 'robust' (with the perspective to do this for a couple of years)?
+>     >>
+>     >> Best,
+>     >> Martin
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Emily S. Klein, Senior Postdoctoral Associate (she / her / hers)
+The Frederick S. Pardee Center for the Study of the Longer-Range Future |
+Boston University
+*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)
+emily.klein04 at gmail.com
+
+http://www.bu.edu/pardee/
+http://www.ices.dk/community/groups/Pages/WGHIST.aspx
+
+	[[alternative HTML version deleted]]
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Mar  9 10:13:06 2020
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 9 Mar 2020 10:13:06 +0100
+Subject: [RsR] New maintainer? Package 'robust' (original S+ "Library
+ 'robust') orphaned on CRAN
+In-Reply-To: <CAOmnhGd0qWAkNRLX4GYnLzCSv0Ubtx61o4O5esSu6SHVhO06VA@mail.gmail.com>
+References: <CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>
+ <24161.9959.584045.830876@stat.math.ethz.ch>
+ <CAOmnhGd0qWAkNRLX4GYnLzCSv0Ubtx61o4O5esSu6SHVhO06VA@mail.gmail.com>
+Message-ID: <24166.2210.503166.606019@stat.math.ethz.ch>
+
+>>>>> Valentin Todorov 
+>>>>>     on Thu, 5 Mar 2020 19:07:19 +0100 writes:
+
+    > Dear Martin, The most interesting functionality in
+    > 'robust', that I see, is the possibility to compare
+    > visually two or more different models.  And maybe some
+    > people are used to and prefer the interface of
+    > 'robust'. Or some data sets.
+
+    > I rebuilt it and can take over the maintenance for the
+    > next "couple of years" as you said.
+
+To close this thread:
+
+In the mean time, Valentin Todorov, has already become the new
+maintainer of 'robust'.
+
+With many thanks to him -- and to everyone else who mentioned
+what they found important in package 'robust' and not easily
+available in other places:
+
+Best,
+Martin 
+
+
+    > And no, rrcovNA is not archived, see
+    > https://cran.r-project.org/web/packages/rrcovNA/index.html
+
+    > Best regards, Valentin
+
+
+    > On Thu, 5 Mar 2020 at 17:20, Martin Maechler
+    > <maechler at stat.math.ethz.ch> wrote:
+
+    >> >>>>> Valentin Todorov >>>>> on Fri, 28 Feb 2020 22:31:21
+    >> +0100 writes:
+    >> 
+    >> > Dear Martin, > I was thinking of this since Kjell >
+    >> abandoned the package, but I was not sure to what extent
+    >> would this be > necessary - most of the functionality of
+    >> 'robust' we already moved to > 'robustbase' and/or
+    >> 'rrcov', therefore it suggests/imports these packages.  >
+    >> Let us see in the next days what still remains there and
+    >> is valuable and > decide what to do.
+    >> 
+    >> > Best regards, > Valentin
+    >> 
+    >> Thank you, Valentin.
+    >> 
+    >> I had similar thoughts a long time ago, I think prompted
+    >> indepedently by Kjell and Doug Martin ...
+    >> 
+    >> I vaguely remember I found that there have been things in
+    >> 'Robust' which looked valuable and notably good to have
+    >> for comparison reasons, *but* that were a lot work to
+    >> "tear out" of the robust package (including the necessary
+    >> underlying Fortran code, but *not* taking all the Fortran
+    >> code that would *not* be needed ...).
+    >> 
+    >> In the mean time the CRAN team has archived the package
+    >> 'robust', and I must adapt the 'Robustness' CRAN task
+    >> view considerably (and remove the 'Suggests: robust' from
+    >> my robustbase package.
+    >> 
+    >> I'd be grateful for help and suggestions in still trying
+    >> 'salvage' valuable resources out of 'robust'.
+    >> 
+    >> BTW: Why has rrcovNA be archived?
+    >> 
+    >> Best, Martin
+    >> 
+    >> 
+    >> > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <
+    >> maechler at stat.math.ethz.ch> > wrote:
+    >> 
+    >> >> Dear R Robustniks,
+    >> >>
+    >> >> as I am the maintainer of package 'robustbase' and am
+    >> submitting >> a new version of it to CRAN, >> it came to
+    >> my knowledge that package 'robust' (= the original >>
+    >> S-plus "Library 'robust', then released to CRAN,
+    >> maintained by >> Kjell Konis for time) has been orphaned
+    >> on CRAN relatively >> recently.  >> As I have 'robust'
+    >> among the 'Suggests: ' entries of "my" >> package
+    >> 'robustbase' I now get a NOTE about suggesting an >>
+    >> orphaned package.  >> I've been formally a co-author of
+    >> that package (togeth
+    >> >>
+    >> >> I personally would think it to be a loss for the
+    >> "robustnik >> community" if this package would not remain
+    >> easily available >> (notably on Windows, also the Mac
+    >> where most people cannot >> install package from the
+    >> source but are used to install the >> binary built
+    >> package from CRAN).
+    >> >>
+    >> >> Are some you willing and capable to become the
+    >> maintainer of >> 'robust' (with the perspective to do
+    >> this for a couple of years)?
+    >> >>
+    >> >> Best, >> Martin
+    >>
+
+
+From @j@y@h@h @end|ng |rom m@y|n@org  Fri Jul 10 13:07:47 2020
+From: @j@y@h@h @end|ng |rom m@y|n@org (Ajay Shah)
+Date: Fri, 10 Jul 2020 16:37:47 +0530
+Subject: [RsR] A question about robust estimation of a mean from multiple
+ instruments
+Message-ID: <CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>
+
+I have a question about a robust location estimator when faced with the
+following situation:
+
+There are n instruments, and each instrument has a different measurement
+standard error.
+
+I can just treat the data x as i.i.d and our standard concepts of lmRob()
+would do a lot.
+
+But in truth, in this problem, we know more. We have a standard error
+estimate of each instrument. We should be able to utilise this, e.g. when
+we see a weird value from an untrusted instrument we should be more willing
+to disregard it.
+
+How would one go about this? I would greatly appreciate pointers. I am
+happy to place sample 25-observation datasets here if it's fun.
+
+-- 
+Ajay Shah
+ajayshah at mayin.org
+http://www.mayin.org/ajayshah
+
+	[[alternative HTML version deleted]]
+
+
+From |ore @end|ng |rom zh@w@ch  Fri Jul 10 14:36:39 2020
+From: |ore @end|ng |rom zh@w@ch (Rene Locher)
+Date: Fri, 10 Jul 2020 14:36:39 +0200
+Subject: [RsR] 
+ A question about robust estimation of a mean from multiple
+ instruments
+In-Reply-To: <CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>
+References: <CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>
+Message-ID: <31b71e77-76b4-9f92-56fb-24399d96cc2f@zhaw.ch>
+
+Use the argument "weight" in lmrob() for this purpose.
+
+Am 10.07.20 um 13:07 schrieb Ajay Shah:
+> I have a question about a robust location estimator when faced with the
+> following situation:
+> 
+> There are n instruments, and each instrument has a different measurement
+> standard error.
+> 
+> I can just treat the data x as i.i.d and our standard concepts of lmRob()
+> would do a lot.
+> 
+> But in truth, in this problem, we know more. We have a standard error
+> estimate of each instrument. We should be able to utilise this, e.g. when
+> we see a weird value from an untrusted instrument we should be more willing
+> to disregard it.
+> 
+> How would one go about this? I would greatly appreciate pointers. I am
+> happy to place sample 25-observation datasets here if it's fun.
+> 
+
+-- 
+Dr. Ren? Locher
+Z?rcher Hochschule f?r Angewandte Wissenschaften (ZHAW)
+Institut f?r Datenanalyse und Prozessdesign (IDP)
+Rosenstrasse 3
+CH-8401 Winterthur
+http://www.zhaw.ch/idp
+https://home.zhaw.ch/~lore/
+
+E-Mail: rene.locher at zhaw.ch
+Tel:    +41 58 934 7810
+Fax:    +41 58 935 7810
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Jul 10 14:37:32 2020
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 10 Jul 2020 14:37:32 +0200
+Subject: [RsR] 
+ A question about robust estimation of a mean from multiple
+ instruments
+In-Reply-To: <CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>
+References: <CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>
+Message-ID: <24328.24844.630465.11132@stat.math.ethz.ch>
+
+>>>>> Ajay Shah 
+>>>>>     on Fri, 10 Jul 2020 16:37:47 +0530 writes:
+
+    > I have a question about a robust location estimator when faced with the
+    > following situation:
+
+    > There are n instruments, and each instrument has a different measurement
+    > standard error.
+
+    > I can just treat the data x as i.i.d and our standard concepts of lmRob()
+    > would do a lot.
+
+    > But in truth, in this problem, we know more. We have a standard error
+    > estimate of each instrument. We should be able to utilise this, e.g. when
+    > we see a weird value from an untrusted instrument we should be more willing
+    > to disregard it.
+
+    > How would one go about this? I would greatly appreciate pointers. I am
+    > happy to place sample 25-observation datasets here if it's fun.
+
+    > -- 
+    > Ajay Shah
+    > ajayshah at mayin.org
+    > http://www.mayin.org/ajayshah
+
+Dear Ajay,
+
+this is good question (even better would be *not* to use
+econmetric language but stay with probability and statistics).
+
+Yes, do provide the dput() (or other simple reproducible R code to *create*)
+a sample data set, so we can use reproducible code here to
+explore possible answers.
+
+Best regards,
+Martin
+
+--
+Martin Maechler
+ETH Zurich  and   R Core Team
+
+
+From z@k@r|@|ben@m|d@ @end|ng |rom gm@||@com  Wed Sep 30 10:18:12 2020
+From: z@k@r|@|ben@m|d@ @end|ng |rom gm@||@com (Z B)
+Date: Wed, 30 Sep 2020 10:18:12 +0200
+Subject: [RsR] shifted t distribution for power analysis
+Message-ID: <CACgFjqQU05_q92kYVdV5FbhL7+mx2fO7hbH3kQEHjbg7DT3+bg@mail.gmail.com>
+
+Dears,
+
+I am trying to generate 10 random numbers from  shifted to the right t
+distribution with 3 degrees of freedom. I mean the following :
+x<-rt(10,3)
+ y<-rt(10,3)+2
+
+
+ I need these two variable to calculate the the power of two sample t-test
+in order the check its robustness and that is by deriving the p values from
+1000 samples for both x and y  and then calculate the rejection rate.But it
+is false since i found out that we talk about noncentrality parameter in
+case of t-distribution and not shift like mentioned above.how shall i do to
+express a shift to the right with an amount of 2 using the noncentrality
+parameter in R ?.i will be very grateful when i hear from you. and if there
+is whatever other solution to implement shifted to the right random
+variables then it welcome.
+
+
+Best Reguards
+Zakaria Bensmida
+
+	[[alternative HTML version deleted]]
+
+
+From o||v|er@ren@ud @end|ng |rom un|ge@ch  Sat Oct  3 18:09:47 2020
+From: o||v|er@ren@ud @end|ng |rom un|ge@ch (Olivier Renaud)
+Date: Sat, 3 Oct 2020 18:09:47 +0200
+Subject: [RsR] shifted t distribution for power analysis
+In-Reply-To: <CACgFjqQU05_q92kYVdV5FbhL7+mx2fO7hbH3kQEHjbg7DT3+bg@mail.gmail.com>
+References: <CACgFjqQU05_q92kYVdV5FbhL7+mx2fO7hbH3kQEHjbg7DT3+bg@mail.gmail.com>
+Message-ID: <631da4f8-8657-ce99-5c24-ff077971a413@unige.ch>
+
+Hi,
+The distribution of the t statistic under the alternative hypothesis is 
+not a shifted t but a t with a non-zero non-centrality parameter. rt() 
+has a third argument "ncp" that precisely provides non-central t. Look 
+at the help file for the definition of the ncp and its link with mean 
+shift and variance.
+Olivier
+
+
+On 30/09/2020 10:18, Z B wrote:
+> Dears,
+>
+> I am trying to generate 10 random numbers from  shifted to the right t
+> distribution with 3 degrees of freedom. I mean the following :
+> x<-rt(10,3)
+>   y<-rt(10,3)+2
+>
+>
+>   I need these two variable to calculate the the power of two sample t-test
+> in order the check its robustness and that is by deriving the p values from
+> 1000 samples for both x and y  and then calculate the rejection rate.But it
+> is false since i found out that we talk about noncentrality parameter in
+> case of t-distribution and not shift like mentioned above.how shall i do to
+> express a shift to the right with an amount of 2 using the noncentrality
+> parameter in R ?.i will be very grateful when i hear from you. and if there
+> is whatever other solution to implement shifted to the right random
+> variables then it welcome.
+>
+>
+> Best Reguards
+> Zakaria Bensmida
+
+

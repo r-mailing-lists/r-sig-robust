@@ -1,0 +1,81 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2011-01",
+  "messages": [
+    {
+      "id": "msg-b6edae8fbc19",
+      "message_id": "<5FEC4F8459B55448AB1D8E8D37D2B238075A127F@ukaprdembx02.rd.astrazeneca.net>",
+      "from_name": "Southworth, Harry",
+      "from_email_hash": "bd043877f3d4c0b4d052c717ae5c669eadc4365d7f3f08f4b69a5934dd78a67f",
+      "date": "2011-01-27T12:26:25Z",
+      "subject": "[RsR] cov.SRocke",
+      "subject_clean": "[RsR] cov.SRocke",
+      "in_reply_to": "<4CCA4859.40301@zhaw.ch>",
+      "references": [
+        "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>",
+        "<4CCA4859.40301@zhaw.ch>"
+      ],
+      "body_plain": "Dear all,\n\nThe book by Maronna, Martin and Yohai recommends use of a function,\ncov.SRocke, for computing an S-estimate of covariance in high\ndimensional problems.\n\nThe software was located at an old Insightful address that no longer\nseems active.\n\nDoes anyone have the code, know where I can find a function that does\nthe same thing, or have a reference that argues for an alternative\nmethod.\n\nThanks,\nHarry\n\n--------------------------------------------------------------------------\nAstraZeneca UK Limited is a company incorporated in Engl...{{dropped:20}}",
+      "body_snippet": "Dear all,\n\nThe book by Maronna, Martin and Yohai recommends use of a function,\ncov.SRocke, for computing an S-estimate of covariance in high\ndimensional problems.\n\nThe software was located at an old I",
+      "thread_id": "thread-b6edae8fbc19",
+      "thread_depth": 0,
+      "month": "2011-01"
+    },
+    {
+      "id": "msg-60994001960d",
+      "message_id": "<AANLkTik53PwB8rP9FRK=ONbJSLUQWr+gE-PvXdL0SPHe@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2011-01-27T15:18:25+01:00",
+      "subject": "[RsR] cov.SRocke",
+      "subject_clean": "[RsR] cov.SRocke",
+      "in_reply_to": "<5FEC4F8459B55448AB1D8E8D37D2B238075A127F@ukaprdembx02.rd.astrazeneca.net>",
+      "references": [
+        "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>",
+        "<4CCA4859.40301@zhaw.ch>",
+        "<5FEC4F8459B55448AB1D8E8D37D2B238075A127F@ukaprdembx02.rd.astrazeneca.net>"
+      ],
+      "body_plain": "Dear Harry,\n\nHave a look at the function CovSest() in package rrcov, for example:\n\nlibrary(rrcov)\ndata(hbk)\nCovSest(hbk, method=\"rocke\")\n\nWith method=\"rocke\" the function uses exactly the same algorithm you are\nreferring to. Similar, but another implementation, is the function CovMest()\nin the same package.\n\nBest regards,\nValentin\n\n\n\nOn Thu, Jan 27, 2011 at 1:26 PM, Southworth, Harry <\nHarry.Southworth at astrazeneca.com> wrote:\n\n> Dear all,\n>\n> The book by Maronna, Martin and Yohai recommends use of a function,\n> cov.SRocke, for computing an S-estimate of covariance in high\n> dimensional problems.\n>\n> The software was located at an old Insightful address that no longer\n> seems active.\n>\n> Does anyone have the code, know where I can find a function that does\n> the same thing, or have a reference that argues for an alternative\n> method.\n>\n> Thanks,\n> Harry\n>\n> --------------------------------------------------------------------------\n> AstraZeneca UK Limited is a company incorporated in En...{{dropped:10}}",
+      "body_snippet": "Dear Harry,\n\nHave a look at the function CovSest() in package rrcov, for example:\n\nlibrary(rrcov)\ndata(hbk)\nCovSest(hbk, method=\"rocke\")\n\nWith method=\"rocke\" the function uses exactly the same algorit",
+      "thread_id": "thread-b6edae8fbc19",
+      "thread_depth": 1,
+      "month": "2011-01"
+    },
+    {
+      "id": "msg-133a99679a16",
+      "message_id": "<5FEC4F8459B55448AB1D8E8D37D2B238075A1485@ukaprdembx02.rd.astrazeneca.net>",
+      "from_name": "Southworth, Harry",
+      "from_email_hash": "bd043877f3d4c0b4d052c717ae5c669eadc4365d7f3f08f4b69a5934dd78a67f",
+      "date": "2011-01-27T16:04:23Z",
+      "subject": "[RsR] cov.SRocke",
+      "subject_clean": "[RsR] cov.SRocke",
+      "in_reply_to": "<AANLkTik53PwB8rP9FRK=ONbJSLUQWr+gE-PvXdL0SPHe@mail.gmail.com>",
+      "references": [
+        "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>",
+        "<4CCA4859.40301@zhaw.ch>",
+        "<5FEC4F8459B55448AB1D8E8D37D2B238075A127F@ukaprdembx02.rd.astrazeneca.net>",
+        "<AANLkTik53PwB8rP9FRK=ONbJSLUQWr+gE-PvXdL0SPHe@mail.gmail.com>"
+      ],
+      "body_plain": "Thank you! Much appreciated.\n\nHarry\n\n\n\nFrom: Valentin Todorov [mailto:valentin.to at gmail.com]\nSent: 27 January 2011 14:18\nTo: Southworth, Harry\nCc: r-sig-robust at r-project.org\nSubject: Re: [RsR] cov.SRocke\n\n\n\nDear Harry,\n\nHave a look at the function CovSest() in package rrcov, for example:\n\nlibrary(rrcov)\ndata(hbk)\nCovSest(hbk, method=\"rocke\")\n\nWith method=\"rocke\" the function uses exactly the same algorithm you are\nreferring to. Similar, but another implementation, is the function\nCovMest() in the same package.\n\nBest regards,\nValentin\n\n\n\n\nOn Thu, Jan 27, 2011 at 1:26 PM, Southworth, Harry\n<Harry.Southworth at astrazeneca.com> wrote:\n\nDear all,\n\nThe book by Maronna, Martin and Yohai recommends use of a function,\ncov.SRocke, for computing an S-estimate of covariance in high\ndimensional problems.\n\nThe software was located at an old Insightful address that no longer\nseems active.\n\nDoes anyone have the code, know where I can find a function that does\nthe same thing, or have a reference that argues for an alternative\nmethod.\n\nThanks,\nHarry\n\n------------------------------------------------------------------------\n--\nAstraZeneca UK Limited is a company incorporated in\nEngl...{{dropped:20}}\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n\n\n\n--------------------------------------------------------------------------\nAstraZeneca UK Limited is a company incorporated in England and Wales with registered number: 03674842 and a registered office at 2 Kingdom Street, London, W2 6BD.\nConfidentiality Notice: This message is private and may contain confidential, proprietary and legally privileged information. If you have received this message in error, please notify us and remove it from your system and note that you must not copy, distribute or take any action in reliance on it. Any unauthorised use or disclosure of the contents of this message is not permitted and may be unlawful.\nDisclaimer: Email messages may be subject to delays, interception, non-delivery and unauthorised alterations. Therefore, information expressed in this message is not given or endorsed by AstraZeneca UK Limited unless otherwise notified by an authorised representative independent of this message. No contractual relationship is created by this message by any person unless specifically indicated by agreement in writing other than email.\nMonitoring: AstraZeneca UK Limited may monitor email traffic data and content for the purposes of the prevention and detection of crime, ensuring the security of our computer systems and checking Compliance with our Code of Conduct and Policies.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Thank you! Much appreciated.\n\nHarry\n\n\n\nFrom: Valentin Todorov [mailto:valentin.to at gmail.com]\nSent: 27 January 2011 14:18\nTo: Southworth, Harry\nCc: r-sig-robust at r-project.org\nSubject: Re: [RsR] c",
+      "thread_id": "thread-b6edae8fbc19",
+      "thread_depth": 2,
+      "month": "2011-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b6edae8fbc19",
+      "subject": "[RsR] cov.SRocke",
+      "message_count": 3,
+      "participants": [
+        "Southworth, Harry",
+        "Valentin Todorov"
+      ],
+      "started": "2011-01-27T12:26:25+00:00",
+      "last_reply": "2011-01-27T16:04:23+00:00",
+      "root_message_id": "msg-b6edae8fbc19"
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2006-01",
+  "messages": [
+    {
+      "id": "msg-0061a808de98",
+      "message_id": "<013501c6163d$edb62070$1b01a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2006-01-11T00:31:06+01:00",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "subject_clean": "[RsR] Traditional vs. lattice graphics",
+      "in_reply_to": null,
+      "references": [
+        "<mailman.9.1136026801.16787.r-sig-robust@r-project.org>",
+        "<1136048023.20398.250836441@webmail.messagingengine.com>"
+      ],
+      "body_plain": "Thanks a lot. Actually my pragmatic question concerned the plots in rrcov,\nwhich I have implemented as base graphics. Since some of them are quite ugly\n(these that are multipanel, comparing classic and robust estimates) I\nimplemented them with lattice/grid but never dared to release such a mixed\nversion.\n\n\n\nBest regards,\n\nValentin\n\n\n\n----- Original Message ----- \nFrom: \"Nicholas Lewin-Koh\" <nikko at hailmail.net>\nTo: <r-sig-robust at r-project.org>; \"Valentin Todorov\"\n<valentin.todorov at chello.at>\nCc: \"Martin Maechler\" <maechler at stat.math.ethz.ch>; \"Achim Zeileis\"\n<Achim.Zeileis at wu-wien.ac.at>\nSent: Saturday, December 31, 2005 5:53 PM\nSubject: Re: [RsR] Traditional vs. lattice graphics\n\n\n> Hi,\n> In general I agree with Martin and Achim except for one small point.\n> If you construct your basic plots using grid, it is very easy to\n> incorporate\n> them into a lattice framework later, since each plot can sit in a\n> viewport.\n> Even better would be to use a framework so the plot is constructed as a\n> layout\n> and a series of additions to the plot area, then it is very easy to\n> write panel functions\n> for lattice, if conditioning is desired later.\n>\n> My experience with base graphics has been that I can only go so far, and\n> I have\n> had to switch to grid in the end. Also, grid seems to integrate pretty\n> well with s4\n> classes, even though Paul used s3 classes for grid. It is very natural\n> to\n> construct s4 graphics classes with a slot for a vieport tree, and\n> various grobs.\n>\n> That's my 2c\n>\n> Cheers and happy new year\n>\n> Nicholas",
+      "body_snippet": "Thanks a lot. Actually my pragmatic question concerned the plots in rrcov,\nwhich I have implemented as base graphics. Since some of them are quite ugly\n(these that are multipanel, comparing classic an",
+      "thread_id": "thread-0061a808de98",
+      "thread_depth": 0,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-ca8d33f1f5da",
+      "message_id": "<17348.52680.803195.381731@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-01-11T10:20:08+01:00",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "subject_clean": "[RsR] Traditional vs. lattice graphics",
+      "in_reply_to": "<013501c6163d$edb62070$1b01a8c0@KILER>",
+      "references": [
+        "<mailman.9.1136026801.16787.r-sig-robust@r-project.org>",
+        "<1136048023.20398.250836441@webmail.messagingengine.com>",
+        "<013501c6163d$edb62070$1b01a8c0@KILER>"
+      ],
+      "body_plain": ">>>>> \"Valentin\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 11 Jan 2006 00:31:06 +0100 writes:\n\n    Valentin> Thanks a lot. Actually my pragmatic question\n    Valentin> concerned the plots in rrcov, which I have\n    Valentin> implemented as base graphics. Since some of them\n    Valentin> are quite ugly (these that are multipanel,\n    Valentin> comparing classic and robust estimates) I\n    Valentin> implemented them with lattice/grid but never dared\n    Valentin> to release such a mixed version.\n\naah.  Well in such case, I'd strongly encourage use of\ngrid/lattice.  Exactly because such plots are cumbersome to\nprogram with traditional graphics, lattice was based on the much\nmore powerful grid paradigm.\n\nMartin\n\n    Valentin> ----- Original Message ----- \n    Valentin> From: \"Nicholas Lewin-Koh\" <nikko at hailmail.net>\n    Valentin> To: <r-sig-robust at r-project.org>; \"Valentin Todorov\"\n    Valentin> <valentin.todorov at chello.at>\n    Valentin> Cc: \"Martin Maechler\" <maechler at stat.math.ethz.ch>; \"Achim Zeileis\"\n    Valentin> <Achim.Zeileis at wu-wien.ac.at>\n    Valentin> Sent: Saturday, December 31, 2005 5:53 PM\n    Valentin> Subject: Re: [RsR] Traditional vs. lattice graphics\n\n\n    >> Hi,\n    >> In general I agree with Martin and Achim except for one small point.\n    >> If you construct your basic plots using grid, it is very easy to\n    >> incorporate\n    >> them into a lattice framework later, since each plot can sit in a\n    >> viewport.\n    >> Even better would be to use a framework so the plot is constructed as a\n    >> layout\n    >> and a series of additions to the plot area, then it is very easy to\n    >> write panel functions\n    >> for lattice, if conditioning is desired later.\n    >> \n    >> My experience with base graphics has been that I can only go so far, and\n    >> I have\n    >> had to switch to grid in the end. Also, grid seems to integrate pretty\n    >> well with s4\n    >> classes, even though Paul used s3 classes for grid. It is very natural\n    >> to\n    >> construct s4 graphics classes with a slot for a vieport tree, and\n    >> various grobs.\n    >> \n    >> That's my 2c\n    >> \n    >> Cheers and happy new year\n    >> \n    >> Nicholas",
+      "body_snippet": ">>>>> \"Valentin\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 11 Jan 2006 00:31:06 +0100 writes:\n\n    Valentin> Thanks a lot. Actually my pragmatic question\n    Valentin> conc",
+      "thread_id": "thread-0061a808de98",
+      "thread_depth": 1,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-cef8979d0f95",
+      "message_id": "<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>",
+      "from_name": "claudio",
+      "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
+      "date": "2006-01-11T12:29:15+01:00",
+      "subject": "[RsR] Gamma shape and scale",
+      "subject_clean": "[RsR] Gamma shape and scale",
+      "in_reply_to": "<17300.9156.266887.251826@stat.math.ethz.ch>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+        "<17300.9156.266887.251826@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear All,\nsorry for the silly question.\nDoes anyone have R code for the (plain) shape and scale Gamma \nmodel using M type estimators?\n\nThanks,\nClaudio\n\n--------------------------------------------------------------\nClaudio Agostinelli\nDipartimento di Statistica\nUniversita' Ca' Foscari di Venezia\nSan Giobbe, Cannaregio 873\n30121 Venezia\nTel: 041 2347446, Fax: 041 2347444\nemail: claudio at unive.it, www: www.dst.unive.it/~claudio\n--------------------------------------------------------------\nPer favore non mandatemi allegati in Word o PowerPoint.\nSi veda http://www.gnu.org/philosophy/no-word-attachments.html\n\nPlease avoid sending me Word or PowerPoint attachments.\nSee http://www.gnu.org/philosophy/no-word-attachments.html",
+      "body_snippet": "Dear All,\nsorry for the silly question.\nDoes anyone have R code for the (plain) shape and scale Gamma \nmodel using M type estimators?\n\nThanks,\nClaudio\n\n------------------------------------------------",
+      "thread_id": "thread-cef8979d0f95",
+      "thread_depth": 0,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-07a383440c25",
+      "message_id": "<43C523EB.2050406@stamats.de>",
+      "from_name": "Matthias Kohl",
+      "from_email_hash": "e144ddb675681f3124c6e887dd63c8aec6f6b4e9911a8cda00f94c453a4cb173",
+      "date": "2006-01-11T16:27:39+01:00",
+      "subject": "[RsR] Gamma shape and scale",
+      "subject_clean": "[RsR] Gamma shape and scale",
+      "in_reply_to": "<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+        "<17300.9156.266887.251826@stat.math.ethz.ch>",
+        "<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>"
+      ],
+      "body_plain": "Hello Claudio,\n\nmy R package ROptEst can be used to compute optimally robust estimators \nfor all L2-differentiable (differentiable in quadratic mean) parametric \nfamilies which are based on a univariate distribution (e.g., the Gamma \nmodel). You can find it under (not yet on CRAN):\nhttp://www.stamats.de/RobASt.htm\nYou will also need the packages distr, distrEx, RandVar and evd which \nare on CRAN.\n\nUsing Linux you might get an error by R CMD check, but this is due to \nsome problems with S4 class protoypes which I haven't corrected yet and \nwhich do not affect the corresponding methods you need.\n\nAfter the installation there is the R Skript \"GammaModel.R\" in the \ndirectory of .../ROptEst/Scripts which might help you. Moreover, you can \nfind a short treatment of the Gamma model in Chapter 6 of my thesis\nhttp://www.stamats.de/ThesisMKohl.pdf\n\nFeel free to contact me directly, if you encounter problems!\n\nKind regards,\nMatthias\n\n>Dear All,\n>sorry for the silly question.\n>Does anyone have R code for the (plain) shape and scale Gamma \n>model using M type estimators?\n>\n>Thanks,\n>Claudio\n>\n>--------------------------------------------------------------\n>Claudio Agostinelli\n>Dipartimento di Statistica\n>Universita' Ca' Foscari di Venezia\n>San Giobbe, Cannaregio 873\n>30121 Venezia\n>Tel: 041 2347446, Fax: 041 2347444\n>email: claudio at unive.it, www: www.dst.unive.it/~claudio\n>--------------------------------------------------------------\n>Per favore non mandatemi allegati in Word o PowerPoint.\n>Si veda http://www.gnu.org/philosophy/no-word-attachments.html\n>\n>Please avoid sending me Word or PowerPoint attachments.\n>See http://www.gnu.org/philosophy/no-word-attachments.html\n>\n>_______________________________________________\n>R-SIG-Robust at r-project.org mailing list\n>https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>  \n>\n\n\n-- \nStaMatS - Statistik + Mathematik Service\nDr. rer. nat. Matthias Kohl\nE-Mail: matthias.kohl at stamats.de\nHome: www.stamats.de",
+      "body_snippet": "Hello Claudio,\n\nmy R package ROptEst can be used to compute optimally robust estimators \nfor all L2-differentiable (differentiable in quadratic mean) parametric \nfamilies which are based on a univaria",
+      "thread_id": "thread-cef8979d0f95",
+      "thread_depth": 1,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-03197d11ea5d",
+      "message_id": "<Pine.LNX.4.61.0601110738140.7213@cedar.stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2006-01-11T07:42:45-08:00",
+      "subject": "[RsR] Gamma shape and scale",
+      "subject_clean": "[RsR] Gamma shape and scale",
+      "in_reply_to": "<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>",
+      "references": [
+        "<Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>",
+        "<17296.47912.627297.777639@stat.math.ethz.ch>",
+        "<000401c5f861$b2e49c50$0100a8c0@MARONNA>",
+        "<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>",
+        "<17300.9156.266887.251826@stat.math.ethz.ch>",
+        "<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>"
+      ],
+      "body_plain": "Hi Claudio,\n\nM-estimators in Hampel et al. (1986, pp 238-257) have been implemented by \nAlfio Marazzi. Look in:\n\nhttp://www.iumsp.ch/Unites/us/Alfio/msp_programmes.htm\n\nFull disclosure: these estimators were also implemented in the S-PLUS \nrobust library.\n\nMatias\n\n\nOn Wed, 11 Jan 2006, claudio wrote:\n\n> Dear All,\n> sorry for the silly question.\n> Does anyone have R code for the (plain) shape and scale Gamma\n> model using M type estimators?\n>\n> Thanks,\n> Claudio\n>\n> --------------------------------------------------------------\n> Claudio Agostinelli\n> Dipartimento di Statistica\n> Universita' Ca' Foscari di Venezia\n> San Giobbe, Cannaregio 873\n> 30121 Venezia\n> Tel: 041 2347446, Fax: 041 2347444\n> email: claudio at unive.it, www: www.dst.unive.it/~claudio\n> --------------------------------------------------------------\n> Per favore non mandatemi allegati in Word o PowerPoint.\n> Si veda http://www.gnu.org/philosophy/no-word-attachments.html\n>\n> Please avoid sending me Word or PowerPoint attachments.\n> See http://www.gnu.org/philosophy/no-word-attachments.html\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Hi Claudio,\n\nM-estimators in Hampel et al. (1986, pp 238-257) have been implemented by \nAlfio Marazzi. Look in:\n\nhttp://www.iumsp.ch/Unites/us/Alfio/msp_programmes.htm\n\nFull disclosure: these estimato",
+      "thread_id": "thread-cef8979d0f95",
+      "thread_depth": 1,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-9c2f16455864",
+      "message_id": "<17359.52410.239037.391030@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-01-19T18:30:34+01:00",
+      "subject": "[RsR] function naming for \"robust ...\"",
+      "subject_clean": "[RsR] function naming for \"robust ...\"",
+      "in_reply_to": "<17322.35378.533261.42930@stat.math.ethz.ch>",
+      "references": [
+        "<43A93E9C.2060708@tuwien.ac.at>",
+        "<43A9D23B.2030207@stat.ubc.ca>",
+        "<17322.35378.533261.42930@stat.math.ethz.ch>"
+      ],
+      "body_plain": "I'm finally taking up this thread from before Christmas:\n\n>>>>> \"MMa\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Thu, 22 Dec 2005 12:12:50 +0100 writes:\n\n>>>>> \"Matias\" == Matias Salibian-Barrera <matias at stat.ubc.ca>\n>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:\n\n    MMa> .........\n\n    Matias> A few days ago I uploaded the package \"roblm\" to CRAN.\n    Matias> ........\n\n    Matias> Note that the name of the package (and the\n    Matias> corresponding class) is \"roblm\", but this does not\n    Matias> mean that I necessarily prefer this name over\n    Matias> others. I've been working on this for some time now,\n    Matias> and for the reasons that I mentioned in Treviso\n    Matias> (\"rlm\" and \"lmRob\" are already taken) I settled for\n    Matias> roblm.\n\n    MMa> yes. In Treviso, we had talked about trying to go for \"rlm\" and\n    MMa> I had offered to try to resolve the name clash with MASS::rlm().\n    MMa> I now think that this may not be a good idea:  rlm()\n    MMa> in MASS is really relatively prominent in the MASS book with\n    MMa> years of tradition, and usage in many places.  Also its default\n    MMa> method is \"M\", not \"MM\" { for a good reason: back compatibility\n    MMa> with older versions of rlm()}.\n    MMa> Hence our new  (robust|rob|rf|r)lm(Rob) function would never be\n    MMa> 'call-compatible' to MASS::rlm() and for that reason I think we\n    MMa> should strive for a different naming scheme.\n\n    MMa> Andreas Ruckstuhl had raised the point already at Treviso, and\n    MMa> on this list (Dec 7, \"Re: [RsR] OGK covariance estimator\") where\n    MMa> he'd proposed\n    MMa> r*   [as 'rlm' in MASS]\n    MMa> rob* [as 'roblm' above]\n    MMa> rf*  [\"[R]obust [F]itting of ..\", used in Andreas' package]\n\n    MMa> The last one may be a bit more logical than all the others,\n    MMa> since in one sense there's just one linear model with different\n    MMa> fitting methodologies, since in fact,\n    MMa> the error distribution hasn't been part of the\n    MMa> model specification __for most statistical software__\n\n    MMa> OTOH, \"rob\" is easy to pronounce/spell\n    MMa> [OTOH, there's all the people called 'Rob' ...]\n\n    MMa> As you can guess, from Andreas' list, I'd either take\n    MMa> 'rob*' or 'rf*' and don't have strong preference.\n\nIn the mean time, I have talked with Andreas, and he has agreed\nto go for 'rob*' rather than 'rf*' which he preferred for good\nreasons.\n\nSince there were no further comments or suggestions,\nI think we've settled to adopt the \n   prefix  'rob'\n\nfor 'robustifying' functions like  'lm', 'glm'  etc, hence will\nhave roblm(), robglm() ..\n\n==> We (well, Andreas, Mat?as and I, to a large extent) can now\ncollaborate on moving parts of Matias' \"roblm\" and Andreas'\nunpublished \"RobFit\" package to  robustbase,\nusing function names roblm() and robglm() returning objects of\nclass 'roblm' or 'robglm'. \n\nIdeas and suggestions on this topic are very welcome!\n\nThe question how to adopt good function names for a\nrobustified cov() is a bit less trivial, \nsince\n\n  1) there are even more methods around\n\n  2) in S and R, there have been diverging traditions to call these:\n    MASS has  cov.rob() but also cov.trob() cov.mcd(), cov.mve()\n    where only the latter two are called from cov.rob()\n\n  3) Of course, the \".\" convention is somewhat deprecated currently\n     {since it leads to confusion with S3 method definitions}.\n\nI think our aim should be to go for\nrobcov() eventually with many possible 'method = \"....\"'\n-------- arguments \nand also   probably have it return an S4 class object, along the\nline the working group \"Multivariate\" in Treviso has proposed\nit.\nOTOH, I'd also like to add Valentin's good  covMcd() {and also ltsReg()}\nfunction to the  \"robustbase\" package as soon as possible,\nand currently I'd propose to just keep covMcd() \"as is\"\nand later have\t  \n    robcov(*, method = \"MCD\")\t\tor rather\n    robcov(*, method = \"fastMCD1999\") \ncall Valentin's  covMcd()  \nApropos the method name: Now that I've seen the algorithm again,\nI'm pretty much convinced that we'd see new (at least slightly\nnew)  fast MCDs in the future...\n\nBTW, there is draft version 0.0-1 of \"robustbase\"\naround (and inspectable from https://svn.r-project.org/R-packages/)\nwhich in particular has many data sets to be used as examples;\nmost of them from Valentin Todorov, but also Rousseeuw/Croux'\nSn() and Qn() and the OGK cov.estimator, basically the code from\nKjell Konis. \n\nI plan to make the package also available \n>>> as source package only <<<  (i.e. *.tar.gz) \nfor those who know how to install packages from the source\nin order to get comment;\nSince there are too many ``TO DO'' in there, I think it should\ninitially not go to CRAN, because once it is widely used, we\ncannot easily modify the API (function arguments and result values/classes)\nany more. OTOH, there are good reasons to aim for a CRAN version of the\npackage for spring, where even then it will probably still be \nversion 0.x-y.\n\nMartin Maechler,\nETH Zurich",
+      "body_snippet": "I'm finally taking up this thread from before Christmas:\n\n>>>>> \"MMa\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Thu, 22 Dec 2005 12:12:50 +0100 writes:\n\n>>>>> \"Matias\" == Matias ",
+      "thread_id": "thread-9c2f16455864",
+      "thread_depth": 0,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-dd6f09971a7b",
+      "message_id": "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>",
+      "from_name": "claudio",
+      "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
+      "date": "2006-01-20T12:50:43+01:00",
+      "subject": "[RsR] function naming for \"robust ...\"",
+      "subject_clean": "[RsR] function naming for \"robust ...\"",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Ciao Martin,\n\nI would like, progressively, standardize my package 'wle' with the standard of \nrobustbase. If think, for me, the easy way is to start with lm function (since \nyou (you, matias and andreas) are working on roblm).\n\nAre you thinking of a mechanism, like roblm(*, method=\"MM\"), in this case there \nare any way for R to register \"method\" from other package once loaded, so that, \nfor instance, we can have, automatically, roblm(*, method=\"WL\") for my \nfunction? i.e., for the final user:\n\n> library(robustbase)\n> roblm(*, method=\"WL\") Error: method \"WL\" for \"roblm\" not found\n> library(wle) # new version of the library\n> roblm(*, method=\"WL\") # now it works\n.....\n\nOtherwise, what kind of convention should I use for the name:\nroblmwle\nrobwlelm\n\nThis is a potential problem for extending the functions to any other new method \navailable in the future. What is your suggestion?\n\nClaudio",
+      "body_snippet": "Ciao Martin,\n\nI would like, progressively, standardize my package 'wle' with the standard of \nrobustbase. If think, for me, the easy way is to start with lm function (since \nyou (you, matias and andre",
+      "thread_id": "thread-dd6f09971a7b",
+      "thread_depth": 0,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-9930fe212698",
+      "message_id": "<17360.60355.748034.739093@stat.math.ethz.ch>",
+      "from_name": "Werner Stahel",
+      "from_email_hash": "101ca612b9f2346f74dcc9ac2f117318c822c9dbf0fb189a26e0662e2f574bdb",
+      "date": "2006-01-20T14:55:15+01:00",
+      "subject": "[RsR] names for robust fitting functions",
+      "subject_clean": "[RsR] names for robust fitting functions",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all\n\nA late contribution to the discussion about names:\nI personally prefer if the most important characteristic of a\nfunction leads to the frist part of the name. As a nice effect,\nthis leads to a meaningful grouping in alphabetic order.\n\nThe important characteristic is the model or problem. Therefore,\nI prefer \nlmrob  to  roblm\nEven though lmRob is taken by S-Plus, lmrob is still new. I do\nnot know if  covrob  is taken more often than  robcov .\nSorry for opening the question again ...\n\nBest regards\n\nWerner Stahel\n----------------- This message was sent by ---------------------------\nWerner Stahel                              http://stat.ethz.ch/~stahel\nSeminar fuer Statistik                     phone  :    +41 1 632 34 30\nETH-Zentrum, LEO D8                        fax    :    +41 1 632 12 28\nCH-8092 Zurich, Switzerland                meet me: Leonhardstr.27, D8",
+      "body_snippet": "Dear all\n\nA late contribution to the discussion about names:\nI personally prefer if the most important characteristic of a\nfunction leads to the frist part of the name. As a nice effect,\nthis leads to",
+      "thread_id": "thread-9930fe212698",
+      "thread_depth": 0,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-0899b684261a",
+      "message_id": "<17361.22635.911892.563447@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-01-20T22:38:51+01:00",
+      "subject": "[RsR] function naming for \"robust ...\"",
+      "subject_clean": "[RsR] function naming for \"robust ...\"",
+      "in_reply_to": "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>",
+      "references": [
+        "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>"
+      ],
+      "body_plain": ">>>>> \"Claudio\" == Claudio Agostinelli <claudio at unive.it>\n>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:\n\n    Claudio> Ciao Martin, I would like, progressively,\n    Claudio> standardize my package 'wle' with the standard of\n    Claudio> robustbase. If think, for me, the easy way is to\n    Claudio> start with lm function (since you (you, matias and\n    Claudio> andreas) are working on roblm).\n\nand robglm() / glmrob()  {taking up Werner's naming suggestion\nwhich I find very worth of consideration -- other takers, please.. ?}\n\n    Claudio> Are you thinking of a mechanism, like roblm(*,\n    Claudio> method=\"MM\"), in this case there are any way for R\n    Claudio> to register \"method\" from other package once\n    Claudio> loaded, so that, for instance, we can have,\n    Claudio> automatically, roblm(*, method=\"WL\") for my\n    Claudio> function? i.e., for the final user:\n\n    >> library(robustbase)\n    >> roblm(*, method=\"WL\") Error: method \"WL\" for \"roblm\" not found\n    >> library(wle) # new version of the library\n    >> roblm(*, method=\"WL\") # now it works\n\n\n    Claudio> Otherwise, what kind of convention should I use for the name:\n    Claudio> roblmwle\n    Claudio> robwlelm\n\nThank you for the interesting and very relevant question!\n\nIndeed, \"robustbase\" itself should not contain all possible\nmethods, but rather just the 'base', and particular we had\nagreed for the time being to focus on the methodology of the MMY\nbook.\n\nOTOH, it makes very much sense to allow and encourage\n``plugins'' from other packages {that will have a 'Depends: robustbase'}.\n\n    Claudio> This is a potential problem for extending the functions to any other new method \n    Claudio> available in the future. What is your suggestion?\n\nwell I hope we will converge some time in the future on how to\ndo robust linear regression .. :-) {well for  p > n, we probably\nstill have slack ...}\nIn any case, I think it's a very good idea to allow for\nplugins, and I also agree that we should do this by a naming\nconvention.\n\nIn some cases, we (the community of S programmers) have used the\nconvention to call the plugin for method <Meth> to function\n<Func>  \" <Func>.<Meth> \"  where I think we should nowadays most\nprobably use  <Func>_<Meth>\nthis would give  lmrob_wle() or roblm_wle()  for your plugin\nfunction.\nBut note that we will not only have to agree on the naming\nscheme, but also on exactly what arguments the function must\naccept (it can have further optional ones) and what exactly its\nreturn value has to look like.\nBut I think it's too early to get into these details already\nnow. \n\nMartin",
+      "body_snippet": ">>>>> \"Claudio\" == Claudio Agostinelli <claudio at unive.it>\n>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:\n\n    Claudio> Ciao Martin, I would like, progressively,\n    Claudio> standardize",
+      "thread_id": "thread-dd6f09971a7b",
+      "thread_depth": 1,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-62d9233bee83",
+      "message_id": "<025d01c625f4$903295c0$1b01a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2006-01-31T00:26:14+01:00",
+      "subject": "[RsR]  synchronization with contributing packages",
+      "subject_clean": "[RsR]  synchronization with contributing packages",
+      "in_reply_to": null,
+      "references": [
+        "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>",
+        "<17361.22635.911892.563447@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear All,\n\nafter returning home from the Robcla'2006 workshop in Florence (thanks,\nMarko), I would like to continue here a discussion that we started with\nMartin (in German). We think that more opinions are necessary.\n\nWhat happens with packages that contribute to robustbase, at least now, in\nthe early stages?\nWhen, at what stage of maturity of robustbase,  should the contributed code\nbe removed from the other packages and they have to rely on 'Depends:\nrobustbase'?\n\nBest regards,\nValentin",
+      "body_snippet": "Dear All,\n\nafter returning home from the Robcla'2006 workshop in Florence (thanks,\nMarko), I would like to continue here a discussion that we started with\nMartin (in German). We think that more opinio",
+      "thread_id": "thread-dd6f09971a7b",
+      "thread_depth": 2,
+      "month": "2006-01"
+    },
+    {
+      "id": "msg-460e1fade080",
+      "message_id": "<17375.39572.244559.449913@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-01-31T18:12:52+01:00",
+      "subject": "[RsR] synchronization with contributing packages",
+      "subject_clean": "[RsR] synchronization with contributing packages",
+      "in_reply_to": "<025d01c625f4$903295c0$1b01a8c0@KILER>",
+      "references": [
+        "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>"
+      ],
+      "body_plain": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:\n\n    ValenT> Dear All, after returning home from the Robcla'2006\n    ValenT> workshop in Florence (thanks, Marko), I would like\n    ValenT> to continue here a discussion that we started with\n    ValenT> Martin (in German). We think that more opinions are\n    ValenT> necessary.\n\nand we are still waiting...\n\n    ValenT> What happens with packages that contribute to\n    ValenT> robustbase, at least now, in the early stages?\n\n    ValenT> When, at what stage of maturity of robustbase,\n    ValenT> should the contributed code be removed from the\n    ValenT> other packages and they have to rely on \n    ValenT> 'Depends: robustbase'?\n\nIn theory, the code that has been moved to robustbase could be\nstripped from the other package immediately after a new version\n(that contains the \"moved functionality\") of 'robustbase' is\nreleased to CRAN and available from there both in source and\n(MacOSX + Windows) binary formats.\n\nThis theory works when people use\n   install.packages(...., dependencies = TRUE)\nand because in windows (and I think Mac OSX), the menus\n\"Packages\" -> \"install packages\" uses the ``dependencies = TRUE'' setting.\n\nIn practice, I would aim for a more pragmatic solution;\ne.g., after the appearance of the new version of robustbase, \nwait for several weeks before stripping the functionality from\nyour package.  Well actually, as package author, you can do it\nimmediately in your sources, but only release a new version of\nyour package to CRAN after a certain amount of time.\n\nMartin\n\nAnd yes, as Valentin, I am very much interested to hear what\nothers think...",
+      "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:\n\n    ValenT> Dear All, after returning home from the Robcla'2006\n    ValenT> wor",
+      "thread_id": "thread-dd6f09971a7b",
+      "thread_depth": 3,
+      "month": "2006-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-0061a808de98",
+      "subject": "[RsR] Traditional vs. lattice graphics",
+      "message_count": 2,
+      "participants": [
+        "Martin Maechler",
+        "Valentin Todorov"
+      ],
+      "started": "2006-01-11T00:31:06+01:00",
+      "last_reply": "2006-01-11T10:20:08+01:00",
+      "root_message_id": "msg-0061a808de98"
+    },
+    {
+      "id": "thread-cef8979d0f95",
+      "subject": "[RsR] Gamma shape and scale",
+      "message_count": 3,
+      "participants": [
+        "Matias Salibian-Barrera",
+        "Matthias Kohl",
+        "claudio"
+      ],
+      "started": "2006-01-11T12:29:15+01:00",
+      "last_reply": "2006-01-11T07:42:45-08:00",
+      "root_message_id": "msg-cef8979d0f95"
+    },
+    {
+      "id": "thread-9c2f16455864",
+      "subject": "[RsR] function naming for \"robust ...\"",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2006-01-19T18:30:34+01:00",
+      "last_reply": "2006-01-19T18:30:34+01:00",
+      "root_message_id": "msg-9c2f16455864"
+    },
+    {
+      "id": "thread-dd6f09971a7b",
+      "subject": "[RsR] function naming for \"robust ...\"",
+      "message_count": 4,
+      "participants": [
+        "Martin Maechler",
+        "Valentin Todorov",
+        "claudio"
+      ],
+      "started": "2006-01-20T12:50:43+01:00",
+      "last_reply": "2006-01-31T18:12:52+01:00",
+      "root_message_id": "msg-dd6f09971a7b"
+    },
+    {
+      "id": "thread-9930fe212698",
+      "subject": "[RsR] names for robust fitting functions",
+      "message_count": 1,
+      "participants": [
+        "Werner Stahel"
+      ],
+      "started": "2006-01-20T14:55:15+01:00",
+      "last_reply": "2006-01-20T14:55:15+01:00",
+      "root_message_id": "msg-9930fe212698"
+    }
+  ]
+}

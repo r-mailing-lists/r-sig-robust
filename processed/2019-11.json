@@ -1,0 +1,94 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2019-11",
+  "messages": [
+    {
+      "id": "msg-7cd240164737",
+      "message_id": "<44add41256f841679d0bfe2610a2bcc0@cchmc.org>",
+      "from_name": "Zhou, Xionghui",
+      "from_email_hash": "54f419223a4e04f4f70809c7d4393ddc1784c4a0448b4f57f7e68dc83d3726be",
+      "date": "2019-11-11T20:50:41Z",
+      "subject": "[RsR] About the inconsistency p-value of  two sample Kolmogorov–Smirnov test in R and Matlab",
+      "subject_clean": "[RsR] About the inconsistency p-value of  two sample Kolmogorov–Smirnov test in R and Matlab",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi guys,\n\n\nRecently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with the same data and parameters (The p-value in R is greater than the one in Matlab). In the meanwhile, the p-values of two-sample ks-test are the same in Matlab and python. In addition, I also test the p-value in Mann-Whitney-Wilcoxon test and Poission test, the p-values for the tests in R and Matlab are also different. Of course, the difference in two-sample ks-test is the most significant. May anyone tell me the reason for that and which language is more reliable? Thanks in advance!\n\n\nBest,\n\n\n\nXionghui\n\n\nXionghui Zhou Ph.D.\nResearch Fellow\nDivision of Human Genetics\nCincinnati Children?s Hospital Medical Center\n\nPhone: +1 (513) 636-4200\nEmail: Xionghui.Zhou at cchmc.org<mailto:Yaping.Liu at cchmc.org>\nOffice: R1.1026\n3333 Burnet Ave\nCincinnati, OH 45229\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi guys,\n\n\nRecently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with ",
+      "thread_id": "thread-7cd240164737",
+      "thread_depth": 0,
+      "month": "2019-11"
+    },
+    {
+      "id": "msg-3128f9634b0c",
+      "message_id": "<f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>",
+      "from_name": "Phillip Alday",
+      "from_email_hash": "fafc857548eb60de9d1a2fb567bdcde580c689bb979d9eb416fd7987558bfed0",
+      "date": "2019-11-18T17:25:51+01:00",
+      "subject": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
+      "subject_clean": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
+      "in_reply_to": "<44add41256f841679d0bfe2610a2bcc0@cchmc.org>",
+      "references": [
+        "<44add41256f841679d0bfe2610a2bcc0@cchmc.org>"
+      ],
+      "body_plain": "Dear Xionghui,\n\nCross-posting to two lists simultaneously generally isn't desirable.\n\nCan you provide a minimum working example (code+data) for this? \nOtherwise, it's hard to see what's going on.\n\nBest,\nPhillip\n\n\n\nOn 11/11/19 9:50 pm, Zhou, Xionghui wrote:\n> Hi guys,\n> \n> \n> Recently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with the same data and parameters (The p-value in R is greater than the one in Matlab). In the meanwhile, the p-values of two-sample ks-test are the same in Matlab and python. In addition, I also test the p-value in Mann-Whitney-Wilcoxon test and Poission test, the p-values for the tests in R and Matlab are also different. Of course, the difference in two-sample ks-test is the most significant. May anyone tell me the reason for that and which language is more reliable? Thanks in advance!\n> \n> \n> Best,\n> \n> \n> \n> Xionghui\n> \n> \n> Xionghui Zhou Ph.D.\n> Research Fellow\n> Division of Human Genetics\n> Cincinnati Children?s Hospital Medical Center\n> \n> Phone: +1 (513) 636-4200\n> Email: Xionghui.Zhou at cchmc.org<mailto:Yaping.Liu at cchmc.org>\n> Office: R1.1026\n> 3333 Burnet Ave\n> Cincinnati, OH 45229\n> \n> \n> \t[[alternative HTML version deleted]]\n> \n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Dear Xionghui,\n\nCross-posting to two lists simultaneously generally isn't desirable.\n\nCan you provide a minimum working example (code+data) for this? \nOtherwise, it's hard to see what's going on.\n\nBes",
+      "thread_id": "thread-7cd240164737",
+      "thread_depth": 1,
+      "month": "2019-11"
+    },
+    {
+      "id": "msg-f36ba416b13c",
+      "message_id": "<C5537B8D-BAED-4368-ABA4-BB3533DFEA24@cchmc.org>",
+      "from_name": "Zhou, Xionghui",
+      "from_email_hash": "54f419223a4e04f4f70809c7d4393ddc1784c4a0448b4f57f7e68dc83d3726be",
+      "date": "2019-11-19T21:35:46Z",
+      "subject": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
+      "subject_clean": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
+      "in_reply_to": "<f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>",
+      "references": [
+        "<44add41256f841679d0bfe2610a2bcc0@cchmc.org>",
+        "<f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>"
+      ],
+      "body_plain": "Dear Phillip,\nThanks for your reply. If I use two-sample KS test in R to test whether one vector is significantly smaller than another vector, I use the command below as a demo:  p = ks.test((1:10), (20:200), alternative = \"greater\"). The p is 5.873e-09. However, If I use Matlab to do the same case: [~,p]=kstest2((1:10)',(20:200)','tail','larger'). P-value is 8.2222e-10. The differences are also present in other method, such as Wilcoxon rank sum test and Poission test. Thanks!\n\nRegards,\n\n\nXionghui \n\n?On 11/18/19, 11:26 AM, \"Phillip Alday\" <phillip.alday at mpi.nl> wrote:\n\n    Dear Xionghui,\n    \n    Cross-posting to two lists simultaneously generally isn't desirable.\n    \n    Can you provide a minimum working example (code+data) for this? \n    Otherwise, it's hard to see what's going on.\n    \n    Best,\n    Phillip\n    \n    \n    \n    On 11/11/19 9:50 pm, Zhou, Xionghui wrote:\n    > Hi guys,\n    > \n    > \n    > Recently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with the same data and parameters (The p-value in R is greater than the one in Matlab). In the meanwhile, the p-values of two-sample ks-test are the same in Matlab and python. In addition, I also test the p-value in Mann-Whitney-Wilcoxon test and Poission test, the p-values for the tests in R and Matlab are also different. Of course, the difference in two-sample ks-test is the most significant. May anyone tell me the reason for that and which language is more reliable? Thanks in advance!\n    > \n    > \n    > Best,\n    > \n    > \n    > \n    > Xionghui\n    > \n    > \n    > Xionghui Zhou Ph.D.\n    > Research Fellow\n    > Division of Human Genetics\n    > Cincinnati Children?s Hospital Medical Center\n    > \n    > Phone: +1 (513) 636-4200\n    > Email: Xionghui.Zhou at cchmc.org<mailto:Yaping.Liu at cchmc.org>\n    > Office: R1.1026\n    > 3333 Burnet Ave\n    > Cincinnati, OH 45229\n    > \n    > \n    > \t[[alternative HTML version deleted]]\n    > \n    > \n    > _______________________________________________\n    > R-SIG-Robust at r-project.org mailing list\n    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n    >",
+      "body_snippet": "Dear Phillip,\nThanks for your reply. If I use two-sample KS test in R to test whether one vector is significantly smaller than another vector, I use the command below as a demo:  p = ks.test((1:10), (",
+      "thread_id": "thread-7cd240164737",
+      "thread_depth": 2,
+      "month": "2019-11"
+    },
+    {
+      "id": "msg-ccd278c49e05",
+      "message_id": "<270188bb-4979-d251-0030-4d1de8acaf61@mpi.nl>",
+      "from_name": "Phillip Alday",
+      "from_email_hash": "fafc857548eb60de9d1a2fb567bdcde580c689bb979d9eb416fd7987558bfed0",
+      "date": "2019-11-24T11:05:08-06:00",
+      "subject": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
+      "subject_clean": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
+      "in_reply_to": "<C5537B8D-BAED-4368-ABA4-BB3533DFEA24@cchmc.org>",
+      "references": [
+        "<44add41256f841679d0bfe2610a2bcc0@cchmc.org>",
+        "<f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>",
+        "<C5537B8D-BAED-4368-ABA4-BB3533DFEA24@cchmc.org>"
+      ],
+      "body_plain": "Both MATLAB and R generate the same test statistic, but differ in their\np-values. For a p-value that small, you're getting to the point where\nthe probabilities involved are on the order of a random bit flip in your\ncomputer's memory, so I wouldn't worry about that too much. A quick look\nat the R documentation suggests that the approximation used can break\ndown for small sample sizes and that an exact test is only possible with\nmore data. MATLAB didn't provide as much detail about how they converted\nthe test statistic to p-value.\n\nIn other words, don't worry about it. You should be trying to interpret\np values as a precise number anyway, especially on such a small sample.\n\n\nBest,\n\nPhillip\n\nOn 19/11/2019 22:35, Zhou, Xionghui wrote:\n> Dear Phillip,\n> Thanks for your reply. If I use two-sample KS test in R to test whether one vector is significantly smaller than another vector, I use the command below as a demo:  p = ks.test((1:10), (20:200), alternative = \"greater\"). The p is 5.873e-09. However, If I use Matlab to do the same case: [~,p]=kstest2((1:10)',(20:200)','tail','larger'). P-value is 8.2222e-10. The differences are also present in other method, such as Wilcoxon rank sum test and Poission test. Thanks!\n>\n> Regards,\n>\n>\n> Xionghui \n>\n> ?On 11/18/19, 11:26 AM, \"Phillip Alday\" <phillip.alday at mpi.nl> wrote:\n>\n>     Dear Xionghui,\n>     \n>     Cross-posting to two lists simultaneously generally isn't desirable.\n>     \n>     Can you provide a minimum working example (code+data) for this? \n>     Otherwise, it's hard to see what's going on.\n>     \n>     Best,\n>     Phillip\n>     \n>     \n>     \n>     On 11/11/19 9:50 pm, Zhou, Xionghui wrote:\n>     > Hi guys,\n>     > \n>     > \n>     > Recently, when I try to repeat my method using R, which was implemented in Matlab before, I found that the p-values for the two-sample ks-test in the two languages are different, even with the same data and parameters (The p-value in R is greater than the one in Matlab). In the meanwhile, the p-values of two-sample ks-test are the same in Matlab and python. In addition, I also test the p-value in Mann-Whitney-Wilcoxon test and Poission test, the p-values for the tests in R and Matlab are also different. Of course, the difference in two-sample ks-test is the most significant. May anyone tell me the reason for that and which language is more reliable? Thanks in advance!\n>     > \n>     > \n>     > Best,\n>     > \n>     > \n>     > \n>     > Xionghui\n>     > \n>     > \n>     > Xionghui Zhou Ph.D.\n>     > Research Fellow\n>     > Division of Human Genetics\n>     > Cincinnati Children?s Hospital Medical Center\n>     > \n>     > Phone: +1 (513) 636-4200\n>     > Email: Xionghui.Zhou at cchmc.org<mailto:Yaping.Liu at cchmc.org>\n>     > Office: R1.1026\n>     > 3333 Burnet Ave\n>     > Cincinnati, OH 45229\n>     > \n>     > \n>     > \t[[alternative HTML version deleted]]\n>     > \n>     > \n>     > _______________________________________________\n>     > R-SIG-Robust at r-project.org mailing list\n>     > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>     > \n>     \n>",
+      "body_snippet": "Both MATLAB and R generate the same test statistic, but differ in their\np-values. For a p-value that small, you're getting to the point where\nthe probabilities involved are on the order of a random bi",
+      "thread_id": "thread-7cd240164737",
+      "thread_depth": 3,
+      "month": "2019-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-7cd240164737",
+      "subject": "[RsR] About the inconsistency p-value of  two sample Kolmogorov–Smirnov test in R and Matlab",
+      "message_count": 4,
+      "participants": [
+        "Phillip Alday",
+        "Zhou, Xionghui"
+      ],
+      "started": "2019-11-11T20:50:41+00:00",
+      "last_reply": "2019-11-24T11:05:08-06:00",
+      "root_message_id": "msg-7cd240164737"
+    }
+  ]
+}

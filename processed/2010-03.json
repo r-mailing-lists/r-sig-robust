@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2010-03",
+  "messages": [
+    {
+      "id": "msg-347e863c79f0",
+      "message_id": "<loom.20100324T044117-751@post.gmane.org>",
+      "from_name": "friendpine",
+      "from_email_hash": "77bd0d5fa3cd7d6636d1ae9cb1f2455d9f7160c9e80fc39bc3905232b71b8a16",
+      "date": "2010-03-24T06:12:02Z",
+      "subject": "[RsR] Can I calculate the p-value of the robust regression at this way?",
+      "subject_clean": "[RsR] Can I calculate the p-value of the robust regression at this way?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "The output for the rlm(),lmRob(),lmrob() didn't give the R-squared and the\np-value of the equation. There seems to be no function that can do these\nthings.Can we calculate it as in the OLS(ordinary least squared) regression? The\nmethod in OLS use the SSE and SSR to calculate the f for F test. The p-value\ngenerated in the F test is the p-value for the OLS regression equation. Can we\ndo it in the robust regression?",
+      "body_snippet": "The output for the rlm(),lmRob(),lmrob() didn't give the R-squared and the\np-value of the equation. There seems to be no function that can do these\nthings.Can we calculate it as in the OLS(ordinary le",
+      "thread_id": "thread-347e863c79f0",
+      "thread_depth": 0,
+      "month": "2010-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-347e863c79f0",
+      "subject": "[RsR] Can I calculate the p-value of the robust regression at this way?",
+      "message_count": 1,
+      "participants": [
+        "friendpine"
+      ],
+      "started": "2010-03-24T06:12:02+00:00",
+      "last_reply": "2010-03-24T06:12:02+00:00",
+      "root_message_id": "msg-347e863c79f0"
+    }
+  ]
+}

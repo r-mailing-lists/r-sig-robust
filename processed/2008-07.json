@@ -1,0 +1,63 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2008-07",
+  "messages": [
+    {
+      "id": "msg-81690b86b333",
+      "message_id": "<EEF12275-F45C-40BC-A6DE-1CC48CC7C884@epfl.ch>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "dbde64352289953147e639af58ad94d54fbe314dd3ce76fa6c738d1b3f3626ca",
+      "date": "2008-07-08T17:58:24+02:00",
+      "subject": "[RsR] First step towards integrating robust and robustbase+friends",
+      "subject_clean": "[RsR] First step towards integrating robust and robustbase+friends",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear Robustnik Community,\n\nThe original fastmcd code in the Robust Library has been problematic  \nwith newer versions of R and on 64-bit platforms. Instead of trying to  \nfix it, I decided to remove that code and use the covMcd function in  \nrobustbase. I'm 99% sure I've got everything working the way it should  \nand I have submitted a revised package 0.3-3 to CRAN. Anyway, I had a  \nfew thoughts while doing this that I think could benefit from some  \ndiscussion on the list.\n\n1) The function covMcd in robustbase (and the very similar function  \nnamed CovMcd in rrcov) returns a reweighted estimate based on an  \ninitial MCD estimate. In the Robust Library we made the decision to  \nseparate these two phases: in covRob we have estim = \"mcd\" for an MCD  \nestimator (scaled for consistency) and estim = \"weighted\" for the  \nreweighted estimator. Is it still worthwhile to make this distinction?\n\n2) Following from 1. Is there really a need for both covMcd and  \nCovMcd? AFAICT they both do pretty much the same thing except that  \nCovMcd returns an S4 class rather than a list. From a user's point of  \nview, which is to be preferred?\n\n3) What do people think about the Robust Library depending on  \nfunctions in other packages? Is anyone bothered that this in some way  \nmasks their contribution?\n\n4) The goal of the Robust Library should be to a) provide usable  \nrobust methods, b) continue to work with the examples in MMY (although  \noutput may now differ from that published), and c) advertise functions  \nin other packages (for instance covRob using covMcd and covMest).\n\n\nThank you for your thoughts.\nKjell",
+      "body_snippet": "Dear Robustnik Community,\n\nThe original fastmcd code in the Robust Library has been problematic  \nwith newer versions of R and on 64-bit platforms. Instead of trying to  \nfix it, I decided to remove t",
+      "thread_id": "thread-81690b86b333",
+      "thread_depth": 0,
+      "month": "2008-07"
+    },
+    {
+      "id": "msg-e5884218923e",
+      "message_id": "<20080723083212.GA18119@lubyanka.local>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2008-07-23T14:02:12+05:30",
+      "subject": "[RsR] Time-series analysis + robust statistics?",
+      "subject_clean": "[RsR] Time-series analysis + robust statistics?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I have a situation where there are influential observations in a\ntime-series. I'd like to identify and estimate ARMA models, and use\nthese for forecasting.\n\nFor simplicity, suppose we only try to do AR models. I use the R\nfunction ar() which picks the lag order which has the lowest AIC. In\nthis case, influential observations hurt in two ways: I could be\npicking the wrong lag order, and once the lag order is chosen, the\nestimates could be contaminated.\n\nHow would one do better? OLS is a consistent estimator for the AR\nmodel so given a lag order, I could use robust::lmRob() for the\nestimation itself. But what's the strategy for choice of lag order in\nsuch a setting?\n\nHere's an example of what I'm facing. First, here's a data vector `x':\n\n> dput(x)\nc(79.9440288884057, 7.13067112046382, 16.5846998449958,\n5.75840705300372, 8.09926965727001, 3.01384396246966,\n11.0732434661792, 7.85954318513653, 17.2736237329392,\n20.3932706296264, 7.62788437568602, 3.51703345513918,\n15.2513940236837, 7.95111256035277, 2.9356001527546, 5.21640800341245,\n1.31803867968863, 2.55515665315933, 5.13594826475305,\n5.71804227249366, -1.12212247879953, 2.98172576960702,\n2.27752210573477, 3.44436191014204, 4.2577789817301, 7.04679779929016,\n3.73716953022729, 13.2253513389983, 9.2627049946394, 3.72144768484013,\n-1.61454965523937, 5.2247551348966, 7.13715676537241,\n3.02007539508224, 5.28341775873891, 2.90561296982048,\n8.71618832752858, -1.35157689607084, 3.21088667542959,\n-2.09878528959777, 5.55102176907134, 8.05388328712411,\n3.86137275447247, 2.15562523389998, 7.85247493631722,\n15.3556464279099, -4.55059942197948, 3.78768707731680,\n11.8018662795635, 11.2682042854725, 11.2209559360934, 7.06058834054737)\n\nThe 1st observation -- 79.94 -- is what worries me. If I say:\n\n> ar(x)\n\nCall:\nar(x = x)\n\n\nOrder selected 0  sigma^2 estimated as  130.5 \n\nThe AIC-best lag order is 0. But if I drop this 1st observation, I get:\n\n> ar(x[-1])\n\nCall:\nar(x = x[-1])\n\nCoefficients:\n     1  \n0.2167  \n\nOrder selected 1  sigma^2 estimated as  25.72 \n\n\n\nIn this example, it seems easy to say: \"Just drop this 1st observation\nand proceed\". But this is just an example. I want a general procedure\nwhich can be written into a program. In short, what's a practical and\nsensible approach to doing ARMA models with noisy data?\n\n-- \nAjay Shah                                      http://www.mayin.org/ajayshah  \najayshah at mayin.org                             http://ajayshahblog.blogspot.com\n<*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": "I have a situation where there are influential observations in a\ntime-series. I'd like to identify and estimate ARMA models, and use\nthese for forecasting.\n\nFor simplicity, suppose we only try to do A",
+      "thread_id": "thread-e5884218923e",
+      "thread_depth": 0,
+      "month": "2008-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-81690b86b333",
+      "subject": "[RsR] First step towards integrating robust and robustbase+friends",
+      "message_count": 1,
+      "participants": [
+        "Kjell Konis"
+      ],
+      "started": "2008-07-08T17:58:24+02:00",
+      "last_reply": "2008-07-08T17:58:24+02:00",
+      "root_message_id": "msg-81690b86b333"
+    },
+    {
+      "id": "thread-e5884218923e",
+      "subject": "[RsR] Time-series analysis + robust statistics?",
+      "message_count": 1,
+      "participants": [
+        "Ajay Shah"
+      ],
+      "started": "2008-07-23T14:02:12+05:30",
+      "last_reply": "2008-07-23T14:02:12+05:30",
+      "root_message_id": "msg-e5884218923e"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2012-11",
+  "messages": [
+    {
+      "id": "msg-30ac90dca017",
+      "message_id": "<CAJrFtqLc+KY6ETWjo4iwqhTFNA=J2bN0V34zHOc9zKNwMk-z3Q@mail.gmail.com>",
+      "from_name": "Andrew Halford",
+      "from_email_hash": "cbc529866ec3f025b03db08d36d1700fa71bc1f13abeebea6ac7adf76767c394",
+      "date": "2012-11-20T16:05:39+08:00",
+      "subject": "[RsR] extracting weights from nlrob",
+      "subject_clean": "[RsR] extracting weights from nlrob",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi Listers,\n\nI have been running a robust 2nd order polynomial regression and I want to\nextract the weights information to see what datapoints are behaving as\noutliers. Although I can see the summary data for the weights as part of\nthe output, I have not been able to find any help for extracting all the\nindividual weights. I would also like to be able to colour these points on\na scatterplot if possible.\n\nI also cannot find any R packages that provide a way to calculate and\nremove outliers in nonlinear regressions - along the lines of the paper by\nMotulsky and Brown 2006.\n\nAny advice on this would be most welcome.\n\nThanks for help.\n\nAndy\n\n-- \nAndrew Halford Ph.D\nAdjunct Research Scientist\nUniversity of Guam & Curtin University\nPh: +61 (0) 468 419 473\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi Listers,\n\nI have been running a robust 2nd order polynomial regression and I want to\nextract the weights information to see what datapoints are behaving as\noutliers. Although I can see the summary ",
+      "thread_id": "thread-30ac90dca017",
+      "thread_depth": 0,
+      "month": "2012-11"
+    },
+    {
+      "id": "msg-2ef9f362395b",
+      "message_id": "<50AB5021.5030708@zhaw.ch>",
+      "from_name": "Andreas Ruckstuhl",
+      "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
+      "date": "2012-11-20T10:40:49+01:00",
+      "subject": "[RsR] extracting weights from nlrob",
+      "subject_clean": "[RsR] extracting weights from nlrob",
+      "in_reply_to": "<CAJrFtqLc+KY6ETWjo4iwqhTFNA=J2bN0V34zHOc9zKNwMk-z3Q@mail.gmail.com>",
+      "references": [
+        "<CAJrFtqLc+KY6ETWjo4iwqhTFNA=J2bN0V34zHOc9zKNwMk-z3Q@mail.gmail.com>"
+      ],
+      "body_plain": "Dear Andy\n\nI would recommend to use lmrob for running polynomial regression. It can \nhandle outliers on leverage points much better than nlrob.\n\nlibrary(robustbase)\n\nset.seed(54362)\nDAT <- data.frame(x=c(seq(-5,5,by=1), 8))\nDAT$xq <- DAT$x^2\nDAT$y <- 2 + 3*DAT$x + 1.2*DAT$xq + rnorm(nrow(DAT), sd=1.5)\nDAT$y[nrow(DAT)] <- 60\n\nDAT.lm <-  lm(y ~ x + xq, data=DAT)\nsummary(DAT.lm)\n## Coefficients:\n##             Estimate Std. Error t value Pr(>|t|)\n## (Intercept)   5.9686     2.4849   2.402 0.039770 *\n## x             2.1114     0.5750   3.672 0.005141 **\n## xq            0.7117     0.1257   5.663 0.000308 ***\n## ---\n## Residual standard error: 6.41 on 9 degrees of freedom\n\n\nDAT.rlm <-  lmrob(y ~ x + xq, data=DAT)\nsummary(DAT.rlm)\n##             Estimate Std. Error t value Pr(>|t|)\n## (Intercept)  1.48591    0.47660   3.118   0.0124 *\n## x            2.72508    0.08822  30.890 1.91e-10 ***\n## xq           1.24015    0.02458  50.457 2.37e-12 ***\n## ---\n## Robust residual standard error: 1.451\n\nstr(DAT.rlm)\n\n(h.rw <- DAT.rlm$weights)\nh.sel <- h.rw < 0.1\n\nplot(y~x, data=DAT)\nlines(DAT$x, predict(DAT.rlm), col=\"blue\", lwd=2)\nlines(DAT$x, predict(DAT.lm), col=\"red\")\npoints(DAT$x[h.sel], DAT$y[h.sel], pch=16, col=\"orange\")\n\n## I don't know the paper by Motulsky and Brown 2006. I do not recommend\n## removing outliers but just recommend identifying outliers and if\n## possible correct typos and such things.\n\n\n\nDAT.nlrob1 <-  nlrob(y ~ a + b*x + c*x^2, start=list(a=6,b=2,c=0.7),\n                      data=DAT)\nsummary(DAT.nlrob1)\n## Formula: y ~ a + b * x + c * x^2\n## Parameters:\n##   Estimate Std. Error t value Pr(>|t|)\n## a   5.1419     2.0241   2.540  0.03169 *\n## b   1.8283     0.4775   3.829  0.00403 **\n## c   0.7177     0.1004   7.148 5.38e-05 ***\n## ---\n## Robust residual standard error: 4.521\n\n## nlrob cannot cope wit outliers on leverage points!\n\n## Hence\nh.d <- (DAT$x-median( DAT$x))/mad(DAT$x)\nDAT$wx <- 1/sqrt(1+8*pmax(0, h.d^2-1)/sqrt(2))\nDAT.nlrob2 <-  nlrob(y ~ a + b*x + c*x^2, start=list(a=6,b=2,c=0.7) \n,data=DAT,\n                      weights=DAT$wx)\nsummary(DAT.nlrob2)\n## Parameters:\n##   Estimate Std. Error t value Pr(>|t|)\n## a  1.81836    0.74151   2.452   0.0366 *\n## b  2.69350    0.16763  16.068 6.20e-08 ***\n## c  1.19773    0.05919  20.236 8.19e-09 ***\n## ---\n## Robust residual standard error: 1.417\n\nstr(DAT.nlrob2)\nDAT.nlrob2$w.r\n  ## [1] 1.00000000 1.00000000 1.00000000 1.00000000 1.00000000 1.00000000\n  ## [7] 1.00000000 0.88186039 1.00000000 1.00000000 1.00000000 0.04762281\n\n## These are more reliable results.\n## But be careful. This approach with weighting does not yield a\n## high-breakdown estimator.\n\n\nAnd by the way:\nI guess you will be very careful with expressions like 'DAT$x^2' because \nof numerical issues, won't you.\n\n\n\nAll the best,\nAndreas\n\n\n\n\nAm 20.11.2012 09:05, schrieb Andrew Halford:\n> Hi Listers,\n>\n> I have been running a robust 2nd order polynomial regression and I want to\n> extract the weights information to see what datapoints are behaving as\n> outliers. Although I can see the summary data for the weights as part of\n> the output, I have not been able to find any help for extracting all the\n> individual weights. I would also like to be able to colour these points on\n> a scatterplot if possible.\n>\n> I also cannot find any R packages that provide a way to calculate and\n> remove outliers in nonlinear regressions - along the lines of the paper by\n> Motulsky and Brown 2006.\n>\n> Any advice on this would be most welcome.\n>\n> Thanks for help.\n>\n> Andy\n>\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nIDP Institut f?r Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
+      "body_snippet": "Dear Andy\n\nI would recommend to use lmrob for running polynomial regression. It can \nhandle outliers on leverage points much better than nlrob.\n\nlibrary(robustbase)\n\nset.seed(54362)\nDAT <- data.frame(",
+      "thread_id": "thread-30ac90dca017",
+      "thread_depth": 1,
+      "month": "2012-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-30ac90dca017",
+      "subject": "[RsR] extracting weights from nlrob",
+      "message_count": 2,
+      "participants": [
+        "Andreas Ruckstuhl",
+        "Andrew Halford"
+      ],
+      "started": "2012-11-20T16:05:39+08:00",
+      "last_reply": "2012-11-20T10:40:49+01:00",
+      "root_message_id": "msg-30ac90dca017"
+    }
+  ]
+}

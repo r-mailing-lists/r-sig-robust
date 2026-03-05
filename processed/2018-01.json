@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2018-01",
+  "messages": [
+    {
+      "id": "msg-0336ac9363a0",
+      "message_id": "<CAF79-121KAdiwaW6OaJQVFmWH=_Dk5wdFcwJAPsMC3odggBT=Q@mail.gmail.com>",
+      "from_name": "Olaniyi Ogundele",
+      "from_email_hash": "f271c29125e604ab7eaa2f27e05c02bf95d946ad6b25723705b112bb574c6a17",
+      "date": "2018-01-30T10:38:42+01:00",
+      "subject": "[RsR] R Code for Constrained M (CM) estimator.",
+      "subject_clean": "[RsR] R Code for Constrained M (CM) estimator.",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Please can anyone help me with raw R code for implementing Constrained M\n(CM) estimator. I am working on its extension to other area in statistics.\nMy email is ogundele.olaniyi at fupre.edu.ng. Thanks.\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Please can anyone help me with raw R code for implementing Constrained M\n(CM) estimator. I am working on its extension to other area in statistics.\nMy email is ogundele.olaniyi at fupre.edu.ng. Thanks",
+      "thread_id": "thread-0336ac9363a0",
+      "thread_depth": 0,
+      "month": "2018-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-0336ac9363a0",
+      "subject": "[RsR] R Code for Constrained M (CM) estimator.",
+      "message_count": 1,
+      "participants": [
+        "Olaniyi Ogundele"
+      ],
+      "started": "2018-01-30T10:38:42+01:00",
+      "last_reply": "2018-01-30T10:38:42+01:00",
+      "root_message_id": "msg-0336ac9363a0"
+    }
+  ]
+}

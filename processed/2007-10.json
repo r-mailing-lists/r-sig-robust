@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2007-10",
+  "messages": [
+    {
+      "id": "msg-7baabf0c4c8d",
+      "message_id": "<30D2BAC93FE38D49A3D7DDA9A218340C03ADFBC3@postman.org.phzh.int>",
+      "from_name": "Daniel Steiner",
+      "from_email_hash": "630e398e2ffb42973eddb55b2f6d329915f9d56e6be9c104bca448588c39b121",
+      "date": "2007-10-18T17:37:50+02:00",
+      "subject": "[RsR] boxplot: whiskers",
+      "subject_clean": "[RsR] boxplot: whiskers",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello\n\n \n\nHow are the lower/upper whiskers defined in the default version of\nboxplot()?\n\nAre they a possible estimation of a 95 % confidence interval?\n\n \n\nYours\n\n \n\nDaniel Steiner\n\nLangenthal\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello\n\n \n\nHow are the lower/upper whiskers defined in the default version of\nboxplot()?\n\nAre they a possible estimation of a 95 % confidence interval?\n\n \n\nYours\n\n \n\nDaniel Steiner\n\nLangenthal\n\n\n\t[[alt",
+      "thread_id": "thread-7baabf0c4c8d",
+      "thread_depth": 0,
+      "month": "2007-10"
+    },
+    {
+      "id": "msg-3bcadb3da0b0",
+      "message_id": "<47178A6F.6030002@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2007-10-18T09:31:43-07:00",
+      "subject": "[RsR] boxplot: whiskers",
+      "subject_clean": "[RsR] boxplot: whiskers",
+      "in_reply_to": "<30D2BAC93FE38D49A3D7DDA9A218340C03ADFBC3@postman.org.phzh.int>",
+      "references": [
+        "<30D2BAC93FE38D49A3D7DDA9A218340C03ADFBC3@postman.org.phzh.int>"
+      ],
+      "body_plain": "Hello,\n\n>From \"help(boxplot)\": the argument \"range\", that equals 1.5 by default,\n\"determines how far the plot whiskers extend out from the box.  If\n'range' is positive, the whiskers extend to the most extreme data point\nwhich is no more than 'range' times the interquartile range from the box\n(...)\"\n\nAs far as I can see, this is cannot be easily connected to a confidence\ninterval for the location parameter.\n\nMatias\n\nDaniel Steiner wrote:\n> Hello\n> \n>  \n> \n> How are the lower/upper whiskers defined in the default version of\n> boxplot()?\n> \n> Are they a possible estimation of a 95 % confidence interval?\n> \n>  \n> \n> Yours\n> \n>  \n> \n> Daniel Steiner\n> \n> Langenthal\n> \n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n_____________________________________________________\nMatias Salibian-Barrera - Department of Statistics\nThe University of British Columbia\nPhone: (604) 822-3410 - Fax: (604) 822-6960\n\"The plural of anecdote is not data\" (George Stigler?)",
+      "body_snippet": "Hello,\n\n>From \"help(boxplot)\": the argument \"range\", that equals 1.5 by default,\n\"determines how far the plot whiskers extend out from the box.  If\n'range' is positive, the whiskers extend to the most",
+      "thread_id": "thread-7baabf0c4c8d",
+      "thread_depth": 1,
+      "month": "2007-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-7baabf0c4c8d",
+      "subject": "[RsR] boxplot: whiskers",
+      "message_count": 2,
+      "participants": [
+        "Daniel Steiner",
+        "Matias Salibian-Barrera"
+      ],
+      "started": "2007-10-18T17:37:50+02:00",
+      "last_reply": "2007-10-18T09:31:43-07:00",
+      "root_message_id": "msg-7baabf0c4c8d"
+    }
+  ]
+}

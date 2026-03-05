@@ -1,0 +1,102 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2010-06",
+  "messages": [
+    {
+      "id": "msg-e08351a29156",
+      "message_id": "<SNT141-w39644B06AD9C0EAB61D826A3DE0@phx.gbl>",
+      "from_name": "Nanda Mendez",
+      "from_email_hash": "a182e7421f1694ef3fdf9256e6940fbcfe66b136fc46ff04e9f4919f4db90573",
+      "date": "2010-06-16T22:06:27Z",
+      "subject": "[RsR] spherical principal components",
+      "subject_clean": "[RsR] spherical principal components",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I'd like to compute spherical principal components, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\nFernanda \t\t \t   \t\t  \n_________________________________________________________________\n[[elided Hotmail spam]]\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I'd like to compute spherical principal components, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\nFernanda \t\t \t   \t\t  \n__________",
+      "thread_id": "thread-e08351a29156",
+      "thread_depth": 0,
+      "month": "2010-06"
+    },
+    {
+      "id": "msg-813b47c0110b",
+      "message_id": "<AANLkTimClAUOumRExn9qi8BGlS62UBxeioRJL0M7_kLR@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2010-06-17T01:12:08+02:00",
+      "subject": "[RsR] spherical principal components",
+      "subject_clean": "[RsR] spherical principal components",
+      "in_reply_to": "<SNT141-w39644B06AD9C0EAB61D826A3DE0@phx.gbl>",
+      "references": [
+        "<SNT141-w39644B06AD9C0EAB61D826A3DE0@phx.gbl>"
+      ],
+      "body_plain": "Dear Fernanda,\n\nyou could try this:\n\n\n?PcaLocantore\n\nlibrary(rrcov)\ndata(bushfire)\nPcaLocantore(bushfire)\n\n\nHope this helps,\n\nBest regards,\nValentin\n\nOn Thu, Jun 17, 2010 at 12:06 AM, Nanda Mendez <nandixx at hotmail.com> wrote:\n\n>\n> I'd like to compute spherical principal components, could anyone give me a\n> hint whether a solution of this problem is already implemented or point me\n> to some reference?\n> Fernanda\n> _________________________________________________________________\n> [[elided Hotmail spam]]\n>\n>        [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear Fernanda,\n\nyou could try this:\n\n\n?PcaLocantore\n\nlibrary(rrcov)\ndata(bushfire)\nPcaLocantore(bushfire)\n\n\nHope this helps,\n\nBest regards,\nValentin\n\nOn Thu, Jun 17, 2010 at 12:06 AM, Nanda Mendez <na",
+      "thread_id": "thread-e08351a29156",
+      "thread_depth": 1,
+      "month": "2010-06"
+    },
+    {
+      "id": "msg-35491db6c8e8",
+      "message_id": "<ADC47EB20948554BA15D6F306E00C4E2334B713A48@SP1-EX07VS02.ds.corp.yahoo.com>",
+      "from_name": "Byron Dom",
+      "from_email_hash": "ca6848d9e10fd3908c9a2bf862e70fb6ff6d66c0cf7ce61a074477f9152a6b0a",
+      "date": "2010-06-16T16:17:05-07:00",
+      "subject": "[RsR] spherical principal components",
+      "subject_clean": "[RsR] spherical principal components",
+      "in_reply_to": "<AANLkTimClAUOumRExn9qi8BGlS62UBxeioRJL0M7_kLR@mail.gmail.com>",
+      "references": [
+        "<SNT141-w39644B06AD9C0EAB61D826A3DE0@phx.gbl>",
+        "<AANLkTimClAUOumRExn9qi8BGlS62UBxeioRJL0M7_kLR@mail.gmail.com>"
+      ],
+      "body_plain": "See: http://bm2.genes.nig.ac.jp/RGM2/R_current/library/rrcov/man/PcaLocantore-class.html\n\n\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Valentin Todorov\nSent: Wednesday, June 16, 2010 4:12 PM\nTo: Nanda Mendez\nCc: r-sig-robust at r-project.org\nSubject: Re: [RsR] spherical principal components\n\nDear Fernanda,\n\nyou could try this:\n\n\n?PcaLocantore\n\nlibrary(rrcov)\ndata(bushfire)\nPcaLocantore(bushfire)\n\n\nHope this helps,\n\nBest regards,\nValentin\n\nOn Thu, Jun 17, 2010 at 12:06 AM, Nanda Mendez <nandixx at hotmail.com> wrote:\n\n>\n> I'd like to compute spherical principal components, could anyone give me a\n> hint whether a solution of this problem is already implemented or point me\n> to some reference?\n> Fernanda\n> _________________________________________________________________\n> [[elided Hotmail spam]]\n>\n>        [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "See: http://bm2.genes.nig.ac.jp/RGM2/R_current/library/rrcov/man/PcaLocantore-class.html\n\n\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-pro",
+      "thread_id": "thread-e08351a29156",
+      "thread_depth": 2,
+      "month": "2010-06"
+    },
+    {
+      "id": "msg-3a5427afe2a3",
+      "message_id": "<SNT141-w1C669474171FA03D0E8CDA3CB0@phx.gbl>",
+      "from_name": "Nanda Mendez",
+      "from_email_hash": "a182e7421f1694ef3fdf9256e6940fbcfe66b136fc46ff04e9f4919f4db90573",
+      "date": "2010-06-29T19:35:03Z",
+      "subject": "[RsR] S-estimates",
+      "subject_clean": "[RsR] S-estimates",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I'd like to S-estimates of regression, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\nThanks!!!Nanda \t\t \t   \t\t  \n_________________________________________________________________\nLos cochazos de los famosos Patrick Dempsey, Tom Cruise o Michael Douglas presumen de autom?vil\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I'd like to S-estimates of regression, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\nThanks!!!Nanda \t\t \t   \t\t  \n_________________",
+      "thread_id": "thread-3a5427afe2a3",
+      "thread_depth": 0,
+      "month": "2010-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-e08351a29156",
+      "subject": "[RsR] spherical principal components",
+      "message_count": 3,
+      "participants": [
+        "Byron Dom",
+        "Nanda Mendez",
+        "Valentin Todorov"
+      ],
+      "started": "2010-06-16T22:06:27+00:00",
+      "last_reply": "2010-06-16T16:17:05-07:00",
+      "root_message_id": "msg-e08351a29156"
+    },
+    {
+      "id": "thread-3a5427afe2a3",
+      "subject": "[RsR] S-estimates",
+      "message_count": 1,
+      "participants": [
+        "Nanda Mendez"
+      ],
+      "started": "2010-06-29T19:35:03+00:00",
+      "last_reply": "2010-06-29T19:35:03+00:00",
+      "root_message_id": "msg-3a5427afe2a3"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2016-08",
+  "messages": [
+    {
+      "id": "msg-519721aa0e44",
+      "message_id": "<CAMmS1WhvoWOm2r1Z39xUk4jkCjvciPzYWo5F__U9rehoUJax-Q@mail.gmail.com>",
+      "from_name": "Nika Sušac",
+      "from_email_hash": "3731fda14917926f5394b1bffaa4698b9803dc8db42049076f6838a7639eecaa",
+      "date": "2016-08-02T23:34:35+02:00",
+      "subject": "[RsR] Estimators for non-normal data in lavaan",
+      "subject_clean": "[RsR] Estimators for non-normal data in lavaan",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello!\nI was directed to this mailing list from the r-help mailing list - I hope\nI'm in the right place.\nI have non-normal data (items are continuous on a 9-point scale, but not\nnormally distributed) and I want to conduct a confirmatory factor analysis\nin lavaan. I am aware that there are several robust options (MLM, MLMVS,\nMLMV, MLF, MLR) available for the estimators, but I'm not sure which one to\nuse and how to make that decision.\nCould anyone give me some guidelines, please?\nThank you a lot in advance!\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello!\nI was directed to this mailing list from the r-help mailing list - I hope\nI'm in the right place.\nI have non-normal data (items are continuous on a 9-point scale, but not\nnormally distributed) ",
+      "thread_id": "thread-519721aa0e44",
+      "thread_depth": 0,
+      "month": "2016-08"
+    },
+    {
+      "id": "msg-dd14d1da4904",
+      "message_id": "<17970887.18563275.1470595222405.JavaMail.yahoo@mail.yahoo.com>",
+      "from_name": "varin sacha",
+      "from_email_hash": "1917601b2a6b66ef582406a663074bc3f8b1a6bd4c8338b314201bf567396491",
+      "date": "2016-08-07T18:40:22Z",
+      "subject": "[RsR] BCa bootstrapped CIs for glmrob",
+      "subject_clean": "[RsR] BCa bootstrapped CIs for glmrob",
+      "in_reply_to": null,
+      "references": [
+        "<17970887.18563275.1470595222405.JavaMail.yahoo.ref@mail.yahoo.com>"
+      ],
+      "body_plain": "Dear R-experts,\n\nI am trying to calculate the BCa bootstrapped confidence intervals of a robust (binary) logistic regression. The end of my code is not working, I get an error message. Would it be possible to tell me what is going wrong ? Thanks\n\n\nHere is the reproducible example (fake dataset) :\n\nDataset = data.frame(answered=c(\"femme\",\"homme\",\"homme\",\"femme\",\"femme\",\"homme\",\"homme\",\"homme\",\"femme\",\"homme\",\"femme\",\"femme\",\"homme\",\"femme\",\"homme\",\"homme\",\"femme\",\"femme\",\"homme\",\"homme\",\"femme\",\"femme\",\"homme\",\"femme\",\"homme\",\"femme\",\"homme\",\"homme\",\"femme\",\"homme\",\"homme\",\"femme\",\"homme\",\"femme\"),\n\nQUALITESANSREDONDANCE=c(1082.5,1066.6,1079.3,1079.9,1074.9,1008.6,1007.5,1111.3,1108.2,1109.7,1059.6,1165.1,1026.7,1035.1,997.8,1044.8,1073.6,1085.7,1083.8,1021.6,1036.2,1075.3,1069.3,1101.4,1086.9,1072.1,1166.7,983.9,1004.5,1082.5,1123.5,1094.9,1105.1,1010.8),\n\ncompetitivite=c(89,83,78,73,90,71,77,85,61,67,98,82,70,43,57,78,72,79,61,71,86,63,90,75,87,64,60,56,66,80,53,91,97,62),\n\ninnovation=c(56,52,53,54,57,43,54,60,47,55,58,62,52,35,47,59,56,56,45,52,58,33,57,57,61,40,45,41,50,61,50,65,68,34),\n\nsatisfait=c(1,2,3,4,3,2,1,2,3,4,4,3,2,2,1,1,2,3,4,3,2,1,2,3,4,1,2,3,4,3,2,1,2,3))\n\nDataset$satisfait=factor(Dataset$satisfait,levels=c(1,2,3,4),labels=c(\"pas satisfait\", \"moyennement satisfait\", \"satisfait\", \"tr?s satisfait\"))\nas.ordered(Dataset$satisfait)\n\nlibrary(\"robustbase\")\nnewdata=na.omit(Dataset)\n\nfm.glmrob=glmrob(answered ~ QUALITESANSREDONDANCE + competitivite + innovation + satisfait, data=newdata, family=binomial)\nfm.glmrob\n\nboot.GLMrob=function(formula,data,indices)\n{\nd=data[indices,]\nfit=glmrob(formula,data=d,family=binomial)\nreturn(coef(fit))\n}\nlibrary(boot)\nresults=boot(data=newdata, statistic=boot.GLMrob, R=1000, formula=answered ~ QUALITESANSREDONDANCE + competitivite + innovation + satisfait)\nboot.ci(results, type= \"bca\",index=2)",
+      "body_snippet": "Dear R-experts,\n\nI am trying to calculate the BCa bootstrapped confidence intervals of a robust (binary) logistic regression. The end of my code is not working, I get an error message. Would it be pos",
+      "thread_id": "thread-dd14d1da4904",
+      "thread_depth": 0,
+      "month": "2016-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-519721aa0e44",
+      "subject": "[RsR] Estimators for non-normal data in lavaan",
+      "message_count": 1,
+      "participants": [
+        "Nika Sušac"
+      ],
+      "started": "2016-08-02T23:34:35+02:00",
+      "last_reply": "2016-08-02T23:34:35+02:00",
+      "root_message_id": "msg-519721aa0e44"
+    },
+    {
+      "id": "thread-dd14d1da4904",
+      "subject": "[RsR] BCa bootstrapped CIs for glmrob",
+      "message_count": 1,
+      "participants": [
+        "varin sacha"
+      ],
+      "started": "2016-08-07T18:40:22+00:00",
+      "last_reply": "2016-08-07T18:40:22+00:00",
+      "root_message_id": "msg-dd14d1da4904"
+    }
+  ]
+}

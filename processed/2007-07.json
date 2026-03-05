@@ -1,0 +1,166 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2007-07",
+  "messages": [
+    {
+      "id": "msg-287d1e085e3c",
+      "message_id": "<468EF01F020000BB00014145@GWIA.unt.edu>",
+      "from_name": "Jenifer Larson-Hall",
+      "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
+      "date": "2007-07-07T01:44:54-05:00",
+      "subject": "[RsR] Robust R for dummies?",
+      "subject_clean": "[RsR] Robust R for dummies?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I have been reading through some past messages and some people apologize\nin advance for not being in the loop, but I'm afraid I am not even\nanywhere near them! I am just a linguist, but one who had ambitions to\nwrite a book about how to use statistical programs to analyze data in\nthe field. I am really just looking at very elementary types of\nstatistical procedures (correlation, t-tests, ANOVA, chi-square,\nregression), not getting into PCA or anything like that. But I have a\nfriend at my university who's a works in statistical research and he\nturned me on to R. Although the majority of applied linguists in my\nfield use SPSS for statistical analysis, I really liked the idea of R\nbecause it would make analysis available to those without big budgets\nfor SPSS, and because my friend convinced me that there were lots of\nthings R could do that SPSS couldn't, especially robust statistics. So\nwhat I am trying to do in my book is to show how to do things in SPSS,\nthen show that R can do them just as well or better, and then take my\nreaders a step beyond classical statistics to do robust statistics. It\nsounds really good in theory but I am floundering! I feel fairly\ncomfortable with R now and understand the help files pretty much (that\n'foo' thing really threw me at the beginning!), but I still cannot\nreally understand what to do with R and bootstrapping. Is there anything\nthat could give me more background about how I can do bootstrapping with\nthe R libraries? Something like Robust R for dummies?\n\nFor example, I am working on t-tests right now. I read Wilcox 2003 and\nsaw that he recommended generally 20% means trimming along with\npercentile bootstrapping for comparing means. But I looked through boot\nand robustbase and couldn't figure out how to do a one-sided or\nindependent-samples or paired-samples t-test using anything in those\nrobust libraries, and I couldn't see that any incorporated 20% means\ntrimming. So I directed my readers to go with Wilcox's functions, which\naren't in R and have to be downloaded into R (no big deal, we can do\nthat, not so complicated). But I'm working on trying to figure out how\nto do a one-sided t-test with Wilcox's functions, and it hits me--I\nprobably CAN do this in boot, I would just need to have the function\nthat would do 20% means trimming! I conceptually understand 20% means\ntrimming, but wouldn't really know how to write my own program for it.\nAnd even if I did (say, I pulled a function for it out of Wilcox's\ncode), I couldn't be sure I was doing it correctly. Part of that also\nrelates to the fact that I am not a statistician and the actual\nmathematical calculations for statistical tests are something I have to\nremind myself of every time. In other words, I am not really a\nstatistician either.\n\nAnyway, I'm not really asking so much for any specific help here as\ngeneral help. What you guys do is a really hard code to crack for an\noutsider, but I've been convinced that robust methods will greatly\nimprove our accuracy and power in applied work, and I really want to\nbring that to the people in my field. I really just don't understand how\nbootstrapping works computationally (again, I understand it conceptually\non a basic level). I can't follow the examples in the boot library\nexamples area. I haven't found a book that really walks me through R\nwith bootstrapping methods. So . . . any ideas out there of a book on\nrobust functions in R for dummies?\n\nThanks for any help you can give.\nJenifer\n\nDr. Jenifer Larson-Hall\nAssistant Professor of Linguistics\nUniversity of North Texas\n(940)369-8950",
+      "body_snippet": "I have been reading through some past messages and some people apologize\nin advance for not being in the loop, but I'm afraid I am not even\nanywhere near them! I am just a linguist, but one who had am",
+      "thread_id": "thread-287d1e085e3c",
+      "thread_depth": 0,
+      "month": "2007-07"
+    },
+    {
+      "id": "msg-8e831e86acd9",
+      "message_id": "<20070707114540.GC14708@dialup-del-203.94.253.44.bol.net.in>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2007-07-07T17:15:40+05:30",
+      "subject": "[RsR] R-SIG-Robust Digest, Vol 16, Issue 1",
+      "subject_clean": "[RsR] R-SIG-Robust Digest, Vol 16, Issue 1",
+      "in_reply_to": "<mailman.19.1183802408.2803.r-sig-robust@r-project.org>",
+      "references": [
+        "<mailman.19.1183802408.2803.r-sig-robust@r-project.org>"
+      ],
+      "body_plain": "> From: \"Jenifer Larson-Hall\" <jenifer at unt.edu>\n> Subject: [RsR] Robust R for dummies?\n\n> Is there anything\n> that could give me more background about how I can do bootstrapping with\n> the R libraries?\n\nMaybe this might help:\n      http://www.mayin.org/ajayshah/KB/R/documents/boot.html\n\n-- \nAjay Shah                                      http://www.mayin.org/ajayshah  \najayshah at mayin.org                             http://ajayshahblog.blogspot.com\n<*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": "> From: \"Jenifer Larson-Hall\" <jenifer at unt.edu>\n> Subject: [RsR] Robust R for dummies?\n\n> Is there anything\n> that could give me more background about how I can do bootstrapping with\n> the R librar",
+      "thread_id": "thread-8e831e86acd9",
+      "thread_depth": 0,
+      "month": "2007-07"
+    },
+    {
+      "id": "msg-62ac226b0b88",
+      "message_id": "<4693E333.900@businessdecision.com>",
+      "from_name": "Tobias Verbeke",
+      "from_email_hash": "a3faa1911a4aa0fc299e44e1921cb3b0e83de091a37697d6c3d3f61069b7def1",
+      "date": "2007-07-10T21:51:15+02:00",
+      "subject": "[RsR] intro to bootstrapping with R [was: Re:  R-SIG-Robust Digest, Vol 16, Issue 1]",
+      "subject_clean": "[RsR] intro to bootstrapping with R [was: Re:  R-SIG-Robust Digest, Vol 16, Issue 1]",
+      "in_reply_to": "<20070707114540.GC14708@dialup-del-203.94.253.44.bol.net.in>",
+      "references": [
+        "<mailman.19.1183802408.2803.r-sig-robust@r-project.org>",
+        "<20070707114540.GC14708@dialup-del-203.94.253.44.bol.net.in>"
+      ],
+      "body_plain": "Ajay Shah wrote:\n>> From: \"Jenifer Larson-Hall\" <jenifer at unt.edu>\n>> Subject: [RsR] Robust R for dummies?\n> \n>> Is there anything\n>> that could give me more background about how I can do bootstrapping with\n>> the R libraries?\n> \n> Maybe this might help:\n>       http://www.mayin.org/ajayshah/KB/R/documents/boot.html\n> \n\nFor bootstrapping linear models, there is this web appendix\nto An R and S-PLUS Companion to Applied Regression by John Fox.\n\nhttp://socserv.mcmaster.ca/jfox/Books/Companion/appendix-bootstrapping.pdf\n\nThere is also a tutorial by Patrick Burns at\n\nhttp://www.burns-stat.com/pages/Tutor/bootstrap_resampling.html\n\nHTH,\nTobias\n\n-- \n\nTobias Verbeke - Consultant\nBusiness & Decision Benelux\nRue de la r?volution 8\n1000 Brussels - BELGIUM\n\n+32 499 36 33 15\ntobias.verbeke at businessdecision.com",
+      "body_snippet": "Ajay Shah wrote:\n>> From: \"Jenifer Larson-Hall\" <jenifer at unt.edu>\n>> Subject: [RsR] Robust R for dummies?\n> \n>> Is there anything\n>> that could give me more background about how I can do bootstrapp",
+      "thread_id": "thread-8e831e86acd9",
+      "thread_depth": 1,
+      "month": "2007-07"
+    },
+    {
+      "id": "msg-de857992bc75",
+      "message_id": "<46948676020000BB00014606@GWIA.unt.edu>",
+      "from_name": "Jenifer Larson-Hall",
+      "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
+      "date": "2007-07-11T07:27:50-05:00",
+      "subject": "[RsR] R for Dummies (update)",
+      "subject_clean": "[RsR] R for Dummies (update)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "A few days ago I posted a query for help in understanding bootstrapping, calling it ?Bootstrapping for Dummies?. I was awed by the amount of responses that I got, with lots of useful information. I thought it might be nice at this point to put together some of the info for others, and also to report on the state of my quest for understanding.\n\nFirst, to point out the basic level that I am operating at, I want to show you what I do with functions that I discuss in my book:\nt.test(torres$GRAMMAR, alternative='two.sided', mu=3, conf.level=.95)\nt.test (x, . . .) # gives the command for all t-tests, not just the one-sample test\ntorres$GRAMMAR # this is the GRAMMAR variable in the torres data set\nalternative=?two.sided? # this default calls for a two-sided hypothesis test; other alternatives: ?less?, ?greater?\nmu=3 # this tells R that you want a one-sample test; it compares your measured mean score to an externally measured mean\nconf.level=.95 # sets the confidence level for the mean difference\n(by the way, I put it in a table and it looks nicer than this . . . )\n\nSee? Really for dummies. So what I?m working on now is doing one-sample and two-sample t-tests. Wilcox (2003) says that the best thing to do is percentile bootstrap with 20% trimmed means. But I haven?t found anything built in to R that does this. And I know that if I understood bootstrapping I could easily do it in some built-in library, but I don?t understand the steps of bootstrap enough to do it. Wilcox?s trimpb and trimpb2 functions are what I?m currently using, and they return a 95% CI, and a p-value. I?m not sure a p-value is necessary when I have the CI, but that?s fine. I would also like to say something about the effect size of such a t-test. But I would need a standardizer for that, and I?m not sure what calculation I should use to get a good effect size for a bootstrapped trimmed mean calculation. \n\nThe information that seemed most pertinent to me was:\n\nhttp://www.mayin.org/ajayshah/KB/R/documents/boot.html  (sent to me by Ajay Shah)\nExplains step by step how R library boot does bootstrapping\nThis was extremely useful in helping me start to understand how indexing can work in a bootstrap. However, I am still confused as to how one understands how to write the functions (for returning means, etc), and then what to do with the boot object after it is returned. \n\nIn conjunction with Ajay?s tutorial, I also read:\nArticle by Angelo Canty in Dec 2002 R News, re the Boot library\nThis gave me some more info about what boot can do. I found out that the ?t? returned in the output is the matrix of bootstrap replicates\nThe t0 is the result of evaluating the statistic on the original dataset\nTwo main methods are print and plot for boot objects\nMost common thing you want to call out is CI, use boot.ci for this\nI don?t understand (and didn?t read) about censored bootstraps and time series\n\nPatrick Burns? bootstrap tutorial on  www.burns-stat.com (thanks to several for this)\nThis gives examples of how to write your own functions for bootstrapping. Patrick says that he doesn?t use any libraries, but just writes his own functions, using the (i for) loop. However, there is not enough explanation here for me to figure out how I could write my own bootstrap function for returning the 20% trimmed means of a two-sample t-test.\n\nHowever, someone on the Burns website I found an article which listed R libraries involving bootstrapping, and saw that the simpleboot library has some functions that could work to do one-sample and two-sample t-tests. The problem is, I can?t figure out how to get them to return the 20% trimmed means. I like the boot.ci because it gives me various kinds of bootstraps, and I can get a histogram that I can modify if I want too. A lot of other data comes with the simpleboot commands, and I don?t think I understand all of it, but perhaps I don?t need to.\n\nBob Pruzek also sent me a link (but it needed a password, so I?m not sure I should reveal it without his permission) tourse pages at http://hsta559s07.pbwiki.com. Under his Class Notes there was a file about Bootstrapping, and the intro was very clear to me. I was trying to follow along and replicate in R but when it used the bootstrap library, my R wouldn?t follow along, \n> mns4.y=bootstrap(y,nboots=1000,means4)\nError in n * nboot : non-numeric argument to binary operator\nand that?s where I got lost. It looked really pertinent to what I was doing, but unfortunately I got lost.\n\nSO . . . let me do this. I will lay out a command in the boot library and explain what I think is going on (as you will see, I really still don?t understand). I will use the first example in the boot(boot) help documentation.\n\n# usual bootstrap of the ratio of means using the city data\nratio <- function(d, w)\n     sum(d$x * w)/sum(d$u * w)\nboot(city, ratio, R=999, stype=\"w\")\n\nratio=function (d, w)\n       sum(d$x*w/sum(d$u*2)\nratio=function #first, the function is named; BTW, why use <- when you can use = just as well? I prefer the simpler ?=?; can anyone tell me why I shouldn?t use that?)\nfunction (d, w) #writing ?function? sets up what follows as a function; w is the index (maybe), but I?m not sure what d is\nsum(d$x*2)#this causes the function to sum up all of the cases of d$x and multiply them by w?but what is d$x?\nsum()/sum() #gives the ratio of the sums?where is the means? what is in w?\nboot () #this is the call to bootstrap\ncity #this is the data\nratio #this is the function we?ve created\nR=999 #this is the number of bootstrap replicates\nstype=?w? #this is the statistic type but what is w?\n\nI understand that if I wanted to do a bootstrap of a two-sample t-test with 20% means trimming, I would first need to write a function that would set up a two-sample t-test, and set up the means trimming inside it (let?s call it ?t20trim=function?). Then, bootstrapping it would be a simple matter:\nboot(data, t20trim, R=999, stype=?w?) #I?m guessing on the last part because I still don?t understand what stype is\nI?d be able to pull the CI out, and plot it, but I still wouldn?t know what to do with effect sizes.\n\nI would also like to see some real examples of real boots that people have used and be talked through these. For example, Ajay?s tutorial was really interesting but why would I want to index the 3, 2, 2 position? I wonder how this works when you really want to run a real bootstrap. What *do* I want to index? My confusion is legion, but maybe spelling it out like this will make it easier for you to understand what I?m missing.\n\nThanks in advance for bearing with me.\nJenifer\n\n\nDr. Jenifer Larson-Hall\nAssistant Professor of Linguistics\nUniversity of North Texas\n(940)369-8950",
+      "body_snippet": "A few days ago I posted a query for help in understanding bootstrapping, calling it ?Bootstrapping for Dummies?. I was awed by the amount of responses that I got, with lots of useful information. I th",
+      "thread_id": "thread-de857992bc75",
+      "thread_depth": 0,
+      "month": "2007-07"
+    },
+    {
+      "id": "msg-1cb146288204",
+      "message_id": "<1D150B2864AC7E489275F3C26CCC34BB5DBCA0@langouste.zhwin.ch>",
+      "from_name": "Locher René (lor)",
+      "from_email_hash": "ab8bc319c984dee32802aa9aab1c88d32ac7ee766ee700ed3e7ea11035b2d89c",
+      "date": "2007-07-20T18:56:23+02:00",
+      "subject": "[RsR] in this dataset, rlm does a three times faster job than lmrob",
+      "subject_clean": "[RsR] in this dataset, rlm does a three times faster job than lmrob",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello Matias\n\nThe latest version of R an lmrob do now a great job. Nevertheless I found a\ndataset, for which rlm does a three times faster job than lmrob. Why? \n\nKind regards\n\nRen?\n\n\nlibrary(robustbase)\n\ntest <- data.frame(\n         x=c(3.3575516935771, 3.13304428953422, 3.98938401869026,\n             2.08328674242856, 3.3835741882172, 3.93005173748371,\n             1.43749824638105, 3.09454066051286, 2.92764929063727,\n             2.67002221286635, 3.75601350227835, 3.07038223874994,\n             3.53923591572003),\n         y=c(3.52146363479579, 3.02062987442348, 4.24960889611117,\n             2.51125849743704, 3.82467807283048, 3.93651877222289,\n             0.75302058160736, 3.59279564738277, 3.64679398333867,\n             3.21478267936578, 3.7105197894303, 3.36705413642534,\n             3.39556804093519))\n\nset.seed(1000)\nr <- lmrob(y ~x, dat=test, control = lmrob.control(max.it=400))\n\nr$iter\n## [1] 201\n\nsummary(r)\n\nplot(test)\nabline(r,col=\"red\",lwd=2)\nabline(r$init.S$coef,col=\"blue\",lwd=2)\n\nsessionInfo()\n## R version 2.5.1 (2007-06-27) \n## i386-pc-mingw32 \n## \n## locale:\n## LC_COLLATE=German_Switzerland.1252;LC_CTYPE=German_Switzerland.1252;LC_MONETARY=German_Switzerland.1252;LC_NUMERIC=C;LC_TIME=German_Switzerland.1252\n## \n## attached base packages:\n## [1] \"stats\"     \"graphics\"  \"grDevices\" \"utils\"     \"datasets\"  \"methods\"  \n## [7] \"base\"     \n## \n## other attached packages:\n## robustbase \n##    \"0.2-8\" \n##\n\nlibrary(MASS)\nrM <- rlm(y ~x, dat=test, method=\"MM\", maxit=76)\nsummary(rM)\n\nabline(rM,col=\"grey\", lwd=2, lty=2)\n\nRen? Locher                                   E-Mail: rene.locher at zhwin.ch\nInstitut f?r Datenanalyse und Prozessdesign   Tel:    052/ 267 7810\nZ?rcher Hochschule Winterthur                 Fax:    052/ 268 7810\nRosenstrasse 3                   \nPostfach\nCH-8400 Winterthur                            http://www.idp.zhwin.ch",
+      "body_snippet": "Hello Matias\n\nThe latest version of R an lmrob do now a great job. Nevertheless I found a\ndataset, for which rlm does a three times faster job than lmrob. Why? \n\nKind regards\n\nRen?\n\n\nlibrary(robustbas",
+      "thread_id": "thread-1cb146288204",
+      "thread_depth": 0,
+      "month": "2007-07"
+    },
+    {
+      "id": "msg-37b9918c4631",
+      "message_id": "<1D150B2864AC7E489275F3C26CCC34BB5DBCA1@langouste.zhwin.ch>",
+      "from_name": "Locher René (lor)",
+      "from_email_hash": "ab8bc319c984dee32802aa9aab1c88d32ac7ee766ee700ed3e7ea11035b2d89c",
+      "date": "2007-07-20T19:02:55+02:00",
+      "subject": "[RsR] to be more precise about \"faster\": in this dataset, rlm does a three times faster job than lmrob",
+      "subject_clean": "[RsR] to be more precise about \"faster\": in this dataset, rlm does a three times faster job than lmrob",
+      "in_reply_to": "<1D150B2864AC7E489275F3C26CCC34BB5CE15F@langouste.zhwin.ch>",
+      "references": [],
+      "body_plain": "Hello to everybody\n\nThe word \"faster\" was not quite adequate: I mean, that lmrob() nees 201 IRWLS iterations whereas rlm() has finished after 76.\n\nKind regards\n\nRene",
+      "body_snippet": "Hello to everybody\n\nThe word \"faster\" was not quite adequate: I mean, that lmrob() nees 201 IRWLS iterations whereas rlm() has finished after 76.\n\nKind regards\n\nRene",
+      "thread_id": "thread-37b9918c4631",
+      "thread_depth": 0,
+      "month": "2007-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-287d1e085e3c",
+      "subject": "[RsR] Robust R for dummies?",
+      "message_count": 1,
+      "participants": [
+        "Jenifer Larson-Hall"
+      ],
+      "started": "2007-07-07T01:44:54-05:00",
+      "last_reply": "2007-07-07T01:44:54-05:00",
+      "root_message_id": "msg-287d1e085e3c"
+    },
+    {
+      "id": "thread-8e831e86acd9",
+      "subject": "[RsR] R-SIG-Robust Digest, Vol 16, Issue 1",
+      "message_count": 2,
+      "participants": [
+        "Ajay Shah",
+        "Tobias Verbeke"
+      ],
+      "started": "2007-07-07T17:15:40+05:30",
+      "last_reply": "2007-07-10T21:51:15+02:00",
+      "root_message_id": "msg-8e831e86acd9"
+    },
+    {
+      "id": "thread-de857992bc75",
+      "subject": "[RsR] R for Dummies (update)",
+      "message_count": 1,
+      "participants": [
+        "Jenifer Larson-Hall"
+      ],
+      "started": "2007-07-11T07:27:50-05:00",
+      "last_reply": "2007-07-11T07:27:50-05:00",
+      "root_message_id": "msg-de857992bc75"
+    },
+    {
+      "id": "thread-1cb146288204",
+      "subject": "[RsR] in this dataset, rlm does a three times faster job than lmrob",
+      "message_count": 1,
+      "participants": [
+        "Locher René (lor)"
+      ],
+      "started": "2007-07-20T18:56:23+02:00",
+      "last_reply": "2007-07-20T18:56:23+02:00",
+      "root_message_id": "msg-1cb146288204"
+    },
+    {
+      "id": "thread-37b9918c4631",
+      "subject": "[RsR] to be more precise about \"faster\": in this dataset, rlm does a three times faster job than lmrob",
+      "message_count": 1,
+      "participants": [
+        "Locher René (lor)"
+      ],
+      "started": "2007-07-20T19:02:55+02:00",
+      "last_reply": "2007-07-20T19:02:55+02:00",
+      "root_message_id": "msg-37b9918c4631"
+    }
+  ]
+}

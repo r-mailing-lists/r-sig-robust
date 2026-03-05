@@ -1,0 +1,290 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2007-11",
+  "messages": [
+    {
+      "id": "msg-4370f9b3dcf3",
+      "message_id": "<473312B2.9060206@uni-bayreuth.de>",
+      "from_name": "Peter Ruckdeschel",
+      "from_email_hash": "3c45aa7ca289f67744e76b08be94dc9ddb1b3eaad8e4e4fe77d2a9c08c190ed1",
+      "date": "2007-11-08T14:44:18+01:00",
+      "subject": "[RsR] R-forge project \"robust-ts\" (the time series counter-part to \"robustbase\") is set up",
+      "subject_clean": "[RsR] R-forge project \"robust-ts\" (the time series counter-part to \"robustbase\") is set up",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "-------------------------------------------------------------\nThis mail is going to both the participants of the RSR workshop\nin Banff and the r-sig-robust mailing list; so there will be some\ncross-posting; sorry for this, I did not know how to avoid this.\n-------------------------------------------------------------\n\nAs announced in the (end-)minutes of the Banff workshop,\nI have now set up an R-forge project  \"robust-ts\".\n\nsee:     https://r-forge.r-project.org/\nand     https://r-forge.r-project.org/projects/robust-ts/\n\nThis project is meant as a platform for collaborative\nimplementation of robust counter-parts to the time series\nfunctionality in R-package \"stats\".\n\nOn the long run ---be it by direct integration of S-Plus code\nif legal (Kjell Konis is pushing this forward at Insightful) or by\nre-implementation--- it is also to contain the robust time series\nroutines of chapter 8 of  \"Robust Statistics, Theory and Methods\"\nby Maronna, Martin and Yohai; 2006.\n\nSo far, not too much has been done (in particular: there is not\na single bit of code up to now) and some things have\nstill to be settled with the Vienna guys who provide\nthe R-forge infrastructure.\n\nIn order not to blow up this mail unnecessarily, I have\nwritten up two small .txt-Files\n\nThe first one lists some open issues in using R-forge for this\nproject, which remain to be settled in the next future.\n\nThe second is a step-by-step \"Howto\" for anyone who wants to\ncollaborate in this project. Any volunteer in this direction will be\nwarmly welcome!\n\nThese files are available under\n\nhttps://r-forge.r-project.org/plugins/scmsvn/viewcvs.php/www/OpenIssues.txt?rev=3&root=robust-ts&view=markup\nhttps://r-forge.r-project.org/plugins/scmsvn/viewcvs.php/www/HOWTO-collaborate.txt?rev=3&root=robust-ts&view=markup\n\nAnyway, the first step is taken\nBest,\nPeter",
+      "body_snippet": "-------------------------------------------------------------\nThis mail is going to both the participants of the RSR workshop\nin Banff and the r-sig-robust mailing list; so there will be some\ncross-po",
+      "thread_id": "thread-4370f9b3dcf3",
+      "thread_depth": 0,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-22984e4bca3c",
+      "message_id": "<4739BBC9020000BB0002019F@GWIA.unt.edu>",
+      "from_name": "Jenifer Larson-Hall",
+      "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
+      "date": "2007-11-13T14:59:21-06:00",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "subject_clean": "[RsR] Questions about interpreting lmRob output",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear Robust R gurus,\nThere are a variety of functions I can use to perform robust regression\nin R and I am trying to figure out what would be the best package in R\nto recommend to do robust regression. From reading through the archives\nand looking at Maronna, Martin and Yohai?s book, my sense is that most\npeople on this list would recommend the robust library. That?s the one I\nlike the best too, because its output parallels the lm functions.\nHowever, I have a few questions.\n\nFirst, several books that discuss R and have mentioned robust methods\n(Crawley, 2007; Faraway, 2005; Fox, 2002; Jureckova & Picek, 2006) have\nused the rlm function in the MASS library. Do you have any idea why\nthese books would recommend rlm over lmRob? I don?t find the output to\nbe as helpful as lmRob?s output. Well, this is just curiosity.\n\nSecond, I have some questions about understanding the output of lmRob:\n1) How can I interpret the test for bias in the summary output? \n Test for Bias:\n                   statistic   p-value\nM-estimate  0.5652855 0.9997877\nLS-estimate 3.6125604 0.8902805\n\nDoes the fact that the p-values are above .05 mean there was no bias in\nmy original data set?\n\n2) I was excited to see that the robust library had functions like\nupdate.lmRob and step.lmRob which again paralleled what I was doing with\nthe lm function. However, when I tried to use update.lmRob, here is the\nerror message I got (data set reproduced below):\nm1.robust=lmRob(G1L1WR~ PAL2*KL2WR*NS, data=lafrance.na)\nupdate.lmRob(m1.robust,~.-PAL2:KL2WR:NS)\nError in NextMethod() : generic function not specified\n\nAnd whenever I use step.lmRob, I get back exactly the same model that I\nput into it, so that doesn?t seem to be working either!\n \n> step.lmRob(m1.robust)\nStart:  RFPE= 25.0857 \n G1L1WR ~ PAL2 * KL2WR * NS \n\nWarning in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep =\nnrep,  :\n  Max iteration for final coefficients reached.\n\nSingle term deletions\n\nModel:\nG1L1WR ~ PAL2 * KL2WR * NS\n\nscale:  0.2330676 \n\n              Df   RFPE\n<none>           25.086\nPAL2:KL2WR:NS  1 26.658\nCall:\nlmRob(formula = G1L1WR ~ PAL2 * KL2WR * NS, data = lafrance.na)\n\nCoefficients:\n  (Intercept)          PAL2         KL2WR            NS    PAL2:KL2WR   \n   PAL2:NS \n    -4.055888      4.205368     -8.077648      1.483424      4.342931   \n -1.264462 \n     KL2WR:NS PAL2:KL2WR:NS \n     4.545588     -2.474043 \n\nDegrees of freedom: 37 total; 29 residual\nResidual standard error: 0.2330676 \n\n3) I had better luck with the plots.lmRob( ) function but I was\nwondering what plots 9 and 10 were. What does it mean to have ?overlaid?\nplots? I could see an overlaid Q-Q plot of residuals was different than\nthe Normal Q-Q plot of residuals, but I don?t understand what the\ndifference is.\n\n4) As I understand the documentation, the lmRob function will use\nM-estimators or S-estimators and will search for the best one for the\ndata. Reading over Wilcox (2005), he notes that no one robust method\nwill work best all of the time (as do Maronna, Martin and Yohai), but he\nseems to like the Theil-Sen estimator, M-estimators, the MGV estimator,\nthe STS estimator, least trimmed squares the least absolute value\nestimator, and the deepest regression line method. Not being well-versed\nin the theory, I am going to venture the guess that the estimators that\nlmRob is using would cover the M-estimators and STS estimator, but none\nof the others. Does anyone have a comment on why only M-estimators and\nS-estimators are used in lmRob? Along the same lines, Wilcox (2005)\nrecommends running a robust regression with an estimator with a high\nbreakdown point and a lower (.2-.3) breakdown point and comparing\nestimates and CIs. From what I can see, M-estimators have a high\nbreakdown point (.5). I don?t know about S-estimators, but does anyone\nelse see value in what Wilcox recommends, and have an idea for some\nother parameter I should use with lmRob to run a robust regression using\nan estimator with a lower breakdown point?6) OK, and last of all, a dumb question. Is this dumb? Does lmRob\nbootstrap the data? From the description of sampling it seems like it\ndoes, but I am not sure exactly from the terminology.\n\nsessionInfo()\nR version 2.6.0 (2007-10-03) \ni386-pc-mingw32 \nlocale:\nLC_COLLATE=English_United States.1252;LC_CTYPE=English_United\nStates.1252;LC_MONETARY=English_United\nStates.1252;LC_NUMERIC=C;LC_TIME=English_United States.1252\nattached base packages:\n[1] tcltk     stats     graphics  grDevices utils     datasets  methods \n base     \nother attached packages:\n[1] robustbase_0.2-8 Rcmdr_1.3-5      car_1.2-5        robust_0.3-0    \nlattice_0.17-2  \n[6] MASS_7.2-36     \n\nloaded via a namespace (and not attached):\n[1] grid_2.6.0  tools_2.6.0\n\n> lafrance.na\n   NR WM       NS     PAL2      PAL1    G1L1WR     KL2WR    G1L2WR    \nKL1WR\n1  47  2 2.406489 1.653213 1.5910646 1.7634280 1.1139434 1.7075702\n1.4913617\n2  45  1 2.568917 1.041393 1.2552725 0.7781513 0.0000000 0.0000000\n0.3010300\n4  48  2 2.177161 1.491362 1.3979400 1.5051500 0.0000000 0.3010300\n0.0000000\n5  46  4 2.010342 1.633468 1.3979400 1.5051500 0.0000000 0.3010300\n0.7781513\n6  52  4 2.201861 1.591065 1.5314789 1.6901961 0.9500000 1.1461280\n0.9030900\n7  59  2 2.247556 1.447158 1.1461280 0.4771213 0.0000000 0.0000000\n0.0000000\n8  44  2 2.319169 1.230449 0.7781513 0.6989700 0.0000000 0.0000000\n0.0000000\n9  31  2 2.443310 1.176091 1.4471580 0.8450980 0.0000000 0.0000000\n0.0000000\n10 56  3 2.119850 1.623249 1.6020600 1.7160033 1.2041200 1.5314789\n1.2787536\n11 45  0 2.451495 1.414973 1.0791812 1.1461280 0.0000000 0.0000000\n0.3010300\n12 43  4 2.239650 1.544068 1.4771213 1.4149733 0.9542425 1.1139434\n1.1139434\n13 42  4 2.279325 1.176091 0.0000000 0.4771213 0.0000000 0.0000000\n0.3010300\n14 42  4 2.123067 1.414973 1.1139434 1.7853298 0.0000000 1.3802112\n0.6989700\n15 44  3 2.377215 1.230449 0.9542425 1.6901961 0.0000000 0.7781513\n0.0000000\n16 46  4 2.161937 1.633468 1.6334685 1.6720979 1.2041200 1.2041200\n1.4471580\n17 52  2 2.316159 1.643453 1.5910646 1.7481880 1.0000000 1.1139434\n1.3010300\n19 56  2 2.200440 1.518514 1.2787536 1.4471580 0.6989700 0.6989700\n0.6989700\n21 46  1 2.404166 1.113943 1.1760913 1.1139434 0.0000000 0.9030900\n0.0000000\n22 49  0 2.446211 1.041393 0.7781513 0.0000000 0.0000000 0.0000000\n0.0000000\n23 44  0 2.264180 1.204120 0.9030900 0.9030900 0.0000000 0.0000000\n0.0000000\n24 48  3 2.354953 1.531479 1.3424227 1.2552725 0.0000000 0.0000000\n0.0000000\n25 54  4 2.110118 1.698970 1.5563025 1.5910646 1.4313638 1.0791812\n1.0000000\n26 62  3 2.292012 1.462398 0.9542425 1.7403627 0.6020600 0.9030900\n0.9030900\n27 52  3 2.163728 1.633468 1.3802112 1.5185139 0.0000000 0.0000000\n0.0000000\n28 55  3 2.209944 1.591065 1.4313638 1.5185139 1.0413927 0.7781513\n0.0000000\n29 44  3 2.258014 1.681241 1.6812412 1.6989700 1.2787536 1.2787536\n1.3617278\n30 50  3 2.163638 1.755875 1.6232493 1.5185139 1.3617278 1.3010300\n1.0413927\n31 58  3 2.154059 1.518514 1.4149733 1.4149733 0.0000000 0.3010300\n0.4771213\n32 36  3 2.317353 1.447158 1.1760913 0.7781513 0.4771213 0.7781513\n0.6020600\n33 43  2 2.147151 1.568202 1.4149733 1.5314789 0.0000000 0.0000000\n0.6020600\n34 40  2 2.273395 1.477121 1.4623980 1.4149733 0.3010300 0.7781513\n0.4771213\n35 55  3 2.106837 1.518514 1.5440680 1.6901961 1.0000000 1.5440680\n0.6989700\n36 63  4 2.070555 1.799341 1.3979400 1.7923917 0.7781513 1.6434527\n0.8450980\n37 49  3 2.029506 1.612784 1.6627578 1.8195439 1.3617278 1.8864907\n1.1139434\n38 61  6 2.143296 1.832509 1.7853298 1.8260748 2.0253059 1.9822712\n1.7403627\n39 58  2 2.217036 1.653213 1.5314789 1.3979400 0.9542425 0.9030900\n0.9030900\n40 46  2 2.160889 1.623249 1.5910646 1.6901961 0.4771213 1.3222193\n0.0000000\n\n\n\nDr. Jenifer Larson-Hall\nAssistant Professor of Linguistics\nUniversity of North Texas\n(940)369-8950",
+      "body_snippet": "Dear Robust R gurus,\nThere are a variety of functions I can use to perform robust regression\nin R and I am trying to figure out what would be the best package in R\nto recommend to do robust regression",
+      "thread_id": "thread-22984e4bca3c",
+      "thread_depth": 0,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-4f9781c98f9e",
+      "message_id": "<390020D1-6349-4956-B77B-139BCFFF4084@stats.ox.ac.uk>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "44d6a4da65edf7efe090dfbaebe1a45311325a9bec43b2f3b375964424877755",
+      "date": "2007-11-14T11:03:19Z",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "subject_clean": "[RsR] Questions about interpreting lmRob output",
+      "in_reply_to": "<4739BBC9020000BB0002019F@GWIA.unt.edu>",
+      "references": [
+        "<4739BBC9020000BB0002019F@GWIA.unt.edu>"
+      ],
+      "body_plain": "Here are some quick answers to your questions.  Please let me know if  \nyou would like more details.\n\nKjell\n\n\nOn 13 Nov 2007, at 20:59, Jenifer Larson-Hall wrote:\n\n> Dear Robust R gurus,\n> There are a variety of functions I can use to perform robust  \n> regression\n> in R and I am trying to figure out what would be the best package in R\n> to recommend to do robust regression. From reading through the  \n> archives\n> and looking at Maronna, Martin and Yohai?s book, my sense is that most\n> people on this list would recommend the robust library. That?s the  \n> one I\n> like the best too, because its output parallels the lm functions.\n> However, I have a few questions.\n>\n> First, several books that discuss R and have mentioned robust methods\n> (Crawley, 2007; Faraway, 2005; Fox, 2002; Jureckova & Picek, 2006)  \n> have\n> used the rlm function in the MASS library. Do you have any idea why\n> these books would recommend rlm over lmRob? I don?t find the output to\n> be as helpful as lmRob?s output. Well, this is just curiosity.\n\nThe Robust Library was originally developed for S-PLUS and has only  \nrecently (sometime in the last 1-2 years) been made available for R.\n\n> Second, I have some questions about understanding the output of lmRob:\n> 1) How can I interpret the test for bias in the summary output?\n> Test for Bias:\n>                   statistic   p-value\n> M-estimate  0.5652855 0.9997877\n> LS-estimate 3.6125604 0.8902805\n>\n> Does the fact that the p-values are above .05 mean there was no bias  \n> in\n> my original data set?\n\nThe test for bias is a diagnostic for the fitting procedure and is not  \ndirectly applicable to the fitted model.  It is computed by the  \nfunction test.lmRob - if you're curious take a look at the reference  \nin the help file.\n\n\n> 2) I was excited to see that the robust library had functions like\n> update.lmRob and step.lmRob which again paralleled what I was doing  \n> with\n> the lm function. However, when I tried to use update.lmRob, here is  \n> the\n> error message I got (data set reproduced below):\n> m1.robust=lmRob(G1L1WR~ PAL2*KL2WR*NS, data=lafrance.na)\n> update.lmRob(m1.robust,~.-PAL2:KL2WR:NS)\n> Error in NextMethod() : generic function not specified\n\nS-PLUS and R handle generic functions slightly differently.  I thought  \nI had this working but it looks like I missed something.  Sorry.\n\n\n> And whenever I use step.lmRob, I get back exactly the same model  \n> that I\n> put into it, so that doesn?t seem to be working either!\n>\n>> step.lmRob(m1.robust)\n> Start:  RFPE= 25.0857\n> G1L1WR ~ PAL2 * KL2WR * NS\n>\n> Warning in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep =\n> nrep,  :\n>  Max iteration for final coefficients reached.\n>\n> Single term deletions\n>\n> Model:\n> G1L1WR ~ PAL2 * KL2WR * NS\n>\n> scale:  0.2330676\n>\n>              Df   RFPE\n> <none>           25.086\n> PAL2:KL2WR:NS  1 26.658\n> Call:\n> lmRob(formula = G1L1WR ~ PAL2 * KL2WR * NS, data = lafrance.na)\n>\n> Coefficients:\n>  (Intercept)          PAL2         KL2WR            NS    PAL2:KL2WR\n>   PAL2:NS\n>    -4.055888      4.205368     -8.077648      1.483424      4.342931\n> -1.264462\n>     KL2WR:NS PAL2:KL2WR:NS\n>     4.545588     -2.474043\n>\n> Degrees of freedom: 37 total; 29 residual\n> Residual standard error: 0.2330676\n\nFor some reason lmRob is having trouble fitting the model G1L1WR ~  \nPAL2 * KL2WR * NS - PAL2:KL2WR:NS.  This usually happens because more  \nthan half of the data fits the model perfectly (although I'm not sure  \nthat's what's happening in this case).  When the fitting fails  \nstep.lmRob and drop1.lmRob return the most recently selected model.   \nSince this example fails in the first iteration it just returns the  \ninput model.\n\n\n> 3) I had better luck with the plots.lmRob( ) function but I was\n> wondering what plots 9 and 10 were. What does it mean to have  \n> ?overlaid?\n> plots? I could see an overlaid Q-Q plot of residuals was different  \n> than\n> the Normal Q-Q plot of residuals, but I don?t understand what the\n> difference is.\n\nThe plots are designed to compare robust and least squares fits of the  \nsame model.  Try this:\n\n > m1.comp <- fit.models(list(Robust = \"lmRob\", \"Least Squares\" =  \n\"lm\"), formula = G1L1WR ~ PAL2*KL2WR*NS, data = lafrance.na)\n > plot(m1.comp)\n\nthen choices 9 and 10 make more sense.\n\n\n> 4) As I understand the documentation, the lmRob function will use\n> M-estimators or S-estimators and will search for the best one for the\n> data. Reading over Wilcox (2005), he notes that no one robust method\n> will work best all of the time (as do Maronna, Martin and Yohai),  \n> but he\n> seems to like the Theil-Sen estimator, M-estimators, the MGV  \n> estimator,\n> the STS estimator, least trimmed squares the least absolute value\n> estimator, and the deepest regression line method. Not being well- \n> versed\n> in the theory, I am going to venture the guess that the estimators  \n> that\n> lmRob is using would cover the M-estimators and STS estimator, but  \n> none\n> of the others. Does anyone have a comment on why only M-estimators and\n> S-estimators are used in lmRob? Along the same lines, Wilcox (2005)\n> recommends running a robust regression with an estimator with a high\n> breakdown point and a lower (.2-.3) breakdown point and comparing\n> estimates and CIs. From what I can see, M-estimators have a high\n> breakdown point (.5). I don?t know about S-estimators, but does anyone\n> else see value in what Wilcox recommends, and have an idea for some\n> other parameter I should use with lmRob to run a robust regression  \n> using\n> an estimator with a lower breakdown point?6) OK, and last of all, a  \n> dumb question. Is this dumb? Does lmRob\n> bootstrap the data? From the description of sampling it seems like it\n> does, but I am not sure exactly from the terminology.\n\nThe goal of the robust library is ease of use so, by default, it tries  \nto abstract the specific choice of estimator as much as possible.   \nlmRob tries to choose a combination of estimators that is sensible  \n(although probably not the best) for the given model.  You may also  \nwant to look at the R package robustbase which takes a more technical  \napproach to robust fitting.\n\n\n> sessionInfo()\n> R version 2.6.0 (2007-10-03)\n> i386-pc-mingw32\n> locale:\n> LC_COLLATE=English_United States.1252;LC_CTYPE=English_United\n> States.1252;LC_MONETARY=English_United\n> States.1252;LC_NUMERIC=C;LC_TIME=English_United States.1252\n> attached base packages:\n> [1] tcltk     stats     graphics  grDevices utils     datasets   \n> methods\n> base\n> other attached packages:\n> [1] robustbase_0.2-8 Rcmdr_1.3-5      car_1.2-5        robust_0.3-0\n> lattice_0.17-2\n> [6] MASS_7.2-36\n>\n> loaded via a namespace (and not attached):\n> [1] grid_2.6.0  tools_2.6.0\n>\n>> lafrance.na\n>   NR WM       NS     PAL2      PAL1    G1L1WR     KL2WR    G1L2WR\n> KL1WR\n> 1  47  2 2.406489 1.653213 1.5910646 1.7634280 1.1139434 1.7075702\n> 1.4913617\n> 2  45  1 2.568917 1.041393 1.2552725 0.7781513 0.0000000 0.0000000\n> 0.3010300\n> 4  48  2 2.177161 1.491362 1.3979400 1.5051500 0.0000000 0.3010300\n> 0.0000000\n> 5  46  4 2.010342 1.633468 1.3979400 1.5051500 0.0000000 0.3010300\n> 0.7781513\n> 6  52  4 2.201861 1.591065 1.5314789 1.6901961 0.9500000 1.1461280\n> 0.9030900\n> 7  59  2 2.247556 1.447158 1.1461280 0.4771213 0.0000000 0.0000000\n> 0.0000000\n> 8  44  2 2.319169 1.230449 0.7781513 0.6989700 0.0000000 0.0000000\n> 0.0000000\n> 9  31  2 2.443310 1.176091 1.4471580 0.8450980 0.0000000 0.0000000\n> 0.0000000\n> 10 56  3 2.119850 1.623249 1.6020600 1.7160033 1.2041200 1.5314789\n> 1.2787536\n> 11 45  0 2.451495 1.414973 1.0791812 1.1461280 0.0000000 0.0000000\n> 0.3010300\n> 12 43  4 2.239650 1.544068 1.4771213 1.4149733 0.9542425 1.1139434\n> 1.1139434\n> 13 42  4 2.279325 1.176091 0.0000000 0.4771213 0.0000000 0.0000000\n> 0.3010300\n> 14 42  4 2.123067 1.414973 1.1139434 1.7853298 0.0000000 1.3802112\n> 0.6989700\n> 15 44  3 2.377215 1.230449 0.9542425 1.6901961 0.0000000 0.7781513\n> 0.0000000\n> 16 46  4 2.161937 1.633468 1.6334685 1.6720979 1.2041200 1.2041200\n> 1.4471580\n> 17 52  2 2.316159 1.643453 1.5910646 1.7481880 1.0000000 1.1139434\n> 1.3010300\n> 19 56  2 2.200440 1.518514 1.2787536 1.4471580 0.6989700 0.6989700\n> 0.6989700\n> 21 46  1 2.404166 1.113943 1.1760913 1.1139434 0.0000000 0.9030900\n> 0.0000000\n> 22 49  0 2.446211 1.041393 0.7781513 0.0000000 0.0000000 0.0000000\n> 0.0000000\n> 23 44  0 2.264180 1.204120 0.9030900 0.9030900 0.0000000 0.0000000\n> 0.0000000\n> 24 48  3 2.354953 1.531479 1.3424227 1.2552725 0.0000000 0.0000000\n> 0.0000000\n> 25 54  4 2.110118 1.698970 1.5563025 1.5910646 1.4313638 1.0791812\n> 1.0000000\n> 26 62  3 2.292012 1.462398 0.9542425 1.7403627 0.6020600 0.9030900\n> 0.9030900\n> 27 52  3 2.163728 1.633468 1.3802112 1.5185139 0.0000000 0.0000000\n> 0.0000000\n> 28 55  3 2.209944 1.591065 1.4313638 1.5185139 1.0413927 0.7781513\n> 0.0000000\n> 29 44  3 2.258014 1.681241 1.6812412 1.6989700 1.2787536 1.2787536\n> 1.3617278\n> 30 50  3 2.163638 1.755875 1.6232493 1.5185139 1.3617278 1.3010300\n> 1.0413927\n> 31 58  3 2.154059 1.518514 1.4149733 1.4149733 0.0000000 0.3010300\n> 0.4771213\n> 32 36  3 2.317353 1.447158 1.1760913 0.7781513 0.4771213 0.7781513\n> 0.6020600\n> 33 43  2 2.147151 1.568202 1.4149733 1.5314789 0.0000000 0.0000000\n> 0.6020600\n> 34 40  2 2.273395 1.477121 1.4623980 1.4149733 0.3010300 0.7781513\n> 0.4771213\n> 35 55  3 2.106837 1.518514 1.5440680 1.6901961 1.0000000 1.5440680\n> 0.6989700\n> 36 63  4 2.070555 1.799341 1.3979400 1.7923917 0.7781513 1.6434527\n> 0.8450980\n> 37 49  3 2.029506 1.612784 1.6627578 1.8195439 1.3617278 1.8864907\n> 1.1139434\n> 38 61  6 2.143296 1.832509 1.7853298 1.8260748 2.0253059 1.9822712\n> 1.7403627\n> 39 58  2 2.217036 1.653213 1.5314789 1.3979400 0.9542425 0.9030900\n> 0.9030900\n> 40 46  2 2.160889 1.623249 1.5910646 1.6901961 0.4771213 1.3222193\n> 0.0000000\n>\n>\n>\n> Dr. Jenifer Larson-Hall\n> Assistant Professor of Linguistics\n> University of North Texas\n> (940)369-8950\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Here are some quick answers to your questions.  Please let me know if  \nyou would like more details.\n\nKjell\n\n\nOn 13 Nov 2007, at 20:59, Jenifer Larson-Hall wrote:\n\n> Dear Robust R gurus,\n> There are a",
+      "thread_id": "thread-22984e4bca3c",
+      "thread_depth": 1,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-d458e09b100c",
+      "message_id": "<473ABEE5020000BB0002021F@GWIA.unt.edu>",
+      "from_name": "Jenifer Larson-Hall",
+      "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
+      "date": "2007-11-14T09:24:52-06:00",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "subject_clean": "[RsR] Questions about interpreting lmRob output",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Thanks so much Kjell. Your response answers most of my questions. Actually, I figured the overlaid plots things out (and the cool fit.models function) by looking through the archives and finding your pdf presentation that showed it (www.stats.ox.ac.uk/~konis/robust/ROBCLA2006-konis.pdf). That was very helpful!\n\nThe documentation you sent me privately (Robust.pdf, documentation for S-PLUS library) was helpful in clearing up a few more lingering questions (I guess if others want it they can email you).\n\nJust one more question now:\n\nMy sense of robust methods was that they returned values which did not make strict normality and homogeneity of variances assumptions. In the data set I gave in my previous email, there is heteroskedasticity and non-normality distribution of data. So from what I understand from my reading, robust methods will give me a better sense of what's going on in the bulk of my data than least-squares estimates. If this is true, then what is the reason for looking at diagnostic plots? If I find the data is still heteroskedastic and non-normal in the plots after the robust analysis, is this cause for worry?\n\n\nDr. Jenifer Larson-Hall\nAssistant Professor of Linguistics\nUniversity of North Texas\n(940)369-8950",
+      "body_snippet": "Thanks so much Kjell. Your response answers most of my questions. Actually, I figured the overlaid plots things out (and the cool fit.models function) by looking through the archives and finding your ",
+      "thread_id": "thread-d458e09b100c",
+      "thread_depth": 0,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-69a127472c5a",
+      "message_id": "<1F39C7EF-4D50-4DDA-AA54-DBBA8117A05E@stats.ox.ac.uk>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "44d6a4da65edf7efe090dfbaebe1a45311325a9bec43b2f3b375964424877755",
+      "date": "2007-11-14T16:08:46Z",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "subject_clean": "[RsR] Questions about interpreting lmRob output",
+      "in_reply_to": "<473ABEE5020000BB0002021F@GWIA.unt.edu>",
+      "references": [
+        "<473ABEE5020000BB0002021F@GWIA.unt.edu>"
+      ],
+      "body_plain": "The basic idea underlying the robust linear model is that some  \nfraction (1-alpha > 0.5) of the data is distributed conditionally  \nnormal and the remaining fraction (alpha) comes from some arbitrary  \ndistribution (i.e., the outliers).  The goal of a robust method is to  \nestimate the parameters (beta and sigma^2) of this conditional normal  \ndistribution without giving the outliers too much influence.  If the  \nbulk of the data (aka the good data) is not distributed conditionally  \nnormal then a linear model is not appropriate regardless of whether it  \nis fit robustly or not.  Of course you can still use all of the  \nstandard linear modeling tricks.  For instance a log transformation of  \nthe response sometimes helps with heteroskedasticity.\n\nKjell\n\nOn 14 Nov 2007, at 15:24, Jenifer Larson-Hall wrote:\n\n> Thanks so much Kjell. Your response answers most of my questions.  \n> Actually, I figured the overlaid plots things out (and the cool  \n> fit.models function) by looking through the archives and finding  \n> your pdf presentation that showed it (www.stats.ox.ac.uk/~konis/robust/ROBCLA2006-konis.pdf) \n> . That was very helpful!\n>\n> The documentation you sent me privately (Robust.pdf, documentation  \n> for S-PLUS library) was helpful in clearing up a few more lingering  \n> questions (I guess if others want it they can email you).\n\nThe Robust Library Users Guide (Robust.pdf) is included in the source  \nversion of the Robust Library.\n\n> Just one more question now:\n>\n> My sense of robust methods was that they returned values which did  \n> not make strict normality and homogeneity of variances assumptions.  \n> In the data set I gave in my previous email, there is  \n> heteroskedasticity and non-normality distribution of data. So from  \n> what I understand from my reading, robust methods will give me a  \n> better sense of what's going on in the bulk of my data than least- \n> squares estimates. If this is true, then what is the reason for  \n> looking at diagnostic plots? If I find the data is still  \n> heteroskedastic and non-normal in the plots after the robust  \n> analysis, is this cause for worry?\n>\n>\n> Dr. Jenifer Larson-Hall\n> Assistant Professor of Linguistics\n> University of North Texas\n> (940)369-8950\n>\n>\n>",
+      "body_snippet": "The basic idea underlying the robust linear model is that some  \nfraction (1-alpha > 0.5) of the data is distributed conditionally  \nnormal and the remaining fraction (alpha) comes from some arbitrary",
+      "thread_id": "thread-d458e09b100c",
+      "thread_depth": 1,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-9204f9ee2a04",
+      "message_id": "<473AD79D020000BB00020236@GWIA.unt.edu>",
+      "from_name": "Jenifer Larson-Hall",
+      "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
+      "date": "2007-11-14T11:10:21-06:00",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "subject_clean": "[RsR] Questions about interpreting lmRob output",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Good, I understand that answer. What I still don't understand is whether the diagnostic plot that robust calls is plotting ALL the data, or just the good part. For example, when I look at an overlaid Q-Q plot of my data,  there is not too much difference between the robust and ls lines. They are both linear in the  middle, but form an S-curve on the ends (maybe 7 points out of 37 are in the ends). So if I have a breakdown point of around .5, and then I look at my Q-Q plot and see that the middle part looks linear, can I rest easy? Or is plot.lmRob plotting ONLY the good part of the data, so now I should be concerned because I don't have a normally distributed Q-Q plot? (by the way, this data was log transformed already to try to help with the heteroskedasticity).\n\n>>> Kjell Konis <konis at stats.ox.ac.uk> 11/14/07 10:08 AM >>>\nThe basic idea underlying the robust linear model is that some  \nfraction (1-alpha > 0.5) of the data is distributed conditionally  \nnormal and the remaining fraction (alpha) comes from some arbitrary  \ndistribution (i.e., the outliers).  The goal of a robust method is to  \nestimate the parameters (beta and sigma^2) of this conditional normal  \ndistribution without giving the outliers too much influence.  If the  \nbulk of the data (aka the good data) is not distributed conditionally  \nnormal then a linear model is not appropriate regardless of whether it  \nis fit robustly or not.  Of course you can still use all of the  \nstandard linear modeling tricks.  For instance a log transformation of  \nthe response sometimes helps with heteroskedasticity.\n\nKjell\n\nOn 14 Nov 2007, at 15:24, Jenifer Larson-Hall wrote:\n\n> Thanks so much Kjell. Your response answers most of my questions.  \n> Actually, I figured the overlaid plots things out (and the cool  \n> fit.models function) by looking through the archives and finding  \n> your pdf presentation that showed it (www.stats.ox.ac.uk/~konis/robust/ROBCLA2006-konis.pdf) \n> . That was very helpful!\n>\n> The documentation you sent me privately (Robust.pdf, documentation  \n> for S-PLUS library) was helpful in clearing up a few more lingering  \n> questions (I guess if others want it they can email you).\n\nThe Robust Library Users Guide (Robust.pdf) is included in the source  \nversion of the Robust Library.\n\n> Just one more question now:\n>\n> My sense of robust methods was that they returned values which did  \n> not make strict normality and homogeneity of variances assumptions.  \n> In the data set I gave in my previous email, there is  \n> heteroskedasticity and non-normality distribution of data. So from  \n> what I understand from my reading, robust methods will give me a  \n> better sense of what's going on in the bulk of my data than least- \n> squares estimates. If this is true, then what is the reason for  \n> looking at diagnostic plots? If I find the data is still  \n> heteroskedastic and non-normal in the plots after the robust  \n> analysis, is this cause for worry?\n>\n>\n> Dr. Jenifer Larson-Hall\n> Assistant Professor of Linguistics\n> University of North Texas\n> (940)369-8950\n>\n>\n>",
+      "body_snippet": "Good, I understand that answer. What I still don't understand is whether the diagnostic plot that robust calls is plotting ALL the data, or just the good part. For example, when I look at an overlaid ",
+      "thread_id": "thread-9204f9ee2a04",
+      "thread_depth": 0,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-e2deb83700bb",
+      "message_id": "<9C3B6A1F-F351-4EF5-9023-44652D1D7EF5@stats.ox.ac.uk>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "44d6a4da65edf7efe090dfbaebe1a45311325a9bec43b2f3b375964424877755",
+      "date": "2007-11-14T17:32:05Z",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "subject_clean": "[RsR] Questions about interpreting lmRob output",
+      "in_reply_to": "<473AD79D020000BB00020236@GWIA.unt.edu>",
+      "references": [
+        "<473AD79D020000BB00020236@GWIA.unt.edu>"
+      ],
+      "body_plain": "The plotting methods plot all of the data so, for instance, if  \noutliers are present then the tails of the QQ-plots will not be  \nstraight.  If the middle half of the plot looks linear then the half  \nof the data that fits the model the \"best\" has normally distributed  \nresiduals.\n\nKjell\n\n\nOn 14 Nov 2007, at 17:10, Jenifer Larson-Hall wrote:\n\n> Good, I understand that answer. What I still don't understand is  \n> whether the diagnostic plot that robust calls is plotting ALL the  \n> data, or just the good part. For example, when I look at an overlaid  \n> Q-Q plot of my data,  there is not too much difference between the  \n> robust and ls lines. They are both linear in the  middle, but form  \n> an S-curve on the ends (maybe 7 points out of 37 are in the ends).  \n> So if I have a breakdown point of around .5, and then I look at my Q- \n> Q plot and see that the middle part looks linear, can I rest easy?  \n> Or is plot.lmRob plotting ONLY the good part of the data, so now I  \n> should be concerned because I don't have a normally distributed Q-Q  \n> plot? (by the way, this data was log transformed already to try to  \n> help with the heteroskedasticity).\n>\n>>>> Kjell Konis <konis at stats.ox.ac.uk> 11/14/07 10:08 AM >>>\n> The basic idea underlying the robust linear model is that some\n> fraction (1-alpha > 0.5) of the data is distributed conditionally\n> normal and the remaining fraction (alpha) comes from some arbitrary\n> distribution (i.e., the outliers).  The goal of a robust method is to\n> estimate the parameters (beta and sigma^2) of this conditional normal\n> distribution without giving the outliers too much influence.  If the\n> bulk of the data (aka the good data) is not distributed conditionally\n> normal then a linear model is not appropriate regardless of whether it\n> is fit robustly or not.  Of course you can still use all of the\n> standard linear modeling tricks.  For instance a log transformation of\n> the response sometimes helps with heteroskedasticity.\n>\n> Kjell\n>\n> On 14 Nov 2007, at 15:24, Jenifer Larson-Hall wrote:\n>\n>> Thanks so much Kjell. Your response answers most of my questions.\n>> Actually, I figured the overlaid plots things out (and the cool\n>> fit.models function) by looking through the archives and finding\n>> your pdf presentation that showed it (www.stats.ox.ac.uk/~konis/robust/ROBCLA2006-konis.pdf)\n>> . That was very helpful!\n>>\n>> The documentation you sent me privately (Robust.pdf, documentation\n>> for S-PLUS library) was helpful in clearing up a few more lingering\n>> questions (I guess if others want it they can email you).\n>\n> The Robust Library Users Guide (Robust.pdf) is included in the source\n> version of the Robust Library.\n>\n>> Just one more question now:\n>>\n>> My sense of robust methods was that they returned values which did\n>> not make strict normality and homogeneity of variances assumptions.\n>> In the data set I gave in my previous email, there is\n>> heteroskedasticity and non-normality distribution of data. So from\n>> what I understand from my reading, robust methods will give me a\n>> better sense of what's going on in the bulk of my data than least-\n>> squares estimates. If this is true, then what is the reason for\n>> looking at diagnostic plots? If I find the data is still\n>> heteroskedastic and non-normal in the plots after the robust\n>> analysis, is this cause for worry?\n>>\n>>\n>> Dr. Jenifer Larson-Hall\n>> Assistant Professor of Linguistics\n>> University of North Texas\n>> (940)369-8950\n>>\n>>\n>>\n>\n>\n>",
+      "body_snippet": "The plotting methods plot all of the data so, for instance, if  \noutliers are present then the tails of the QQ-plots will not be  \nstraight.  If the middle half of the plot looks linear then the half ",
+      "thread_id": "thread-9204f9ee2a04",
+      "thread_depth": 1,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-9aee07cba563",
+      "message_id": "<473C495B020000BB0002034B@GWIA.unt.edu>",
+      "from_name": "Jenifer Larson-Hall",
+      "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
+      "date": "2007-11-15T13:27:55-06:00",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "subject_clean": "[RsR] Questions about interpreting lmRob output",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Kjell,\nAgain, thanks for all your help. Could you indulge two more questions from me?\n\nFirst, I thanked you for the document you sent, but you said it was available to anyone in the source version of the robust library. I have looked around for how to get to that. I tried vignette(\"robust\") but that didn't get me anything from the robust library. When I Googled it I got a website, http://cran.r-project.org/doc/packages/, that took me to a document called robust.pdf. This was, however, NOT the same as the document you sent me! Specifically, the document at that URL contains only a compilation of all of the help files, as far as I can see, whereas the document you sent (S-PLUS 6 Robust Library User's Guide Version 1.0, dated May 2002, which you noted was a bit old now) was more book-like and I have to say, more helpful than the help files. Don't get me wrong, the help files are helpful, but this just gave more detail than the help files ever did. So . . . is this S-PLUS document available somewhere else that I haven't figured out how to get to? I'm asking because I would like to be able to refer people to it. In particular, is there some command I am missing that I could use in R to bring up these pdf documents (besides the vignette command, and I do think the vignettes are often of the same kind of quality as the article you sent, more article-like or book-like, and thus more helpful to me!).\n\nSecond, you didn't answer one of my questions about whether the resampling done in lmRob is bootstrapping. My guess, after reading your document (the S-PLUS) one, is that it is not the same thing, because the details about random resampling on p. 54 of that document seem to indicate that if I had 5 parameters, there would be 147 resamples, which is not nearly how many I am used to seeing with bootstrapping. So my question is what kind of resampling is this? Can you refer me to a source to understand better what it is if it is not bootstrapping? And if I changed the parameters to be 1000 reps, would that mean I was doing bootstrapping?\n\nThanks for your help.\nJenifer\n\nDr. Jenifer Larson-Hall\nAssistant Professor of Linguistics\nUniversity of North Texas\n(940)369-8950",
+      "body_snippet": "Kjell,\nAgain, thanks for all your help. Could you indulge two more questions from me?\n\nFirst, I thanked you for the document you sent, but you said it was available to anyone in the source version of ",
+      "thread_id": "thread-9aee07cba563",
+      "thread_depth": 0,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-75628a4dc603",
+      "message_id": "<20071117182620.GK298@lubyanka.local>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2007-11-17T23:56:20+05:30",
+      "subject": "[RsR] R-SIG-Robust Digest, Vol 20, Issue 2",
+      "subject_clean": "[RsR] R-SIG-Robust Digest, Vol 20, Issue 2",
+      "in_reply_to": "<mailman.5.1195038002.3734.r-sig-robust@r-project.org>",
+      "references": [
+        "<mailman.5.1195038002.3734.r-sig-robust@r-project.org>"
+      ],
+      "body_plain": "> First, several books that discuss R and have mentioned robust methods\n> (Crawley, 2007; Faraway, 2005; Fox, 2002; Jureckova & Picek, 2006) have\n> used the rlm function in the MASS library. Do you have any idea why\n> these books would recommend rlm over lmRob? I don?t find the output to\n> be as helpful as lmRob?s output. Well, this is just curiosity.\n\nJennifer had asked this question a few days ago, and I'm also curious\nabout the answer. (Or, did someone answer this and I missed it?)\n\n-- \nAjay Shah                                      http://www.mayin.org/ajayshah  \najayshah at mayin.org                             http://ajayshahblog.blogspot.com\n<*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": "> First, several books that discuss R and have mentioned robust methods\n> (Crawley, 2007; Faraway, 2005; Fox, 2002; Jureckova & Picek, 2006) have\n> used the rlm function in the MASS library. Do you ha",
+      "thread_id": "thread-75628a4dc603",
+      "thread_depth": 0,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-cf94de0cc1dc",
+      "message_id": "<09AACD41-CF99-4C74-B841-EEE9F6E93628@stats.ox.ac.uk>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "44d6a4da65edf7efe090dfbaebe1a45311325a9bec43b2f3b375964424877755",
+      "date": "2007-11-18T15:10:31Z",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "subject_clean": "[RsR] Questions about interpreting lmRob output",
+      "in_reply_to": "<473C495B020000BB0002034B@GWIA.unt.edu>",
+      "references": [
+        "<473C495B020000BB0002034B@GWIA.unt.edu>"
+      ],
+      "body_plain": "The Robust Library Users' Guide is in the source package for the  \nRobust Library.  You can download it from here:\n\n   http://cran.r-project.org/src/contrib/robust_0.3-0.tar.gz\n\nThe subsampling done in lmRob is not bootstrapping.  By default lmRob  \nwill use enough subsamples to achieve a breakdown point of 0.5 with  \nhigh probability.  See the help file for lmRob.control for the  \nparticulars.\n\nKjell\n\n\n\n\nOn 15 Nov 2007, at 19:27, Jenifer Larson-Hall wrote:\n\n> Kjell,\n> Again, thanks for all your help. Could you indulge two more  \n> questions from me?\n>\n> First, I thanked you for the document you sent, but you said it was  \n> available to anyone in the source version of the robust library. I  \n> have looked around for how to get to that. I tried  \n> vignette(\"robust\") but that didn't get me anything from the robust  \n> library. When I Googled it I got a website, http://cran.r-project.org/doc/packages/ \n> , that took me to a document called robust.pdf. This was, however,  \n> NOT the same as the document you sent me! Specifically, the document  \n> at that URL contains only a compilation of all of the help files, as  \n> far as I can see, whereas the document you sent (S-PLUS 6 Robust  \n> Library User's Guide Version 1.0, dated May 2002, which you noted  \n> was a bit old now) was more book-like and I have to say, more  \n> helpful than the help files. Don't get me wrong, the help files are  \n> helpful, but this just gave more detail than the help files ever  \n> did. So . . . is this S-PLUS document available somewhere else that  \n> I haven't figured out how to get to? I'm asking because I would like  \n> to be able to refer people to it. In particular, is there some  \n> command I am missing that I could use in R to bring up these pdf  \n> documents (besides the vignette command, and I do think the  \n> vignettes are often of the same kind of quality as the article you  \n> sent, more article-like or book-like, and thus more helpful to me!).\n>\n> Second, you didn't answer one of my questions about whether the  \n> resampling done in lmRob is bootstrapping. My guess, after reading  \n> your document (the S-PLUS) one, is that it is not the same thing,  \n> because the details about random resampling on p. 54 of that  \n> document seem to indicate that if I had 5 parameters, there would be  \n> 147 resamples, which is not nearly how many I am used to seeing with  \n> bootstrapping. So my question is what kind of resampling is this?  \n> Can you refer me to a source to understand better what it is if it  \n> is not bootstrapping? And if I changed the parameters to be 1000  \n> reps, would that mean I was doing bootstrapping?\n>\n> Thanks for your help.\n> Jenifer\n>\n> Dr. Jenifer Larson-Hall\n> Assistant Professor of Linguistics\n> University of North Texas\n> (940)369-8950\n>\n>\n>\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "The Robust Library Users' Guide is in the source package for the  \nRobust Library.  You can download it from here:\n\n   http://cran.r-project.org/src/contrib/robust_0.3-0.tar.gz\n\nThe subsampling done i",
+      "thread_id": "thread-9aee07cba563",
+      "thread_depth": 1,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-50694dc6f40e",
+      "message_id": "<EDBCA09F-AEF2-4504-A85C-CF3B1CCBA8CD@stats.ox.ac.uk>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "44d6a4da65edf7efe090dfbaebe1a45311325a9bec43b2f3b375964424877755",
+      "date": "2007-11-18T15:13:26Z",
+      "subject": "[RsR] R-SIG-Robust Digest, Vol 20, Issue 2",
+      "subject_clean": "[RsR] R-SIG-Robust Digest, Vol 20, Issue 2",
+      "in_reply_to": "<20071117182620.GK298@lubyanka.local>",
+      "references": [
+        "<mailman.5.1195038002.3734.r-sig-robust@r-project.org>",
+        "<20071117182620.GK298@lubyanka.local>"
+      ],
+      "body_plain": "It's probably because the Robust Library has only been available for R  \nfor a little over a year and only available under the GPL for about 6  \nmonths.  Also, I don't think they \"recommend rlm over lmRob\" but  \nrather don't mention lmRob at all.\n\nKjell\n\n\n\nOn 17 Nov 2007, at 18:26, Ajay Shah wrote:\n\n>> First, several books that discuss R and have mentioned robust methods\n>> (Crawley, 2007; Faraway, 2005; Fox, 2002; Jureckova & Picek, 2006)  \n>> have\n>> used the rlm function in the MASS library. Do you have any idea why\n>> these books would recommend rlm over lmRob? I don?t find the output  \n>> to\n>> be as helpful as lmRob?s output. Well, this is just curiosity.\n>\n> Jennifer had asked this question a few days ago, and I'm also curious\n> about the answer. (Or, did someone answer this and I missed it?)\n>\n> -- \n> Ajay Shah                                      http://www.mayin.org/ajayshah\n> ajayshah at mayin.org                             http://ajayshahblog.blogspot.com\n> <*(:-? - wizard who doesn't know the answer.\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "It's probably because the Robust Library has only been available for R  \nfor a little over a year and only available under the GPL for about 6  \nmonths.  Also, I don't think they \"recommend rlm over l",
+      "thread_id": "thread-75628a4dc603",
+      "thread_depth": 1,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-e6402660bcb8",
+      "message_id": "<18241.26357.377177.769507@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2007-11-19T11:35:33+01:00",
+      "subject": "[RsR] lmRob() vs rlm() etc",
+      "subject_clean": "[RsR] lmRob() vs rlm() etc",
+      "in_reply_to": "<EDBCA09F-AEF2-4504-A85C-CF3B1CCBA8CD@stats.ox.ac.uk>",
+      "references": [
+        "<mailman.5.1195038002.3734.r-sig-robust@r-project.org>",
+        "<20071117182620.GK298@lubyanka.local>",
+        "<EDBCA09F-AEF2-4504-A85C-CF3B1CCBA8CD@stats.ox.ac.uk>"
+      ],
+      "body_plain": ">>>>> \"KK\" == Kjell Konis <konis at stats.ox.ac.uk>\n>>>>>     on Sun, 18 Nov 2007 15:13:26 +0000 writes:\n\n    KK> It's probably because the Robust Library has only been\n    KK> available for R for a little over a year and only\n    KK> available under the GPL for about 6 months.  \nIndeed!\n(and quite a few of us only learned about the GPL part two weeks\n ago, at the very nice Banff/BIRS workshop on \n \"Robust Statistics and R\").\n\n    KK> available under the GPL for about 6 months.  Also, I\n    KK> don't think they \"recommend rlm over lmRob\" but rather\n    KK> don't mention lmRob at all.\n\nnor 'lmrob()' from package \"robustbase\" (an early version of\nwhich existed as roblm() in package 'roblm') which has been\navailable for around two years, and has always had a faster\nalgorithm and more modern/accurate inference parts  than  rlm(),\nsimilar to lmRob() mentioned above. \n\nAs Kjell has implicitely mentioned, rlm() has been around much\nlonger -- from 'MASS' which is part of Venables & Ripley's 'VR' \nall of which has been available as ``standard R'' since MASS / VR\nhas been among the \"Recommended Packages\" as long as these\nexist.\n\nSome of the book authors mentioned below really come from an\nS-plus background rather than R, and others are not much focused\non robustness statistics; so are somewhat behind \"current state\nof the art\"  on  ``robust statistics using R''.\n\nMartin Maechler, ETH Zurich\n\n\n    KK> On 17 Nov 2007, at 18:26, Ajay Shah wrote:\n\n    >>> First, several books that discuss R and have mentioned\n    >>> robust methods (Crawley, 2007; Faraway, 2005; Fox, 2002;\n    >>> Jureckova & Picek, 2006) have used the rlm function in\n    >>> the MASS library. Do you have any idea why these books\n    >>> would recommend rlm over lmRob? I don?t find the output\n    >>> to be as helpful as lmRob?s output. Well, this is just\n    >>> curiosity.\n    >> \n    >> Jennifer had asked this question a few days ago, and I'm\n    >> also curious about the answer. (Or, did someone answer\n    >> this and I missed it?)\n\nYes, indeed you did miss Kjell's earlier answer.\n\n    >> Ajay Shah http://www.mayin.org/ajayshah\n    >> ajayshah at mayin.org http://ajayshahblog.blogspot.com\n    >> <*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": ">>>>> \"KK\" == Kjell Konis <konis at stats.ox.ac.uk>\n>>>>>     on Sun, 18 Nov 2007 15:13:26 +0000 writes:\n\n    KK> It's probably because the Robust Library has only been\n    KK> available for R for a l",
+      "thread_id": "thread-75628a4dc603",
+      "thread_depth": 2,
+      "month": "2007-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-4370f9b3dcf3",
+      "subject": "[RsR] R-forge project \"robust-ts\" (the time series counter-part to \"robustbase\") is set up",
+      "message_count": 1,
+      "participants": [
+        "Peter Ruckdeschel"
+      ],
+      "started": "2007-11-08T14:44:18+01:00",
+      "last_reply": "2007-11-08T14:44:18+01:00",
+      "root_message_id": "msg-4370f9b3dcf3"
+    },
+    {
+      "id": "thread-22984e4bca3c",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "message_count": 2,
+      "participants": [
+        "Jenifer Larson-Hall",
+        "Kjell Konis"
+      ],
+      "started": "2007-11-13T14:59:21-06:00",
+      "last_reply": "2007-11-14T11:03:19+00:00",
+      "root_message_id": "msg-22984e4bca3c"
+    },
+    {
+      "id": "thread-d458e09b100c",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "message_count": 2,
+      "participants": [
+        "Jenifer Larson-Hall",
+        "Kjell Konis"
+      ],
+      "started": "2007-11-14T09:24:52-06:00",
+      "last_reply": "2007-11-14T16:08:46+00:00",
+      "root_message_id": "msg-d458e09b100c"
+    },
+    {
+      "id": "thread-9204f9ee2a04",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "message_count": 2,
+      "participants": [
+        "Jenifer Larson-Hall",
+        "Kjell Konis"
+      ],
+      "started": "2007-11-14T11:10:21-06:00",
+      "last_reply": "2007-11-14T17:32:05+00:00",
+      "root_message_id": "msg-9204f9ee2a04"
+    },
+    {
+      "id": "thread-9aee07cba563",
+      "subject": "[RsR] Questions about interpreting lmRob output",
+      "message_count": 2,
+      "participants": [
+        "Jenifer Larson-Hall",
+        "Kjell Konis"
+      ],
+      "started": "2007-11-15T13:27:55-06:00",
+      "last_reply": "2007-11-18T15:10:31+00:00",
+      "root_message_id": "msg-9aee07cba563"
+    },
+    {
+      "id": "thread-75628a4dc603",
+      "subject": "[RsR] R-SIG-Robust Digest, Vol 20, Issue 2",
+      "message_count": 3,
+      "participants": [
+        "Ajay Shah",
+        "Kjell Konis",
+        "Martin Maechler"
+      ],
+      "started": "2007-11-17T23:56:20+05:30",
+      "last_reply": "2007-11-19T11:35:33+01:00",
+      "root_message_id": "msg-75628a4dc603"
+    }
+  ]
+}

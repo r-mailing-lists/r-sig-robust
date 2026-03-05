@@ -1,0 +1,74 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2010-12",
+  "messages": [
+    {
+      "id": "msg-c1495215dc9f",
+      "message_id": "<4CF6602E.7020004@uab.cat>",
+      "from_name": "Pep Serra",
+      "from_email_hash": "217ccf4a34d2d0fb6d09944b3afc934cf006b079672c836e42588685ca021375",
+      "date": "2010-12-01T15:48:14+01:00",
+      "subject": "[RsR] best robust fit",
+      "subject_clean": "[RsR] best robust fit",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "dear all,\n\nI want to choose between different polynomial robust  regressions, \nhowever R2 may be misleading since the highest de degree is, the \"better \nfit\" to data. Is there any function implemented in robust or robustbase \nthat computes an index for \"model selection\" ???\n\nThanx for helping!\npep\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: josep_serra.vcf\nType: text/x-vcard\nSize: 448 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101201/e6b5a985/attachment.vcf>",
+      "body_snippet": "dear all,\n\nI want to choose between different polynomial robust  regressions, \nhowever R2 may be misleading since the highest de degree is, the \"better \nfit\" to data. Is there any function implemented",
+      "thread_id": "thread-c1495215dc9f",
+      "thread_depth": 0,
+      "month": "2010-12"
+    },
+    {
+      "id": "msg-f8a345de8628",
+      "message_id": "<ECBDD2620D45F74C9B4AA3DBA750C5800C76D371@Exchange>",
+      "from_name": "Samuel Le",
+      "from_email_hash": "68ac0456154c7e6df26a9b0d0964300adb94f95edf8df9bde5cd10453f0cda01",
+      "date": "2010-12-01T14:51:00Z",
+      "subject": "[RsR] best robust fit",
+      "subject_clean": "[RsR] best robust fit",
+      "in_reply_to": "<4CF6602E.7020004@uab.cat>",
+      "references": [
+        "<4CF6602E.7020004@uab.cat>"
+      ],
+      "body_plain": "Have you thought of the Akaike Information Criterion? It is the R squared penalized by the number of regressors. You can access to it using reg$AIC if reg is your regression object.\n\nSamuel\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Pep Serra\nSent: 01 December 2010 14:48\nTo: r-sig-robust at r-project.org\nSubject: [RsR] best robust fit\n\n\ndear all,\n\nI want to choose between different polynomial robust  regressions, however R2 may be misleading since the highest de degree is, the \"better fit\" to data. Is there any function implemented in robust or robustbase that computes an index for \"model selection\" ???\n\nThanx for helping!\npep\n\n\n__________ Information from ESET NOD32 Antivirus, version of virus signature database 5663 (20101201) __________\n\nThe message was checked by ESET NOD32 Antivirus.\n\nhttp://www.eset.com\n\n\n\n__________ Information from ESET NOD32 Antivirus, version of virus signature database 5663 (20101201) __________\n\nThe message was checked by ESET NOD32 Antivirus.\n\nhttp://www.eset.com",
+      "body_snippet": "Have you thought of the Akaike Information Criterion? It is the R squared penalized by the number of regressors. You can access to it using reg$AIC if reg is your regression object.\n\nSamuel\n\n-----Orig",
+      "thread_id": "thread-c1495215dc9f",
+      "thread_depth": 1,
+      "month": "2010-12"
+    },
+    {
+      "id": "msg-72ec155a3b53",
+      "message_id": "<4CF69F44.90703@uab.cat>",
+      "from_name": "Pep Serra",
+      "from_email_hash": "217ccf4a34d2d0fb6d09944b3afc934cf006b079672c836e42588685ca021375",
+      "date": "2010-12-01T20:17:24+01:00",
+      "subject": "[RsR] best robust fit",
+      "subject_clean": "[RsR] best robust fit",
+      "in_reply_to": "<ECBDD2620D45F74C9B4AA3DBA750C5800C76D371@Exchange>",
+      "references": [
+        "<4CF6602E.7020004@uab.cat>",
+        "<ECBDD2620D45F74C9B4AA3DBA750C5800C76D371@Exchange>"
+      ],
+      "body_plain": "I am not an expert, but I think AIC is not suitable when using robust \nstatistics, maybe someone smarter may give a hint on this\nI checked\n\nhttp://www.mail-archive.com/r-help at stat.math.ethz.ch/msg39949.html\n\nThank you anyways and please do not hesitate to respond if you have \nfurther comments...\n\npep\nAl 01/12/2010 15:51, En/na Samuel Le ha escrit:\n> Have you thought of the Akaike Information Criterion? It is the R squared penalized by the number of regressors. You can access to it using reg$AIC if reg is your regression object.\n>\n> Samuel\n>\n> -----Original Message-----\n> From: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Pep Serra\n> Sent: 01 December 2010 14:48\n> To: r-sig-robust at r-project.org\n> Subject: [RsR] best robust fit\n>\n>\n> dear all,\n>\n> I want to choose between different polynomial robust  regressions, however R2 may be misleading since the highest de degree is, the \"better fit\" to data. Is there any function implemented in robust or robustbase that computes an index for \"model selection\" ???\n>\n> Thanx for helping!\n> pep\n>\n>\n> __________ Information from ESET NOD32 Antivirus, version of virus signature database 5663 (20101201) __________\n>\n> The message was checked by ESET NOD32 Antivirus.\n>\n> http://www.eset.com\n>\n>\n>\n> __________ Information from ESET NOD32 Antivirus, version of virus signature database 5663 (20101201) __________\n>\n> The message was checked by ESET NOD32 Antivirus.\n>\n> http://www.eset.com\n>\n\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: josep_serra.vcf\nType: text/x-vcard\nSize: 448 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101201/545753e2/attachment.vcf>",
+      "body_snippet": "I am not an expert, but I think AIC is not suitable when using robust \nstatistics, maybe someone smarter may give a hint on this\nI checked\n\nhttp://www.mail-archive.com/r-help at stat.math.ethz.ch/msg3",
+      "thread_id": "thread-c1495215dc9f",
+      "thread_depth": 2,
+      "month": "2010-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-c1495215dc9f",
+      "subject": "[RsR] best robust fit",
+      "message_count": 3,
+      "participants": [
+        "Pep Serra",
+        "Samuel Le"
+      ],
+      "started": "2010-12-01T15:48:14+01:00",
+      "last_reply": "2010-12-01T20:17:24+01:00",
+      "root_message_id": "msg-c1495215dc9f"
+    }
+  ]
+}

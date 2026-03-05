@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2018-10",
+  "messages": [
+    {
+      "id": "msg-e06dc3a5f8f0",
+      "message_id": "<cfe6f069bc7448fc85e8e02f078a5c70@GBDCVPEXC04.corp.lgc-group.com>",
+      "from_name": "S Ellison",
+      "from_email_hash": "4e7384549cf34ba7905690915540e47e7bbfb4517e6236655b5f942da2053f35",
+      "date": "2018-10-23T09:54:35Z",
+      "subject": "[RsR] Pass",
+      "subject_clean": "[RsR] Pass",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "password\n\n\n*******************************************************************\nThis email and any attachments are confidential. Any use...{{dropped:8}}",
+      "body_snippet": "password\n\n\n*******************************************************************\nThis email and any attachments are confidential. Any use...{{dropped:8}}",
+      "thread_id": "thread-e06dc3a5f8f0",
+      "thread_depth": 0,
+      "month": "2018-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-e06dc3a5f8f0",
+      "subject": "[RsR] Pass",
+      "message_count": 1,
+      "participants": [
+        "S Ellison"
+      ],
+      "started": "2018-10-23T09:54:35+00:00",
+      "last_reply": "2018-10-23T09:54:35+00:00",
+      "root_message_id": "msg-e06dc3a5f8f0"
+    }
+  ]
+}

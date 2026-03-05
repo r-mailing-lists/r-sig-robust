@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2024-08",
+  "messages": [
+    {
+      "id": "msg-457fa979cf1f",
+      "message_id": "<OxSrQsp0RUm81ee76a_vAg@geopod-ismtpd-canary-0>",
+      "from_name": "mzyphur m@iii@g oii i@st@ts@org",
+      "from_email_hash": "252b54e096b1cc2b7cae76e00ed703f3596525227cfc47687b655cf5c7e64f69",
+      "date": "2024-08-20T08:20:01Z",
+      "subject": "[RsR] Using ChatGPT and Copilot for Data Analysis in R - livestream seminar",
+      "subject_clean": "[RsR] Using ChatGPT and Copilot for Data Analysis in R - livestream seminar",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240820/2eb6f066/attachment.html>",
+      "body_snippet": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240820/2eb6f066/attachment.html>",
+      "thread_id": "thread-457fa979cf1f",
+      "thread_depth": 0,
+      "month": "2024-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-457fa979cf1f",
+      "subject": "[RsR] Using ChatGPT and Copilot for Data Analysis in R - livestream seminar",
+      "message_count": 1,
+      "participants": [
+        "mzyphur m@iii@g oii i@st@ts@org"
+      ],
+      "started": "2024-08-20T08:20:01+00:00",
+      "last_reply": "2024-08-20T08:20:01+00:00",
+      "root_message_id": "msg-457fa979cf1f"
+    }
+  ]
+}

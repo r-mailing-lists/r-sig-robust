@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2007-05",
+  "messages": [
+    {
+      "id": "msg-2121434415f3",
+      "message_id": "<464DC766.10704@duke.edu>",
+      "from_name": "Ibrahim Alameddine",
+      "from_email_hash": "a35b6485e98a734e38cc0450c0be4ec8449db263f87b459410926ee68b25065f",
+      "date": "2007-05-18T11:33:58-04:00",
+      "subject": "[RsR] rrcov CovMest",
+      "subject_clean": "[RsR] rrcov CovMest",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am a PhD student at Duke University working on water quality. I am \ntrying to use CovMest to identify outliers in my dataset. The function \nworks well, but I am confused about the difference between the two \ngenerated weight vectors \"wt\" and \"vt\". What is \"vt\" exactly?\n\nKind regards,\nIbrahim\n\n-- \nIbrahim Alameddine\nPhD Student\nEnvironmental Science and Policy\nNicholas School of the Environment\nBox 90328, Duke University\nDurham, NC 27708-0328\noffice: 919-613-8054\nEmail: ima4 at duke.edu",
+      "body_snippet": "I am a PhD student at Duke University working on water quality. I am \ntrying to use CovMest to identify outliers in my dataset. The function \nworks well, but I am confused about the difference between",
+      "thread_id": "thread-2121434415f3",
+      "thread_depth": 0,
+      "month": "2007-05"
+    },
+    {
+      "id": "msg-1daafa87e805",
+      "message_id": "<4c0e456b0705210228q7f992525r112b726c57553eea@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2007-05-21T11:28:43+02:00",
+      "subject": "[RsR] rrcov CovMest",
+      "subject_clean": "[RsR] rrcov CovMest",
+      "in_reply_to": "<464DC766.10704@duke.edu>",
+      "references": [
+        "<464DC766.10704@duke.edu>"
+      ],
+      "body_plain": "Dear Ibrahim,\n\nAs I wrote you on Friday (write me if you did not receive my mail),\nfor outlier detection you do not need to bother about these weights,\nbut rather take the distances returned by the method getDistances().\n\nThe weights wt and vt are used in the iterative computation of the\nS/Constrained M estimates and you can find the necessary formulas in\n\nDavid L. Woodruff, David M. Rocke, (1994) Computable Robust Estimation\nof Multivariate Location and Shape in High Dimension Using Compound\nEstimators, Journal of the American Statistical Association, Vol. 89,\nNo. 427, pp. 888-896\n\nhttp://links.jstor.org/sici?sici=0162-1459(199409)89%3A427%3C888%3ACREOML%3E2.0.CO%3B2-Y\n\n\n(which is referred to in the help).\n\nOff-list I am sending you a pdf with the description of the algorithm\nand I promise to add it to the help file.\n\nBest regards,\nValentin\n\n\n\nOn 5/18/07, Ibrahim Alameddine <ima4 at duke.edu> wrote:\n> I am a PhD student at Duke University working on water quality. I am\n> trying to use CovMest to identify outliers in my dataset. The function\n> works well, but I am confused about the difference between the two\n> generated weight vectors \"wt\" and \"vt\". What is \"vt\" exactly?\n>\n> Kind regards,\n> Ibrahim\n>\n> --\n> Ibrahim Alameddine\n> PhD Student\n> Environmental Science and Policy\n> Nicholas School of the Environment\n> Box 90328, Duke University\n> Durham, NC 27708-0328\n> office: 919-613-8054\n> Email: ima4 at duke.edu\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Dear Ibrahim,\n\nAs I wrote you on Friday (write me if you did not receive my mail),\nfor outlier detection you do not need to bother about these weights,\nbut rather take the distances returned by the me",
+      "thread_id": "thread-2121434415f3",
+      "thread_depth": 1,
+      "month": "2007-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-2121434415f3",
+      "subject": "[RsR] rrcov CovMest",
+      "message_count": 2,
+      "participants": [
+        "Ibrahim Alameddine",
+        "Valentin Todorov"
+      ],
+      "started": "2007-05-18T11:33:58-04:00",
+      "last_reply": "2007-05-21T11:28:43+02:00",
+      "root_message_id": "msg-2121434415f3"
+    }
+  ]
+}

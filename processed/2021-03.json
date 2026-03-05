@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2021-03",
+  "messages": [
+    {
+      "id": "msg-7c28f89a4a2d",
+      "message_id": "<2bf573ca88c1b88ebf0a82375796409f.squirrel@webmail.amen.pt>",
+      "from_name": "Eduardo Conceicao",
+      "from_email_hash": "c4dbf86a4af9ce97784da9579408f914309404e89fcc0ec282a13d6a2dfc0e96",
+      "date": "2021-03-19T16:45:53Z",
+      "subject": "[RsR] Comparing M-estimators requires the same value of efficiency?",
+      "subject_clean": "[RsR] Comparing M-estimators requires the same value of efficiency?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nIn my field (chemical engineering) it is accepted in the literature that\ncomparing regression M-estimators *must* be done for the same value of\nasymptotic efficiency.\n\nHowever let us assume that for a particular instance  of a problem and for\nsome performance criterion:\n\n- M-estimator A reaches the highest performance at 95% efficiency, and\n- M-estimator B has the best performance at 80% efficiency.\n\nI do not see any sense in comparing *both* the estimators at 80% or 95%.\n\nAlso, for some estimators of different kind, comparing at the same value\nof efficiency would be impossible, for instance, an M-estimator and LMS\nboth at 95%.\n\nAm I missing something here? Is there any theorem stating that different\nM-estimators reach the best performance for the same asymptotic efficiency\nin the same problem with the same performance criterion?\n\nI would appreciate any comments that you may have.\n\nEduardo Conceicao\nSincerely",
+      "body_snippet": "Dear all,\n\nIn my field (chemical engineering) it is accepted in the literature that\ncomparing regression M-estimators *must* be done for the same value of\nasymptotic efficiency.\n\nHowever let us assume",
+      "thread_id": "thread-7c28f89a4a2d",
+      "thread_depth": 0,
+      "month": "2021-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-7c28f89a4a2d",
+      "subject": "[RsR] Comparing M-estimators requires the same value of efficiency?",
+      "message_count": 1,
+      "participants": [
+        "Eduardo Conceicao"
+      ],
+      "started": "2021-03-19T16:45:53+00:00",
+      "last_reply": "2021-03-19T16:45:53+00:00",
+      "root_message_id": "msg-7c28f89a4a2d"
+    }
+  ]
+}

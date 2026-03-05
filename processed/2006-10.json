@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2006-10",
+  "messages": [
+    {
+      "id": "msg-1e959600dabf",
+      "message_id": "<20061002224053.ADR84009@m4500-03.uchicago.edu>",
+      "from_name": "Uri Hasson",
+      "from_email_hash": "7f4c92df46780d0c75c6c8db3621fb32cdc61306ea6c3479578cdaf2f67939f9",
+      "date": "2006-10-02T22:40:53-05:00",
+      "subject": "[RsR] Question re' MCD, MVE and Pearson's correlation",
+      "subject_clean": "[RsR] Question re' MCD, MVE and Pearson's correlation",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear group members,\n\nI have posted this question on the R-help mailing list, but\ndid not get any reply. Could anyone here point me to the right\ndirection?\n\nCheers,\nUri Hasson\n\nMessage:\nI am trying to use MCD and MVE methods in the analysis of\nfunctional imaging\n(fMRI) data. But, before doing that, I want to understand the\nsampling distribution of the correlation parameter given by\nMCD and MVE (cov.mcd$cor, cov.mve$cor).\n\nTo this end, I conducted a simulation where in each of 100000\nepochs, I\na.    construct a matrix from two vectors, each containing 40\nnumbers\nrandomly sampled from a normal distribution.\nb.    apply cov.mve and cov.mcd to the resulting matrix.\nc.    obtain the correlations in the subsets selected by\ncor.mve: e.g., if\nthe matrix is called cormat20.ans, I request:\n\ncurrent.mve20 <- round(cov.mve(cormat20.ans, cor=T)$cor[[2]] ,3)\n\nAt the end of the day, I have the sampling distribution for\nthese correlations [i.e., what correlations exist in the\nsubsets that MVE and MCD tend to pick up when sampling from\nnormal distribution].\n\nHere is my question: Because MVE and MCD select the most\ncentral 20 points (of the 40), I wanted to compare the\nresulting sampling distributions to that of a Pearson's \"r\"\ncorrelation coefficient (i.e., a Pearson's r with\nN=20; the goal was to establish whether the significance\nthresholds are similar).  However the three sampling\ndistributions are quite different. That is, the sampling\ndistribution of Pearson's R (N=20) is very different\nthan that of cov.mve and cov.mcd (with N=20 [20 being the\nsubset selected of the 40 points]).  The sampling distribution\nof Pearson's R with N=40 is also very different than that of\nMVE and MCD.\n\nIf anyone knows, or could point me to sources information that\ndiscuss the issue of the sampling distribution of of\ncov.mve$cor and cov.mcd$cor and their relations to the\npearson's R, I would be very grateful.\n\nI have put the simulation code I used here:\nhttp://home.uchicago.edu/~uhasson/pearson-mcd-mve.R.txt\n\nAnd an image of the resulting sampling distributions here:\nhttp://home.uchicago.edu/~uhasson/correl.comparison.tiff\n\n\nSincerely,\nUri Hasson\nThe Brain Research Imaging Center\nThe University of Chicago",
+      "body_snippet": "Dear group members,\n\nI have posted this question on the R-help mailing list, but\ndid not get any reply. Could anyone here point me to the right\ndirection?\n\nCheers,\nUri Hasson\n\nMessage:\nI am trying to ",
+      "thread_id": "thread-1e959600dabf",
+      "thread_depth": 0,
+      "month": "2006-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-1e959600dabf",
+      "subject": "[RsR] Question re' MCD, MVE and Pearson's correlation",
+      "message_count": 1,
+      "participants": [
+        "Uri Hasson"
+      ],
+      "started": "2006-10-02T22:40:53-05:00",
+      "last_reply": "2006-10-02T22:40:53-05:00",
+      "root_message_id": "msg-1e959600dabf"
+    }
+  ]
+}

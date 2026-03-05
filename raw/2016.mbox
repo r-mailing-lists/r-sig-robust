@@ -1,0 +1,651 @@
+From rk@t @end|ng |rom zh@w@ch  Mon Feb  1 21:20:10 2016
+From: rk@t @end|ng |rom zh@w@ch (Andreas Ruckstuhl)
+Date: Mon, 1 Feb 2016 21:20:10 +0100
+Subject: [RsR] robustbase: precision of nlrob with plinear algorithm.
+In-Reply-To: <F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>
+References: <F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>
+Message-ID: <56AFBDFA.90501@zhaw.ch>
+
+Dear Jerry
+
+As in the help file to nlrob is noted the conditionallinearity approach 
+fails for robust fitting methods. Unfortunately not anymore by an error 
+message.
+
+If you checkthe output more carefully, you will note that the result of
+nlrob(... , algorithm="plinear" )
+is not reliable:
+DNrfit1 <- nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+                  data=DNase1, start=list(Asym=3,xmid=0,scal=1) )
+DNrfit2 <- nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),
+                  data=DNase1, start=list(xmid=0,scal=1), 
+algorithm="plinear" )
+
+summary(DNrfit1)
+## Residuals:
+##        Min         1Q     Median         3Q Max
+## -0.0322811 -0.0130976 -0.0008932  0.0095784 0.0404174
+
+summary(DNrfit2)
+## Residuals:
+##      Min       1Q   Median       3Q      Max
+## 0.003927 0.107372 0.280145 0.641955 1.002490
+
+Here all residuals are positive!
+
+I have not (jet) understood what goes wrong. Hence,we should disable 
+this argument (for the moment).
+
+Thanks for your hint.
+
+All the best
+Andreas
+
+
+
+Am 28.01.2016 um 06:37 schrieb Jerry Lewis:
+>
+> In nls, plinear simplifies the search for the LS estimate by 
+> simplifying the optimization through dimension reduction.  Output 
+> (including standard errors are completely equivalent, provided that 
+> that the higher dimensional ordinary Gauss-Newton optimization is able 
+> to adequately find the least squares estimates.
+>
+> The first example for nlrob suggests that this is only partially true 
+> for nlrob.  To the displayed precision almost everything (robustness 
+> weights, robust residual SE and parameter estimates) are identical 
+> between plinear and ordinary Gauss-Newton, but the standard errors of 
+> parameter estimates from plinear are 2.769 times larger for each 
+> parameter.  Is this a bug in the code, or is there a theoretical 
+> reason why this should be so?
+>
+> Thanks,
+>
+> Jerry W. Lewis, PhD
+>
+> Principal Biostatistician
+>
+> Biogen
+>
+> 225 Binney St
+>
+> Cambridge, MA 02142
+>
+> library(robustbase)
+>
+> DNase1 <- DNase[ DNase$Run == 1, ]
+>
+> with(DNase1,plot(conc,density,log="x"))
+>
+> # plinear and Gauss-Newton get the same robustness weights, robust 
+> residual SE, and parameter estimates,
+>
+> # why then are the standard errors different?
+>
+> # Given that, why are the plinear standard errors larger when when the 
+> comment in the example
+>
+> summary( nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+>
+>          data=DNase1, start=list(Asym=3,xmid=0,scal=1) ) )
+>
+> summary( nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),
+>
+>          data=DNase1, start=list(xmid=0,scal=1), algorithm="plinear" ) )
+>
+
+-- 
+----------------------------------------------------------------------
+
+Prof. Dr. Andreas Ruckstuhl
+Schwerpunktleiter Statistische Datenanalyse
+IDP Institut f?r Datenanalyse und Prozessdesign
+ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+Postfach                          Fax   : +41 (0)58 935 78 12
+CH-8401 Winterthur                e-Mail:Andreas.Ruckstuhl at zhaw.ch
+                                   WWW   :http://www.idp.zhaw.ch
+
+
+
+From rk@t @end|ng |rom zh@w@ch  Wed Feb  3 07:41:53 2016
+From: rk@t @end|ng |rom zh@w@ch (Andreas Ruckstuhl)
+Date: Wed, 3 Feb 2016 07:41:53 +0100
+Subject: [RsR] robustbase: precision of nlrob with plinear algorithm.
+In-Reply-To: <F35566C3BE44C946999C7AA38965FA7B6147F221@biommmbx03.resource.corp.biogen.com>
+References: <F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>
+	<56AFBDFA.90501@zhaw.ch>
+	<F35566C3BE44C946999C7AA38965FA7B6147F221@biommmbx03.resource.corp.biogen.com>
+Message-ID: <56B1A131.1000300@zhaw.ch>
+
+Maybe.- Maybe not, because the result of the plinear estimates is very 
+strange and might be too far off the final estimates.
+At the very moment, I have absolutely no trust in the plinear estimate 
+and I prefer to disregard themuntil I understand better what is going on.
+
+Andreas
+
+Am 01.02.2016 um 21:34 schrieb Jerry Lewis:
+> Thanks for your response.  Would a better workaround be to use the plinear estimates as starting values for the full Gauss-Newton?
+>
+> Jerry
+>
+> -----Original Message-----
+> From: Andreas Ruckstuhl [mailto:rkst at zhaw.ch]
+> Sent: Monday, February 01, 2016 3:20 PM
+> To: Jerry Lewis
+> Cc: Martin Maechler; r-sig-robust
+> Subject: Re: robustbase: precision of nlrob with plinear algorithm.
+>
+> Dear Jerry
+>
+> As in the help file to nlrob is noted the conditionallinearity approach fails for robust fitting methods. Unfortunately not anymore by an error message.
+>
+> If you checkthe output more carefully, you will note that the result of nlrob(... , algorithm="plinear" ) is not reliable:
+> DNrfit1 <- nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+>                    data=DNase1, start=list(Asym=3,xmid=0,scal=1) )
+> DNrfit2 <- nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),
+>                    data=DNase1, start=list(xmid=0,scal=1), algorithm="plinear" )
+>
+> summary(DNrfit1)
+> ## Residuals:
+> ##        Min         1Q     Median         3Q Max
+> ## -0.0322811 -0.0130976 -0.0008932  0.0095784 0.0404174
+>
+> summary(DNrfit2)
+> ## Residuals:
+> ##      Min       1Q   Median       3Q      Max
+> ## 0.003927 0.107372 0.280145 0.641955 1.002490
+>
+> Here all residuals are positive!
+>
+> I have not (jet) understood what goes wrong. Hence,we should disable this argument (for the moment).
+>
+> Thanks for your hint.
+>
+> All the best
+> Andreas
+>
+>
+>
+> Am 28.01.2016 um 06:37 schrieb Jerry Lewis:
+>> In nls, plinear simplifies the search for the LS estimate by
+>> simplifying the optimization through dimension reduction.  Output
+>> (including standard errors are completely equivalent, provided that
+>> that the higher dimensional ordinary Gauss-Newton optimization is able
+>> to adequately find the least squares estimates.
+>>
+>> The first example for nlrob suggests that this is only partially true
+>> for nlrob.  To the displayed precision almost everything (robustness
+>> weights, robust residual SE and parameter estimates) are identical
+>> between plinear and ordinary Gauss-Newton, but the standard errors of
+>> parameter estimates from plinear are 2.769 times larger for each
+>> parameter.  Is this a bug in the code, or is there a theoretical
+>> reason why this should be so?
+>>
+>> Thanks,
+>>
+>> Jerry W. Lewis, PhD
+>>
+>> Principal Biostatistician
+>>
+>> Biogen
+>>
+>> 225 Binney St
+>>
+>> Cambridge, MA 02142
+>>
+>> library(robustbase)
+>>
+>> DNase1 <- DNase[ DNase$Run == 1, ]
+>>
+>> with(DNase1,plot(conc,density,log="x"))
+>>
+>> # plinear and Gauss-Newton get the same robustness weights, robust
+>> residual SE, and parameter estimates,
+>>
+>> # why then are the standard errors different?
+>>
+>> # Given that, why are the plinear standard errors larger when when the
+>> comment in the example
+>>
+>> summary( nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+>>
+>>           data=DNase1, start=list(Asym=3,xmid=0,scal=1) ) )
+>>
+>> summary( nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),
+>>
+>>           data=DNase1, start=list(xmid=0,scal=1), algorithm="plinear" )
+>> )
+>>
+> --
+> ----------------------------------------------------------------------
+>
+> Prof. Dr. Andreas Ruckstuhl
+> Schwerpunktleiter Statistische Datenanalyse IDP Institut f?r Datenanalyse und Prozessdesign ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+> Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+> Postfach                          Fax   : +41 (0)58 935 78 12
+> CH-8401 Winterthur                e-Mail:Andreas.Ruckstuhl at zhaw.ch
+>                                     WWW   :http://www.idp.zhaw.ch
+> ----------------------------------------------------------------------
+>
+
+-- 
+----------------------------------------------------------------------
+
+Prof. Dr. Andreas Ruckstuhl
+Schwerpunktleiter Statistische Datenanalyse
+IDP Institut f?r Datenanalyse und Prozessdesign
+ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+Postfach                          Fax   : +41 (0)58 935 78 12
+CH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch
+                                   WWW   : http://www.idp.zhaw.ch
+
+
+
+From jerry@|ew|@ @end|ng |rom b|ogen@com  Mon Feb  1 21:34:24 2016
+From: jerry@|ew|@ @end|ng |rom b|ogen@com (Jerry Lewis)
+Date: Mon, 1 Feb 2016 20:34:24 +0000
+Subject: [RsR] robustbase: precision of nlrob with plinear algorithm.
+In-Reply-To: <56AFBDFA.90501@zhaw.ch>
+References: <F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>
+	<56AFBDFA.90501@zhaw.ch>
+Message-ID: <F35566C3BE44C946999C7AA38965FA7B6147F221@biommmbx03.resource.corp.biogen.com>
+
+Thanks for your response.  Would a better workaround be to use the plinear estimates as starting values for the full Gauss-Newton?
+
+Jerry
+
+-----Original Message-----
+From: Andreas Ruckstuhl [mailto:rkst at zhaw.ch] 
+Sent: Monday, February 01, 2016 3:20 PM
+To: Jerry Lewis
+Cc: Martin Maechler; r-sig-robust
+Subject: Re: robustbase: precision of nlrob with plinear algorithm.
+
+Dear Jerry
+
+As in the help file to nlrob is noted the conditionallinearity approach fails for robust fitting methods. Unfortunately not anymore by an error message.
+
+If you checkthe output more carefully, you will note that the result of nlrob(... , algorithm="plinear" ) is not reliable:
+DNrfit1 <- nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+                  data=DNase1, start=list(Asym=3,xmid=0,scal=1) )
+DNrfit2 <- nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),
+                  data=DNase1, start=list(xmid=0,scal=1), algorithm="plinear" )
+
+summary(DNrfit1)
+## Residuals:
+##        Min         1Q     Median         3Q Max
+## -0.0322811 -0.0130976 -0.0008932  0.0095784 0.0404174
+
+summary(DNrfit2)
+## Residuals:
+##      Min       1Q   Median       3Q      Max
+## 0.003927 0.107372 0.280145 0.641955 1.002490
+
+Here all residuals are positive!
+
+I have not (jet) understood what goes wrong. Hence,we should disable this argument (for the moment).
+
+Thanks for your hint.
+
+All the best
+Andreas
+
+
+
+Am 28.01.2016 um 06:37 schrieb Jerry Lewis:
+>
+> In nls, plinear simplifies the search for the LS estimate by 
+> simplifying the optimization through dimension reduction.  Output 
+> (including standard errors are completely equivalent, provided that 
+> that the higher dimensional ordinary Gauss-Newton optimization is able 
+> to adequately find the least squares estimates.
+>
+> The first example for nlrob suggests that this is only partially true 
+> for nlrob.  To the displayed precision almost everything (robustness 
+> weights, robust residual SE and parameter estimates) are identical 
+> between plinear and ordinary Gauss-Newton, but the standard errors of 
+> parameter estimates from plinear are 2.769 times larger for each 
+> parameter.  Is this a bug in the code, or is there a theoretical 
+> reason why this should be so?
+>
+> Thanks,
+>
+> Jerry W. Lewis, PhD
+>
+> Principal Biostatistician
+>
+> Biogen
+>
+> 225 Binney St
+>
+> Cambridge, MA 02142
+>
+> library(robustbase)
+>
+> DNase1 <- DNase[ DNase$Run == 1, ]
+>
+> with(DNase1,plot(conc,density,log="x"))
+>
+> # plinear and Gauss-Newton get the same robustness weights, robust 
+> residual SE, and parameter estimates,
+>
+> # why then are the standard errors different?
+>
+> # Given that, why are the plinear standard errors larger when when the 
+> comment in the example
+>
+> summary( nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+>
+>          data=DNase1, start=list(Asym=3,xmid=0,scal=1) ) )
+>
+> summary( nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),
+>
+>          data=DNase1, start=list(xmid=0,scal=1), algorithm="plinear" ) 
+> )
+>
+
+--
+----------------------------------------------------------------------
+
+Prof. Dr. Andreas Ruckstuhl
+Schwerpunktleiter Statistische Datenanalyse IDP Institut f?r Datenanalyse und Prozessdesign ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+Postfach                          Fax   : +41 (0)58 935 78 12
+CH-8401 Winterthur                e-Mail:Andreas.Ruckstuhl at zhaw.ch
+                                   WWW   :http://www.idp.zhaw.ch
+
+
+
+From 1456861180 @end|ng |rom qq@com  Sat Mar 19 13:25:31 2016
+From: 1456861180 @end|ng |rom qq@com (=?gb18030?B?zOzUtC0t?=)
+Date: Sat, 19 Mar 2016 20:25:31 +0800
+Subject: [RsR] cancer-pred
+Message-ID: <tencent_117207961428FC115695B7F7@qq.com>
+
+hello?I have cancer-pred data.I want to read the data into R and output the first list variable y with below  statement,
+but I always get the wrong result.which I need to amend?
+       mydata<-read.table("C:/Users/Desktop/cancer-pred.txt",na.string=".",header=T)
+       mydata<-as.data.frame(mydata)
+        y
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20160319/1d927bce/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: cancer-pred.txt
+Type: application/octet-stream
+Size: 6554 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20160319/1d927bce/attachment.obj>
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Mon Mar 21 00:09:38 2016
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Mon, 21 Mar 2016 00:09:38 +0100
+Subject: [RsR] cancer-pred
+In-Reply-To: <tencent_117207961428FC115695B7F7@qq.com>
+References: <tencent_117207961428FC115695B7F7@qq.com>
+Message-ID: <CAOmnhGftdxLRyMVPVjggA3v9gB+81R8UKoKuzqpqQdxrQe5bGA@mail.gmail.com>
+
+Dear Tianyuan,
+
+I do not think this is the right place to ask this question.
+
+However, if your data frame has a variable y - to see this try head(mydata)
+-
+
+you can see the variable y with the command
+
+mydata$y
+
+Best regards,
+Valentin
+
+
+
+On Sat, Mar 19, 2016 at 1:25 PM, ??-- <1456861180 at qq.com> wrote:
+
+> hello?I have cancer-pred data.I want to read the data into R and output
+> the first list variable y with below  statement,
+> but I always get the wrong result.which I need to amend?
+>
+>  mydata<-read.table("C:/Users/Desktop/cancer-pred.txt",na.string=".",header=T)
+>        mydata<-as.data.frame(mydata)
+>         y
+>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+	[[alternative HTML version deleted]]
+
+
+
+From ch@t||e|d @end|ng |rom @|umn|@r|ce@edu  Fri Mar 25 01:30:10 2016
+From: ch@t||e|d @end|ng |rom @|umn|@r|ce@edu (Robert Chatfield)
+Date: Thu, 24 Mar 2016 17:30:10 -0700
+Subject: [RsR] "standard deviation" for slope in rlm rather than standard
+	error
+Message-ID: <D5987341-9B6F-444C-850C-2A1133D4FB27@alumni.rice.edu>
+
+I wish to give general information about confidence in estimates of the
+slope in single-variate rlm         where I try to estimate ?emissions factors? which scale
+pollutant fire-tracer amounts with amounts of fuel burned.  
+
+emissiions.rlm = rlm ( tracer ~ burn.amount + 1)    (default method)
+
+tracer = a * burn.amount + b
+
+Please help with these naive questions: I have found no previous posts
+and am hardly sure that I will find the answers directly in the literature references.
+
+
+Is there a way to associate a ?standard deviation? rather than a ?standard error?
+to the slope estimate.   From the remarks about the value df.residual regarding the 
+predicted-variable standard error, I understand that there must be intricacies.
+
+I do notice that the standard errors for the   slope a   printed  from summary(emissions.rlm) 
+are rather smaller than those from  what I would get from  summary( lm ( tracer ~ burn.amount + 1) )
+with or without omitting completely down weighted cases or using sum( emissiions.rlm$w -2 )
+for the situations I investigate.  When there are no down-weighted observations, they
+seem similar.
+
+I would like to have standard deviations rather than standard errors, since the individual
+observations are not likely completely independent, and it would be difficult and probably
+unwise to attach an independence estimate. (By the way, ?independent? takes on several
+meanings, ?instruments provide independent results? vs ?meteorological variability is or is
+not great?, and the latter idea has several interpretations also.) Those independence 
+questions are at least addressed by separate methods.
+
+
+Now my purpose is to make   _generalized_ comparisons     between similar situations,
+lm using an old estimation methodology for burn.amount
+rlm using the same old estimation methodology for burn.amount
+and
+lm and rlm using what I believe is a better methodology for burn.amount
+
+and where I have several variables to use for ?tracer? in the very same context.
+
+(Also a colleague in an earlier paper has quoted only a standard deviation in using the old
+estimation methodology for burn.amount, ? no doubt for very similar reasons.)
+
+
+Of course I give a warning that the quoted standard deviations or standard errors must 
+used carefully and mostly compared to one another.
+
+Perhaps there are ways to guess intent in the rlm R code, but I hesitate a bit.
+
+Bob Chatfield
+
+
+
+
+
+Robert Chatfield, Research Scientist
+Earth System Science, Atmospherics
+Mail Stop 245-5
+NASA Ames Research Center
+Moffett Field, CA 94035  USA
+ph: 650-604-5490  cell: 650-793-5227
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Mar 28 10:24:18 2016
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 28 Mar 2016 10:24:18 +0200
+Subject: [RsR] [R] Robust ANCOVA
+In-Reply-To: <3089FB6F-BDC4-4083-8D5F-C75B4CBBFFAC@comcast.net>
+References: <862738374.1254636.1459097522717.JavaMail.yahoo.ref@mail.yahoo.com>
+	<862738374.1254636.1459097522717.JavaMail.yahoo@mail.yahoo.com>
+	<3089FB6F-BDC4-4083-8D5F-C75B4CBBFFAC@comcast.net>
+Message-ID: <22264.59954.919241.878977@stat.math.ethz.ch>
+
+>>>>> David Winsemius <dwinsemius at comcast.net>
+>>>>>     on Sun, 27 Mar 2016 19:30:31 -0700 writes:
+
+    >> On Mar 27, 2016, at 9:52 AM, HAMID REZA ASHRAFI via
+    >> R-help <r-help at r-project.org> wrote:
+    >> 
+    >> HiI have a set of data with two independent variables, a
+    >> pretest (covariate) and posttest (dependent variable).Can
+    >> anyone help me run robust ANCOVA?If you wish I can send
+    >> you the data file.yours [[alternative HTML version
+    >> deleted]]
+
+    > https://cran.r-project.org/web/views/Robust.html
+
+    > help(pac=MASS, rlm)
+
+    > # A starting point perhaps:
+
+    > MASS::rlm( Post ~ pre +IV1 + IV2, data=yourdataframe)
+
+    > David Winsemius Alameda, CA, USA
+
+Indeed.
+Or use the more sophisticated (and somewhat more robust /
+efficient) methods from package 'robustbase'
+
+install.packages("robustbase")
+require("robustbase")
+fm <- lmrob(Post ~ pre +IV1 + IV2, setting = "KS2014",
+            data=yourdataframe)
+
+
+where recent research lead to the recommendation of  setting="KS2014",
+which indeed maybe relevant for "ANCOVA".
+
+Martin Maechler, ETH Zurich
+(and maintainer of 'robustbase', hence "biased" !)
+
+
+
+From n|k@@@u@@c @end|ng |rom gm@||@com  Tue Aug  2 23:34:35 2016
+From: n|k@@@u@@c @end|ng |rom gm@||@com (=?UTF-8?Q?Nika_Su=C5=A1ac?=)
+Date: Tue, 2 Aug 2016 23:34:35 +0200
+Subject: [RsR] Estimators for non-normal data in lavaan
+Message-ID: <CAMmS1WhvoWOm2r1Z39xUk4jkCjvciPzYWo5F__U9rehoUJax-Q@mail.gmail.com>
+
+Hello!
+I was directed to this mailing list from the r-help mailing list - I hope
+I'm in the right place.
+I have non-normal data (items are continuous on a 9-point scale, but not
+normally distributed) and I want to conduct a confirmatory factor analysis
+in lavaan. I am aware that there are several robust options (MLM, MLMVS,
+MLMV, MLF, MLR) available for the estimators, but I'm not sure which one to
+use and how to make that decision.
+Could anyone give me some guidelines, please?
+Thank you a lot in advance!
+
+	[[alternative HTML version deleted]]
+
+
+
+From v@r|n@@ch@ @end|ng |rom y@hoo@|r  Sun Aug  7 20:40:22 2016
+From: v@r|n@@ch@ @end|ng |rom y@hoo@|r (varin sacha)
+Date: Sun, 7 Aug 2016 18:40:22 +0000 (UTC)
+Subject: [RsR] BCa bootstrapped CIs for glmrob
+References: <17970887.18563275.1470595222405.JavaMail.yahoo.ref@mail.yahoo.com>
+Message-ID: <17970887.18563275.1470595222405.JavaMail.yahoo@mail.yahoo.com>
+
+Dear R-experts,
+
+I am trying to calculate the BCa bootstrapped confidence intervals of a robust (binary) logistic regression. The end of my code is not working, I get an error message. Would it be possible to tell me what is going wrong ? Thanks
+
+
+Here is the reproducible example (fake dataset) :
+
+Dataset = data.frame(answered=c("femme","homme","homme","femme","femme","homme","homme","homme","femme","homme","femme","femme","homme","femme","homme","homme","femme","femme","homme","homme","femme","femme","homme","femme","homme","femme","homme","homme","femme","homme","homme","femme","homme","femme"),
+
+QUALITESANSREDONDANCE=c(1082.5,1066.6,1079.3,1079.9,1074.9,1008.6,1007.5,1111.3,1108.2,1109.7,1059.6,1165.1,1026.7,1035.1,997.8,1044.8,1073.6,1085.7,1083.8,1021.6,1036.2,1075.3,1069.3,1101.4,1086.9,1072.1,1166.7,983.9,1004.5,1082.5,1123.5,1094.9,1105.1,1010.8),
+
+competitivite=c(89,83,78,73,90,71,77,85,61,67,98,82,70,43,57,78,72,79,61,71,86,63,90,75,87,64,60,56,66,80,53,91,97,62),
+
+innovation=c(56,52,53,54,57,43,54,60,47,55,58,62,52,35,47,59,56,56,45,52,58,33,57,57,61,40,45,41,50,61,50,65,68,34),
+
+satisfait=c(1,2,3,4,3,2,1,2,3,4,4,3,2,2,1,1,2,3,4,3,2,1,2,3,4,1,2,3,4,3,2,1,2,3))
+
+Dataset$satisfait=factor(Dataset$satisfait,levels=c(1,2,3,4),labels=c("pas satisfait", "moyennement satisfait", "satisfait", "tr?s satisfait"))
+as.ordered(Dataset$satisfait)
+
+library("robustbase")
+newdata=na.omit(Dataset)
+
+fm.glmrob=glmrob(answered ~ QUALITESANSREDONDANCE + competitivite + innovation + satisfait, data=newdata, family=binomial)
+fm.glmrob
+
+boot.GLMrob=function(formula,data,indices)
+{
+d=data[indices,]
+fit=glmrob(formula,data=d,family=binomial)
+return(coef(fit))
+}
+library(boot)
+results=boot(data=newdata, statistic=boot.GLMrob, R=1000, formula=answered ~ QUALITESANSREDONDANCE + competitivite + innovation + satisfait)
+boot.ci(results, type= "bca",index=2)
+
+
+
+From ecc@_pede@ @end|ng |rom y@hoo@com  Sat Oct  8 02:36:00 2016
+From: ecc@_pede@ @end|ng |rom y@hoo@com (Eka Kusumawati)
+Date: Sat, 8 Oct 2016 00:36:00 +0000 (UTC)
+Subject: [RsR] efficieny estimator
+In-Reply-To: <1672227249.157018.1475886721269@mail.yahoo.com>
+References: <1672227249.157018.1475886721269.ref@mail.yahoo.com>
+	<1672227249.157018.1475886721269@mail.yahoo.com>
+Message-ID: <794429861.151753.1475886960358@mail.yahoo.com>
+
+
+
+Dear to members,I want to ask syntax in R to investigate the efficiency of the OLS (ordinary least square) method in multivariate regression and robust multivariate regression. 
+how to calculate efficiency of coefficient multivariate regression (intercept and slope) using R? if p-variate predictors p=4, q-variate response=4, sample size n=50 from multivariate standart Gaussian distributions N(0,I_p+q), m=1000 replications, gamma=0.25. and formula to finite-sample efficiency of the slope is 1/var(B_hat) where
+and
+please help me to make the syntax for OLS in multivariate regression...Thank you...
+
+
+   
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20161008/5e407f75/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: datauri-file.png
+Type: image/png
+Size: 4543 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20161008/5e407f75/attachment.png>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: datauri-file.png
+Type: image/png
+Size: 2426 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20161008/5e407f75/attachment-0001.png>
+

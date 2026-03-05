@@ -1,0 +1,74 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2020-07",
+  "messages": [
+    {
+      "id": "msg-51a567173532",
+      "message_id": "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2020-07-10T16:37:47+05:30",
+      "subject": "[RsR] A question about robust estimation of a mean from multiple instruments",
+      "subject_clean": "[RsR] A question about robust estimation of a mean from multiple instruments",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I have a question about a robust location estimator when faced with the\nfollowing situation:\n\nThere are n instruments, and each instrument has a different measurement\nstandard error.\n\nI can just treat the data x as i.i.d and our standard concepts of lmRob()\nwould do a lot.\n\nBut in truth, in this problem, we know more. We have a standard error\nestimate of each instrument. We should be able to utilise this, e.g. when\nwe see a weird value from an untrusted instrument we should be more willing\nto disregard it.\n\nHow would one go about this? I would greatly appreciate pointers. I am\nhappy to place sample 25-observation datasets here if it's fun.\n\n-- \nAjay Shah\najayshah at mayin.org\nhttp://www.mayin.org/ajayshah\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I have a question about a robust location estimator when faced with the\nfollowing situation:\n\nThere are n instruments, and each instrument has a different measurement\nstandard error.\n\nI can just treat",
+      "thread_id": "thread-51a567173532",
+      "thread_depth": 0,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-44ab67417abb",
+      "message_id": "<31b71e77-76b4-9f92-56fb-24399d96cc2f@zhaw.ch>",
+      "from_name": "Rene Locher",
+      "from_email_hash": "53e0d8835ca85130821376542b8c662f34dab54740009b20d7a233c29e5f084e",
+      "date": "2020-07-10T14:36:39+02:00",
+      "subject": "[RsR]  A question about robust estimation of a mean from multiple instruments",
+      "subject_clean": "[RsR]  A question about robust estimation of a mean from multiple instruments",
+      "in_reply_to": "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>",
+      "references": [
+        "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>"
+      ],
+      "body_plain": "Use the argument \"weight\" in lmrob() for this purpose.\n\nAm 10.07.20 um 13:07 schrieb Ajay Shah:\n> I have a question about a robust location estimator when faced with the\n> following situation:\n> \n> There are n instruments, and each instrument has a different measurement\n> standard error.\n> \n> I can just treat the data x as i.i.d and our standard concepts of lmRob()\n> would do a lot.\n> \n> But in truth, in this problem, we know more. We have a standard error\n> estimate of each instrument. We should be able to utilise this, e.g. when\n> we see a weird value from an untrusted instrument we should be more willing\n> to disregard it.\n> \n> How would one go about this? I would greatly appreciate pointers. I am\n> happy to place sample 25-observation datasets here if it's fun.\n> \n\n-- \nDr. Ren? Locher\nZ?rcher Hochschule f?r Angewandte Wissenschaften (ZHAW)\nInstitut f?r Datenanalyse und Prozessdesign (IDP)\nRosenstrasse 3\nCH-8401 Winterthur\nhttp://www.zhaw.ch/idp\nhttps://home.zhaw.ch/~lore/\n\nE-Mail: rene.locher at zhaw.ch\nTel:    +41 58 934 7810\nFax:    +41 58 935 7810",
+      "body_snippet": "Use the argument \"weight\" in lmrob() for this purpose.\n\nAm 10.07.20 um 13:07 schrieb Ajay Shah:\n> I have a question about a robust location estimator when faced with the\n> following situation:\n> \n> Th",
+      "thread_id": "thread-51a567173532",
+      "thread_depth": 1,
+      "month": "2020-07"
+    },
+    {
+      "id": "msg-49952d233bf0",
+      "message_id": "<24328.24844.630465.11132@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2020-07-10T14:37:32+02:00",
+      "subject": "[RsR]  A question about robust estimation of a mean from multiple instruments",
+      "subject_clean": "[RsR]  A question about robust estimation of a mean from multiple instruments",
+      "in_reply_to": "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>",
+      "references": [
+        "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> Ajay Shah \n>>>>>     on Fri, 10 Jul 2020 16:37:47 +0530 writes:\n\n    > I have a question about a robust location estimator when faced with the\n    > following situation:\n\n    > There are n instruments, and each instrument has a different measurement\n    > standard error.\n\n    > I can just treat the data x as i.i.d and our standard concepts of lmRob()\n    > would do a lot.\n\n    > But in truth, in this problem, we know more. We have a standard error\n    > estimate of each instrument. We should be able to utilise this, e.g. when\n    > we see a weird value from an untrusted instrument we should be more willing\n    > to disregard it.\n\n    > How would one go about this? I would greatly appreciate pointers. I am\n    > happy to place sample 25-observation datasets here if it's fun.\n\n    > -- \n    > Ajay Shah\n    > ajayshah at mayin.org\n    > http://www.mayin.org/ajayshah\n\nDear Ajay,\n\nthis is good question (even better would be *not* to use\neconmetric language but stay with probability and statistics).\n\nYes, do provide the dput() (or other simple reproducible R code to *create*)\na sample data set, so we can use reproducible code here to\nexplore possible answers.\n\nBest regards,\nMartin\n\n--\nMartin Maechler\nETH Zurich  and   R Core Team",
+      "body_snippet": ">>>>> Ajay Shah \n>>>>>     on Fri, 10 Jul 2020 16:37:47 +0530 writes:\n\n    > I have a question about a robust location estimator when faced with the\n    > following situation:\n\n    > There are n instr",
+      "thread_id": "thread-51a567173532",
+      "thread_depth": 1,
+      "month": "2020-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-51a567173532",
+      "subject": "[RsR] A question about robust estimation of a mean from multiple instruments",
+      "message_count": 3,
+      "participants": [
+        "Ajay Shah",
+        "Martin Maechler",
+        "Rene Locher"
+      ],
+      "started": "2020-07-10T16:37:47+05:30",
+      "last_reply": "2020-07-10T14:37:32+02:00",
+      "root_message_id": "msg-51a567173532"
+    }
+  ]
+}

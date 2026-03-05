@@ -1,0 +1,145 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2008-05",
+  "messages": [
+    {
+      "id": "msg-ef8932d9e7ee",
+      "message_id": "<Prayer.1.0.16.0805082043440.26649@wm1.tc.umn.edu>",
+      "from_name": "kh@@x131 m@iii@g oii um@@edu",
+      "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
+      "date": "2008-05-08T20:43:44-05:00",
+      "subject": "[RsR] Redescenders  in R",
+      "subject_clean": "[RsR] Redescenders  in R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi Every one,\n\nIs there some codes avaiable in R for M-estimators and Redescending \nM-estimators. if any one knows, please let me know. Thanks Dost,",
+      "body_snippet": "Hi Every one,\n\nIs there some codes avaiable in R for M-estimators and Redescending \nM-estimators. if any one knows, please let me know. Thanks Dost,",
+      "thread_id": "thread-ef8932d9e7ee",
+      "thread_depth": 0,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-a542fba95637",
+      "message_id": "<18469.26051.676379.457533@cmath-5.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-05-10T11:07:15+02:00",
+      "subject": "[RsR] [R] function in nls argument -- robust estimation",
+      "subject_clean": "[RsR] [R] function in nls argument -- robust estimation",
+      "in_reply_to": "<Pine.GSO.4.56.0805091538200.7887@laurel.few.vu.nl>",
+      "references": [
+        "<976999.15746.qm@web44806.mail.sp1.yahoo.com>",
+        "<550981.97072.qm@web44808.mail.sp1.yahoo.com>",
+        "<Pine.GSO.4.56.0805082026370.4871@laurel.few.vu.nl>",
+        "<17145801.post@talk.nabble.com>",
+        "<Pine.GSO.4.56.0805091318240.7887@laurel.few.vu.nl>",
+        "<17146812.post@talk.nabble.com>",
+        "<Pine.GSO.4.56.0805091427030.7887@laurel.few.vu.nl>",
+        "<Pine.GSO.4.56.0805091538200.7887@laurel.few.vu.nl>"
+      ],
+      "body_plain": "Hi Kate and Fernando,\n\nI'm late into this thread,\nbut from reading it I get the impression that Fernando really\nwants to do *robust* (as opposed to least-squares) non-linear\nmodel fitting.  His proposal to set residuals to zero when they\nare outside a given bound is a very special case of an\nM-estimator, namely (if I'm not mistaken) the so-called \"Huber\nskipped-mean\", an M-estimator with psi-function \n   psi <- function(x, k) ifelse(abs(x) <= k, x, 0)\nIt is known that this can be far from optimal, and either using\nHuber-psi or \"a redescender\" such as Tukey's biweight can be\nconsiderably better.\nAlso note that the standard inference (std.errors, P-values, ...)\nthat you'd get from summary(nlsfit) or anova(nls1, nl2) is \n*invalid* here, since you are effectively using *random* weighting.\n\nThe nlrob() function in package 'robustbase'\nimplements M-estimation of nonlinear models directly.\nUnfortunately, how to do correct inference in this situation\nis a hard problem, probably even an open research question in\nparts. I would expect that \"the\" bootstrap should work if you only\nhave a few outliers.\n\nI don't have time at the moment to look at the example data and\nthe model, and show you how to use it for nlrob();\nif you find a way to you it for nls() , then the same should\nwork for nlrob().\n\nI'm CCing this to the specialists for \"Robust Stats with R\"\nmailing list, R-SIG-robust.\n\nBest regards,\nMartin Maechler\nETH Zurich\n\n>>>>> \"KateM\" == Katharine Mullen <kate at few.vu.nl>\n>>>>>     on Fri, 9 May 2008 15:50:08 +0200 (CEST) writes:\n\n    KateM> You can take minpack.lm_1.1-0 (source code and MS Windows build,\n    KateM> respectively) from here:\n\n    KateM> http://www.nat.vu.nl/~kate/minpack.lm_1.1-0.tar.gz\n    KateM> http://www.nat.vu.nl/~kate/minpack.lm_1.1-0.zip\n\n    KateM> The bug that occurs when nprint = 0 is fixed.  Also fixed is another\n    KateM> problem suggested your example: when the argument par is a list, calling\n    KateM> summary on the output of nls.lm was not working.\n\n    KateM> I'll submit the new version to CRAN soon.\n\n    KateM> This disscusion has been fruitful - thanks for it.\n\n    KateM> On Fri, 9 May 2008, Katharine Mullen wrote:\n\n    >> You indeed found a bug.  I can reproduce it (which I should have tried to\n    >> do on other examples in the first place!).  Thanks for finding it.\n    >> \n    >> It will be fixed in version 1.1-0 which I will submit to CRAN soon.\n    >> \n    >> On Fri, 9 May 2008, elnano wrote:\n    >> \n    >> >\n    >> > Find the data (data_nls.lm_moyano.txt) here:\n    >> > ftp://ftp.bgc-jena.mpg.de/pub/outgoing/fmoyano\n    >> >\n    >> >\n    >> >\n    >> > Katharine Mullen wrote:\n    >> > >\n    >> > > Thanks for the details - it sounds like a bug.  You can either send me the\n    >> > > data in an email off-list or make it available on-line somewhere, so that\n    >> > > I and other people can download it.\n    >> > >\n    >> > >\n    >> > > ______________________________________________\n    >> > > R-help at r-project.org mailing list\n    >> > > https://stat.ethz.ch/mailman/listinfo/r-help\n    >> > > PLEASE do read the posting guide\n    >> > > http://www.R-project.org/posting-guide.html\n    >> > > and provide commented, minimal, self-contained, reproducible code.\n    >> > >\n    >> > >\n    >> >\n    >> > --\n    >> > View this message in context: http://www.nabble.com/function-in-nls-argument-tp17108100p17146812.html\n    >> > Sent from the R help mailing list archive at Nabble.com.\n    >> >\n    >> > ______________________________________________\n    >> > R-help at r-project.org mailing list\n    >> > https://stat.ethz.ch/mailman/listinfo/r-help\n    >> > PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n    >> > and provide commented, minimal, self-contained, reproducible code.\n    >> >\n    >> \n    >> ______________________________________________\n    >> R-help at r-project.org mailing list\n    >> https://stat.ethz.ch/mailman/listinfo/r-help\n    >> PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n    >> and provide commented, minimal, self-contained, reproducible code.\n    >> \n\n    KateM> ______________________________________________\n    KateM> R-help at r-project.org mailing list\n    KateM> https://stat.ethz.ch/mailman/listinfo/r-help\n    KateM> PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n    KateM> and provide commented, minimal, self-contained, reproducible code.",
+      "body_snippet": "Hi Kate and Fernando,\n\nI'm late into this thread,\nbut from reading it I get the impression that Fernando really\nwants to do *robust* (as opposed to least-squares) non-linear\nmodel fitting.  His propos",
+      "thread_id": "thread-a542fba95637",
+      "thread_depth": 0,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-4f16b6effc1b",
+      "message_id": "<18469.28011.126148.460529@cmath-5.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-05-10T11:39:55+02:00",
+      "subject": "[RsR] Redescenders  in R",
+      "subject_clean": "[RsR] Redescenders  in R",
+      "in_reply_to": "<Prayer.1.0.16.0805082043440.26649@wm1.tc.umn.edu>",
+      "references": [
+        "<Prayer.1.0.16.0805082043440.26649@wm1.tc.umn.edu>"
+      ],
+      "body_plain": ">>>>> \"k\" == khanx131  <khanx131 at umn.edu>\n>>>>>     on 08 May 2008 20:43:44 -0500 writes:\n\n    k> Hi Every one,\n    k> Is there some codes avaiable in R for M-estimators and Redescending \n    k> M-estimators. if any one knows, please let me know. Thanks Dost,\n\nI'm astonished that no-one else has replied.\n\nThe answer is to use  rlm() from the MASS package\nand use  psi.hampel or psi.bisquare  (or your own!) as psi\nfunction.\n\nNote that MASS is \"support software\" for the MASS book\nwhich explains considerably more about this.\n\nBest regards,\nMartin Maechler, ETH Zurich",
+      "body_snippet": ">>>>> \"k\" == khanx131  <khanx131 at umn.edu>\n>>>>>     on 08 May 2008 20:43:44 -0500 writes:\n\n    k> Hi Every one,\n    k> Is there some codes avaiable in R for M-estimators and Redescending \n    k> M-",
+      "thread_id": "thread-ef8932d9e7ee",
+      "thread_depth": 1,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-207bdc9d1383",
+      "message_id": "<Pine.GSO.4.56.0805101532110.12828@laurel.few.vu.nl>",
+      "from_name": "Katharine Mullen",
+      "from_email_hash": "293f1d8edb774d89132e112808ba6c5ed8752b41a55159968cfc7ea4939c8e1c",
+      "date": "2008-05-10T16:02:08+02:00",
+      "subject": "[RsR] function in nls argument -- robust estimation",
+      "subject_clean": "[RsR] function in nls argument -- robust estimation",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "There has been recent discussion on R-help\n(https://stat.ethz.ch/pipermail/r-help/2008-May/161611.html) regarding a\nnonlinear least squares problem in which residuals above a certain\nquantile are set to zero; the intent \"is to avoid the strong influence of\npoints which push my modeled vs. measured values away from the 1:1 line\".\n\nMartin Maechler pointed out the connection of this approach to robust\nnonlinear regression\n(https://stat.ethz.ch/pipermail/r-help/2008-May/161786.html).  Below is a\nscript for the problem under plain nls, nlrob, and nls.lm with the\nresiduals above a certain quantile zeroed out; maybe someone on this list\nor the OP Fernando wants to comment on how the methods compare?\n\nss <-\nread.table(url(\"ftp://ftp.bgc-jena.mpg.de/pub/outgoing/fmoyano/data_nls.lm_moyano.txt\"),\nskip=1)\n\nST <- ss[!is.na(ss[,3]),1]\nSM <- ss[!is.na(ss[,3]),2]\nSR <- ss[!is.na(ss[,3]),3]\n\n## fit with nls\nnlsRes <- nls(SR ~ (a*SM^2+b*SM+c) * exp(E*((1/(283.15-227.13)) -\n                                            (1/(ST+273.15-227.13)))),\n              start=list(a=-0.003, b=0.13, c=0.50, E=400),\n              control = list(printEval=TRUE))\n\n## fit with nlrob\nlibrary(robustbase)\nnlrobRes <- nlrob(SR ~ (a*SM^2+b*SM+c) * exp(E*((1/(283.15-227.13)) -\n                                              (1/(ST+273.15-227.13)))),\n                data=data.frame(SR),\n                start=list(a=-0.003, b=0.13, c=0.50, E=400),\n                trace=TRUE)\n## note: adding control= list(printEval=TRUE) w/ and w/out trace=TRUE\n##prints strange results\n\n## fit with nls.lm and residual zeroing based on quantile\noptim.f <- function(p, ST, SM, SR, q) {\n  res <- SR - m.f(p)\n  abserr <- abs(res)\n  qnum <- quantile(abserr, probs=q, na.rm=TRUE)\n  res[abserr >  qnum] <- 0\n  res\n}\nm.f <- function(p) (p$a*SM^I(2)+p$b*SM+p$c)*exp(p$E*((1/(283.15-227.13))-\n                                                     (1/(ST+273.15-227.13))))\nlibrary(minpack.lm)\nq <- 0.90\np <- list(a=-0.003, b=0.13, c=0.50, E=400)\nnls.lmRes <- nls.lm(par = p, fn = optim.f, ST = ST, SM = SM, SR = SR,\nq = q, control = nls.lm.control(nprint=1))\n\nplot(SR, type=\"p\")\nlines(fitted(nlsRes), col=3)\n## note: the below line doesn't work; why is nlrobRes$fitted.values\n## empty?\n##lines(fitted(nlrobRes), col=2)\nlines(SR-resid(nlrobRes), col=2)\nlines(m.f(coef(nls.lmRes)), col=4)\nlegend(1000,5,legend=c(\"nls\",\"nlrob\",\"nls.lm w/0'ing\"),lwd=2,col=c(3,2,4))\n\n## observed vs predicted and 1:1 line\npar(mfrow=c(3,1))\nplot(SR~fitted(nlsRes), main=\"nls\")\nlines(seq(0,6,1),seq(0,6,1),col=4)\n\nrobustResult<-(SR-resid(nlrobRes))\nplot(SR~robustResult,main=\"nlrob\")\nlines(seq(0,6,1),seq(0,6,1),col=4)\n\nplot(SR~m.f(coef(nls.lmRes)),main=\"nls.lm w/0'ing\")\nlines(seq(0,6,1),seq(0,6,1),col=4)",
+      "body_snippet": "There has been recent discussion on R-help\n(https://stat.ethz.ch/pipermail/r-help/2008-May/161611.html) regarding a\nnonlinear least squares problem in which residuals above a certain\nquantile are set ",
+      "thread_id": "thread-207bdc9d1383",
+      "thread_depth": 0,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-ad5b3ccd0310",
+      "message_id": "<02D49A492B2D2F46BF3FD743A8255A52F815BCCC@EX7FM02.ad.uky.edu>",
+      "from_name": "Stromberg, Arnold",
+      "from_email_hash": "c1889a124ea347429fcf3fedb737da64742f435373da47d1feb8cbe5a7ce9b23",
+      "date": "2008-05-10T20:11:50-04:00",
+      "subject": "[RsR] [R] function in nls argument -- robust estimation",
+      "subject_clean": "[RsR] [R] function in nls argument -- robust estimation",
+      "in_reply_to": "<18469.26051.676379.457533@cmath-5.math.ethz.ch>",
+      "references": [
+        "<976999.15746.qm@web44806.mail.sp1.yahoo.com>",
+        "<550981.97072.qm@web44808.mail.sp1.yahoo.com>",
+        "<Pine.GSO.4.56.0805082026370.4871@laurel.few.vu.nl>",
+        "<17145801.post@talk.nabble.com>",
+        "<Pine.GSO.4.56.0805091318240.7887@laurel.few.vu.nl>",
+        "<17146812.post@talk.nabble.com>",
+        "<Pine.GSO.4.56.0805091427030.7887@laurel.few.vu.nl>",
+        "<Pine.GSO.4.56.0805091538200.7887@laurel.few.vu.nl>",
+        "<18469.26051.676379.457533@cmath-5.math.ethz.ch>"
+      ],
+      "body_plain": "Martin, Kate, Fernando, et al.\n\nBe careful bootstrapping robust estimators. The trouble is that when resampling is done with replacement, the outliers can be selected too many times which would ruin the standard error estimates. Martin is right that bootstrapping would be fine if there are not too many outliers. Otherwise, Jackknifing will likely work better, especially if you use a delete more than one version. For a zero weight for outliers M estimator, a high breakdown starting value like least trimmed squares would be a good idea.\n\narny\n\nArnold J. Stromberg\nProfessor and Chair\nDepartment of Statistics\nUniversity of Kentucky\n817 Patterson Office Tower\nLexington, KY 40506-0027\nPhone: 859-257-6115\nFax: 859-323-1973\n________________________________________\nFrom: r-sig-robust-bounces at r-project.org [r-sig-robust-bounces at r-project.org] On Behalf Of Martin Maechler [maechler at stat.math.ethz.ch]\nSent: Saturday, May 10, 2008 5:07 AM\nTo: Katharine Mullen; elnano\nCc: r-help at r-project.org; R-SIG-robust at r-project.org\nSubject: Re: [RsR] [R] function in nls argument -- robust estimation\n\nHi Kate and Fernando,\n\nI'm late into this thread,\nbut from reading it I get the impression that Fernando really\nwants to do *robust* (as opposed to least-squares) non-linear\nmodel fitting.  His proposal to set residuals to zero when they\nare outside a given bound is a very special case of an\nM-estimator, namely (if I'm not mistaken) the so-called \"Huber\nskipped-mean\", an M-estimator with psi-function\n   psi <- function(x, k) ifelse(abs(x) <= k, x, 0)\nIt is known that this can be far from optimal, and either using\nHuber-psi or \"a redescender\" such as Tukey's biweight can be\nconsiderably better.\nAlso note that the standard inference (std.errors, P-values, ...)\nthat you'd get from summary(nlsfit) or anova(nls1, nl2) is\n*invalid* here, since you are effectively using *random* weighting.\n\nThe nlrob() function in package 'robustbase'\nimplements M-estimation of nonlinear models directly.\nUnfortunately, how to do correct inference in this situation\nis a hard problem, probably even an open research question in\nparts. I would expect that \"the\" bootstrap should work if you only\nhave a few outliers.\n\nI don't have time at the moment to look at the example data and\nthe model, and show you how to use it for nlrob();\nif you find a way to you it for nls() , then the same should\nwork for nlrob().\n\nI'm CCing this to the specialists for \"Robust Stats with R\"\nmailing list, R-SIG-robust.\n\nBest regards,\nMartin Maechler\nETH Zurich\n\n>>>>> \"KateM\" == Katharine Mullen <kate at few.vu.nl>\n>>>>>     on Fri, 9 May 2008 15:50:08 +0200 (CEST) writes:\n\n    KateM> You can take minpack.lm_1.1-0 (source code and MS Windows build,\n    KateM> respectively) from here:\n\n    KateM> http://www.nat.vu.nl/~kate/minpack.lm_1.1-0.tar.gz\n    KateM> http://www.nat.vu.nl/~kate/minpack.lm_1.1-0.zip\n\n    KateM> The bug that occurs when nprint = 0 is fixed.  Also fixed is another\n    KateM> problem suggested your example: when the argument par is a list, calling\n    KateM> summary on the output of nls.lm was not working.\n\n    KateM> I'll submit the new version to CRAN soon.\n\n    KateM> This disscusion has been fruitful - thanks for it.\n\n    KateM> On Fri, 9 May 2008, Katharine Mullen wrote:\n\n    >> You indeed found a bug.  I can reproduce it (which I should have tried to\n    >> do on other examples in the first place!).  Thanks for finding it.\n    >>\n    >> It will be fixed in version 1.1-0 which I will submit to CRAN soon.\n    >>\n    >> On Fri, 9 May 2008, elnano wrote:\n    >>\n    >> >\n    >> > Find the data (data_nls.lm_moyano.txt) here:\n    >> > ftp://ftp.bgc-jena.mpg.de/pub/outgoing/fmoyano\n    >> >\n    >> >\n    >> >\n    >> > Katharine Mullen wrote:\n    >> > >\n    >> > > Thanks for the details - it sounds like a bug.  You can either send me the\n    >> > > data in an email off-list or make it available on-line somewhere, so that\n    >> > > I and other people can download it.\n    >> > >\n    >> > >\n    >> > > ______________________________________________\n    >> > > R-help at r-project.org mailing list\n    >> > > https://stat.ethz.ch/mailman/listinfo/r-help\n    >> > > PLEASE do read the posting guide\n    >> > > http://www.R-project.org/posting-guide.html\n    >> > > and provide commented, minimal, self-contained, reproducible code.\n    >> > >\n    >> > >\n    >> >\n    >> > --\n    >> > View this message in context: http://www.nabble.com/function-in-nls-argument-tp17108100p17146812.html\n    >> > Sent from the R help mailing list archive at Nabble.com.\n    >> >\n    >> > ______________________________________________\n    >> > R-help at r-project.org mailing list\n    >> > https://stat.ethz.ch/mailman/listinfo/r-help\n    >> > PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n    >> > and provide commented, minimal, self-contained, reproducible code.\n    >> >\n    >>\n    >> ______________________________________________\n    >> R-help at r-project.org mailing list\n    >> https://stat.ethz.ch/mailman/listinfo/r-help\n    >> PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n    >> and provide commented, minimal, self-contained, reproducible code.\n    >>\n\n    KateM> ______________________________________________\n    KateM> R-help at r-project.org mailing list\n    KateM> https://stat.ethz.ch/mailman/listinfo/r-help\n    KateM> PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n    KateM> and provide commented, minimal, self-contained, reproducible code.\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Martin, Kate, Fernando, et al.\n\nBe careful bootstrapping robust estimators. The trouble is that when resampling is done with replacement, the outliers can be selected too many times which would ruin t",
+      "thread_id": "thread-a542fba95637",
+      "thread_depth": 1,
+      "month": "2008-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-ef8932d9e7ee",
+      "subject": "[RsR] Redescenders  in R",
+      "message_count": 2,
+      "participants": [
+        "Martin Maechler",
+        "kh@@x131 m@iii@g oii um@@edu"
+      ],
+      "started": "2008-05-08T20:43:44-05:00",
+      "last_reply": "2008-05-10T11:39:55+02:00",
+      "root_message_id": "msg-ef8932d9e7ee"
+    },
+    {
+      "id": "thread-a542fba95637",
+      "subject": "[RsR] [R] function in nls argument -- robust estimation",
+      "message_count": 2,
+      "participants": [
+        "Martin Maechler",
+        "Stromberg, Arnold"
+      ],
+      "started": "2008-05-10T11:07:15+02:00",
+      "last_reply": "2008-05-10T20:11:50-04:00",
+      "root_message_id": "msg-a542fba95637"
+    },
+    {
+      "id": "thread-207bdc9d1383",
+      "subject": "[RsR] function in nls argument -- robust estimation",
+      "message_count": 1,
+      "participants": [
+        "Katharine Mullen"
+      ],
+      "started": "2008-05-10T16:02:08+02:00",
+      "last_reply": "2008-05-10T16:02:08+02:00",
+      "root_message_id": "msg-207bdc9d1383"
+    }
+  ]
+}

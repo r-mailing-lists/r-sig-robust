@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2015-08",
+  "messages": [
+    {
+      "id": "msg-6ba4b2ebb331",
+      "message_id": "<1A8C1289955EF649A09086A153E2672403B42E2A1A@GBTEDVPEXCMB04.corp.lgc-group.com>",
+      "from_name": "S Ellison",
+      "from_email_hash": "57da6c308e3ff2213a4bfe13c89173d165dc7840e1a5fa2e3a797e8dd1f1dda3",
+      "date": "2015-08-22T03:06:34+01:00",
+      "subject": "[RsR] cov.mcd vs covMcd - why the difference?",
+      "subject_clean": "[RsR] cov.mcd vs covMcd - why the difference?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "cov.mcd in MASS and covMcd in robustbase both calculate the Minimum Covariance Determinant (MCD) multivariate location and scale estimator.\n\nFor a 2-variable problem, the two return identical correlation matrices but the covariance matrices differ. For the 2-variable case the difference seems to be a scaling factor, equal to the product of scaling factors returned as 'cnp2' in the 'mcd' object returned by robustbase. In the modified ?covMcd example below, the robustbase covariances are appreciably larger as a result. For multivariate problems (n>2) things aren't so simple.\n\nIs there a rationale for the difference? And of the two implementations, which might be the more defensible estimate of covariance for modestly outlier-contaminated data?\n\n\nS Ellison\n\n#Example (reduced to 2 variables)\nlibrary(robustbase)\nlibrary(MASS)\n data(hbk)\n hbk.x <- data.matrix(hbk[, 1:2])\n set.seed(17)\n (cH <- covMcd(hbk.x, cor=TRUE))$cov\n\n(cH.M <- cov.mcd(hbk.x, cor=TRUE))$cov\n \ncH$cov/cH.M$cov\n\nprod(cH$cnp2)\n\n\n*******************************************************************\nThis email and any attachments are confidential. Any use...{{dropped:8}}",
+      "body_snippet": "cov.mcd in MASS and covMcd in robustbase both calculate the Minimum Covariance Determinant (MCD) multivariate location and scale estimator.\n\nFor a 2-variable problem, the two return identical correlat",
+      "thread_id": "thread-6ba4b2ebb331",
+      "thread_depth": 0,
+      "month": "2015-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-6ba4b2ebb331",
+      "subject": "[RsR] cov.mcd vs covMcd - why the difference?",
+      "message_count": 1,
+      "participants": [
+        "S Ellison"
+      ],
+      "started": "2015-08-22T03:06:34+01:00",
+      "last_reply": "2015-08-22T03:06:34+01:00",
+      "root_message_id": "msg-6ba4b2ebb331"
+    }
+  ]
+}

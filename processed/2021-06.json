@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2021-06",
+  "messages": [
+    {
+      "id": "msg-922c341fe175",
+      "message_id": "<CA++P4r2fzdiX8vQ0BRp1fG6d=AAQkzVw+2EM8ie1D1uWCRFKmA@mail.gmail.com>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2021-06-11T15:26:16+05:30",
+      "subject": "[RsR] Time-series outlier problem",
+      "subject_clean": "[RsR] Time-series outlier problem",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "We've been using forecast::tsoutliers. In many situations it's nice, but I\nhave a MWE where it seems to get confused:\n\nlibrary(forecast)\nx <- sin(seq(0,6.28,0.01)) # There's no noise\n\ntsoutliers(ts(x)) # nothing is amiss.\n\nx[4]  <- 2\ntsoutliers(ts(x)) ## Weird\n\nx[4]  <-  100\ntsoutliers(ts(x)) ## Weird\n\nIt shows a lot of outliers and offers bizarre replacements.\n\nWe are working with time-series of about N=100 with gentle time series\nstructure. Do folks here have suggestions on how best to handle outlier\ndetection and correction for this?\n\n-- \nAjay Shah\najayshah at mayin.org\nhttp://www.mayin.org/ajayshah\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "We've been using forecast::tsoutliers. In many situations it's nice, but I\nhave a MWE where it seems to get confused:\n\nlibrary(forecast)\nx <- sin(seq(0,6.28,0.01)) # There's no noise\n\ntsoutliers(ts(x)",
+      "thread_id": "thread-922c341fe175",
+      "thread_depth": 0,
+      "month": "2021-06"
+    },
+    {
+      "id": "msg-907f3cd2e43e",
+      "message_id": "<007301d76157$9f2c2b40$dd8481c0$@uba.ar>",
+      "from_name": "Victor Yohai",
+      "from_email_hash": "fe26a2c223643659f356975b4cfad3aa42ccec040f836506203e686dc579f35f",
+      "date": "2021-06-14T16:58:17-03:00",
+      "subject": "[RsR] Time-series outlier problem",
+      "subject_clean": "[RsR] Time-series outlier problem",
+      "in_reply_to": "<CA++P4r2fzdiX8vQ0BRp1fG6d=AAQkzVw+2EM8ie1D1uWCRFKmA@mail.gmail.com>",
+      "references": [
+        "<CA++P4r2fzdiX8vQ0BRp1fG6d=AAQkzVw+2EM8ie1D1uWCRFKmA@mail.gmail.com>"
+      ],
+      "body_plain": "Dear Ajay\n\nA robust way to  find outliers in a time series is using the function\narima.rob of the R package robustarima.  Details on how  this  function is\nused can be found in its help. If you want to know more about the procedure\nused for this function you can consult Chapter 8 of Robust Statistics:\nTheory and methods (with R) of Maronna, Martin, Salibian-Barrera and Yohai.\n\nV?ctor Yohai     \n\n\n\n-----Mensaje original-----\nDe: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] En nombre de\nAjay Shah\nEnviado el: viernes, 11 de junio de 2021 6:56\nPara: r-sig-robust at r-project.org\nAsunto: [RsR] Time-series outlier problem\n\nWe've been using forecast::tsoutliers. In many situations it's nice, but I\nhave a MWE where it seems to get confused:\n\nlibrary(forecast)\nx <- sin(seq(0,6.28,0.01)) # There's no noise\n\ntsoutliers(ts(x)) # nothing is amiss.\n\nx[4]  <- 2\ntsoutliers(ts(x)) ## Weird\n\nx[4]  <-  100\ntsoutliers(ts(x)) ## Weird\n\nIt shows a lot of outliers and offers bizarre replacements.\n\nWe are working with time-series of about N=100 with gentle time series\nstructure. Do folks here have suggestions on how best to handle outlier\ndetection and correction for this?\n\n-- \nAjay Shah\najayshah at mayin.org\nhttp://www.mayin.org/ajayshah\n\n\t[[alternative HTML version deleted]]\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Dear Ajay\n\nA robust way to  find outliers in a time series is using the function\narima.rob of the R package robustarima.  Details on how  this  function is\nused can be found in its help. If you want t",
+      "thread_id": "thread-922c341fe175",
+      "thread_depth": 1,
+      "month": "2021-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-922c341fe175",
+      "subject": "[RsR] Time-series outlier problem",
+      "message_count": 2,
+      "participants": [
+        "Ajay Shah",
+        "Victor Yohai"
+      ],
+      "started": "2021-06-11T15:26:16+05:30",
+      "last_reply": "2021-06-14T16:58:17-03:00",
+      "root_message_id": "msg-922c341fe175"
+    }
+  ]
+}

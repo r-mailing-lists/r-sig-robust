@@ -1,0 +1,126 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2007-09",
+  "messages": [
+    {
+      "id": "msg-d578f0d1560b",
+      "message_id": "<1D150B2864AC7E489275F3C26CCC34BB96D3EB@langouste.zhaw.ch>",
+      "from_name": "Locher René (lore)",
+      "from_email_hash": "53e0d8835ca85130821376542b8c662f34dab54740009b20d7a233c29e5f084e",
+      "date": "2007-09-13T19:00:18+02:00",
+      "subject": "[RsR] Wanted: predict.lmrob",
+      "subject_clean": "[RsR] Wanted: predict.lmrob",
+      "in_reply_to": "<466833E2.4@stat.ubc.ca>",
+      "references": [],
+      "body_plain": "Dear Matias\n\npredict.lmrob() seems not to exist and predict.lm() gives an incorrect result. Is there another convenient trick to predict other data than the fitted? Below you 'll find a short example.\n\n\nlibrary(robustbase)\nxy <- data.frame(x=1:10, y=(1:10)+rnorm(10))\n\nres <- lmrob(y~x, xy)\n\nfitted(res)\n## correct\n\npredict(res,newdata=data.frame(x=10:20))\n## Error in predict(res, newdata = data.frame(x = 10:20)) : \n##\tno applicable method for \"predict\"\n\npredict.lm(res,newdata=data.frame(x=10:20))\n## does not work properly!\n\nsessionInfo()\n## R version 2.5.1 (2007-06-27) \n## i386-pc-mingw32 \n## \n## locale:\n## LC_COLLATE=German_Switzerland.1252;LC_CTYPE=German_Switzerland.1252;LC_MONETARY=German_Switzerland.1252;LC_NUMERIC=C;LC_TIME=German_Switzerland.1252\n## \n## attached base packages:\n## [1] \"stats\"     \"graphics\"  \"grDevices\" \"utils\"     \"datasets\"  \"methods\"  \n## [7] \"base\"     \n## \n## other attached packages:\n## robustbase \n##    \"0.2-8\" \n\n\nKind regards and thanks in advance\n\nRen?\n\nRen? Locher                                       E-Mail: rene.locher at zhaw.ch\nInstitut f?r Datenanalyse und Prozessdesign       Tel:    +41 58 934 7810\nZ?rcher Hochschule f?r angewandte Wissenschaften  Fax:    +41 58 935 7810\nRosenstrasse 3                   \nPostfach\nCH-8400 Winterthur                                http://www.idp.zhaw.ch",
+      "body_snippet": "Dear Matias\n\npredict.lmrob() seems not to exist and predict.lm() gives an incorrect result. Is there another convenient trick to predict other data than the fitted? Below you 'll find a short example.",
+      "thread_id": "thread-d578f0d1560b",
+      "thread_depth": 0,
+      "month": "2007-09"
+    },
+    {
+      "id": "msg-d58d9ae21ac7",
+      "message_id": "<ea7d6a710709291910s64865061v7032f0f5058a76cb@mail.gmail.com>",
+      "from_name": "Bradford Cross",
+      "from_email_hash": "1a7ddbb6a3f6087520c45e4631f9c5158abf62baab0b58cdc04c5003642684bd",
+      "date": "2007-09-29T19:10:56-07:00",
+      "subject": "[RsR] Fwd: smart updates and rolling windows",
+      "subject_clean": "[RsR] Fwd: smart updates and rolling windows",
+      "in_reply_to": "<ea7d6a710709291008y60013d7bv7f7ce7abb8fb0c19@mail.gmail.com>",
+      "references": [
+        "<ea7d6a710709291008y60013d7bv7f7ce7abb8fb0c19@mail.gmail.com>"
+      ],
+      "body_plain": "Greetings R'ers!\n\nI have been looking for mathematics libraries for event stream processing /\ntime series simulation.  Mathematics libraries for event stream processing\nrequire two key features; 1) \"smart updates\" (functions use optimal update\nalgorithms, f.ex. once mean is calculated for an event stream, the\nsubsequent calls to the function are computed using previous values of mean\nrather than by brute force re-calculation), 2)  \"rolling calculations\"\n(functions take a lag parameter for sample size, f.ex. mean of last 100\nevents.)\n\nI found a couple simple summary statistics implemented like this in the zoo\npackage.  I have also found implementations for smart updates in some other\nlanguages (apache commons math, and BOOST accumulators) but these only\nsupports accumulated calculations, not rolling calculations.\n\nI have built libraries for this before, and I am currently working on a new\nversion - but before I reinvent the wheel I am trying to find some folks in\nthe community with similar interests to collaborate with.\n\nMy personal use for this is financial time series analysis, so I am\ninterested in  implementing these high-performance algorithms for classical\nstatistics, robust statistics, regression models, etc.\n\nBest!\n\n/brad\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Greetings R'ers!\n\nI have been looking for mathematics libraries for event stream processing /\ntime series simulation.  Mathematics libraries for event stream processing\nrequire two key features; 1) \"s",
+      "thread_id": "thread-d58d9ae21ac7",
+      "thread_depth": 0,
+      "month": "2007-09"
+    },
+    {
+      "id": "msg-84342cf9ba6e",
+      "message_id": "<971536df0709291928m67ab7020tb42755a8aec33e8e@mail.gmail.com>",
+      "from_name": "Gabor Grothendieck",
+      "from_email_hash": "2470cc61688c301322ff3a85f3fd51ddba9f1112f88f535ec93c41ab610332d1",
+      "date": "2007-09-29T22:28:03-04:00",
+      "subject": "[RsR] Fwd: smart updates and rolling windows",
+      "subject_clean": "[RsR] Fwd: smart updates and rolling windows",
+      "in_reply_to": "<ea7d6a710709291910s64865061v7032f0f5058a76cb@mail.gmail.com>",
+      "references": [
+        "<ea7d6a710709291008y60013d7bv7f7ce7abb8fb0c19@mail.gmail.com>",
+        "<ea7d6a710709291910s64865061v7032f0f5058a76cb@mail.gmail.com>"
+      ],
+      "body_plain": "On 9/29/07, Bradford Cross <bradford.n.cross at gmail.com> wrote:\n> Greetings R'ers!\n>\n> I have been looking for mathematics libraries for event stream processing /\n> time series simulation.  Mathematics libraries for event stream processing\n> require two key features; 1) \"smart updates\" (functions use optimal update\n> algorithms, f.ex. once mean is calculated for an event stream, the\n> subsequent calls to the function are computed using previous values of mean\n> rather than by brute force re-calculation), 2)  \"rolling calculations\"\n> (functions take a lag parameter for sample size, f.ex. mean of last 100\n> events.)\n>\n> I found a couple simple summary statistics implemented like this in the zoo\n> package.  I have also found implementations for smart updates in some other\n> languages (apache commons math, and BOOST accumulators) but these only\n> supports accumulated calculations, not rolling calculations.\n\nI am not sure whether your last sentence was intended to apply to zoo\nbut zoo has several functions for rolling calculations: rollapply, rollmax,\nrollmean, rollmedian .  The rollaply is quite general since you\nsupply the function.  The caTools package has some high performance\nfunctions: runmean, runmin, runmax, runquantile.",
+      "body_snippet": "On 9/29/07, Bradford Cross <bradford.n.cross at gmail.com> wrote:\n> Greetings R'ers!\n>\n> I have been looking for mathematics libraries for event stream processing /\n> time series simulation.  Mathemat",
+      "thread_id": "thread-d58d9ae21ac7",
+      "thread_depth": 1,
+      "month": "2007-09"
+    },
+    {
+      "id": "msg-2ea91bcda29a",
+      "message_id": "<ea7d6a710709292152k352f6198m9aaee74b2b9bd82a@mail.gmail.com>",
+      "from_name": "Bradford Cross",
+      "from_email_hash": "1a7ddbb6a3f6087520c45e4631f9c5158abf62baab0b58cdc04c5003642684bd",
+      "date": "2007-09-29T21:52:55-07:00",
+      "subject": "[RsR] Fwd: smart updates and rolling windows",
+      "subject_clean": "[RsR] Fwd: smart updates and rolling windows",
+      "in_reply_to": "<971536df0709291928m67ab7020tb42755a8aec33e8e@mail.gmail.com>",
+      "references": [
+        "<ea7d6a710709291008y60013d7bv7f7ce7abb8fb0c19@mail.gmail.com>",
+        "<ea7d6a710709291910s64865061v7032f0f5058a76cb@mail.gmail.com>",
+        "<971536df0709291928m67ab7020tb42755a8aec33e8e@mail.gmail.com>"
+      ],
+      "body_plain": "On 9/29/07, Gabor Grothendieck <ggrothendieck at gmail.com> wrote:\n>\n> On 9/29/07, Bradford Cross <bradford.n.cross at gmail.com> wrote:\n>\n> > I found a couple simple summary statistics implemented like this in the\n> zoo\n> > package.  I have also found implementations for smart updates in some\n> other\n> > languages (apache commons math, and BOOST accumulators) but these only\n> > supports accumulated calculations, not rolling calculations.\n>\n> I am not sure whether your last sentence was intended to apply to zoo\n> but zoo has several functions for rolling calculations: rollapply,\n> rollmax,\n> rollmean, rollmedian .  The rollaply is quite general since you\n> supply the function.  The caTools package has some high performance\n> functions: runmean, runmin, runmax, runquantile.\n>\n\nThanks for pointing out caTools.  Rollapply is great for the general case -\nbut it uses brute force calculation.  That is why there are the special\nrollmean, rollmedian because the underlying calculation algorithms still\nneed to be optimized to get any performance gain.  I suppose a good pattern\nis to use rollapply to test things out, and if particular statistics prove\nespecially useful, then optimize the calculation algorithm and add it to a\nspecialized library. :-)\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "On 9/29/07, Gabor Grothendieck <ggrothendieck at gmail.com> wrote:\n>\n> On 9/29/07, Bradford Cross <bradford.n.cross at gmail.com> wrote:\n>\n> > I found a couple simple summary statistics implemented li",
+      "thread_id": "thread-d58d9ae21ac7",
+      "thread_depth": 2,
+      "month": "2007-09"
+    },
+    {
+      "id": "msg-8b41adebe292",
+      "message_id": "<971536df0709292200y76232879i8e368b628aeeb9aa@mail.gmail.com>",
+      "from_name": "Gabor Grothendieck",
+      "from_email_hash": "2470cc61688c301322ff3a85f3fd51ddba9f1112f88f535ec93c41ab610332d1",
+      "date": "2007-09-30T01:00:18-04:00",
+      "subject": "[RsR] Fwd: smart updates and rolling windows",
+      "subject_clean": "[RsR] Fwd: smart updates and rolling windows",
+      "in_reply_to": "<ea7d6a710709292152k352f6198m9aaee74b2b9bd82a@mail.gmail.com>",
+      "references": [
+        "<ea7d6a710709291008y60013d7bv7f7ce7abb8fb0c19@mail.gmail.com>",
+        "<ea7d6a710709291910s64865061v7032f0f5058a76cb@mail.gmail.com>",
+        "<971536df0709291928m67ab7020tb42755a8aec33e8e@mail.gmail.com>",
+        "<ea7d6a710709292152k352f6198m9aaee74b2b9bd82a@mail.gmail.com>"
+      ],
+      "body_plain": "Yes,   Jarek Tuszynski, the author of caTools, posted a performance comparison\nof different methods for rolling calculations using R code and zoo used\nthat to provide the fastest method in his list for each case.  By using C\nas in caTools you can get it even faster.\n\nOn 9/30/07, Bradford Cross <bradford.n.cross at gmail.com> wrote:\n>\n>\n> On 9/29/07, Gabor Grothendieck <ggrothendieck at gmail.com> wrote:\n> > On 9/29/07, Bradford Cross <bradford.n.cross at gmail.com> wrote:\n> >\n> > > I found a couple simple summary statistics implemented like this in the\n> zoo\n> > > package.  I have also found implementations for smart updates in some\n> other\n> > > languages (apache commons math, and BOOST accumulators) but these only\n> > > supports accumulated calculations, not rolling calculations.\n> >\n> > I am not sure whether your last sentence was intended to apply to zoo\n> > but zoo has several functions for rolling calculations: rollapply,\n> rollmax,\n> > rollmean, rollmedian .  The rollaply is quite general since you\n> > supply the function.  The caTools package has some high performance\n> > functions: runmean, runmin, runmax, runquantile.\n> >\n>\n> Thanks for pointing out caTools.  Rollapply is great for the general case -\n> but it uses brute force calculation.  That is why there are the special\n> rollmean, rollmedian because the underlying calculation algorithms still\n> need to be optimized to get any performance gain.  I suppose a good pattern\n> is to use rollapply to test things out, and if particular statistics prove\n> especially useful, then optimize the calculation algorithm and add it to a\n> specialized library. :-)\n>",
+      "body_snippet": "Yes,   Jarek Tuszynski, the author of caTools, posted a performance comparison\nof different methods for rolling calculations using R code and zoo used\nthat to provide the fastest method in his list fo",
+      "thread_id": "thread-d58d9ae21ac7",
+      "thread_depth": 3,
+      "month": "2007-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-d578f0d1560b",
+      "subject": "[RsR] Wanted: predict.lmrob",
+      "message_count": 1,
+      "participants": [
+        "Locher René (lore)"
+      ],
+      "started": "2007-09-13T19:00:18+02:00",
+      "last_reply": "2007-09-13T19:00:18+02:00",
+      "root_message_id": "msg-d578f0d1560b"
+    },
+    {
+      "id": "thread-d58d9ae21ac7",
+      "subject": "[RsR] Fwd: smart updates and rolling windows",
+      "message_count": 4,
+      "participants": [
+        "Bradford Cross",
+        "Gabor Grothendieck"
+      ],
+      "started": "2007-09-29T19:10:56-07:00",
+      "last_reply": "2007-09-30T01:00:18-04:00",
+      "root_message_id": "msg-d58d9ae21ac7"
+    }
+  ]
+}

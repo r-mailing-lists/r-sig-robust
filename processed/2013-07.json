@@ -1,0 +1,117 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2013-07",
+  "messages": [
+    {
+      "id": "msg-bba5efd3ec71",
+      "message_id": "<1373534567.74398.YahooMailNeo@web172704.mail.ir2.yahoo.com>",
+      "from_name": "D. Alain",
+      "from_email_hash": "3b09dc2a315081ae262b42987da559c3143939176c3f1606e7a5085769b0f8d2",
+      "date": "2013-07-11T10:22:47+01:00",
+      "subject": "[RsR] results of robust regression vs. OLS regression",
+      "subject_clean": "[RsR] results of robust regression vs. OLS regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear R-List, \n\ndue to outliers in my data I wanted to carry out a robust regression. \nAccording to APA standards, reporting (usually OLS) regression results should include\n?\n1. unstandardized beta coefficients\n2. standardized beta coefficients\n3. SE\n4. t values\n5. r squared\n6. r squared adjusted\n7. F (df.num/df.den)\n\nNow I tried the robust version using lmrob (package=\"robustbase\")\n\nlmrob.fit<-lmrob(y~x1+x2+x3,data=mydat)\n\nI got \n1. unstandardized beta coef\n3. SE\n4. t values\n\nWhat about? \n2. standardized beta coef\n5. r squared\n6. r squared adjusted\n7. F (df.num/df.den)\n\nI\n have read in an R-threat \n(http://tolstoy.newcastle.edu.au/R/e5/help/08/11/7271.html) that R2 is \nonly valid in the context of least-square methods. \n\n(1) Is there an \nequivalent I could\n report for non-least-square methods? \n(2) Why does lmrob-output not \ninclude standardized beta coefs and F statistic? How can I compute both \nof them?\n\nThen I realized that ltsReg (package=\"robustbase\") does \nactually report almost everything I would need, but I could not find \n\"standardized beta coefficients\".\n?\n(3) Does anyone know how I could compute standardized beta coefs using the output of ltsReg(fit)?\n\nThough, the authors of the package \"strongly recommend \nusing lmrob() instead of ltsReg\". \n\n(4) Is this due to inefficiency or are the\n coefs biased or what is the reason for that recommendation? \n\nFinally I found lmRob (package=\"robust\") which \ndoes report at least a multiple R2, but which is apparently biased and \nneeds correction as I found in a threat of Renaud & Victoria-Feser? https://stat.ethz.ch/pipermail/r-sig-robust/2010/000290.html, where the authors recommend to correct R2 for bias (Renaud, O. & \nVictoria-Feser, M.-P. (2010). A robust coefficient of determination for \nregression. Journal of Statistical Planning and Inference, 140, \n1852-1862. http://dx.doi.org/10.1016/j.jspi.2010.01.008).\n?\n(5) Does that \nmean, that \"multiple r squared\" can be reported even though it is not a \nleast square method, but should be corrected for bias before? \n(6) What does \nthat mean for the rest of lmRob-output (e.g. t-values)? Should they be corrected too?\n\nI must confess that I am somewhat confused and I would be very thankful for any clarification in this matter. \nThank you in advance and sorry for my question if it reveals some serious lack of knowledge on my side.\n\nBest wishes.\n\nAlain\n\nVertrauensw.:\nH?ndlerzuverl.:\nDatenschutz:\nJugendschutz:\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear R-List, \n\ndue to outliers in my data I wanted to carry out a robust regression. \nAccording to APA standards, reporting (usually OLS) regression results should include\n?\n1. unstandardized beta coe",
+      "thread_id": "thread-bba5efd3ec71",
+      "thread_depth": 0,
+      "month": "2013-07"
+    },
+    {
+      "id": "msg-101b1232a3d6",
+      "message_id": "<201307121957.r6CJvi9W024336@wallabie.isp.ip.pt>",
+      "from_name": "Eduardo Conceicao",
+      "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
+      "date": "2013-07-12T20:57:44+01:00",
+      "subject": "[RsR] Update of nlrob.*() (0.0.2) for robust nonlinear regression",
+      "subject_clean": "[RsR] Update of nlrob.*() (0.0.2) for robust nonlinear regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nYou can download the 0.0.2 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/yp1nza8twalf9r6/nonlinrobreg_0.0.2.zip\n\nRequires packages: PolinomF, robustbase (>= 0.9-8), ggplot2\n\n\n= Changes =\nnlrob.tau(): Added the bisquare psi function which is now the default.\n\n(Does anyone know if the tau-estimator has been defined in the literature using other psi functions besides the bisquare and optimal ones?)\n\nnlrob.CM(): Now any of the psi functions in package robustbase can be used. Notice, however, that default values for the tuning constants are provided *only* for the bisquare function.\n\n\n= Running the example =\nsource(deopt.R)\nsource(nlrobreg.R)\n# run the code from the example file example_nlrobreg.R\n\nEduardo\n----------------------------------------\nEduardo L. T. Conceicao\nCIEPQPF\nDepartment of Chemical Engineering\nUniversity of Coimbra, Portugal",
+      "body_snippet": "Hi all,\n\nYou can download the 0.0.2 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/yp1nza8twalf9r6/nonlinrobreg_0.0.2.zip\n\nRequires packages: PolinomF, robustbase (>= 0.9-8), ggplot",
+      "thread_id": "thread-101b1232a3d6",
+      "thread_depth": 0,
+      "month": "2013-07"
+    },
+    {
+      "id": "msg-32047b998959",
+      "message_id": "<201307180521.r6I5Lr4a004069@wallabie.isp.ip.pt>",
+      "from_name": "Eduardo Conceicao",
+      "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
+      "date": "2013-07-18T06:21:53+01:00",
+      "subject": "[RsR] Update 0.0.3 of nlrob.*() functions for robust nonlinear regression",
+      "subject_clean": "[RsR] Update 0.0.3 of nlrob.*() functions for robust nonlinear regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nYou can download the 0.0.3 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/4c49qbbpyglelun/nonlinrobreg_0.0.3.zip\n\nRequires packages: PolinomF, robustbase (>= 0.9-8), ggplot2\n\n= Changes =\n* Added new function nlrob.MM() for MM-estimates\n* nlrob.tau(): Search interval for uniroot() corrected\n\n= Running the example =\nsource(deopt.R)\nsource(nlrobreg.R)\nsource(example_nlrobreg.R)\n\nEduardo\n----------------------------------------\nEduardo L. T. Conceicao\nCIEPQPF\nDepartment of Chemical Engineering\nUniversity of Coimbra, Portugal",
+      "body_snippet": "Hi all,\n\nYou can download the 0.0.3 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/4c49qbbpyglelun/nonlinrobreg_0.0.3.zip\n\nRequires packages: PolinomF, robustbase (>= 0.9-8), ggplot",
+      "thread_id": "thread-32047b998959",
+      "thread_depth": 0,
+      "month": "2013-07"
+    },
+    {
+      "id": "msg-33a2aab599ad",
+      "message_id": "<201307260452.r6Q4qPSq032207@wallabie.isp.ip.pt>",
+      "from_name": "Eduardo Conceicao",
+      "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
+      "date": "2013-07-26T05:52:25+01:00",
+      "subject": "[RsR] Update 0.0.4 of nlrob.*() functions for robust nonlinear regression",
+      "subject_clean": "[RsR] Update 0.0.4 of nlrob.*() functions for robust nonlinear regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nYou can download the 0.0.4 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/16ac9q1i50bp07j/nonlinrobreg_0.0.4.zip\n\nRequires packages: PolynomF, robustbase (>= 0.9-8), ggplot2\n\n= Changes =\n* nlrob.MM: added the lqq psi function\n* nlrob.CM: the stopping criterion of jde() now ensures that the\n            constraint at the best candidate solution is fulfilled\n* added tests for the jde() function (deopt-tst.R)\n* added tests for the nlrob.*() functions (nlrobreg-tst.R)\n* test-funs.R renamed to opt-test-funs.R\n\n= Running the example =\nsource(deopt.R)\nsource(nlrobreg.R)\nsource(example_nlrobreg.R)\n\nEduardo\n----------------------------------------\nEduardo L. T. Conceicao\nCIEPQPF\nDepartment of Chemical Engineering\nUniversity of Coimbra, Portugal",
+      "body_snippet": "Hi all,\n\nYou can download the 0.0.4 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/16ac9q1i50bp07j/nonlinrobreg_0.0.4.zip\n\nRequires packages: PolynomF, robustbase (>= 0.9-8), ggplot",
+      "thread_id": "thread-33a2aab599ad",
+      "thread_depth": 0,
+      "month": "2013-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-bba5efd3ec71",
+      "subject": "[RsR] results of robust regression vs. OLS regression",
+      "message_count": 1,
+      "participants": [
+        "D. Alain"
+      ],
+      "started": "2013-07-11T10:22:47+01:00",
+      "last_reply": "2013-07-11T10:22:47+01:00",
+      "root_message_id": "msg-bba5efd3ec71"
+    },
+    {
+      "id": "thread-101b1232a3d6",
+      "subject": "[RsR] Update of nlrob.*() (0.0.2) for robust nonlinear regression",
+      "message_count": 1,
+      "participants": [
+        "Eduardo Conceicao"
+      ],
+      "started": "2013-07-12T20:57:44+01:00",
+      "last_reply": "2013-07-12T20:57:44+01:00",
+      "root_message_id": "msg-101b1232a3d6"
+    },
+    {
+      "id": "thread-32047b998959",
+      "subject": "[RsR] Update 0.0.3 of nlrob.*() functions for robust nonlinear regression",
+      "message_count": 1,
+      "participants": [
+        "Eduardo Conceicao"
+      ],
+      "started": "2013-07-18T06:21:53+01:00",
+      "last_reply": "2013-07-18T06:21:53+01:00",
+      "root_message_id": "msg-32047b998959"
+    },
+    {
+      "id": "thread-33a2aab599ad",
+      "subject": "[RsR] Update 0.0.4 of nlrob.*() functions for robust nonlinear regression",
+      "message_count": 1,
+      "participants": [
+        "Eduardo Conceicao"
+      ],
+      "started": "2013-07-26T05:52:25+01:00",
+      "last_reply": "2013-07-26T05:52:25+01:00",
+      "root_message_id": "msg-33a2aab599ad"
+    }
+  ]
+}

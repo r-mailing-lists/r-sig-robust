@@ -1,0 +1,1504 @@
+From pengyou@ong @end|ng |rom moon@|bp@@c@cn  Wed Mar 24 07:12:02 2010
+From: pengyou@ong @end|ng |rom moon@|bp@@c@cn (friendpine)
+Date: Wed, 24 Mar 2010 06:12:02 +0000 (UTC)
+Subject: [RsR] Can I calculate the p-value of the robust regression at this
+	way?
+Message-ID: <loom.20100324T044117-751@post.gmane.org>
+
+The output for the rlm(),lmRob(),lmrob() didn't give the R-squared and the
+p-value of the equation. There seems to be no function that can do these
+things.Can we calculate it as in the OLS(ordinary least squared) regression? The
+method in OLS use the SSE and SSR to calculate the f for F test. The p-value
+generated in the F test is the p-value for the OLS regression equation. Can we
+do it in the robust regression?
+
+
+
+From O||v|er@Ren@ud @end|ng |rom un|ge@ch  Tue Apr  6 10:05:30 2010
+From: O||v|er@Ren@ud @end|ng |rom un|ge@ch (Olivier Renaud)
+Date: Tue, 06 Apr 2010 10:05:30 +0200
+Subject: [RsR] Can I calculate the p-value of the robust regression at
+	this	way?
+In-Reply-To: <loom.20100324T044117-751@post.gmane.org>
+References: <loom.20100324T044117-751@post.gmane.org>
+Message-ID: <4BBAEB4A.1020508@unige.ch>
+
+
+Hi,
+The output of lmRob DOES provide the robust version of the R-squared 
+under "Multiple R-Squared". It does not directly provide a test that 
+compares the model with the model with no covariates (equivalent of the 
+"F test"), but it can be obtained with the anova function as shown here:
+
+ > creat.lmRob = lmRob(original1 ~ 
+approprie1+approprie2+creativite1+creativite2, data=creatif)
+ > creat00.lmRob = lmRob(original1 ~ 1, data=creatif)
+ > anova (creat00.lmRob, creat.lmRob)
+
+This can also be done with lmrob().
+
+Concerning the R-squared however, we have recently published a paper 
+that shows that the robust R-squared provided by lmRob is biased, 
+sometimes to a large extent. We provide a consistent and robust 
+estimator of R-squared (robR2w.WithCorrection in the output below) and a 
+version adjusted for the sample size (robR2w.AdjustedWithCorrection in 
+the output below). The code and an example are provided below.
+
+Olivier
+
+ref: Renaud, O. & Victoria-Feser, M.-P. (2010). A robust coefficient of 
+determination for regression. Journal of Statistical Planning and 
+Inference, 140, 1852-1862. http://dx.doi.org/10.1016/j.jspi.2010.01.008
+
+ > library(robust)
+ > source("robR2w.r")
+
+ > creat.lmRob = lmRob(original1 ~ 
+approprie1+approprie2+creativite1+creativite2, data=creatif)
+
+ > summary(creat.lmRob)
+
+Call: lmRob(formula = original1 ~ approprie1 + approprie2 + creativite1 +
+    creativite2, data = creatif)
+
+Residuals:
+        Min          1Q      Median          3Q         Max
+-1.96149388 -0.34543174 -0.05500626  0.23168813  1.73781067
+
+Coefficients:
+            Value         Std. Error    t value       Pr(>|t|)    
+(Intercept) -2.2744444543  1.2656121996 -1.7971100903  0.0784825453
+approprie1   0.0914187017  0.1187669959  0.7697315322  0.4451541682
+approprie2   0.1505246740  0.0934840433  1.6101643524  0.1137861853
+creativite1  0.6270578015  0.1648705921  3.8033332300  0.0003963918
+creativite2 -0.2384886952  0.1302348886 -1.8312197120  0.0731512215
+
+Residual standard error: 0.459508 on 49 degrees of freedom
+Multiple R-Squared: 0.183627
+
+Test for Bias:
+            statistic    p-value
+M-estimate   6.527018 0.25825825
+LS-estimate 10.368150 0.06545114
+
+ > robR2w(creat.lmRob)
+$robR2w.NoCorrection
+[1] 0.3732078
+
+$robR2w.WithCorrection
+[1] 0.3302368
+
+$robR2w.AdjustedWithCorrection
+[1] 0.2604698
+
+
+
+friendpine wrote:
+> The output for the rlm(),lmRob(),lmrob() didn't give the R-squared and the
+> p-value of the equation. There seems to be no function that can do these
+> things.Can we calculate it as in the OLS(ordinary least squared) regression? The
+> method in OLS use the SSE and SSR to calculate the f for F test. The p-value
+> generated in the F test is the p-value for the OLS regression equation. Can we
+> do it in the robust regression?
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+Olivier.Renaud at unige.ch               http://www.unige.ch/fapse/mad/
+Methodology & Data Analysis - Psychology Dept - University of Geneva
+UniMail, Office 4164  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20100406/c2374888/attachment.html>
+
+-------------- next part --------------
+
+robR2w = function (rob.obj, correc=1.2076) {
+  ## R2 in robust regression, see
+  ## Renaud, O. & Victoria-Feser, M.-P. (2010). A robust coefficient of determination for regression. Journal of Statistical Planning and Inference, 140, 1852-???1862.
+  ## rob.obj is an lmRob object. correc is the correction for consistancy. Call:
+  ##
+  ## library(robust)
+  ## creat.lmRob = lmRob(original1 ~ approprie1+approprie2+creativite1+creativite2, data=creatif)
+  ## summary(creat.lmRob)
+  ## robR2w(creat.lmRob)
+  
+  ## Weights in robust regression
+  wt.bisquare = function(u, c = 4.685) {
+    U <- abs(u/c)
+    w <- ((1. + U) * (1. - U))^2.
+    w[U > 1.] <- 0.
+    w
+  }
+  weight.rob=function(rob.obj){
+    resid.rob=rob.obj$resid
+    scale.rob=(rob.obj$scale)*rob.obj$df.residual/length(resid.rob)
+    resid.rob= resid.rob/scale.rob
+    weight=wt.bisquare(resid.rob)
+  }
+
+  if (attr(rob.obj, "class") !="lmRob")
+    stop("This function works only on lmRob objects")
+  pred = rob.obj$fitted.values
+  resid = rob.obj$resid
+  resp = resid+pred
+  wgt = weight.rob(rob.obj)
+  scale.rob = rob.obj$scale
+  resp.mean = sum(wgt*resp)/sum(wgt)
+  pred.mean = sum(wgt*pred)/sum(wgt)
+  yMy = sum(wgt*(resp-resp.mean)^2)
+  rMr = sum(wgt*resid^2)
+  r2 = (yMy-rMr) / yMy
+  r2correc= (yMy-rMr) / (yMy-rMr +rMr*correc)
+  r2adjcor = 1-(1-r2correc) * (length(resid)-1) / (length(resid)-length(rob.obj$coefficients)-1)  
+  return(list(robR2w.NoCorrection=r2, robR2w.WithCorrection=r2correc, robR2w.AdjustedWithCorrection=r2adjcor))
+}
+
+
+From pro|@|@mg|r @end|ng |rom y@hoo@com  Mon Apr  5 08:35:30 2010
+From: pro|@|@mg|r @end|ng |rom y@hoo@com (Alamgir Gir)
+Date: Sun, 4 Apr 2010 23:35:30 -0700 (PDT)
+Subject: [RsR] ridge regressio
+Message-ID: <789770.83253.qm@web112311.mail.gq1.yahoo.com>
+
+Hi
+I am writing a program for ridge regression using lts. I need your help please
+
+regards
+Alamgir
+
+
+
+
+      
+	[[alternative HTML version deleted]]
+
+
+
+From pro|@|@mg|r @end|ng |rom y@hoo@com  Sat Apr 10 08:43:55 2010
+From: pro|@|@mg|r @end|ng |rom y@hoo@com (Alamgir Gir)
+Date: Fri, 9 Apr 2010 23:43:55 -0700 (PDT)
+Subject: [RsR] robust ridge
+Message-ID: <364122.98465.qm@web112301.mail.gq1.yahoo.com>
+
+Hi dears
+I am writing a program in R for robust ridge estimator based on LTS. is there any code or package relating to it? could you please help me out?
+
+Regards
+
+Alamgir
+Ph.D scholar 
+
+
+
+
+      
+	[[alternative HTML version deleted]]
+
+
+
+From dm@||v @end|ng |rom gm@||@com  Fri Apr 23 06:24:05 2010
+From: dm@||v @end|ng |rom gm@||@com (Daniel)
+Date: Fri, 23 Apr 2010 01:24:05 -0300
+Subject: [RsR] Vote Concentration Equation
+Message-ID: <u2q4358fd1a1004222124p2171450fwd62fa325531ab18@mail.gmail.com>
+
+Hello all,
+I'm just a beginner on R issue, but improving.
+
+Does anyone knows how can I get vote concentration to each ID by city
+(CIDADE) considering each UF (State), because my data is long and has all
+states together and IDs repeating across states.
+I also tried to get  totals and then apply for division, but R din't allow
+me to attach new column with less rows, of course.
+So, someone have any light for me do that? Can I print values all without my
+pain programing?
+
+total.UF <- tapply(senador$Votos, senador$UF, sum)
+total.MUN <- tapply(senador$Votos, senador$CODMUNIC09, sum)
+
+z <- cbind(senador, total.UF)
+Error in data.frame(..., check.names = FALSE) :
+  arguments imply differing number of rows: 54861, 27
+
+========= my data look likes these ===========
+
+ ID         UF     CIDADE       VOTOS
+1515      SP    S??o Paulo       15
+1515      SP    Campinas       100
+1515      SP    Santos             0
+1212      SP    S??o Paulo      1500
+1212      SP     Piracicaba      20
+1212     SP      Campinas      300
+1200     SP       Limeira          0
+1200      SP     S??o Paulo     2500
+1212      RJ    Rio de Janeiro 500
+1212      RJ      Niteroi           20
+1212     PR      Maring??       300
+1200     DF      Bras??lia          10
+1200     PR     Curitiba       2000
+
+
+-- 
+Daniel Marcelino
+15?? 48' 00" S 47?? 51' 50" O
+http://ow.ly/FY8T
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@h@rp @end|ng |rom @|br@org  Thu May 13 22:36:54 2010
+From: m@h@rp @end|ng |rom @|br@org (Mark Sharp)
+Date: Thu, 13 May 2010 15:36:54 -0500
+Subject: [RsR] Box-Cox transformation and reverse Box-Cox transformation
+Message-ID: <8226D945-9F63-49AA-8F67-A6B3016DA8A6@sfbr.org>
+
+I am wanting to use Box-Cox transformed values to develop a reference intervals for clinical chemistry tests given 25 observations per test. After I have used the transformed values to find the range as a function of the interquartile range, I want to remap the transformed variables back to the original scale using a reverse Box-Cox transformation. This will allow me to present the reference range in the original scale.
+
+I have looked at the alr3 package, but do not see a way to get the reverse transformation and I have looked at boxcox (MASS), but it is dealing with linear models.
+
+Any guidance will be appreciated.
+
+Mark
+R. Mark Sharp, Ph.D.
+msharp at sfbr.org<mailto:msharp at sfbr.org>
+
+
+
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From k@||@ch @end|ng |rom @t@t@m@th@ethz@ch  Fri May 28 14:40:15 2010
+From: k@||@ch @end|ng |rom @t@t@m@th@ethz@ch (Markus Kalisch)
+Date: Fri, 28 May 2010 14:40:15 +0200
+Subject: [RsR] Robust Parameter Estimation: Negative Binomial
+Message-ID: <19455.47535.821084.942730@patty.math.ethz.ch>
+
+Dear R-SIG Robust
+
+I'd like to estimate the parameters of a negative binomial in a
+robust way. Could anyone give me a hint whether a solution of
+this problem is already implemented or point me to some
+reference?
+
+Thank you very much!
+
+Kind regards
+Markus Kalisch
+
+
+
+From peter@ruckde@che| @end|ng |rom web@de  Fri May 28 21:38:57 2010
+From: peter@ruckde@che| @end|ng |rom web@de (Peter Ruckdeschel)
+Date: Fri, 28 May 2010 21:38:57 +0200
+Subject: [RsR] Robust Parameter Estimation: Negative Binomial
+In-Reply-To: <19455.47535.821084.942730@patty.math.ethz.ch>
+References: <19455.47535.821084.942730@patty.math.ethz.ch>
+Message-ID: <4C001BD1.2030806@web.de>
+
+Am 28.05.2010 14:40, schrieb Markus Kalisch:
+> Dear R-SIG Robust
+>
+> I'd like to estimate the parameters of a negative binomial in a
+> robust way. Could anyone give me a hint whether a solution of
+> this problem is already implemented or point me to some
+> reference?
+>
+>   
+Package ROptEst on CRAN provides infrastructure to do this;
+find below a script to do optimally robust estimation in negative
+binomial models;
+
+So far we had not yet defined a class for it;
+so we do this in the script; the definition has entered into the
+devel version of distrMod so will be on CRAN soon;
+then you may skip parts of the code as indicated.
+
+Basically this script can easily be adjusted to other smooth parametric
+models as well.
+
+Hth, best
+Peter
+
+=============================================================
+
+require(ROptEst)
+options("newDevice"=TRUE)
+
+#### < - has entered into devel version of pkg distrMod
+
+setClass("NbinomFamily", contains = "L2ParamFamily")
+
+##################################################################
+## NegBinomial family
+##################################################################
+
+## a generating function to produce an object of class NbinomFamily
+
+NbinomFamily <- function(size = 1, prob = 0.5, trafo){
+### simple namings ...
+    name <- "Negative Binomial family"
+    distribution <- Nbinom(size = size, prob = prob)
+    distrSymm <- NoSymmetry()
+### parameter of the family   
+    param0 <- prob
+    names(param0) <- "prob"
+    param1 <- size
+    names(param1) <- "size"
+    if(missing(trafo)) trafo <- matrix(1, dimnames = list("prob","prob"))
+    param <- ParamFamParameter(name = "probability of success",
+                               main = param0,
+                               fixed = param1,
+                               trafo = trafo)
+### howto move from one model distribution to the next   
+    modifyParam <- function(theta){ Nbinom(size = size, prob = theta) }
+    body(modifyParam) <- substitute({ Nbinom(size = size, prob = theta)
+}, list(size = size))
+    props <- ""
+
+### helpers for estimating: search interval and what to do if estimate
+is not in [0,1]
+    startPar <- function(x,...) c(.Machine$double.eps,1-.Machine$double.eps)
+    makeOKPar <- function(param) {if(param<=0) return(.Machine$double.eps)
+                                  if(param>=1) return(1-.Machine$double.eps)
+                                  return(param)}
+### the scores function
+    L2deriv.fct <- function(param){
+                   prob <- main(param)
+                   fct <- function(x){}
+                   body(fct) <- substitute({ (size/prob- x/(1-prob)) },
+                                list(size = size, prob = prob))
+                   return(fct)}
+### its distribution
+    L2derivSymm <- FunSymmList(NonSymmetric())
+    L2derivDistr <- UnivarDistrList((size/prob- distribution/(1-prob)))
+    L2derivDistrSymm <- DistrSymmList(NoSymmetry())
+### Fisher informaiton
+    FisherInfo.fct <- function(param){
+                       prob <- main(param)
+                       PosDefSymmMatrix(matrix(size/(prob^2*(1-prob)),
+                           dimnames=list("prob","prob")))}
+
+    FisherInfo <- FisherInfo.fct(param)
+### building the return object:
+    res <- L2ParamFamily(name = name, distribution = distribution,
+        distrSymm = distrSymm, param = param, modifyParam = modifyParam,
+        props = props, L2deriv.fct = L2deriv.fct, L2derivSymm = L2derivSymm,
+        L2derivDistr = L2derivDistr, L2derivDistrSymm = L2derivDistrSymm,
+        FisherInfo.fct = FisherInfo.fct, FisherInfo = FisherInfo,
+        startPar = startPar, makeOKPar = makeOKPar,
+        .returnClsName = "NbinomFamily")
+    if(!is.function(trafo))
+       f.call <- substitute(NbinomFamily(size = s, prob = p,
+                           trafo = matrix(Tr, dimnames =
+list("prob","prob"))),
+                           list(s = size, p = prob, Tr = trafo))
+    else
+       f.call <- substitute(NbnomFamily(size = s, prob = p,
+                           trafo = Tr), list(s = size, p = prob, Tr =
+trafo))
+
+    res at fam.call <- f.call
+    return(res)
+}
+
+####  end of code entered into distrMod ->
+
+###### slightly modified from script BinomModel.R which ships out
+###  with the installation of ROptEst / see scripts folder of ROptEst
+###  in the corresponding library (where you installed package ROptEst to).
+
+###############################################################################
+## Example: Neg Binomial Family
+###############################################################################
+
+
+#-------------------------------------------------------------------------------
+## Preparations
+#-------------------------------------------------------------------------------
+## generates Neg.Binomial Family with
+## m = 25 and probability of success theta = 0.25
+N <- NbinomFamily(size = 25, prob = 0.25)
+N       # show N
+
+#-------------------------------------------------------------------------------
+## classical optimal IC
+#-------------------------------------------------------------------------------
+IC0 <- optIC(model = N, risk = asCov())
+IC0       # show IC
+
+plot(IC0) # plot IC
+checkIC(IC0)
+
+#-------------------------------------------------------------------------------
+## L_2 family + infinitesimal neighborhood
+#-------------------------------------------------------------------------------
+## a neighborhood model is laid around NbinomFamily
+RobN1 <- InfRobModel(center = N, neighbor = ContNeighborhood(radius = 0.5))
+RobN1     # show RobN1
+
+### similarly Total variation nbd
+(RobN2 <- InfRobModel(center = N, neighbor = TotalVarNeighborhood(radius
+= 0.5)))
+
+#-------------------------------------------------------------------------------
+## MSE solution
+#-------------------------------------------------------------------------------
+system.time(IC1 <- optIC(model=RobN1, risk=asMSE()))
+IC1
+checkIC(IC1)
+plot(IC1)
+
+## total variation
+system.time(IC2 <- optIC(model=RobN2, risk=asMSE()))
+IC2
+checkIC(IC2)
+plot(IC2)
+
+#-------------------------------------------------------------------------------
+## lower case / most bias robust solutions
+#-------------------------------------------------------------------------------
+(IC3 <- optIC(model=RobN1, risk=asBias()))
+
+(IC4 <- optIC(model=RobN2, risk=asBias()))
+
+#-------------------------------------------------------------------------------
+## Hampel solution
+#-------------------------------------------------------------------------------
+(IC5 <- optIC(model=RobN1, risk=asHampel(bound=clip(IC1))))
+
+(IC6 <- optIC(model=RobN2, risk=asHampel(bound=Risks(IC2)$asBias$value),
+maxiter = 200))
+
+
+#-------------------------------------------------------------------------------
+## radius minimax IC
+### --- to be used if radius is unknown
+### H. Rieder, M. Kohl, P. Ruckdeschel (2008): The costs of not knowing
+the radius.
+### {\it Statistical Methods and Applications\/}, {\bf 17}(1), 13--40.
+#-------------------------------------------------------------------------------
+system.time(IC7 <- radiusMinimaxIC(L2Fam=N, neighbor=ContNeighborhood(),
+                        risk=asMSE(), loRad=0.01, upRad=3.9))
+IC7
+
+system.time(IC8 <- radiusMinimaxIC(L2Fam=N, neighbor=TotalVarNeighborhood(),
+                        risk=asMSE(), loRad=0.01, upRad=1.8))
+
+IC8
+
+
+
+###############################################################################
+## k-step (k >= 1) estimation
+###############################################################################
+
+## one-step estimation
+## 1. generate a contaminated sample
+ind <- rbinom(100, size=1, prob=0.05)
+x <- rnbinom(100, size=25, prob=(1-ind)*0.25 + ind*0.01)
+
+### MLE:
+(estML <- MLEstimator(x=x, NbinomFamily(size=25)))
+
+## 2. Kolmogorov(-Smirnov) minimum distance estimator
+(est0 <- MDEstimator(x=x, NbinomFamily(size=25)))
+
+## 3.1. one-step estimation: radius known
+
+### gross error
+## ac) Define infinitesimal robust model
+RobN3 <- InfRobModel(center=NbinomFamily(size=25, prob=estimate(est0)),
+                     neighbor=ContNeighborhood(radius=0.5))
+## bc) Compute optimally robust IC
+IC9 <- optIC(model=RobN3, risk=asMSE())
+## cc) Determine 1-step estimate
+(est1c <- oneStepEstimator(x, IC=IC9, start=est0))
+
+
+## instead of ac)-cc) you can also use function roptest
+est1c1 <- roptest(x, NbinomFamily(size = 25), eps = 0.05, initial.est =
+est0)
+checkIC(pIC(est1c1))
+## Using Kolmogorov MD estimator (default)
+est1c2 <- roptest(x, NbinomFamily(size = 25), eps = 0.05, distance =
+KolmogorovDist)
+## Using Cramer-von-Mises MD estimator (default)
+est1c3 <- roptest(x, NbinomFamily(size = 25), eps = 0.025)
+
+## comparison of estimates
+estimate(est1c)
+estimate(est1c1)
+estimate(est1c2)
+estimate(est1c3)
+## confidence intervals
+confint(est1c, symmetricBias())
+confint(est1c1, symmetricBias())
+confint(est1c2, symmetricBias())
+confint(est1c3, symmetricBias())
+
+### total variation
+## av) Define infinitesimal robust model
+RobN4 <- InfRobModel(center=NbinomFamily(size=25, prob=estimate(est0)),
+                neighbor=TotalVarNeighborhood(radius=0.25))
+## bv) Compute optimally robust IC
+IC10 <- optIC(model=RobN4, risk=asMSE())
+## cv) Determine 1-step estimate
+(est1v <- oneStepEstimator(x, IC=IC10, start=est0))
+
+## instead of av)-cv) you can also use function roptest
+est1v1 <- roptest(x, NbinomFamily(size = 25), eps = 0.025, initial.est =
+est0,
+                  neighbor = TotalVarNeighborhood())
+
+## comparison of estimates
+estimate(est1v)
+estimate(est1v1)
+
+## confidence intervals
+confint(est1v, symmetricBias())
+## ....
+###############################################################################
+## k-step (k >= 1) estimation
+###############################################################################
+
+## one-step estimation
+## 1. generate a contaminated sample
+ind <- rbinom(100, size=1, prob=0.05)
+x <- rnbinom(100, size=25, prob=(1-ind)*0.25 + ind*0.01)
+
+### MLE:
+(estML <- MLEstimator(x=x, NbinomFamily(size=25)))
+
+## 2. Kolmogorov(-Smirnov) minimum distance estimator
+(est0 <- MDEstimator(x=x, NbinomFamily(size=25)))
+
+## 3.1. one-step estimation: radius known
+
+### gross error
+## ac) Define infinitesimal robust model
+RobN3 <- InfRobModel(center=NbinomFamily(size=25, prob=estimate(est0)),
+                     neighbor=ContNeighborhood(radius=0.5))
+## bc) Compute optimally robust IC
+IC9 <- optIC(model=RobN3, risk=asMSE())
+## cc) Determine 1-step estimate
+(est1c <- oneStepEstimator(x, IC=IC9, start=est0))
+
+
+## instead of ac)-cc) you can also use function roptest
+est1c1 <- roptest(x, NbinomFamily(size = 25), eps = 0.05, initial.est =
+est0)
+checkIC(pIC(est1c1))
+## Using Kolmogorov MD estimator (default)
+est1c2 <- roptest(x, NbinomFamily(size = 25), eps = 0.05, distance =
+KolmogorovDist)
+## Using Cramer-von-Mises MD estimator (default)
+est1c3 <- roptest(x, NbinomFamily(size = 25), eps = 0.025)
+
+## comparison of estimates
+estimate(est1c)
+estimate(est1c1)
+estimate(est1c2)
+estimate(est1c3)
+## confidence intervals
+confint(est1c, symmetricBias())
+confint(est1c1, symmetricBias())
+confint(est1c2, symmetricBias())
+confint(est1c3, symmetricBias())
+
+### total variation
+## av) Define infinitesimal robust model
+RobN4 <- InfRobModel(center=NbinomFamily(size=25, prob=estimate(est0)),
+                neighbor=TotalVarNeighborhood(radius=0.25))
+## bv) Compute optimally robust IC
+IC10 <- optIC(model=RobN4, risk=asMSE())
+## cv) Determine 1-step estimate
+(est1v <- oneStepEstimator(x, IC=IC10, start=est0))
+
+## instead of av)-cv) you can also use function roptest
+est1v1 <- roptest(x, NbinomFamily(size = 25), eps = 0.025, initial.est =
+est0,
+                  neighbor = TotalVarNeighborhood())
+
+## comparison of estimates
+estimate(est1v)
+estimate(est1v1)
+
+## confidence intervals
+confint(est1v, symmetricBias())
+## ....
+
+## 3.2. k-step estimation: radius known
+IC9 <- optIC(model=RobN3, risk=asMSE())
+(est2c <- kStepEstimator(x, IC=IC9, start=est0, steps = 3L))
+### or:
+est2c1 <- roptest(x, NbinomFamily(size = 25), eps = 0.05, initial.est =
+est0, steps = 3L)
+## comparison of estimates
+estimate(est2c)
+estimate(est2c1)
+
+## 4.1. one-step estimation: radius interval
+IC11 <- radiusMinimaxIC(L2Fam=NbinomFamily(size=25, prob=estimate(est0)),
+                neighbor=ContNeighborhood(), risk=asMSE(), loRad=0,
+upRad=Inf)
+(est3c <- oneStepEstimator(x, IC=IC11, start=est0))
+## maximum radius for given sample size n: sqrt(n)*0.5
+
+(est3c1 <- roptest(x, NbinomFamily(size = 25), eps.upper = 0.5))
+
+
+
+From n@nd|xx @end|ng |rom hotm@||@com  Thu Jun 17 00:06:27 2010
+From: n@nd|xx @end|ng |rom hotm@||@com (Nanda Mendez)
+Date: Wed, 16 Jun 2010 22:06:27 +0000
+Subject: [RsR] spherical principal components
+Message-ID: <SNT141-w39644B06AD9C0EAB61D826A3DE0@phx.gbl>
+
+
+I'd like to compute spherical principal components, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?
+Fernanda 		 	   		  
+_________________________________________________________________
+[[elided Hotmail spam]]
+
+	[[alternative HTML version deleted]]
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Thu Jun 17 01:12:08 2010
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Thu, 17 Jun 2010 01:12:08 +0200
+Subject: [RsR] spherical principal components
+In-Reply-To: <SNT141-w39644B06AD9C0EAB61D826A3DE0@phx.gbl>
+References: <SNT141-w39644B06AD9C0EAB61D826A3DE0@phx.gbl>
+Message-ID: <AANLkTimClAUOumRExn9qi8BGlS62UBxeioRJL0M7_kLR@mail.gmail.com>
+
+Dear Fernanda,
+
+you could try this:
+
+
+?PcaLocantore
+
+library(rrcov)
+data(bushfire)
+PcaLocantore(bushfire)
+
+
+Hope this helps,
+
+Best regards,
+Valentin
+
+On Thu, Jun 17, 2010 at 12:06 AM, Nanda Mendez <nandixx at hotmail.com> wrote:
+
+>
+> I'd like to compute spherical principal components, could anyone give me a
+> hint whether a solution of this problem is already implemented or point me
+> to some reference?
+> Fernanda
+> _________________________________________________________________
+> [[elided Hotmail spam]]
+>
+>        [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+	[[alternative HTML version deleted]]
+
+
+
+From byrondom @end|ng |rom y@hoo-|nc@com  Thu Jun 17 01:17:05 2010
+From: byrondom @end|ng |rom y@hoo-|nc@com (Byron Dom)
+Date: Wed, 16 Jun 2010 16:17:05 -0700
+Subject: [RsR] spherical principal components
+In-Reply-To: <AANLkTimClAUOumRExn9qi8BGlS62UBxeioRJL0M7_kLR@mail.gmail.com>
+References: <SNT141-w39644B06AD9C0EAB61D826A3DE0@phx.gbl>
+	<AANLkTimClAUOumRExn9qi8BGlS62UBxeioRJL0M7_kLR@mail.gmail.com>
+Message-ID: <ADC47EB20948554BA15D6F306E00C4E2334B713A48@SP1-EX07VS02.ds.corp.yahoo.com>
+
+
+See: http://bm2.genes.nig.ac.jp/RGM2/R_current/library/rrcov/man/PcaLocantore-class.html
+
+
+
+-----Original Message-----
+From: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Valentin Todorov
+Sent: Wednesday, June 16, 2010 4:12 PM
+To: Nanda Mendez
+Cc: r-sig-robust at r-project.org
+Subject: Re: [RsR] spherical principal components
+
+Dear Fernanda,
+
+you could try this:
+
+
+?PcaLocantore
+
+library(rrcov)
+data(bushfire)
+PcaLocantore(bushfire)
+
+
+Hope this helps,
+
+Best regards,
+Valentin
+
+On Thu, Jun 17, 2010 at 12:06 AM, Nanda Mendez <nandixx at hotmail.com> wrote:
+
+>
+> I'd like to compute spherical principal components, could anyone give me a
+> hint whether a solution of this problem is already implemented or point me
+> to some reference?
+> Fernanda
+> _________________________________________________________________
+> [[elided Hotmail spam]]
+>
+>        [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+	[[alternative HTML version deleted]]
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From n@nd|xx @end|ng |rom hotm@||@com  Tue Jun 29 21:35:03 2010
+From: n@nd|xx @end|ng |rom hotm@||@com (Nanda Mendez)
+Date: Tue, 29 Jun 2010 19:35:03 +0000
+Subject: [RsR] S-estimates
+Message-ID: <SNT141-w1C669474171FA03D0E8CDA3CB0@phx.gbl>
+
+
+I'd like to S-estimates of regression, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?
+Thanks!!!Nanda 		 	   		  
+_________________________________________________________________
+Los cochazos de los famosos Patrick Dempsey, Tom Cruise o Michael Douglas presumen de autom?vil
+
+	[[alternative HTML version deleted]]
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Thu Jul  8 08:58:01 2010
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Thu, 8 Jul 2010 08:58:01 +0200
+Subject: [RsR] S-estimates
+In-Reply-To: <SNT141-w1C669474171FA03D0E8CDA3CB0@phx.gbl>
+References: <SNT141-w1C669474171FA03D0E8CDA3CB0@phx.gbl>
+Message-ID: <AANLkTim8AvhA3onqfqTE8LweE1KWvsqUD0WnHKoHV9jM@mail.gmail.com>
+
+library(robustbase)
+?lmrob.S
+
+
+But have a look also at:
+
+?lmrob
+?lmrob.fit.MM
+
+Best regards,
+Valentin
+
+
+
+
+On Tue, Jun 29, 2010 at 9:35 PM, Nanda Mendez <nandixx at hotmail.com> wrote:
+>
+> I'd like to S-estimates of regression, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?
+> Thanks!!!Nanda
+> _________________________________________________________________
+> Los cochazos de los famosos Patrick Dempsey, Tom Cruise o Michael Douglas presumen de autom?vil
+>
+> ? ? ? ?[[alternative HTML version deleted]]
+>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>
+
+
+
+From econce|c@o @end|ng |rom k@nguru@pt  Tue Jul 13 05:45:01 2010
+From: econce|c@o @end|ng |rom k@nguru@pt (Eduardo Conceição)
+Date: Tue, 13 Jul 2010 04:45:01 +0100
+Subject: [RsR] Can robust estimators outperform least squares in nonlinear
+ regression for pure Gaussian noise?
+Message-ID: <201007130345.o6D3j1Hb005177@wallabie.isp.ip.pt>
+
+Hi,
+
+I have recently conducted a Monte Carlo simulation study for robust univariate *nonlinear* regression estimators using small sample data taken from case studies in the chemical engineering field. The paper is available from doi:10.1016/j.compchemeng.2010.04.009
+
+A very unusual finding was that for *pure* Gaussian error some of the robust estimators could *outperform* the least squares estimator. Even though I do not known of any theoretical result which prevents this behavior to happen, I have never seen it reported either.
+
+I would like to known whether you find this acceptable or not and what you think might be causing it.
+
+Thanks in advance for your help.
+
+Eduardo L.T. Concei??o
+Dept. of Chemical Engineering
+University of Coimbra
+Portugal
+e-mail: econceicao at kanguru.pt; etc at eq.uc.pt
+
+
+
+From M@tth|@@@Koh| @end|ng |rom @t@m@t@@de  Wed Jul 14 19:45:27 2010
+From: M@tth|@@@Koh| @end|ng |rom @t@m@t@@de (Dr. Matthias Kohl)
+Date: Wed, 14 Jul 2010 19:45:27 +0200
+Subject: [RsR] Can robust estimators outperform least squares in
+ nonlinear regression for pure Gaussian noise?
+In-Reply-To: <201007130345.o6D3j1Hb005177@wallabie.isp.ip.pt>
+References: <201007130345.o6D3j1Hb005177@wallabie.isp.ip.pt>
+Message-ID: <4C3DF7B7.20904@stamats.de>
+
+Dear Eduardo,
+
+I think a key point is the median-based efficiency criterion which you 
+use to compare the estimators. In particular, do you know of a result 
+which states that the least squares estimator is optimal with respect to 
+median(|LS estimator - true parameter|)?
+
+Beside that, I'm not convinced that this median-based efficiency 
+criterion is a good choice for the comparison of estimators with the aim 
+to investigate their robustness properties. But I will have a look at 
+You (1999) in the next days.
+
+Just my two cents.
+Matthias
+
+On 13.07.2010 05:45, Eduardo Concei??o wrote:
+> Hi,
+>
+> I have recently conducted a Monte Carlo simulation study for robust univariate *nonlinear* regression estimators using small sample data taken from case studies in the chemical engineering field. The paper is available from doi:10.1016/j.compchemeng.2010.04.009
+>
+> A very unusual finding was that for *pure* Gaussian error some of the robust estimators could *outperform* the least squares estimator. Even though I do not known of any theoretical result which prevents this behavior to happen, I have never seen it reported either.
+>
+> I would like to known whether you find this acceptable or not and what you think might be causing it.
+>
+> Thanks in advance for your help.
+>
+> Eduardo L.T. Concei??o
+> Dept. of Chemical Engineering
+> University of Coimbra
+> Portugal
+> e-mail: econceicao at kanguru.pt; etc at eq.uc.pt
+>
+>    
+>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>    
+
+-- 
+Dr. Matthias Kohl
+www.stamats.de
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From econce|c@o @end|ng |rom k@nguru@pt  Fri Jul 16 14:40:41 2010
+From: econce|c@o @end|ng |rom k@nguru@pt (Eduardo Conceição)
+Date: Fri, 16 Jul 2010 13:40:41 +0100
+Subject: [RsR] Can robust estimators outperform least squares in
+ nonlinear regression for pure Gaussian noise?
+Message-ID: <201007161240.o6GCefFw025565@wallabie.isp.ip.pt>
+
+Dear Matthias,
+
+I'm not aware of any proof for the optimality of least squares with respect to median(|LS estimator - true parameter|). I just assumed it was since You (1999) used it in his simulation study.
+
+The same behavior, although mitigated, is observed when using the common mean squared error (MSE) criterion as you can see in the attached figure. Therefore, it seems that in some, *but not all*, degree this a consequence of the robust efficiency criterion as you've pointed out.
+
+Best regards,
+Eduardo
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: eff_mse_gaussian.pdf
+Type: application/pdf
+Size: 282878 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20100716/e9375146/attachment.pdf>
+
+From jo@ep@@err@ @end|ng |rom u@b@c@t  Tue Oct 19 16:32:42 2010
+From: jo@ep@@err@ @end|ng |rom u@b@c@t (Pep Serra)
+Date: Tue, 19 Oct 2010 16:32:42 +0200
+Subject: [RsR] robust scatterplot with fits
+Message-ID: <4CBDAC0A.2040908@uab.cat>
+
+  Dear RsR list members,
+
+  I somehow got stuck wth lmRob and I am sure I am missing something and 
+I do not know what. It is my first time using robust statistics and I 
+have read all your posts and pdfs recommended
+
+I think it is likely to be a newbie question. I ploted two variables and 
+the pictures shows a number of outliers that I want to identify given 
+that the main trend between those two measurements is positive. 
+(although they look like a lot, it is more or less 800 points out of 6000)
+
+
+
+
+
+I used then
+
+robust<-lmRob(WPROB~NPP,data=a)
+
+
+lmRob(formula = WPROB ~ NPP, data = a)
+
+Coefficients:
+  (Intercept)          NPP
+499.86274538  -0.00990502
+
+Degrees of freedom: 6002 total; 6000 residual
+Residual standard error: 250.3199
+
+1) I do not really understand the slope of the regression, why is it 
+negative???
+
+then used plot.lmRob(robust) and choose for option 11 (scatter plot with 
+fits)
+
+
+
+What is meant to be the x axis (WPROB) turns into the y axis.
+The regression line and the confidence intervals shown have nothing to 
+do, of course, with the coefficients retrieved...what am I doing wrong?
+
+Thank you in advance,
+
+pep
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101019/aaa084eb/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: moz-screenshot-1.png
+Type: image/png
+Size: 7291 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101019/aaa084eb/attachment.png>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: moz-screenshot-2.png
+Type: image/png
+Size: 19908 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101019/aaa084eb/attachment-0001.png>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: josep_serra.vcf
+Type: text/x-vcard
+Size: 448 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101019/aaa084eb/attachment.vcf>
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Tue Oct 19 18:44:44 2010
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Tue, 19 Oct 2010 09:44:44 -0700
+Subject: [RsR] robust scatterplot with fits
+In-Reply-To: <4CBDAC0A.2040908@uab.cat>
+References: <4CBDAC0A.2040908@uab.cat>
+Message-ID: <4CBDCAFC.6030203@stat.ubc.ca>
+
+Hello Pep,
+
+If NPP is the response variable (the "y" variable) and WPROB is the 
+explanatory variable (the "x" variable), then you should have used
+
+lmrob(NPP ~ WPROB, data=a)
+
+Also, I recommend you use the latest version of the "robustbase" package
+
+ > install.packages('robustbase')
+ > library(robustbase)
+
+There the function for a robust regression fit is called lmrob (not 
+lmRob, which is now deprecated).
+
+Finally, based on your plot, you might also want to consider a model 
+incorporating log(WPROB), since the relationship does not appear to be 
+quite linear to the naked eye.
+
+Hope this helps.
+
+Matias
+
+
+
+
+On 10-10-19 07:32 AM, Pep Serra sat down at the computer and wrote:
+>    Dear RsR list members,
+>
+> I somehow got stuck wth lmRob and I am sure I am missing something and I
+> do not know what. It is my first time using robust statistics and I have
+> read all your posts and pdfs recommended
+>
+> I think it is likely to be a newbie question. I ploted two variables and
+> the pictures shows a number of outliers that I want to identify given
+> that the main trend between those two measurements is positive.
+> (although they look like a lot, it is more or less 800 points out of 6000)
+>
+>
+>
+>
+>
+> I used then
+>
+> robust<-lmRob(WPROB~NPP,data=a)
+>
+>
+> lmRob(formula = WPROB ~ NPP, data = a)
+>
+> Coefficients:
+> (Intercept) NPP
+> 499.86274538 -0.00990502
+>
+> Degrees of freedom: 6002 total; 6000 residual
+> Residual standard error: 250.3199
+>
+> 1) I do not really understand the slope of the regression, why is it
+> negative???
+>
+> then used plot.lmRob(robust) and choose for option 11 (scatter plot with
+> fits)
+>
+>
+>
+> What is meant to be the x axis (WPROB) turns into the y axis.
+> The regression line and the confidence intervals shown have nothing to
+> do, of course, with the coefficients retrieved...what am I doing wrong?
+>
+> Thank you in advance,
+>
+> pep
+>
+>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+-- 
+_____________________________________________________
+Matias Salibian-Barrera - Department of Statistics
+The University of British Columbia
+Phone: (604) 822-3410 - Fax: (604) 822-6960
+"The plural of anecdote is not data" (George Stigler?)
+
+
+
+From ho|combe@ @end|ng |rom me@com  Tue Oct 26 08:57:47 2010
+From: ho|combe@ @end|ng |rom me@com (Alex Holcombe)
+Date: Tue, 26 Oct 2010 17:57:47 +1100
+Subject: [RsR] calculating deviance for glmrob
+Message-ID: <08543120-EA2B-407D-B15F-B82A5FD11764@me.com>
+
+Standard glm returns a deviance field, which is apparently minus twice the maximized log-likelihood.
+glmrob claims to do the same in its help page, but seems to always return NULL for deviance.
+
+It seems to be an unimplemented feature.  Does anyone have code or an algorithm that can calculate it?
+
+Any pointers appreciated
+
+
+Alex Holcombe
+www.psych.usyd.edu.au/staff/alexh/
+
+
+
+From rk@t @end|ng |rom zh@w@ch  Fri Oct 29 06:06:49 2010
+From: rk@t @end|ng |rom zh@w@ch (Andreas Ruckstuhl)
+Date: Fri, 29 Oct 2010 06:06:49 +0200
+Subject: [RsR] calculating deviance for glmrob
+In-Reply-To: <08543120-EA2B-407D-B15F-B82A5FD11764@me.com>
+References: <08543120-EA2B-407D-B15F-B82A5FD11764@me.com>
+Message-ID: <4CCA4859.40301@zhaw.ch>
+
+Dear Alex
+
+Yes, the deviance is deliberately not implemented. Hence, the statement 
+in the help file is incorrect.
+
+If you want to compare your model with another model, please use anova 
+(anova.glmrob). However, you don't find any deviance calculations there 
+as well but the differences of robust quasi-likelihoods. The reason is 
+the difficulties with the interpretation of ("raw") robust 
+quasi-likelihoods. - Do you have any particular applications of ("raw") 
+robust quasi-likelihoods in mind?
+
+Thank you very much for pointing out the inconsistency in the help file.
+
+All the best,
+Andreas
+
+
+
+
+------- Urspr?ngliche Nachricht --------
+Von: Alex Holcombe <holcombea at me.com>
+Gesendet: Tue, 26 Oct 2010 17:57:47 +1100
+An: r-sig-robust at r-project.org
+Betreff: [RsR] calculating deviance for glmrob
+
+> Standard glm returns a deviance field, which is apparently minus twice the maximized log-likelihood.
+> glmrob claims to do the same in its help page, but seems to always return NULL for deviance.
+> 
+> It seems to be an unimplemented feature.  Does anyone have code or an algorithm that can calculate it?
+> 
+> Any pointers appreciated
+> 
+> 
+> Alex Holcombe
+> www.psych.usyd.edu.au/staff/alexh/
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+----------------------------------------------------------------------
+
+Prof. Dr. Andreas Ruckstuhl
+ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+IDP Institut f?r Datenanalyse und Prozessdesign
+Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+Postfach                          Fax   : +41 (0)58 935 78 12
+CH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch
+                                   WWW   : http://www.idp.zhaw.ch
+
+
+
+From jo@ep@@err@ @end|ng |rom u@b@c@t  Mon Nov 29 15:52:08 2010
+From: jo@ep@@err@ @end|ng |rom u@b@c@t (Pep Serra)
+Date: Mon, 29 Nov 2010 15:52:08 +0100
+Subject: [RsR] choosing and plotting a model
+Message-ID: <4CF3BE18.10907@uab.cat>
+
+Dear all,
+
+Trying to choose between different curve fittings within different 
+robust models (what we would get with cftools in MATLAB, but I am 
+definetly R-addicted).
+
+Maybe it is a trivial questions:
+
+lm1<-lmrob(y ~  x, data=a)
+pl2<-lmrob(y ~   poly (x,2), data=a)
+pl3<-lmrob(y ~   poly (x,3), data=a)
+pl4<-lmrob(y ~   poly (x,4), data=a)
+pl5<-lmrob(y ~   poly (x,5), data=a)
+pl6<-lmrob(y ~   poly (x,6), data=a)
+
+I want to choose between different models according to the best fit, but 
+the problem is that there is no "best fit" in robust (or R2). How could 
+I do that?
+
+In addition, I would love to plot these models (scatterplot and than 
+later add the lines to see how the models look like)
+
+I tried, for instance:
+
+lines (x,predict (pl2),col="red")
+
+but I get many curves (I think) or a filled polygon. Is there any way to 
+get a simple line out of the model?
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: josep_serra.vcf
+Type: text/x-vcard
+Size: 448 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101129/e3029d89/attachment.vcf>
+
+From rk@t @end|ng |rom zh@w@ch  Tue Nov 30 04:19:54 2010
+From: rk@t @end|ng |rom zh@w@ch (Andreas Ruckstuhl)
+Date: Tue, 30 Nov 2010 04:19:54 +0100
+Subject: [RsR] choosing and plotting a model
+In-Reply-To: <4CF3BE18.10907@uab.cat>
+References: <4CF3BE18.10907@uab.cat>
+Message-ID: <4CF46D5A.2070908@zhaw.ch>
+
+Dear Pep
+
+To choose between different models you can use anova() (i.e., 
+anova.lmrob()) which runs robust tests; cf. example below. Since 
+anova.lmrob() can not handle poly(x, ...) directly, you must run some 
+manual preparations on the data set (cf. below).
+
+Fitting higher order polynomial can be very tricky. If there are 
+outliers at one or both end of the range, it is hard to tell whether one 
+should fit a higher order polynomial or better a low order polynomial 
+with some outliers at the end of the range. - The goals of your analysis 
+may give a hint which solution is more preferred. The data themselves 
+are often not decisive.
+
+If there is no physical law supporting a high order polynomial I prefer 
+to fit local regression smoother like lowess() or loess.
+
+To plot the models you must install the current version of the package 
+'robustbase' (cf. below) where predict.lmrob() is implemented.
+
+
+All the best, Andreas
+
+--------------------- Example ----------------------------------
+
+ADat <- data.frame(x=1:19)
+set.seed(3011)
+ADat$y <- 4 + 0.02*(ADat$x - 9)^3 + rnorm(nrow(ADat),0,0.7)
+ADat$y[c(5,12)] <- c(15,-5)
+
+
+## Data Preparation:
+X <- model.matrix(~   poly (x,6), data=ADat)
+ADat2 <- data.frame(y=ADat$y, X[,-1])
+names(ADat2)[-1] <- paste("P", 1:6, sep="")
+
+## Robust Fitting
+library(robustbase)
+pl1 <- lmrob(y ~  P1, data=ADat2)
+pl2 <- lmrob(y ~  P1 + P2, data=ADat2)
+pl3 <- lmrob(y ~  P1 + P2 + P3, data=ADat2)
+pl4 <- lmrob(y ~  . - P5 - P6, data=ADat2)
+pl5 <- lmrob(y ~  . - P6, data=ADat2)
+pl6 <- lmrob(y ~  ., data=ADat2)
+
+summary(pl6)
+
+## Model Selection
+anova(pl6, pl3, test="Wald")
+## or alternatively
+anova(pl6, pl3, test="Deviance")## Pr(>chisq) = 0.3652
+
+anova(pl6, pl2, test="Deviance")## Pr(>chisq) = < 2.2e-16
+
+
+## Displaying Model Fits
+## For predict: Please load 'robustbase' from R-forge
+## see https://r-forge.r-project.org/R/?group_id=59
+plot(y ~x, data=ADat)
+lines(ADat$x, predict(pl1), col=2)
+lines(ADat$x, predict(pl2), col=3)
+lines(ADat$x, predict(pl3), col=4)
+lines(ADat$x, predict(pl4), col=5)
+
+----------------------------------------------------------------------------------
+
+
+------- Urspr?ngliche Nachricht --------
+Von: Pep Serra <josep.serra at uab.cat>
+Gesendet: Mon, 29 Nov 2010 15:52:08 +0100
+An: r-sig-robust at r-project.org
+Betreff: [RsR] choosing and plotting a model
+
+> Dear all,
+> 
+> Trying to choose between different curve fittings within different 
+> robust models (what we would get with cftools in MATLAB, but I am 
+> definetly R-addicted).
+> 
+> Maybe it is a trivial questions:
+> 
+> lm1<-lmrob(y ~  x, data=a)
+> pl2<-lmrob(y ~   poly (x,2), data=a)
+> pl3<-lmrob(y ~   poly (x,3), data=a)
+> pl4<-lmrob(y ~   poly (x,4), data=a)
+> pl5<-lmrob(y ~   poly (x,5), data=a)
+> pl6<-lmrob(y ~   poly (x,6), data=a)
+> 
+> I want to choose between different models according to the best fit, but 
+> the problem is that there is no "best fit" in robust (or R2). How could 
+> I do that?
+> 
+> In addition, I would love to plot these models (scatterplot and than 
+> later add the lines to see how the models look like)
+> 
+> I tried, for instance:
+> 
+> lines (x,predict (pl2),col="red")
+> 
+> but I get many curves (I think) or a filled polygon. Is there any way to 
+> get a simple line out of the model?
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+----------------------------------------------------------------------
+
+Prof. Dr. Andreas Ruckstuhl
+ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+IDP Institut f?r Datenanalyse und Prozessdesign
+Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+Postfach                          Fax   : +41 (0)58 935 78 12
+CH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch
+                                   WWW   : http://www.idp.zhaw.ch
+
+
+
+From jo@ep@@err@ @end|ng |rom u@b@c@t  Wed Dec  1 15:48:14 2010
+From: jo@ep@@err@ @end|ng |rom u@b@c@t (Pep Serra)
+Date: Wed, 01 Dec 2010 15:48:14 +0100
+Subject: [RsR] best robust fit
+Message-ID: <4CF6602E.7020004@uab.cat>
+
+
+dear all,
+
+I want to choose between different polynomial robust  regressions, 
+however R2 may be misleading since the highest de degree is, the "better 
+fit" to data. Is there any function implemented in robust or robustbase 
+that computes an index for "model selection" ???
+
+Thanx for helping!
+pep
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: josep_serra.vcf
+Type: text/x-vcard
+Size: 448 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101201/e6b5a985/attachment.vcf>
+
+From S@mue|@Le @end|ng |rom @r|g|ob@|@com  Wed Dec  1 15:51:00 2010
+From: S@mue|@Le @end|ng |rom @r|g|ob@|@com (Samuel Le)
+Date: Wed, 1 Dec 2010 14:51:00 +0000
+Subject: [RsR] best robust fit
+In-Reply-To: <4CF6602E.7020004@uab.cat>
+References: <4CF6602E.7020004@uab.cat>
+Message-ID: <ECBDD2620D45F74C9B4AA3DBA750C5800C76D371@Exchange>
+
+Have you thought of the Akaike Information Criterion? It is the R squared penalized by the number of regressors. You can access to it using reg$AIC if reg is your regression object.
+
+Samuel
+
+-----Original Message-----
+From: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Pep Serra
+Sent: 01 December 2010 14:48
+To: r-sig-robust at r-project.org
+Subject: [RsR] best robust fit
+
+
+dear all,
+
+I want to choose between different polynomial robust  regressions, however R2 may be misleading since the highest de degree is, the "better fit" to data. Is there any function implemented in robust or robustbase that computes an index for "model selection" ???
+
+Thanx for helping!
+pep
+
+
+__________ Information from ESET NOD32 Antivirus, version of virus signature database 5663 (20101201) __________
+
+The message was checked by ESET NOD32 Antivirus.
+
+http://www.eset.com
+
+
+
+__________ Information from ESET NOD32 Antivirus, version of virus signature database 5663 (20101201) __________
+
+The message was checked by ESET NOD32 Antivirus.
+
+http://www.eset.com
+
+
+
+From jo@ep@@err@ @end|ng |rom u@b@c@t  Wed Dec  1 20:17:24 2010
+From: jo@ep@@err@ @end|ng |rom u@b@c@t (Pep Serra)
+Date: Wed, 01 Dec 2010 20:17:24 +0100
+Subject: [RsR] best robust fit
+In-Reply-To: <ECBDD2620D45F74C9B4AA3DBA750C5800C76D371@Exchange>
+References: <4CF6602E.7020004@uab.cat>
+	<ECBDD2620D45F74C9B4AA3DBA750C5800C76D371@Exchange>
+Message-ID: <4CF69F44.90703@uab.cat>
+
+I am not an expert, but I think AIC is not suitable when using robust 
+statistics, maybe someone smarter may give a hint on this
+I checked
+
+http://www.mail-archive.com/r-help at stat.math.ethz.ch/msg39949.html
+
+Thank you anyways and please do not hesitate to respond if you have 
+further comments...
+
+pep
+Al 01/12/2010 15:51, En/na Samuel Le ha escrit:
+> Have you thought of the Akaike Information Criterion? It is the R squared penalized by the number of regressors. You can access to it using reg$AIC if reg is your regression object.
+>
+> Samuel
+>
+> -----Original Message-----
+> From: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Pep Serra
+> Sent: 01 December 2010 14:48
+> To: r-sig-robust at r-project.org
+> Subject: [RsR] best robust fit
+>
+>
+> dear all,
+>
+> I want to choose between different polynomial robust  regressions, however R2 may be misleading since the highest de degree is, the "better fit" to data. Is there any function implemented in robust or robustbase that computes an index for "model selection" ???
+>
+> Thanx for helping!
+> pep
+>
+>
+> __________ Information from ESET NOD32 Antivirus, version of virus signature database 5663 (20101201) __________
+>
+> The message was checked by ESET NOD32 Antivirus.
+>
+> http://www.eset.com
+>
+>
+>
+> __________ Information from ESET NOD32 Antivirus, version of virus signature database 5663 (20101201) __________
+>
+> The message was checked by ESET NOD32 Antivirus.
+>
+> http://www.eset.com
+>
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: josep_serra.vcf
+Type: text/x-vcard
+Size: 448 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20101201/545753e2/attachment.vcf>
+

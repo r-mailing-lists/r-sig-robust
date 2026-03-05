@@ -1,0 +1,923 @@
+From He@ther@Bow|by @end|ng |rom d|o-mpo@gc@c@  Wed Mar 19 19:23:05 2014
+From: He@ther@Bow|by @end|ng |rom d|o-mpo@gc@c@ (Bowlby, Heather)
+Date: Wed, 19 Mar 2014 15:23:05 -0300
+Subject: [RsR] robust ridge regression
+Message-ID: <CB5182AD107F0943AEF20FD01FB8A7F8066795D1@marbioexc02.mar.dfo-mpo.ca>
+
+Hello,
+
+Has there been a package contributed to CRAN that implements Robust
+Ridge regression (e.g. the method proposed by Maronna in 2011) or other
+methods designed specifically for multicollinear data?  My application
+(landscape genetics; more specifically regression among distance
+matrices) would have a small sample size as well.
+
+Thanks,
+
+Heather
+
+ 
+
+Aquatic Biologist
+
+Population Ecology Division 
+
+Fisheries and Oceans Canada
+
+1 Challenger Drive
+
+Dartmouth, NS
+
+B2Y 4A2
+
+(902) 426-5836
+
+ 
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Sat Apr 19 21:11:11 2014
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Sat, 19 Apr 2014 21:11:11 +0200
+Subject: [RsR] nlrob()'s vcov() ?
+Message-ID: <CAPRP4-c0BP-Ecc-ocydvY3FG3knqGxVgkXg5Y9KGsyo=YXFSzQ@mail.gmail.com>
+
+I'm answering in public ... in the hope this help the next person googling ...
+
+On Fri, Apr 18, 2014 at 4:57 PM, Chris K..........  wrote:
+
+> Dear Dr Maechler - I want to use the nlrob iterativelt
+> reweighted facility to perform nonlinear regression on
+> heteroscedastic data. I want to find out about the
+> covariance matrix calculated by the software - does
+> doCov simply call the vcov facility?
+
+well, doCov is an argument of nlrob() and when TRUE does the same
+computations that vcov(<nlrob result>)
+would do.  Note that  summary(<nlrob>) also uses the same
+variance-covariance matrix for
+the standard errors.
+
+
+> Are the loss function
+> corrections of the forms given in e.g. Huber 1973 (Ann.Stats.
+> 1, 799-821) implemented?
+
+> I would appreciate knowing the actual  mathematical forms used.
+
+Well, I don't have any ready, nor an electronic version of  Huber (1973),
+but yes, it does use one version of Huber's correction formulas.
+
+Note that in the nonlinear case, the resulting vcov matrix is double
+approximate:
+the *non*linear regression will use a linear approximation at the minimum,
+the same that  vcov(nls( .. )) uses, and that's already not unproblematic.
+
+In addition, we use Huber's approximate formula for the correction factor tau,
+
+tau =  ave_i psi( r_i /  s )  /  [ ave_i  psi'( r_i/d ) ] ^2
+ where  ave_i  f(i) =   1/n sum_{i=1}^n   f(i)
+
+The R code is
+
+    ## --- Estimated asymptotic covariance of the robust estimator
+    rw <- psi(res.sc <- resid/Scale)
+    asCov <- if(!converged || !doCov) NA else {
+        ## a version of  .vcov.m(.) below
+    AtWAinv <- chol2inv(out$m$Rmat())
+    dimnames(AtWAinv) <- list(names(coef), names(coef))
+    tau <- mean(rw^2) / mean(psi(res.sc, d=TRUE))^2
+    AtWAinv * Scale^2 * tau
+    }
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Sep 24 10:16:58 2014
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 24 Sep 2014 10:16:58 +0200
+Subject: [RsR] [R] Median of streaming data
+In-Reply-To: <54226816.700@auckland.ac.nz>
+References: <CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>
+	<54226816.700@auckland.ac.nz>
+Message-ID: <21538.32250.67575.749398@stat.math.ethz.ch>
+
+>>>>> Rolf Turner <r.turner at auckland.ac.nz>
+>>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:
+
+    > On 24/09/14 17:31, Mohan Radhakrishnan wrote:
+    >> Hi,
+    >> 
+    >> I have streaming data(1 TB) that can't fit in memory. Is
+    >> there a way for me to find the median of these streaming
+    >> integers assuming I can fit only a small part in memory ?
+    >> This is about the statistical approach to find the median
+    >> of a large number of values when I can inspect only a
+    >> part of them due to memory constraints.
+
+    > You cannot, I'm pretty sure, calculate the median
+    > recursively.  However there are "approximate" recursive
+    > median algorithms which provide an estimate of location
+    > that has the same asymptotic properties as the median.
+
+    > See:
+
+    > * U. Holst, Recursive estimators of location.
+    > Commun. Statist. Theory Meth., vol. 16, 1987,
+    > pp. 2201--2226.
+
+    > and
+
+    > * Murray A. Cameron and T. Rolf Turner, Recursive location
+    > and scale estimators, Commun. Statist. Theory Meth.,
+    > vol. 22, 1993, pp. 2503--2515.
+
+This is really interesting to me, thank you, Rolf!
+
+OTOH,
+
+1) has your proposal ever been provided in R?
+   I'd be happy to add it to the robustX
+   (http://cran.ch.r-project.org/web/packages/robustX) or even
+   robustbase (http://cran.ch.r-project.org/web/packages/robustbase) package.
+
+2) Would anybody know of more recent research on the subject?
+   (I quickly "googled around" and found research more geared
+    for the time series situation which is more involved anyway)
+
+   --> Hence CC'ing the experts' list  R-SIG-robust
+
+
+Martin Maechler,  ETH Zurich
+
+
+    > cheers,
+    > Rolf Turner
+
+    > -- 
+    > Rolf Turner Technical Editor ANZJS
+
+
+
+From m@rtyn@byng @end|ng |rom n@g@co@uk  Wed Sep 24 12:29:33 2014
+From: m@rtyn@byng @end|ng |rom n@g@co@uk (Martyn Byng)
+Date: Wed, 24 Sep 2014 10:29:33 +0000
+Subject: [RsR] [R] Median of streaming data
+In-Reply-To: <21538.32250.67575.749398@stat.math.ethz.ch>
+References: <CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>
+	<54226816.700@auckland.ac.nz>
+	<21538.32250.67575.749398@stat.math.ethz.ch>
+Message-ID: <1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>
+
+Something else that might be of interest ...
+
+Zhang Q and Wang W (2007) A fast algorithm for approximate quantiles in high speed data streams Proceedings of the 19th International Conference on Scientific and Statistical Database Management IEEE Computer Society 29
+
+-----Original Message-----
+From: r-help-bounces at r-project.org [mailto:r-help-bounces at r-project.org] On Behalf Of Martin Maechler
+Sent: 24 September 2014 09:17
+To: Rolf Turner
+Cc: R-help at r-project.org; R-SIG-robust at r-project.org
+Subject: Re: [R] Median of streaming data
+
+>>>>> Rolf Turner <r.turner at auckland.ac.nz>
+>>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:
+
+    > On 24/09/14 17:31, Mohan Radhakrishnan wrote:
+    >> Hi,
+    >> 
+    >> I have streaming data(1 TB) that can't fit in memory. Is
+    >> there a way for me to find the median of these streaming
+    >> integers assuming I can fit only a small part in memory ?
+    >> This is about the statistical approach to find the median
+    >> of a large number of values when I can inspect only a
+    >> part of them due to memory constraints.
+
+    > You cannot, I'm pretty sure, calculate the median
+    > recursively.  However there are "approximate" recursive
+    > median algorithms which provide an estimate of location
+    > that has the same asymptotic properties as the median.
+
+    > See:
+
+    > * U. Holst, Recursive estimators of location.
+    > Commun. Statist. Theory Meth., vol. 16, 1987,
+    > pp. 2201--2226.
+
+    > and
+
+    > * Murray A. Cameron and T. Rolf Turner, Recursive location
+    > and scale estimators, Commun. Statist. Theory Meth.,
+    > vol. 22, 1993, pp. 2503--2515.
+
+This is really interesting to me, thank you, Rolf!
+
+OTOH,
+
+1) has your proposal ever been provided in R?
+   I'd be happy to add it to the robustX
+   (http://cran.ch.r-project.org/web/packages/robustX) or even
+   robustbase (http://cran.ch.r-project.org/web/packages/robustbase) package.
+
+2) Would anybody know of more recent research on the subject?
+   (I quickly "googled around" and found research more geared
+    for the time series situation which is more involved anyway)
+
+   --> Hence CC'ing the experts' list  R-SIG-robust
+
+
+Martin Maechler,  ETH Zurich
+
+
+    > cheers,
+    > Rolf Turner
+
+    > -- 
+    > Rolf Turner Technical Editor ANZJS
+
+______________________________________________
+R-help at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-help
+PLEASE do read the posting guide http://www.R-project.org/posting-guide.html
+and provide commented, minimal, self-contained, reproducible code.
+
+________________________________________________________________________
+This e-mail has been scanned for all viruses by Star.\ _...{{dropped:3}}
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Wed Sep 24 23:15:13 2014
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Wed, 24 Sep 2014 14:15:13 -0700
+Subject: [RsR] [R] Median of streaming data
+In-Reply-To: <21538.32250.67575.749398@stat.math.ethz.ch>
+References: <CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>	<54226816.700@auckland.ac.nz>
+	<21538.32250.67575.749398@stat.math.ethz.ch>
+Message-ID: <54233461.9010908@stat.ubc.ca>
+
+Martin,
+
+There's also the work of a former PhD student in our Dept:
+
+http://arxiv.org/pdf/1007.1032.pdf
+
+Matias
+
+
+
+
+On 24/09/2014 1:16 AM, Martin Maechler wrote:
+>>>>>> Rolf Turner <r.turner at auckland.ac.nz>
+>>>>>>      on Wed, 24 Sep 2014 18:43:34 +1200 writes:
+>      > On 24/09/14 17:31, Mohan Radhakrishnan wrote:
+>      >> Hi,
+>      >>
+>      >> I have streaming data(1 TB) that can't fit in memory. Is
+>      >> there a way for me to find the median of these streaming
+>      >> integers assuming I can fit only a small part in memory ?
+>      >> This is about the statistical approach to find the median
+>      >> of a large number of values when I can inspect only a
+>      >> part of them due to memory constraints.
+>
+>      > You cannot, I'm pretty sure, calculate the median
+>      > recursively.  However there are "approximate" recursive
+>      > median algorithms which provide an estimate of location
+>      > that has the same asymptotic properties as the median.
+>
+>      > See:
+>
+>      > * U. Holst, Recursive estimators of location.
+>      > Commun. Statist. Theory Meth., vol. 16, 1987,
+>      > pp. 2201--2226.
+>
+>      > and
+>
+>      > * Murray A. Cameron and T. Rolf Turner, Recursive location
+>      > and scale estimators, Commun. Statist. Theory Meth.,
+>      > vol. 22, 1993, pp. 2503--2515.
+>
+> This is really interesting to me, thank you, Rolf!
+>
+> OTOH,
+>
+> 1) has your proposal ever been provided in R?
+>     I'd be happy to add it to the robustX
+>     (http://cran.ch.r-project.org/web/packages/robustX) or even
+>     robustbase (http://cran.ch.r-project.org/web/packages/robustbase) package.
+>
+> 2) Would anybody know of more recent research on the subject?
+>     (I quickly "googled around" and found research more geared
+>      for the time series situation which is more involved anyway)
+>
+>     --> Hence CC'ing the experts' list  R-SIG-robust
+>
+>
+> Martin Maechler,  ETH Zurich
+>
+>
+>      > cheers,
+>      > Rolf Turner
+>
+>      > --
+>      > Rolf Turner Technical Editor ANZJS
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From r@dh@kr|@hn@n@moh@n @end|ng |rom gm@||@com  Wed Sep 24 16:55:46 2014
+From: r@dh@kr|@hn@n@moh@n @end|ng |rom gm@||@com (Mohan Radhakrishnan)
+Date: Wed, 24 Sep 2014 20:25:46 +0530
+Subject: [RsR] [R] Median of streaming data
+In-Reply-To: <1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>
+References: <CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>
+	<54226816.700@auckland.ac.nz>
+	<21538.32250.67575.749398@stat.math.ethz.ch>
+	<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>
+Message-ID: <CAOoXFP-0UPR+KWo71khz4bV5u5r5u-AjqmPo8sAwesjc2+-XhQ@mail.gmail.com>
+
+I meant the papers. I hit a paywall. Can we reconstruct the code from the
+papers ?
+
+Thanks,
+Mohan
+
+On Wed, Sep 24, 2014 at 3:59 PM, Martyn Byng <martyn.byng at nag.co.uk> wrote:
+
+> Something else that might be of interest ...
+>
+> Zhang Q and Wang W (2007) A fast algorithm for approximate quantiles in
+> high speed data streams Proceedings of the 19th International Conference on
+> Scientific and Statistical Database Management IEEE Computer Society 29
+>
+> -----Original Message-----
+> From: r-help-bounces at r-project.org [mailto:r-help-bounces at r-project.org]
+> On Behalf Of Martin Maechler
+> Sent: 24 September 2014 09:17
+> To: Rolf Turner
+> Cc: R-help at r-project.org; R-SIG-robust at r-project.org
+> Subject: Re: [R] Median of streaming data
+>
+> >>>>> Rolf Turner <r.turner at auckland.ac.nz>
+> >>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:
+>
+>     > On 24/09/14 17:31, Mohan Radhakrishnan wrote:
+>     >> Hi,
+>     >>
+>     >> I have streaming data(1 TB) that can't fit in memory. Is
+>     >> there a way for me to find the median of these streaming
+>     >> integers assuming I can fit only a small part in memory ?
+>     >> This is about the statistical approach to find the median
+>     >> of a large number of values when I can inspect only a
+>     >> part of them due to memory constraints.
+>
+>     > You cannot, I'm pretty sure, calculate the median
+>     > recursively.  However there are "approximate" recursive
+>     > median algorithms which provide an estimate of location
+>     > that has the same asymptotic properties as the median.
+>
+>     > See:
+>
+>     > * U. Holst, Recursive estimators of location.
+>     > Commun. Statist. Theory Meth., vol. 16, 1987,
+>     > pp. 2201--2226.
+>
+>     > and
+>
+>     > * Murray A. Cameron and T. Rolf Turner, Recursive location
+>     > and scale estimators, Commun. Statist. Theory Meth.,
+>     > vol. 22, 1993, pp. 2503--2515.
+>
+> This is really interesting to me, thank you, Rolf!
+>
+> OTOH,
+>
+> 1) has your proposal ever been provided in R?
+>    I'd be happy to add it to the robustX
+>    (http://cran.ch.r-project.org/web/packages/robustX) or even
+>    robustbase (http://cran.ch.r-project.org/web/packages/robustbase)
+> package.
+>
+> 2) Would anybody know of more recent research on the subject?
+>    (I quickly "googled around" and found research more geared
+>     for the time series situation which is more involved anyway)
+>
+>    --> Hence CC'ing the experts' list  R-SIG-robust
+>
+>
+> Martin Maechler,  ETH Zurich
+>
+>
+>     > cheers,
+>     > Rolf Turner
+>
+>     > --
+>     > Rolf Turner Technical Editor ANZJS
+>
+> ______________________________________________
+> R-help at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-help
+> PLEASE do read the posting guide
+> http://www.R-project.org/posting-guide.html
+> and provide commented, minimal, self-contained, reproducible code.
+>
+> ________________________________________________________________________
+> This e-mail has been scanned for all viruses by Star.\ _...{{dropped:3}}
+>
+> ______________________________________________
+> R-help at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-help
+> PLEASE do read the posting guide
+> http://www.R-project.org/posting-guide.html
+> and provide commented, minimal, self-contained, reproducible code.
+>
+
+	[[alternative HTML version deleted]]
+
+
+
+From b|o@t@t @end|ng |rom @t@t|@t|k@tu-dortmund@de  Wed Sep 24 22:31:28 2014
+From: b|o@t@t @end|ng |rom @t@t|@t|k@tu-dortmund@de (biostat)
+Date: Wed, 24 Sep 2014 22:31:28 +0200
+Subject: [RsR] [R] Median of streaming data
+In-Reply-To: <1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>
+References: <CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>
+	<54226816.700@auckland.ac.nz>
+	<21538.32250.67575.749398@stat.math.ethz.ch>
+	<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>
+Message-ID: <87eac9f6578df1e610b4f79ea8d5f423@statistik.tu-dortmund.de>
+
+Two further interesting references might be
+http://www.stat.cmu.edu/~ryantibs/papers/median.pdf
+and
+http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6691602
+
+Best
+Roland
+
+Am 24.09.2014 12:29, schrieb Martyn Byng:
+> Something else that might be of interest ...
+>
+> Zhang Q and Wang W (2007) A fast algorithm for approximate quantiles
+> in high speed data streams Proceedings of the 19th International
+> Conference on Scientific and Statistical Database Management IEEE
+> Computer Society 29
+>
+> -----Original Message-----
+> From: r-help-bounces at r-project.org
+> [mailto:r-help-bounces at r-project.org] On Behalf Of Martin Maechler
+> Sent: 24 September 2014 09:17
+> To: Rolf Turner
+> Cc: R-help at r-project.org; R-SIG-robust at r-project.org
+> Subject: Re: [R] Median of streaming data
+>
+>>>>>> Rolf Turner <r.turner at auckland.ac.nz>
+>>>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:
+>
+>     > On 24/09/14 17:31, Mohan Radhakrishnan wrote:
+>     >> Hi,
+>     >>
+>     >> I have streaming data(1 TB) that can't fit in memory. Is
+>     >> there a way for me to find the median of these streaming
+>     >> integers assuming I can fit only a small part in memory ?
+>     >> This is about the statistical approach to find the median
+>     >> of a large number of values when I can inspect only a
+>     >> part of them due to memory constraints.
+>
+>     > You cannot, I'm pretty sure, calculate the median
+>     > recursively.  However there are "approximate" recursive
+>     > median algorithms which provide an estimate of location
+>     > that has the same asymptotic properties as the median.
+>
+>     > See:
+>
+>     > * U. Holst, Recursive estimators of location.
+>     > Commun. Statist. Theory Meth., vol. 16, 1987,
+>     > pp. 2201--2226.
+>
+>     > and
+>
+>     > * Murray A. Cameron and T. Rolf Turner, Recursive location
+>     > and scale estimators, Commun. Statist. Theory Meth.,
+>     > vol. 22, 1993, pp. 2503--2515.
+>
+> This is really interesting to me, thank you, Rolf!
+>
+> OTOH,
+>
+> 1) has your proposal ever been provided in R?
+>    I'd be happy to add it to the robustX
+>    (http://cran.ch.r-project.org/web/packages/robustX) or even
+>    robustbase (http://cran.ch.r-project.org/web/packages/robustbase) 
+> package.
+>
+> 2) Would anybody know of more recent research on the subject?
+>    (I quickly "googled around" and found research more geared
+>     for the time series situation which is more involved anyway)
+>
+>    --> Hence CC'ing the experts' list  R-SIG-robust
+>
+>
+> Martin Maechler,  ETH Zurich
+>
+>
+>     > cheers,
+>     > Rolf Turner
+>
+>     > --
+>     > Rolf Turner Technical Editor ANZJS
+>
+> ______________________________________________
+> R-help at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-help
+> PLEASE do read the posting guide 
+> http://www.R-project.org/posting-guide.html
+> and provide commented, minimal, self-contained, reproducible code.
+>
+> 
+> ________________________________________________________________________
+> This e-mail has been scanned for all viruses by Star.\ 
+> _...{{dropped:3}}
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From r@turner @end|ng |rom @uck|@nd@@c@nz  Wed Sep 24 23:25:57 2014
+From: r@turner @end|ng |rom @uck|@nd@@c@nz (Rolf Turner)
+Date: Thu, 25 Sep 2014 09:25:57 +1200
+Subject: [RsR] [R] Median of streaming data
+In-Reply-To: <CAOoXFP-0UPR+KWo71khz4bV5u5r5u-AjqmPo8sAwesjc2+-XhQ@mail.gmail.com>
+References: <CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>	<54226816.700@auckland.ac.nz>	<21538.32250.67575.749398@stat.math.ethz.ch>	<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>
+	<CAOoXFP-0UPR+KWo71khz4bV5u5r5u-AjqmPo8sAwesjc2+-XhQ@mail.gmail.com>
+Message-ID: <542336E5.9060808@auckland.ac.nz>
+
+On 25/09/14 02:55, Mohan Radhakrishnan wrote:
+>
+> I meant the papers. I hit a paywall. Can we reconstruct the code from
+> the papers ?
+
+Shouldn't be too tough; the algorithm (in the Cameron and Turner paper) 
+is actually pretty simple.
+
+I intend to code it up again; could not find any trace of the old 
+(Splus?) code in my chaotic archives.
+
+Should be able to get it done "real soon now".
+
+cheers,
+
+Rolf
+
+
+-- 
+Rolf Turner
+Technical Editor ANZJS
+
+
+
+From merkbru @end|ng |rom t-on||ne@de  Fri Sep 26 11:15:03 2014
+From: merkbru @end|ng |rom t-on||ne@de (Bruno Merk)
+Date: Fri, 26 Sep 2014 11:15:03 +0200
+Subject: [RsR] robust fitting using Lorentzian merit function
+Message-ID: <000601cfd96a$5b545d10$11fd1730$@t-online.de>
+
+Hello,
+
+I'm currently doing non-linear curve fitting with nls and robust fitting
+(for subsequent outlier detection) using nlrob.
+
+Does anyone know if there are any functions/packages available in R for
+robust fitting using a Lorentzian merit function to minimize?
+
+Many thanks and kind regards,
+
+ 
+
+Bruno
+
+ 
+
+ 
+
+Dr. Bruno Merk 
+Boehringer Ingelheim Pharma GmbH & Co. KG
+IT RDM Research
+
+
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Sep 26 11:48:49 2014
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 26 Sep 2014 11:48:49 +0200
+Subject: [RsR] [R] Median of streaming data
+In-Reply-To: <54235766.3070400@auckland.ac.nz>
+References: <CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>
+	<54226816.700@auckland.ac.nz>
+	<21538.32250.67575.749398@stat.math.ethz.ch>
+	<54235766.3070400@auckland.ac.nz>
+Message-ID: <21541.13953.417228.646860@stat.math.ethz.ch>
+
+>>>>> Rolf Turner <r.turner at auckland.ac.nz>
+>>>>>     on Thu, 25 Sep 2014 11:44:38 +1200 writes:
+
+    > On 24/09/14 20:16, Martin Maechler wrote: <SNIP>
+
+    >> 1) has your proposal ever been provided in R?  I'd be
+    >> happy to add it to the robustX
+    >> (http://cran.ch.r-project.org/web/packages/robustX) or
+    >> even robustbase
+    >> (http://cran.ch.r-project.org/web/packages/robustbase)
+    >> package.
+
+    > <SNIP>
+
+    > I have coded up the algorithm from the Cameron and Turner
+    > paper.  Dunno if it gives exactly the same results as my
+    > (Splus?) code from lo these many years ago (the code that
+    > is lost in the mists of time), but it *seems* to work.
+
+excellent, thank you, Rolf!
+
+    > It is not designed to work with actual "streaming" data
+    > --- I don't know how to do that.  It takes a complete data
+    > vector as input.  Someone who knows about streaming data
+    > should be able to adapt it pretty easily.  Said he, the
+    > proverbial optimist.
+
+I agree; that should not be hard. 
+One way is to replace   'y[ind]' by   'getY(ind)' everywhere in the code
+and let 'getY' be an argument to rlas() provided by the user.
+
+    > The function code and a help file are attached.  These
+    > files have had their names changed to end in ".txt" so
+    > that they will get through the mailing list processor
+    > without being stripped.  With a bit of luck.
+;-)
+
+It did work indeed.
+I've added them to  'robustX' -- on R-forge,
+including a plot() method and some little more flexibility.
+
+  --> https://r-forge.r-project.org/R/?group_id=59
+
+Thank you for all the other pointers to litterature (but none to
+software), some of which quite recent.
+
+
+One old idea that was not directly mentioned I think is the
+"Remedian"  of Rouseeuw and Basset:
+
+  Peter J. Rousseeuw and Gilbert W. Bassett, Jr. (1998)
+  The Remedian: A Robust Averaging Method for Large Data Sets
+  Journal of the American Statistical Association, Vol. 85, No. 409, pp. 97-104
+	  [URL: http://www.jstor.org/stable/2289530]
+
+which is also easy to implement and I plan to add to robustbase
+(as I'd want to use the C code already in robustbase) as a
+"reference" estimator.
+
+Personally, I think there is quite some room for research and
+implementation, not the least because the litterature seems to
+always be a bit incomplete {one "school" not knowning about, or
+at least not citing works of the other "school", etc...}
+
+Martin
+
+--
+Martin Maechler, ETH Zurich
+
+
+    > If they *don't* get through, anyone who is interested
+    > should contact me and I will send them to you "privately".
+
+    > cheers,
+    > Rolf
+
+    > -- 
+    > Rolf Turner Technical Editor ANZJS 
+    > 
+    > external: rlas.R, plain text]
+    > external: rlas.Rd, plain text]
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Oct 16 16:13:39 2014
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 16 Oct 2014 16:13:39 +0200
+Subject: [RsR] robust fitting using Lorentzian merit function
+In-Reply-To: <OF874D92B5.7BB8C372-ONC1257D72.003AC444-C1257D72.0040614F@pcsierteelt.be>
+References: <OFAE825EA4.EDEDBA69-ONC1257D72.0030E231-C1257D72.0030F6EE@pcsierteelt.be>
+	<21566.19717.676004.717101@stat.math.ethz.ch>
+	<OF874D92B5.7BB8C372-ONC1257D72.003AC444-C1257D72.0040614F@pcsierteelt.be>
+Message-ID: <21567.53907.362435.943098@stat.math.ethz.ch>
+
+(Joachim has agreed to make this a public reply)
+
+>>>>> Joachim Audenaert <Joachim.Audenaert at pcsierteelt.be>
+>>>>>     on Wed, 15 Oct 2014 13:43:13 +0200 writes:
+
+    > Dear Dr. Maechler, Thank you very much for your quick
+    > response.
+
+    > I am quite new to R, so please tell me if I gave data or
+    > code in a wrong way, all code is in bold.
+
+    (I'm reading E-mail in a "plain text" interface -- yes, old-fashioned --
+     so I don't see any "bold",  but luckily your e-mail program
+      sends both, "HTML like" and "plain text like").
+
+    > this is my example dataset using dput, it is a table with
+    > FR and N0 values.
+
+    [I append a more complete R script later which includes the data]
+
+    > I want to make a regression model of this with nls, with
+    > the following formula RogersII <-
+    > nls(FR~(N0*attackR)/(1+(Th*N0*attackR)),start=list(attackR=1.5,Th=0.5),control=list(maxiter=10000))
+
+    > Because this is a biological experiment, there are often
+    > outliers. To get rid of them according to a method
+    > described in:
+    > http://www.biomedcentral.com/1471-2105/7/123; I should
+    > first fit a robust model, which minimizes the residuals
+    > with the assumption that they follow a Lorentizan
+    > distribution in stead of a normal distribution. This
+    > because with a Lorentzian distribution outliers have less
+    > impact on the model.
+
+Well, it is a good idea to use robust procedures which do work
+also when the errors are not normal.
+This indeed has been a main focus of robust statistics since the 1980s
+(even earlier: first cornerstone publication Huber (1964) .. Annals of Stats).
+
+However, robust statistics methodology has generalized the
+problem and the solution by using M-estimators (and later MM-,
+CM-, S-, and more), all of these being more reasonable, than
+assuming a "Lorentzian" -- which we typically call Cauchy
+distribution or t_1 (t-distrib. with 1 degree of freedom).
+
+
+    >   Currently, to make a robust fit I use:
+
+    > RogersII_R <-
+    > nlrob(FR~(N0*attackR)/(1+(Th*N0*attackR)),data=N0,FR,start=list(attackR=1.5,Th=0.5))
+
+(the 'data=..' cannot be correct, but see also my R script below).
+
+Using nlrob() from package robustbase is a very good idea, indeed...
+
+    > But this fit does not meet the criterion of residuals
+    > following a lorentzian distribution. Is it possible to
+    > extend the possibilities of nlrob, so the residuals can
+    > minimlized by assuming they follow a lorentzian
+    > distribution in stead of a normal distribution?
+
+Using nlrob() you will use a method which is more sophisticated
+than assuming a t_1 (aka Cauchy aka lorentzian) distribution for
+the errors.  Also it is *not* a two stage method (robust fit ->
+outliers -> least squares) as in the biomed paper above, but
+rather a "all-in-one" method which provides asymptotically
+correct standard errors and inference where as
+a two-stage method as the above leads to clearly *invalid* inference, i.e. all
+P-values from the final least squares fit will be wrong "by
+definition"...
+
+In short: do use nlrob() and keep its result.
+
+But then, as you asked, and I want to be nice (:-):
+It *is* possible to use  nlrob()  with the correct 'psi = ...'
+argument to directly compute the M-estimator which corresponds
+to the MLE (maximum likelihood) for "t_1" aka Cauchy aka
+lorentzian error distribution.
+
+I don't have time to give you the details at the moment, but
+hope to get there before the weekend.
+
+Here's the promised R script with your original example and some
+of the experiments I did.
+
+Two more remarks:
+1) You will notice that your data example is exactly a situation
+  where an "MM" estimate (or "CM" or ..) is clearly considerably
+  better than "M" because you have so called "leverage points".
+2) Actually the parametrization you use in *non*linear
+   regression is important.
+   Here I believe it would be better to use  iTh <- 1/Th   
+   as parameter. I have not yet demonstrated it though ...
+
+I need to send this e-mail out, as I'm busy for a while with
+other matters.
+
+Best regards,
+Martin Maechler
+
+------------------------------------------------------------------------------
+
+## From: Joachim Audenaert <Joachim.Audenaert at pcsierteelt.be>
+## To: Martin Maechler <maechler at stat.math.ethz.ch>
+
+## [........]
+
+## This is my example dataset using dput, it is a table with FR and N0 values.
+
+d.NF <- data.frame(
+    N0 = c(10, 4, 1, 3, 5, 4, 7, 2, 7, 19,
+        12, 7, 15, 17, 10, 16, 17, 11, 10, 18, 15, 26, 20,
+        25, 30, 31, 28, 25, 36, 24, 46, 28, 40, 58, 55, 60,
+        47, 31, 60, 71, 18, 17, 69, 64, 74, 53, 135, 113,
+        161, 102, 156, 78),
+    FR = c(10, 4, 1, 3, 5, 1, 6, 2,
+        6, 18, 9, 7, 14, 15, 3, 16, 8, 11, 10, 15, 15, 25,
+        20, 25, 24, 31, 28, 21, 31, 24, 34, 24, 29, 32, 36,
+        39, 38, 28, 43, 41, 13, 17, 37, 42, 43, 33, 36, 24,
+        36, 40, 43, 21))
+str(d.NF)
+## I want to make a regression model of this with nls, with the following
+## formula
+
+## {Joachim called his models  "RogersII"}
+fm <- nls(FR ~ (N0*attackR)/(1+(Th*N0*attackR)),
+                data = d.NF, start = list(attackR = 1.5, Th = 0.5))
+summary(fm)
+
+## Because this is a biological experiment, there are often outliers. To get
+## rid of them according to a method described in:
+## http://www.biomedcentral.com/1471-2105/7/123; I should first fit a robust
+## model, which minimizes the residuals with the assumption that they follow
+## a Lorentizan distribution in stead of a normal distribution. This because
+## with a Lorentzian distribution outliers have less impact on the model.
+## Currently, to make a robust fit I use:
+
+require(robustbase)
+fm.R <-
+    nlrob(FR ~ (N0*attackR)/(1+(Th*N0*attackR)),
+          data = d.NF,
+          start = list(attackR = 1.5,Th = 0.5))
+summary(fm.R)
+
+## MM: Compute predictions on grid :
+
+d.new <- with(d.NF, data.frame(N0 = seq(min(N0), max(N0), length=512+1)))
+d.new[, "ls.fit"] <- predict(fm,   d.new)
+d.new[,"rob.fit"] <- predict(fm.R, d.new)
+
+## Visualize
+plot(FR ~ N0, data=d.NF, ylim = c(0,90)); abline(h=0,v=0, lty=3, col="gray")
+cols <- c(LS = adjustcolor("brown",.6),
+          M = adjustcolor("red",  .6))
+lines( ls.fit ~ N0, d.new, col=cols["LS"], lty=2, lwd=2)
+lines(rob.fit ~ N0, d.new, col=cols["M"],  lty=1, lwd=2)
+legend("bottomright", c("L.squares", "robust ('M', def.)"), bty="n",
+       lwd=2, lty=2:1, col = cols)
+
+## MM: also try the other (new) methods for nlrob():
+(meths <- eval(formals(nlrob)$method))
+if(FALSE)# fails: they need  (lower,upper) differently for different meth
+allRm <- lapply(meths, function(.M.) update(fm.R, method = .M.))
+allRm <- as.list(setNames(nm=meths))
+allRm[["M"]] <- fm.R
+## and the other methods:
+allRm[-1] <- lapply(meths[-1],
+                    function(.M.)
+                        update(fm.R, method = .M.,
+                               lower = c(attackR = 1, Th = 0),
+                               upper = c(attackR = 3, Th = 0.2)))
+t(sapply(allRm, coef))
+##      attackR          Th
+## M   1.482408 0.017703029
+## MM  1.218437 0.012441474
+## tau 1.166282 0.011655022
+## CM  1.128051 0.011370435
+## mtl 1.077946 0.006229957
+
+## and the plots --- these fits are even more robust:
+fit.rob <- sapply(allRm, function(m) predict(m, d.new))
+matlines(d.new[,"N0"], fit.rob[,c("MM","tau","CM")], col="blue2")
+## the asymptotes for N0 --> oo (Inf) :
+abline(h = 1/sapply(allRm[c("M","MM","tau","CM")], coef)["Th",],
+       col=c(cols["M"], rep("blue2",3)), lty=1:4)
+
+## More experiments: Try 'M' with different psi function:
+## Redescending psi: starting value matters
+summary(fm.R2 <- update(fm.R, psi = .Mwgt.psi1("lqq"))
+## -> complete non-sense (local minimum)
+## Try better "MM" with good start (and show iterations):
+fm.R3 <- update(fm.R, psi = .Mwgt.psi1("lqq"), method="MM",
+                lower = c(attackR = 1, Th = 0),
+                upper = c(attackR = 3, Th = 0.2),
+                trace=TRUE)
+## much more reasonable
+
+
+

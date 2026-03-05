@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2009-05",
+  "messages": [
+    {
+      "id": "msg-fb5f6dba25d0",
+      "message_id": "<4A127608.5000803@.............>",
+      "from_name": "jt",
+      "from_email_hash": "8b5b38aa19974bfc8a261d3442f865d11edea7dcc310ffc926d1a42bc27567b8",
+      "date": "2009-05-19T10:04:08+01:00",
+      "subject": "[RsR] Permanent C++ Programmer in London, UK, England",
+      "subject_clean": "[RsR] Permanent C++ Programmer in London, UK, England",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello ~\n\nI'm recruiting for a hedge fund (type) business (based in London,\nEngland, UK) that are looking for good C++ programmers with preferably\nsome experience in statistical modeling/programming/analysis.   Perhaps\nyou are a statistician, mathematician or physicist (for example) by\nbackground but a programmer by experience (or a graduate)?\n\nYou should ideally also have scripting experience in one if not more\nlanguages such as R, Python, Perl etc.\n\nThere is much more to the job than just scripting and programming,\npotentially you could find yourself becoming actively involved in\nstatistical side too of the business too.\n\nTo learn more please contact me using james<at>...........\n\nKind regards,\nJAMES\n\n. . . .\n\nJames Tobin\n...............",
+      "body_snippet": "Hello ~\n\nI'm recruiting for a hedge fund (type) business (based in London,\nEngland, UK) that are looking for good C++ programmers with preferably\nsome experience in statistical modeling/programming/an",
+      "thread_id": "thread-fb5f6dba25d0",
+      "thread_depth": 0,
+      "month": "2009-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-fb5f6dba25d0",
+      "subject": "[RsR] Permanent C++ Programmer in London, UK, England",
+      "message_count": 1,
+      "participants": [
+        "jt"
+      ],
+      "started": "2009-05-19T10:04:08+01:00",
+      "last_reply": "2009-05-19T10:04:08+01:00",
+      "root_message_id": "msg-fb5f6dba25d0"
+    }
+  ]
+}

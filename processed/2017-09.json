@@ -1,0 +1,124 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2017-09",
+  "messages": [
+    {
+      "id": "msg-bf02c1908b2a",
+      "message_id": "<632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>",
+      "from_name": "Alice Domalik",
+      "from_email_hash": "371a51dcac03294dbb3e58690e75595faf52aa22a9067cdaba23a2ad952c4431",
+      "date": "2017-09-06T18:13:36-07:00",
+      "subject": "[RsR] robust PCA in robComposition",
+      "subject_clean": "[RsR] robust PCA in robComposition",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am trying to perform a robust PCA analysis on compositional data. My data set includes 400 diet samples from a species of predatory fish. \nFor each sample, I have the percent of the diet that is comprised of 7 species of prey item. Each row sums to 100. \n\nsandlance rockfish salmon saury anchovy herring squid \n100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000 \n100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000 \n75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000 \n\nI tried \"pcaCoDa(diet.df)\" (from the package robComposition), b ut I get the following error: \n\n\n\nError in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[, 1:i]), : incorrect number of subscripts on matrix \n\n\n\n\nWhat does this error mean and how can I resolve the problem? \n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I am trying to perform a robust PCA analysis on compositional data. My data set includes 400 diet samples from a species of predatory fish. \nFor each sample, I have the percent of the diet that is com",
+      "thread_id": "thread-bf02c1908b2a",
+      "thread_depth": 0,
+      "month": "2017-09"
+    },
+    {
+      "id": "msg-e8e1d3abad11",
+      "message_id": "<1504758400160.23094@tuwien.ac.at>",
+      "from_name": "Filzmoser Peter",
+      "from_email_hash": "028b190108e19e41d2016d7cdb25f7f5d54f18fd3ae1d2149dda7637c09c1877",
+      "date": "2017-09-07T04:26:40Z",
+      "subject": "[RsR] robust PCA in robComposition",
+      "subject_clean": "[RsR] robust PCA in robComposition",
+      "in_reply_to": "<632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>",
+      "references": [
+        "<632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>"
+      ],
+      "body_plain": "Hard to say without no more details about the data frame. Maybe there are zeros included?\nBest regards,\nPeter\n\n------------------------------------------------------------------------------\nProf. Dr. Peter Filzmoser\nCSTAT - Computational Statistics\nInstitute of Statistics & Mathematical Methods in Economics\nVienna University of Technology\nWiedner Hauptstr. 8-10\n1040 Vienna, Austria\n(DVR: 0005886)\nTel. +43 1 58801 10560\nFAX +43 1 58801 105699\ne-mail: P.Filzmoser at tuwien.ac.at\nhttp://www.statistik.tuwien.ac.at/public/filz/\n------------------------------------------------------------------------------\n\n________________________________________\nFrom: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Alice Domalik <adomalik at sfu.ca>\nSent: Thursday, September 7, 2017 3:13 AM\nTo: r-sig-robust at r-project.org\nSubject: [RsR] robust PCA in robComposition\n\nI am trying to perform a robust PCA analysis on compositional data. My data set includes 400 diet samples from a species of predatory fish.\nFor each sample, I have the percent of the diet that is comprised of 7 species of prey item. Each row sums to 100.\n\nsandlance rockfish salmon saury anchovy herring squid\n100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000\n100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000\n75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000\n\nI tried \"pcaCoDa(diet.df)\" (from the package robComposition), b ut I get the following error:\n\n\n\nError in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[, 1:i]), : incorrect number of subscripts on matrix\n\n\n\n\nWhat does this error mean and how can I resolve the problem?\n\n        [[alternative HTML version deleted]]\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Hard to say without no more details about the data frame. Maybe there are zeros included?\nBest regards,\nPeter\n\n------------------------------------------------------------------------------\nProf. Dr. ",
+      "thread_id": "thread-bf02c1908b2a",
+      "thread_depth": 1,
+      "month": "2017-09"
+    },
+    {
+      "id": "msg-6cd2ae370741",
+      "message_id": "<2124604615.78038283.1504790465732.JavaMail.zimbra@sfu.ca>",
+      "from_name": "Alice Domalik",
+      "from_email_hash": "371a51dcac03294dbb3e58690e75595faf52aa22a9067cdaba23a2ad952c4431",
+      "date": "2017-09-07T06:21:05-07:00",
+      "subject": "[RsR] robust PCA in robComposition",
+      "subject_clean": "[RsR] robust PCA in robComposition",
+      "in_reply_to": "<1504758400160.23094@tuwien.ac.at>",
+      "references": [
+        "<632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>",
+        "<1504758400160.23094@tuwien.ac.at>"
+      ],
+      "body_plain": "My data set includes lots of zeros and 100's. \nI thought that might be the problem, but I could find anything in the documentation about requirements for the data frame. \n\nAlice \n\n\nFrom: \"Filzmoser Peter\" <peter.filzmoser at tuwien.ac.at> \nTo: \"Alice Domalik\" <adomalik at sfu.ca>, r-sig-robust at r-project.org \nSent: Wednesday, September 6, 2017 8:26:40 PM \nSubject: Re: robust PCA in robComposition \n\nHard to say without no more details about the data frame. Maybe there are zeros included? \nBest regards, \nPeter \n\n------------------------------------------------------------------------------ \nProf. Dr. Peter Filzmoser \nCSTAT - Computational Statistics \nInstitute of Statistics & Mathematical Methods in Economics \nVienna University of Technology \nWiedner Hauptstr. 8-10 \n1040 Vienna, Austria \n(DVR: 0005886) \nTel. +43 1 58801 10560 \nFAX +43 1 58801 105699 \ne-mail: P.Filzmoser at tuwien.ac.at \nhttp://www.statistik.tuwien.ac.at/public/filz/ \n------------------------------------------------------------------------------ \n\n________________________________________ \nFrom: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Alice Domalik <adomalik at sfu.ca> \nSent: Thursday, September 7, 2017 3:13 AM \nTo: r-sig-robust at r-project.org \nSubject: [RsR] robust PCA in robComposition \n\nI am trying to perform a robust PCA analysis on compositional data. My data set includes 400 diet samples from a species of predatory fish. \nFor each sample, I have the percent of the diet that is comprised of 7 species of prey item. Each row sums to 100. \n\nsandlance rockfish salmon saury anchovy herring squid \n100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000 \n100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000 \n75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000 \n\nI tried \"pcaCoDa(diet.df)\" (from the package robComposition), b ut I get the following error: \n\n\n\nError in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[, 1:i]), : incorrect number of subscripts on matrix \n\n\n\n\nWhat does this error mean and how can I resolve the problem? \n\n[[alternative HTML version deleted]] \n\n_______________________________________________ \nR-SIG-Robust at r-project.org mailing list \nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust \n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "My data set includes lots of zeros and 100's. \nI thought that might be the problem, but I could find anything in the documentation about requirements for the data frame. \n\nAlice \n\n\nFrom: \"Filzmoser Pe",
+      "thread_id": "thread-bf02c1908b2a",
+      "thread_depth": 2,
+      "month": "2017-09"
+    },
+    {
+      "id": "msg-aeae2de82bcc",
+      "message_id": "<CAEecyFOUrKESNQyv1QcDMgBfOu1kbVRCwHCMvZficT+vqKnHJA@mail.gmail.com>",
+      "from_name": "Diman Todorov",
+      "from_email_hash": "f624676c88e06ab185d97e71f8483b69a45356cc5ddf877718d5f40e25eccb72",
+      "date": "2017-09-07T18:29:16Z",
+      "subject": "[RsR] robust PCA in robComposition",
+      "subject_clean": "[RsR] robust PCA in robComposition",
+      "in_reply_to": "<2124604615.78038283.1504790465732.JavaMail.zimbra@sfu.ca>",
+      "references": [
+        "<632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>",
+        "<1504758400160.23094@tuwien.ac.at>",
+        "<2124604615.78038283.1504790465732.JavaMail.zimbra@sfu.ca>"
+      ],
+      "body_plain": "I am not sure PCA is the best approach when your data is not normally\ndistributed. There are approaches to discrete PCA but ultimately you may\nwant to consider alternative methods depending on what it is you are\nlooking for\n\nDiman\n\nOn Thu, 7 Sep 2017 at 06:21 Alice Domalik <adomalik at sfu.ca> wrote:\n\n> My data set includes lots of zeros and 100's.\n> I thought that might be the problem, but I could find anything in the\n> documentation about requirements for the data frame.\n>\n> Alice\n>\n>\n> From: \"Filzmoser Peter\" <peter.filzmoser at tuwien.ac.at>\n> To: \"Alice Domalik\" <adomalik at sfu.ca>, r-sig-robust at r-project.org\n> Sent: Wednesday, September 6, 2017 8:26:40 PM\n> Subject: Re: robust PCA in robComposition\n>\n> Hard to say without no more details about the data frame. Maybe there are\n> zeros included?\n> Best regards,\n> Peter\n>\n>\n> ------------------------------------------------------------------------------\n> Prof. Dr. Peter Filzmoser\n> CSTAT - Computational Statistics\n> Institute of Statistics & Mathematical Methods in Economics\n> Vienna University of Technology\n> Wiedner Hauptstr. 8-10\n> 1040 Vienna, Austria\n> (DVR: 0005886)\n> Tel. +43 1 58801 10560 <+43%201%205880110560>\n> FAX +43 1 58801 105699 <+43%201%2058801105699>\n> e-mail: P.Filzmoser at tuwien.ac.at\n> http://www.statistik.tuwien.ac.at/public/filz/\n>\n> ------------------------------------------------------------------------------\n>\n> ________________________________________\n> From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of\n> Alice Domalik <adomalik at sfu.ca>\n> Sent: Thursday, September 7, 2017 3:13 AM\n> To: r-sig-robust at r-project.org\n> Subject: [RsR] robust PCA in robComposition\n>\n> I am trying to perform a robust PCA analysis on compositional data. My\n> data set includes 400 diet samples from a species of predatory fish.\n> For each sample, I have the percent of the diet that is comprised of 7\n> species of prey item. Each row sums to 100.\n>\n> sandlance rockfish salmon saury anchovy herring squid\n> 100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000\n> 100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000\n> 75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000\n>\n> I tried \"pcaCoDa(diet.df)\" (from the package robComposition), b ut I get\n> the following error:\n>\n>\n>\n> Error in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[,\n> 1:i]), : incorrect number of subscripts on matrix\n>\n>\n>\n>\n> What does this error mean and how can I resolve the problem?\n>\n> [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I am not sure PCA is the best approach when your data is not normally\ndistributed. There are approaches to discrete PCA but ultimately you may\nwant to consider alternative methods depending on what it",
+      "thread_id": "thread-bf02c1908b2a",
+      "thread_depth": 3,
+      "month": "2017-09"
+    },
+    {
+      "id": "msg-97e4b5a0b2b5",
+      "message_id": "<CAE8NEzsYZYtW3-G=pR62yo_spgT+74Av2D7hxJAuTe+kzuAHFw@mail.gmail.com>",
+      "from_name": "Shu Yu Fan",
+      "from_email_hash": "8d82af0d76b1d1f16ff4ba4ecb5ceece13b93d0b91e5a6140675b2ff82bb3d80",
+      "date": "2017-09-08T12:20:43-07:00",
+      "subject": "[RsR] R-SIG-Robust Digest, Vol 87, Issue 2",
+      "subject_clean": "[RsR] R-SIG-Robust Digest, Vol 87, Issue 2",
+      "in_reply_to": "<mailman.19.1504864802.16185.r-sig-robust@r-project.org>",
+      "references": [
+        "<mailman.19.1504864802.16185.r-sig-robust@r-project.org>"
+      ],
+      "body_plain": "I am not an expert in the area, but I think 0 and 100 are not allowed in\nthe data frame. I generated a fake dataset, with one row with 0 and 100\n(and each row adds up to 100, 200*6), I got a message that \"n<=p, are you\nserious?\". LOL. When I generated a data set with non-zero proportions,\neverything seems working fine.\n\nI am kind of curious why you chose this method. :)\n\nShuyu\n\n\nOn Sep 8, 2017 03:03, <r-sig-robust-request at r-project.org> wrote:\n\n> Send R-SIG-Robust mailing list submissions to\n>         r-sig-robust at r-project.org\n>\n> To subscribe or unsubscribe via the World Wide Web, visit\n>         https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> or, via email, send a message with subject or body 'help' to\n>         r-sig-robust-request at r-project.org\n>\n> You can reach the person managing the list at\n>         r-sig-robust-owner at r-project.org\n>\n> When replying, please edit your Subject line so it is more specific\n> than \"Re: Contents of R-SIG-Robust digest...\"\n>\n>\n> Today's Topics:\n>\n>    1. Re:  robust PCA in robComposition (Alice Domalik)\n>\n>\n> ----------------------------------------------------------------------\n>\n> Message: 1\n> Date: Thu, 7 Sep 2017 06:21:05 -0700 (PDT)\n> From: Alice Domalik <adomalik at sfu.ca>\n> To: Filzmoser Peter <peter.filzmoser at tuwien.ac.at>\n> Cc: r-sig-robust at r-project.org\n> Subject: Re: [RsR] robust PCA in robComposition\n> Message-ID: <2124604615.78038283.1504790465732.JavaMail.zimbra at sfu.ca>\n> Content-Type: text/plain; charset=\"UTF-8\"\n>\n> My data set includes lots of zeros and 100's.\n> I thought that might be the problem, but I could find anything in the\n> documentation about requirements for the data frame.\n>\n> Alice\n>\n>\n> From: \"Filzmoser Peter\" <peter.filzmoser at tuwien.ac.at>\n> To: \"Alice Domalik\" <adomalik at sfu.ca>, r-sig-robust at r-project.org\n> Sent: Wednesday, September 6, 2017 8:26:40 PM\n> Subject: Re: robust PCA in robComposition\n>\n> Hard to say without no more details about the data frame. Maybe there are\n> zeros included?\n> Best regards,\n> Peter\n>\n> ------------------------------------------------------------\n> ------------------\n> Prof. Dr. Peter Filzmoser\n> CSTAT - Computational Statistics\n> Institute of Statistics & Mathematical Methods in Economics\n> Vienna University of Technology\n> Wiedner Hauptstr. 8-10\n> 1040 Vienna, Austria\n> (DVR: 0005886)\n> Tel. +43 1 58801 10560\n> FAX +43 1 58801 105699\n> e-mail: P.Filzmoser at tuwien.ac.at\n> http://www.statistik.tuwien.ac.at/public/filz/\n> ------------------------------------------------------------\n> ------------------\n>\n> ________________________________________\n> From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of\n> Alice Domalik <adomalik at sfu.ca>\n> Sent: Thursday, September 7, 2017 3:13 AM\n> To: r-sig-robust at r-project.org\n> Subject: [RsR] robust PCA in robComposition\n>\n> I am trying to perform a robust PCA analysis on compositional data. My\n> data set includes 400 diet samples from a species of predatory fish.\n> For each sample, I have the percent of the diet that is comprised of 7\n> species of prey item. Each row sums to 100.\n>\n> sandlance rockfish salmon saury anchovy herring squid\n> 100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000\n> 100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000\n> 75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000\n>\n> I tried \"pcaCoDa(diet.df)\" (from the package robComposition), b ut I get\n> the following error:\n>\n>\n>\n> Error in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[,\n> 1:i]), : incorrect number of subscripts on matrix\n>\n>\n>\n>\n> What does this error mean and how can I resolve the problem?\n>\n> [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>         [[alternative HTML version deleted]]\n>\n>\n>\n> ------------------------------\n>\n> Subject: Digest Footer\n>\n> _______________________________________________\n> R-SIG-Robust mailing list\n> R-SIG-Robust at r-project.org\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n> ------------------------------\n>\n> End of R-SIG-Robust Digest, Vol 87, Issue 2\n> *******************************************\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I am not an expert in the area, but I think 0 and 100 are not allowed in\nthe data frame. I generated a fake dataset, with one row with 0 and 100\n(and each row adds up to 100, 200*6), I got a message t",
+      "thread_id": "thread-97e4b5a0b2b5",
+      "thread_depth": 0,
+      "month": "2017-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-bf02c1908b2a",
+      "subject": "[RsR] robust PCA in robComposition",
+      "message_count": 4,
+      "participants": [
+        "Alice Domalik",
+        "Diman Todorov",
+        "Filzmoser Peter"
+      ],
+      "started": "2017-09-06T18:13:36-07:00",
+      "last_reply": "2017-09-07T18:29:16+00:00",
+      "root_message_id": "msg-bf02c1908b2a"
+    },
+    {
+      "id": "thread-97e4b5a0b2b5",
+      "subject": "[RsR] R-SIG-Robust Digest, Vol 87, Issue 2",
+      "message_count": 1,
+      "participants": [
+        "Shu Yu Fan"
+      ],
+      "started": "2017-09-08T12:20:43-07:00",
+      "last_reply": "2017-09-08T12:20:43-07:00",
+      "root_message_id": "msg-97e4b5a0b2b5"
+    }
+  ]
+}

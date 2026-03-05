@@ -1,0 +1,563 @@
+From ogunde|e@o|@n|y| @end|ng |rom |upre@edu@ng  Tue Jan 30 10:38:42 2018
+From: ogunde|e@o|@n|y| @end|ng |rom |upre@edu@ng (Olaniyi Ogundele)
+Date: Tue, 30 Jan 2018 10:38:42 +0100
+Subject: [RsR] R Code for Constrained M (CM) estimator.
+Message-ID: <CAF79-121KAdiwaW6OaJQVFmWH=_Dk5wdFcwJAPsMC3odggBT=Q@mail.gmail.com>
+
+Please can anyone help me with raw R code for implementing Constrained M
+(CM) estimator. I am working on its extension to other area in statistics.
+My email is ogundele.olaniyi at fupre.edu.ng. Thanks.
+
+	[[alternative HTML version deleted]]
+
+
+
+From Ev@@C@nton| @end|ng |rom un|ge@ch  Thu Jun 14 14:56:14 2018
+From: Ev@@C@nton| @end|ng |rom un|ge@ch (Eva Cantoni)
+Date: Thu, 14 Jun 2018 14:56:14 +0200
+Subject: [RsR] Huber rho function evaluation
+Message-ID: <c0814fe6-434d-cd14-c2a1-261e1cc383c3@unige.ch>
+
+Dear all,
+
+I would like to use the function Mpsi() to compute Huber's rho function 
+(deriv=-1), but I consistently get "Inf" values (and even NaN). Am I 
+missing something?
+
+-----
+ > Mpsi(seq(-5,5,by=0.1),psi="huber",cc=1.35,deriv=-1)
+ ? [1] Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf 
+Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf 
+Inf Inf Inf
+ ?[38] Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf NaN Inf Inf 
+Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf 
+Inf Inf Inf
+ ?[75] Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf 
+Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf
+----
+
+Note that the Huber psi function evaluation (deriv=0) works well
+
+ > Mpsi(seq(-5,5,by=0.1),psi="huber",cc=1.35,deriv=0)
+ ? [1] -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 
+-1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 
+-1.35
+ ?[25] -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 
+-1.35 -1.35 -1.30 -1.20 -1.10 -1.00 -0.90 -0.80 -0.70 -0.60 -0.50 -0.40 
+-0.30
+ ?[49] -0.20 -0.10? 0.00? 0.10? 0.20? 0.30? 0.40? 0.50 0.60? 0.70? 0.80? 
+0.90? 1.00? 1.10? 1.20? 1.30? 1.35? 1.35? 1.35 1.35? 1.35? 1.35? 1.35? 1.35
+ ?[73]? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35 1.35? 1.35? 1.35? 
+1.35? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35 1.35? 1.35? 1.35? 1.35? 1.35
+ ?[97]? 1.35? 1.35? 1.35? 1.35? 1.35
+
+and also the rho evaluation for other choices of functions (e.g. Tukey's 
+biweight)
+
+ > Mpsi(seq(-5,5,by=0.1),psi="biweight",cc=1.35,deriv=-1)
+ ? [1] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000
+ ?[13] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000
+ ?[25] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000
+ ?[37] 0.303750000 0.303633276 0.300941930 0.292219930 0.275829615 
+0.251666667 0.220780758 0.185032340 0.146785551 0.108637255 0.073182210 
+0.042814358
+ ?[49] 0.019564254 0.004972615 0.000000000 0.004972615 0.019564254 
+0.042814358 0.073182210 0.108637255 0.146785551 0.185032340 0.220780758 
+0.251666667
+ ?[61] 0.275829615 0.292219930 0.300941930 0.303633276 0.303750000 
+0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000
+ ?[73] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000
+ ?[85] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+0.303750000
+ ?[97] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000
+
+
+Thank you for your help,
+Eva
+
+-- 
+Prof. Eva Cantoni
+Research Center for Statistics and
+  Geneva School of Economics and Management
+University of Geneva, Bd du Pont d'Arve 40, CH-1211 Gen?ve 4
+gsem.unige.ch/rcs/cantoni
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Jun 15 10:16:24 2018
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 15 Jun 2018 10:16:24 +0200
+Subject: [RsR] Huber rho function evaluation
+In-Reply-To: <c0814fe6-434d-cd14-c2a1-261e1cc383c3@unige.ch>
+References: <c0814fe6-434d-cd14-c2a1-261e1cc383c3@unige.ch>
+Message-ID: <23331.30168.842753.371874@stat.math.ethz.ch>
+
+>>>>> Eva Cantoni 
+>>>>>     on Thu, 14 Jun 2018 14:56:14 +0200 writes:
+
+    > Dear all, I would like to use the function Mpsi() to
+    > compute Huber's rho function (deriv=-1), but I
+    > consistently get "Inf" values (and even NaN). Am I missing
+    > something?
+
+    > -----
+    >> Mpsi(seq(-5,5,by=0.1),psi="huber",cc=1.35,deriv=-1)
+    > ? [1] Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf 
+    > Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf 
+    > Inf Inf Inf
+    > ?[38] Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf NaN Inf Inf 
+    > Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf 
+    > Inf Inf Inf
+    > ?[75] Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf 
+    > Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf
+    > ----
+
+Dear Eva,
+
+The above is a bug.
+
+I'm giving you (and more importantly everyone else reading this)
+some context, and then a workaround (= "solution for now").
+As an appetizer for the latter, use
+
+    plot(huberPsi)
+
+to get the nice plot appended, showing that robustbase *can*
+compute rho() {and much more} nicely.
+
+
+------- Context ---------
+As you know, in the newer robustness literature, the definition
+of rho() is unfortunately available in two different versions,
+one of them, for redescending psi() only --  scaled to have
+rho~(Inf) = 1.
+
+In robustbase, we call that version  chi() or rho~() ["tilde"],
+and use rho() for the "principal function" of psi(), i.e.,
+psi() = rho'().
+
+The Mpsi(), Mwgt(), Mchi() functions were implemented in C,
+notably to be used by lmrob(), but of course also with an R
+level interface that you are using.
+
+Unfortunately (for this case), the C code was heavily geared
+toward redescending psi() functions, and so, internally, rho()
+is defined as "un-scaling" the rho~() = chi() :
+
+   rho(x) := rho~(x) * rho(Inf)
+
+and of course this is nonsense for Huber (and other
+non-redescenders) and gives the  Inf's you have seen
+[apart from  rho(0) <- rho~(x) * rho(Inf) = 0 * Inf = NaN ]
+
+------- Workaround ---------
+
+1. Use Mchi(*, "huber", deriv=0 )     instead of
+       Mpsi(*, "huber", deriv=-1)
+
+          (Uses the fast internal C code) :
+
+> > Mchi(seq(-3,3, by=1/4), psi="huber", cc=1.35)
+ [1] 3.13875 2.80125 2.46375 2.12625 1.78875 1.45125 1.11375 0.78125
+ [9] 0.50000 0.28125 0.12500 0.03125 0.00000 0.03125 0.12500 0.28125
+[17] 0.50000 0.78125 1.11375 1.45125 1.78875 2.12625 2.46375 2.80125
+[25] 3.13875
+> 
+   
+2. Use the  psiFunc() based  'huberPsi' object, {mentioned above
+   that  `plot(huberPsi)` produced the nice plot in the appendix},
+   
+
+   huberPsi at rho(x, seq(-3,3, by=1/4)) # is for the default cc = 1.345
+
+or for another k than the default :
+
+> Hub_1.5 <- chgDefaults(huberPsi, k = 1.5)
+> Hub_1.5 at rho(seq(-3,3, by=1/4))
+ [1] 3.37500 3.00000 2.62500 2.25000 1.87500 1.50000 1.12500 0.78125
+ [9] 0.50000 0.28125 0.12500 0.03125 0.00000 0.03125 0.12500 0.28125
+[17] 0.50000 0.78125 1.12500 1.50000 1.87500 2.25000 2.62500 3.00000
+[25] 3.37500
+> 
+
+--------------
+
+Of course, I will fix the problem so that
+   Mpsi(x, psi="huber", 1.35, deriv=-1)
+
+will also work in the next version of robustbase.
+
+Best regards,
+Martin
+
+    > Note that the Huber psi function evaluation (deriv=0) works well
+
+    >> Mpsi(seq(-5,5,by=0.1),psi="huber",cc=1.35,deriv=0)
+    > ? [1] -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 
+    > -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 
+    > -1.35
+    > ?[25] -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 -1.35 
+    > -1.35 -1.35 -1.30 -1.20 -1.10 -1.00 -0.90 -0.80 -0.70 -0.60 -0.50 -0.40 
+    > -0.30
+    > ?[49] -0.20 -0.10? 0.00? 0.10? 0.20? 0.30? 0.40? 0.50 0.60? 0.70? 0.80? 
+    > 0.90? 1.00? 1.10? 1.20? 1.30? 1.35? 1.35? 1.35 1.35? 1.35? 1.35? 1.35? 1.35
+    > ?[73]? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35 1.35? 1.35? 1.35? 
+    > 1.35? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35? 1.35 1.35? 1.35? 1.35? 1.35? 1.35
+    > ?[97]? 1.35? 1.35? 1.35? 1.35? 1.35
+
+    > and also the rho evaluation for other choices of functions (e.g. Tukey's 
+    > biweight)
+
+    >> Mpsi(seq(-5,5,by=0.1),psi="biweight",cc=1.35,deriv=-1)
+    > ? [1] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000
+    > ?[13] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000
+    > ?[25] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000
+    > ?[37] 0.303750000 0.303633276 0.300941930 0.292219930 0.275829615 
+    > 0.251666667 0.220780758 0.185032340 0.146785551 0.108637255 0.073182210 
+    > 0.042814358
+    > ?[49] 0.019564254 0.004972615 0.000000000 0.004972615 0.019564254 
+    > 0.042814358 0.073182210 0.108637255 0.146785551 0.185032340 0.220780758 
+    > 0.251666667
+    > ?[61] 0.275829615 0.292219930 0.300941930 0.303633276 0.303750000 
+    > 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000
+    > ?[73] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000
+    > ?[85] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000 
+    > 0.303750000
+    > ?[97] 0.303750000 0.303750000 0.303750000 0.303750000 0.303750000
+
+
+    > Thank you for your help,
+    > Eva
+
+    > -- 
+    > Prof. Eva Cantoni
+    > Research Center for Statistics and
+    > Geneva School of Economics and Management
+    > University of Geneva, Bd du Pont d'Arve 40, CH-1211 Gen?ve 4
+    > gsem.unige.ch/rcs/cantoni
+
+    > _______________________________________________
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Jun 15 10:19:59 2018
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 15 Jun 2018 10:19:59 +0200
+Subject: [RsR] Huber rho function evaluation (plus plot)
+In-Reply-To: <23331.30168.842753.371874@stat.math.ethz.ch>
+References: <c0814fe6-434d-cd14-c2a1-261e1cc383c3@unige.ch>
+ <23331.30168.842753.371874@stat.math.ethz.ch>
+Message-ID: <23331.30383.646510.777343@stat.math.ethz.ch>
+
+>>>>> Martin Maechler 
+>>>>>     on Fri, 15 Jun 2018 10:16:24 +0200 writes:
+
+>>>>> Eva Cantoni 
+>>>>>     on Thu, 14 Jun 2018 14:56:14 +0200 writes:
+
+    >> Dear all, I would like to use the function Mpsi() to
+    >> compute Huber's rho function (deriv=-1), but I
+    >> consistently get "Inf" values (and even NaN). Am I
+    >> missing something?
+
+    >> -----
+    >>> Mpsi(seq(-5,5,by=0.1),psi="huber",cc=1.35,deriv=-1)
+    >> ? [1] Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf
+    >> Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf
+    >> Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf ?[38] Inf Inf Inf
+    >> Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf NaN Inf Inf Inf
+    >> Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf
+    >> Inf Inf Inf Inf Inf Inf ?[75] Inf Inf Inf Inf Inf Inf Inf
+    >> Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf Inf
+    >> Inf Inf Inf Inf Inf Inf
+    >> ----
+
+    > Dear Eva,
+
+    > The above is a bug.
+
+    > I'm giving you (and more importantly everyone else reading
+    > this) some context, and then a workaround (= "solution for
+    > now").  As an appetizer for the latter, use
+
+    >     plot(huberPsi)
+
+    > to get the nice plot appended, showing that robustbase
+    > *can* compute rho() {and much more} nicely.
+
+and I forgot the plot.  Appended now (hopefully).
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: huberPsi.png
+Type: image/png
+Size: 23005 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20180615/697a7654/attachment.png>
+
+-------------- next part --------------
+
+
+
+    > ------- Context --------- As you know, in the newer
+    > robustness literature, the definition of rho() is
+    > unfortunately available in two different versions, one of
+    > them, for redescending psi() only -- scaled to have
+    > rho~(Inf) = 1.
+
+    > In robustbase, we call that version chi() or rho~()
+    > ["tilde"], and use rho() for the "principal function" of
+    > psi(), i.e., psi() = rho'().
+
+    > The Mpsi(), Mwgt(), Mchi() functions were implemented in
+    > C, notably to be used by lmrob(), but of course also with
+    > an R level interface that you are using.
+
+    > Unfortunately (for this case), the C code was heavily
+    > geared toward redescending psi() functions, and so,
+    > internally, rho() is defined as "un-scaling" the rho~() =
+    > chi() :
+
+    >    rho(x) := rho~(x) * rho(Inf)
+
+    > and of course this is nonsense for Huber (and other
+    > non-redescenders) and gives the Inf's you have seen [apart
+    > from rho(0) <- rho~(x) * rho(Inf) = 0 * Inf = NaN ]
+
+    > ------- Workaround ---------
+
+    > 1. Use Mchi(*, "huber", deriv=0 ) instead of Mpsi(*,
+    > "huber", deriv=-1)
+
+    >           (Uses the fast internal C code) :
+
+    >> > Mchi(seq(-3,3, by=1/4), psi="huber", cc=1.35)
+    >  [1] 3.13875 2.80125 2.46375 2.12625 1.78875 1.45125
+    > 1.11375 0.78125 [9] 0.50000 0.28125 0.12500 0.03125
+    > 0.00000 0.03125 0.12500 0.28125 [17] 0.50000 0.78125
+    > 1.11375 1.45125 1.78875 2.12625 2.46375 2.80125 [25]
+    > 3.13875
+    >> 
+   
+    > 2. Use the psiFunc() based 'huberPsi' object, {mentioned
+    > above that `plot(huberPsi)` produced the nice plot in the
+    > appendix},
+   
+
+    >    huberPsi at rho(x, seq(-3,3, by=1/4)) # is for the default
+    > cc = 1.345
+
+    > or for another k than the default :
+
+    >> Hub_1.5 <- chgDefaults(huberPsi, k = 1.5)
+    >> Hub_1.5 at rho(seq(-3,3, by=1/4))
+    >  [1] 3.37500 3.00000 2.62500 2.25000 1.87500 1.50000
+    > 1.12500 0.78125 [9] 0.50000 0.28125 0.12500 0.03125
+    > 0.00000 0.03125 0.12500 0.28125 [17] 0.50000 0.78125
+    > 1.12500 1.50000 1.87500 2.25000 2.62500 3.00000 [25]
+    > 3.37500
+    >> 
+
+    > --------------
+
+    > Of course, I will fix the problem so that Mpsi(x,
+    > psi="huber", 1.35, deriv=-1)
+
+    > will also work in the next version of robustbase.
+
+    > Best regards, Martin
+
+From B@C|@rke @end|ng |rom murdoch@edu@@u  Wed Sep  5 05:13:14 2018
+From: B@C|@rke @end|ng |rom murdoch@edu@@u (Brenton Clarke)
+Date: Wed, 5 Sep 2018 03:13:14 +0000
+Subject: [RsR] Translating .R file that uses MASS to robustbase and a
+ question of weights when doing predicted values
+Message-ID: <MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>
+
+Hi,
+     I have two questions.  The first one is in using the MASS library I get a warning
+when I ask for predicted values...I've seen somewhere a suggestion that one should
+use "weights = 1/hhat" .......can someone explain to me which weights I should use?
+
+Secondly,  I am teaching this in an applied statistics course...but using the library MASS.
+
+I am wondering if I should use robustbase and lmrob
+
+Can someone give me the code using lmrob that would do the same analysis
+as the attached file?
+
+I'm hoping this is not too onerous.
+
+Cheers,
+Brenton
+
+Dr Brenton R Clarke,
+Senior Lecturer in Mathematics and Statistics,
+School of Engineering and Information Technology,
+Murdoch University,
+Murdoch, WA 6150,
+Australia
+Tel +61 (0)8 93602578
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20180905/2ce531b3/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Ripleys Estimates of the Telephone Data.R
+Type: application/octet-stream
+Size: 2740 bytes
+Desc: Ripleys Estimates of the Telephone Data.R
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20180905/2ce531b3/attachment.obj>
+
+From ||rthun@nd@@ter @end|ng |rom gm@||@com  Thu Sep  6 09:36:58 2018
+From: ||rthun@nd@@ter @end|ng |rom gm@||@com (Fernando Marmolejo-Ramos)
+Date: Thu, 6 Sep 2018 17:06:58 +0930
+Subject: [RsR] Translating .R file that uses MASS to robustbase and a
+ question of weights when doing predicted values
+In-Reply-To: <MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>
+References: <MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>
+Message-ID: <CAK+v9AH86YwtBtmufGvfs5gLR=Vz+Tv=zj=vVmP6A-amAfpdSg@mail.gmail.com>
+
+dear brenton
+
+what about the robust fitting in the packages 'robust' and 'robustbase'?
+
+f
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Thu Sep  6 23:54:16 2018
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Thu, 6 Sep 2018 14:54:16 -0700
+Subject: [RsR] Translating .R file that uses MASS to robustbase and a
+ question of weights when doing predicted values
+In-Reply-To: <MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>
+References: <MEXPR01MB14311F738B0EB24D381F7B97AE020@MEXPR01MB1431.ausprd01.prod.outlook.com>
+Message-ID: <477e19e6-cea6-ffaf-4125-2e220bfa22f6@stat.ubc.ca>
+
+Hello Brenton,
+
+Yes, lmrob() from robustbase can be expected to provide a better 
+estimator, at least in the sense that the initial estimator used to 
+solve the M-estimating equations is better.
+
+You should be able to replace every call to rlm() with lmrob() pretty 
+much asthey are, making sure you use method="MM", and you remove all 
+other rlm-specific arguments. For example:
+
+instead of
+modelRF <- rlm(calls ~ year, maxit=50, data=phones, psi=psi.huber)
+
+you can use
+modelRF <- lmrob(calls ~ year, data=phones, method="MM")
+
+all subsequent calls to summary, abline, etc. should work pretty much as 
+they are.
+
+Hope this helps.
+
+Matias
+
+
+On 2018-09-04 8:13 PM, Brenton Clarke wrote:
+>
+> Hi,
+>
+> ???? I have two questions.? The first one is in using the MASS library 
+> I get a warning
+>
+> when I ask for predicted values?I?ve seen somewhere a suggestion that 
+> one should
+>
+> use ?weights = 1/hhat? ??.can someone explain to me which weights I 
+> should use?
+>
+> Secondly,? I am teaching this in an applied statistics course?but 
+> using the library MASS.
+>
+> I am wondering if I should use robustbase and lmrob
+>
+> Can someone give me the code using lmrob that would do the same analysis
+>
+> as the attached file?
+>
+> I?m hoping this is not too onerous.
+>
+> Cheers,
+>
+> Brenton
+>
+> Dr Brenton R Clarke,
+>
+> Senior Lecturer in Mathematics and Statistics,
+>
+> School of Engineering and Information Technology,
+>
+> Murdoch University,
+>
+> Murdoch, WA 6150,
+>
+> Australia
+>
+> Tel +61 (0)8 93602578
+>
+>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+______________________________________________________________
+Matias Salibian-Barrera - Professor
+Department of Statistics - The University of British Columbia
+matias at stat.ubc.ca | +1 (604) 822-3410
+
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From S@Elli@on @ending from LGCGroup@com  Tue Oct 23 11:54:35 2018
+From: S@Elli@on @ending from LGCGroup@com (S Ellison)
+Date: Tue, 23 Oct 2018 09:54:35 +0000
+Subject: [RsR] Pass
+Message-ID: <cfe6f069bc7448fc85e8e02f078a5c70@GBDCVPEXC04.corp.lgc-group.com>
+
+password
+
+
+*******************************************************************
+This email and any attachments are confidential. Any use...{{dropped:8}}
+
+

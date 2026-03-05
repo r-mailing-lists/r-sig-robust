@@ -1,0 +1,38 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2020-10",
+  "messages": [
+    {
+      "id": "msg-899484924b5c",
+      "message_id": "<631da4f8-8657-ce99-5c24-ff077971a413@unige.ch>",
+      "from_name": "Olivier Renaud",
+      "from_email_hash": "8cdf6339bcdf497adeb8d9777de02150a4b7f883ca5bebcb75ce65a120150511",
+      "date": "2020-10-03T18:09:47+02:00",
+      "subject": "[RsR] shifted t distribution for power analysis",
+      "subject_clean": "[RsR] shifted t distribution for power analysis",
+      "in_reply_to": "<CACgFjqQU05_q92kYVdV5FbhL7+mx2fO7hbH3kQEHjbg7DT3+bg@mail.gmail.com>",
+      "references": [
+        "<CACgFjqQU05_q92kYVdV5FbhL7+mx2fO7hbH3kQEHjbg7DT3+bg@mail.gmail.com>"
+      ],
+      "body_plain": "Hi,\nThe distribution of the t statistic under the alternative hypothesis is \nnot a shifted t but a t with a non-zero non-centrality parameter. rt() \nhas a third argument \"ncp\" that precisely provides non-central t. Look \nat the help file for the definition of the ncp and its link with mean \nshift and variance.\nOlivier\n\n\nOn 30/09/2020 10:18, Z B wrote:\n> Dears,\n>\n> I am trying to generate 10 random numbers from  shifted to the right t\n> distribution with 3 degrees of freedom. I mean the following :\n> x<-rt(10,3)\n>   y<-rt(10,3)+2\n>\n>\n>   I need these two variable to calculate the the power of two sample t-test\n> in order the check its robustness and that is by deriving the p values from\n> 1000 samples for both x and y  and then calculate the rejection rate.But it\n> is false since i found out that we talk about noncentrality parameter in\n> case of t-distribution and not shift like mentioned above.how shall i do to\n> express a shift to the right with an amount of 2 using the noncentrality\n> parameter in R ?.i will be very grateful when i hear from you. and if there\n> is whatever other solution to implement shifted to the right random\n> variables then it welcome.\n>\n>\n> Best Reguards\n> Zakaria Bensmida",
+      "body_snippet": "Hi,\nThe distribution of the t statistic under the alternative hypothesis is \nnot a shifted t but a t with a non-zero non-centrality parameter. rt() \nhas a third argument \"ncp\" that precisely provides ",
+      "thread_id": "thread-899484924b5c",
+      "thread_depth": 0,
+      "month": "2020-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-899484924b5c",
+      "subject": "[RsR] shifted t distribution for power analysis",
+      "message_count": 1,
+      "participants": [
+        "Olivier Renaud"
+      ],
+      "started": "2020-10-03T18:09:47+02:00",
+      "last_reply": "2020-10-03T18:09:47+02:00",
+      "root_message_id": "msg-899484924b5c"
+    }
+  ]
+}

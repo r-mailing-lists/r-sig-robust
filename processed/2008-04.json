@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2008-04",
+  "messages": [
+    {
+      "id": "msg-e245f0abaa60",
+      "message_id": "<Prayer.1.0.16.0804091203580.5293@wm1.tc.umn.edu>",
+      "from_name": "kh@@x131 m@iii@g oii um@@edu",
+      "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
+      "date": "2008-04-09T12:03:58-05:00",
+      "subject": "[RsR] Selecting observations that has smallest absolute residuals",
+      "subject_clean": "[RsR] Selecting observations that has smallest absolute residuals",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi Everyone,\n\nI want to pick those observation from the regression data that has smallest \nabsolute residuals . i.e i have run ols on 30 observations of multiple \nregression data and got residuals for the whole data. now i want to select \n20 observations from the same data that has smallest absolute residuals and \nwant to run ols again on the selected observations. i used the following \ncode for selecting 20 observation that has smallest residuals :\n\n > a<- rank(abs(resid))\n > which(a %in% c(1:20))\n it gives the indices(row numbers) of the regression data that has smallest \nabsolute residuals (is it correct?). now how to run ols on this i really \nneed your help?\n\nThanks in advance,\nDost.",
+      "body_snippet": "Hi Everyone,\n\nI want to pick those observation from the regression data that has smallest \nabsolute residuals . i.e i have run ols on 30 observations of multiple \nregression data and got residuals for",
+      "thread_id": "thread-e245f0abaa60",
+      "thread_depth": 0,
+      "month": "2008-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-e245f0abaa60",
+      "subject": "[RsR] Selecting observations that has smallest absolute residuals",
+      "message_count": 1,
+      "participants": [
+        "kh@@x131 m@iii@g oii um@@edu"
+      ],
+      "started": "2008-04-09T12:03:58-05:00",
+      "last_reply": "2008-04-09T12:03:58-05:00",
+      "root_message_id": "msg-e245f0abaa60"
+    }
+  ]
+}

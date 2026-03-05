@@ -1,0 +1,95 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2005-11",
+  "messages": [
+    {
+      "id": "msg-0fa952b51068",
+      "message_id": "<17261.737.183423.52210@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-11-05T20:07:13+01:00",
+      "subject": "[RsR] \"Robust Statistics in R\" - Mailing List",
+      "subject_clean": "[RsR] \"Robust Statistics in R\" - Mailing List",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear participants of the Treviso workshop on\n\"Robust Statistics and R\",\n\nlet me first thank once more, in the name of us all, the\norganizing committee, notably Claudio Agostinelli as local\norganizer, for the very nice workshop!\n\nIn several of the working groups, people had asked for a mailing\nlist in order to continue the productive discussions.  Since\nfurther, Claudio has had a hardware problem on the computer\nthat hosted the provisional 'rsr' \"mailing list\" (rather just an\ne-mail alias), it had become somewhat more urgent to be able to\nsend e-mail to all the workshop participants at once.\n\nAs a site maintainer of many R-related mailing lists, I had\noffered to build an 'R-SIG-Robust' list (\"R Special Interest\nGroup on Robust Statistcs\").  Earlier today, you should already\nhave received a computer generated e-mail that welcomed you to\nthe list and gave you a list password and instructions to change\nyour subscription, etc.\n\nSince I've subscribed everyone on the list I got from Claudio,\nthere are currently 78 subscribers, many of which Italian\nstudents and others who might want to unsubscribe again.\n\nMore importantly, I know that there are quite a few more people\ninterested in both robust statistics and R.  Please tell your\ncolleagues who might be interested (and if they were not\nworkshop participants!) about it:\nOn a Unixish system such as Linux or Mac OSX, subscribing is\njust a one-liner in your shell:\n     echo subscribe | mail r-sig-robust at r-project.org\n[Well, that will send an e-mail to your address and you'll have\n to reply to that e-mail for confirmation]\n\n- - - -\n\nNote that the mailing list is pretty private at the moment\n{as opposed to e.g., R-help which is much more open}:\n\n- only subscribers can freely post to the list\n- only subscribers can look at the list archive {we can discuss\n   this; and decide to keep the archives publicly available on the web}\n- the subscribers e-mail addresses can only be seen by the list\n  moderators, currently Claudio Agostinelly, Matias Salibian-Barrera and me\n\nI hope this mailing list will help to keep the \"RsR project\"\nrolling on, after the promising and enjoyable start in Treviso.\n\nMartin\n\nMartin <Maechler at stat.math.ethz.ch>  http://stat.ethz.ch/people/maechler\nSeminar fuer Statistik, ETH-Zentrum  LEO C16\tLeonhardstr. 27\nETH (Federal Inst. Technology)\t8092 Zurich\tSWITZERLAND\nphone: +41-44-632-3408\t\tfax: ...-1228\t\t\t<><",
+      "body_snippet": "Dear participants of the Treviso workshop on\n\"Robust Statistics and R\",\n\nlet me first thank once more, in the name of us all, the\norganizing committee, notably Claudio Agostinelli as local\norganizer, ",
+      "thread_id": "thread-0fa952b51068",
+      "thread_depth": 0,
+      "month": "2005-11"
+    },
+    {
+      "id": "msg-770f14211d0c",
+      "message_id": "<17272.30684.543345.857234@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-11-14T12:41:16+01:00",
+      "subject": "[RsR] [R] Robust Non-linear Regression",
+      "subject_clean": "[RsR] [R] Robust Non-linear Regression",
+      "in_reply_to": "<9AC105024CEA64458BF66D1DE13CA50D070FB3B2@tibbemeexs1.eu.jnj.com>",
+      "references": [
+        "<9AC105024CEA64458BF66D1DE13CA50D070FB3B2@tibbemeexs1.eu.jnj.com>"
+      ],
+      "body_plain": "Package 'sfsmisc' has had a function  'rnls()' for a while \nwhich does robust non-linear regression via M-estimation.\n\n[The name of the function is probably *really* a misnomer,\n since the 'ls' part stands for \"least squares\"!]\n\nTwo weeks ago, there's been a small workshop\n\"Robustness and R\" in Treviso (It),\nhttp://www.dst.unive.it/rsr/\n\nwhere we've talked about available and missing robustness\nfunctionality ``in R''.  One consequence of the workshop is the\nnew mailing list \"R-SIG-Robust\" {to which I CC this message} \nand another planned and hopefully even more consequential\nconsequence will be collaboration on producing more widely\navailable robustness functionality for R.  Do subscribe to the\nlist if you are interested.\n\n>>>>> \"Vermeiren\" == Vermeiren, Hans [VRCBE] <Vermeiren>\n>>>>>     on Sun, 13 Nov 2005 22:47:31 +0100 writes:\n\n    Vermeiren> Hi, I'm trying to use Robust non-linear\n    Vermeiren> regression to fit dose response curves.  Maybe I\n    Vermeiren> didnt look good enough, but I dind't find robust\n    Vermeiren> methods for NON linear regression implemented in\n    Vermeiren> R. A method that looked good to me but is\n    Vermeiren> unfortunately not (yet) implemented in R is\n    Vermeiren> described in\n    Vermeiren> http://www.graphpad.com/articles/RobustNonlinearRegression_files/frame.htm\n\n \n    Vermeiren> in short: instead of using the premise that the\n    Vermeiren> residuals are gaussian they propose a Lorentzian\n    Vermeiren> distribution, in stead of minimizing the squared\n    Vermeiren> residus SUM (Y-Yhat)^2, the objective function is\n    Vermeiren> now SUM log(1+(Y-Yhat)^2/ RobustSD)\n \n    Vermeiren> where RobustSD is the 68th percentile of the\n    Vermeiren> absolute value of the residues\n\n \n    Vermeiren> my question is: is there a smart and elegant way\n    Vermeiren> to change to objective function from squared\n    Vermeiren> Distance to log(1+D^2/Rsd^2) ?\n\nno; not easily.\n \n    Vermeiren> or alternatively to write this as a weighted\n    Vermeiren> non-linear regression where the weights are\n    Vermeiren> recalculated during the iterations in nlme it is\n    Vermeiren> possible to specify weights, possibly that is the\n    Vermeiren> way to do it, but I didn't manage to get it\n    Vermeiren> working the weights should then be something\n    Vermeiren> like:\n \n    Vermeiren> SUM (log(1+(resid(.)/quantile(all_residuals,0.68))^2))\n    Vermeiren>   / SUM (resid(.))\n \nrnls() mentioned does use robust weights and IRLS (iteratively\nreweighted LS) making use of  nls() and rlm(),\nsimilarly to your suggestion.\n\n    Vermeiren> the test data I use :\n\n    Vermeiren> x<-seq(-5,-2,length=50)\n    Vermeiren> x<-rep(x,4)\n    Vermeiren> y<-SSfpl(x,0,100,-3.5,1)\n    Vermeiren> y<-y+rnorm(length(y),sd=5)\n    Vermeiren> y[sample(1:length(y),floor(length(y)/50))]<-200 # add 2% outliers at 200\n\nSince you have only outliers in 'y' and none in 'x',\nyou could use the 'nlrq' (nonlinear regression quantiles)\npackage that Roger Koenker mentioned.\n\nTo really robustify such self starting models as the 4-parameter\nlogistic 'SSfpl' above, you would also need to provide a robust\ninitial estimator; \nmaybe that could be done pretty easily 'rlm()' instead of 'lm()' and\nusing 'rnls()' instead of 'nls()' also for the \"initial\" part in\nsomething like\n\nSSfpl.rob <-\nselfStart(~ A + (B - A)/(1 + exp((xmid - input)/scal)), \n          initial = function( ...) { ...... },\n          parameters= c(\"A\",\"B\",\"xmid\",\"scal\"))\n \n{look at 'SSfpl() for the initial estimator}.\n\nHowever, BTW, currently the \"plinear\" version fails for our robust\nnonlinear procedure 'rnls()'.\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": "Package 'sfsmisc' has had a function  'rnls()' for a while \nwhich does robust non-linear regression via M-estimation.\n\n[The name of the function is probably *really* a misnomer,\n since the 'ls' part s",
+      "thread_id": "thread-770f14211d0c",
+      "thread_depth": 0,
+      "month": "2005-11"
+    },
+    {
+      "id": "msg-b0ad3e9151c8",
+      "message_id": "<17292.3784.195519.15503@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2005-11-29T09:18:16+01:00",
+      "subject": "[RsR] [R] Robust smoothing",
+      "subject_clean": "[RsR] [R] Robust smoothing",
+      "in_reply_to": "<200511281942.jASJgjEo004369@ohm.gene.com>",
+      "references": [
+        "<IQOH3O$7167E5D1DFB02C59B108538C94CE73D8@libero.it>",
+        "<200511281942.jASJgjEo004369@ohm.gene.com>"
+      ],
+      "body_plain": "[Cross-posted to R-SIG-robust,\n   the Special Interest Group (mailing list) on \"Robustness and R\"]\n\n>>>>> \"BertG\" == Berton Gunter <gunter.berton at gene.com>\n>>>>>     on Mon, 28 Nov 2005 11:42:45 -0800 writes:\n\n    BertG> Note: As I believe Brian Ripley pointed out in his\n    BertG> MASS book, loess may not be as resistant to outliers\n    BertG> (which is one aspect of robustness; robustness of\n    BertG> efficiency is another) as you think. The problem is\n    BertG> that it starts off with LS estimates and these can be\n    BertG> so distorted by unusual values that the reweighting\n    BertG> cannot properly recover; i.e. convergence is to a\n    BertG> local minimum far from the desired global one. \n\nindeed  {I've researched on that about 15 years ago as part of\nmy Ph.D.}.\nI'm convinced that robust smoothing should be done quite\nanalogously to how (many agree) it should happen for parametric\nregression:\n\n1) initialized by a ``high breakdown'' (that's not a trivial notion when you do\n   non-parametric curve estimation!) smoother;  \n2) From that compute residuals r_i  and compute  weights w_i := psi(r_i)/r_i\n   typically for a redescending psi.\n3) Now use these weights for the ``high efficiency'' smoother,\n   e.g., smooth.spline(), \n   maybe even without iterating {``1-step M-estimator'' idea}\n   or then with iterating, i.e. reweighting.\n\nFor that reason, i.e. for being able to do \"1)\", \nI had collected algorithms for fast running medians {quite some time ago}\nand added the R function  runmed()  {running medians}\nwhich should be very fast, particularly for large data where\nit's of optimal complexity see  help(runmed).\n\nMartin Maechler, ETH Zurich\n\n\n    BertG> You might wish to read the documentation for rlm() (in\n    BertG> MASS, the package) and the appropriate sections of\n    BertG> MASS, the book.\n\n    BertG> Cheers,\n\n    BertG> -- Bert Gunter Genentech Non-Clinical Statistics\n    BertG> South San Francisco, CA\n \n    BertG> \"The business of the statistician is to catalyze the\n    BertG> scientific learning process.\"  - George E. P. Box\n \n \n\n    >> -----Original Message----- From:\n    >> r-help-bounces at stat.math.ethz.ch\n    >> [mailto:r-help-bounces at stat.math.ethz.ch] On Behalf Of\n    >> Marta Colombo Sent: Monday, November 28, 2005 10:38 AM\n    >> To: R help Subject: [R] Robust fitting\n    >> \n    >> Good evening,I am Marta Colombo, student of \"Politecnico\n    >> di Milano\". I'm studying Local Regression Techniques such\n    >> as loess, smoothing splines and kernel\n    >> smoothers. Choosing \"symmetric\" for the argument \"family\"\n    >> in loess function it is possible to produce a robust\n    >> estimate , in function smooth.spline and ksmooth I didn't\n    >> find this possibility.  Well, is there a way to produce a\n    >> robust estimate using smoothing splines or kernel\n    >> smoothers? And if the answer is no, why? I'm asking these\n    >> questions because I need to know loess' advantages and\n    >> disadvantages compared to other techniques. Thank you\n    >> very much for attention,\n    >> \n    >> Marta Colombo",
+      "body_snippet": "[Cross-posted to R-SIG-robust,\n   the Special Interest Group (mailing list) on \"Robustness and R\"]\n\n>>>>> \"BertG\" == Berton Gunter <gunter.berton at gene.com>\n>>>>>     on Mon, 28 Nov 2005 11:42:45 -0",
+      "thread_id": "thread-b0ad3e9151c8",
+      "thread_depth": 0,
+      "month": "2005-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-0fa952b51068",
+      "subject": "[RsR] \"Robust Statistics in R\" - Mailing List",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2005-11-05T20:07:13+01:00",
+      "last_reply": "2005-11-05T20:07:13+01:00",
+      "root_message_id": "msg-0fa952b51068"
+    },
+    {
+      "id": "thread-770f14211d0c",
+      "subject": "[RsR] [R] Robust Non-linear Regression",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2005-11-14T12:41:16+01:00",
+      "last_reply": "2005-11-14T12:41:16+01:00",
+      "root_message_id": "msg-770f14211d0c"
+    },
+    {
+      "id": "thread-b0ad3e9151c8",
+      "subject": "[RsR] [R] Robust smoothing",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2005-11-29T09:18:16+01:00",
+      "last_reply": "2005-11-29T09:18:16+01:00",
+      "root_message_id": "msg-b0ad3e9151c8"
+    }
+  ]
+}

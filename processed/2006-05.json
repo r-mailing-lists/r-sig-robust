@@ -1,0 +1,403 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2006-05",
+  "messages": [
+    {
+      "id": "msg-4652767026cf",
+      "message_id": "<17494.10845.6685.883069@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-05-01T17:33:49+02:00",
+      "subject": "[RsR] plugins for lmrob()",
+      "subject_clean": "[RsR] plugins for lmrob()",
+      "in_reply_to": "<17361.22635.911892.563447@stat.math.ethz.ch>",
+      "references": [
+        "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>",
+        "<17361.22635.911892.563447@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear \"robust R users\",\n\nI'm taking up a subject of several months ago,\nnamely on how to set up some conventions in order to allow \n``plugging'' new methods for  lmrob() {as we in the mean time\ncame to call it}.\n\nIn the discussion below, I ended up proposing that\nthe ``method functions'' for  lmrob(*, method = <METH>)\nshould be R functions called   lmrob_<METH>\n\nI still think this is a reasonable scheme, but of course am very\nopen for reconsideration and better proposals.\nIn particular, the current lmrob() implementation has the\nfollowing \"call tree\" :\n  lmrob()\n   |\n   \\-> lmrob.fit.MM()\n        |-> lmrob.S()\n        \\-> lmrob.MM()\n\nwhere lmrob.fit.MM() also checks if \"lmrob.MM()\" converged, and\nif not, uses the initial S-estimate.\nOne could argue that lmrob.MM() really just computes an\nM-estimate from a given fixed scale and an initial estimate;\nhence it could be renamed to  lmrob_M()  {using the name scheme above}.\nOTOH,  lmrob.MM() uses special code to compute robust standard\nerrors, which---I assume---is only sensible for MM-, not for\narbitrary M- estimates.\n\nFurther, from the above desired name changes, we will also have\nto change the current  lmrob.control() function to something\nlike lmrob_MM.control(); and more generally I think we would\nwant to allow a lmrob_<METH>.control() function for every\nlmrob_<METH>() function.  Or does anyone see a better alternative?\n\n\nThe current released version of the \"robustbase\" package, 0.1-5,\nstill has no 'method' argument and is ``hardwired'' to use\nMatias' implementation of the MM-estimator built on\n(Matias+Victor)'s fast-S-estimator.\n\nBefore releasing the next version of 'robustbase', which will\nhave slightly more options for lmrob() anyway, I would like to\ngo into the indicated direction and allow 'method = \"....\"' for\nlmrob(); keeping the current default of course, but also\n1) allowing \"S\" (or rather \"fastS\" or \"fast S\" ?) which would use\n   what the currently named lmrob.S() does\n2) and  \"LTS\" (or rather \"fast LTS\" ?) which would use what\n   ltsReg() does.\n\nBut it should be possible to implement this in a way such that\ne.g., by loading a future version of Claudio's \"wle\" package, also\nsomething like   lmrob(*, method = \"WL\")   would work by using\nClaudio's function(s).\n\nYour feedback on this is very welcome!\n\nThere is also one other issue about current  lmrob(), ltsReg(),\netc on which I will post another message to the list, soon.\n\nMartin\n\n>>>>> \"MM\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Fri, 20 Jan 2006 22:38:51 +0100 writes:\n\n>>>>> \"Claudio\" == Claudio Agostinelli <claudio at unive.it>\n>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:\n\n    Claudio> Ciao Martin, I would like, progressively,\n    Claudio> standardize my package 'wle' with the standard of\n    Claudio> robustbase. If think, for me, the easy way is to\n    Claudio> start with lm function (since you (you, matias and\n    Claudio> andreas) are working on roblm).\n\n    MM> and robglm() / glmrob() {taking up Werner's naming\n    MM> suggestion which I find very worth of consideration --\n    MM> other takers, please.. ?}\n\n    Claudio> Are you thinking of a mechanism, like roblm(*,\n    Claudio> method=\"MM\"), in this case there are any way for R\n    Claudio> to register \"method\" from other package once\n    Claudio> loaded, so that, for instance, we can have,\n    Claudio> automatically, roblm(*, method=\"WL\") for my\n    Claudio> function? i.e., for the final user:\n\n    >>> library(robustbase) roblm(*, method=\"WL\") Error: method\n    >>> \"WL\" for \"roblm\" not found library(wle) # new version of\n    >>> the library roblm(*, method=\"WL\") # now it works\n\n\n    Claudio> Otherwise, what kind of convention should I use for\n    Claudio> the name: roblmwle robwlelm\n\n    MM> Thank you for the interesting and very relevant\n    MM> question!\n\n    MM> Indeed, \"robustbase\" itself should not contain all\n    MM> possible methods, but rather just the 'base', and\n    MM> particular we had agreed for the time being to focus on\n    MM> the methodology of the MMY book.\n\n    MM> OTOH, it makes very much sense to allow and encourage\n    MM> ``plugins'' from other packages {that will have a\n    MM> 'Depends: robustbase'}.\n\n    Claudio> This is a potential problem for extending the\n    Claudio> functions to any other new method available in the\n    Claudio> future. What is your suggestion?\n\n    MM> well I hope we will converge some time in the future on\n    MM> how to do robust linear regression .. :-) {well for p >\n    MM> n, we probably still have slack ...}  In any case, I\n    MM> think it's a very good idea to allow for plugins, and I\n    MM> also agree that we should do this by a naming\n    MM> convention.\n\n    MM> In some cases, we (the community of S programmers) have\n    MM> used the convention to call the plugin for method <Meth>\n    MM> to function <Func> \" <Func>.<Meth> \" where I think we\n    MM> should nowadays most probably use <Func>_<Meth> this\n    MM> would give lmrob_wle() or roblm_wle() for your plugin\n    MM> function.  But note that we will not only have to agree\n    MM> on the naming scheme, but also on exactly what arguments\n    MM> the function must accept (it can have further optional\n    MM> ones) and what exactly its return value has to look\n    MM> like.  But I think it's too early to get into these\n    MM> details already now.",
+      "body_snippet": "Dear \"robust R users\",\n\nI'm taking up a subject of several months ago,\nnamely on how to set up some conventions in order to allow \n``plugging'' new methods for  lmrob() {as we in the mean time\ncame to",
+      "thread_id": "thread-4652767026cf",
+      "thread_depth": 0,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-e75243b6bb93",
+      "message_id": "<17494.12543.521069.761483@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-05-01T18:02:07+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Many of the \"high breakdown point\" robust estimators, and\nparticularly those currently in the 'robustbase' package are\nbased on random (re)sampling, i.e., chosing random subsets of\nthe data, then compute \"candidate estimates\" for each sample,\nand then going on. \n\nThis \"resampling\" has also been a main ingredient for other \"modern\"\nstatistical algorithms, e.g. kmeans() clustering, and of course\nfor all MCMC or other simulation based methods.\n\nIn R, we have always adhered to the convention, that such\nestimators should use R's random number generators (=: RNGs) and\nhence their result will be a function of the initial random seed --\n.Random.seed in S and R, typically set via  set.seed().\n\nThe current algorithm implmentations in 'robustbase' however do\nnot adhere to the convention, but rather use an own (cheap) RNG\n[covMcd(), ltsReg()] or the RNG provided by the operating system\nC library rand() function [lmrob()] --- and in all these cases,\nalways use the same random seed, by default.\n\nOf course, this has the advantage that all your students get the\nsame estimates for the same data (well, at least on the same\ncomputer hardware and software combination), but I think we\nshould switch to using R's RNGs and have all these results\nproperly depend on the current random seed, i.e. typically only\ngive the same results after the set.seed(<n>) call.\n\nPackage 'MASS' function lqs(), i.e. lqs.default() has an\noptional argument  'seed'  with this help description:\n\n  seed: the seed to be used for random sampling: see\n       '.Random.seed'.  The current value of '.Random.seed' will\n       be preserved if it is set.. \n\nI propose to do the same for all \"sampling\" functions in\n'robustbase'.  This will change the meaning of 'seed' for the\nrrcov.control() list used in covMcd() and ltsReg() which already\nnow is there, but is used for a simple builtin RNG, and does not\ndepend on R's .Random.seed at all.\n\nWhat do you think?\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": "Many of the \"high breakdown point\" robust estimators, and\nparticularly those currently in the 'robustbase' package are\nbased on random (re)sampling, i.e., chosing random subsets of\nthe data, then comp",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 0,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-e93f6ef27adb",
+      "message_id": "<4456431D.4080500@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2006-05-01T10:19:25-07:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": "<17494.12543.521069.761483@stat.math.ethz.ch>",
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Hello,\n\nThanks Martin for (once again!) taking the lead in sparking a \ndiscussion. My comments are inserted below.\n\n> In R, we have always adhered to the convention, that such\n> estimators should use R's random number generators (=: RNGs) and\n> hence their result will be a function of the initial random seed --\n> .Random.seed in S and R, typically set via  set.seed().\n\nA good convention, IMHO.\n\n> The current algorithm implmentations in 'robustbase' however do\n> not adhere to the convention, but rather use an own (cheap) RNG\n> [covMcd(), ltsReg()] or the RNG provided by the operating system\n> C library rand() function [lmrob()] --- and in all these cases,\n> always use the same random seed, by default.\n\nI believe this (each algorithm using its own or the operating system's \nRNG) is merely due to the \"atomized\" nature of the development of the \nseparate pieces of code that are now in robustbase, and does not reflect \nan \"a priori design criteria\".\n\n> Of course, this has the advantage that all your students get the\n> same estimates for the same data (well, at least on the same\n> computer hardware and software combination), but I think we\n> should switch to using R's RNGs and have all these results\n> properly depend on the current random seed, i.e. typically only\n> give the same results after the set.seed(<n>) call.\n\nProbably the most noticeable effect of this change would be that in some \ncases consecutive calls to fit the same model on the same data may yield \ndifferent results, and high levels of anxiety on the \"uninitiated\" user \nwill surely follow...\n\nI guess if the convergence criteria of these algorithms is sufficiently \ntight then this will typically happen only on those cases where the \nexistence of two (or more) solutions is actually informative (and \nprobably relevant for the analysis). Maybe somebody has had other \nexperiences?\n\nI second Martin's suggestion, but add that we accompany this change with \ngood examples (one for each model?) on the documentation illustrating \nhow different solutions can yield more insight on the analysis.\n\nMatias\n\n\n--\n______________________________________________________________\nMatias Salibian-Barrera - Department of Statistics\nUniversity of British Columbia - matias at stat.ubc.ca\nPhone: (604) 822-3410 - Fax: (604) 822-6960",
+      "body_snippet": "Hello,\n\nThanks Martin for (once again!) taking the lead in sparking a \ndiscussion. My comments are inserted below.\n\n> In R, we have always adhered to the convention, that such\n> estimators should use ",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 1,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-9c4563d71554",
+      "message_id": "<17496.39826.761987.626296@stat.math.ethz.ch>",
+      "from_name": "Werner Stahel",
+      "from_email_hash": "101ca612b9f2346f74dcc9ac2f117318c822c9dbf0fb189a26e0662e2f574bdb",
+      "date": "2006-05-03T14:01:22+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I clearly advocate the use of R's random numbers throughout.\n\nI think that an argument seed= is not needed, since the handling\nof random numbers is easy without it. The user can call set.seed\nbefore calling lmrob and, if needed, store the old seed and\nreset .Random.seed to this value later.\n\nAs to the naming issue, I dislike the underline as a part of a\nname, because I use ESS. I prefer names like\nlmrobMM\nlmrobS\n\nIs there a need for method=\"fastS\"? Will there be other\nsubmethods of S-estimators? If so, I again like the main things\nfirst:  Sfast  instead of  fastS .\n\nGreetings\nWerner \n----------------- This message was sent by ---------------------------\nWerner Stahel                              http://stat.ethz.ch/~stahel\nSeminar fuer Statistik                     phone  :    +41 1 632 34 30\nETH-Zentrum, LEO D8                        fax    :    +41 1 632 12 28\nCH-8092 Zurich, Switzerland                meet me: Leonhardstr.27, D8",
+      "body_snippet": "I clearly advocate the use of R's random numbers throughout.\n\nI think that an argument seed= is not needed, since the handling\nof random numbers is easy without it. The user can call set.seed\nbefore c",
+      "thread_id": "thread-9c4563d71554",
+      "thread_depth": 0,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-f59eb7e7a3fd",
+      "message_id": "<B7C02093A9C6FB47B417FC3FAB0D721420DA91@langouste.zhwin.ch>",
+      "from_name": "Ruckstuhl Andreas (rks)",
+      "from_email_hash": "37bdf46d2d783a56a681e1b57b7a86bd102ccf080b7a413afac034d7f4b1ad36",
+      "date": "2006-05-03T16:38:28+02:00",
+      "subject": "[RsR] plugins for lmrob()",
+      "subject_clean": "[RsR] plugins for lmrob()",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear \"robust R users\",\n\nRegarding the \"plugging\" of new methods I would like to see something like this (example for method \"MM\"):\n\nOn a first level, there is the method \"MM\", hence\n\n\tlmrob(*, method = lmrob.fit.MM) ## where lmrob.fit.MM is an R function\n\nOn a second level, there may be different ways to generate the initial S estimator, hence\n\n\tlmrob(*, method = lmrob.fit.MM, initial=lmrob.fit.Sfast), \n\nwhere lmrob.fit.Sfast() (or maybe lmrob.fit.MM.Sfast())  calculates the initial values. There is an open issue however, whether the argument \"initial\" should not be better part of the argument \"control\" like\n\n\tlmrob(*, method = lmrob.fit.MM, control=lmrob.MM.control(initial=lmrob.fit.Sfast)) \t\n\n(I think, it is sensible that the control function depends on the method.)  \n\nThere should be a separate method for regression M-estimators (e.g., lmrob.fit.M()) since this method is still the adequate for the analysis of fixed effects models. The function lmrob.fit.M() may even include bounded influence regression estimators. \n\n\nAll the best\nAndreas\n\n\n-----Urspr?ngliche Nachricht-----\nVon: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von Martin Maechler\nGesendet: Montag, 1. Mai 2006 17:34\nAn: R-SIG-Robust at stat.math.ethz.ch\nBetreff: [RsR] plugins for lmrob()\n\n\nDear \"robust R users\",\n\nI'm taking up a subject of several months ago,\nnamely on how to set up some conventions in order to allow \n``plugging'' new methods for  lmrob() {as we in the mean time came to call it}.\n\nIn the discussion below, I ended up proposing that\nthe ``method functions'' for  lmrob(*, method = <METH>)\nshould be R functions called   lmrob_<METH>\n\nI still think this is a reasonable scheme, but of course am very open for reconsideration and better proposals. In particular, the current lmrob() implementation has the following \"call tree\" :\n  lmrob()\n   |\n   \\-> lmrob.fit.MM()\n        |-> lmrob.S()\n        \\-> lmrob.MM()\n\nwhere lmrob.fit.MM() also checks if \"lmrob.MM()\" converged, and if not, uses the initial S-estimate. One could argue that lmrob.MM() really just computes an M-estimate from a given fixed scale and an initial estimate; hence it could be renamed to  lmrob_M()  {using the name scheme above}. OTOH,  lmrob.MM() uses special code to compute robust standard errors, which---I assume---is only sensible for MM-, not for arbitrary M- estimates.\n\nFurther, from the above desired name changes, we will also have to change the current  lmrob.control() function to something like lmrob_MM.control(); and more generally I think we would want to allow a lmrob_<METH>.control() function for every\nlmrob_<METH>() function.  Or does anyone see a better alternative?\n\n\nThe current released version of the \"robustbase\" package, 0.1-5, still has no 'method' argument and is ``hardwired'' to use Matias' implementation of the MM-estimator built on (Matias+Victor)'s fast-S-estimator.\n\nBefore releasing the next version of 'robustbase', which will have slightly more options for lmrob() anyway, I would like to go into the indicated direction and allow 'method = \"....\"' for\nlmrob(); keeping the current default of course, but also\n1) allowing \"S\" (or rather \"fastS\" or \"fast S\" ?) which would use\n   what the currently named lmrob.S() does\n2) and  \"LTS\" (or rather \"fast LTS\" ?) which would use what\n   ltsReg() does.\n\nBut it should be possible to implement this in a way such that e.g., by loading a future version of Claudio's \"wle\" package, also\nsomething like   lmrob(*, method = \"WL\")   would work by using\nClaudio's function(s).\n\nYour feedback on this is very welcome!\n\nThere is also one other issue about current  lmrob(), ltsReg(), etc on which I will post another message to the list, soon.\n\nMartin\n\n>>>>> \"MM\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Fri, 20 Jan 2006 22:38:51 +0100 writes:\n\n>>>>> \"Claudio\" == Claudio Agostinelli <claudio at unive.it>\n>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:\n\n    Claudio> Ciao Martin, I would like, progressively,\n    Claudio> standardize my package 'wle' with the standard of\n    Claudio> robustbase. If think, for me, the easy way is to\n    Claudio> start with lm function (since you (you, matias and\n    Claudio> andreas) are working on roblm).\n\n    MM> and robglm() / glmrob() {taking up Werner's naming\n    MM> suggestion which I find very worth of consideration --\n    MM> other takers, please.. ?}\n\n    Claudio> Are you thinking of a mechanism, like roblm(*,\n    Claudio> method=\"MM\"), in this case there are any way for R\n    Claudio> to register \"method\" from other package once\n    Claudio> loaded, so that, for instance, we can have,\n    Claudio> automatically, roblm(*, method=\"WL\") for my\n    Claudio> function? i.e., for the final user:\n\n    >>> library(robustbase) roblm(*, method=\"WL\") Error: method\n    >>> \"WL\" for \"roblm\" not found library(wle) # new version of\n    >>> the library roblm(*, method=\"WL\") # now it works\n\n\n    Claudio> Otherwise, what kind of convention should I use for\n    Claudio> the name: roblmwle robwlelm\n\n    MM> Thank you for the interesting and very relevant\n    MM> question!\n\n    MM> Indeed, \"robustbase\" itself should not contain all\n    MM> possible methods, but rather just the 'base', and\n    MM> particular we had agreed for the time being to focus on\n    MM> the methodology of the MMY book.\n\n    MM> OTOH, it makes very much sense to allow and encourage\n    MM> ``plugins'' from other packages {that will have a\n    MM> 'Depends: robustbase'}.\n\n    Claudio> This is a potential problem for extending the\n    Claudio> functions to any other new method available in the\n    Claudio> future. What is your suggestion?\n\n    MM> well I hope we will converge some time in the future on\n    MM> how to do robust linear regression .. :-) {well for p >\n    MM> n, we probably still have slack ...}  In any case, I\n    MM> think it's a very good idea to allow for plugins, and I\n    MM> also agree that we should do this by a naming\n    MM> convention.\n\n    MM> In some cases, we (the community of S programmers) have\n    MM> used the convention to call the plugin for method <Meth>\n    MM> to function <Func> \" <Func>.<Meth> \" where I think we\n    MM> should nowadays most probably use <Func>_<Meth> this\n    MM> would give lmrob_wle() or roblm_wle() for your plugin\n    MM> function.  But note that we will not only have to agree\n    MM> on the naming scheme, but also on exactly what arguments\n    MM> the function must accept (it can have further optional\n    MM> ones) and what exactly its return value has to look\n    MM> like.  But I think it's too early to get into these\n    MM> details already now.\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Dear \"robust R users\",\n\nRegarding the \"plugging\" of new methods I would like to see something like this (example for method \"MM\"):\n\nOn a first level, there is the method \"MM\", hence\n\n\tlmrob(*, method ",
+      "thread_id": "thread-f59eb7e7a3fd",
+      "thread_depth": 0,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-bf08a627d1b4",
+      "message_id": "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>",
+      "from_name": "claudio",
+      "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
+      "date": "2006-05-08T13:50:14+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": "<4456431D.4080500@stat.ubc.ca>",
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>",
+        "<4456431D.4080500@stat.ubc.ca>"
+      ],
+      "body_plain": "Hello,\n\nI agree on the convention of R, i.e. to use the R random number generators \nand the set.seed() function to set the seed. Do you have \nany suggestions on how to implement/handling these functions from C and \nfortran; is there examples or documentation to take a look? (At least, \nfor me, this is one of the reason I still use generators from outside R)\n\nAs Matias point out, at the end of this email, methods may have more than \none solution. In wle package I implement some plots to contrast different \nsolutions. An example is in wle.lm (example(wle.lm)).\n\nClaudio\n\n\nOn Mon, 1 May 2006, Matias Salibian-Barrera wrote:\n\n>\n> Hello,\n>\n> Thanks Martin for (once again!) taking the lead in sparking a\n> discussion. My comments are inserted below.\n>\n>> In R, we have always adhered to the convention, that such\n>> estimators should use R's random number generators (=: RNGs) and\n>> hence their result will be a function of the initial random seed --\n>> .Random.seed in S and R, typically set via  set.seed().\n>\n> A good convention, IMHO.\n>\n>> The current algorithm implmentations in 'robustbase' however do\n>> not adhere to the convention, but rather use an own (cheap) RNG\n>> [covMcd(), ltsReg()] or the RNG provided by the operating system\n>> C library rand() function [lmrob()] --- and in all these cases,\n>> always use the same random seed, by default.\n>\n> I believe this (each algorithm using its own or the operating system's\n> RNG) is merely due to the \"atomized\" nature of the development of the\n> separate pieces of code that are now in robustbase, and does not reflect\n> an \"a priori design criteria\".\n>\n>> Of course, this has the advantage that all your students get the\n>> same estimates for the same data (well, at least on the same\n>> computer hardware and software combination), but I think we\n>> should switch to using R's RNGs and have all these results\n>> properly depend on the current random seed, i.e. typically only\n>> give the same results after the set.seed(<n>) call.\n>\n> Probably the most noticeable effect of this change would be that in some\n> cases consecutive calls to fit the same model on the same data may yield\n> different results, and high levels of anxiety on the \"uninitiated\" user\n> will surely follow...\n>\n> I guess if the convergence criteria of these algorithms is sufficiently\n> tight then this will typically happen only on those cases where the\n> existence of two (or more) solutions is actually informative (and\n> probably relevant for the analysis). Maybe somebody has had other\n> experiences?\n>\n> I second Martin's suggestion, but add that we accompany this change with\n> good examples (one for each model?) on the documentation illustrating\n> how different solutions can yield more insight on the analysis.\n>\n> Matias\n>\n>\n> --\n> ______________________________________________________________\n> Matias Salibian-Barrera - Department of Statistics\n> University of British Columbia - matias at stat.ubc.ca\n> Phone: (604) 822-3410 - Fax: (604) 822-6960\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n--------------------------------------------------------------\nClaudio Agostinelli\nDipartimento di Statistica\nUniversita' Ca' Foscari di Venezia\nSan Giobbe, Cannaregio 873\n30121 Venezia\nTel: 041 2347446, Fax: 041 2347444\nemail: claudio at unive.it, www: www.dst.unive.it/~claudio\n--------------------------------------------------------------\nPer favore non mandatemi allegati in Word o PowerPoint.\nSi veda http://www.gnu.org/philosophy/no-word-attachments.html\n\nPlease avoid sending me Word or PowerPoint attachments.\nSee http://www.gnu.org/philosophy/no-word-attachments.html",
+      "body_snippet": "Hello,\n\nI agree on the convention of R, i.e. to use the R random number generators \nand the set.seed() function to set the seed. Do you have \nany suggestions on how to implement/handling these functio",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 2,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-8f4f1e78bfc8",
+      "message_id": "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2006-05-09T00:38:18+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": null,
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>",
+        "<4456431D.4080500@stat.ubc.ca>",
+        "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>"
+      ],
+      "body_plain": "Ciao Claudio,\n\n\n> I agree on the convention of R, i.e. to use the R random number generators\n> and the set.seed() function to set the seed. Do you have\n> any suggestions on how to implement/handling these functions from C and\n> fortran; is there examples or documentation to take a look? (At least,\n> for me, this is one of the reason I still use generators from outside R)\n\nSome hints could be found in Writing R Extensions.\nI have built a very simple, Hello World type package with C and Fortran \ncalls of the R random generator - www.het2.org/~valentin/rhello_1.0.tar.gz\nCheck the functions userndC() and userndF().\n\nUnfortunately this is not guaranteed to be portable across systems and I \nhave only tested on Windows.\n\nHTH\nbest regards,\nvalentin",
+      "body_snippet": "Ciao Claudio,\n\n\n> I agree on the convention of R, i.e. to use the R random number generators\n> and the set.seed() function to set the seed. Do you have\n> any suggestions on how to implement/handling t",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 3,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-1f9ccc475412",
+      "message_id": "<17504.15362.475325.408837@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-05-09T08:51:46+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>",
+        "<4456431D.4080500@stat.ubc.ca>",
+        "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>",
+        "<005201c672f0$1a97c7b0$0132a8c0@KILER>"
+      ],
+      "body_plain": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Tue, 9 May 2006 00:38:18 +0200 writes:\n\n    ValenT> Ciao Claudio,\n    >> I agree on the convention of R, i.e. to use the R random number generators\n    >> and the set.seed() function to set the seed. Do you have\n    >> any suggestions on how to implement/handling these functions from C and\n    >> fortran; is there examples or documentation to take a look? (At least,\n    >> for me, this is one of the reason I still use generators from outside R)\n\n    ValenT> Some hints could be found in Writing R Extensions.\n\nWell, for C, I think there's not just hints, but an extensive\ndocumentation in the \"Writing R Extensions\" manual.\nFor Fortran, the manual says that you must write a C wrapper.\nI've already done the latter for 'robustbase' though not\ncommitted yet, nor implemented it for ltsReg() and covMCD().\n\nBy the way, Valentin,\ndo you feel it is important to remain with Fortran there?\nIn general, I end up 'f2c'ing (Fortran to C translating) Fortran\nsource and work with C; not the least because I get better\ncompiler warnings and easier debugging tools.\n\n    ValenT> I have built a very simple, Hello World type package\n    ValenT> with C and Fortran calls of the R random generator -\n    ValenT> www.het2.org/~valentin/rhello_1.0.tar.gz Check the\n    ValenT> functions userndC() and userndF().\n\nThank you, Valentin, that can be useful for less experienced\npeople.  Maybe you could make this into a small package  'fortranDemo'\nand submit that to CRAN?\n\n    ValenT> Unfortunately this is not guaranteed to be portable\n    ValenT> across systems and I have only tested on Windows.\n\nBut it is the approach I will use as well for robustbase\n(at least as long as we still have Fortran as opposed to C\nsources) and I think it works portably at least for \"usual\nsetups\" (e.g. GNU compilers and libraries).\n\nMartin\n\n    ValenT> HTH\n    ValenT> best regards,\n    ValenT> valentin",
+      "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Tue, 9 May 2006 00:38:18 +0200 writes:\n\n    ValenT> Ciao Claudio,\n    >> I agree on the convention of R, i.e. to use the",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 4,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-4a79fdc4f775",
+      "message_id": "<D808EA148335074698927652E8E5182F09CE3350@ukapphdevmsx01.ukap.astrazeneca.net>",
+      "from_name": "Southworth, Harry",
+      "from_email_hash": "bd043877f3d4c0b4d052c717ae5c669eadc4365d7f3f08f4b69a5934dd78a67f",
+      "date": "2006-05-09T11:17:17+01:00",
+      "subject": "[RsR] Library for regression with t-distributed data",
+      "subject_clean": "[RsR] Library for regression with t-distributed data",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nI'm a noob. If there is already a library/package for regression with\nt-distributed residuals, please forgive me and ignore me.\n\nI have an S-PLUS library for fitting, and studying regression models under\nthe assumption of t-distributed data. I never got around to fully validating\nit, so never made it publicly available. I sometimes use the functions and\nthey appear to work.\n\nThere are functions for printing, plotting and summarizing. Also, there are\nfunctions for computing profile likelihoods. The library lets the user\ndecide if they want to fix the degrees of freedom parameter, or let it vary.\nIWLS is used, as described by Lange, Little and Taylor.\n\n>From memory, I implemented the option to use the expected information, but\nwas never convinced that I did it correctly (I don't recall why I\nimplemented it in the first place). Also there is no help system. Apart from\nthat, it's ok but needs a bit more testing out in the wild.\n\nAll of the code is S3 - there is no precompiled C or anything else. It ought\nto be straightforward to port to R.\n\nI've sat on this library for a long time and am unlikely ever to complete it\non my own. Therefore, if anyone would like to assume ownership of it and\nport to R, or if anyone would like to collaborate with me on finalizing it ,\nI would be very grateful.\n\nThanks,\nHarry.\n\n____________________________________________\n\nHarry Southworth,\nFE2 A/2 Parklands,\nAlderley Park,\nCheshire, SK10 4TG, UK\nTel.: +44 1625 518327\nMobile: 07867 676073",
+      "body_snippet": "Dear list,\n\nI'm a noob. If there is already a library/package for regression with\nt-distributed residuals, please forgive me and ignore me.\n\nI have an S-PLUS library for fitting, and studying regressi",
+      "thread_id": "thread-4a79fdc4f775",
+      "thread_depth": 0,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-d7536ad8808d",
+      "message_id": "<17504.29041.635350.876183@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-05-09T12:39:45+02:00",
+      "subject": "[RsR] plugins for lmrob()",
+      "subject_clean": "[RsR] plugins for lmrob()",
+      "in_reply_to": "<B7C02093A9C6FB47B417FC3FAB0D721420DA91@langouste.zhwin.ch>",
+      "references": [
+        "<B7C02093A9C6FB47B417FC3FAB0D721420DA91@langouste.zhwin.ch>"
+      ],
+      "body_plain": "Thank you, Andreas (and Werner),\nfor your valuable feedback.\n\n>>>>> \"ARu\" == Ruckstuhl Andreas \\(rks\\) <Ruckstuhl>\n>>>>>     on Wed, 3 May 2006 16:38:28 +0200 writes:\n\n\n    ARu> Regarding the \"plugging\" of new methods I would like to\n    ARu> see something like this (example for method \"MM\"):\n\n    ARu> On a first level, there is the method \"MM\", hence\n\n    ARu>  lmrob(*, method = lmrob.fit.MM) ## where lmrob.fit.MM is an R function\n\n    ARu> On a second level, there may be different ways to\n    ARu> generate the initial S estimator, hence\n\n    ARu> lmrob(*, method = lmrob.fit.MM, initial=lmrob.fit.Sfast),\n\n    ARu> where lmrob.fit.Sfast() (or maybe lmrob.fit.MM.Sfast())\n    ARu> calculates the initial values. There is an open issue\n    ARu> however, whether the argument \"initial\" should not be\n    ARu> better part of the argument \"control\" like\n\n    ARu> lmrob(*, method = lmrob.fit.MM, control=lmrob.MM.control(initial=lmrob.fit.Sfast))\n\n    ARu> (I think, it is sensible that the control function\n    ARu> depends on the method.)\n\nIndeed. After seeing your proposal, and more thinking I'm tending to\nthe conclusion that it would probably be best to *only* allow\n     method =  <R-function_with_specific_properties>\n\nOf course, all the function to be used as 'method' argument for\nlmrob() must have\n\n  1) arguments  x : ~= model.matrix(...)\n\t\ty : target variable \n\t\t     {BTW: We should allow *multi*variate\n\t\t\t   'y' eventually, the same as lm() does!}\n\t      ... : all (?) further arguments coming from a function-specific\n\t\t    <foo.bar>.control(..) function call\n\n  2) return value: a list(.) with a few well specified components,\n     such as \n\t  coefficients, scale, cov,\n\t  weights, residuals, fitted.values,\n\t  seed, converged, rank, ...\n\n\n    ARu> There should be a separate method for regression\n    ARu> M-estimators (e.g., lmrob.fit.M()) since this method is\n    ARu> still the adequate for the analysis of fixed effects\n    ARu> models. \n\nYes, or needed as building block (i.e. a\n\"sub - method\") for the even more important case of a mixture of\ncategorical and continuous predictors.\n\n    ARu> The function lmrob.fit.M() may even include\n    ARu> bounded influence regression estimators.\n\nIndeed; also if only for comparison with these once famous\n\"optimal\" methods.\n\nNow just someone has to do this...\n\nMartin",
+      "body_snippet": "Thank you, Andreas (and Werner),\nfor your valuable feedback.\n\n>>>>> \"ARu\" == Ruckstuhl Andreas \\(rks\\) <Ruckstuhl>\n>>>>>     on Wed, 3 May 2006 16:38:28 +0200 writes:\n\n\n    ARu> Regarding the \"pluggin",
+      "thread_id": "thread-f59eb7e7a3fd",
+      "thread_depth": 1,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-d6d6260dbb26",
+      "message_id": "<012f01c673bb$2f4530a0$0132a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2006-05-10T00:52:01+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": null,
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>",
+        "<4456431D.4080500@stat.ubc.ca>",
+        "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>",
+        "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
+        "<17504.15362.475325.408837@stat.math.ethz.ch>"
+      ],
+      "body_plain": "> By the way, Valentin,\n> do you feel it is important to remain with Fortran there?\n> In general, I end up 'f2c'ing (Fortran to C translating) Fortran\n> source and work with C; not the least because I get better\n> compiler warnings and easier debugging tools.\n\nI am not happy with the Fortran in covMcd and ltsReg, but:\n1. I still do not believe in the automatic coversion (yes, you are right, I \nhad first at least to try it)\n2. I would like to redesign the programs\n3. I would prefer C++ rather than C.\n\nFor all these I still have not found enough time.\n\nBy the way my trials to download an f2c converter ended with the download of \na \"Free download Manager\"! and nothing more. I'll appreciate some info.\n\nbest regards\nvalentin",
+      "body_snippet": "> By the way, Valentin,\n> do you feel it is important to remain with Fortran there?\n> In general, I end up 'f2c'ing (Fortran to C translating) Fortran\n> source and work with C; not the least because I",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 5,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-870b6fe8f245",
+      "message_id": "<17505.38342.122548.346570@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-05-10T09:27:02+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": "<012f01c673bb$2f4530a0$0132a8c0@KILER>",
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>",
+        "<4456431D.4080500@stat.ubc.ca>",
+        "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>",
+        "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
+        "<17504.15362.475325.408837@stat.math.ethz.ch>",
+        "<012f01c673bb$2f4530a0$0132a8c0@KILER>"
+      ],
+      "body_plain": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 10 May 2006 00:52:01 +0200 writes:\n\n    >> By the way, Valentin,\n    >> do you feel it is important to remain with Fortran there?\n    >> In general, I end up 'f2c'ing (Fortran to C translating) Fortran\n    >> source and work with C; not the least because I get better\n    >> compiler warnings and easier debugging tools.\n\n    ValenT> I am not happy with the Fortran in covMcd and ltsReg, but:\n    ValenT> 1. I still do not believe in the automatic coversion (yes, you are right, I \n    ValenT> had first at least to try it)\n\n    ValenT> 2. I would like to redesign the programs\n\n    ValenT> 3. I would prefer C++ rather than C.\n\nC++ complicates things slightly and typically is a tad (10% ?) slower than C.\nR's C API is a C and not C++ API anyway.\nI think it's only worth using C++ for some kind of problems\n(e.g. when a class structure can make the program much more readable),\nand I doubt that the covMcd() or ltsReg() algorithms belong to\nthis class.\n\n    ValenT> For all these I still have not found enough time.\n\n    ValenT> By the way my trials to download an f2c converter ended with the download of \n    ValenT> a \"Free download Manager\"! and nothing more. I'll appreciate some info.\n\nf2c  is from the Bell Labs -- AFAIK by some of the same people\nwho invented C.  Good Linux distributions provide a package for\nit. Googling 'f2c' gives a good site (http://www.netlib/org/f2c)\nas first hit for me. \nI've used it -- plus an extra perl script I wrote myself --\nmany times in the past ten years; even parts of R itself were\ndone using it.\n\nBTW, I thought of doing the conversion (for fast MCD & LTS)\n     myself, rather than you having to do it.\n\nMartin",
+      "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 10 May 2006 00:52:01 +0200 writes:\n\n    >> By the way, Valentin,\n    >> do you feel it is important to remain with ",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 6,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-9fa309446cc8",
+      "message_id": "<000501c67405$eaaf3fd0$0132a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2006-05-10T09:46:58+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": null,
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>",
+        "<4456431D.4080500@stat.ubc.ca>",
+        "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>",
+        "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
+        "<17504.15362.475325.408837@stat.math.ethz.ch>",
+        "<012f01c673bb$2f4530a0$0132a8c0@KILER>",
+        "<17505.38342.122548.346570@stat.math.ethz.ch>"
+      ],
+      "body_plain": "> C++ complicates things slightly\n\nyou mean under R, not in general?\n\n>and typically is a tad (10% ?) slower than C.\n\nand assembler is even faster!\n\n> R's C API is a C and not C++ API anyway.\n\n\n> I think it's only worth using C++ for some kind of problems\n> (e.g. when a class structure can make the program much more readable),\n\nand this is almost always the case - a class structure makes a program \nalways more readable\n\n> and I doubt that the covMcd() or ltsReg() algorithms belong to\n> this class.\n\nnot until they are translated 1-1 from Fortran. I doubt also that covMcd/Lts \nare readable at all now and I expect the readability to decrease (with much \nmore than 10%) when converted authomatically to C.\n\n\n>\n>    ValenT> For all these I still have not found enough time.\n>\n>    ValenT> By the way my trials to download an f2c converter ended with \n> the download of\n>    ValenT> a \"Free download Manager\"! and nothing more. I'll appreciate \n> some info.\n>\n> f2c  is from the Bell Labs -- AFAIK by some of the same people\n> who invented C.  Good Linux distributions provide a package for\n> it.\n\nsorry, forgot to say that I was searching for windows package.\n\n>Googling 'f2c' gives a good site (http://www.netlib/org/f2c)\n> as first hit for me.\n\nfor me too, but this results in \"Error 404 - Page not found\"\n\n> I've used it -- plus an extra perl script I wrote myself --\n> many times in the past ten years; even parts of R itself were\n> done using it.\n>\n> BTW, I thought of doing the conversion (for fast MCD & LTS)\n>     myself, rather than you having to do it.\n>\n> Martin\n>\n>\n\nValentin",
+      "body_snippet": "> C++ complicates things slightly\n\nyou mean under R, not in general?\n\n>and typically is a tad (10% ?) slower than C.\n\nand assembler is even faster!\n\n> R's C API is a C and not C++ API anyway.\n\n\n> I th",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 7,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-d66cb1863f8d",
+      "message_id": "<17505.42626.686762.557334@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-05-10T10:38:26+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": "<000501c67405$eaaf3fd0$0132a8c0@KILER>",
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>",
+        "<4456431D.4080500@stat.ubc.ca>",
+        "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>",
+        "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
+        "<17504.15362.475325.408837@stat.math.ethz.ch>",
+        "<012f01c673bb$2f4530a0$0132a8c0@KILER>",
+        "<17505.38342.122548.346570@stat.math.ethz.ch>",
+        "<000501c67405$eaaf3fd0$0132a8c0@KILER>"
+      ],
+      "body_plain": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 10 May 2006 09:46:58 +0200 writes:\n\n\t  .................\n\n    ValenT> By the way my trials to download an f2c converter ended with \n    >> the download of\n    ValenT> a \"Free download Manager\"! and nothing more. I'll appreciate \n    >> some info.\n    >> \n    >> f2c  is from the Bell Labs -- AFAIK by some of the same people\n    >> who invented C.  Good Linux distributions provide a package for\n    >> it.\n\n    ValenT> sorry, forgot to say that I was searching for windows package.\n\n    >> Googling 'f2c' gives a good site (http://www.netlib/org/f2c)\n    >> as first hit for me.\n\n    ValenT> for me too, but this results in \"Error 404 - Page not found\"\n\nI'm sorry: There's a simple typo in the above; correct is\nhttp://www.netlib.org/f2c\n\nMartin",
+      "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 10 May 2006 09:46:58 +0200 writes:\n\n\t  .................\n\n    ValenT> By the way my trials to download an f2c conve",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 8,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-08b327f2f41c",
+      "message_id": "<17505.45190.411985.966832@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-05-10T11:21:10+02:00",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "subject_clean": "[RsR] estimators based on random samples... - should be random",
+      "in_reply_to": "<000501c67405$eaaf3fd0$0132a8c0@KILER>",
+      "references": [
+        "<17494.12543.521069.761483@stat.math.ethz.ch>",
+        "<4456431D.4080500@stat.ubc.ca>",
+        "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>",
+        "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
+        "<17504.15362.475325.408837@stat.math.ethz.ch>",
+        "<012f01c673bb$2f4530a0$0132a8c0@KILER>",
+        "<17505.38342.122548.346570@stat.math.ethz.ch>",
+        "<000501c67405$eaaf3fd0$0132a8c0@KILER>"
+      ],
+      "body_plain": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 10 May 2006 09:46:58 +0200 writes:\n\n    >> C++ complicates things slightly\n    ValenT> you mean under R, not in general?\n\nyes. It slightly complicates things for interfacing to any S dialect,\nincluding R and S-plus.\n\n    >> and typically is a tad (10% ?) slower than C.\n\n    ValenT> and assembler is even faster!\n\n:-)\n\n    >> R's C API is a C and not C++ API anyway.\n\n\n    >> I think it's only worth using C++ for some kind of problems\n    >> (e.g. when a class structure can make the program much more readable),\n\n    ValenT> and this is almost always the case - a class structure makes a program \n    ValenT> always more readable\n\nI'm not going to debate further here;   of course what\n\"readable\" means exactly depends very much on the reader, \nand in particular on what kind of reading one is used to...\n\n\n    >> and I doubt that the covMcd() or ltsReg() algorithms belong to\n    >> this class.\n\n    ValenT> not until they are translated 1-1 from Fortran. I doubt also that covMcd/Lts \n    ValenT> are readable at all now and I expect the readability to decrease (with much \n    ValenT> more than 10%) when converted authomatically to C.\n\nI agree that readability would decrease slightly *) --\nbut if it's \"not readable at all now\", i.e., 0% readable,\nit cannot get much lower by a decrease  :-) :-)\n\nMartin\n\n*) for that reason I had developed my perl script to\n post-process the result; and I usually also invest a few hours\n of manual postprocessing such that in the end, I believe that\n readability would be about the same.",
+      "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 10 May 2006 09:46:58 +0200 writes:\n\n    >> C++ complicates things slightly\n    ValenT> you mean under R, not in gen",
+      "thread_id": "thread-e75243b6bb93",
+      "thread_depth": 8,
+      "month": "2006-05"
+    },
+    {
+      "id": "msg-247ed3e43f92",
+      "message_id": "<00da01c67dea$7d186d90$0132a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2006-05-22T23:55:49+02:00",
+      "subject": "[RsR] covrob --- some OOP-comments",
+      "subject_clean": "[RsR] covrob --- some OOP-comments",
+      "in_reply_to": null,
+      "references": [
+        "<440C11D1.9060602@tuwien.ac.at>",
+        "<44218419.8060301@uni-bayreuth.de>",
+        "<01c201c64e0b$27ed7cc0$0132a8c0@KILER>",
+        "<4422DBF4.8040500@uni-bayreuth.de>",
+        "<000a01c64ebe$34e0ac50$0132a8c0@KILER>",
+        "<4423F969.4070802@uni-bayreuth.de>",
+        "<17444.12281.982207.952805@stat.math.ethz.ch>",
+        "<002301c64ff5$82647000$0132a8c0@KILER>",
+        "<17447.56688.238243.568965@stat.math.ethz.ch>"
+      ],
+      "body_plain": "I have finally uploaded the new version of rrcov containing the S4 classes \nwhich previously were in the preview package rr4cov. May be it is necessary \nto write more about it, but for now only briefly:\n\n- unfortunately I still have not removed the classes and data sets that are \nalready in robustbase\n- I have solved the naming convention and the coexisting of S3 and S4 \nclasses in the following way:\n    - a class name starts with a capital letter\n    - a function, generic or method name starts with a lowercase, except for \nthe functions returning an S4 objects, which have the same name as the \ncorresponding S4 class (aka constructor). Thus we can have parallel covMest \n(function returning S3 object \"mest\") and CovMest (function) returning a \nCovMest (class) object.\n    - In the ..\\inst\\doc directory I have added UML diagrams depicting the \nclass hierarchy, next time also vignette will appear.\n    - The new S4 classes have their own show/plot/summary methods\n    - later the S3 classes and the corresponding functions will be \n\"deprecated\", similarly as in Java: i.e. a function which is deprecated \nissues a warning each time when invoked, saying that it is deprecated, in \none of the following releases will be removed and it is recommended to use \nthe function so and so.\n\n- Control parameters: in the same way as above, rrcov.control will be \ndeprecated. Now we will have a CovControl virtual base class and derived \nclasses like CovControlMest, CovControlMcd, etc. each containing the \nnecessary parameters. The \"estim\" parameter is \"substituted\" by a generic \n'estimate' and methods 'estimate' in each of the derived classes.\n\n- There was an inconsistency in the returning of the correlation in covMest \nas compared to covMcd - now this parameter and value are removed completely \nand a user wants to use the correlation matrix instead of the covariance, \nshe/he can call the accessor method getCorr()  instead of getCov().\n\nbest regards,\nValentin\n\n\n\n----- Original Message ----- \nFrom: \"Martin Maechler\" <maechler at stat.math.ethz.ch>\nTo: \"Valentin Todorov\" <valentin.todorov at chello.at>\nCc: <R-SIG-Robust at stat.math.ethz.ch>\nSent: Monday, March 27, 2006 2:41 PM\nSubject: Re: [RsR] covrob --- some OOP-comments\n\n\n>>>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>>     on Sat, 25 Mar 2006 11:18:49 +0100 writes:\n>\n>    ValenT> ----- Original Message ----- \n>    ValenT> From: \"Martin Maechler\" <maechler at stat.math.ethz.ch>\n>    ValenT> ...\n>\n>    >> I assume that at least the base class(es) ('Cov', 'CovR' in\n>    >> Valentin's naming scheme) should be put into 'robustbase'  ASAP,\n>    >> so other packages can import them from the robustbase namespace\n>    >> and extend (aka \"inherit from\") them.\n>\n>    ValenT> I have uploaded a new version of rrcov with\n>    ValenT> constrained M-estimates of location and scatter\n>    ValenT> covMest(), for test purposes, which still returns an\n>    ValenT> S3 class. Now I am implementing Cov, CovR and the\n>    ValenT> derived from them Mest which I want to upload in the\n>    ValenT> next days. As soon as this construction is stable,\n>    ValenT> I'll move all three of them to robustbase (Martin, I\n>    ValenT> rely on your support).\n>\n> sure.\n> As I alluded earlier, I'd also be happy for you to get direct\n> write access to the subversion repository, i.e. to the database engine\n> which is behind https://svn.R-project.org/R-packages/trunk/robustbase\n>\n>    ValenT> After that I'll port covMcd to return an S4 class derived from \n> CovR.\n>\n>    ValenT> Two questions arise:\n>\n>    ValenT> - is there some \"standard\" for naming classes. I\n>    ValenT> assume the usual starting with a capital letter? In\n>    ValenT> some cases one can go further and select a\n>    ValenT> particular capital letter. For example in Visual\n>    ValenT> C++/MFC every class started with a capital C (in our\n>    ValenT> case we would have Ccov, CcovR, Cmcd, Cogk, Cmest).\n>\n> There are \"some\" standards, but not endorsed officially;\n> particularly there is no capitalization or \"prefix\"\n> standard.  In a 'function based' OO system like S4, the classes\n> are a bit less visible than in a 'class based' system like C++/Java.\n>\n> Several of the more classical R packages that have been using S4\n> use simple all-lowercase-alphabet class names such as 'mle' or\n> 'pixmap' but also 'sparseMatrix'.  The one ``rule'' that I think\n> \"everyone\" agrees on is  that the creator function, particularly of\n> a ``principal'' class, should have the identical\n> name as the class it creates. E.g. mle() returns S4 objects of\n> class 'mle', Matrix() returns objects inheriting from class\n> \"Matrix\", etc.  However even this rule is sometimes not\n> practical for diverse reasons, typically name clashes with\n> already existing functionality in R (in possibly other packages, etc).\n> One of the main reasons that IMO it doesn't make sense trying to\n> impose such standards is the fact that S (and hence R) has a\n> history of more than 20 years, and one has wanted to stay back\n> compatible as much as possible when providing new facilities.\n>\n> If we try to adhere to the only \"agreed upon\" standard above, our\n> class would need to be called  \"covrob\";  its super class (which\n> conceptually also contains the classical non-robustly estimated\n> covariance structures) could well be called \"cov\", even though\n> the standard cov() function does not return classed objects.\n> Further thinking about this directly leads to Valentin's 2nd\n> question:\n>\n>    ValenT> - What happens with the user of, for example\n>    ValenT> covMcd() when it begins to return an S4 class \"Mcd\"\n>    ValenT> instead of the current S3 \"mcd\".\n>\n>    ValenT> Of course these that just use print/plot/summary\n>    ValenT> will not notice the change, but what about these\n>    ValenT> that use the returned object within their programs?\n>\n> Very good point that has also come to my mind when contemplating\n> your proposed inheritance / class hierarchy:\n>\n> All the user's code / scripts / functions that rely on the\n> current structue of, say,  covMcd(),  will stop working\n> correctly.\n>\n>    ValenT> This is actually a general question on compatibility.\n>\n> Indeed!\n>\n> One approach that I usually favor is to require new function\n> names for getting the new-class results *and*\n> keep the old functions returning a back-compatible result; in\n> the present case keep covMcd() or covOGK() returning the lists\n> (and maybe S3 class) they currently return.\n>\n> That would be one argument pro only having covrob() return an S4\n> class and all the underlying \"method functions\" return lists\n> (possibly with an S3 class) -- just about what Peter and Heinz\n> have been proposing.  Additionally one could have newly named\n> functions {say 'covMCD'} that call the same underlying \"method\n> functions\" as covrob, e.g. call 'covMcd(..)', and only covMCD\n> would return an S4 class \"covMCD\" which extends (or \"inherits\n> from\") \"covrob\".\n>\n> The completely alternative approach would be to declare that all\n> current users of 'rrcov' (or 'robustbase') should change their\n> scripts and functions whenever they start using the\n> new_generation-version of \"robustbase\" and start using the slots\n> (or accessor functions were we provide them) of the new\n> S4-classed return values.\n> This 2nd ``brutal'' approach (of non-compatible upgrade) is\n> possible in situations where not too many users of the current\n> package exist, and they basically agree to do the extra work of\n> upgrading their R scripts.\n> Personally, I'm  *very*  reluctant against compatibility\n> breaking -- though I agree it has to happen sometimes in order\n> to not hinder progress.\n>\n> Martin",
+      "body_snippet": "I have finally uploaded the new version of rrcov containing the S4 classes \nwhich previously were in the preview package rr4cov. May be it is necessary \nto write more about it, but for now only briefl",
+      "thread_id": "thread-247ed3e43f92",
+      "thread_depth": 0,
+      "month": "2006-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-4652767026cf",
+      "subject": "[RsR] plugins for lmrob()",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2006-05-01T17:33:49+02:00",
+      "last_reply": "2006-05-01T17:33:49+02:00",
+      "root_message_id": "msg-4652767026cf"
+    },
+    {
+      "id": "thread-e75243b6bb93",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "message_count": 10,
+      "participants": [
+        "Martin Maechler",
+        "Matias Salibian-Barrera",
+        "Valentin Todorov",
+        "claudio"
+      ],
+      "started": "2006-05-01T18:02:07+02:00",
+      "last_reply": "2006-05-10T11:21:10+02:00",
+      "root_message_id": "msg-e75243b6bb93"
+    },
+    {
+      "id": "thread-9c4563d71554",
+      "subject": "[RsR] estimators based on random samples... - should be random",
+      "message_count": 1,
+      "participants": [
+        "Werner Stahel"
+      ],
+      "started": "2006-05-03T14:01:22+02:00",
+      "last_reply": "2006-05-03T14:01:22+02:00",
+      "root_message_id": "msg-9c4563d71554"
+    },
+    {
+      "id": "thread-f59eb7e7a3fd",
+      "subject": "[RsR] plugins for lmrob()",
+      "message_count": 2,
+      "participants": [
+        "Martin Maechler",
+        "Ruckstuhl Andreas (rks)"
+      ],
+      "started": "2006-05-03T16:38:28+02:00",
+      "last_reply": "2006-05-09T12:39:45+02:00",
+      "root_message_id": "msg-f59eb7e7a3fd"
+    },
+    {
+      "id": "thread-4a79fdc4f775",
+      "subject": "[RsR] Library for regression with t-distributed data",
+      "message_count": 1,
+      "participants": [
+        "Southworth, Harry"
+      ],
+      "started": "2006-05-09T11:17:17+01:00",
+      "last_reply": "2006-05-09T11:17:17+01:00",
+      "root_message_id": "msg-4a79fdc4f775"
+    },
+    {
+      "id": "thread-247ed3e43f92",
+      "subject": "[RsR] covrob --- some OOP-comments",
+      "message_count": 1,
+      "participants": [
+        "Valentin Todorov"
+      ],
+      "started": "2006-05-22T23:55:49+02:00",
+      "last_reply": "2006-05-22T23:55:49+02:00",
+      "root_message_id": "msg-247ed3e43f92"
+    }
+  ]
+}

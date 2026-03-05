@@ -1,0 +1,196 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2011-02",
+  "messages": [
+    {
+      "id": "msg-31ed4789ef26",
+      "message_id": "<19787.49490.51970.107661@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2011-02-04T10:05:22+01:00",
+      "subject": "[RsR] [R] \"hubers\" function in R MASS library : problem and solution",
+      "subject_clean": "[RsR] [R] \"hubers\" function in R MASS library : problem and solution",
+      "in_reply_to": "<997923.69604.qm@web81701.mail.mud.yahoo.com>",
+      "references": [
+        "<997923.69604.qm@web81701.mail.mud.yahoo.com>"
+      ],
+      "body_plain": ">>>>> Feiming Chen <feimingchen at yahoo.com>\n>>>>>     on Thu, 3 Feb 2011 12:03:05 -0800 (PST) writes:\n\n    > Hello:\n    > I found the \"hubers\" function in MASS library is NOT working on the following \n    > data:\n\n    >> a <- \n    >> c(7.19,7.19,7.19,9.41,6.79,9.41,7.19,9.41,1.64,7.19,7.19,7.19,7.19,1.422,7.19,6.79,7.19,6.79,7.19,7.19,4.44,6.55,6.79,7.19,9.41,9.41,7.19,7.19,7.19,7.19,1.64,1.597,1.64,7.19,1.422,7.19,6.79,9.38,7.19,1.64,7.19,7.19,7.19,7.19,7.19,1.64,7.19,6.79,6.79,1.649,1.64,7.19,1.597,1.64,6.55,7.19,7.19,1.64,7.19,7.19,1.407,1.672,1.672,7.19,6.55,7.19,7.19,9.41,1.407,7.19,7.19,9.41,7.19,9.41,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,9.41,7.19,6.79,7.19,6.79,1.64,1.422,7.19,7.19,1.67,1.64,1.64,1.64,1.64,1.787,7.19,7.19,7.19,6.79,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,1.64,1.64,1.64,1.422,9.41,1.64,7.19,7.19,7.19,7.19,7.19,7.19,7.19,6.79,6.79,7.19,6.79,7.19,7.19,1.407,7.19,4.42,9,1.64,1.64,6.79,1.664,1.664)\n    >> \n\n    >> library(MASS)\n    >> hubers(a)\n    > ## NO response!\n\n    > I think it is due to the infinite loop caused by the following line in the code \n    > of \"hubers\" (around Line 30):\n\n    > if ((abs(mu0 - mu1) < tol * s0) && \n    > abs(s0 - s1) < tol * s0)  break\n\n    > where \"s0\" evaluates to ZERO initially (due to more than 50% of the number \n    > 7.19). \n\nyes.\n\nNot only for this reason,  the robustbase  package \nhas had the  'huberM()' function with some other slight\nadvantages over MASS::huber.\n\n\n\n\n    > I propose to change the \"<\" sign to \"<=\":\n\n    > if ((abs(mu0 - mu1) <= tol * s0) && \n    > abs(s0 - s1) <= tol * s0)  break\n\n    > which will break the infinite loop.    However, the new result is:\n\n    >> hubers(a)\n    > $mu\n    > [1] 7.19\n\n    > $s\n    > [1] 0\n\n    > which gives 0 standard deviation.  Actually the data does vary and it is not \n    > true all values other than 7.19 are outliers.   \n\nSure. Nontheless, the way Peter Huber had defined the \"proposal\n2\" Huber estimator,  s = 0, is the correct result.\n\nWith the robustbase  huberM() function, you (can) get\n\n> huberM(a, warn0scale =TRUE)\n$mu\n[1] 7.19\n\n$s\n[1] 0\n\n$it\n[1] 0\n\nWarning message:\nIn huberM(a, warn0scale = TRUE) :\n  scale 's' is zero -- returning initial 'mu'\n\n\n    >> plot(a)\n\n    > I think this is because we allow initial SD to equal to zero instead of a \n    > POSITIVE value.   See Line 15 of the \"hubers\" function:\n\n    > if (missing(s))\n    > s0 <- mad(y)\n\n    > I propose setting \"s0\" to \"mad(y)\" or a small positive number, whichever is \n    > larger.  For example:\n\n    > if (missing(s))\n    > s0 <- max(mad(y), tol)\n\n    > where tol=1e-6.\n\nbut 'tol' is completely arbitrary and, the way you propose it\nmakes the resulting estimate \nno-longer-scale-equivariant.\n\nhuberM() *has* an  s  argument for specifying the scale estimate,\nso you could use it as\n\n  huberM(a, s = max(mad(a), 1e-6))  \n\nif you want.\n\nNote that your sample 'a' is constructed in a way that all\nscale-equivariant 50%-breakpoint robust estimates of scale will return s = 0,\nas more than half of your observations are identical,\nand scale equivariance \"ensures\" that in this limiting case, indeed all\nother observations are \"outliers\".\n\nThis last point is a somewhat interesting topic for\n\"robustniks\",\nand hence I'm CC'ing the dedicated \"R + Robustness\" mailing\nlist, R-SIG-robust.\n\nMartin Maechler, ETH Zurich\n\n\n    >  With this change,  the result is more sensible:\n    >> hubers(a)\n    > $mu\n    > [1] 5.88\n    > $s\n    > [1] 2.937\n\n    > Could anyone take a look at this and decide if the above modifications to the \n    > \"hubers\" function are warranted?Thanks a lot! \n\n\n    > Sincerely, \n    > Feiming Chen\n\n    > Read more >>   Options >>   \n    > [[alternative HTML version deleted]]\n\n    > ______________________________________________\n    > R-help at r-project.org mailing list\n    > https://stat.ethz.ch/mailman/listinfo/r-help\n    > PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n    > and provide commented, minimal, self-contained, reproducible code.",
+      "body_snippet": ">>>>> Feiming Chen <feimingchen at yahoo.com>\n>>>>>     on Thu, 3 Feb 2011 12:03:05 -0800 (PST) writes:\n\n    > Hello:\n    > I found the \"hubers\" function in MASS library is NOT working on the followin",
+      "thread_id": "thread-31ed4789ef26",
+      "thread_depth": 0,
+      "month": "2011-02"
+    },
+    {
+      "id": "msg-6407153d9889",
+      "message_id": "<F38F24C992883A40BFDE79ACF59E2C5401A7A6AA@WGNHOEVS1.depcon.internal>",
+      "from_name": "Maheswaran Rohan",
+      "from_email_hash": "6e6c1d47208ee44cb4d97a1541147732a8c8cb6be7988af89dcbc5cb22dd5954",
+      "date": "2011-02-07T10:23:30+13:00",
+      "subject": "[RsR] [R] \"hubers\" function in R MASS library : problem andsolution",
+      "subject_clean": "[RsR] [R] \"hubers\" function in R MASS library : problem andsolution",
+      "in_reply_to": "<19787.49490.51970.107661@stat.math.ethz.ch>",
+      "references": [
+        "<997923.69604.qm@web81701.mail.mud.yahoo.com>",
+        "<19787.49490.51970.107661@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Hi Chen\n\n>  With this change,  the result is more sensible:\n    >> hubers(a)\n    > $mu\n    > [1] 5.88\n    > $s\n    > [1] 2.937\n\n\nThis mu = 5.88 is very similar to the mean(a) = 5.877417. That means, no\npoint to apply M-estimation if you are happy with the result.\n\nFollowing suggestion may be helpful, think about it!\n\nTo overcome mad = 0 problem, try to define s = mean(abs((a - median(a)))\n\n> hubers(a, k = 1.5, s=mean(abs(a-median(a))))\n$mu\n[1] 6.414677\n\n$s\n[1] 1.689561\n\n> hubers(a, k = 1.345, s=mean(abs(a-median(a))))\n$mu\n[1] 6.480148\n\n$s\n[1] 1.689561\n\nRegards\nRohan\n\n\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org\n[mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Martin Maechler\nSent: Friday, 4 February 2011 10:05 p.m.\nTo: Feiming Chen\nCc: r-help at r-project.org; r-sig-robust at r-project.org\nSubject: Re: [RsR] [R] \"hubers\" function in R MASS library : problem\nandsolution\n\n>>>>> Feiming Chen <feimingchen at yahoo.com>\n>>>>>     on Thu, 3 Feb 2011 12:03:05 -0800 (PST) writes:\n\n    > Hello:\n    > I found the \"hubers\" function in MASS library is NOT working on\nthe following \n    > data:\n\n    >> a <- \n    >>\nc(7.19,7.19,7.19,9.41,6.79,9.41,7.19,9.41,1.64,7.19,7.19,7.19,7.19,1.422\n,7.19,6.79,7.19,6.79,7.19,7.19,4.44,6.55,6.79,7.19,9.41,9.41,7.19,7.19,7\n.19,7.19,1.64,1.597,1.64,7.19,1.422,7.19,6.79,9.38,7.19,1.64,7.19,7.19,7\n.19,7.19,7.19,1.64,7.19,6.79,6.79,1.649,1.64,7.19,1.597,1.64,6.55,7.19,7\n.19,1.64,7.19,7.19,1.407,1.672,1.672,7.19,6.55,7.19,7.19,9.41,1.407,7.19\n,7.19,9.41,7.19,9.41,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,9.41,7\n.19,6.79,7.19,6.79,1.64,1.422,7.19,7.19,1.67,1.64,1.64,1.64,1.64,1.787,7\n.19,7.19,7.19,6.79,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,1.64,1.6\n4,1.64,1.422,9.41,1.64,7.19,7.19,7.19,7.19,7.19,7.19,7.19,6.79,6.79,7.19\n,6.79,7.19,7.19,1.407,7.19,4.42,9,1.64,1.64,6.79,1.664,1.664)\n    >> \n\n    >> library(MASS)\n    >> hubers(a)\n    > ## NO response!\n\n    > I think it is due to the infinite loop caused by the following\nline in the code \n    > of \"hubers\" (around Line 30):\n\n    > if ((abs(mu0 - mu1) < tol * s0) && \n    > abs(s0 - s1) < tol * s0)  break\n\n    > where \"s0\" evaluates to ZERO initially (due to more than 50% of\nthe number \n    > 7.19). \n\nyes.\n\nNot only for this reason,  the robustbase  package \nhas had the  'huberM()' function with some other slight\nadvantages over MASS::huber.\n\n\n\n\n    > I propose to change the \"<\" sign to \"<=\":\n\n    > if ((abs(mu0 - mu1) <= tol * s0) && \n    > abs(s0 - s1) <= tol * s0)  break\n\n    > which will break the infinite loop.    However, the new result is:\n\n    >> hubers(a)\n    > $mu\n    > [1] 7.19\n\n    > $s\n    > [1] 0\n\n    > which gives 0 standard deviation.  Actually the data does vary and\nit is not \n    > true all values other than 7.19 are outliers.   \n\nSure. Nontheless, the way Peter Huber had defined the \"proposal\n2\" Huber estimator,  s = 0, is the correct result.\n\nWith the robustbase  huberM() function, you (can) get\n\n> huberM(a, warn0scale =TRUE)\n$mu\n[1] 7.19\n\n$s\n[1] 0\n\n$it\n[1] 0\n\nWarning message:\nIn huberM(a, warn0scale = TRUE) :\n  scale 's' is zero -- returning initial 'mu'\n\n\n    >> plot(a)\n\n    > I think this is because we allow initial SD to equal to zero\ninstead of a \n    > POSITIVE value.   See Line 15 of the \"hubers\" function:\n\n    > if (missing(s))\n    > s0 <- mad(y)\n\n    > I propose setting \"s0\" to \"mad(y)\" or a small positive number,\nwhichever is \n    > larger.  For example:\n\n    > if (missing(s))\n    > s0 <- max(mad(y), tol)\n\n    > where tol=1e-6.\n\nbut 'tol' is completely arbitrary and, the way you propose it\nmakes the resulting estimate \nno-longer-scale-equivariant.\n\nhuberM() *has* an  s  argument for specifying the scale estimate,\nso you could use it as\n\n  huberM(a, s = max(mad(a), 1e-6))  \n\nif you want.\n\nNote that your sample 'a' is constructed in a way that all\nscale-equivariant 50%-breakpoint robust estimates of scale will return s\n= 0,\nas more than half of your observations are identical,\nand scale equivariance \"ensures\" that in this limiting case, indeed all\nother observations are \"outliers\".\n\nThis last point is a somewhat interesting topic for\n\"robustniks\",\nand hence I'm CC'ing the dedicated \"R + Robustness\" mailing\nlist, R-SIG-robust.\n\nMartin Maechler, ETH Zurich\n\n\n    >  With this change,  the result is more sensible:\n    >> hubers(a)\n    > $mu\n    > [1] 5.88\n    > $s\n    > [1] 2.937\n\n    > Could anyone take a look at this and decide if the above\nmodifications to the \n    > \"hubers\" function are warranted?Thanks a lot! \n\n\n    > Sincerely, \n    > Feiming Chen\n\n    > Read more >>   Options >>   \n    > [[alternative HTML version deleted]]\n\n    > ______________________________________________\n    > R-help at r-project.org mailing list\n    > https://stat.ethz.ch/mailman/listinfo/r-help\n    > PLEASE do read the posting guide\nhttp://www.R-project.org/posting-guide.html\n    > and provide commented, minimal, self-contained, reproducible code.\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust\n##############################################\nThis e-mail (and attachments) is confidential\nand may be legally privileged.\n##############################################",
+      "body_snippet": "Hi Chen\n\n>  With this change,  the result is more sensible:\n    >> hubers(a)\n    > $mu\n    > [1] 5.88\n    > $s\n    > [1] 2.937\n\n\nThis mu = 5.88 is very similar to the mean(a) = 5.877417. That means, n",
+      "thread_id": "thread-31ed4789ef26",
+      "thread_depth": 1,
+      "month": "2011-02"
+    },
+    {
+      "id": "msg-4ff5a7c4a70a",
+      "message_id": "<274775.32561.qm@web81702.mail.mud.yahoo.com>",
+      "from_name": "Feiming Chen",
+      "from_email_hash": "95e44da1ce6b8368e1a0ca4722299348529c7296eea8f3c824376c0f27f456af",
+      "date": "2011-02-07T07:58:20-08:00",
+      "subject": "[RsR] [R] \"hubers\" function in R MASS library : problem andsolution",
+      "subject_clean": "[RsR] [R] \"hubers\" function in R MASS library : problem andsolution",
+      "in_reply_to": "<F38F24C992883A40BFDE79ACF59E2C5401A7A6AA@WGNHOEVS1.depcon.internal>",
+      "references": [],
+      "body_plain": "Hi Marting,? Maheswaran:\n\nThank you very much for your input!? \n\nI am applying M-estimation in an automatic data processing procedure (that requires both robust mean and robust SD).? The \"mad=0\" problem happens rarely.? Most of the time \"hubers\" works great.? \n\nI appreciate your proposed solutions. \n\nIf we use:\n\n> hubers(a, k = 1.5, s=mean(abs(a-median(a))))\n\nThen \"s\" is fixed and seems less robust:? if there are outliers, \"s=mean(abs(a-median(a)))\" will appear too large, right? ? \n\nSimilaryly, using the \"robustbase package, \n\n>? huberM(a, s = max(mad(a), 1e-6)) \n\n\"s\" will be fixed as well and will be less efficient. \n\nRegarding Martin's comment: \n\n\"but 'tol' is completely arbitrary and, the way you propose it makes the resulting estimate no-longer-scale-equivariant.\",?? \n\nI did an experiment using different levels of \"tol\" and found them to give identical results.?? For convenience, I add a \"s.min\" parameter in \"hubers\" that bounds the initial \"s\" estimate from below:\n\n? if (missing(s)) \n????? s0 <- max(mad(y), s.min)\n? \nThen I tried the following settings:\n\n> hubers(c(rep(1,10), 2), s.min=1e-6)\n$mu\n[1] 1\n\n$s\n[1] 7.958e-17\n\n> hubers(c(rep(1,10), 2), s.min=1)\n$mu\n[1] 1\n\n$s\n[1] 7.958e-17\n\n> hubers(c(rep(1,10), 2), s.min=10)\n$mu\n[1] 1\n\n$s\n[1] 7.958e-17\n\n#####\n\n> hubers(a, s.min=1e-6)\n$mu\n[1] 5.88\n\n$s\n[1] 2.937\n\n> hubers(a, s.min=1)\n$mu\n[1] 5.88\n\n$s\n[1] 2.937\n\n> hubers(a, s.min=10)\n$mu\n[1] 5.88\n\n$s\n[1] 2.937\n\nHowever, forgive me for my ignorance about the practical implication of \"scale-equivalent\". \n\nLet me know if you have any comment.\n\nThanks again for your help!\n\nSincerely,\nFeiming Chen\n\n--- On Sun, 2/6/11, Maheswaran Rohan <mrohan at doc.govt.nz> wrote:\n\nFrom: Maheswaran Rohan <mrohan at doc.govt.nz>\nSubject: RE: [RsR] [R] \"hubers\" function in R MASS library : problem andsolution\nTo: \"Martin Maechler\" <maechler at stat.math.ethz.ch>, \"Feiming Chen\" <feimingchen at yahoo.com>\nCc: r-sig-robust at r-project.org\nDate: Sunday, February 6, 2011, 3:23 PM\n\nHi Chen\n\n>? With this change,? the result is more sensible:\n? ? >> hubers(a)\n? ? > $mu\n? ? > [1] 5.88\n? ? > $s\n? ? > [1] 2.937\n\n\nThis mu = 5.88 is very similar to the mean(a) = 5.877417. That means, no\npoint to apply M-estimation if you are happy with the result.\n\nFollowing suggestion may be helpful, think about it!\n\nTo overcome mad = 0 problem, try to define s = mean(abs((a - median(a)))\n\n> hubers(a, k = 1.5, s=mean(abs(a-median(a))))\n$mu\n[1] 6.414677\n\n$s\n[1] 1.689561\n\n> hubers(a, k = 1.345, s=mean(abs(a-median(a))))\n$mu\n[1] 6.480148\n\n$s\n[1] 1.689561\n\nRegards\nRohan\n\n\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org\n[mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Martin Maechler\nSent: Friday, 4 February 2011 10:05 p.m.\nTo: Feiming Chen\nCc: r-help at r-project.org; r-sig-robust at r-project.org\nSubject: Re: [RsR] [R] \"hubers\" function in R MASS library : problem\nandsolution\n\n>>>>> Feiming Chen <feimingchen at yahoo.com>\n>>>>>? ???on Thu, 3 Feb 2011 12:03:05 -0800 (PST) writes:\n\n? ? > Hello:\n? ? > I found the \"hubers\" function in MASS library is NOT working on\nthe following \n? ? > data:\n\n? ? >> a <- \n? ? >>\nc(7.19,7.19,7.19,9.41,6.79,9.41,7.19,9.41,1.64,7.19,7.19,7.19,7.19,1.422\n,7.19,6.79,7.19,6.79,7.19,7.19,4.44,6.55,6.79,7.19,9.41,9.41,7.19,7.19,7\n.19,7.19,1.64,1.597,1.64,7.19,1.422,7.19,6.79,9.38,7.19,1.64,7.19,7.19,7\n.19,7.19,7.19,1.64,7.19,6.79,6.79,1.649,1.64,7.19,1.597,1.64,6.55,7.19,7\n.19,1.64,7.19,7.19,1.407,1.672,1.672,7.19,6.55,7.19,7.19,9.41,1.407,7.19\n,7.19,9.41,7.19,9.41,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,9.41,7\n.19,6.79,7.19,6.79,1.64,1.422,7.19,7.19,1.67,1.64,1.64,1.64,1.64,1.787,7\n.19,7.19,7.19,6.79,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,1.64,1.6\n4,1.64,1.422,9.41,1.64,7.19,7.19,7.19,7.19,7.19,7.19,7.19,6.79,6.79,7.19\n,6.79,7.19,7.19,1.407,7.19,4.42,9,1.64,1.64,6.79,1.664,1.664)\n? ? >> \n\n? ? >> library(MASS)\n? ? >> hubers(a)\n? ? > ## NO response!\n\n? ? > I think it is due to the infinite loop caused by the following\nline in the code \n? ? > of \"hubers\" (around Line 30):\n\n? ? > if ((abs(mu0 - mu1) < tol * s0) && \n? ? > abs(s0 - s1) < tol * s0)? break\n\n? ? > where \"s0\" evaluates to ZERO initially (due to more than 50% of\nthe number \n? ? > 7.19). \n\nyes.\n\nNot only for this reason,? the robustbase? package \nhas had the? 'huberM()' function with some other slight\nadvantages over MASS::huber.\n\n\n\n\n? ? > I propose to change the \"<\" sign to \"<=\":\n\n? ? > if ((abs(mu0 - mu1) <= tol * s0) && \n? ? > abs(s0 - s1) <= tol * s0)? break\n\n? ? > which will break the infinite loop.? ? However, the new result is:\n\n? ? >> hubers(a)\n? ? > $mu\n? ? > [1] 7.19\n\n? ? > $s\n? ? > [1] 0\n\n? ? > which gives 0 standard deviation.? Actually the data does vary and\nit is not \n? ? > true all values other than 7.19 are outliers.???\n\nSure. Nontheless, the way Peter Huber had defined the \"proposal\n2\" Huber estimator,? s = 0, is the correct result.\n\nWith the robustbase? huberM() function, you (can) get\n\n> huberM(a, warn0scale =TRUE)\n$mu\n[1] 7.19\n\n$s\n[1] 0\n\n$it\n[1] 0\n\nWarning message:\nIn huberM(a, warn0scale = TRUE) :\n? scale 's' is zero -- returning initial 'mu'\n\n\n? ? >> plot(a)\n\n? ? > I think this is because we allow initial SD to equal to zero\ninstead of a \n? ? > POSITIVE value.???See Line 15 of the \"hubers\" function:\n\n? ? > if (missing(s))\n? ? > s0 <- mad(y)\n\n? ? > I propose setting \"s0\" to \"mad(y)\" or a small positive number,\nwhichever is \n? ? > larger.? For example:\n\n? ? > if (missing(s))\n? ? > s0 <- max(mad(y), tol)\n\n? ? > where tol=1e-6.\n\nbut 'tol' is completely arbitrary and, the way you propose it\nmakes the resulting estimate \nno-longer-scale-equivariant.\n\nhuberM() *has* an? s? argument for specifying the scale estimate,\nso you could use it as\n\n? huberM(a, s = max(mad(a), 1e-6))? \n\nif you want.\n\nNote that your sample 'a' is constructed in a way that all\nscale-equivariant 50%-breakpoint robust estimates of scale will return s\n= 0,\nas more than half of your observations are identical,\nand scale equivariance \"ensures\" that in this limiting case, indeed all\nother observations are \"outliers\".\n\nThis last point is a somewhat interesting topic for\n\"robustniks\",\nand hence I'm CC'ing the dedicated \"R + Robustness\" mailing\nlist, R-SIG-robust.\n\nMartin Maechler, ETH Zurich\n\n\n? ? >? With this change,? the result is more sensible:\n? ? >> hubers(a)\n? ? > $mu\n? ? > [1] 5.88\n? ? > $s\n? ? > [1] 2.937\n\n? ? > Could anyone take a look at this and decide if the above\nmodifications to the \n? ? > \"hubers\" function are warranted?Thanks a lot! \n\n\n? ? > Sincerely, \n? ? > Feiming Chen\n\n? ? > Read more >>???Options >>???\n? ? > [[alternative HTML version deleted]]\n\n? ? > ______________________________________________\n? ? > R-help at r-project.org mailing list\n? ? > https://stat.ethz.ch/mailman/listinfo/r-help\n? ? > PLEASE do read the posting guide\nhttp://www.R-project.org/posting-guide.html\n? ? > and provide commented, minimal, self-contained, reproducible code.\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust\n##############################################\nThis e-mail (and attachments) is confidential\nand may be legally privileged.\n##############################################\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi Marting,? Maheswaran:\n\nThank you very much for your input!? \n\nI am applying M-estimation in an automatic data processing procedure (that requires both robust mean and robust SD).? The \"mad=0\" probl",
+      "thread_id": "thread-31ed4789ef26",
+      "thread_depth": 2,
+      "month": "2011-02"
+    },
+    {
+      "id": "msg-36d0a6ef8e09",
+      "message_id": "<4D5F2B35.5050603@edu.uni-graz.at>",
+      "from_name": "Manfred Hammerl",
+      "from_email_hash": "7ecd7f6c1fc2a1dd1f3b30a22af7d341e279e7482451b90aba9a60ef4ff78aca",
+      "date": "2011-02-19T03:30:13+01:00",
+      "subject": "[RsR] hubers m-estimator in R / SPSS",
+      "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "hello, i'm new to robust statistics but found out very quick that R \n(used huber, hubers and huberM) and SPSS (huber m-estimator) calculate \ndifferent location estimates, given the same tuning constant k. since \nthe differences a really not very small, i wanted to get some detailed \ninformation about this but i couldn't find out which algorithm SPSS uses \nto calculate hubers estimator so far...\n\ndoes anyone know something about SPSS's huber function?\n\ngreetings,\n\nmanfred",
+      "body_snippet": "hello, i'm new to robust statistics but found out very quick that R \n(used huber, hubers and huberM) and SPSS (huber m-estimator) calculate \ndifferent location estimates, given the same tuning constan",
+      "thread_id": "thread-36d0a6ef8e09",
+      "thread_depth": 0,
+      "month": "2011-02"
+    },
+    {
+      "id": "msg-dc8fbcde2f66",
+      "message_id": "<4D5F2C8D.9060603@edu.uni-graz.at>",
+      "from_name": "Manfred Hammerl",
+      "from_email_hash": "7ecd7f6c1fc2a1dd1f3b30a22af7d341e279e7482451b90aba9a60ef4ff78aca",
+      "date": "2011-02-19T03:35:57+01:00",
+      "subject": "[RsR] hubers m-estimator in R / SPSS",
+      "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
+      "in_reply_to": "<4D5F2B35.5050603@edu.uni-graz.at>",
+      "references": [
+        "<4D5F2B35.5050603@edu.uni-graz.at>"
+      ],
+      "body_plain": "hello, i'm new to robust statistics but found out very quick that R\n(used huber, hubers and huberM) and SPSS (huber m-estimator) calculate\ndifferent location estimates, given the same tuning constant k. since\nthe differences a really not very small, i wanted to get some detailed\ninformation about this but i couldn't find out which algorithm SPSS uses\nto calculate hubers estimator so far...\n\ndoes anyone know something about SPSS's huber function?\n\ngreetings,\n\nmanfred",
+      "body_snippet": "hello, i'm new to robust statistics but found out very quick that R\n(used huber, hubers and huberM) and SPSS (huber m-estimator) calculate\ndifferent location estimates, given the same tuning constant ",
+      "thread_id": "thread-36d0a6ef8e09",
+      "thread_depth": 1,
+      "month": "2011-02"
+    },
+    {
+      "id": "msg-4388bf26ed62",
+      "message_id": "<4D65327B.3000402@edu.uni-graz.at>",
+      "from_name": "Manfred Hammerl",
+      "from_email_hash": "7ecd7f6c1fc2a1dd1f3b30a22af7d341e279e7482451b90aba9a60ef4ff78aca",
+      "date": "2011-02-23T17:14:51+01:00",
+      "subject": "[RsR] hubers m-estimator in R / SPSS",
+      "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
+      "in_reply_to": "<4D62F84B.6010701@stat.ubc.ca>",
+      "references": [
+        "<4D5F2B35.5050603@edu.uni-graz.at>",
+        "<4D5F2C8D.9060603@edu.uni-graz.at>",
+        "<4D62F84B.6010701@stat.ubc.ca>"
+      ],
+      "body_plain": "thanks. of course, that was my idea too, but i couldn't find out which \nscale estimator spss uses. no manual, book, paper or whatever contains \ninformation about that. i tried other programs (like R or the ACM-tool), \nwhich use MAD, SMAD or an iterated standard deviation, but i always get \ndifferent results with spss...\n\nmanfred\n\n\nAm 22.02.2011 00:42, schrieb Matias Salibian-Barrera:\n> Hello Manfred,\n>\n> I'm not familiar with SPSS, but based on my experience, I'll go out on a\n> limb and say that the difference may be on the scale estimator that it's\n> used (either a preliminary estimator like the MAD) or a simultaneously\n> computer M-scale. Hopefully the SPSS manual will have some details.\n>\n> Matias\n>\n>\n> On 11-02-18 06:35 PM, Manfred Hammerl sat down at the computer and wrote:\n>> hello, i'm new to robust statistics but found out very quick that R\n>> (used huber, hubers and huberM) and SPSS (huber m-estimator) calculate\n>> different location estimates, given the same tuning constant k. since\n>> the differences a really not very small, i wanted to get some detailed\n>> information about this but i couldn't find out which algorithm SPSS uses\n>> to calculate hubers estimator so far...\n>>\n>> does anyone know something about SPSS's huber function?\n>>\n>> greetings,\n>>\n>> manfred\n>>\n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\n-- \nMMag. Manfred Hammerl, BBakk.\nmanfred.hammerl at edu.uni-graz.at",
+      "body_snippet": "thanks. of course, that was my idea too, but i couldn't find out which \nscale estimator spss uses. no manual, book, paper or whatever contains \ninformation about that. i tried other programs (like R o",
+      "thread_id": "thread-4388bf26ed62",
+      "thread_depth": 0,
+      "month": "2011-02"
+    },
+    {
+      "id": "msg-f6228a584106",
+      "message_id": "<19813.27961.914261.799586@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2011-02-23T21:25:29+01:00",
+      "subject": "[RsR] hubers m-estimator in R / SPSS",
+      "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
+      "in_reply_to": "<4D65327B.3000402@edu.uni-graz.at>",
+      "references": [
+        "<4D5F2B35.5050603@edu.uni-graz.at>",
+        "<4D5F2C8D.9060603@edu.uni-graz.at>",
+        "<4D62F84B.6010701@stat.ubc.ca>",
+        "<4D65327B.3000402@edu.uni-graz.at>"
+      ],
+      "body_plain": ">>>>> \"MH\" == Manfred Hammerl <manfred.hammerl at edu.uni-graz.at>\n>>>>>     on Wed, 23 Feb 2011 17:14:51 +0100 writes:\n\n    MH> thanks. of course, that was my idea too, but i couldn't find out which \n    MH> scale estimator spss uses. no manual, book, paper or whatever contains \n    MH> information about that. i tried other programs (like R or the ACM-tool), \n    MH> which use MAD, SMAD or an iterated standard deviation, but i always get \n    MH> different results with spss...\n\nso why on earth are you using SPSS at all?\n...\nactually it's hard to believe that they don't document what\ntheir M-estimate does ...\nbut that would really belong to an SPSS help list rather than an\nR one, right?\n\nMartin\n\n    MH> manfred\n\n\n    MH> Am 22.02.2011 00:42, schrieb Matias Salibian-Barrera:\n    >> Hello Manfred,\n    >> \n    >> I'm not familiar with SPSS, but based on my experience, I'll go out on a\n    >> limb and say that the difference may be on the scale estimator that it's\n    >> used (either a preliminary estimator like the MAD) or a simultaneously\n    >> computer M-scale. Hopefully the SPSS manual will have some details.\n    >> \n    >> Matias\n    >> \n    >> \n    >> On 11-02-18 06:35 PM, Manfred Hammerl sat down at the computer and wrote:\n    >>> hello, i'm new to robust statistics but found out very quick that R\n    >>> (used huber, hubers and huberM) and SPSS (huber m-estimator) calculate\n    >>> different location estimates, given the same tuning constant k. since\n    >>> the differences a really not very small, i wanted to get some detailed\n    >>> information about this but i couldn't find out which algorithm SPSS uses\n    >>> to calculate hubers estimator so far...\n    >>> \n    >>> does anyone know something about SPSS's huber function?\n    >>> \n    >>> greetings,\n    >>> \n    >>> manfred\n    >>> \n    >>> _______________________________________________\n    >>> R-SIG-Robust at r-project.org mailing list\n    >>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n    >> \n\n\n    MH> -- \n    MH> MMag. Manfred Hammerl, BBakk.\n    MH> manfred.hammerl at edu.uni-graz.at\n\n    MH> _______________________________________________\n    MH> R-SIG-Robust at r-project.org mailing list\n    MH> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": ">>>>> \"MH\" == Manfred Hammerl <manfred.hammerl at edu.uni-graz.at>\n>>>>>     on Wed, 23 Feb 2011 17:14:51 +0100 writes:\n\n    MH> thanks. of course, that was my idea too, but i couldn't find out which ",
+      "thread_id": "thread-4388bf26ed62",
+      "thread_depth": 1,
+      "month": "2011-02"
+    },
+    {
+      "id": "msg-c773c2b2e960",
+      "message_id": "<4D6573D5.8080402@tuwien.ac.at>",
+      "from_name": "Rudolf Dutter",
+      "from_email_hash": "e60b984b9d28bf05c74cc3b85f84d6012cdb3d8cbec6b3cbbb69d154270b139c",
+      "date": "2011-02-23T21:53:41+01:00",
+      "subject": "[RsR] hubers m-estimator in R / SPSS",
+      "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
+      "in_reply_to": "<19813.27961.914261.799586@stat.math.ethz.ch>",
+      "references": [
+        "<4D5F2B35.5050603@edu.uni-graz.at>",
+        "<4D5F2C8D.9060603@edu.uni-graz.at>",
+        "<4D62F84B.6010701@stat.ubc.ca>",
+        "<4D65327B.3000402@edu.uni-graz.at>",
+        "<19813.27961.914261.799586@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Martin,\n\nI agree fully with you. It reminds me that some 30 years ago I puzzled\naround why SPSS produces negative variances. It was not too difficult to\nfind out the reason by trial and error. Conclusion: We didn't recommend\nthe usage SPSS at a scientific level any more, and some years ago, we\ncancelled all licenses from our institute. I am not surprised that\nHubers algorithm remains mysterious in that package.\nSorry to say that.\n\nRudi\n\nMartin Maechler wrote:\n>>>>>> \"MH\" == Manfred Hammerl <manfred.hammerl at edu.uni-graz.at>\n>>>>>>     on Wed, 23 Feb 2011 17:14:51 +0100 writes:\n>>>>>>             \n>\n>     MH> thanks. of course, that was my idea too, but i couldn't find out which \n>     MH> scale estimator spss uses. no manual, book, paper or whatever contains \n>     MH> information about that. i tried other programs (like R or the ACM-tool), \n>     MH> which use MAD, SMAD or an iterated standard deviation, but i always get \n>     MH> different results with spss...\n>\n> so why on earth are you using SPSS at all?\n> ...\n> actually it's hard to believe that they don't document what\n> their M-estimate does ...\n> but that would really belong to an SPSS help list rather than an\n> R one, right?\n>\n> Martin\n>\n>     MH> manfred\n>\n>\n>     MH> Am 22.02.2011 00:42, schrieb Matias Salibian-Barrera:\n>     >> Hello Manfred,\n>     >> \n>     >> I'm not familiar with SPSS, but based on my experience, I'll go out on a\n>     >> limb and say that the difference may be on the scale estimator that it's\n>     >> used (either a preliminary estimator like the MAD) or a simultaneously\n>     >> computer M-scale. Hopefully the SPSS manual will have some details.\n>     >> \n>     >> Matias\n>     >> \n>     >> \n>     >> On 11-02-18 06:35 PM, Manfred Hammerl sat down at the computer and wrote:\n>     >>> hello, i'm new to robust statistics but found out very quick that R\n>     >>> (used huber, hubers and huberM) and SPSS (huber m-estimator) calculate\n>     >>> different location estimates, given the same tuning constant k. since\n>     >>> the differences a really not very small, i wanted to get some detailed\n>     >>> information about this but i couldn't find out which algorithm SPSS uses\n>     >>> to calculate hubers estimator so far...\n>     >>> \n>     >>> does anyone know something about SPSS's huber function?\n>     >>> \n>     >>> greetings,\n>     >>> \n>     >>> manfred\n>     >>> \n>     >>> _______________________________________________\n>     >>> R-SIG-Robust at r-project.org mailing list\n>     >>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>     >> \n>\n>\n>     MH> -- \n>     MH> MMag. Manfred Hammerl, BBakk.\n>     MH> manfred.hammerl at edu.uni-graz.at\n>\n>     MH> _______________________________________________\n>     MH> R-SIG-Robust at r-project.org mailing list\n>     MH> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>\n>   \n\n-- \n~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=\nFrom: Prof. Dr. Rudolf Dutter\n      Dept. of Statistics and Probability Theory\n      Vienna University of Technology,\n      Wiedner Hauptstr. 7 (\"Goldenes Lamm\")\n      A-1040 Vienna, Austria\n      Tel. +43 1 58801/10730\n      FAX  +43 1 58801/10798\n      E-Mail: R.Dutter at tuwien.ac.at\n      Internet: http://www.statistik.tuwien.ac.at/public/dutt/\n~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=",
+      "body_snippet": "Martin,\n\nI agree fully with you. It reminds me that some 30 years ago I puzzled\naround why SPSS produces negative variances. It was not too difficult to\nfind out the reason by trial and error. Conclus",
+      "thread_id": "thread-4388bf26ed62",
+      "thread_depth": 2,
+      "month": "2011-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-31ed4789ef26",
+      "subject": "[RsR] [R] \"hubers\" function in R MASS library : problem and solution",
+      "message_count": 3,
+      "participants": [
+        "Feiming Chen",
+        "Maheswaran Rohan",
+        "Martin Maechler"
+      ],
+      "started": "2011-02-04T10:05:22+01:00",
+      "last_reply": "2011-02-07T07:58:20-08:00",
+      "root_message_id": "msg-31ed4789ef26"
+    },
+    {
+      "id": "thread-36d0a6ef8e09",
+      "subject": "[RsR] hubers m-estimator in R / SPSS",
+      "message_count": 2,
+      "participants": [
+        "Manfred Hammerl"
+      ],
+      "started": "2011-02-19T03:30:13+01:00",
+      "last_reply": "2011-02-19T03:35:57+01:00",
+      "root_message_id": "msg-36d0a6ef8e09"
+    },
+    {
+      "id": "thread-4388bf26ed62",
+      "subject": "[RsR] hubers m-estimator in R / SPSS",
+      "message_count": 3,
+      "participants": [
+        "Manfred Hammerl",
+        "Martin Maechler",
+        "Rudolf Dutter"
+      ],
+      "started": "2011-02-23T17:14:51+01:00",
+      "last_reply": "2011-02-23T21:53:41+01:00",
+      "root_message_id": "msg-4388bf26ed62"
+    }
+  ]
+}

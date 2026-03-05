@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2020-09",
+  "messages": [
+    {
+      "id": "msg-3c5ec5e1a5f2",
+      "message_id": "<CACgFjqQU05_q92kYVdV5FbhL7+mx2fO7hbH3kQEHjbg7DT3+bg@mail.gmail.com>",
+      "from_name": "Z B",
+      "from_email_hash": "07a1fb41ca44f92a9aee3a37ff97b530bf370dd41eabf34da9cef656674cb33c",
+      "date": "2020-09-30T10:18:12+02:00",
+      "subject": "[RsR] shifted t distribution for power analysis",
+      "subject_clean": "[RsR] shifted t distribution for power analysis",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dears,\n\nI am trying to generate 10 random numbers from  shifted to the right t\ndistribution with 3 degrees of freedom. I mean the following :\nx<-rt(10,3)\n y<-rt(10,3)+2\n\n\n I need these two variable to calculate the the power of two sample t-test\nin order the check its robustness and that is by deriving the p values from\n1000 samples for both x and y  and then calculate the rejection rate.But it\nis false since i found out that we talk about noncentrality parameter in\ncase of t-distribution and not shift like mentioned above.how shall i do to\nexpress a shift to the right with an amount of 2 using the noncentrality\nparameter in R ?.i will be very grateful when i hear from you. and if there\nis whatever other solution to implement shifted to the right random\nvariables then it welcome.\n\n\nBest Reguards\nZakaria Bensmida\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dears,\n\nI am trying to generate 10 random numbers from  shifted to the right t\ndistribution with 3 degrees of freedom. I mean the following :\nx<-rt(10,3)\n y<-rt(10,3)+2\n\n\n I need these two variable to",
+      "thread_id": "thread-3c5ec5e1a5f2",
+      "thread_depth": 0,
+      "month": "2020-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-3c5ec5e1a5f2",
+      "subject": "[RsR] shifted t distribution for power analysis",
+      "message_count": 1,
+      "participants": [
+        "Z B"
+      ],
+      "started": "2020-09-30T10:18:12+02:00",
+      "last_reply": "2020-09-30T10:18:12+02:00",
+      "root_message_id": "msg-3c5ec5e1a5f2"
+    }
+  ]
+}

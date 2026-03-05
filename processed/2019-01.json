@@ -1,0 +1,58 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2019-01",
+  "messages": [
+    {
+      "id": "msg-2fb30650ca62",
+      "message_id": "<TY2PR06MB310214DC0B3F1C8DA41FF026C28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>",
+      "from_name": "王 嘉炜",
+      "from_email_hash": "a032bbbf6ecc17e59ca13a542ceea932202aed79e88444bea713909d54ac2e8e",
+      "date": "2019-01-04T04:46:17Z",
+      "subject": "[RsR] Error in gam function in names(x) <- value: 'names' attribute must be the same length as the vector",
+      "subject_clean": "[RsR] Error in gam function in names(x) <- value: 'names' attribute must be the same length as the vector",
+      "in_reply_to": "<TY2PR06MB310294C5531DFB29737640AFC28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>",
+      "references": [
+        "<TY2PR06MB310294C5531DFB29737640AFC28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>"
+      ],
+      "body_plain": "Dear R users,\n\n\nI am using the *mgcv package* to model the ozone pollution concentration according to some environmental covariates. The model takes the form :\n\nmodel1 <-gam(O3~s(X,Y,bs=\"tp\",k=10)+wd+s(date,bs=\"cc\",k=100)+district,data=mydata,family= gaussian(link =\"log\" ),na.action=\"na.omit\", method=\"REML\")\n\nAnd here is the strcture of  covariates\n> str(mydata)\n'data.frame': 7100 obs. of  286 variables:\n $ date            : Date, format: \"2016-01-01\" \"2016-01-01\" \"2016-01-01\" ...\n $ O3              : num  0.0141 0.0149 0.0102 0.0159 0.0186 ...\n $ district        : Factor w/ 10 levels \"bc\",\"bh\",\"dl\",..: 1 8 7 8 2 6 4 4 10 2 ...\n $ wd              : Factor w/ 16 levels \"E\",\"ENE\",\"ESE\",..: 13 13 13 13 13 2 9 9 11 13 ...\n $ X               : num  0.389 0.365 1 0.44 0.892 ...\n $ Y               : num  0.311 0.204 0.426 0.223 0.162 ...\n\nI am stuck on an error in R: 'names' attribute [1] must be the same length as the vector [0].\n\nI try to find where the problem is by delete the term of \"s(date,bs=\"cc\",k=100)\" from the fomular and it could work well. It seems like  there is something wrong with date field.\n\nI'm not exactly sure how to fix this problem.  Any advice would be greatly\nappreciated!\nJiawei Wang\n???? Outlook<http://aka.ms/weboutlook>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear R users,\n\n\nI am using the *mgcv package* to model the ozone pollution concentration according to some environmental covariates. The model takes the form :\n\nmodel1 <-gam(O3~s(X,Y,bs=\"tp\",k=10)+wd+",
+      "thread_id": "thread-2fb30650ca62",
+      "thread_depth": 0,
+      "month": "2019-01"
+    },
+    {
+      "id": "msg-fda2e0c61201",
+      "message_id": "<77c914999261417b9265e30b62294afe@patrizia.ag>",
+      "from_name": "Cajias Marcelo",
+      "from_email_hash": "6dfc6a2dae87c7a33e1d8de2c6314bec57d2d889bb0ef2d525f2ce44f44544f2",
+      "date": "2019-01-04T07:40:34Z",
+      "subject": "[RsR]  Error in gam function in names(x) <- value: 'names' attribute must be the same length as the vector",
+      "subject_clean": "[RsR]  Error in gam function in names(x) <- value: 'names' attribute must be the same length as the vector",
+      "in_reply_to": "<TY2PR06MB310214DC0B3F1C8DA41FF026C28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>",
+      "references": [
+        "<TY2PR06MB310294C5531DFB29737640AFC28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>",
+        "<TY2PR06MB310214DC0B3F1C8DA41FF026C28E0@TY2PR06MB3102.apcprd06.prod.outlook.com>"
+      ],
+      "body_plain": "Dear Jiawei, \n\nI work also with the MGVC package and believe that your gam is currently struggling to understand the content of the variable $date. The variable needs to be transformed to a \"number\" or a series of variables such as time dummies or an index. I recommend to transform $date in such a way that the gam understands the $date variable as a number. \n\nBest\n\nMarcelo \n\n\n-----Urspr?ngliche Nachricht-----\nVon: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von ? ??\nGesendet: Freitag, 4. Januar 2019 05:46\nAn: r-sig-robust at r-project.org\nBetreff: [RsR] Error in gam function in names(x) <- value: 'names' attribute must be the same length as the vector\n\n\n\nDear R users,\n\n\nI am using the *mgcv package* to model the ozone pollution concentration according to some environmental covariates. The model takes the form :\n\nmodel1 <-gam(O3~s(X,Y,bs=\"tp\",k=10)+wd+s(date,bs=\"cc\",k=100)+district,data=mydata,family= gaussian(link =\"log\" ),na.action=\"na.omit\", method=\"REML\")\n\nAnd here is the strcture of  covariates\n> str(mydata)\n'data.frame': 7100 obs. of  286 variables:\n $ date            : Date, format: \"2016-01-01\" \"2016-01-01\" \"2016-01-01\" ...\n $ O3              : num  0.0141 0.0149 0.0102 0.0159 0.0186 ...\n $ district        : Factor w/ 10 levels \"bc\",\"bh\",\"dl\",..: 1 8 7 8 2 6 4 4 10 2 ...\n $ wd              : Factor w/ 16 levels \"E\",\"ENE\",\"ESE\",..: 13 13 13 13 13 2 9 9 11 13 ...\n $ X               : num  0.389 0.365 1 0.44 0.892 ...\n $ Y               : num  0.311 0.204 0.426 0.223 0.162 ...\n\nI am stuck on an error in R: 'names' attribute [1] must be the same length as the vector [0].\n\nI try to find where the problem is by delete the term of \"s(date,bs=\"cc\",k=100)\" from the fomular and it could work well. It seems like  there is something wrong with date field.\n\nI'm not exactly sure how to fix this problem.  Any advice would be greatly\nappreciated!\nJiawei Wang\n???? Outlook<http://aka.ms/weboutlook>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear Jiawei, \n\nI work also with the MGVC package and believe that your gam is currently struggling to understand the content of the variable $date. The variable needs to be transformed to a \"number\" o",
+      "thread_id": "thread-2fb30650ca62",
+      "thread_depth": 1,
+      "month": "2019-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-2fb30650ca62",
+      "subject": "[RsR] Error in gam function in names(x) <- value: 'names' attribute must be the same length as the vector",
+      "message_count": 2,
+      "participants": [
+        "Cajias Marcelo",
+        "王 嘉炜"
+      ],
+      "started": "2019-01-04T04:46:17+00:00",
+      "last_reply": "2019-01-04T07:40:34+00:00",
+      "root_message_id": "msg-2fb30650ca62"
+    }
+  ]
+}

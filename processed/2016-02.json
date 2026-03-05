@@ -1,0 +1,78 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2016-02",
+  "messages": [
+    {
+      "id": "msg-84ce1b6611c5",
+      "message_id": "<56AFBDFA.90501@zhaw.ch>",
+      "from_name": "Andreas Ruckstuhl",
+      "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
+      "date": "2016-02-01T21:20:10+01:00",
+      "subject": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
+      "subject_clean": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
+      "in_reply_to": "<F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>",
+      "references": [
+        "<F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>"
+      ],
+      "body_plain": "Dear Jerry\n\nAs in the help file to nlrob is noted the conditionallinearity approach \nfails for robust fitting methods. Unfortunately not anymore by an error \nmessage.\n\nIf you checkthe output more carefully, you will note that the result of\nnlrob(... , algorithm=\"plinear\" )\nis not reliable:\nDNrfit1 <- nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),\n                  data=DNase1, start=list(Asym=3,xmid=0,scal=1) )\nDNrfit2 <- nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),\n                  data=DNase1, start=list(xmid=0,scal=1), \nalgorithm=\"plinear\" )\n\nsummary(DNrfit1)\n## Residuals:\n##        Min         1Q     Median         3Q Max\n## -0.0322811 -0.0130976 -0.0008932  0.0095784 0.0404174\n\nsummary(DNrfit2)\n## Residuals:\n##      Min       1Q   Median       3Q      Max\n## 0.003927 0.107372 0.280145 0.641955 1.002490\n\nHere all residuals are positive!\n\nI have not (jet) understood what goes wrong. Hence,we should disable \nthis argument (for the moment).\n\nThanks for your hint.\n\nAll the best\nAndreas\n\n\n\nAm 28.01.2016 um 06:37 schrieb Jerry Lewis:\n>\n> In nls, plinear simplifies the search for the LS estimate by \n> simplifying the optimization through dimension reduction.  Output \n> (including standard errors are completely equivalent, provided that \n> that the higher dimensional ordinary Gauss-Newton optimization is able \n> to adequately find the least squares estimates.\n>\n> The first example for nlrob suggests that this is only partially true \n> for nlrob.  To the displayed precision almost everything (robustness \n> weights, robust residual SE and parameter estimates) are identical \n> between plinear and ordinary Gauss-Newton, but the standard errors of \n> parameter estimates from plinear are 2.769 times larger for each \n> parameter.  Is this a bug in the code, or is there a theoretical \n> reason why this should be so?\n>\n> Thanks,\n>\n> Jerry W. Lewis, PhD\n>\n> Principal Biostatistician\n>\n> Biogen\n>\n> 225 Binney St\n>\n> Cambridge, MA 02142\n>\n> library(robustbase)\n>\n> DNase1 <- DNase[ DNase$Run == 1, ]\n>\n> with(DNase1,plot(conc,density,log=\"x\"))\n>\n> # plinear and Gauss-Newton get the same robustness weights, robust \n> residual SE, and parameter estimates,\n>\n> # why then are the standard errors different?\n>\n> # Given that, why are the plinear standard errors larger when when the \n> comment in the example\n>\n> summary( nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),\n>\n>          data=DNase1, start=list(Asym=3,xmid=0,scal=1) ) )\n>\n> summary( nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),\n>\n>          data=DNase1, start=list(xmid=0,scal=1), algorithm=\"plinear\" ) )\n>\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nSchwerpunktleiter Statistische Datenanalyse\nIDP Institut f?r Datenanalyse und Prozessdesign\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail:Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   :http://www.idp.zhaw.ch",
+      "body_snippet": "Dear Jerry\n\nAs in the help file to nlrob is noted the conditionallinearity approach \nfails for robust fitting methods. Unfortunately not anymore by an error \nmessage.\n\nIf you checkthe output more care",
+      "thread_id": "thread-84ce1b6611c5",
+      "thread_depth": 0,
+      "month": "2016-02"
+    },
+    {
+      "id": "msg-15cfe8c08d7c",
+      "message_id": "<F35566C3BE44C946999C7AA38965FA7B6147F221@biommmbx03.resource.corp.biogen.com>",
+      "from_name": "Jerry Lewis",
+      "from_email_hash": "5cf30720d50f4d5b9dcd213a1508e28a7489273717ddea49bba513061d5ba9d0",
+      "date": "2016-02-01T20:34:24Z",
+      "subject": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
+      "subject_clean": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
+      "in_reply_to": "<56AFBDFA.90501@zhaw.ch>",
+      "references": [
+        "<F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>",
+        "<56AFBDFA.90501@zhaw.ch>"
+      ],
+      "body_plain": "Thanks for your response.  Would a better workaround be to use the plinear estimates as starting values for the full Gauss-Newton?\n\nJerry\n\n-----Original Message-----\nFrom: Andreas Ruckstuhl [mailto:rkst at zhaw.ch] \nSent: Monday, February 01, 2016 3:20 PM\nTo: Jerry Lewis\nCc: Martin Maechler; r-sig-robust\nSubject: Re: robustbase: precision of nlrob with plinear algorithm.\n\nDear Jerry\n\nAs in the help file to nlrob is noted the conditionallinearity approach fails for robust fitting methods. Unfortunately not anymore by an error message.\n\nIf you checkthe output more carefully, you will note that the result of nlrob(... , algorithm=\"plinear\" ) is not reliable:\nDNrfit1 <- nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),\n                  data=DNase1, start=list(Asym=3,xmid=0,scal=1) )\nDNrfit2 <- nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),\n                  data=DNase1, start=list(xmid=0,scal=1), algorithm=\"plinear\" )\n\nsummary(DNrfit1)\n## Residuals:\n##        Min         1Q     Median         3Q Max\n## -0.0322811 -0.0130976 -0.0008932  0.0095784 0.0404174\n\nsummary(DNrfit2)\n## Residuals:\n##      Min       1Q   Median       3Q      Max\n## 0.003927 0.107372 0.280145 0.641955 1.002490\n\nHere all residuals are positive!\n\nI have not (jet) understood what goes wrong. Hence,we should disable this argument (for the moment).\n\nThanks for your hint.\n\nAll the best\nAndreas\n\n\n\nAm 28.01.2016 um 06:37 schrieb Jerry Lewis:\n>\n> In nls, plinear simplifies the search for the LS estimate by \n> simplifying the optimization through dimension reduction.  Output \n> (including standard errors are completely equivalent, provided that \n> that the higher dimensional ordinary Gauss-Newton optimization is able \n> to adequately find the least squares estimates.\n>\n> The first example for nlrob suggests that this is only partially true \n> for nlrob.  To the displayed precision almost everything (robustness \n> weights, robust residual SE and parameter estimates) are identical \n> between plinear and ordinary Gauss-Newton, but the standard errors of \n> parameter estimates from plinear are 2.769 times larger for each \n> parameter.  Is this a bug in the code, or is there a theoretical \n> reason why this should be so?\n>\n> Thanks,\n>\n> Jerry W. Lewis, PhD\n>\n> Principal Biostatistician\n>\n> Biogen\n>\n> 225 Binney St\n>\n> Cambridge, MA 02142\n>\n> library(robustbase)\n>\n> DNase1 <- DNase[ DNase$Run == 1, ]\n>\n> with(DNase1,plot(conc,density,log=\"x\"))\n>\n> # plinear and Gauss-Newton get the same robustness weights, robust \n> residual SE, and parameter estimates,\n>\n> # why then are the standard errors different?\n>\n> # Given that, why are the plinear standard errors larger when when the \n> comment in the example\n>\n> summary( nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),\n>\n>          data=DNase1, start=list(Asym=3,xmid=0,scal=1) ) )\n>\n> summary( nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),\n>\n>          data=DNase1, start=list(xmid=0,scal=1), algorithm=\"plinear\" ) \n> )\n>\n\n--\n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nSchwerpunktleiter Statistische Datenanalyse IDP Institut f?r Datenanalyse und Prozessdesign ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail:Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   :http://www.idp.zhaw.ch",
+      "body_snippet": "Thanks for your response.  Would a better workaround be to use the plinear estimates as starting values for the full Gauss-Newton?\n\nJerry\n\n-----Original Message-----\nFrom: Andreas Ruckstuhl [mailto:rk",
+      "thread_id": "thread-84ce1b6611c5",
+      "thread_depth": 1,
+      "month": "2016-02"
+    },
+    {
+      "id": "msg-5f7bd302a94c",
+      "message_id": "<56B1A131.1000300@zhaw.ch>",
+      "from_name": "Andreas Ruckstuhl",
+      "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
+      "date": "2016-02-03T07:41:53+01:00",
+      "subject": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
+      "subject_clean": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
+      "in_reply_to": "<F35566C3BE44C946999C7AA38965FA7B6147F221@biommmbx03.resource.corp.biogen.com>",
+      "references": [
+        "<F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>",
+        "<56AFBDFA.90501@zhaw.ch>",
+        "<F35566C3BE44C946999C7AA38965FA7B6147F221@biommmbx03.resource.corp.biogen.com>"
+      ],
+      "body_plain": "Maybe.- Maybe not, because the result of the plinear estimates is very \nstrange and might be too far off the final estimates.\nAt the very moment, I have absolutely no trust in the plinear estimate \nand I prefer to disregard themuntil I understand better what is going on.\n\nAndreas\n\nAm 01.02.2016 um 21:34 schrieb Jerry Lewis:\n> Thanks for your response.  Would a better workaround be to use the plinear estimates as starting values for the full Gauss-Newton?\n>\n> Jerry\n>\n> -----Original Message-----\n> From: Andreas Ruckstuhl [mailto:rkst at zhaw.ch]\n> Sent: Monday, February 01, 2016 3:20 PM\n> To: Jerry Lewis\n> Cc: Martin Maechler; r-sig-robust\n> Subject: Re: robustbase: precision of nlrob with plinear algorithm.\n>\n> Dear Jerry\n>\n> As in the help file to nlrob is noted the conditionallinearity approach fails for robust fitting methods. Unfortunately not anymore by an error message.\n>\n> If you checkthe output more carefully, you will note that the result of nlrob(... , algorithm=\"plinear\" ) is not reliable:\n> DNrfit1 <- nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),\n>                    data=DNase1, start=list(Asym=3,xmid=0,scal=1) )\n> DNrfit2 <- nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),\n>                    data=DNase1, start=list(xmid=0,scal=1), algorithm=\"plinear\" )\n>\n> summary(DNrfit1)\n> ## Residuals:\n> ##        Min         1Q     Median         3Q Max\n> ## -0.0322811 -0.0130976 -0.0008932  0.0095784 0.0404174\n>\n> summary(DNrfit2)\n> ## Residuals:\n> ##      Min       1Q   Median       3Q      Max\n> ## 0.003927 0.107372 0.280145 0.641955 1.002490\n>\n> Here all residuals are positive!\n>\n> I have not (jet) understood what goes wrong. Hence,we should disable this argument (for the moment).\n>\n> Thanks for your hint.\n>\n> All the best\n> Andreas\n>\n>\n>\n> Am 28.01.2016 um 06:37 schrieb Jerry Lewis:\n>> In nls, plinear simplifies the search for the LS estimate by\n>> simplifying the optimization through dimension reduction.  Output\n>> (including standard errors are completely equivalent, provided that\n>> that the higher dimensional ordinary Gauss-Newton optimization is able\n>> to adequately find the least squares estimates.\n>>\n>> The first example for nlrob suggests that this is only partially true\n>> for nlrob.  To the displayed precision almost everything (robustness\n>> weights, robust residual SE and parameter estimates) are identical\n>> between plinear and ordinary Gauss-Newton, but the standard errors of\n>> parameter estimates from plinear are 2.769 times larger for each\n>> parameter.  Is this a bug in the code, or is there a theoretical\n>> reason why this should be so?\n>>\n>> Thanks,\n>>\n>> Jerry W. Lewis, PhD\n>>\n>> Principal Biostatistician\n>>\n>> Biogen\n>>\n>> 225 Binney St\n>>\n>> Cambridge, MA 02142\n>>\n>> library(robustbase)\n>>\n>> DNase1 <- DNase[ DNase$Run == 1, ]\n>>\n>> with(DNase1,plot(conc,density,log=\"x\"))\n>>\n>> # plinear and Gauss-Newton get the same robustness weights, robust\n>> residual SE, and parameter estimates,\n>>\n>> # why then are the standard errors different?\n>>\n>> # Given that, why are the plinear standard errors larger when when the\n>> comment in the example\n>>\n>> summary( nlrob( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),\n>>\n>>           data=DNase1, start=list(Asym=3,xmid=0,scal=1) ) )\n>>\n>> summary( nlrob( density ~   1 /(1 + exp(( xmid - log(conc) )/scal ) ),\n>>\n>>           data=DNase1, start=list(xmid=0,scal=1), algorithm=\"plinear\" )\n>> )\n>>\n> --\n> ----------------------------------------------------------------------\n>\n> Prof. Dr. Andreas Ruckstuhl\n> Schwerpunktleiter Statistische Datenanalyse IDP Institut f?r Datenanalyse und Prozessdesign ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\n> Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\n> Postfach                          Fax   : +41 (0)58 935 78 12\n> CH-8401 Winterthur                e-Mail:Andreas.Ruckstuhl at zhaw.ch\n>                                     WWW   :http://www.idp.zhaw.ch\n> ----------------------------------------------------------------------\n>\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nSchwerpunktleiter Statistische Datenanalyse\nIDP Institut f?r Datenanalyse und Prozessdesign\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
+      "body_snippet": "Maybe.- Maybe not, because the result of the plinear estimates is very \nstrange and might be too far off the final estimates.\nAt the very moment, I have absolutely no trust in the plinear estimate \nan",
+      "thread_id": "thread-84ce1b6611c5",
+      "thread_depth": 2,
+      "month": "2016-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-84ce1b6611c5",
+      "subject": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
+      "message_count": 3,
+      "participants": [
+        "Andreas Ruckstuhl",
+        "Jerry Lewis"
+      ],
+      "started": "2016-02-01T21:20:10+01:00",
+      "last_reply": "2016-02-03T07:41:53+01:00",
+      "root_message_id": "msg-84ce1b6611c5"
+    }
+  ]
+}

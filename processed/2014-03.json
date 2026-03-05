@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2014-03",
+  "messages": [
+    {
+      "id": "msg-9d73964535b5",
+      "message_id": "<CB5182AD107F0943AEF20FD01FB8A7F8066795D1@marbioexc02.mar.dfo-mpo.ca>",
+      "from_name": "Bowlby, Heather",
+      "from_email_hash": "8a27b6ae34bf9f146c0507e5ff8aa8af36e1b775bdf16c8029d585f10a750085",
+      "date": "2014-03-19T15:23:05-03:00",
+      "subject": "[RsR] robust ridge regression",
+      "subject_clean": "[RsR] robust ridge regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nHas there been a package contributed to CRAN that implements Robust\nRidge regression (e.g. the method proposed by Maronna in 2011) or other\nmethods designed specifically for multicollinear data?  My application\n(landscape genetics; more specifically regression among distance\nmatrices) would have a small sample size as well.\n\nThanks,\n\nHeather\n\n \n\nAquatic Biologist\n\nPopulation Ecology Division \n\nFisheries and Oceans Canada\n\n1 Challenger Drive\n\nDartmouth, NS\n\nB2Y 4A2\n\n(902) 426-5836\n\n \n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\n\nHas there been a package contributed to CRAN that implements Robust\nRidge regression (e.g. the method proposed by Maronna in 2011) or other\nmethods designed specifically for multicollinear dat",
+      "thread_id": "thread-9d73964535b5",
+      "thread_depth": 0,
+      "month": "2014-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-9d73964535b5",
+      "subject": "[RsR] robust ridge regression",
+      "message_count": 1,
+      "participants": [
+        "Bowlby, Heather"
+      ],
+      "started": "2014-03-19T15:23:05-03:00",
+      "last_reply": "2014-03-19T15:23:05-03:00",
+      "root_message_id": "msg-9d73964535b5"
+    }
+  ]
+}

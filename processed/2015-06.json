@@ -1,0 +1,105 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2015-06",
+  "messages": [
+    {
+      "id": "msg-feb3528f389d",
+      "message_id": "<224181400.242385.1433945877062.JavaMail.yahoo@mail.yahoo.com>",
+      "from_name": "michael westphal",
+      "from_email_hash": "e17384a2ef7d5fe80dcd39def7370ca509d169a0409fc933310cb817d437e409",
+      "date": "2015-06-10T14:17:57Z",
+      "subject": "[RsR] robust regression and fixed effects models",
+      "subject_clean": "[RsR] robust regression and fixed effects models",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello:?\nI am using R 3.0.2. ??\n\nI have panel data on countries' renewable energy net generation (and installed capacity) over time. ?I am regressing these dependent variables on various socioeconomic variables, as well as binary policy variables. ?I have have done basic OLS, but I wanted to explore both fixed effects models, as there are likely significant country effects and robust regression, as Q-Q plots indicate that there are some strong outliers. ?This might be a question of apples and oranges, but how do I compare the goodness of fit of the fixed effects models with the robust regression models? ?\nAny help would be appreciated.?\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello:?\nI am using R 3.0.2. ??\n\nI have panel data on countries' renewable energy net generation (and installed capacity) over time. ?I am regressing these dependent variables on various socioeconomic ",
+      "thread_id": "thread-feb3528f389d",
+      "thread_depth": 0,
+      "month": "2015-06"
+    },
+    {
+      "id": "msg-3801e23c11d4",
+      "message_id": "<21882.44040.824463.783601@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2015-06-12T11:53:12+02:00",
+      "subject": "[RsR] robust regression and fixed effects models",
+      "subject_clean": "[RsR] robust regression and fixed effects models",
+      "in_reply_to": "<224181400.242385.1433945877062.JavaMail.yahoo@mail.yahoo.com>",
+      "references": [
+        "<224181400.242385.1433945877062.JavaMail.yahoo@mail.yahoo.com>"
+      ],
+      "body_plain": ">>>>> michael westphal via R-SIG-Robust <r-sig-robust at r-project.org>\n>>>>>     on Wed, 10 Jun 2015 14:17:57 +0000 writes:\n\n    > Hello:?\n    > I am using R 3.0.2. ??\n\nso you really should upgrade {unless you meant 3.2.0}... at\nleast in a few days when  R 3.2.1 is released.\n     \n\n    > I have panel data on countries' renewable energy net generation (and installed capacity) over time. ?I am regressing these dependent variables on various socioeconomic variables, as well as binary policy variables. ?I have have done basic OLS, but I wanted to explore both fixed effects models, as there are likely significant country effects and robust regression, as Q-Q plots indicate that there are some strong outliers. ?This might be a question of apples and oranges, but how do I compare the goodness of fit of the fixed effects models with the robust regression models? ?\n    > Any help would be appreciated.?\n\nPackage  robustbase  which has function  lmrob()  with many good\nand modern options for robust regression\n*also* has a 'Suggests: fit.models' in its own description file,\n\nbecause the package 'fit.models' with its function fit.models()\ntries to take fits of basically the same model and\nproduce \"comparison output\" from that.\n\nIt's quite useful in situations like yours,\nand I plan to add an example of its use to the 'robustbase'\npackage documentation.\n\n\n\n    > [[alternative HTML version deleted]]\n\n  ((Because you used \"HTML\" aka \"rich text\" / \"formatted text\"\n    instead of simple plain text, your message ends up looking so\n    messy as above ...))\n\n\n\nMartin Maechler,\nETH Zurich",
+      "body_snippet": ">>>>> michael westphal via R-SIG-Robust <r-sig-robust at r-project.org>\n>>>>>     on Wed, 10 Jun 2015 14:17:57 +0000 writes:\n\n    > Hello:?\n    > I am using R 3.0.2. ??\n\nso you really should upgrade {",
+      "thread_id": "thread-feb3528f389d",
+      "thread_depth": 1,
+      "month": "2015-06"
+    },
+    {
+      "id": "msg-7b0475ce64d2",
+      "message_id": "<CY1PR0701MB1275B0F67FB6EB7A91D9F718B1BB0@CY1PR0701MB1275.namprd07.prod.outlook.com>",
+      "from_name": "Rand R Wilcox",
+      "from_email_hash": "85f7f34e1da9f5fb0186588d4ebbb4323445939c30b2ae8fa3e0056a0a50694f",
+      "date": "2015-06-12T14:48:31Z",
+      "subject": "[RsR] robust regression and fixed effects models",
+      "subject_clean": "[RsR] robust regression and fixed effects models",
+      "in_reply_to": "<21882.44040.824463.783601@stat.math.ethz.ch>",
+      "references": [
+        "<224181400.242385.1433945877062.JavaMail.yahoo@mail.yahoo.com>",
+        "<21882.44040.824463.783601@stat.math.ethz.ch>"
+      ],
+      "body_plain": "You might also look at the Elsevier book  Robust Estimation and Hypothesis Testing. It provides some additional options that might help. \nA couple of quick suggestions. Even when using a robust estimator with a high breakdown point, check on what happens when leverage points (outliers among the independent variables) are eliminated. Second, consider a method that allows a heteroscedastic error term.\nThird, take a look at robust smoothers. Illustrations on how to do this are in the book. My experience when working with various research teams is that they can be very important. \n\nHope this helps.\n\nRand\n\nRand Wilcox\nProfessor\nUniversity of Southern California\n3620 McClintock Ave\nLos Angeles, CA  90089-1061\n\nFor information about Understanding and Applying Basic Statistical Methods Using R, Wiley (in preparation), and other recent books, go to\nDornsife.usc.edu/cf/labs/wilcox/wilcox-faculty-display.cfm\nand click on books.\nOr go to https://www.amazon.com/author/randwilcox\n?\n\n________________________________________\nFrom: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Martin Maechler <maechler at stat.math.ethz.ch>\nSent: Friday, June 12, 2015 2:53 AM\nTo: michael westphal\nCc: r-sig-robust at r-project.org\nSubject: Re: [RsR] robust regression and fixed effects models\n\n>>>>> michael westphal via R-SIG-Robust <r-sig-robust at r-project.org>\n>>>>>     on Wed, 10 Jun 2015 14:17:57 +0000 writes:\n\n    > Hello:\n    > I am using R 3.0.2.\n\nso you really should upgrade {unless you meant 3.2.0}... at\nleast in a few days when  R 3.2.1 is released.\n\n\n    > I have panel data on countries' renewable energy net generation (and installed capacity) over time.  I am regressing these dependent variables on various socioeconomic variables, as well as binary policy variables.  I have have done basic OLS, but I wanted to explore both fixed effects models, as there are likely significant country effects and robust regression, as Q-Q plots indicate that there are some strong outliers.  This might be a question of apples and oranges, but how do I compare the goodness of fit of the fixed effects models with the robust regression models?\n    > Any help would be appreciated.\n\nPackage  robustbase  which has function  lmrob()  with many good\nand modern options for robust regression\n*also* has a 'Suggests: fit.models' in its own description file,\n\nbecause the package 'fit.models' with its function fit.models()\ntries to take fits of basically the same model and\nproduce \"comparison output\" from that.\n\nIt's quite useful in situations like yours,\nand I plan to add an example of its use to the 'robustbase'\npackage documentation.\n\n\n\n    > [[alternative HTML version deleted]]\n\n  ((Because you used \"HTML\" aka \"rich text\" / \"formatted text\"\n    instead of simple plain text, your message ends up looking so\n    messy as above ...))\n\n\n\nMartin Maechler,\nETH Zurich\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "You might also look at the Elsevier book  Robust Estimation and Hypothesis Testing. It provides some additional options that might help. \nA couple of quick suggestions. Even when using a robust estima",
+      "thread_id": "thread-feb3528f389d",
+      "thread_depth": 2,
+      "month": "2015-06"
+    },
+    {
+      "id": "msg-06e0832dd5e3",
+      "message_id": "<21890.28414.170388.723918@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2015-06-18T09:10:54+02:00",
+      "subject": "[RsR] robust regression and fixed effects models",
+      "subject_clean": "[RsR] robust regression and fixed effects models",
+      "in_reply_to": "<1976629323.739273.1434576332027.JavaMail.yahoo@mail.yahoo.com>",
+      "references": [
+        "<CY1PR0701MB1275B0F67FB6EB7A91D9F718B1BB0@CY1PR0701MB1275.namprd07.prod.outlook.com>",
+        "<1976629323.739273.1434576332027.JavaMail.yahoo@mail.yahoo.com>"
+      ],
+      "body_plain": "(Putting this back to the R-SIG mailing list, where it\n originates and belongs)\n>>>>> michael westphal <mi_westphal at yahoo.com>\n>>>>>     on Wed, 17 Jun 2015 21:25:32 +0000 writes:\n\n    > Thanks for the advice. ?Since I have panel data, does it make sense to explore fixed effects or random effects models? Robust regression will not address the changes in countries over time. ?It is easy to compare fixed effects and random effects with each other, but how do I compare their outputs with the outputs of the robust regression?\n\nIn this case, I would recommend using the   robustlmm   CRAN\npackage ( http://cran.r-project.org/package=robustlmm ) of\nManuel Koller  (in CC) who has completed his Ph.D. thesis on the\ntopic of robust mixed effects modeling.\n\nBest,\nMartin\n\n    > Cheers,\n    > Michael \n\n\n    > On Friday, June 12, 2015 10:48 AM, Rand R Wilcox <rwilcox at usc.edu> wrote:\n   \n\n    > You might also look at the Elsevier book? Robust Estimation and Hypothesis Testing. It provides some additional options that might help. \n    > A couple of quick suggestions. Even when using a robust estimator with a high breakdown point, check on what happens when leverage points (outliers among the independent variables) are eliminated. Second, consider a method that allows a heteroscedastic error term.\n    > Third, take a look at robust smoothers. Illustrations on how to do this are in the book. My experience when working with various research teams is that they can be very important. \n\n    > Hope this helps.\n\n    > Rand\n\n    > Rand Wilcox\n    > Professor\n    > University of Southern California\n    > 3620 McClintock Ave\n    > Los Angeles, CA? 90089-1061\n\n    > For information about Understanding and Applying Basic Statistical Methods Using R, Wiley (in preparation), and other recent books, go to\n    > Dornsife.usc.edu/cf/labs/wilcox/wilcox-faculty-display.cfm\n    > and click on books.\n    > Or go to https://www.amazon.com/author/randwilcox\n    > ?\n\n    > ________________________________________\n    > From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Martin Maechler <maechler at stat.math.ethz.ch>\n    > Sent: Friday, June 12, 2015 2:53 AM\n    > To: michael westphal\n    > Cc: r-sig-robust at r-project.org\n    > Subject: Re: [RsR] robust regression and fixed effects models\n\n>>>>> michael westphal via R-SIG-Robust <r-sig-robust at r-project.org>\n    >>>>>> ? ? on Wed, 10 Jun 2015 14:17:57 +0000 writes:\n\n    > ? ? > Hello:\n    > ? ? > I am using R 3.0.2.\n\n    > so you really should upgrade {unless you meant 3.2.0}... at\n    > least in a few days when? R 3.2.1 is released.\n\n\n    > ? ? > I have panel data on countries' renewable energy net generation (and installed capacity) over time.? I am regressing these dependent variables on various socioeconomic variables, as well as binary policy variables.? I have have done basic OLS, but I wanted to explore both fixed effects models, as there are likely significant country effects and robust regression, as Q-Q plots indicate that there are some strong outliers.? This might be a question of apples and oranges, but how do I compare the goodness of fit of the fixed effects models with the robust regression models?\n    > ? ? > Any help would be appreciated.\n\n    > Package? robustbase? which has function? lmrob()? with many good\n    > and modern options for robust regression\n    > *also* has a 'Suggests: fit.models' in its own description file,\n\n    > because the package 'fit.models' with its function fit.models()\n    > tries to take fits of basically the same model and\n    > produce \"comparison output\" from that.\n\n    > It's quite useful in situations like yours,\n    > and I plan to add an example of its use to the 'robustbase'\n    > package documentation.\n\n\n\n    > ? ? > [[alternative HTML version deleted]]\n\n    > ? ((Because you used \"HTML\" aka \"rich text\" / \"formatted text\"\n    > ? ? instead of simple plain text, your message ends up looking so\n    > ? ? messy as above ...))\n\n\n\n    > Martin Maechler,\n    > ETH Zurich\n\n    > _______________________________________________\n    > R-SIG-Robust at r-project.org mailing list\n    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "(Putting this back to the R-SIG mailing list, where it\n originates and belongs)\n>>>>> michael westphal <mi_westphal at yahoo.com>\n>>>>>     on Wed, 17 Jun 2015 21:25:32 +0000 writes:\n\n    > Thanks for",
+      "thread_id": "thread-06e0832dd5e3",
+      "thread_depth": 0,
+      "month": "2015-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-feb3528f389d",
+      "subject": "[RsR] robust regression and fixed effects models",
+      "message_count": 3,
+      "participants": [
+        "Martin Maechler",
+        "Rand R Wilcox",
+        "michael westphal"
+      ],
+      "started": "2015-06-10T14:17:57+00:00",
+      "last_reply": "2015-06-12T14:48:31+00:00",
+      "root_message_id": "msg-feb3528f389d"
+    },
+    {
+      "id": "thread-06e0832dd5e3",
+      "subject": "[RsR] robust regression and fixed effects models",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2015-06-18T09:10:54+02:00",
+      "last_reply": "2015-06-18T09:10:54+02:00",
+      "root_message_id": "msg-06e0832dd5e3"
+    }
+  ]
+}

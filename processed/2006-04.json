@@ -1,0 +1,100 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2006-04",
+  "messages": [
+    {
+      "id": "msg-8d691f7b4920",
+      "message_id": "<4c0e456b0604021628v637eb963o503cf66ff6fab7d5@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2006-04-03T01:28:15+02:00",
+      "subject": "[RsR] covrob --- some OOP-comments",
+      "subject_clean": "[RsR] covrob --- some OOP-comments",
+      "in_reply_to": "<17447.56688.238243.568965@stat.math.ethz.ch>",
+      "references": [
+        "<440C11D1.9060602@tuwien.ac.at>",
+        "<44218419.8060301@uni-bayreuth.de>",
+        "<01c201c64e0b$27ed7cc0$0132a8c0@KILER>",
+        "<4422DBF4.8040500@uni-bayreuth.de>",
+        "<000a01c64ebe$34e0ac50$0132a8c0@KILER>",
+        "<4423F969.4070802@uni-bayreuth.de>",
+        "<17444.12281.982207.952805@stat.math.ethz.ch>",
+        "<002301c64ff5$82647000$0132a8c0@KILER>",
+        "<17447.56688.238243.568965@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Contrary to our assumption, it seems that S3 and S4 classes cannot\nlive in freedom in one and the same package, which forces me to give\nup my initial plans and rather start a new (temporary) package,\n\"rr4cov\" - which will contain all S4 stuff, until it is stable. After\nthat I'll move it to robustbase and I hope it will not be necessary to\ncreate a separate \"robust4base\" package. In order not to disturb the\ncurrent and potential users of rrcov, I'll not upload the new one to\nCRAN, but will put it at the follwoing address  for testing and\ncomments (please!)\n\nSource tar:\nhttp://www.het2.org/wiki/upload/5/5b/Rr4cov_0.1-1.tar.gz\n\nWindows binary:\nhttp://www.het2.org/wiki/upload/7/76/Rr4cov_0.1-1.zip\n\nI have also changed the naming scheme, trying to make it consistent\nwith several of the simplest OO-naming conventions - see the updated\ndiagram at\n\nhttp://www.het2.org/wiki/upload/d/d6/Rrcov.gif\n\nbest regards,\nvalentin\n\n\n\n\n> There are \"some\" standards, but not endorsed officially;\n> particularly there is no capitalization or \"prefix\"\n> standard.  In a 'function based' OO system like S4, the classes\n> are a bit less visible than in a 'class based' system like C++/Java.\n>\n> Several of the more classical R packages that have been using S4\n> use simple all-lowercase-alphabet class names such as 'mle' or\n> 'pixmap' but also 'sparseMatrix'.  The one ``rule'' that I think\n> \"everyone\" agrees on is  that the creator function, particularly of\n> a ``principal'' class, should have the identical\n> name as the class it creates. E.g. mle() returns S4 objects of\n> class 'mle', Matrix() returns objects inheriting from class\n> \"Matrix\", etc.  However even this rule is sometimes not\n> practical for diverse reasons, typically name clashes with\n> already existing functionality in R (in possibly other packages, etc).\n> One of the main reasons that IMO it doesn't make sense trying to\n> impose such standards is the fact that S (and hence R) has a\n> history of more than 20 years, and one has wanted to stay back\n> compatible as much as possible when providing new facilities.\n>\n> If we try to adhere to the only \"agreed upon\" standard above, our\n> class would need to be called  \"covrob\";  its super class (which\n> conceptually also contains the classical non-robustly estimated\n> covariance structures) could well be called \"cov\", even though\n> the standard cov() function does not return classed objects.\n> Further thinking about this directly leads to Valentin's 2nd\n> question:\n>\n>     ValenT> - What happens with the user of, for example\n>     ValenT> covMcd() when it begins to return an S4 class \"Mcd\"\n>     ValenT> instead of the current S3 \"mcd\".\n>\n>     ValenT> Of course these that just use print/plot/summary\n>     ValenT> will not notice the change, but what about these\n>     ValenT> that use the returned object within their programs?\n>\n> Very good point that has also come to my mind when contemplating\n> your proposed inheritance / class hierarchy:\n>\n> All the user's code / scripts / functions that rely on the\n> current structue of, say,  covMcd(),  will stop working\n> correctly.\n>\n>     ValenT> This is actually a general question on compatibility.\n>\n> Indeed!\n>\n> One approach that I usually favor is to require new function\n> names for getting the new-class results *and*\n> keep the old functions returning a back-compatible result; in\n> the present case keep covMcd() or covOGK() returning the lists\n> (and maybe S3 class) they currently return.\n>\n> That would be one argument pro only having covrob() return an S4\n> class and all the underlying \"method functions\" return lists\n> (possibly with an S3 class) -- just about what Peter and Heinz\n> have been proposing.  Additionally one could have newly named\n> functions {say 'covMCD'} that call the same underlying \"method\n> functions\" as covrob, e.g. call 'covMcd(..)', and only covMCD\n> would return an S4 class \"covMCD\" which extends (or \"inherits\n> from\") \"covrob\".\n>\n> The completely alternative approach would be to declare that all\n> current users of 'rrcov' (or 'robustbase') should change their\n> scripts and functions whenever they start using the\n> new_generation-version of \"robustbase\" and start using the slots\n> (or accessor functions were we provide them) of the new\n> S4-classed return values.\n> This 2nd ``brutal'' approach (of non-compatible upgrade) is\n> possible in situations where not too many users of the current\n> package exist, and they basically agree to do the extra work of\n> upgrading their R scripts.\n> Personally, I'm  *very*  reluctant against compatibility\n> breaking -- though I agree it has to happen sometimes in order\n> to not hinder progress.\n>\n> Martin\n>",
+      "body_snippet": "Contrary to our assumption, it seems that S3 and S4 classes cannot\nlive in freedom in one and the same package, which forces me to give\nup my initial plans and rather start a new (temporary) package,\n",
+      "thread_id": "thread-8d691f7b4920",
+      "thread_depth": 0,
+      "month": "2006-04"
+    },
+    {
+      "id": "msg-75e392cae284",
+      "message_id": "<55CCE5E061CD0C4B97B57166249441FE0B20C4@langouste.zhwin.ch>",
+      "from_name": "Locher René (lor)",
+      "from_email_hash": "ab8bc319c984dee32802aa9aab1c88d32ac7ee766ee700ed3e7ea11035b2d89c",
+      "date": "2006-04-20T13:19:14+02:00",
+      "subject": "[RsR] robustbase V 0.1-5",
+      "subject_clean": "[RsR] robustbase V 0.1-5",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear Martin\n\nAs you think, that this discussion (and the dataset) is interesting enough for other people working on robustness, I followed your suggestion and posted this mail for the R-SIG-robust-Community. You might recapitulate later our discussion leading to this mail for the rest of the R-SIG-robust-Community.\n\nI have mentioned this morning during our phonecall, that the dataset included cannot be published at the moment officially with all the information statisticians would like. I am sure that a will finally get the permission to do so and you will send additional variables. For the moment I can give you only the following information:\n\nLNOx:   log of hourly mean of NOx concentration in ambient air [ppb] next to a highly frequented motorway\nLNOxEm: log of hourly sum of NOx emission of cars on this motorway in arbitrary units\nsqrtWS: Square root of wind speed [m/s]\n\nThe model I used for this discussion is not the full model I am using to describe the ambient concentration at the moment. Furthermore, I am still working on the improvement of the model. Be aware that this dataset contains, contrary to the former extract, still some NAs!\n\nHere is again the (slightly modified) code I have (finally) used to test lmrob() V 0.1-5 discussed in our mail thread:\n\nlibrary(robustbase)\ndat <- na.omit(read.table(file=\"air.txt\"))\ndat$julday <- factor(dat$julday)\ndim(dat)  ## 8197    5\n\nr.MM01 <- lmrob(LNOx ~ LNOxEm + sqrtWS + julday,\n                dat=dat,  compute.rd = FALSE)  \n\nI got the repeated error message: \nToo many singular resamples\nAborting\n\nand could not abort the function by pressing Control-C. A part of this problem has been fixed meanwhile by you.\n\nKind regards\n\nRen?\n\n\n\nRen? Locher                                   E-Mail: rene.locher at zhwin.ch\nInstitut f?r Datenanalyse und Prozessdesign   Tel:    052/ 267 7810\nZ?rcher Hochschule Winterthur                 Fax:    052/ 268 7810\nTechnopark / J?gerstrasse 2                   \nPostfach\nCH-8400 Winterthur                            http://www.idp.zhwin.ch\n \n \n\n-------------- next part --------------\nAn embedded and charset-unspecified text was scrubbed...\nName: air.txt\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20060420/53b5c0d1/attachment.txt>",
+      "body_snippet": "Dear Martin\n\nAs you think, that this discussion (and the dataset) is interesting enough for other people working on robustness, I followed your suggestion and posted this mail for the R-SIG-robust-Com",
+      "thread_id": "thread-75e392cae284",
+      "thread_depth": 0,
+      "month": "2006-04"
+    },
+    {
+      "id": "msg-9f2c4de387e6",
+      "message_id": "<55CCE5E061CD0C4B97B57166249441FE0B20D7@langouste.zhwin.ch>",
+      "from_name": "Locher René (lor)",
+      "from_email_hash": "ab8bc319c984dee32802aa9aab1c88d32ac7ee766ee700ed3e7ea11035b2d89c",
+      "date": "2006-04-20T18:45:57+02:00",
+      "subject": "[RsR] Addendum to test dataset for robustbase V 0.1-5",
+      "subject_clean": "[RsR] Addendum to test dataset for robustbase V 0.1-5",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello to everybody\n\nI have sent you another dataset than I thougt. The description is still valid but there are more NAs in it so that some factor levels are less populated than in the other dataset.\n\nTo get the same \"quality\" for the dataset you need to execute two lines of code in addition.\n\n\nlibrary(robustbase)\ndat <- na.omit(read.table(file=\"air.txt\"))\n\njul <- names(table(dat$julday))[table(dat$julday)>=20]\ndat <- dat[is.element(dat$julday,jul),]\n\ndat$julday <- factor(dat$julday)\ndim(dat)  ## 8088    5\n      \nr.MM01 <- lmrob(LNOx ~ LNOxEm + sqrtWS + julday,\n                dat=dat,  compute.rd = FALSE)\n\n\nKind regards\n\nRen?\n\n\n\nRen? Locher                                   E-Mail: rene.locher at zhwin.ch\nInstitut f?r Datenanalyse und Prozessdesign   Tel:    052/ 267 7810\nZ?rcher Hochschule Winterthur                 Fax:    052/ 268 7810\nTechnopark / J?gerstrasse 2                   \nPostfach\nCH-8400 Winterthur                            http://www.idp.zhwin.ch",
+      "body_snippet": "Hello to everybody\n\nI have sent you another dataset than I thougt. The description is still valid but there are more NAs in it so that some factor levels are less populated than in the other dataset.\n",
+      "thread_id": "thread-9f2c4de387e6",
+      "thread_depth": 0,
+      "month": "2006-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-8d691f7b4920",
+      "subject": "[RsR] covrob --- some OOP-comments",
+      "message_count": 1,
+      "participants": [
+        "Valentin Todorov"
+      ],
+      "started": "2006-04-03T01:28:15+02:00",
+      "last_reply": "2006-04-03T01:28:15+02:00",
+      "root_message_id": "msg-8d691f7b4920"
+    },
+    {
+      "id": "thread-75e392cae284",
+      "subject": "[RsR] robustbase V 0.1-5",
+      "message_count": 1,
+      "participants": [
+        "Locher René (lor)"
+      ],
+      "started": "2006-04-20T13:19:14+02:00",
+      "last_reply": "2006-04-20T13:19:14+02:00",
+      "root_message_id": "msg-75e392cae284"
+    },
+    {
+      "id": "thread-9f2c4de387e6",
+      "subject": "[RsR] Addendum to test dataset for robustbase V 0.1-5",
+      "message_count": 1,
+      "participants": [
+        "Locher René (lor)"
+      ],
+      "started": "2006-04-20T18:45:57+02:00",
+      "last_reply": "2006-04-20T18:45:57+02:00",
+      "root_message_id": "msg-9f2c4de387e6"
+    }
+  ]
+}

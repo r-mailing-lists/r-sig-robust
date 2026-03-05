@@ -1,0 +1,270 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2006-02",
+  "messages": [
+    {
+      "id": "msg-fb399e091064",
+      "message_id": "<Pine.LNX.4.64.0602011032270.6661@vivaldi.dst.unive.it>",
+      "from_name": "claudio",
+      "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
+      "date": "2006-02-01T11:32:24+01:00",
+      "subject": "[RsR] useR! conference deadline",
+      "subject_clean": "[RsR] useR! conference deadline",
+      "in_reply_to": "<17375.39572.244559.449913@stat.math.ethz.ch>",
+      "references": [
+        "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>",
+        "<17375.39572.244559.449913@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear All (sorry for possible cross posting),\n\nThe submission deadline for `useR! 2006', the second R user conference to be\nheld in Vienna June 15-17 2006, is only three weeks ahead. Now is the \nperfect time to submit abstracts for user-contributed sessions!\n\nThe sessions will be a platform to bring together R users, contributers,\npackage maintainers and developers in the S spirit that `users are developers'.\nPeople from different fields will show us how they solve problems\nwith R in fascinating applications, including\n   - Applied Statistics & Biostatistics\n   - Bayesian Statistics\n   - Bioinformatics\n   - Econometrics & Finance\n   - Machine Learning\n   - Marketing\n   - ROBUST STATISTICS\n   - Spatial Statistics\n   - Statistics in the Social and Political Sciences\n   - Teaching\n   - Visualization & Graphics\n   - and many more.\n\nI invite all in this mailing list to submit abstracts on topics presenting \ninnovations or exciting applications of R, especially in the field of \nRobust Statistics. A web page offering more information on the `useR!' \nconference, abstract submission, registration and Vienna is available at\n\n   http://www.R-project.org/useR-2006/\n\nThe deadline for submissions is February 28, 2006.\n\nBest and I hope to see you in Vienna,\nClaudio Agostinelli\n\n--------------------------------------------------------------\nClaudio Agostinelli\nDipartimento di Statistica\nUniversita' Ca' Foscari di Venezia\nSan Giobbe, Cannaregio 873\n30121 Venezia\nTel: 041 2347446, Fax: 041 2347444\nemail: claudio at unive.it, www: www.dst.unive.it/~claudio\n--------------------------------------------------------------\nPer favore non mandatemi allegati in Word o PowerPoint.\nSi veda http://www.gnu.org/philosophy/no-word-attachments.html\n\nPlease avoid sending me Word or PowerPoint attachments.\nSee http://www.gnu.org/philosophy/no-word-attachments.html",
+      "body_snippet": "Dear All (sorry for possible cross posting),\n\nThe submission deadline for `useR! 2006', the second R user conference to be\nheld in Vienna June 15-17 2006, is only three weeks ahead. Now is the \nperfec",
+      "thread_id": "thread-fb399e091064",
+      "thread_depth": 0,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-8bef38238b8d",
+      "message_id": "<Pine.GSO.4.10.10602010702140.14678-100000@hajek.stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2006-02-01T07:07:42-08:00",
+      "subject": "[RsR] synchronization with contributing packages",
+      "subject_clean": "[RsR] synchronization with contributing packages",
+      "in_reply_to": "<17375.39572.244559.449913@stat.math.ethz.ch>",
+      "references": [],
+      "body_plain": "I agree with the more pragmatic approach suggested by Martin: one waits\nfor a reasonably stable robustbase version that includes the code in\nquestion, and then the original package is made to depend on robustbase\n(or cease to exist if it has been included completely).\n\nMatias\n\n\nOn Tue, 31 Jan 2006, Martin Maechler wrote:\n\n> >>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n> >>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:\n>\n[snip] \n>     ValenT> When, at what stage of maturity of robustbase,\n>     ValenT> should the contributed code be removed from the\n>     ValenT> other packages and they have to rely on \n>     ValenT> 'Depends: robustbase'?\n> \n[snip]\n>\n> In practice, I would aim for a more pragmatic solution;\n> e.g., after the appearance of the new version of robustbase, \n> wait for several weeks before stripping the functionality from\n> your package.  Well actually, as package author, you can do it\n> immediately in your sources, but only release a new version of\n> your package to CRAN after a certain amount of time.\n> \n> Martin\n> \n> And yes, as Valentin, I am very much interested to hear what\n> others think...\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "I agree with the more pragmatic approach suggested by Martin: one waits\nfor a reasonably stable robustbase version that includes the code in\nquestion, and then the original package is made to depend o",
+      "thread_id": "thread-8bef38238b8d",
+      "thread_depth": 0,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-b5cc45618b00",
+      "message_id": "<493B0518-D679-42B4-80C7-48C0F54DD208@stats.ox.ac.uk>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "44d6a4da65edf7efe090dfbaebe1a45311325a9bec43b2f3b375964424877755",
+      "date": "2006-02-01T15:51:21Z",
+      "subject": "[RsR] your talk at Robcla",
+      "subject_clean": "[RsR] your talk at Robcla",
+      "in_reply_to": "<4c0e456b0601310656t31be7330mef504fb16c97acd3@mail.gmail.com>",
+      "references": [
+        "<4c0e456b0601310656t31be7330mef504fb16c97acd3@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Valentin,\n\nYou can find a copy of the slides from my talk at ROBCLA 2006 here:\n\n   http://www.stats.ox.ac.uk/~konis/robust/ROBCLA2006-konis.pdf\n\n(they are quite similar to the first third of my RSR talk).\n\nKjell\n\n\nOn Jan 31, 2006, at 2:56 PM, Valentin Todorov wrote:\n\n> Dear Kjell,\n>\n> Hope that you had nice time in Piacenza and an easy trip home. Or are\n> you still en route?\n>\n> When I talked with several people that were not in Florence, I got the\n> impression that there is a substantial interest in your talk. I wonder\n> if you could post it on RSR. This could set off also an interesting\n> discussion. I do not know if Marko is going to publish the talks on\n> the Robcla site.\n>\n> Best regards,\n> Valentin\n>",
+      "body_snippet": "Hi Valentin,\n\nYou can find a copy of the slides from my talk at ROBCLA 2006 here:\n\n   http://www.stats.ox.ac.uk/~konis/robust/ROBCLA2006-konis.pdf\n\n(they are quite similar to the first third of my RSR",
+      "thread_id": "thread-b5cc45618b00",
+      "thread_depth": 0,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-062a1b9d1a5b",
+      "message_id": "<17376.64315.269821.239928@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-02-01T19:17:31+01:00",
+      "subject": "[RsR] function naming for \"robust ...\"",
+      "subject_clean": "[RsR] function naming for \"robust ...\"",
+      "in_reply_to": "<17361.22635.911892.563447@stat.math.ethz.ch>",
+      "references": [
+        "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>",
+        "<17361.22635.911892.563447@stat.math.ethz.ch>"
+      ],
+      "body_plain": ">>>>> \"Martin\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Fri, 20 Jan 2006 22:38:51 +0100 writes:\n\n>>>>> \"Claudio\" == Claudio Agostinelli <claudio at unive.it>\n>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:\n\n    Claudio> Ciao Martin, I would like, progressively,\n    Claudio> standardize my package 'wle' with the standard of\n    Claudio> robustbase. If think, for me, the easy way is to\n    Claudio> start with lm function (since you (you, matias and\n    Claudio> andreas) are working on roblm).\n\n    Martin> and robglm() / glmrob()  {taking up Werner's naming suggestion\n    Martin> which I find very worth of consideration -- other takers, please.. ?}\nI did not get a reaction on the above,\nnor did Werner on his original question.\n\nValentin answered to me in private that he also prefers to use \na suffix instead of a prefix in this case, i.e.,\n*appending*  'rob'  rather than\n*prepending* it to other function names.\n\nSince I really would like to go ahead and incorporate some more\nfunctionality, \n - notably robust-glm from Andreas (and Eva and..),\n - but probably also soon the main \"fast\" functions from\n   Valentin's \"rrcov\" package\n - and hopefully also soon the 'robust lm' from Matias' \"roblm\"\n\nit is really important to have a decision here.\nShould it be\n   1) rob<Method>   or\n   2) <Method>rob   ?\n\nI currently count 3 votes for \"2)\", namely Werner's (who proposed it),\nmine and Valentin's.\n\nMaybe we don't really need another formal voting...\n\nMartin Maechler, ETH Zurich\n\nPS: I will be at the useR'2006 as well, and yes, it would be\n    great to have enough \"mass\" there for a \"robustness\" part...",
+      "body_snippet": ">>>>> \"Martin\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Fri, 20 Jan 2006 22:38:51 +0100 writes:\n\n>>>>> \"Claudio\" == Claudio Agostinelli <claudio at unive.it>\n>>>>>     on Fri, 2",
+      "thread_id": "thread-062a1b9d1a5b",
+      "thread_depth": 0,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-48b46e476dc5",
+      "message_id": "<B7C02093A9C6FB47B417FC3FAB0D721403697D@langouste.zhwin.ch>",
+      "from_name": "Ruckstuhl Andreas (rks)",
+      "from_email_hash": "37bdf46d2d783a56a681e1b57b7a86bd102ccf080b7a413afac034d7f4b1ad36",
+      "date": "2006-02-01T19:23:10+01:00",
+      "subject": "[RsR] synchronization with contributing packages",
+      "subject_clean": "[RsR] synchronization with contributing packages",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I agree with the more pragmatic approach suggested by Martin and supported by Matias as well.\n\nAll the best\nAndreas\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von \n>> Matias Salibian-Barrera\n>> Gesendet: Mittwoch, 1. Februar 2006 16:08\n>> An: r-sig-robust at stat.math.ethz.ch\n>> Betreff: Re: [RsR] synchronization with contributing packages\n>> \n>> \n>> \n>> I agree with the more pragmatic approach suggested by \n>> Martin: one waits\n>> for a reasonably stable robustbase version that includes the code in\n>> question, and then the original package is made to depend on \n>> robustbase\n>> (or cease to exist if it has been included completely).\n>> \n>> Matias\n>> \n>> \n>> On Tue, 31 Jan 2006, Martin Maechler wrote:\n>> \n>> > >>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>> > >>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:\n>> >\n>> [snip] \n>> >     ValenT> When, at what stage of maturity of robustbase,\n>> >     ValenT> should the contributed code be removed from the\n>> >     ValenT> other packages and they have to rely on \n>> >     ValenT> 'Depends: robustbase'?\n>> > \n>> [snip]\n>> >\n>> > In practice, I would aim for a more pragmatic solution;\n>> > e.g., after the appearance of the new version of robustbase, \n>> > wait for several weeks before stripping the functionality from\n>> > your package.  Well actually, as package author, you can do it\n>> > immediately in your sources, but only release a new version of\n>> > your package to CRAN after a certain amount of time.\n>> > \n>> > Martin\n>> > \n>> > And yes, as Valentin, I am very much interested to hear what\n>> > others think...\n>> > \n>> > _______________________________________________\n>> > R-SIG-Robust at r-project.org mailing list\n>> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >\n>> \n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>",
+      "body_snippet": "I agree with the more pragmatic approach suggested by Martin and supported by Matias as well.\n\nAll the best\nAndreas\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org ",
+      "thread_id": "thread-48b46e476dc5",
+      "thread_depth": 0,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-1ec81b6dd037",
+      "message_id": "<43E1AEB0.3000700@tuwien.ac.at>",
+      "from_name": "Peter Filzmoser",
+      "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
+      "date": "2006-02-02T08:03:12+01:00",
+      "subject": "[RsR] robustbase, names",
+      "subject_clean": "[RsR] robustbase, names",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I understand that moving functions to robustbase is only\nmeant for \"basic\" functions, and not for more specialized\nmethods. Eg. I don't think it would make much sense to\nmerge the package mvoutlier into robustbase.\nIn that case the pragmatic proposal of Martin is fine.\n\nConcerning names: Both variants are attractive:\n1) With \"rob\"... we can easiliy see which functions exist\non robustness. However, this might be more interesting\nfor \"robustnics\".\n2) With ...\"rob\" it is easier for the user to guess the\n\"robustified\" version of what he/she is using all the\ntime.\nSince robustnics are well informed about the progress\nof \"Robustness and R\" ;-) I would prefer the second variant.\n\nYes and - sure, I will also come to useR! and send an\nabstract.\n\nBest regards,\nPeter\n\n-------------------------------------------------------\nFrom: Peter Filzmoser\n       E-mail: P.Filzmoser at tuwien.ac.at\n       Internet:\n       http://www.statistik.tuwien.ac.at/public/filz/",
+      "body_snippet": "I understand that moving functions to robustbase is only\nmeant for \"basic\" functions, and not for more specialized\nmethods. Eg. I don't think it would make much sense to\nmerge the package mvoutlier in",
+      "thread_id": "thread-1ec81b6dd037",
+      "thread_depth": 0,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-7d2229ef8cdf",
+      "message_id": "<Pine.LNX.4.64.0602021107000.10140@vivaldi.dst.unive.it>",
+      "from_name": "claudio",
+      "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
+      "date": "2006-02-02T11:19:08+01:00",
+      "subject": "[RsR] robustbase, names",
+      "subject_clean": "[RsR] robustbase, names",
+      "in_reply_to": "<43E1AEB0.3000700@tuwien.ac.at>",
+      "references": [
+        "<43E1AEB0.3000700@tuwien.ac.at>"
+      ],
+      "body_plain": "On Thu, 2 Feb 2006, Peter Filzmoser wrote:\n\n> I understand that moving functions to robustbase is only\n> meant for \"basic\" functions, and not for more specialized\n> methods. Eg. I don't think it would make much sense to\n> merge the package mvoutlier into robustbase.\n> In that case the pragmatic proposal of Martin is fine.\n\nI agree with the pragmatic proposal of Martin. Perhaps, there could be a \nwarning message when the old package is load (or in robustbase or in \nboth) that say something along the lines:\n\nthe function FUNCTION is moving from package PACKAGE to package robustbase \nin the next version, please use the function in the robustbase package for \nyour code.\n\nFollowed perhaps by a list of changed in the function call like \nequivalence between arguments\n\n> Concerning names: Both variants are attractive:\n> 1) With \"rob\"... we can easiliy see which functions exist\n> on robustness. However, this might be more interesting\n> for \"robustnics\".\n> 2) With ...\"rob\" it is easier for the user to guess the\n> \"robustified\" version of what he/she is using all the\n> time.\n> Since robustnics are well informed about the progress\n> of \"Robustness and R\" ;-) I would prefer the second variant.\n\nI will prefere the second variant too, also because, you could have\n\ncovrobfoo (for a robust method foo in robust covariance estimate)\n\nand\n\nlmortho (for orthogonal regression in linear model)\n\nand\n\nlmorthorob (for robust method on orthogonal regression in linear model)\n\nAnd as Peter said: Yes and - sure, I will also come to useR! and send an \nabstract.\n\nClaudio",
+      "body_snippet": "On Thu, 2 Feb 2006, Peter Filzmoser wrote:\n\n> I understand that moving functions to robustbase is only\n> meant for \"basic\" functions, and not for more specialized\n> methods. Eg. I don't think it would",
+      "thread_id": "thread-1ec81b6dd037",
+      "thread_depth": 1,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-c86e2a2c352f",
+      "message_id": "<17388.37286.225638.71351@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2006-02-10T14:14:14+01:00",
+      "subject": "[RsR] Package 'robustbase' available from CRAN",
+      "subject_clean": "[RsR] Package 'robustbase' available from CRAN",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear \"robust R users\",\n\nYesterday, I have uploaded the first public version (0.1-2) of\nthe 'robustbase' package to CRAN.  It has appeared on the CRAN\nmaster (in Vienna) and will propagate to the mirror sites within\na few days at most. For Windows users, the *binary* version of\nthe package will also hopefully become available till after the\nweekend.\n\nSince I'll be vacationing for a bit more than a week (and then\nbe busy with other duties), I've wanted to make this available\nin time, for your feedback and usage.\nCurrently,  packageDescription(\"robustbase\") contains\n\n  NOTE: SEVERAL PARTS ARE STILL PRELIMINARY AND MAY BE\n\tCHANGED IN THE FUTURE. THIS TYPICALLY INCLUDES\n\tARGUMENT NAMES, DEFAULTS FOR ARGUMENTS AND RETURN\n\tVALUES.\n\nfor good reasons.  This is also remarked on some of the help\npages (but not on all where it should be!)\n\n\nContent:  \n--------\n\n 1) Many data sets, particularly from the book of Rousseeuw &\n  Leroy, mostly thanks to Valentin Todorov; all of them with\n  nice help pages :\n\n     > data(package = \"robustbase\")\n     Data sets in package \u001b$,1rx\u001b(Brobustbase\u001b$,1ry\u001b(B:\n\n     Animals2              Brain and Body Weights for 65 Species of\n\t\t\t   Land Animals\n     SiegelsEx             Siegel's Exact Fit Example Data\n     aircraft              Aircraft Data\n     airmay                Air Quality Data\n     bushfire              Campbell Bushfire Data\n     carrots               Insect Damages on Carrots\n     cloud                 Cloud point of a Liquid\n     coleman               Coleman Data Set\n     delivery              Delivery Time Data\n     education             Education Expenditure Data\n     epilepsy              Epilepsy Attacks Data Set\n     exAM                  Example Data of Antille and May - for Simple\n\t\t\t   Regression\n     hbk                   Hawkins, Bradu, Kass's Artificial Data\n     heart                 Heart Catherization Data\n     lactic                Lactic Acid Concentration Measurement Data\n     milk                  Daudin's Milk Composition Data\n     pension               Pension Funds Data\n     phosphor              Phosphorus Content Data\n     pilot                 Pilot-Plant Data\n     salinity              Salinity Data\n     starsCYG              Hertzsprung-Russell Diagram Data of Star\n\t\t\t   Cluster CYG OB1\n     telef                 Number of International Calls from Belgium\n     vaso                  Vaso Constriction Data Set\n     wood                  Modified Data on Wood Specific Gravity\n\n  I strongly recommend that you start using these datasets in\n  your packages and scripts even if you don't use 'robustbase'\n  there yet.  \n  To use a dataset from another package, you don't need to\n  attach nor load that package; it's sufficient to say, e.g.,\n\n     data(wood, package = \"robustbase\") \n\n 2) covMcd() and covLts()  as they were in a version of\n    Valentin's \"rrcov\" package several weeks ago; these are\n    slightly older than in the very newest version of 'rrcov'.\n    However, that will probably change with next release of\n    'robustbase', hopefully within less than a month.\n\n 3) New functionality that hasn't been available in \"public\" R\n    packages till now :\n\n    - glmrob()  {by Andreas Ruckstuhl, based on Eva Cantoni's\n\t\t  work for S-plus (and a tiny bit of my) }\n\n        for robust Binomial (inkl. Bernoulli/Binary) and Poisson\n        GLMs, including model selection based on quasi deviance differences.\n\n    - Qn() and Sn()  scale estimates by Rousseeuw & Croux\n\t   [50% breakdown but considerably more efficient than MAD]; \n\t   based on their S-plus + Fortran code; ported to R by me.\n\n    - covOGK():  The orthogonalized Gnanadesikan-Kettering\n\t estimate for \"fast\" \"high-dimensional\" cov-estimation,\n\t by Maronna & Zamar (2002); based on the code from Kjell Konis.\n\t This includes their univariate tau-estimate, I've\n\t called 'scaleTau2()' {since there's a different\n\t scaleTau() in other places}. However, that tau-estimate\n\t currently lacks a consistency correction factor. \n\t Hence covOGK() is not consistent (by a constant factor,\n\t so still useful for correlations).\n\t THIS will DEFINITELY change in the future!\n\n    - nlrob()  for robust non-linear regression; this a\n\tslightly enhanced version of what has been\n\tavailable as 'rnls()' from package 'sfsmisc'. \n        Also based mainly on Andreas Ruckstuhl's work.\n\n  4) Somewhat experimental code for an S4 class of\n     \"psi-function\" objects.\n\n\n\nNear-term plans for 'robustbase' include:\n---------------\n(within one-two months?)\n\n - Porting work of Matias Salibian-Barrera for\n   fast high breakdown robust linear regression (via\n   MM-estimators).  Based on the fastLTS and hopefully a\n   fast regression S-estimator.\n\n - cleanup of \"psi function\"-class and making use of it for\n   glmrob() {and lmrob() when that exists}.\n\n - improvements for covMcd() and ltsReg() by Valentin\n\n - univariate tau-estimates for scale, *including* consistency\n   correction factors; here, I'll be glad for your input\n   (containing code)\n\n - Implement and discuss ``the'' S4 class of (robust)\n   multivariate-scatter+location estimates; probably\n   based on input from the working group \"multivariate\" in Treviso\n   (http://www.econ.kuleuven.be/public/NDBAE49/R/Rmultivariate.pdf);\n   but that needs more details, and probably would benefit from\n   discussion maybe on this mailing list.\n\n - Related to the above: start using a  \"universal\"  covrob()\n   function that will have a 'method' argument; \n   e.g., with method = \"MCD\" / \"OGK\" to call the ``lower level''\n   covMcd() & covOGK() functions.    \n   {I think the Treviso working group \"multivariate\" called this function\n    covCenter() ??}.\n   This will return an S4 object inheriting from but typically\n   extending the new S4 class (of last paragraph).\n   \n\n\nFor mid- and longer term, there's much more of course. \nI still hope that we can go along our original goal of receiving\nall data sets and quite a bit of code that ``go along'' with the\nupcoming Maronna-Martin-Yohai book.\nI expect quite a bit of it will depend on what happens\nexactly with the \"robust\" package project of Kjell Konis (and\nInsightful); in particular, with what licence that will appear.\n\n\nMartin Maechler, ETH Zurich",
+      "body_snippet": "Dear \"robust R users\",\n\nYesterday, I have uploaded the first public version (0.1-2) of\nthe 'robustbase' package to CRAN.  It has appeared on the CRAN\nmaster (in Vienna) and will propagate to the mirro",
+      "thread_id": "thread-c86e2a2c352f",
+      "thread_depth": 0,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-97ed0fd228de",
+      "message_id": "<Pine.LNX.4.64.0602211445150.9059@vivaldi.dst.unive.it>",
+      "from_name": "claudio",
+      "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
+      "date": "2006-02-21T14:48:34+01:00",
+      "subject": "[RsR] Special Issue on Robust Statistics in SMA journal",
+      "subject_clean": "[RsR] Special Issue on Robust Statistics in SMA journal",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear All,\n\nMatilde Bini asked me to forward the message below to the list. Sorry for \npossible cross-posting.\n\nClaudio\n_____________________________________________________________\n\nCALL FOR PAPERS\n\nSTATISTICAL METHODS & APPLICATIONS - JISS\n\nThematic Issue on \"Robust multivariate statistical methods\"\n\nhttp://www.springer.com/sgw/cda/frontpage/0,11855,5-10128-70-1169174-0,00.html\n\nThe objective of this thematic issue is to be a forum for new developments\nand applications of robust statistical methods for multivariate data.\n\nThe contributions to theoretical as well as applied statistics dealing with\nROBUST STATISTICS are welcome. The following areas are mentioned, but other\nrelated topics are welcome as well.\n\nConcepts and theory of robust statistics\nNonparametric methods; nonparametric and semiparametric models\nMultivariate analysis\nData depth\nStatistical computing, graphics and data mining\nRegression quantile\nLinear and generalized linear models; mixed models\nBiostatistics\nStatistical methods in signal processing\nStatistical methods in business and finance\nStatistics in bioinformatics\nAsymptotic theory and efficiency\n\nThe first paper will be written by\nStephan Morghentaler\nMathematics Department,\nEcole Polytechnique F?d?rale,\nLausanne, Switzerland\n\nand will deal with the state of the art of robust statistics.\n\nThe DEADLINE for submissions is April 30, 2006.\n\nThe papers must contain original unpublished work that is not being\nsubmitted for publication elsewhere. Manuscripts submitted to this\nspecial issue will be refereed according to standard procedures for\nStatistical Methods and Applications\n\nThe editorial process is expected to proceed rapidly thereafter\n(Expected decision date is August 30, 2006).\nSubmission electronically is encouraged.\nPlease e-mail a postscript or PDF file of your manuscript to\nMaurizio Vichi\nDept. Statistica, Probabilit? e Statistiche Applicate\nP.le A. Moro, 5\nI-00185 Rome\nItaly\n\ne-mail: maurizio.vichi at uniroma1.it\n=====================================\n\nProf. Matilde Bini\nDipartimento di Statistica \"G. Parenti\"\nUniversit? degli Studi di Firenze\nViale Morgagni, 59 - 50134 Firenze - Italy\nTel. +39 055 4237251 Cell. 329 2609898\n\n------------------------------------------------------------------",
+      "body_snippet": "Dear All,\n\nMatilde Bini asked me to forward the message below to the list. Sorry for \npossible cross-posting.\n\nClaudio\n_____________________________________________________________\n\nCALL FOR PAPERS\n\nS",
+      "thread_id": "thread-97ed0fd228de",
+      "thread_depth": 0,
+      "month": "2006-02"
+    },
+    {
+      "id": "msg-54c64966e477",
+      "message_id": "<Pine.LNX.4.64.0602211513330.9059@vivaldi.dst.unive.it>",
+      "from_name": "claudio",
+      "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
+      "date": "2006-02-21T15:16:00+01:00",
+      "subject": "[RsR] Robust session at useR 2006",
+      "subject_clean": "[RsR] Robust session at useR 2006",
+      "in_reply_to": "<Pine.LNX.4.64.0602211445150.9059@vivaldi.dst.unive.it>",
+      "references": [
+        "<Pine.LNX.4.64.0602211445150.9059@vivaldi.dst.unive.it>"
+      ],
+      "body_plain": "Dear All,\n\nAfter the good response from the conference \"Robust Statistics and R\" in\nTreviso last October, we feel that a good opportunity for sharing our work\nand get feedback is the conference \"useR!\", held from June 15-17, 2006, in \nVienna: http://www.r-project.org/useR-2006/\n\nWe are trying to organize a contributed session (semi-plenary) plus a\nso-called useR! island (semi-plenary spotlight presentations plus posters\nand table for discussions) on robust statistics.\n\nTo this aim we would like to invite you to submit an abstract for a talk \norposter presentation to this conference via the on-line form available on \nthe conference's website. Please note that the deadline for abstract \nsubmissions is February 28, 2006.\n\nThese persons will submit an abstract:\n\n- Claudio Agostinelli: Robust estimation in circular data\n- Valentin Todorov: Robust location and scatter estimators for\n                     Multivariate Analysis\n- Peter Filtzmoser: Multivariate outlier detection\n- Heinrich Fritz: robust PCA by projection pursuit\n- Mathias Templ: Stability of Cluster Analysis\n- Rudi Dutter\n- Martin Maechler\n- Andreas Ruckstuhl\n\nPlease, join them by submitting an abstract.\n\nBest,\nClaudio Agostinelli, Peter Filzmoser, Matias Salibian Barrera, Martin\nMaechler, Valentin Todorov.\n\n--------------------------------------------------------------\nClaudio Agostinelli\nDipartimento di Statistica\nUniversita' Ca' Foscari di Venezia\nSan Giobbe, Cannaregio 873\n30121 Venezia\nTel: 041 2347446, Fax: 041 2347444\nemail: claudio at unive.it, www: www.dst.unive.it/~claudio\n--------------------------------------------------------------\nPer favore non mandatemi allegati in Word o PowerPoint.\nSi veda http://www.gnu.org/philosophy/no-word-attachments.html\n\nPlease avoid sending me Word or PowerPoint attachments.\nSee http://www.gnu.org/philosophy/no-word-attachments.html",
+      "body_snippet": "Dear All,\n\nAfter the good response from the conference \"Robust Statistics and R\" in\nTreviso last October, we feel that a good opportunity for sharing our work\nand get feedback is the conference \"useR!",
+      "thread_id": "thread-97ed0fd228de",
+      "thread_depth": 1,
+      "month": "2006-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-8bef38238b8d",
+      "subject": "[RsR] synchronization with contributing packages",
+      "message_count": 1,
+      "participants": [
+        "Matias Salibian-Barrera"
+      ],
+      "started": "2006-02-01T07:07:42-08:00",
+      "last_reply": "2006-02-01T07:07:42-08:00",
+      "root_message_id": "msg-8bef38238b8d"
+    },
+    {
+      "id": "thread-fb399e091064",
+      "subject": "[RsR] useR! conference deadline",
+      "message_count": 1,
+      "participants": [
+        "claudio"
+      ],
+      "started": "2006-02-01T11:32:24+01:00",
+      "last_reply": "2006-02-01T11:32:24+01:00",
+      "root_message_id": "msg-fb399e091064"
+    },
+    {
+      "id": "thread-b5cc45618b00",
+      "subject": "[RsR] your talk at Robcla",
+      "message_count": 1,
+      "participants": [
+        "Kjell Konis"
+      ],
+      "started": "2006-02-01T15:51:21+00:00",
+      "last_reply": "2006-02-01T15:51:21+00:00",
+      "root_message_id": "msg-b5cc45618b00"
+    },
+    {
+      "id": "thread-062a1b9d1a5b",
+      "subject": "[RsR] function naming for \"robust ...\"",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2006-02-01T19:17:31+01:00",
+      "last_reply": "2006-02-01T19:17:31+01:00",
+      "root_message_id": "msg-062a1b9d1a5b"
+    },
+    {
+      "id": "thread-48b46e476dc5",
+      "subject": "[RsR] synchronization with contributing packages",
+      "message_count": 1,
+      "participants": [
+        "Ruckstuhl Andreas (rks)"
+      ],
+      "started": "2006-02-01T19:23:10+01:00",
+      "last_reply": "2006-02-01T19:23:10+01:00",
+      "root_message_id": "msg-48b46e476dc5"
+    },
+    {
+      "id": "thread-1ec81b6dd037",
+      "subject": "[RsR] robustbase, names",
+      "message_count": 2,
+      "participants": [
+        "Peter Filzmoser",
+        "claudio"
+      ],
+      "started": "2006-02-02T08:03:12+01:00",
+      "last_reply": "2006-02-02T11:19:08+01:00",
+      "root_message_id": "msg-1ec81b6dd037"
+    },
+    {
+      "id": "thread-c86e2a2c352f",
+      "subject": "[RsR] Package 'robustbase' available from CRAN",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2006-02-10T14:14:14+01:00",
+      "last_reply": "2006-02-10T14:14:14+01:00",
+      "root_message_id": "msg-c86e2a2c352f"
+    },
+    {
+      "id": "thread-97ed0fd228de",
+      "subject": "[RsR] Special Issue on Robust Statistics in SMA journal",
+      "message_count": 2,
+      "participants": [
+        "claudio"
+      ],
+      "started": "2006-02-21T14:48:34+01:00",
+      "last_reply": "2006-02-21T15:16:00+01:00",
+      "root_message_id": "msg-97ed0fd228de"
+    }
+  ]
+}

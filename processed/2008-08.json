@@ -1,0 +1,94 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2008-08",
+  "messages": [
+    {
+      "id": "msg-54e2e99cac69",
+      "message_id": "<18582.54260.42897.424201@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-08-04T12:03:32+02:00",
+      "subject": "[RsR] CRAN task view \"robust\"",
+      "subject_clean": "[RsR] CRAN task view \"robust\"",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear \"Robustniks\",\n\nmany moons ago I had promised to create a CRAN Task view\non the topic of robust statistics in R.\n\nActually I have fulfilled the promise quite a while ago,\nbut it seems I've never announce it here, and now do so :\n\nPlease look at \n   \n    http://cran.ch.r-project.org/CRAN/web/views/Robust.html\n\t\t^^\n\t\tput your favorite CRAN mirror here, or just drop '.ch'\n\nand please don't feel shy to propose improvements.\n(If your critique is very harsh, you may consider replying to me\n privately instead to all of R-SIG-robust (and its archives) ;-)\n \nRegards,\nMartin Maechler, ETH Zurich",
+      "body_snippet": "Dear \"Robustniks\",\n\nmany moons ago I had promised to create a CRAN Task view\non the topic of robust statistics in R.\n\nActually I have fulfilled the promise quite a while ago,\nbut it seems I've never a",
+      "thread_id": "thread-54e2e99cac69",
+      "thread_depth": 0,
+      "month": "2008-08"
+    },
+    {
+      "id": "msg-d78fef110228",
+      "message_id": "<4631330b0808040348t7e64fcebt25136cca998aab8a@mail.gmail.com>",
+      "from_name": "Diman Todorov",
+      "from_email_hash": "f624676c88e06ab185d97e71f8483b69a45356cc5ddf877718d5f40e25eccb72",
+      "date": "2008-08-04T12:48:28+02:00",
+      "subject": "[RsR] CRAN task view \"robust\"",
+      "subject_clean": "[RsR] CRAN task view \"robust\"",
+      "in_reply_to": "<18582.54260.42897.424201@stat.math.ethz.ch>",
+      "references": [
+        "<18582.54260.42897.424201@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear \"Robustnik\",\n\n\n> Please look at\n>\n>    http://cran.ch.r-project.org/CRAN/web/views/Robust.html\n>                ^^\n>                put your favorite CRAN mirror here, or just drop '.ch'\n\nI looked at .ch. and no .ch.\n\n\n> and please don't feel shy to propose improvements.\n> (If your critique is very harsh, you may consider replying to me\n>  privately instead to all of R-SIG-robust (and its archives) ;-)\n\nI will take  you at your word and propose an improvement.\n\nThe URL you gave currently leads to a 404 error message.\n\nregards\nDiman Todorov, University of Vienna\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear \"Robustnik\",\n\n\n> Please look at\n>\n>    http://cran.ch.r-project.org/CRAN/web/views/Robust.html\n>                ^^\n>                put your favorite CRAN mirror here, or just drop '.ch'\n\nI looke",
+      "thread_id": "thread-54e2e99cac69",
+      "thread_depth": 1,
+      "month": "2008-08"
+    },
+    {
+      "id": "msg-32217cc0beb3",
+      "message_id": "<18582.64581.963601.730386@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-08-04T14:55:33+02:00",
+      "subject": "[RsR] CRAN task view \"robust\"",
+      "subject_clean": "[RsR] CRAN task view \"robust\"",
+      "in_reply_to": "<4631330b0808040348t7e64fcebt25136cca998aab8a@mail.gmail.com>",
+      "references": [
+        "<18582.54260.42897.424201@stat.math.ethz.ch>",
+        "<4631330b0808040348t7e64fcebt25136cca998aab8a@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> \"DT\" == Diman Todorov <diman.todorov at gmail.com>\n>>>>>     on Mon, 4 Aug 2008 12:48:28 +0200 writes:\n\n    DT> Dear \"Robustnik\",\n    >> Please look at\n    >> \n    >> http://cran.ch.r-project.org/CRAN/web/views/Robust.html\n    >> ^^ put your favorite CRAN mirror here, or just drop '.ch'\n\n    DT> I looked at .ch. and no .ch.\n\n\n    >> and please don't feel shy to propose improvements.  (If\n    >> your critique is very harsh, you may consider replying to\n    >> me privately instead to all of R-SIG-robust (and its\n    >> archives) ;-)\n\n    DT> I will take you at your word and propose an improvement.\n\n    DT> The URL you gave currently leads to a 404 error message.\n\n:-)\n\nYes, silly me, I've left an extra '/CRAN' in the above URL.\n\nThe correct one is\n\n    http://cran.ch.r-project.org/web/views/Robust.html\n                ^^ put your favorite CRAN mirror here, or just drop '.ch'\n\n...\nok, waiting for more critique  ;-)\nMartin.\n\n    DT> regards Diman Todorov, University of Vienna\n\n    DT> \t[[alternative HTML version deleted]]",
+      "body_snippet": ">>>>> \"DT\" == Diman Todorov <diman.todorov at gmail.com>\n>>>>>     on Mon, 4 Aug 2008 12:48:28 +0200 writes:\n\n    DT> Dear \"Robustnik\",\n    >> Please look at\n    >> \n    >> http://cran.ch.r-project.or",
+      "thread_id": "thread-54e2e99cac69",
+      "thread_depth": 2,
+      "month": "2008-08"
+    },
+    {
+      "id": "msg-e44ce4fd710d",
+      "message_id": "<B46595D426846345AD00664F29B8B2A801625183@MAIL2.ad.uams.edu>",
+      "from_name": "Thaden, John J",
+      "from_email_hash": "e2de3beecc37a384ca98ea3d40b22d23d0998911d1d996b49f14813119a89d04",
+      "date": "2008-08-05T11:05:37-05:00",
+      "subject": "[RsR] CRAN task view \"robust\"",
+      "subject_clean": "[RsR] CRAN task view \"robust\"",
+      "in_reply_to": "<4631330b0808040348t7e64fcebt25136cca998aab8a@mail.gmail.com>",
+      "references": [
+        "<18582.54260.42897.424201@stat.math.ethz.ch>",
+        "<4631330b0808040348t7e64fcebt25136cca998aab8a@mail.gmail.com>"
+      ],
+      "body_plain": "Diman Todorov wrote\n\n> The URL you gave currently \n> leads to a 404 error message.\n\nTry this:\n - Go to http://cran.r-project.org/mirrors.html\n - Copy/paste to your browser address bar the \n   html address of your mirror of choice.\n - Append to it this: /web/views/Robust.html\n - Hit 'enter'.\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org\n[mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Diman Todorov\nSent: Monday, August 04, 2008 5:48 AM\nTo: Martin Maechler; R-SIG-robust at stat.math.ethz.ch\nSubject: Re: [RsR] CRAN task view \"robust\"\n\nDear \"Robustnik\",\n\n\n> Please look at\n>\n>    http://cran.ch.r-project.org/CRAN/web/views/Robust.html\n>                ^^\n>                put your favorite CRAN mirror here, or just drop '.ch'\n\nI looked at .ch. and no .ch.\n\n\n> and please don't feel shy to propose improvements.\n> (If your critique is very harsh, you may consider replying to me\n>  privately instead to all of R-SIG-robust (and its archives) ;-)\n\nI will take  you at your word and propose an improvement.\n\nThe URL you gave currently leads to a 404 error message.\n\nregards\nDiman Todorov, University of Vienna\n\n\t[[alternative HTML version deleted]]\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\nConfidentiality Notice: This e-mail message, including a...{{dropped:8}}",
+      "body_snippet": "Diman Todorov wrote\n\n> The URL you gave currently \n> leads to a 404 error message.\n\nTry this:\n - Go to http://cran.r-project.org/mirrors.html\n - Copy/paste to your browser address bar the \n   html add",
+      "thread_id": "thread-54e2e99cac69",
+      "thread_depth": 2,
+      "month": "2008-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-54e2e99cac69",
+      "subject": "[RsR] CRAN task view \"robust\"",
+      "message_count": 4,
+      "participants": [
+        "Diman Todorov",
+        "Martin Maechler",
+        "Thaden, John J"
+      ],
+      "started": "2008-08-04T12:03:32+02:00",
+      "last_reply": "2008-08-05T11:05:37-05:00",
+      "root_message_id": "msg-54e2e99cac69"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2013-04",
+  "messages": [
+    {
+      "id": "msg-6c143b847af0",
+      "message_id": "<CAF7OBP8KwXo6qiWu=jJqdEz-4Zfqb7VfczEE-ObR4p0R6xhaPQ@mail.gmail.com>",
+      "from_name": "Xavier Prudent",
+      "from_email_hash": "1afa6fbea17eb95dc37b8bcfa2565269ac4ee04d9fd1dce6ea19f581db1fba67",
+      "date": "2013-04-09T10:09:57+02:00",
+      "subject": "[RsR] Question about regression with R with CAPER",
+      "subject_clean": "[RsR] Question about regression with R with CAPER",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear R experts,\n\nAs a newcomer in R, I am testing the R CAPER package, applying a simple\nregression on a phylogeny tree with three binary traits: (t1, t2, t3).\n\nMy goal is to test the sensitivity to a correlation between t1 and t3. But\nif a correlation of 100% is considered (i.e. t3 = t1). The pgls method of\nCAPER seems to crash:\n\nYou can find there the code I used\nhttp://iktp.tu-dresden.de/~prudent/Divers/R/toy.R\nwith the tree\nhttp://iktp.tu-dresden.de/~prudent/Divers/R/toy3.tree\nand the data\nhttp://iktp.tu-dresden.de/~prudent/Divers/R/toy_cor100.data\n\njust copy the .tree and .data files and run\n> R\n> source(\"toy.R\")\n\n(please find the outpt below)\n\nAm I doing anything wrong?\n\nThanks in advance,\n\nregards,\n\nXavier Prudent\n\n==================================\n>>>>>>> Regression #2\n\n\nCall:\npgls(formula = t1 ~ t3, data = cdat)\n\nCoefficients:\n(Intercept)           t3\n          0            1\n\n\nCall:\npgls(formula = t1 ~ t3, data = cdat)\n\nResiduals:\n   Min     1Q Median     3Q    Max\n     0      0      0      0      0\n\nBranch length transformations:\n\nkappa  [Fix]  : 1.000\nlambda [Fix]  : 1.000\ndelta  [Fix]  : 1.000\n\nCoefficients:\n            Estimate Std. Error t value  Pr(>|t|)\n(Intercept)        0          0      NA        NA\nt3                 1          0     Inf < 2.2e-16 ***\n---\nSignif. codes:  0 ?***? 0.001 ?**? 0.01 ?*? 0.05 ?.? 0.1 ? ? 1\n\nResidual standard error: 0 on 8 degrees of freedom\nMultiple R-squared:     1,      Adjusted R-squared:     1\nF-statistic:   Inf on 2 and 8 DF,  p-value: < 2.2e-16\nError in density.default(res) : 'x' contains missing values\n=======================\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear R experts,\n\nAs a newcomer in R, I am testing the R CAPER package, applying a simple\nregression on a phylogeny tree with three binary traits: (t1, t2, t3).\n\nMy goal is to test the sensitivity to a",
+      "thread_id": "thread-6c143b847af0",
+      "thread_depth": 0,
+      "month": "2013-04"
+    },
+    {
+      "id": "msg-ee45c6ed04da",
+      "message_id": "<3776C9A9-48A1-46FC-AE2F-5E71C2C72FBF@me.com>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "d11b96eadf9647b25d2ef1f752a1ffb8baeea985b521d03e4e555bf58b0857db",
+      "date": "2013-04-09T09:16:32-07:00",
+      "subject": "[RsR] Question about regression with R with CAPER",
+      "subject_clean": "[RsR] Question about regression with R with CAPER",
+      "in_reply_to": "<CAF7OBP8KwXo6qiWu=jJqdEz-4Zfqb7VfczEE-ObR4p0R6xhaPQ@mail.gmail.com>",
+      "references": [
+        "<CAF7OBP8KwXo6qiWu=jJqdEz-4Zfqb7VfczEE-ObR4p0R6xhaPQ@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Xavier,\n\nThis list is specifically for questions/discussion about robust statistics. You will have better luck getting an answer to your question if you ask on R-help.\n\nCheers,\nKjell\n\nOn Apr 9, 2013, at 1:09 AM, Xavier Prudent <prudentxavier at gmail.com> wrote:\n\n> Dear R experts,\n> \n> As a newcomer in R, I am testing the R CAPER package, applying a simple\n> regression on a phylogeny tree with three binary traits: (t1, t2, t3).\n> \n> My goal is to test the sensitivity to a correlation between t1 and t3. But\n> if a correlation of 100% is considered (i.e. t3 = t1). The pgls method of\n> CAPER seems to crash:\n> \n> You can find there the code I used\n> http://iktp.tu-dresden.de/~prudent/Divers/R/toy.R\n> with the tree\n> http://iktp.tu-dresden.de/~prudent/Divers/R/toy3.tree\n> and the data\n> http://iktp.tu-dresden.de/~prudent/Divers/R/toy_cor100.data\n> \n> just copy the .tree and .data files and run\n>> R\n>> source(\"toy.R\")\n> \n> (please find the outpt below)\n> \n> Am I doing anything wrong?\n> \n> Thanks in advance,\n> \n> regards,\n> \n> Xavier Prudent\n> \n> ==================================\n>>>>>>>> Regression #2\n> \n> \n> Call:\n> pgls(formula = t1 ~ t3, data = cdat)\n> \n> Coefficients:\n> (Intercept)           t3\n>          0            1\n> \n> \n> Call:\n> pgls(formula = t1 ~ t3, data = cdat)\n> \n> Residuals:\n>   Min     1Q Median     3Q    Max\n>     0      0      0      0      0\n> \n> Branch length transformations:\n> \n> kappa  [Fix]  : 1.000\n> lambda [Fix]  : 1.000\n> delta  [Fix]  : 1.000\n> \n> Coefficients:\n>            Estimate Std. Error t value  Pr(>|t|)\n> (Intercept)        0          0      NA        NA\n> t3                 1          0     Inf < 2.2e-16 ***\n> ---\n> Signif. codes:  0 ?***? 0.001 ?**? 0.01 ?*? 0.05 ?.? 0.1 ? ? 1\n> \n> Residual standard error: 0 on 8 degrees of freedom\n> Multiple R-squared:     1,      Adjusted R-squared:     1\n> F-statistic:   Inf on 2 and 8 DF,  p-value: < 2.2e-16\n> Error in density.default(res) : 'x' contains missing values\n> =======================\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Hi Xavier,\n\nThis list is specifically for questions/discussion about robust statistics. You will have better luck getting an answer to your question if you ask on R-help.\n\nCheers,\nKjell\n\nOn Apr 9, 201",
+      "thread_id": "thread-6c143b847af0",
+      "thread_depth": 1,
+      "month": "2013-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-6c143b847af0",
+      "subject": "[RsR] Question about regression with R with CAPER",
+      "message_count": 2,
+      "participants": [
+        "Kjell Konis",
+        "Xavier Prudent"
+      ],
+      "started": "2013-04-09T10:09:57+02:00",
+      "last_reply": "2013-04-09T09:16:32-07:00",
+      "root_message_id": "msg-6c143b847af0"
+    }
+  ]
+}

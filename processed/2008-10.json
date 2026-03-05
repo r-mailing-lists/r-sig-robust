@@ -1,0 +1,102 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2008-10",
+  "messages": [
+    {
+      "id": "msg-82d0aa7a64d9",
+      "message_id": "<20081002052210.GA422@lubyanka.local>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2008-10-02T10:52:10+05:30",
+      "subject": "[RsR] Citation of robust::lmRob?",
+      "subject_clean": "[RsR] Citation of robust::lmRob?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "As advised by the gurus of this mailing list, I have been using\nlmRob() in many situations. When writing a paper which reports results\nusing lmRob, I have two problems. First, I need to concretely describe\nthe method that is being used. Can someone provide a few paragraphs of\nexplanation of what is done? And, what should I be citing? It seems\nthat a great deal of effort has gone into building lmRob() and that\nmerits a citation rather than citing the materials mentioned in help(lmRob).\n\n-- \nAjay Shah                                      http://www.mayin.org/ajayshah  \najayshah at mayin.org                             http://ajayshahblog.blogspot.com\n<*(:-? - wizard who doesn't know the answer.",
+      "body_snippet": "As advised by the gurus of this mailing list, I have been using\nlmRob() in many situations. When writing a paper which reports results\nusing lmRob, I have two problems. First, I need to concretely des",
+      "thread_id": "thread-82d0aa7a64d9",
+      "thread_depth": 0,
+      "month": "2008-10"
+    },
+    {
+      "id": "msg-3999561e495d",
+      "message_id": "<0EF4E838-FCA1-476E-BE07-AE763BB1668A@epfl.ch>",
+      "from_name": "Kjell Konis",
+      "from_email_hash": "dbde64352289953147e639af58ad94d54fbe314dd3ce76fa6c738d1b3f3626ca",
+      "date": "2008-10-02T12:04:07+02:00",
+      "subject": "[RsR] Citation of robust::lmRob?",
+      "subject_clean": "[RsR] Citation of robust::lmRob?",
+      "in_reply_to": "<20081002052210.GA422@lubyanka.local>",
+      "references": [
+        "<20081002052210.GA422@lubyanka.local>"
+      ],
+      "body_plain": "You can use citation(\"robust\") to cite the package ?robust? in  \npublications.\n\nAs for the description, you can probably find what you need in the  \n'Overview of the Method' and 'Theoretical Details' sections of chapter  \n2 in Robust.pdf. I'll send you a copy in a separate email (it's also  \navailable on R-Forge).\n\nOn 2 oct. 08, at 07:22, Ajay Shah wrote:\n\n> As advised by the gurus of this mailing list, I have been using\n> lmRob() in many situations. When writing a paper which reports results\n> using lmRob, I have two problems. First, I need to concretely describe\n> the method that is being used. Can someone provide a few paragraphs of\n> explanation of what is done? And, what should I be citing? It seems\n> that a great deal of effort has gone into building lmRob() and that\n> merits a citation rather than citing the materials mentioned in  \n> help(lmRob).\n>\n> --\n> Ajay Shah                                      http://www.mayin.org/ajayshah\n> ajayshah at mayin.org                             http://ajayshahblog.blogspot.com\n> <*(:-? - wizard who doesn't know the answer.\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "You can use citation(\"robust\") to cite the package ?robust? in  \npublications.\n\nAs for the description, you can probably find what you need in the  \n'Overview of the Method' and 'Theoretical Details' ",
+      "thread_id": "thread-82d0aa7a64d9",
+      "thread_depth": 1,
+      "month": "2008-10"
+    },
+    {
+      "id": "msg-269cde53b651",
+      "message_id": "<Prayer.1.0.16.0810191320580.28589@vs-a.tc.umn.edu>",
+      "from_name": "kh@@x131 m@iii@g oii um@@edu",
+      "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
+      "date": "2008-10-19T13:20:58-05:00",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "subject_clean": "[RsR] Robust nonlinear regression in R",
+      "in_reply_to": "<41639.148.177.129.210.1222414198.squirrel@webmail.businessdecision.com>",
+      "references": [
+        "<Prayer.1.0.16.0809251750200.16630@wm2.tc.umn.edu>",
+        "<41639.148.177.129.210.1222414198.squirrel@webmail.businessdecision.com>"
+      ],
+      "body_plain": "Thanks to all, I looked into the nonlinear regression fitting function \n\"nlrob()\" available in R. the problem with it is that unless i don't get \nstart with good starting values close to the actual one's it does not work. \nIs there any pointers how to choose good starting values-?\n\nThanks,\nDost.\n\n\nOn Sep 26 2008, Tobias Verbeke wrote:\n\n>From the Robust Statistical Methods Task View on CRAN\n>at\n>\n>http://cran.r-project.org/web/views/Robust.html\n>\n>\n> \" Robust Nonlinear model fitting is available through robustbase 's \n> nlrob().\"\n>\n>install.packages(\"robustbase\")\n>library(robustbase)\n>?nlrob\n>\n>HTH,\n>Tobias\n>\n>> I would like to know about robust nonlinear regression R code as well.\n>>\n>> Arny\n>>\n>>\n>> Arnold J. Stromberg\n>> Professor and Chair\n>> Department of Statistics\n>> University of Kentucky\n>> 817 Patterson Office Tower\n>> Lexington, KY 40506-0027\n>> Phone: 859-257-6115\n>> Fax: 859-323-1973\n>>\n>>\n>> -----Original Message----- From: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of \n>> khanx131 at umn.edu Sent: Thursday, September 25, 2008 6:50 PM To: \n>> r-sig-robust at r-project.org Subject: [RsR] Robust nonlinear regression in \n>> R\n>>\n>> Hi dear linsters,\n>>\n>> I am starting work on a robust nonlinear regression project. Is there any\n>> code, stuff in R for robust estimation of nonlinear regression functions.\n>> any comments,material help, suggestions would be greatly appreciated.\n>> thanks in advance,\n>>\n>> Dost.\n>>\n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>\n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>\n>>\n>\n>\n>",
+      "body_snippet": "Thanks to all, I looked into the nonlinear regression fitting function \n\"nlrob()\" available in R. the problem with it is that unless i don't get \nstart with good starting values close to the actual on",
+      "thread_id": "thread-269cde53b651",
+      "thread_depth": 0,
+      "month": "2008-10"
+    },
+    {
+      "id": "msg-12f8b6a578ea",
+      "message_id": "<3714572CC7D0A74BB00AD2B95E307ED29000B9@langouste.zhaw.ch>",
+      "from_name": "Ruckstuhl Andreas (rkst)",
+      "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
+      "date": "2008-10-20T08:00:01+02:00",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "subject_clean": "[RsR] Robust nonlinear regression in R",
+      "in_reply_to": "<Prayer.1.0.16.0810191320580.28589@vs-a.tc.umn.edu>",
+      "references": [],
+      "body_plain": "Dear Dorst\n\nThere are some good advices on how to generate good starting values in the book of Bates and Watts (\"Nonlinear Regression Analysis & Its Applications\", Wiley 1988).\n\nHint:\nIn partial linear problems, a linear regression model can be fitted to generate stating values. Make sure you use robust fitting procedures because they produce more reliable stating values usually (just my experience).\n\nAll the best\nAndreas\n\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von \n>> khanx131 at umn.edu\n>> Gesendet: Sonntag, 19. Oktober 2008 20:21\n>> An: r-sig-robust at r-project.org\n>> Betreff: Re: [RsR] Robust nonlinear regression in R\n>> \n>> \n>> Thanks to all, I looked into the nonlinear regression \n>> fitting function \n>> \"nlrob()\" available in R. the problem with it is that unless \n>> i don't get \n>> start with good starting values close to the actual one's it \n>> does not work. \n>> Is there any pointers how to choose good starting values-?\n>> \n>> Thanks,\n>> Dost.\n>> \n>> \n>> On Sep 26 2008, Tobias Verbeke wrote:\n>> \n>> >From the Robust Statistical Methods Task View on CRAN\n>> >at\n>> >\n>> >http://cran.r-project.org/web/views/Robust.html\n>> >\n>> >\n>> > \" Robust Nonlinear model fitting is available through \n>> robustbase 's \n>> > nlrob().\"\n>> >\n>> >install.packages(\"robustbase\")\n>> >library(robustbase)\n>> >?nlrob\n>> >\n>> >HTH,\n>> >Tobias\n>> >\n>> >> I would like to know about robust nonlinear regression R \n>> code as well.\n>> >>\n>> >> Arny\n>> >>\n>> >>\n>> >> Arnold J. Stromberg\n>> >> Professor and Chair\n>> >> Department of Statistics\n>> >> University of Kentucky\n>> >> 817 Patterson Office Tower\n>> >> Lexington, KY 40506-0027\n>> >> Phone: 859-257-6115\n>> >> Fax: 859-323-1973\n>> >>\n>> >>\n>> >> -----Original Message----- From: \n>> r-sig-robust-bounces at r-project.org \n>> >> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of \n>> >> khanx131 at umn.edu Sent: Thursday, September 25, 2008 6:50 PM To: \n>> >> r-sig-robust at r-project.org Subject: [RsR] Robust \n>> nonlinear regression in \n>> >> R\n>> >>\n>> >> Hi dear linsters,\n>> >>\n>> >> I am starting work on a robust nonlinear regression \n>> project. Is there any\n>> >> code, stuff in R for robust estimation of nonlinear \n>> regression functions.\n>> >> any comments,material help, suggestions would be greatly \n>> appreciated.\n>> >> thanks in advance,\n>> >>\n>> >> Dost.\n>> >>\n>> >> _______________________________________________\n>> >> R-SIG-Robust at r-project.org mailing list\n>> >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >>\n>> >> _______________________________________________\n>> >> R-SIG-Robust at r-project.org mailing list\n>> >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >>\n>> >>\n>> >\n>> >\n>> >\n>> \n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>",
+      "body_snippet": "Dear Dorst\n\nThere are some good advices on how to generate good starting values in the book of Bates and Watts (\"Nonlinear Regression Analysis & Its Applications\", Wiley 1988).\n\nHint:\nIn partial linea",
+      "thread_id": "thread-269cde53b651",
+      "thread_depth": 1,
+      "month": "2008-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-82d0aa7a64d9",
+      "subject": "[RsR] Citation of robust::lmRob?",
+      "message_count": 2,
+      "participants": [
+        "Ajay Shah",
+        "Kjell Konis"
+      ],
+      "started": "2008-10-02T10:52:10+05:30",
+      "last_reply": "2008-10-02T12:04:07+02:00",
+      "root_message_id": "msg-82d0aa7a64d9"
+    },
+    {
+      "id": "thread-269cde53b651",
+      "subject": "[RsR] Robust nonlinear regression in R",
+      "message_count": 2,
+      "participants": [
+        "Ruckstuhl Andreas (rkst)",
+        "kh@@x131 m@iii@g oii um@@edu"
+      ],
+      "started": "2008-10-19T13:20:58-05:00",
+      "last_reply": "2008-10-20T08:00:01+02:00",
+      "root_message_id": "msg-269cde53b651"
+    }
+  ]
+}

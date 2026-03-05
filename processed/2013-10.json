@@ -1,0 +1,130 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2013-10",
+  "messages": [
+    {
+      "id": "msg-c08fe645c1d2",
+      "message_id": "<CAPRP4-eyoLcuB-voqDVAemBf5ofWCnXzO=z3cKNu_-zwDh2UrA@mail.gmail.com>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2013-10-01T09:07:40+02:00",
+      "subject": "[RsR] Is it acceptable to develope a model using a fitting procedure and then use a different fitting procedure to predict from it?",
+      "subject_clean": "[RsR] Is it acceptable to develope a model using a fitting procedure and then use a different fitting procedure to predict from it?",
+      "in_reply_to": "<CALsJ7pSEipJVNn3o5vB=SkpPuT0ddi7hBT0o00wEvO_WFnn2QA@mail.gmail.com>",
+      "references": [
+        "<CALsJ7pSEipJVNn3o5vB=SkpPuT0ddi7hBT0o00wEvO_WFnn2QA@mail.gmail.com>"
+      ],
+      "body_plain": "This has  *nothing* to do with robust statistics,\nso please do *not* post to this dedicated mailing list!\n\nMartin Maechler, ETH Zurich\n\nOn Tue, Oct 1, 2013 at 4:15 AM, Agus Camacho <agus.camacho at gmail.com> wrote:\n> Dear list, I have the following problem.\n>\n> I want to predict the value of a variable in nature, call it \"ecological\n> success(ES)\".\n>\n> For doing that, I made some virtual simulations with which I reached a\n> \"best model\" explaining ecological success. In the simulation, ES is a\n> categorical variable so I use a multinomial model with the gl.multi\n> function to iteratively find the best combination of factors that explain\n> that variable in the simulations.\n>\n> The model appears in R like:  ES~var1+var2:var3, so I have main terms alone\n> and also interactions.\n>\n> I can now fit this best model using the function \"multinom\" from nnet\n> package and get the coefficients for each term in the model. Something like:\n>\n> M=multinom(ES~var1+var2:var3,data)\n>\n> Now, in order to predict the values in nature I would naturally use the\n> function predict from the same package and real data to feed the model,\n> like:\n>\n> predict.nnet(M,realdata)\n>\n> However, this gives me categorical values. Would it be there a\n> statistically valid way to obtain a continuous output? This is important\n> because gives me more power to discriminate differences in ES among\n> species. However simulate continuous ES is nearly impossible for my system.\n>\n> For example, would it be valid to use a fitting function that assumes that\n> ES is continuous at  some point in the process (i.e. during the obtention\n> of the best model, or during the obtention of the coefficients?)\n>\n> There goes some reproducible example:\n>\n> ES =as.factor( sample( c(\"0\",\"1\",\"2\"), 100, replace=TRUE, prob=c(0.1, 0.2,\n> 0.65) ))\n> var1=  dnorm(1:100, mean = 30, sd = 20, log = FALSE)\n> var2=  as.numeric(ES)-var1\n> var3= (as.numeric(ES)-var1)/var2\n> simulation=data.frame(cbind(ES,var1,var2,var3))\n>\n> require(glmulti)\n> require(nnet)\n> multi.multi=function(formula, data){\n>   multinom(paste(deparse(formula)), data = data)# to compare models with\n> different factors use true ML not REML\n> }\n> # find best model for ES in the simulation (may take days or not converge)\n> M=glmulti(\n>   ES~var1*var2*var3,\n>   data=simulation, name = \"glmulti.analysis\",\n>   intercept = TRUE, marginality = FALSE,\n>   level = 2, minsize = 0, maxsize = -1, minK = -1, maxK = -1,\n>   fitfunction=multi.multi,\n>   method = \"g\", crit = \"aic\", confsetsize = 100,includeobjects=TRUE\n> )\n>\n> # determine the coefficients for the best model\n> M=multinom(ES~var1*var2*var3, data=simulation)\n> summary(M)\n>\n> #\"real data\"\n> var1=  dnorm(1:3, mean = 30, sd = 20, log = FALSE)\n> var2= dnorm(1:3, mean = 10, sd = 20, log = FALSE)\n> var3= dnorm(1:3, mean = 250, sd = 20, log = FALSE)\n> realdata=data.frame(cbind(var1,var2,var3))\n>\n> d=predict (M, realdata)# gives a lot of 1s, but  want to discriminate ES\n> finer.\n>\n> # Would it be correct to use a permutation fitting in glmulti like:\n>\n> require(lmPerm)\n>\n> multi.multi=function(formula, data){\n>   lmp(paste(deparse(formula)), data = data)#\n> }\n>\n> # if not, would it be correct to use a permutation procedure for fitting\n> the best obtained model?\n>\n> M=lmp(ES~var1*var2*var3, data=simulation)\n> d=predict (M, realdata)# this gives a continuous ES output, but with\n> warning.\n>\n>\n>\n>\n>\n> Thanks in advance!!\n>\n> --\n> Agust?n Camacho Guerrero.\n> Doutor em Zoologia.\n> Laborat?rio de Herpetologia, Departamento de Zoologia, Instituto de\n> Bioci?ncias, USP.\n> Rua do Mat?o, trav. 14, n? 321, Cidade Universit?ria,\n> S?o Paulo - SP, CEP: 05508-090, Brasil.\n>\n>         [[alternative HTML version deleted]]\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "This has  *nothing* to do with robust statistics,\nso please do *not* post to this dedicated mailing list!\n\nMartin Maechler, ETH Zurich\n\nOn Tue, Oct 1, 2013 at 4:15 AM, Agus Camacho <agus.camacho at gm",
+      "thread_id": "thread-c08fe645c1d2",
+      "thread_depth": 0,
+      "month": "2013-10"
+    },
+    {
+      "id": "msg-3084717e06bb",
+      "message_id": "<C1A5238848713043B7C18ED38FFEF1F8122BCC3D@STWMB03.ad.okstate.edu>",
+      "from_name": "Worthington, Thomas A",
+      "from_email_hash": "745c68ddf2abf55439a9d4ec7a772c843906c88a691a20c67ab3e432e9d03f62",
+      "date": "2013-10-09T20:17:14Z",
+      "subject": "[RsR] Robust Anova with missing values",
+      "subject_clean": "[RsR] Robust Anova with missing values",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am trying to run a robust anova  from the WRS package using either of the functions\n\nt2way(2,4,data2)\n\nor\n\npbad2way(2,4,data2,est=median)\n\ndata2 contains eight columns of data for the 2 x 4 design, however the numbers of items in each column varies and therefore the dataset contains NAs\nWhen I run the functions I get an error message which I assume is related to the columns having different lengths, is there an equivalent function that can incorporate this unbalanced design?\n\nBest wishes\n\nTom\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I am trying to run a robust anova  from the WRS package using either of the functions\n\nt2way(2,4,data2)\n\nor\n\npbad2way(2,4,data2,est=median)\n\ndata2 contains eight columns of data for the 2 x 4 design, ",
+      "thread_id": "thread-3084717e06bb",
+      "thread_depth": 0,
+      "month": "2013-10"
+    },
+    {
+      "id": "msg-41d497a2edcb",
+      "message_id": "<A4839583-C380-4122-916E-87FA930080E4@gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "2a2bc532df5431edcf7eb21908cc6024199c4e954cfbc1a71ca9144a25f3748f",
+      "date": "2013-10-11T17:30:54+03:00",
+      "subject": "[RsR] Robust Anova with missing values",
+      "subject_clean": "[RsR] Robust Anova with missing values",
+      "in_reply_to": "<C1A5238848713043B7C18ED38FFEF1F8122BCC3D@STWMB03.ad.okstate.edu>",
+      "references": [
+        "<C1A5238848713043B7C18ED38FFEF1F8122BCC3D@STWMB03.ad.okstate.edu>"
+      ],
+      "body_plain": "Dear Tom,\n\nIt's difficult to give concrete advice with this little information. But you might want to try to formulate your anova as mixed effects model and use robust mixed effects models instead. Unbalancedness and crossed factors are no problem at least with my package robustlmm. It builds on lme4 and has similar syntax. There is also the package heavyt that builds on nlme, you might want to check that out as well. \n\nHope this helps,\nManuel\n\nOn 9. Oct 2013, at 23:17 , \"Worthington, Thomas A\" <thomas.worthington at okstate.edu> wrote:\n\n> I am trying to run a robust anova  from the WRS package using either of the functions\n> \n> t2way(2,4,data2)\n> \n> or\n> \n> pbad2way(2,4,data2,est=median)\n> \n> data2 contains eight columns of data for the 2 x 4 design, however the numbers of items in each column varies and therefore the dataset contains NAs\n> When I run the functions I get an error message which I assume is related to the columns having different lengths, is there an equivalent function that can incorporate this unbalanced design?\n> \n> Best wishes\n> \n> Tom\n> \n> \t[[alternative HTML version deleted]]\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Dear Tom,\n\nIt's difficult to give concrete advice with this little information. But you might want to try to formulate your anova as mixed effects model and use robust mixed effects models instead. Un",
+      "thread_id": "thread-3084717e06bb",
+      "thread_depth": 1,
+      "month": "2013-10"
+    },
+    {
+      "id": "msg-659be474ef4d",
+      "message_id": "<CA++P4r2KBxWauH=McfXfVqSTPzOP-n0fTVp6hgam63Ed9MAGKw@mail.gmail.com>",
+      "from_name": "Ajay Shah",
+      "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
+      "date": "2013-10-29T13:56:36+05:30",
+      "subject": "[RsR] Outliers and ARMA?",
+      "subject_clean": "[RsR] Outliers and ARMA?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "When I use TSA::detectIO() and TSA::detectAO() I find that my data has a\nfew outliers. What should one do next?\n\nHere's a self-contained example:\n\npi <- c(9.11, 4.53, 20.17, 13.26, 15.29, 12.95, 14.93, 12.65, -4.2,\n-4.22, 8.42, 10.44, 8.29, 14.37, 20.24, 17.93, 11.8, 17.49, 3.85,\n9.58, -9.58, 0, 9.58, 7.61, 7.56, 20.55, 23.84, 26.93, 7.08, 8.79,\n6.99, 6.95, -13.93, -8.79, 5.28, 10.5, 19.01, 13.64, 18.5, 21.5,\n14.66, 3.23, 6.44, 11.19, 3.18, 0, 0, 3.17, 11.03, -7.87, 11, 9.35,\n3.1, 7.72, 12.25, 4.56, 19.56, 36.75, -5.8, -5.83, 8.74, 18.72, 31.02,\n35.66, 5.39, 20.01, 36.48, 14.04, -24.35, -26.17, -14.64, -2.68, 2.68,\n11.99, 2.65, 11.85, 5.23, 9.1, 21.81, 2.54, -19.18, 0, -2.58, 10.29,\n11.47, 5.06, 6.3, 7.52, -5.01, 2.51, 13.69, 2.47, -11.16, -2.49,\n-5.01, 5.01, 8.71, 7.42, 15.91, 15.7, 8.37, -3.58, 8.34, 9.46, -7.09,\n-4.75, -2.38, 4.76, 2.37, 7.09, 10.55, 12.77, 6.91, 3.44, 4.57, 4.55,\n-12.57, -2.3, 2.3, 8.01, 14.74, 2.25, 6.73, 10.02, -4.44, 0, 8.87,\n3.31, -5.52, 5.52, 0, 0, 0, 8.78, 9.8, 11.88, 10.7, 3.19, 6.35, -2.11,\n-9.56, 11.68, -2.11, 0, 9.49, -5.26, 5.26, 19.78, 4.12, 5.13, 13.25,\n10.09, -6.05, 2.02, 0, 0, 10.04, 9.96, 19.67, 9.72, 0, 9.64, 19.05, 0,\n0, 0, 9.41, -9.41, 9.41, 9.34, 9.27, 18.32, 9.06, 0, 8.99, 0, 0, 0,\n8.92, 17.65, 8.73, 8.66, 8.6, 25.44, 16.67, 8.25, 16.33, 0, -8.14,\n8.14, 0, 0, 16.11, 7.97, 15.79, 53.68, 14.91, 7.38, 14.63, 21.62,\n7.12, 21.11, -14.04, 0, 0, 14.04, 13.87, 27.27, 0, 6.72, 13.33, 6.61,\n19.62, 19.3, -19.3, 0, 6.47, 6.43, 12.77, 25.13, 6.2, 18.41, 6.08,\n6.05, -12.12, 6.08, 6.05, 12, 23.65, 5.84, 11.59, 22.86, 11.27, 5.59,\n11.11, 5.52, 5.49, 10.91, 10.81, 5.37, 10.67, 10.57, 15.69, 20.6,\n10.17)\ntimeaxis <- seq(from=as.yearmon(\"Apr 1993\"), to=as.yearmon(\"Aug 2013\"),\nby=1/12)\n\nm <- arima(pi, order=c(1,0,0), seasonal=list(order=c(1,0,0), period=12))\nerrors <- resid(m)\nboxplot(errors)                         # There are a few outliers\n\nlibrary(TSA)\nweird <- unique(sort(c(detectIO(m)$ind, detectAO(m)$ind)))\npar(mai=c(.4, .8, .2, .2))\nplot(timeaxis, pi, type=\"l\", col=\"blue\", xlab=\"\", ylab=\"Per cent\");\nabline(h=0)\npoints(timeaxis[weird], pi[weird], col=\"red\", cex=2)\n\nAny suggestions would be most appreciated. :)\n\n-- \nAjay Shah\najayshah at mayin.org\nhttp://www.mayin.org/ajayshah\nhttp://ajayshahblog.blogspot.com\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "When I use TSA::detectIO() and TSA::detectAO() I find that my data has a\nfew outliers. What should one do next?\n\nHere's a self-contained example:\n\npi <- c(9.11, 4.53, 20.17, 13.26, 15.29, 12.95, 14.93",
+      "thread_id": "thread-659be474ef4d",
+      "thread_depth": 0,
+      "month": "2013-10"
+    },
+    {
+      "id": "msg-e14a8f94ed35",
+      "message_id": "<CAEucKOHu-n9FUZCmnX_L+SUX0jB7bs0HTpxTTv00a8O8KPd7iQ@mail.gmail.com>",
+      "from_name": "Dayashka Khan",
+      "from_email_hash": "b6b272ba6a443c2f78497a002c43a79c2ffeba4ad9d4071f348b8117434151ec",
+      "date": "2013-10-30T15:59:06+05:00",
+      "subject": "[RsR] Outliers and ARMA?",
+      "subject_clean": "[RsR] Outliers and ARMA?",
+      "in_reply_to": "<CA++P4r2KBxWauH=McfXfVqSTPzOP-n0fTVp6hgam63Ed9MAGKw@mail.gmail.com>",
+      "references": [
+        "<CA++P4r2KBxWauH=McfXfVqSTPzOP-n0fTVp6hgam63Ed9MAGKw@mail.gmail.com>"
+      ],
+      "body_plain": "hello Ajay\ncan you please discuss three main points regarding your code\n1) why you have fitted AR1 on the variable pi (means how you have\nidentified it)\n2) Why you have used the unique(sort()) command when the detectAO and\ndetectIO already identify outliers at unique points. Even after using this\ncommand the results have AO and IO detected at same index eg index 70 and\nat 196.\n3)What is the main objective of your study and how will you incorporate\nthese identified outliers in your analysis or whether you just want to\nidentify them graphically?\nregards\n\n\n\nOn Tue, Oct 29, 2013 at 1:26 PM, Ajay Shah <ajayshah at mayin.org> wrote:\n\n> When I use TSA::detectIO() and TSA::detectAO() I find that my data has a\n> few outliers. What should one do next?\n>\n> Here's a self-contained example:\n>\n> pi <- c(9.11, 4.53, 20.17, 13.26, 15.29, 12.95, 14.93, 12.65, -4.2,\n> -4.22, 8.42, 10.44, 8.29, 14.37, 20.24, 17.93, 11.8, 17.49, 3.85,\n> 9.58, -9.58, 0, 9.58, 7.61, 7.56, 20.55, 23.84, 26.93, 7.08, 8.79,\n> 6.99, 6.95, -13.93, -8.79, 5.28, 10.5, 19.01, 13.64, 18.5, 21.5,\n> 14.66, 3.23, 6.44, 11.19, 3.18, 0, 0, 3.17, 11.03, -7.87, 11, 9.35,\n> 3.1, 7.72, 12.25, 4.56, 19.56, 36.75, -5.8, -5.83, 8.74, 18.72, 31.02,\n> 35.66, 5.39, 20.01, 36.48, 14.04, -24.35, -26.17, -14.64, -2.68, 2.68,\n> 11.99, 2.65, 11.85, 5.23, 9.1, 21.81, 2.54, -19.18, 0, -2.58, 10.29,\n> 11.47, 5.06, 6.3, 7.52, -5.01, 2.51, 13.69, 2.47, -11.16, -2.49,\n> -5.01, 5.01, 8.71, 7.42, 15.91, 15.7, 8.37, -3.58, 8.34, 9.46, -7.09,\n> -4.75, -2.38, 4.76, 2.37, 7.09, 10.55, 12.77, 6.91, 3.44, 4.57, 4.55,\n> -12.57, -2.3, 2.3, 8.01, 14.74, 2.25, 6.73, 10.02, -4.44, 0, 8.87,\n> 3.31, -5.52, 5.52, 0, 0, 0, 8.78, 9.8, 11.88, 10.7, 3.19, 6.35, -2.11,\n> -9.56, 11.68, -2.11, 0, 9.49, -5.26, 5.26, 19.78, 4.12, 5.13, 13.25,\n> 10.09, -6.05, 2.02, 0, 0, 10.04, 9.96, 19.67, 9.72, 0, 9.64, 19.05, 0,\n> 0, 0, 9.41, -9.41, 9.41, 9.34, 9.27, 18.32, 9.06, 0, 8.99, 0, 0, 0,\n> 8.92, 17.65, 8.73, 8.66, 8.6, 25.44, 16.67, 8.25, 16.33, 0, -8.14,\n> 8.14, 0, 0, 16.11, 7.97, 15.79, 53.68, 14.91, 7.38, 14.63, 21.62,\n> 7.12, 21.11, -14.04, 0, 0, 14.04, 13.87, 27.27, 0, 6.72, 13.33, 6.61,\n> 19.62, 19.3, -19.3, 0, 6.47, 6.43, 12.77, 25.13, 6.2, 18.41, 6.08,\n> 6.05, -12.12, 6.08, 6.05, 12, 23.65, 5.84, 11.59, 22.86, 11.27, 5.59,\n> 11.11, 5.52, 5.49, 10.91, 10.81, 5.37, 10.67, 10.57, 15.69, 20.6,\n> 10.17)\n> timeaxis <- seq(from=as.yearmon(\"Apr 1993\"), to=as.yearmon(\"Aug 2013\"),\n> by=1/12)\n>\n> m <- arima(pi, order=c(1,0,0), seasonal=list(order=c(1,0,0), period=12))\n> errors <- resid(m)\n> boxplot(errors)                         # There are a few outliers\n>\n> library(TSA)\n> weird <- unique(sort(c(detectIO(m)$ind, detectAO(m)$ind)))\n> par(mai=c(.4, .8, .2, .2))\n> plot(timeaxis, pi, type=\"l\", col=\"blue\", xlab=\"\", ylab=\"Per cent\");\n> abline(h=0)\n> points(timeaxis[weird], pi[weird], col=\"red\", cex=2)\n>\n> Any suggestions would be most appreciated. :)\n>\n> --\n> Ajay Shah\n> ajayshah at mayin.org\n> http://www.mayin.org/ajayshah\n> http://ajayshahblog.blogspot.com\n>\n>         [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "hello Ajay\ncan you please discuss three main points regarding your code\n1) why you have fitted AR1 on the variable pi (means how you have\nidentified it)\n2) Why you have used the unique(sort()) command",
+      "thread_id": "thread-659be474ef4d",
+      "thread_depth": 1,
+      "month": "2013-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-c08fe645c1d2",
+      "subject": "[RsR] Is it acceptable to develope a model using a fitting procedure and then use a different fitting procedure to predict from it?",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2013-10-01T09:07:40+02:00",
+      "last_reply": "2013-10-01T09:07:40+02:00",
+      "root_message_id": "msg-c08fe645c1d2"
+    },
+    {
+      "id": "thread-3084717e06bb",
+      "subject": "[RsR] Robust Anova with missing values",
+      "message_count": 2,
+      "participants": [
+        "Manuel Koller",
+        "Worthington, Thomas A"
+      ],
+      "started": "2013-10-09T20:17:14+00:00",
+      "last_reply": "2013-10-11T17:30:54+03:00",
+      "root_message_id": "msg-3084717e06bb"
+    },
+    {
+      "id": "thread-659be474ef4d",
+      "subject": "[RsR] Outliers and ARMA?",
+      "message_count": 2,
+      "participants": [
+        "Ajay Shah",
+        "Dayashka Khan"
+      ],
+      "started": "2013-10-29T13:56:36+05:30",
+      "last_reply": "2013-10-30T15:59:06+05:00",
+      "root_message_id": "msg-659be474ef4d"
+    }
+  ]
+}

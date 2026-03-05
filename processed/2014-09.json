@@ -1,0 +1,207 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2014-09",
+  "messages": [
+    {
+      "id": "msg-b5486dc23b9b",
+      "message_id": "<21538.32250.67575.749398@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2014-09-24T10:16:58+02:00",
+      "subject": "[RsR] [R] Median of streaming data",
+      "subject_clean": "[RsR] [R] Median of streaming data",
+      "in_reply_to": "<54226816.700@auckland.ac.nz>",
+      "references": [
+        "<CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>",
+        "<54226816.700@auckland.ac.nz>"
+      ],
+      "body_plain": ">>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:\n\n    > On 24/09/14 17:31, Mohan Radhakrishnan wrote:\n    >> Hi,\n    >> \n    >> I have streaming data(1 TB) that can't fit in memory. Is\n    >> there a way for me to find the median of these streaming\n    >> integers assuming I can fit only a small part in memory ?\n    >> This is about the statistical approach to find the median\n    >> of a large number of values when I can inspect only a\n    >> part of them due to memory constraints.\n\n    > You cannot, I'm pretty sure, calculate the median\n    > recursively.  However there are \"approximate\" recursive\n    > median algorithms which provide an estimate of location\n    > that has the same asymptotic properties as the median.\n\n    > See:\n\n    > * U. Holst, Recursive estimators of location.\n    > Commun. Statist. Theory Meth., vol. 16, 1987,\n    > pp. 2201--2226.\n\n    > and\n\n    > * Murray A. Cameron and T. Rolf Turner, Recursive location\n    > and scale estimators, Commun. Statist. Theory Meth.,\n    > vol. 22, 1993, pp. 2503--2515.\n\nThis is really interesting to me, thank you, Rolf!\n\nOTOH,\n\n1) has your proposal ever been provided in R?\n   I'd be happy to add it to the robustX\n   (http://cran.ch.r-project.org/web/packages/robustX) or even\n   robustbase (http://cran.ch.r-project.org/web/packages/robustbase) package.\n\n2) Would anybody know of more recent research on the subject?\n   (I quickly \"googled around\" and found research more geared\n    for the time series situation which is more involved anyway)\n\n   --> Hence CC'ing the experts' list  R-SIG-robust\n\n\nMartin Maechler,  ETH Zurich\n\n\n    > cheers,\n    > Rolf Turner\n\n    > -- \n    > Rolf Turner Technical Editor ANZJS",
+      "body_snippet": ">>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:\n\n    > On 24/09/14 17:31, Mohan Radhakrishnan wrote:\n    >> Hi,\n    >> \n    >> I have streaming data",
+      "thread_id": "thread-b5486dc23b9b",
+      "thread_depth": 0,
+      "month": "2014-09"
+    },
+    {
+      "id": "msg-0ff21c1903d5",
+      "message_id": "<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>",
+      "from_name": "Martyn Byng",
+      "from_email_hash": "1a990c9f7ea0147710e44a1ae8ab8fd440868094e827474b484ebab22e6b0fc2",
+      "date": "2014-09-24T10:29:33Z",
+      "subject": "[RsR] [R] Median of streaming data",
+      "subject_clean": "[RsR] [R] Median of streaming data",
+      "in_reply_to": "<21538.32250.67575.749398@stat.math.ethz.ch>",
+      "references": [
+        "<CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>",
+        "<54226816.700@auckland.ac.nz>",
+        "<21538.32250.67575.749398@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Something else that might be of interest ...\n\nZhang Q and Wang W (2007) A fast algorithm for approximate quantiles in high speed data streams Proceedings of the 19th International Conference on Scientific and Statistical Database Management IEEE Computer Society 29\n\n-----Original Message-----\nFrom: r-help-bounces at r-project.org [mailto:r-help-bounces at r-project.org] On Behalf Of Martin Maechler\nSent: 24 September 2014 09:17\nTo: Rolf Turner\nCc: R-help at r-project.org; R-SIG-robust at r-project.org\nSubject: Re: [R] Median of streaming data\n\n>>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:\n\n    > On 24/09/14 17:31, Mohan Radhakrishnan wrote:\n    >> Hi,\n    >> \n    >> I have streaming data(1 TB) that can't fit in memory. Is\n    >> there a way for me to find the median of these streaming\n    >> integers assuming I can fit only a small part in memory ?\n    >> This is about the statistical approach to find the median\n    >> of a large number of values when I can inspect only a\n    >> part of them due to memory constraints.\n\n    > You cannot, I'm pretty sure, calculate the median\n    > recursively.  However there are \"approximate\" recursive\n    > median algorithms which provide an estimate of location\n    > that has the same asymptotic properties as the median.\n\n    > See:\n\n    > * U. Holst, Recursive estimators of location.\n    > Commun. Statist. Theory Meth., vol. 16, 1987,\n    > pp. 2201--2226.\n\n    > and\n\n    > * Murray A. Cameron and T. Rolf Turner, Recursive location\n    > and scale estimators, Commun. Statist. Theory Meth.,\n    > vol. 22, 1993, pp. 2503--2515.\n\nThis is really interesting to me, thank you, Rolf!\n\nOTOH,\n\n1) has your proposal ever been provided in R?\n   I'd be happy to add it to the robustX\n   (http://cran.ch.r-project.org/web/packages/robustX) or even\n   robustbase (http://cran.ch.r-project.org/web/packages/robustbase) package.\n\n2) Would anybody know of more recent research on the subject?\n   (I quickly \"googled around\" and found research more geared\n    for the time series situation which is more involved anyway)\n\n   --> Hence CC'ing the experts' list  R-SIG-robust\n\n\nMartin Maechler,  ETH Zurich\n\n\n    > cheers,\n    > Rolf Turner\n\n    > -- \n    > Rolf Turner Technical Editor ANZJS\n\n______________________________________________\nR-help at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-help\nPLEASE do read the posting guide http://www.R-project.org/posting-guide.html\nand provide commented, minimal, self-contained, reproducible code.\n\n________________________________________________________________________\nThis e-mail has been scanned for all viruses by Star.\\ _...{{dropped:3}}",
+      "body_snippet": "Something else that might be of interest ...\n\nZhang Q and Wang W (2007) A fast algorithm for approximate quantiles in high speed data streams Proceedings of the 19th International Conference on Scient",
+      "thread_id": "thread-b5486dc23b9b",
+      "thread_depth": 1,
+      "month": "2014-09"
+    },
+    {
+      "id": "msg-dc5854fa8244",
+      "message_id": "<CAOoXFP-0UPR+KWo71khz4bV5u5r5u-AjqmPo8sAwesjc2+-XhQ@mail.gmail.com>",
+      "from_name": "Mohan Radhakrishnan",
+      "from_email_hash": "cf5d63f481fb70839b2fcfcba12c7054f260bfc8952712bfb7498d173d2acb08",
+      "date": "2014-09-24T20:25:46+05:30",
+      "subject": "[RsR] [R] Median of streaming data",
+      "subject_clean": "[RsR] [R] Median of streaming data",
+      "in_reply_to": "<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>",
+      "references": [
+        "<CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>",
+        "<54226816.700@auckland.ac.nz>",
+        "<21538.32250.67575.749398@stat.math.ethz.ch>",
+        "<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>"
+      ],
+      "body_plain": "I meant the papers. I hit a paywall. Can we reconstruct the code from the\npapers ?\n\nThanks,\nMohan\n\nOn Wed, Sep 24, 2014 at 3:59 PM, Martyn Byng <martyn.byng at nag.co.uk> wrote:\n\n> Something else that might be of interest ...\n>\n> Zhang Q and Wang W (2007) A fast algorithm for approximate quantiles in\n> high speed data streams Proceedings of the 19th International Conference on\n> Scientific and Statistical Database Management IEEE Computer Society 29\n>\n> -----Original Message-----\n> From: r-help-bounces at r-project.org [mailto:r-help-bounces at r-project.org]\n> On Behalf Of Martin Maechler\n> Sent: 24 September 2014 09:17\n> To: Rolf Turner\n> Cc: R-help at r-project.org; R-SIG-robust at r-project.org\n> Subject: Re: [R] Median of streaming data\n>\n> >>>>> Rolf Turner <r.turner at auckland.ac.nz>\n> >>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:\n>\n>     > On 24/09/14 17:31, Mohan Radhakrishnan wrote:\n>     >> Hi,\n>     >>\n>     >> I have streaming data(1 TB) that can't fit in memory. Is\n>     >> there a way for me to find the median of these streaming\n>     >> integers assuming I can fit only a small part in memory ?\n>     >> This is about the statistical approach to find the median\n>     >> of a large number of values when I can inspect only a\n>     >> part of them due to memory constraints.\n>\n>     > You cannot, I'm pretty sure, calculate the median\n>     > recursively.  However there are \"approximate\" recursive\n>     > median algorithms which provide an estimate of location\n>     > that has the same asymptotic properties as the median.\n>\n>     > See:\n>\n>     > * U. Holst, Recursive estimators of location.\n>     > Commun. Statist. Theory Meth., vol. 16, 1987,\n>     > pp. 2201--2226.\n>\n>     > and\n>\n>     > * Murray A. Cameron and T. Rolf Turner, Recursive location\n>     > and scale estimators, Commun. Statist. Theory Meth.,\n>     > vol. 22, 1993, pp. 2503--2515.\n>\n> This is really interesting to me, thank you, Rolf!\n>\n> OTOH,\n>\n> 1) has your proposal ever been provided in R?\n>    I'd be happy to add it to the robustX\n>    (http://cran.ch.r-project.org/web/packages/robustX) or even\n>    robustbase (http://cran.ch.r-project.org/web/packages/robustbase)\n> package.\n>\n> 2) Would anybody know of more recent research on the subject?\n>    (I quickly \"googled around\" and found research more geared\n>     for the time series situation which is more involved anyway)\n>\n>    --> Hence CC'ing the experts' list  R-SIG-robust\n>\n>\n> Martin Maechler,  ETH Zurich\n>\n>\n>     > cheers,\n>     > Rolf Turner\n>\n>     > --\n>     > Rolf Turner Technical Editor ANZJS\n>\n> ______________________________________________\n> R-help at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-help\n> PLEASE do read the posting guide\n> http://www.R-project.org/posting-guide.html\n> and provide commented, minimal, self-contained, reproducible code.\n>\n> ________________________________________________________________________\n> This e-mail has been scanned for all viruses by Star.\\ _...{{dropped:3}}\n>\n> ______________________________________________\n> R-help at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-help\n> PLEASE do read the posting guide\n> http://www.R-project.org/posting-guide.html\n> and provide commented, minimal, self-contained, reproducible code.\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I meant the papers. I hit a paywall. Can we reconstruct the code from the\npapers ?\n\nThanks,\nMohan\n\nOn Wed, Sep 24, 2014 at 3:59 PM, Martyn Byng <martyn.byng at nag.co.uk> wrote:\n\n> Something else that",
+      "thread_id": "thread-b5486dc23b9b",
+      "thread_depth": 2,
+      "month": "2014-09"
+    },
+    {
+      "id": "msg-6f0db7583daf",
+      "message_id": "<87eac9f6578df1e610b4f79ea8d5f423@statistik.tu-dortmund.de>",
+      "from_name": "biostat",
+      "from_email_hash": "ca7a122a868f4f533e73b9073f4298c9f386169680573a38a82d351937438dae",
+      "date": "2014-09-24T22:31:28+02:00",
+      "subject": "[RsR] [R] Median of streaming data",
+      "subject_clean": "[RsR] [R] Median of streaming data",
+      "in_reply_to": "<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>",
+      "references": [
+        "<CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>",
+        "<54226816.700@auckland.ac.nz>",
+        "<21538.32250.67575.749398@stat.math.ethz.ch>",
+        "<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>"
+      ],
+      "body_plain": "Two further interesting references might be\nhttp://www.stat.cmu.edu/~ryantibs/papers/median.pdf\nand\nhttp://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6691602\n\nBest\nRoland\n\nAm 24.09.2014 12:29, schrieb Martyn Byng:\n> Something else that might be of interest ...\n>\n> Zhang Q and Wang W (2007) A fast algorithm for approximate quantiles\n> in high speed data streams Proceedings of the 19th International\n> Conference on Scientific and Statistical Database Management IEEE\n> Computer Society 29\n>\n> -----Original Message-----\n> From: r-help-bounces at r-project.org\n> [mailto:r-help-bounces at r-project.org] On Behalf Of Martin Maechler\n> Sent: 24 September 2014 09:17\n> To: Rolf Turner\n> Cc: R-help at r-project.org; R-SIG-robust at r-project.org\n> Subject: Re: [R] Median of streaming data\n>\n>>>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:\n>\n>     > On 24/09/14 17:31, Mohan Radhakrishnan wrote:\n>     >> Hi,\n>     >>\n>     >> I have streaming data(1 TB) that can't fit in memory. Is\n>     >> there a way for me to find the median of these streaming\n>     >> integers assuming I can fit only a small part in memory ?\n>     >> This is about the statistical approach to find the median\n>     >> of a large number of values when I can inspect only a\n>     >> part of them due to memory constraints.\n>\n>     > You cannot, I'm pretty sure, calculate the median\n>     > recursively.  However there are \"approximate\" recursive\n>     > median algorithms which provide an estimate of location\n>     > that has the same asymptotic properties as the median.\n>\n>     > See:\n>\n>     > * U. Holst, Recursive estimators of location.\n>     > Commun. Statist. Theory Meth., vol. 16, 1987,\n>     > pp. 2201--2226.\n>\n>     > and\n>\n>     > * Murray A. Cameron and T. Rolf Turner, Recursive location\n>     > and scale estimators, Commun. Statist. Theory Meth.,\n>     > vol. 22, 1993, pp. 2503--2515.\n>\n> This is really interesting to me, thank you, Rolf!\n>\n> OTOH,\n>\n> 1) has your proposal ever been provided in R?\n>    I'd be happy to add it to the robustX\n>    (http://cran.ch.r-project.org/web/packages/robustX) or even\n>    robustbase (http://cran.ch.r-project.org/web/packages/robustbase) \n> package.\n>\n> 2) Would anybody know of more recent research on the subject?\n>    (I quickly \"googled around\" and found research more geared\n>     for the time series situation which is more involved anyway)\n>\n>    --> Hence CC'ing the experts' list  R-SIG-robust\n>\n>\n> Martin Maechler,  ETH Zurich\n>\n>\n>     > cheers,\n>     > Rolf Turner\n>\n>     > --\n>     > Rolf Turner Technical Editor ANZJS\n>\n> ______________________________________________\n> R-help at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-help\n> PLEASE do read the posting guide \n> http://www.R-project.org/posting-guide.html\n> and provide commented, minimal, self-contained, reproducible code.\n>\n> \n> ________________________________________________________________________\n> This e-mail has been scanned for all viruses by Star.\\ \n> _...{{dropped:3}}\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Two further interesting references might be\nhttp://www.stat.cmu.edu/~ryantibs/papers/median.pdf\nand\nhttp://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6691602\n\nBest\nRoland\n\nAm 24.09.2014 12:29, s",
+      "thread_id": "thread-b5486dc23b9b",
+      "thread_depth": 2,
+      "month": "2014-09"
+    },
+    {
+      "id": "msg-858ace35e54f",
+      "message_id": "<54233461.9010908@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2014-09-24T14:15:13-07:00",
+      "subject": "[RsR] [R] Median of streaming data",
+      "subject_clean": "[RsR] [R] Median of streaming data",
+      "in_reply_to": "<21538.32250.67575.749398@stat.math.ethz.ch>",
+      "references": [
+        "<CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>",
+        "<54226816.700@auckland.ac.nz>",
+        "<21538.32250.67575.749398@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Martin,\n\nThere's also the work of a former PhD student in our Dept:\n\nhttp://arxiv.org/pdf/1007.1032.pdf\n\nMatias\n\n\n\n\nOn 24/09/2014 1:16 AM, Martin Maechler wrote:\n>>>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>>      on Wed, 24 Sep 2014 18:43:34 +1200 writes:\n>      > On 24/09/14 17:31, Mohan Radhakrishnan wrote:\n>      >> Hi,\n>      >>\n>      >> I have streaming data(1 TB) that can't fit in memory. Is\n>      >> there a way for me to find the median of these streaming\n>      >> integers assuming I can fit only a small part in memory ?\n>      >> This is about the statistical approach to find the median\n>      >> of a large number of values when I can inspect only a\n>      >> part of them due to memory constraints.\n>\n>      > You cannot, I'm pretty sure, calculate the median\n>      > recursively.  However there are \"approximate\" recursive\n>      > median algorithms which provide an estimate of location\n>      > that has the same asymptotic properties as the median.\n>\n>      > See:\n>\n>      > * U. Holst, Recursive estimators of location.\n>      > Commun. Statist. Theory Meth., vol. 16, 1987,\n>      > pp. 2201--2226.\n>\n>      > and\n>\n>      > * Murray A. Cameron and T. Rolf Turner, Recursive location\n>      > and scale estimators, Commun. Statist. Theory Meth.,\n>      > vol. 22, 1993, pp. 2503--2515.\n>\n> This is really interesting to me, thank you, Rolf!\n>\n> OTOH,\n>\n> 1) has your proposal ever been provided in R?\n>     I'd be happy to add it to the robustX\n>     (http://cran.ch.r-project.org/web/packages/robustX) or even\n>     robustbase (http://cran.ch.r-project.org/web/packages/robustbase) package.\n>\n> 2) Would anybody know of more recent research on the subject?\n>     (I quickly \"googled around\" and found research more geared\n>      for the time series situation which is more involved anyway)\n>\n>     --> Hence CC'ing the experts' list  R-SIG-robust\n>\n>\n> Martin Maechler,  ETH Zurich\n>\n>\n>      > cheers,\n>      > Rolf Turner\n>\n>      > --\n>      > Rolf Turner Technical Editor ANZJS\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Martin,\n\nThere's also the work of a former PhD student in our Dept:\n\nhttp://arxiv.org/pdf/1007.1032.pdf\n\nMatias\n\n\n\n\nOn 24/09/2014 1:16 AM, Martin Maechler wrote:\n>>>>>> Rolf Turner <r.turner at auckla",
+      "thread_id": "thread-b5486dc23b9b",
+      "thread_depth": 1,
+      "month": "2014-09"
+    },
+    {
+      "id": "msg-6381b5d28ee6",
+      "message_id": "<542336E5.9060808@auckland.ac.nz>",
+      "from_name": "Rolf Turner",
+      "from_email_hash": "85365426fbf4496cfac2415de7f8b411ee0133e9a8b2316f8939adcd30c2a157",
+      "date": "2014-09-25T09:25:57+12:00",
+      "subject": "[RsR] [R] Median of streaming data",
+      "subject_clean": "[RsR] [R] Median of streaming data",
+      "in_reply_to": "<CAOoXFP-0UPR+KWo71khz4bV5u5r5u-AjqmPo8sAwesjc2+-XhQ@mail.gmail.com>",
+      "references": [
+        "<CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>",
+        "<54226816.700@auckland.ac.nz>",
+        "<21538.32250.67575.749398@stat.math.ethz.ch>",
+        "<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>",
+        "<CAOoXFP-0UPR+KWo71khz4bV5u5r5u-AjqmPo8sAwesjc2+-XhQ@mail.gmail.com>"
+      ],
+      "body_plain": "On 25/09/14 02:55, Mohan Radhakrishnan wrote:\n>\n> I meant the papers. I hit a paywall. Can we reconstruct the code from\n> the papers ?\n\nShouldn't be too tough; the algorithm (in the Cameron and Turner paper) \nis actually pretty simple.\n\nI intend to code it up again; could not find any trace of the old \n(Splus?) code in my chaotic archives.\n\nShould be able to get it done \"real soon now\".\n\ncheers,\n\nRolf\n\n\n-- \nRolf Turner\nTechnical Editor ANZJS",
+      "body_snippet": "On 25/09/14 02:55, Mohan Radhakrishnan wrote:\n>\n> I meant the papers. I hit a paywall. Can we reconstruct the code from\n> the papers ?\n\nShouldn't be too tough; the algorithm (in the Cameron and Turner",
+      "thread_id": "thread-b5486dc23b9b",
+      "thread_depth": 3,
+      "month": "2014-09"
+    },
+    {
+      "id": "msg-077a77bdb865",
+      "message_id": "<000601cfd96a$5b545d10$11fd1730$@t-online.de>",
+      "from_name": "Bruno Merk",
+      "from_email_hash": "89dee8dcf3b93dff6d309b83d4e7ecf99a967367d8148a0153a064673443d2d4",
+      "date": "2014-09-26T11:15:03+02:00",
+      "subject": "[RsR] robust fitting using Lorentzian merit function",
+      "subject_clean": "[RsR] robust fitting using Lorentzian merit function",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI'm currently doing non-linear curve fitting with nls and robust fitting\n(for subsequent outlier detection) using nlrob.\n\nDoes anyone know if there are any functions/packages available in R for\nrobust fitting using a Lorentzian merit function to minimize?\n\nMany thanks and kind regards,\n\n \n\nBruno\n\n \n\n \n\nDr. Bruno Merk \nBoehringer Ingelheim Pharma GmbH & Co. KG\nIT RDM Research\n\n\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\n\nI'm currently doing non-linear curve fitting with nls and robust fitting\n(for subsequent outlier detection) using nlrob.\n\nDoes anyone know if there are any functions/packages available in R fo",
+      "thread_id": "thread-077a77bdb865",
+      "thread_depth": 0,
+      "month": "2014-09"
+    },
+    {
+      "id": "msg-5cb11a942797",
+      "message_id": "<21541.13953.417228.646860@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2014-09-26T11:48:49+02:00",
+      "subject": "[RsR] [R] Median of streaming data",
+      "subject_clean": "[RsR] [R] Median of streaming data",
+      "in_reply_to": "<54235766.3070400@auckland.ac.nz>",
+      "references": [
+        "<CAOoXFP9vQ6Cirtebeq509xEUr2iMvVw2aP5nbSxDO-G=10sNhA@mail.gmail.com>",
+        "<54226816.700@auckland.ac.nz>",
+        "<21538.32250.67575.749398@stat.math.ethz.ch>",
+        "<54235766.3070400@auckland.ac.nz>"
+      ],
+      "body_plain": ">>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>     on Thu, 25 Sep 2014 11:44:38 +1200 writes:\n\n    > On 24/09/14 20:16, Martin Maechler wrote: <SNIP>\n\n    >> 1) has your proposal ever been provided in R?  I'd be\n    >> happy to add it to the robustX\n    >> (http://cran.ch.r-project.org/web/packages/robustX) or\n    >> even robustbase\n    >> (http://cran.ch.r-project.org/web/packages/robustbase)\n    >> package.\n\n    > <SNIP>\n\n    > I have coded up the algorithm from the Cameron and Turner\n    > paper.  Dunno if it gives exactly the same results as my\n    > (Splus?) code from lo these many years ago (the code that\n    > is lost in the mists of time), but it *seems* to work.\n\nexcellent, thank you, Rolf!\n\n    > It is not designed to work with actual \"streaming\" data\n    > --- I don't know how to do that.  It takes a complete data\n    > vector as input.  Someone who knows about streaming data\n    > should be able to adapt it pretty easily.  Said he, the\n    > proverbial optimist.\n\nI agree; that should not be hard. \nOne way is to replace   'y[ind]' by   'getY(ind)' everywhere in the code\nand let 'getY' be an argument to rlas() provided by the user.\n\n    > The function code and a help file are attached.  These\n    > files have had their names changed to end in \".txt\" so\n    > that they will get through the mailing list processor\n    > without being stripped.  With a bit of luck.\n;-)\n\nIt did work indeed.\nI've added them to  'robustX' -- on R-forge,\nincluding a plot() method and some little more flexibility.\n\n  --> https://r-forge.r-project.org/R/?group_id=59\n\nThank you for all the other pointers to litterature (but none to\nsoftware), some of which quite recent.\n\n\nOne old idea that was not directly mentioned I think is the\n\"Remedian\"  of Rouseeuw and Basset:\n\n  Peter J. Rousseeuw and Gilbert W. Bassett, Jr. (1998)\n  The Remedian: A Robust Averaging Method for Large Data Sets\n  Journal of the American Statistical Association, Vol. 85, No. 409, pp. 97-104\n\t  [URL: http://www.jstor.org/stable/2289530]\n\nwhich is also easy to implement and I plan to add to robustbase\n(as I'd want to use the C code already in robustbase) as a\n\"reference\" estimator.\n\nPersonally, I think there is quite some room for research and\nimplementation, not the least because the litterature seems to\nalways be a bit incomplete {one \"school\" not knowning about, or\nat least not citing works of the other \"school\", etc...}\n\nMartin\n\n--\nMartin Maechler, ETH Zurich\n\n\n    > If they *don't* get through, anyone who is interested\n    > should contact me and I will send them to you \"privately\".\n\n    > cheers,\n    > Rolf\n\n    > -- \n    > Rolf Turner Technical Editor ANZJS \n    > \n    > external: rlas.R, plain text]\n    > external: rlas.Rd, plain text]",
+      "body_snippet": ">>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>     on Thu, 25 Sep 2014 11:44:38 +1200 writes:\n\n    > On 24/09/14 20:16, Martin Maechler wrote: <SNIP>\n\n    >> 1) has your proposal ever been provi",
+      "thread_id": "thread-5cb11a942797",
+      "thread_depth": 0,
+      "month": "2014-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b5486dc23b9b",
+      "subject": "[RsR] [R] Median of streaming data",
+      "message_count": 6,
+      "participants": [
+        "Martin Maechler",
+        "Martyn Byng",
+        "Matias Salibian-Barrera",
+        "Mohan Radhakrishnan",
+        "Rolf Turner",
+        "biostat"
+      ],
+      "started": "2014-09-24T10:16:58+02:00",
+      "last_reply": "2014-09-25T09:25:57+12:00",
+      "root_message_id": "msg-b5486dc23b9b"
+    },
+    {
+      "id": "thread-077a77bdb865",
+      "subject": "[RsR] robust fitting using Lorentzian merit function",
+      "message_count": 1,
+      "participants": [
+        "Bruno Merk"
+      ],
+      "started": "2014-09-26T11:15:03+02:00",
+      "last_reply": "2014-09-26T11:15:03+02:00",
+      "root_message_id": "msg-077a77bdb865"
+    },
+    {
+      "id": "thread-5cb11a942797",
+      "subject": "[RsR] [R] Median of streaming data",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2014-09-26T11:48:49+02:00",
+      "last_reply": "2014-09-26T11:48:49+02:00",
+      "root_message_id": "msg-5cb11a942797"
+    }
+  ]
+}

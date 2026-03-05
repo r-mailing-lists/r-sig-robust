@@ -1,0 +1,2516 @@
+From H@rry@Southworth @end|ng |rom @@tr@zenec@@com  Thu Jan 27 13:26:25 2011
+From: H@rry@Southworth @end|ng |rom @@tr@zenec@@com (Southworth, Harry)
+Date: Thu, 27 Jan 2011 12:26:25 -0000
+Subject: [RsR] cov.SRocke
+In-Reply-To: <4CCA4859.40301@zhaw.ch>
+References: <08543120-EA2B-407D-B15F-B82A5FD11764@me.com>
+	<4CCA4859.40301@zhaw.ch>
+Message-ID: <5FEC4F8459B55448AB1D8E8D37D2B238075A127F@ukaprdembx02.rd.astrazeneca.net>
+
+Dear all,
+
+The book by Maronna, Martin and Yohai recommends use of a function,
+cov.SRocke, for computing an S-estimate of covariance in high
+dimensional problems.
+
+The software was located at an old Insightful address that no longer
+seems active.
+
+Does anyone have the code, know where I can find a function that does
+the same thing, or have a reference that argues for an alternative
+method.
+
+Thanks,
+Harry
+
+--------------------------------------------------------------------------
+AstraZeneca UK Limited is a company incorporated in Engl...{{dropped:20}}
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Thu Jan 27 15:18:25 2011
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Thu, 27 Jan 2011 15:18:25 +0100
+Subject: [RsR] cov.SRocke
+In-Reply-To: <5FEC4F8459B55448AB1D8E8D37D2B238075A127F@ukaprdembx02.rd.astrazeneca.net>
+References: <08543120-EA2B-407D-B15F-B82A5FD11764@me.com>
+	<4CCA4859.40301@zhaw.ch>
+	<5FEC4F8459B55448AB1D8E8D37D2B238075A127F@ukaprdembx02.rd.astrazeneca.net>
+Message-ID: <AANLkTik53PwB8rP9FRK=ONbJSLUQWr+gE-PvXdL0SPHe@mail.gmail.com>
+
+Dear Harry,
+
+Have a look at the function CovSest() in package rrcov, for example:
+
+library(rrcov)
+data(hbk)
+CovSest(hbk, method="rocke")
+
+With method="rocke" the function uses exactly the same algorithm you are
+referring to. Similar, but another implementation, is the function CovMest()
+in the same package.
+
+Best regards,
+Valentin
+
+
+
+On Thu, Jan 27, 2011 at 1:26 PM, Southworth, Harry <
+Harry.Southworth at astrazeneca.com> wrote:
+
+> Dear all,
+>
+> The book by Maronna, Martin and Yohai recommends use of a function,
+> cov.SRocke, for computing an S-estimate of covariance in high
+> dimensional problems.
+>
+> The software was located at an old Insightful address that no longer
+> seems active.
+>
+> Does anyone have the code, know where I can find a function that does
+> the same thing, or have a reference that argues for an alternative
+> method.
+>
+> Thanks,
+> Harry
+>
+> --------------------------------------------------------------------------
+> AstraZeneca UK Limited is a company incorporated in En...{{dropped:10}}
+
+
+
+From H@rry@Southworth @end|ng |rom @@tr@zenec@@com  Thu Jan 27 17:04:23 2011
+From: H@rry@Southworth @end|ng |rom @@tr@zenec@@com (Southworth, Harry)
+Date: Thu, 27 Jan 2011 16:04:23 -0000
+Subject: [RsR] cov.SRocke
+In-Reply-To: <AANLkTik53PwB8rP9FRK=ONbJSLUQWr+gE-PvXdL0SPHe@mail.gmail.com>
+References: <08543120-EA2B-407D-B15F-B82A5FD11764@me.com><4CCA4859.40301@zhaw.ch><5FEC4F8459B55448AB1D8E8D37D2B238075A127F@ukaprdembx02.rd.astrazeneca.net>
+	<AANLkTik53PwB8rP9FRK=ONbJSLUQWr+gE-PvXdL0SPHe@mail.gmail.com>
+Message-ID: <5FEC4F8459B55448AB1D8E8D37D2B238075A1485@ukaprdembx02.rd.astrazeneca.net>
+
+Thank you! Much appreciated.
+
+Harry
+
+
+
+From: Valentin Todorov [mailto:valentin.to at gmail.com]
+Sent: 27 January 2011 14:18
+To: Southworth, Harry
+Cc: r-sig-robust at r-project.org
+Subject: Re: [RsR] cov.SRocke
+
+
+
+Dear Harry,
+
+Have a look at the function CovSest() in package rrcov, for example:
+
+library(rrcov)
+data(hbk)
+CovSest(hbk, method="rocke")
+
+With method="rocke" the function uses exactly the same algorithm you are
+referring to. Similar, but another implementation, is the function
+CovMest() in the same package.
+
+Best regards,
+Valentin
+
+
+
+
+On Thu, Jan 27, 2011 at 1:26 PM, Southworth, Harry
+<Harry.Southworth at astrazeneca.com> wrote:
+
+Dear all,
+
+The book by Maronna, Martin and Yohai recommends use of a function,
+cov.SRocke, for computing an S-estimate of covariance in high
+dimensional problems.
+
+The software was located at an old Insightful address that no longer
+seems active.
+
+Does anyone have the code, know where I can find a function that does
+the same thing, or have a reference that argues for an alternative
+method.
+
+Thanks,
+Harry
+
+------------------------------------------------------------------------
+--
+AstraZeneca UK Limited is a company incorporated in
+Engl...{{dropped:20}}
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+
+--------------------------------------------------------------------------
+AstraZeneca UK Limited is a company incorporated in England and Wales with registered number: 03674842 and a registered office at 2 Kingdom Street, London, W2 6BD.
+Confidentiality Notice: This message is private and may contain confidential, proprietary and legally privileged information. If you have received this message in error, please notify us and remove it from your system and note that you must not copy, distribute or take any action in reliance on it. Any unauthorised use or disclosure of the contents of this message is not permitted and may be unlawful.
+Disclaimer: Email messages may be subject to delays, interception, non-delivery and unauthorised alterations. Therefore, information expressed in this message is not given or endorsed by AstraZeneca UK Limited unless otherwise notified by an authorised representative independent of this message. No contractual relationship is created by this message by any person unless specifically indicated by agreement in writing other than email.
+Monitoring: AstraZeneca UK Limited may monitor email traffic data and content for the purposes of the prevention and detection of crime, ensuring the security of our computer systems and checking Compliance with our Code of Conduct and Policies.
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Feb  4 10:05:22 2011
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 4 Feb 2011 10:05:22 +0100
+Subject: [RsR] [R] "hubers" function in R MASS library : problem and
+	solution
+In-Reply-To: <997923.69604.qm@web81701.mail.mud.yahoo.com>
+References: <997923.69604.qm@web81701.mail.mud.yahoo.com>
+Message-ID: <19787.49490.51970.107661@stat.math.ethz.ch>
+
+>>>>> Feiming Chen <feimingchen at yahoo.com>
+>>>>>     on Thu, 3 Feb 2011 12:03:05 -0800 (PST) writes:
+
+    > Hello:
+    > I found the "hubers" function in MASS library is NOT working on the following 
+    > data:
+
+    >> a <- 
+    >> c(7.19,7.19,7.19,9.41,6.79,9.41,7.19,9.41,1.64,7.19,7.19,7.19,7.19,1.422,7.19,6.79,7.19,6.79,7.19,7.19,4.44,6.55,6.79,7.19,9.41,9.41,7.19,7.19,7.19,7.19,1.64,1.597,1.64,7.19,1.422,7.19,6.79,9.38,7.19,1.64,7.19,7.19,7.19,7.19,7.19,1.64,7.19,6.79,6.79,1.649,1.64,7.19,1.597,1.64,6.55,7.19,7.19,1.64,7.19,7.19,1.407,1.672,1.672,7.19,6.55,7.19,7.19,9.41,1.407,7.19,7.19,9.41,7.19,9.41,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,9.41,7.19,6.79,7.19,6.79,1.64,1.422,7.19,7.19,1.67,1.64,1.64,1.64,1.64,1.787,7.19,7.19,7.19,6.79,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,1.64,1.64,1.64,1.422,9.41,1.64,7.19,7.19,7.19,7.19,7.19,7.19,7.19,6.79,6.79,7.19,6.79,7.19,7.19,1.407,7.19,4.42,9,1.64,1.64,6.79,1.664,1.664)
+    >> 
+
+    >> library(MASS)
+    >> hubers(a)
+    > ## NO response!
+
+    > I think it is due to the infinite loop caused by the following line in the code 
+    > of "hubers" (around Line 30):
+
+    > if ((abs(mu0 - mu1) < tol * s0) && 
+    > abs(s0 - s1) < tol * s0)  break
+
+    > where "s0" evaluates to ZERO initially (due to more than 50% of the number 
+    > 7.19). 
+
+yes.
+
+Not only for this reason,  the robustbase  package 
+has had the  'huberM()' function with some other slight
+advantages over MASS::huber.
+
+
+
+
+    > I propose to change the "<" sign to "<=":
+
+    > if ((abs(mu0 - mu1) <= tol * s0) && 
+    > abs(s0 - s1) <= tol * s0)  break
+
+    > which will break the infinite loop.    However, the new result is:
+
+    >> hubers(a)
+    > $mu
+    > [1] 7.19
+
+    > $s
+    > [1] 0
+
+    > which gives 0 standard deviation.  Actually the data does vary and it is not 
+    > true all values other than 7.19 are outliers.   
+
+Sure. Nontheless, the way Peter Huber had defined the "proposal
+2" Huber estimator,  s = 0, is the correct result.
+
+With the robustbase  huberM() function, you (can) get
+
+> huberM(a, warn0scale =TRUE)
+$mu
+[1] 7.19
+
+$s
+[1] 0
+
+$it
+[1] 0
+
+Warning message:
+In huberM(a, warn0scale = TRUE) :
+  scale 's' is zero -- returning initial 'mu'
+
+
+    >> plot(a)
+
+    > I think this is because we allow initial SD to equal to zero instead of a 
+    > POSITIVE value.   See Line 15 of the "hubers" function:
+
+    > if (missing(s))
+    > s0 <- mad(y)
+
+    > I propose setting "s0" to "mad(y)" or a small positive number, whichever is 
+    > larger.  For example:
+
+    > if (missing(s))
+    > s0 <- max(mad(y), tol)
+
+    > where tol=1e-6.
+
+but 'tol' is completely arbitrary and, the way you propose it
+makes the resulting estimate 
+no-longer-scale-equivariant.
+
+huberM() *has* an  s  argument for specifying the scale estimate,
+so you could use it as
+
+  huberM(a, s = max(mad(a), 1e-6))  
+
+if you want.
+
+Note that your sample 'a' is constructed in a way that all
+scale-equivariant 50%-breakpoint robust estimates of scale will return s = 0,
+as more than half of your observations are identical,
+and scale equivariance "ensures" that in this limiting case, indeed all
+other observations are "outliers".
+
+This last point is a somewhat interesting topic for
+"robustniks",
+and hence I'm CC'ing the dedicated "R + Robustness" mailing
+list, R-SIG-robust.
+
+Martin Maechler, ETH Zurich
+
+
+    >  With this change,  the result is more sensible:
+    >> hubers(a)
+    > $mu
+    > [1] 5.88
+    > $s
+    > [1] 2.937
+
+    > Could anyone take a look at this and decide if the above modifications to the 
+    > "hubers" function are warranted?Thanks a lot! 
+
+
+    > Sincerely, 
+    > Feiming Chen
+
+    > Read more >>   Options >>   
+    > [[alternative HTML version deleted]]
+
+    > ______________________________________________
+    > R-help at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-help
+    > PLEASE do read the posting guide http://www.R-project.org/posting-guide.html
+    > and provide commented, minimal, self-contained, reproducible code.
+
+
+
+From mroh@n @end|ng |rom doc@govt@nz  Sun Feb  6 22:23:30 2011
+From: mroh@n @end|ng |rom doc@govt@nz (Maheswaran Rohan)
+Date: Mon, 7 Feb 2011 10:23:30 +1300
+Subject: [RsR] [R] "hubers" function in R MASS library : problem
+	andsolution
+In-Reply-To: <19787.49490.51970.107661@stat.math.ethz.ch>
+References: <997923.69604.qm@web81701.mail.mud.yahoo.com>
+	<19787.49490.51970.107661@stat.math.ethz.ch>
+Message-ID: <F38F24C992883A40BFDE79ACF59E2C5401A7A6AA@WGNHOEVS1.depcon.internal>
+
+Hi Chen
+
+>  With this change,  the result is more sensible:
+    >> hubers(a)
+    > $mu
+    > [1] 5.88
+    > $s
+    > [1] 2.937
+
+
+This mu = 5.88 is very similar to the mean(a) = 5.877417. That means, no
+point to apply M-estimation if you are happy with the result.
+
+Following suggestion may be helpful, think about it!
+
+To overcome mad = 0 problem, try to define s = mean(abs((a - median(a)))
+
+> hubers(a, k = 1.5, s=mean(abs(a-median(a))))
+$mu
+[1] 6.414677
+
+$s
+[1] 1.689561
+
+> hubers(a, k = 1.345, s=mean(abs(a-median(a))))
+$mu
+[1] 6.480148
+
+$s
+[1] 1.689561
+
+Regards
+Rohan
+
+
+
+-----Original Message-----
+From: r-sig-robust-bounces at r-project.org
+[mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Martin Maechler
+Sent: Friday, 4 February 2011 10:05 p.m.
+To: Feiming Chen
+Cc: r-help at r-project.org; r-sig-robust at r-project.org
+Subject: Re: [RsR] [R] "hubers" function in R MASS library : problem
+andsolution
+
+>>>>> Feiming Chen <feimingchen at yahoo.com>
+>>>>>     on Thu, 3 Feb 2011 12:03:05 -0800 (PST) writes:
+
+    > Hello:
+    > I found the "hubers" function in MASS library is NOT working on
+the following 
+    > data:
+
+    >> a <- 
+    >>
+c(7.19,7.19,7.19,9.41,6.79,9.41,7.19,9.41,1.64,7.19,7.19,7.19,7.19,1.422
+,7.19,6.79,7.19,6.79,7.19,7.19,4.44,6.55,6.79,7.19,9.41,9.41,7.19,7.19,7
+.19,7.19,1.64,1.597,1.64,7.19,1.422,7.19,6.79,9.38,7.19,1.64,7.19,7.19,7
+.19,7.19,7.19,1.64,7.19,6.79,6.79,1.649,1.64,7.19,1.597,1.64,6.55,7.19,7
+.19,1.64,7.19,7.19,1.407,1.672,1.672,7.19,6.55,7.19,7.19,9.41,1.407,7.19
+,7.19,9.41,7.19,9.41,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,9.41,7
+.19,6.79,7.19,6.79,1.64,1.422,7.19,7.19,1.67,1.64,1.64,1.64,1.64,1.787,7
+.19,7.19,7.19,6.79,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,1.64,1.6
+4,1.64,1.422,9.41,1.64,7.19,7.19,7.19,7.19,7.19,7.19,7.19,6.79,6.79,7.19
+,6.79,7.19,7.19,1.407,7.19,4.42,9,1.64,1.64,6.79,1.664,1.664)
+    >> 
+
+    >> library(MASS)
+    >> hubers(a)
+    > ## NO response!
+
+    > I think it is due to the infinite loop caused by the following
+line in the code 
+    > of "hubers" (around Line 30):
+
+    > if ((abs(mu0 - mu1) < tol * s0) && 
+    > abs(s0 - s1) < tol * s0)  break
+
+    > where "s0" evaluates to ZERO initially (due to more than 50% of
+the number 
+    > 7.19). 
+
+yes.
+
+Not only for this reason,  the robustbase  package 
+has had the  'huberM()' function with some other slight
+advantages over MASS::huber.
+
+
+
+
+    > I propose to change the "<" sign to "<=":
+
+    > if ((abs(mu0 - mu1) <= tol * s0) && 
+    > abs(s0 - s1) <= tol * s0)  break
+
+    > which will break the infinite loop.    However, the new result is:
+
+    >> hubers(a)
+    > $mu
+    > [1] 7.19
+
+    > $s
+    > [1] 0
+
+    > which gives 0 standard deviation.  Actually the data does vary and
+it is not 
+    > true all values other than 7.19 are outliers.   
+
+Sure. Nontheless, the way Peter Huber had defined the "proposal
+2" Huber estimator,  s = 0, is the correct result.
+
+With the robustbase  huberM() function, you (can) get
+
+> huberM(a, warn0scale =TRUE)
+$mu
+[1] 7.19
+
+$s
+[1] 0
+
+$it
+[1] 0
+
+Warning message:
+In huberM(a, warn0scale = TRUE) :
+  scale 's' is zero -- returning initial 'mu'
+
+
+    >> plot(a)
+
+    > I think this is because we allow initial SD to equal to zero
+instead of a 
+    > POSITIVE value.   See Line 15 of the "hubers" function:
+
+    > if (missing(s))
+    > s0 <- mad(y)
+
+    > I propose setting "s0" to "mad(y)" or a small positive number,
+whichever is 
+    > larger.  For example:
+
+    > if (missing(s))
+    > s0 <- max(mad(y), tol)
+
+    > where tol=1e-6.
+
+but 'tol' is completely arbitrary and, the way you propose it
+makes the resulting estimate 
+no-longer-scale-equivariant.
+
+huberM() *has* an  s  argument for specifying the scale estimate,
+so you could use it as
+
+  huberM(a, s = max(mad(a), 1e-6))  
+
+if you want.
+
+Note that your sample 'a' is constructed in a way that all
+scale-equivariant 50%-breakpoint robust estimates of scale will return s
+= 0,
+as more than half of your observations are identical,
+and scale equivariance "ensures" that in this limiting case, indeed all
+other observations are "outliers".
+
+This last point is a somewhat interesting topic for
+"robustniks",
+and hence I'm CC'ing the dedicated "R + Robustness" mailing
+list, R-SIG-robust.
+
+Martin Maechler, ETH Zurich
+
+
+    >  With this change,  the result is more sensible:
+    >> hubers(a)
+    > $mu
+    > [1] 5.88
+    > $s
+    > [1] 2.937
+
+    > Could anyone take a look at this and decide if the above
+modifications to the 
+    > "hubers" function are warranted?Thanks a lot! 
+
+
+    > Sincerely, 
+    > Feiming Chen
+
+    > Read more >>   Options >>   
+    > [[alternative HTML version deleted]]
+
+    > ______________________________________________
+    > R-help at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-help
+    > PLEASE do read the posting guide
+http://www.R-project.org/posting-guide.html
+    > and provide commented, minimal, self-contained, reproducible code.
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+##############################################
+This e-mail (and attachments) is confidential
+and may be legally privileged.
+##############################################
+
+
+
+From |e|m|ngchen @end|ng |rom y@hoo@com  Mon Feb  7 16:58:20 2011
+From: |e|m|ngchen @end|ng |rom y@hoo@com (Feiming Chen)
+Date: Mon, 7 Feb 2011 07:58:20 -0800 (PST)
+Subject: [RsR] [R] "hubers" function in R MASS library : problem
+	andsolution
+In-Reply-To: <F38F24C992883A40BFDE79ACF59E2C5401A7A6AA@WGNHOEVS1.depcon.internal>
+Message-ID: <274775.32561.qm@web81702.mail.mud.yahoo.com>
+
+Hi Marting,? Maheswaran:
+
+Thank you very much for your input!? 
+
+I am applying M-estimation in an automatic data processing procedure (that requires both robust mean and robust SD).? The "mad=0" problem happens rarely.? Most of the time "hubers" works great.? 
+
+I appreciate your proposed solutions. 
+
+If we use:
+
+> hubers(a, k = 1.5, s=mean(abs(a-median(a))))
+
+Then "s" is fixed and seems less robust:? if there are outliers, "s=mean(abs(a-median(a)))" will appear too large, right? ? 
+
+Similaryly, using the "robustbase package, 
+
+>? huberM(a, s = max(mad(a), 1e-6)) 
+
+"s" will be fixed as well and will be less efficient. 
+
+Regarding Martin's comment: 
+
+"but 'tol' is completely arbitrary and, the way you propose it makes the resulting estimate no-longer-scale-equivariant.",?? 
+
+I did an experiment using different levels of "tol" and found them to give identical results.?? For convenience, I add a "s.min" parameter in "hubers" that bounds the initial "s" estimate from below:
+
+? if (missing(s)) 
+????? s0 <- max(mad(y), s.min)
+? 
+Then I tried the following settings:
+
+> hubers(c(rep(1,10), 2), s.min=1e-6)
+$mu
+[1] 1
+
+$s
+[1] 7.958e-17
+
+> hubers(c(rep(1,10), 2), s.min=1)
+$mu
+[1] 1
+
+$s
+[1] 7.958e-17
+
+> hubers(c(rep(1,10), 2), s.min=10)
+$mu
+[1] 1
+
+$s
+[1] 7.958e-17
+
+#####
+
+> hubers(a, s.min=1e-6)
+$mu
+[1] 5.88
+
+$s
+[1] 2.937
+
+> hubers(a, s.min=1)
+$mu
+[1] 5.88
+
+$s
+[1] 2.937
+
+> hubers(a, s.min=10)
+$mu
+[1] 5.88
+
+$s
+[1] 2.937
+
+However, forgive me for my ignorance about the practical implication of "scale-equivalent". 
+
+Let me know if you have any comment.
+
+Thanks again for your help!
+
+Sincerely,
+Feiming Chen
+
+--- On Sun, 2/6/11, Maheswaran Rohan <mrohan at doc.govt.nz> wrote:
+
+From: Maheswaran Rohan <mrohan at doc.govt.nz>
+Subject: RE: [RsR] [R] "hubers" function in R MASS library : problem andsolution
+To: "Martin Maechler" <maechler at stat.math.ethz.ch>, "Feiming Chen" <feimingchen at yahoo.com>
+Cc: r-sig-robust at r-project.org
+Date: Sunday, February 6, 2011, 3:23 PM
+
+Hi Chen
+
+>? With this change,? the result is more sensible:
+? ? >> hubers(a)
+? ? > $mu
+? ? > [1] 5.88
+? ? > $s
+? ? > [1] 2.937
+
+
+This mu = 5.88 is very similar to the mean(a) = 5.877417. That means, no
+point to apply M-estimation if you are happy with the result.
+
+Following suggestion may be helpful, think about it!
+
+To overcome mad = 0 problem, try to define s = mean(abs((a - median(a)))
+
+> hubers(a, k = 1.5, s=mean(abs(a-median(a))))
+$mu
+[1] 6.414677
+
+$s
+[1] 1.689561
+
+> hubers(a, k = 1.345, s=mean(abs(a-median(a))))
+$mu
+[1] 6.480148
+
+$s
+[1] 1.689561
+
+Regards
+Rohan
+
+
+
+-----Original Message-----
+From: r-sig-robust-bounces at r-project.org
+[mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Martin Maechler
+Sent: Friday, 4 February 2011 10:05 p.m.
+To: Feiming Chen
+Cc: r-help at r-project.org; r-sig-robust at r-project.org
+Subject: Re: [RsR] [R] "hubers" function in R MASS library : problem
+andsolution
+
+>>>>> Feiming Chen <feimingchen at yahoo.com>
+>>>>>? ???on Thu, 3 Feb 2011 12:03:05 -0800 (PST) writes:
+
+? ? > Hello:
+? ? > I found the "hubers" function in MASS library is NOT working on
+the following 
+? ? > data:
+
+? ? >> a <- 
+? ? >>
+c(7.19,7.19,7.19,9.41,6.79,9.41,7.19,9.41,1.64,7.19,7.19,7.19,7.19,1.422
+,7.19,6.79,7.19,6.79,7.19,7.19,4.44,6.55,6.79,7.19,9.41,9.41,7.19,7.19,7
+.19,7.19,1.64,1.597,1.64,7.19,1.422,7.19,6.79,9.38,7.19,1.64,7.19,7.19,7
+.19,7.19,7.19,1.64,7.19,6.79,6.79,1.649,1.64,7.19,1.597,1.64,6.55,7.19,7
+.19,1.64,7.19,7.19,1.407,1.672,1.672,7.19,6.55,7.19,7.19,9.41,1.407,7.19
+,7.19,9.41,7.19,9.41,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,9.41,7
+.19,6.79,7.19,6.79,1.64,1.422,7.19,7.19,1.67,1.64,1.64,1.64,1.64,1.787,7
+.19,7.19,7.19,6.79,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,7.19,1.64,1.6
+4,1.64,1.422,9.41,1.64,7.19,7.19,7.19,7.19,7.19,7.19,7.19,6.79,6.79,7.19
+,6.79,7.19,7.19,1.407,7.19,4.42,9,1.64,1.64,6.79,1.664,1.664)
+? ? >> 
+
+? ? >> library(MASS)
+? ? >> hubers(a)
+? ? > ## NO response!
+
+? ? > I think it is due to the infinite loop caused by the following
+line in the code 
+? ? > of "hubers" (around Line 30):
+
+? ? > if ((abs(mu0 - mu1) < tol * s0) && 
+? ? > abs(s0 - s1) < tol * s0)? break
+
+? ? > where "s0" evaluates to ZERO initially (due to more than 50% of
+the number 
+? ? > 7.19). 
+
+yes.
+
+Not only for this reason,? the robustbase? package 
+has had the? 'huberM()' function with some other slight
+advantages over MASS::huber.
+
+
+
+
+? ? > I propose to change the "<" sign to "<=":
+
+? ? > if ((abs(mu0 - mu1) <= tol * s0) && 
+? ? > abs(s0 - s1) <= tol * s0)? break
+
+? ? > which will break the infinite loop.? ? However, the new result is:
+
+? ? >> hubers(a)
+? ? > $mu
+? ? > [1] 7.19
+
+? ? > $s
+? ? > [1] 0
+
+? ? > which gives 0 standard deviation.? Actually the data does vary and
+it is not 
+? ? > true all values other than 7.19 are outliers.???
+
+Sure. Nontheless, the way Peter Huber had defined the "proposal
+2" Huber estimator,? s = 0, is the correct result.
+
+With the robustbase? huberM() function, you (can) get
+
+> huberM(a, warn0scale =TRUE)
+$mu
+[1] 7.19
+
+$s
+[1] 0
+
+$it
+[1] 0
+
+Warning message:
+In huberM(a, warn0scale = TRUE) :
+? scale 's' is zero -- returning initial 'mu'
+
+
+? ? >> plot(a)
+
+? ? > I think this is because we allow initial SD to equal to zero
+instead of a 
+? ? > POSITIVE value.???See Line 15 of the "hubers" function:
+
+? ? > if (missing(s))
+? ? > s0 <- mad(y)
+
+? ? > I propose setting "s0" to "mad(y)" or a small positive number,
+whichever is 
+? ? > larger.? For example:
+
+? ? > if (missing(s))
+? ? > s0 <- max(mad(y), tol)
+
+? ? > where tol=1e-6.
+
+but 'tol' is completely arbitrary and, the way you propose it
+makes the resulting estimate 
+no-longer-scale-equivariant.
+
+huberM() *has* an? s? argument for specifying the scale estimate,
+so you could use it as
+
+? huberM(a, s = max(mad(a), 1e-6))? 
+
+if you want.
+
+Note that your sample 'a' is constructed in a way that all
+scale-equivariant 50%-breakpoint robust estimates of scale will return s
+= 0,
+as more than half of your observations are identical,
+and scale equivariance "ensures" that in this limiting case, indeed all
+other observations are "outliers".
+
+This last point is a somewhat interesting topic for
+"robustniks",
+and hence I'm CC'ing the dedicated "R + Robustness" mailing
+list, R-SIG-robust.
+
+Martin Maechler, ETH Zurich
+
+
+? ? >? With this change,? the result is more sensible:
+? ? >> hubers(a)
+? ? > $mu
+? ? > [1] 5.88
+? ? > $s
+? ? > [1] 2.937
+
+? ? > Could anyone take a look at this and decide if the above
+modifications to the 
+? ? > "hubers" function are warranted?Thanks a lot! 
+
+
+? ? > Sincerely, 
+? ? > Feiming Chen
+
+? ? > Read more >>???Options >>???
+? ? > [[alternative HTML version deleted]]
+
+? ? > ______________________________________________
+? ? > R-help at r-project.org mailing list
+? ? > https://stat.ethz.ch/mailman/listinfo/r-help
+? ? > PLEASE do read the posting guide
+http://www.R-project.org/posting-guide.html
+? ? > and provide commented, minimal, self-contained, reproducible code.
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+##############################################
+This e-mail (and attachments) is confidential
+and may be legally privileged.
+##############################################
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@n|red@h@mmer| @end|ng |rom edu@un|-gr@z@@t  Sat Feb 19 03:35:57 2011
+From: m@n|red@h@mmer| @end|ng |rom edu@un|-gr@z@@t (Manfred Hammerl)
+Date: Sat, 19 Feb 2011 03:35:57 +0100
+Subject: [RsR] hubers m-estimator in R / SPSS
+In-Reply-To: <4D5F2B35.5050603@edu.uni-graz.at>
+References: <4D5F2B35.5050603@edu.uni-graz.at>
+Message-ID: <4D5F2C8D.9060603@edu.uni-graz.at>
+
+hello, i'm new to robust statistics but found out very quick that R
+(used huber, hubers and huberM) and SPSS (huber m-estimator) calculate
+different location estimates, given the same tuning constant k. since
+the differences a really not very small, i wanted to get some detailed
+information about this but i couldn't find out which algorithm SPSS uses
+to calculate hubers estimator so far...
+
+does anyone know something about SPSS's huber function?
+
+greetings,
+
+manfred
+
+
+
+From m@n|red@h@mmer| @end|ng |rom edu@un|-gr@z@@t  Wed Feb 23 17:14:51 2011
+From: m@n|red@h@mmer| @end|ng |rom edu@un|-gr@z@@t (Manfred Hammerl)
+Date: Wed, 23 Feb 2011 17:14:51 +0100
+Subject: [RsR] hubers m-estimator in R / SPSS
+In-Reply-To: <4D62F84B.6010701@stat.ubc.ca>
+References: <4D5F2B35.5050603@edu.uni-graz.at>
+	<4D5F2C8D.9060603@edu.uni-graz.at> <4D62F84B.6010701@stat.ubc.ca>
+Message-ID: <4D65327B.3000402@edu.uni-graz.at>
+
+thanks. of course, that was my idea too, but i couldn't find out which 
+scale estimator spss uses. no manual, book, paper or whatever contains 
+information about that. i tried other programs (like R or the ACM-tool), 
+which use MAD, SMAD or an iterated standard deviation, but i always get 
+different results with spss...
+
+manfred
+
+
+Am 22.02.2011 00:42, schrieb Matias Salibian-Barrera:
+> Hello Manfred,
+>
+> I'm not familiar with SPSS, but based on my experience, I'll go out on a
+> limb and say that the difference may be on the scale estimator that it's
+> used (either a preliminary estimator like the MAD) or a simultaneously
+> computer M-scale. Hopefully the SPSS manual will have some details.
+>
+> Matias
+>
+>
+> On 11-02-18 06:35 PM, Manfred Hammerl sat down at the computer and wrote:
+>> hello, i'm new to robust statistics but found out very quick that R
+>> (used huber, hubers and huberM) and SPSS (huber m-estimator) calculate
+>> different location estimates, given the same tuning constant k. since
+>> the differences a really not very small, i wanted to get some detailed
+>> information about this but i couldn't find out which algorithm SPSS uses
+>> to calculate hubers estimator so far...
+>>
+>> does anyone know something about SPSS's huber function?
+>>
+>> greetings,
+>>
+>> manfred
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+-- 
+MMag. Manfred Hammerl, BBakk.
+manfred.hammerl at edu.uni-graz.at
+
+
+
+From m@n|red@h@mmer| @end|ng |rom edu@un|-gr@z@@t  Sat Feb 19 03:30:13 2011
+From: m@n|red@h@mmer| @end|ng |rom edu@un|-gr@z@@t (Manfred Hammerl)
+Date: Sat, 19 Feb 2011 03:30:13 +0100
+Subject: [RsR] hubers m-estimator in R / SPSS
+Message-ID: <4D5F2B35.5050603@edu.uni-graz.at>
+
+hello, i'm new to robust statistics but found out very quick that R 
+(used huber, hubers and huberM) and SPSS (huber m-estimator) calculate 
+different location estimates, given the same tuning constant k. since 
+the differences a really not very small, i wanted to get some detailed 
+information about this but i couldn't find out which algorithm SPSS uses 
+to calculate hubers estimator so far...
+
+does anyone know something about SPSS's huber function?
+
+greetings,
+
+manfred
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Feb 23 21:25:29 2011
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 23 Feb 2011 21:25:29 +0100
+Subject: [RsR] hubers m-estimator in R / SPSS
+In-Reply-To: <4D65327B.3000402@edu.uni-graz.at>
+References: <4D5F2B35.5050603@edu.uni-graz.at>
+	<4D5F2C8D.9060603@edu.uni-graz.at> <4D62F84B.6010701@stat.ubc.ca>
+	<4D65327B.3000402@edu.uni-graz.at>
+Message-ID: <19813.27961.914261.799586@stat.math.ethz.ch>
+
+>>>>> "MH" == Manfred Hammerl <manfred.hammerl at edu.uni-graz.at>
+>>>>>     on Wed, 23 Feb 2011 17:14:51 +0100 writes:
+
+    MH> thanks. of course, that was my idea too, but i couldn't find out which 
+    MH> scale estimator spss uses. no manual, book, paper or whatever contains 
+    MH> information about that. i tried other programs (like R or the ACM-tool), 
+    MH> which use MAD, SMAD or an iterated standard deviation, but i always get 
+    MH> different results with spss...
+
+so why on earth are you using SPSS at all?
+...
+actually it's hard to believe that they don't document what
+their M-estimate does ...
+but that would really belong to an SPSS help list rather than an
+R one, right?
+
+Martin
+
+    MH> manfred
+
+
+    MH> Am 22.02.2011 00:42, schrieb Matias Salibian-Barrera:
+    >> Hello Manfred,
+    >> 
+    >> I'm not familiar with SPSS, but based on my experience, I'll go out on a
+    >> limb and say that the difference may be on the scale estimator that it's
+    >> used (either a preliminary estimator like the MAD) or a simultaneously
+    >> computer M-scale. Hopefully the SPSS manual will have some details.
+    >> 
+    >> Matias
+    >> 
+    >> 
+    >> On 11-02-18 06:35 PM, Manfred Hammerl sat down at the computer and wrote:
+    >>> hello, i'm new to robust statistics but found out very quick that R
+    >>> (used huber, hubers and huberM) and SPSS (huber m-estimator) calculate
+    >>> different location estimates, given the same tuning constant k. since
+    >>> the differences a really not very small, i wanted to get some detailed
+    >>> information about this but i couldn't find out which algorithm SPSS uses
+    >>> to calculate hubers estimator so far...
+    >>> 
+    >>> does anyone know something about SPSS's huber function?
+    >>> 
+    >>> greetings,
+    >>> 
+    >>> manfred
+    >>> 
+    >>> _______________________________________________
+    >>> R-SIG-Robust at r-project.org mailing list
+    >>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+    >> 
+
+
+    MH> -- 
+    MH> MMag. Manfred Hammerl, BBakk.
+    MH> manfred.hammerl at edu.uni-graz.at
+
+    MH> _______________________________________________
+    MH> R-SIG-Robust at r-project.org mailing list
+    MH> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From R@Dutter @end|ng |rom tuw|en@@c@@t  Wed Feb 23 21:53:41 2011
+From: R@Dutter @end|ng |rom tuw|en@@c@@t (Rudolf Dutter)
+Date: Wed, 23 Feb 2011 21:53:41 +0100
+Subject: [RsR] hubers m-estimator in R / SPSS
+In-Reply-To: <19813.27961.914261.799586@stat.math.ethz.ch>
+References: <4D5F2B35.5050603@edu.uni-graz.at>	<4D5F2C8D.9060603@edu.uni-graz.at>
+	<4D62F84B.6010701@stat.ubc.ca>	<4D65327B.3000402@edu.uni-graz.at>
+	<19813.27961.914261.799586@stat.math.ethz.ch>
+Message-ID: <4D6573D5.8080402@tuwien.ac.at>
+
+Martin,
+
+I agree fully with you. It reminds me that some 30 years ago I puzzled
+around why SPSS produces negative variances. It was not too difficult to
+find out the reason by trial and error. Conclusion: We didn't recommend
+the usage SPSS at a scientific level any more, and some years ago, we
+cancelled all licenses from our institute. I am not surprised that
+Hubers algorithm remains mysterious in that package.
+Sorry to say that.
+
+Rudi
+
+Martin Maechler wrote:
+>>>>>> "MH" == Manfred Hammerl <manfred.hammerl at edu.uni-graz.at>
+>>>>>>     on Wed, 23 Feb 2011 17:14:51 +0100 writes:
+>>>>>>             
+>
+>     MH> thanks. of course, that was my idea too, but i couldn't find out which 
+>     MH> scale estimator spss uses. no manual, book, paper or whatever contains 
+>     MH> information about that. i tried other programs (like R or the ACM-tool), 
+>     MH> which use MAD, SMAD or an iterated standard deviation, but i always get 
+>     MH> different results with spss...
+>
+> so why on earth are you using SPSS at all?
+> ...
+> actually it's hard to believe that they don't document what
+> their M-estimate does ...
+> but that would really belong to an SPSS help list rather than an
+> R one, right?
+>
+> Martin
+>
+>     MH> manfred
+>
+>
+>     MH> Am 22.02.2011 00:42, schrieb Matias Salibian-Barrera:
+>     >> Hello Manfred,
+>     >> 
+>     >> I'm not familiar with SPSS, but based on my experience, I'll go out on a
+>     >> limb and say that the difference may be on the scale estimator that it's
+>     >> used (either a preliminary estimator like the MAD) or a simultaneously
+>     >> computer M-scale. Hopefully the SPSS manual will have some details.
+>     >> 
+>     >> Matias
+>     >> 
+>     >> 
+>     >> On 11-02-18 06:35 PM, Manfred Hammerl sat down at the computer and wrote:
+>     >>> hello, i'm new to robust statistics but found out very quick that R
+>     >>> (used huber, hubers and huberM) and SPSS (huber m-estimator) calculate
+>     >>> different location estimates, given the same tuning constant k. since
+>     >>> the differences a really not very small, i wanted to get some detailed
+>     >>> information about this but i couldn't find out which algorithm SPSS uses
+>     >>> to calculate hubers estimator so far...
+>     >>> 
+>     >>> does anyone know something about SPSS's huber function?
+>     >>> 
+>     >>> greetings,
+>     >>> 
+>     >>> manfred
+>     >>> 
+>     >>> _______________________________________________
+>     >>> R-SIG-Robust at r-project.org mailing list
+>     >>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>     >> 
+>
+>
+>     MH> -- 
+>     MH> MMag. Manfred Hammerl, BBakk.
+>     MH> manfred.hammerl at edu.uni-graz.at
+>
+>     MH> _______________________________________________
+>     MH> R-SIG-Robust at r-project.org mailing list
+>     MH> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>
+>   
+
+-- 
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+From: Prof. Dr. Rudolf Dutter
+      Dept. of Statistics and Probability Theory
+      Vienna University of Technology,
+      Wiedner Hauptstr. 7 ("Goldenes Lamm")
+      A-1040 Vienna, Austria
+      Tel. +43 1 58801/10730
+      FAX  +43 1 58801/10798
+      E-Mail: R.Dutter at tuwien.ac.at
+      Internet: http://www.statistik.tuwien.ac.at/public/dutt/
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+
+
+From n|kko @end|ng |rom h@||m@||@net  Thu Mar 31 17:35:10 2011
+From: n|kko @end|ng |rom h@||m@||@net (Nicholas Lewin-Koh)
+Date: Thu, 31 Mar 2011 08:35:10 -0700
+Subject: [RsR] VIF for robust regression?
+Message-ID: <1301585710.32085.1435988005@webmail.messagingengine.com>
+
+Hi,
+I was looking at the vif function in the car package
+and it it is trivial to modify to make a version for robust
+regression. However, after trying it out I noticed  that what 
+were reasonable values under ols, jumped way up. 
+So my thought is that either,
+I made a coding error, and the weights attribute needs to be used
+to modify the variance covariance matrix of the coefficients
+Or, the reduced variance from the robust regression, causes peripheral
+points
+(outside the mve) to have much more influence in the r^2's for each
+predictor.
+So that the standard vif measure, 1/(1-R^2_i) is not relevant in this
+context.
+Am I off base here? 
+
+Thanks
+Nicholas
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: vif.lmrob.R
+Type: application/octet-stream
+Size: 1026 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20110331/a12e3382/attachment.obj>
+
+From @h@wjw @end|ng |rom gm@||@com  Fri Apr  1 23:47:16 2011
+From: @h@wjw @end|ng |rom gm@||@com (James Shaw)
+Date: Fri, 1 Apr 2011 16:47:16 -0500
+Subject: [RsR] Estimating robust distances in R (MVE vs. MCD)
+Message-ID: <AANLkTindyW+MFEc5bN91=NbtoLKgv8QgcS6Tv4K=vLCZ@mail.gmail.com>
+
+I have been trying to estimate robust Mahalanobis distances in R for a
+set of three regressors that includes one dummy variable.  Initially,
+I tried generating robust MCD estimates and their associated VCE using
+cob.rob.  However, when I did so I received the following error
+message:  "Error in solve.default(cov, ...) :  Lapack routine dgesv:
+system is exactly singular".  I believe that the MCD estimator
+involves subsampling and that the parameter for the discrete variable
+could not be identified in one of the subsamples due to insufficient
+variance.  When using the minimum volume ellipsoid (MVE) estimator, I
+did not experience any problems.  My code is given below.
+
+
+x<-cbind(c0[,3], c0[,7], c0[,8])
+rest<-cov.rob(x, method = "mve", nsamp = "exact", cor=FALSE)
+xrd<-mahalanobis(x, rest$center, rest$cov, inverted=FALSE)
+xrd<-xrd^.5
+d0<-ifelse(xrd> 3.0575159,1,0)
+
+
+Can anyone explain to me why the MVE estimator is able to accommodate
+discrete variables, whereas the MCD estimator cannot do so?  I would
+like to be certain that the method I used to estimate robust distances
+is valid in light of the inclusion of a discrete variable in the
+regressor set.
+
+--
+Jim
+
+
+James W. Shaw, Ph.D., Pharm.D., M.P.H.
+Assistant Professor
+Department of Pharmacy Administration
+College of Pharmacy
+University of Illinois at Chicago
+833 South Wood Street, M/C 871, Room 266
+Chicago, IL 60612
+Tel.: 312-355-5666
+Fax: 312-996-0868
+Mobile Tel.: 215-852-3045
+
+
+
+From O||v|er@Ren@ud @end|ng |rom un|ge@ch  Wed Apr  6 11:33:36 2011
+From: O||v|er@Ren@ud @end|ng |rom un|ge@ch (Olivier Renaud)
+Date: Wed, 06 Apr 2011 11:33:36 +0200
+Subject: [RsR] VIF for robust regression?
+In-Reply-To: <1301585710.32085.1435988005@webmail.messagingengine.com>
+References: <1301585710.32085.1435988005@webmail.messagingengine.com>
+Message-ID: <4D9C3370.3010007@unige.ch>
+
+
+
+
+
+
+I don't know if there is work on a robust VIF. Here are my two cents:
+- What type of variable do you have ? If some of them are discrete with 
+very few different values, this may cause problem to robust covariance 
+matrices estimation.
+- Your approach to apply the "partialling out"  of the robust matrix, as 
+in the OLS case,  might or might not be correct, I don't know.
+- If you believe that 1/(1-R^2_i) is a good measure, then you might want 
+to compute its direct robust equivalent.  The output of lmrob does not 
+provide a R^2, but the output of lmRob does. We have recently published 
+a paper however that shows that the robust R-squared provided by lmRob 
+is biased, sometimes to a large extent. We provide a consistent and 
+robust estimator of R-squared and a version adjusted for the sample 
+size.  See my previous post for an example and the code at
+https://stat.ethz.ch/pipermail/r-sig-robust/2010/000290.html
+
+Olivier
+
+ref: Renaud, O. & Victoria-Feser, M.-P. (2010). A robust coefficient of 
+determination for regression. Journal of Statistical Planning and 
+Inference, 140, 1852-1862. http://dx.doi.org/10.1016/j.jspi.2010.01.008
+
+
+
+
+
+
+On 31/03/2011 17:35, Nicholas Lewin-Koh wrote:
+> Hi,
+> I was looking at the vif function in the car package
+> and it it is trivial to modify to make a version for robust
+> regression. However, after trying it out I noticed  that what
+> were reasonable values under ols, jumped way up.
+> So my thought is that either,
+> I made a coding error, and the weights attribute needs to be used
+> to modify the variance covariance matrix of the coefficients
+> Or, the reduced variance from the robust regression, causes peripheral
+> points
+> (outside the mve) to have much more influence in the r^2's for each
+> predictor.
+> So that the standard vif measure, 1/(1-R^2_i) is not relevant in this
+> context.
+> Am I off base here?
+>
+> Thanks
+> Nicholas
+>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+Olivier.Renaud at unige.ch               http://www.unige.ch/fapse/mad/
+Methodology&  Data Analysis - Psychology Dept - University of Geneva
+UniMail, Office 4138  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From |r|edm@n @end|ng |rom c@ncercenter@co|umb|@@edu  Wed Jun 15 21:10:03 2011
+From: |r|edm@n @end|ng |rom c@ncercenter@co|umb|@@edu (Richard Friedman)
+Date: Wed, 15 Jun 2011 15:10:03 -0400
+Subject: [RsR] minimum sample size for the robust counterpart of the t-test
+Message-ID: <916FFAB8-D1DC-407E-B645-09317A977E4E@cancercenter.columbia.edu>
+
+Dear List,
+
+	I am a beginner in the use of robust methods. Is there a minimum  
+sample size
+for which the robust analog of a two sample t-test using rlm with  
+default parameters and categorical
+explanatory variables may be trusted to yield reliable p-values?
+Is so, can you please point me at a reference which treats this problem.
+
+Thanks and best wishes,
+Rich
+------------------------------------------------------------
+Richard A. Friedman, PhD
+Associate Research Scientist,
+Biomedical Informatics Shared Resource
+Herbert Irving Comprehensive Cancer Center (HICCC)
+Lecturer,
+Department of Biomedical Informatics (DBMI)
+Educational Coordinator,
+Center for Computational Biology and Bioinformatics (C2B2)/
+National Center for Multiscale Analysis of Genomic Networks (MAGNet)
+Room 824
+Irving Cancer Research Center
+Columbia University
+1130 St. Nicholas Ave
+New York, NY 10032
+(212)851-4765 (voice)
+friedman at cancercenter.columbia.edu
+http://cancercenter.columbia.edu/~friedman/
+
+I am a Bayesian. When I see a multiple-choice question on a test and I  
+don't
+know the answer I say "eeney-meaney-miney-moe".
+
+Rose Friedman, Age 14
+
+
+
+From |r|edm@n @end|ng |rom c@ncercenter@co|umb|@@edu  Thu Jun 16 18:02:04 2011
+From: |r|edm@n @end|ng |rom c@ncercenter@co|umb|@@edu (Richard Friedman)
+Date: Thu, 16 Jun 2011 12:02:04 -0400
+Subject: [RsR] minimum sample size for the robust counterpart of the
+	t-test #2
+In-Reply-To: <73a0b82b5ff4.4df8a356@usc.edu>
+References: <916FFAB8-D1DC-407E-B645-09317A977E4E@cancercenter.columbia.edu>
+	<73a0b82b5ff4.4df8a356@usc.edu>
+Message-ID: <6464A08D-BD86-4949-8D0B-5F976DADE49D@cancercenter.columbia.edu>
+
+Dear Rand (and List),
+
+	I read the relevant sections of your book and while informative it  
+did not answer my question
+directly as best I can see. I will restate the question more explicitly:
+
+A robust analog of the two sample  t-test is performed with the rlm  
+function with the default parameters of
+the Huber method with K=1.345. Is there a minimum sample size for  
+which it should be trusted?
+are 5 samples enough? 10 samples?
+
+If this question does not have a simple answer please let me know.
+
+Thanks and best wishes,
+Rich
+
+
+On Jun 15, 2011, at 3:19 PM, Rand Wilcox wrote:
+
+> There is general information about sample sizes and p-values, when  
+> using robust analogs of t, in my 2005 book (Introduction to Robust  
+> Estimation and Hypothesis Testing, Academic Press) .
+> (A third edition will be out early in 2012. )
+>
+> Hope this helps.
+>
+> Rand
+>
+> Rand Wilcox
+> Professor
+> Dept of Psychology
+> USC
+> Los Angeles, CA 90089-1061
+>
+> FAX: 213-746-9082
+> For information about statistics books and software, see http://www-rcf.usc.edu/~rwilcox/
+> as well as
+> http://college.usc.edu/labs/rwilcox/home
+>
+> ----- Original Message -----
+> From: Richard Friedman <friedman at cancercenter.columbia.edu>
+> Date: Wednesday, June 15, 2011 12:11 pm
+> Subject: [RsR] minimum sample size for the robust counterpart of the  
+> t-test
+> To: r-sig-robust at r-project.org
+>
+>> Dear List,
+>>
+>> 	I am a beginner in the use of robust methods. Is there a minimum
+>> sample size
+>> for which the robust analog of a two sample t-test using rlm with
+>> default parameters and categorical
+>> explanatory variables may be trusted to yield reliable p-values?
+>> Is so, can you please point me at a reference which treats this
+>> problem.
+>> Thanks and best wishes,
+>> Rich
+>> ------------------------------------------------------------
+>> Richard A. Friedman, PhD
+>> Associate Research Scientist,
+>> Biomedical Informatics Shared Resource
+>> Herbert Irving Comprehensive Cancer Center (HICCC)
+>> Lecturer,
+>> Department of Biomedical Informatics (DBMI)
+>> Educational Coordinator,
+>> Center for Computational Biology and Bioinformatics (C2B2)/
+>> National Center for Multiscale Analysis of Genomic Networks (MAGNet)
+>> Room 824
+>> Irving Cancer Research Center
+>> Columbia University
+>> 1130 St. Nicholas Ave
+>> New York, NY 10032
+>> (212)851-4765 (voice)
+>> friedman at cancercenter.columbia.edu
+>> http://cancercenter.columbia.edu/~friedman/
+>>
+>> I am a Bayesian. When I see a multiple-choice question on a test
+>> and I don't
+>> know the answer I say "eeney-meaney-miney-moe".
+>>
+>> Rose Friedman, Age 14
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Jun 16 18:43:46 2011
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 16 Jun 2011 18:43:46 +0200
+Subject: [RsR] minimum sample size for the robust counterpart of the
+	t-test
+In-Reply-To: <916FFAB8-D1DC-407E-B645-09317A977E4E@cancercenter.columbia.edu>
+References: <916FFAB8-D1DC-407E-B645-09317A977E4E@cancercenter.columbia.edu>
+Message-ID: <19962.12994.804060.153260@stat.math.ethz.ch>
+
+>>>>> Richard Friedman <friedman at cancercenter.columbia.edu>
+>>>>>     on Wed, 15 Jun 2011 15:10:03 -0400 writes:
+
+    > Dear List, I am a beginner in the use of robust methods. Is
+    > there a minimum sample size for which the robust analog of a two
+    > sample t-test using rlm with default parameters and categorical
+    > explanatory variables may be trusted to yield reliable p-values?
+    > Is so, can you please point me at a reference which treats this
+    > problem.
+
+It's a bit more complicated, because "the" robust analog does
+not exist:  There are an infinite number of possible robust
+analogues to the t-test,
+and my two colleagues have been actively researching on this,
+not just for the two-sample case, but the general  lm() case,
+*with* an emphasis on small-sample performance:
+
+Originally, (I think) they started answering the question (+/-): 
+
+  How do you have to estimate  sj^2 := \Var(\hat{\beta_j}) such that
+    \hat{\beta_j}  +/- 1.96 * sj
+  has the correct coverage probability of 95%, also for small
+  samples (and of course generalizing to other probs. alpha).
+ 
+Here's their main publication :     
+
+ Koller, M. and Stahel, W.A. (2011), Sharpening Wald-type inference
+ in robust regression for small samples, _Computational Statistics
+ & Data Analysis_ *55*(8), 2504-2515.
+
+and the good news is that Manuel Koller has implemented
+everything in package robustbase, lmrob() {which you'd use
+instead of rlm()},
+and to use the new methods, you use (something like)
+
+   summary( fmod <- lmrob(Y ~ ., data=..., setting = 'KS2011') )
+
+I've CC'ed them here, just in case they are accidentally not yet
+subscribed to the R-SIG-Robust mailing list.
+
+I hope this helps,
+Martin Maechler, ETH Zurich
+
+
+    > Thanks and best wishes, Rich
+    > ------------------------------------------------------------
+    > Richard A. Friedman, PhD Associate Research Scientist,
+    ................
+    ................
+
+    > R-SIG-Robust at r-project.org mailing list
+    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From rw||cox @end|ng |rom u@c@edu  Thu Jun 16 20:14:39 2011
+From: rw||cox @end|ng |rom u@c@edu (Rand Wilcox)
+Date: Thu, 16 Jun 2011 11:14:39 -0700
+Subject: [RsR] minimum sample size for the robust counterpart of the
+ t-test #2
+In-Reply-To: <6464A08D-BD86-4949-8D0B-5F976DADE49D@cancercenter.columbia.edu>
+References: <916FFAB8-D1DC-407E-B645-09317A977E4E@cancercenter.columbia.edu>
+	<73a0b82b5ff4.4df8a356@usc.edu>
+	<6464A08D-BD86-4949-8D0B-5F976DADE49D@cancercenter.columbia.edu>
+Message-ID: <72e09eec184c.4df9e59f@usc.edu>
+
+When dealing with M-estimators and the goal is to compute confidence intervals, one thing you have to be careful about is skewed distributions. Have not encountered any non-bootstrap method that performs well in simulations where the confidence interval is based on an estimate of the standard error. Just how symmetric the distribution must be seems unclear. What works better is a percentile bootstrap method, even with fairly small sample sizes. This is why the methods in my book focus on bootstrap techniques when dealing with M-estimators.
+
+
+However, have not yet seen the Koller and Stahel paper. Maybe this problem has been addressed.
+
+Rand
+
+Rand Wilcox
+Professor
+Dept of Psychology
+USC
+Los Angeles, CA 90089-1061
+
+FAX: 213-746-9082
+For information about statistics books and software, see http://www-rcf.usc.edu/~rwilcox/
+as well as
+http://college.usc.edu/labs/rwilcox/home
+
+----- Original Message -----
+From: Richard Friedman <friedman at cancercenter.columbia.edu>
+Date: Thursday, June 16, 2011 9:02 am
+Subject: Re: [RsR] minimum sample size for the robust counterpart of the t-test #2
+To: Rand Wilcox <rwilcox at usc.edu>, r-sig-robust at r-project.org
+
+> Dear Rand (and List),
+> 
+> 	I read the relevant sections of your book and while informative it 
+> did not answer my question
+> directly as best I can see. I will restate the question more 
+> explicitly:
+> A robust analog of the two sample  t-test is performed with the rlm 
+> function with the default parameters of
+> the Huber method with K=1.345. Is there a minimum sample size for 
+> which it should be trusted?
+> are 5 samples enough? 10 samples?
+> 
+> If this question does not have a simple answer please let me know.
+> 
+> Thanks and best wishes,
+> Rich
+> 
+> 
+> On Jun 15, 2011, at 3:19 PM, Rand Wilcox wrote:
+> 
+> >There is general information about sample sizes and p-values, when 
+> using robust analogs of t, in my 2005 book (Introduction to Robust 
+> Estimation and Hypothesis Testing, Academic Press) .
+> >(A third edition will be out early in 2012. )
+> >
+> >Hope this helps.
+> >
+> >Rand
+> >
+> >Rand Wilcox
+> >Professor
+> >Dept of Psychology
+> >USC
+> >Los Angeles, CA 90089-1061
+> >
+> >FAX: 213-746-9082
+> >For information about statistics books and software, see 
+> http://www-rcf.usc.edu/~rwilcox/
+> >as well as
+> >http://college.usc.edu/labs/rwilcox/home
+> >
+> >----- Original Message -----
+> >From: Richard Friedman <friedman at cancercenter.columbia.edu>
+> >Date: Wednesday, June 15, 2011 12:11 pm
+> >Subject: [RsR] minimum sample size for the robust counterpart of 
+> the t-test
+> >To: r-sig-robust at r-project.org
+> >
+> >>Dear List,
+> >>
+> >>	I am a beginner in the use of robust methods. Is there a minimum
+> >>sample size
+> >>for which the robust analog of a two sample t-test using rlm with
+> >>default parameters and categorical
+> >>explanatory variables may be trusted to yield reliable p-values?
+> >>Is so, can you please point me at a reference which treats this
+> >>problem.
+> >>Thanks and best wishes,
+> >>Rich
+> >>------------------------------------------------------------
+> >>Richard A. Friedman, PhD
+> >>Associate Research Scientist,
+> >>Biomedical Informatics Shared Resource
+> >>Herbert Irving Comprehensive Cancer Center (HICCC)
+> >>Lecturer,
+> >>Department of Biomedical Informatics (DBMI)
+> >>Educational Coordinator,
+> >>Center for Computational Biology and Bioinformatics (C2B2)/
+> >>National Center for Multiscale Analysis of Genomic Networks (MAGNet)
+> >>Room 824
+> >>Irving Cancer Research Center
+> >>Columbia University
+> >>1130 St. Nicholas Ave
+> >>New York, NY 10032
+> >>(212)851-4765 (voice)
+> >>friedman at cancercenter.columbia.edu
+> >>http://cancercenter.columbia.edu/~friedman/
+> >>
+> >>I am a Bayesian. When I see a multiple-choice question on a test
+> >>and I don't
+> >>know the answer I say "eeney-meaney-miney-moe".
+> >>
+> >>Rose Friedman, Age 14
+> >>
+> >>_______________________________________________
+> >>R-SIG-Robust at r-project.org mailing list
+> >>https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> >>
+> 
+>
+
+
+
+From |r|edm@n @end|ng |rom c@ncercenter@co|umb|@@edu  Thu Jun 16 20:19:56 2011
+From: |r|edm@n @end|ng |rom c@ncercenter@co|umb|@@edu (Richard Friedman)
+Date: Thu, 16 Jun 2011 14:19:56 -0400
+Subject: [RsR] minimum sample size for the robust counterpart of the
+	t-test #2
+In-Reply-To: <72e09eec184c.4df9e59f@usc.edu>
+References: <916FFAB8-D1DC-407E-B645-09317A977E4E@cancercenter.columbia.edu>
+	<73a0b82b5ff4.4df8a356@usc.edu>
+	<6464A08D-BD86-4949-8D0B-5F976DADE49D@cancercenter.columbia.edu>
+	<72e09eec184c.4df9e59f@usc.edu>
+Message-ID: <064652E7-35E1-4040-9EAD-53E85E40DE69@cancercenter.columbia.edu>
+
+Rand,
+
+	Thanks, I know very little about robust methods. I am interested in  
+whether rlm can be used in its default
+state or if I have to tearn much more to do use the methods correctly.
+
+Best wishes,
+Rich
+
+On Jun 16, 2011, at 2:14 PM, Rand Wilcox wrote:
+
+> When dealing with M-estimators and the goal is to compute confidence  
+> intervals, one thing you have to be careful about is skewed  
+> distributions. Have not encountered any non-bootstrap method that  
+> performs well in simulations where the confidence interval is based  
+> on an estimate of the standard error. Just how symmetric the  
+> distribution must be seems unclear. What works better is a  
+> percentile bootstrap method, even with fairly small sample sizes.  
+> This is why the methods in my book focus on bootstrap techniques  
+> when dealing with M-estimators.
+>
+>
+> However, have not yet seen the Koller and Stahel paper. Maybe this  
+> problem has been addressed.
+>
+> Rand
+>
+> Rand Wilcox
+> Professor
+> Dept of Psychology
+> USC
+> Los Angeles, CA 90089-1061
+>
+> FAX: 213-746-9082
+> For information about statistics books and software, see http://www-rcf.usc.edu/~rwilcox/
+> as well as
+> http://college.usc.edu/labs/rwilcox/home
+>
+> ----- Original Message -----
+> From: Richard Friedman <friedman at cancercenter.columbia.edu>
+> Date: Thursday, June 16, 2011 9:02 am
+> Subject: Re: [RsR] minimum sample size for the robust counterpart of  
+> the t-test #2
+> To: Rand Wilcox <rwilcox at usc.edu>, r-sig-robust at r-project.org
+>
+>> Dear Rand (and List),
+>>
+>> 	I read the relevant sections of your book and while informative it
+>> did not answer my question
+>> directly as best I can see. I will restate the question more
+>> explicitly:
+>> A robust analog of the two sample  t-test is performed with the rlm
+>> function with the default parameters of
+>> the Huber method with K=1.345. Is there a minimum sample size for
+>> which it should be trusted?
+>> are 5 samples enough? 10 samples?
+>>
+>> If this question does not have a simple answer please let me know.
+>>
+>> Thanks and best wishes,
+>> Rich
+>>
+>>
+>> On Jun 15, 2011, at 3:19 PM, Rand Wilcox wrote:
+>>
+>>> There is general information about sample sizes and p-values, when
+>> using robust analogs of t, in my 2005 book (Introduction to Robust
+>> Estimation and Hypothesis Testing, Academic Press) .
+>>> (A third edition will be out early in 2012. )
+>>>
+>>> Hope this helps.
+>>>
+>>> Rand
+>>>
+>>> Rand Wilcox
+>>> Professor
+>>> Dept of Psychology
+>>> USC
+>>> Los Angeles, CA 90089-1061
+>>>
+>>> FAX: 213-746-9082
+>>> For information about statistics books and software, see
+>> http://www-rcf.usc.edu/~rwilcox/
+>>> as well as
+>>> http://college.usc.edu/labs/rwilcox/home
+>>>
+>>> ----- Original Message -----
+>>> From: Richard Friedman <friedman at cancercenter.columbia.edu>
+>>> Date: Wednesday, June 15, 2011 12:11 pm
+>>> Subject: [RsR] minimum sample size for the robust counterpart of
+>> the t-test
+>>> To: r-sig-robust at r-project.org
+>>>
+>>>> Dear List,
+>>>>
+>>>> 	I am a beginner in the use of robust methods. Is there a minimum
+>>>> sample size
+>>>> for which the robust analog of a two sample t-test using rlm with
+>>>> default parameters and categorical
+>>>> explanatory variables may be trusted to yield reliable p-values?
+>>>> Is so, can you please point me at a reference which treats this
+>>>> problem.
+>>>> Thanks and best wishes,
+>>>> Rich
+>>>> ------------------------------------------------------------
+>>>> Richard A. Friedman, PhD
+>>>> Associate Research Scientist,
+>>>> Biomedical Informatics Shared Resource
+>>>> Herbert Irving Comprehensive Cancer Center (HICCC)
+>>>> Lecturer,
+>>>> Department of Biomedical Informatics (DBMI)
+>>>> Educational Coordinator,
+>>>> Center for Computational Biology and Bioinformatics (C2B2)/
+>>>> National Center for Multiscale Analysis of Genomic Networks  
+>>>> (MAGNet)
+>>>> Room 824
+>>>> Irving Cancer Research Center
+>>>> Columbia University
+>>>> 1130 St. Nicholas Ave
+>>>> New York, NY 10032
+>>>> (212)851-4765 (voice)
+>>>> friedman at cancercenter.columbia.edu
+>>>> http://cancercenter.columbia.edu/~friedman/
+>>>>
+>>>> I am a Bayesian. When I see a multiple-choice question on a test
+>>>> and I don't
+>>>> know the answer I say "eeney-meaney-miney-moe".
+>>>>
+>>>> Rose Friedman, Age 14
+>>>>
+>>>> _______________________________________________
+>>>> R-SIG-Robust at r-project.org mailing list
+>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>>>
+>>
+>>
+
+
+
+From ko||er @end|ng |rom @t@t@m@th@ethz@ch  Fri Jun 17 17:55:57 2011
+From: ko||er @end|ng |rom @t@t@m@th@ethz@ch (Manuel Koller)
+Date: Fri, 17 Jun 2011 17:55:57 +0200
+Subject: [RsR] minimum sample size for the robust counterpart of the
+ t-test #2
+In-Reply-To: <064652E7-35E1-4040-9EAD-53E85E40DE69@cancercenter.columbia.edu>
+References: <916FFAB8-D1DC-407E-B645-09317A977E4E@cancercenter.columbia.edu>
+	<73a0b82b5ff4.4df8a356@usc.edu>
+	<6464A08D-BD86-4949-8D0B-5F976DADE49D@cancercenter.columbia.edu>
+	<72e09eec184c.4df9e59f@usc.edu>
+	<064652E7-35E1-4040-9EAD-53E85E40DE69@cancercenter.columbia.edu>
+Message-ID: <BANLkTikp8ddFjOBw4GyEDZSs3kCzZ_SAFQ@mail.gmail.com>
+
+Dear Richard,
+
+Since we did not quite cover your specific case, I ran another small
+simulation. See the attached file. It is basically the simulation
+study of our paper, but for models having only an intercept. I hope I
+did not overlook anything when I did this. There was a lot going on
+today... I apologize for the overloaded plots. I guess Figures 4, 7
+and 8 are the most interesting figures.
+
+As Rand already stated, the asymmetric error distributions are a
+problem: all the methods perform quite badly. Otherwise, the levels of
+the tests are pretty much ok (even for OLS, i.e., t-test). But of
+course, the power will be pretty bad. In numbers, for n = 5 you will
+have approximately the correct level (+/- 2%), but a power of about
+40% only for an effect size of 1 (10% for an effect size of 0.4). And
+this does not really depend on which method you are using.
+
+To conclude, I would recommend to use lmrob from robustbase with the
+argument setting="KS2011".
+
+I hope this helps,
+
+Manuel
+
+On Thu, Jun 16, 2011 at 8:19 PM, Richard Friedman
+<friedman at cancercenter.columbia.edu> wrote:
+> Rand,
+>
+> ? ? ? ?Thanks, I know very little about robust methods. I am interested in
+> whether rlm can be used in its default
+> state or if I have to tearn much more to do use the methods correctly.
+>
+> Best wishes,
+> Rich
+>
+> On Jun 16, 2011, at 2:14 PM, Rand Wilcox wrote:
+>
+>> When dealing with M-estimators and the goal is to compute confidence
+>> intervals, one thing you have to be careful about is skewed distributions.
+>> Have not encountered any non-bootstrap method that performs well in
+>> simulations where the confidence interval is based on an estimate of the
+>> standard error. Just how symmetric the distribution must be seems unclear.
+>> What works better is a percentile bootstrap method, even with fairly small
+>> sample sizes. This is why the methods in my book focus on bootstrap
+>> techniques when dealing with M-estimators.
+>>
+>>
+>> However, have not yet seen the Koller and Stahel paper. Maybe this problem
+>> has been addressed.
+>>
+>> Rand
+>>
+>> Rand Wilcox
+>> Professor
+>> Dept of Psychology
+>> USC
+>> Los Angeles, CA 90089-1061
+>>
+>> FAX: 213-746-9082
+>> For information about statistics books and software, see
+>> http://www-rcf.usc.edu/~rwilcox/
+>> as well as
+>> http://college.usc.edu/labs/rwilcox/home
+>>
+>> ----- Original Message -----
+>> From: Richard Friedman <friedman at cancercenter.columbia.edu>
+>> Date: Thursday, June 16, 2011 9:02 am
+>> Subject: Re: [RsR] minimum sample size for the robust counterpart of the
+>> t-test #2
+>> To: Rand Wilcox <rwilcox at usc.edu>, r-sig-robust at r-project.org
+>>
+>>> Dear Rand (and List),
+>>>
+>>> ? ? ? ?I read the relevant sections of your book and while informative it
+>>> did not answer my question
+>>> directly as best I can see. I will restate the question more
+>>> explicitly:
+>>> A robust analog of the two sample ?t-test is performed with the rlm
+>>> function with the default parameters of
+>>> the Huber method with K=1.345. Is there a minimum sample size for
+>>> which it should be trusted?
+>>> are 5 samples enough? 10 samples?
+>>>
+>>> If this question does not have a simple answer please let me know.
+>>>
+>>> Thanks and best wishes,
+>>> Rich
+>>>
+>>>
+>>> On Jun 15, 2011, at 3:19 PM, Rand Wilcox wrote:
+>>>
+>>>> There is general information about sample sizes and p-values, when
+>>>
+>>> using robust analogs of t, in my 2005 book (Introduction to Robust
+>>> Estimation and Hypothesis Testing, Academic Press) .
+>>>>
+>>>> (A third edition will be out early in 2012. )
+>>>>
+>>>> Hope this helps.
+>>>>
+>>>> Rand
+>>>>
+>>>> Rand Wilcox
+>>>> Professor
+>>>> Dept of Psychology
+>>>> USC
+>>>> Los Angeles, CA 90089-1061
+>>>>
+>>>> FAX: 213-746-9082
+>>>> For information about statistics books and software, see
+>>>
+>>> http://www-rcf.usc.edu/~rwilcox/
+>>>>
+>>>> as well as
+>>>> http://college.usc.edu/labs/rwilcox/home
+>>>>
+>>>> ----- Original Message -----
+>>>> From: Richard Friedman <friedman at cancercenter.columbia.edu>
+>>>> Date: Wednesday, June 15, 2011 12:11 pm
+>>>> Subject: [RsR] minimum sample size for the robust counterpart of
+>>>
+>>> the t-test
+>>>>
+>>>> To: r-sig-robust at r-project.org
+>>>>
+>>>>> Dear List,
+>>>>>
+>>>>> ? ? ? ?I am a beginner in the use of robust methods. Is there a minimum
+>>>>> sample size
+>>>>> for which the robust analog of a two sample t-test using rlm with
+>>>>> default parameters and categorical
+>>>>> explanatory variables may be trusted to yield reliable p-values?
+>>>>> Is so, can you please point me at a reference which treats this
+>>>>> problem.
+>>>>> Thanks and best wishes,
+>>>>> Rich
+>>>>> ------------------------------------------------------------
+>>>>> Richard A. Friedman, PhD
+>>>>> Associate Research Scientist,
+>>>>> Biomedical Informatics Shared Resource
+>>>>> Herbert Irving Comprehensive Cancer Center (HICCC)
+>>>>> Lecturer,
+>>>>> Department of Biomedical Informatics (DBMI)
+>>>>> Educational Coordinator,
+>>>>> Center for Computational Biology and Bioinformatics (C2B2)/
+>>>>> National Center for Multiscale Analysis of Genomic Networks (MAGNet)
+>>>>> Room 824
+>>>>> Irving Cancer Research Center
+>>>>> Columbia University
+>>>>> 1130 St. Nicholas Ave
+>>>>> New York, NY 10032
+>>>>> (212)851-4765?(voice)
+>>>>> friedman at cancercenter.columbia.edu
+>>>>> http://cancercenter.columbia.edu/~friedman/
+>>>>>
+>>>>> I am a Bayesian. When I see a multiple-choice question on a test
+>>>>> and I don't
+>>>>> know the answer I say "eeney-meaney-miney-moe".
+>>>>>
+>>>>> Rose Friedman, Age 14
+>>>>>
+>>>>> _______________________________________________
+>>>>> R-SIG-Robust at r-project.org mailing list
+>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>>>>
+>>>
+>>>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+-- 
+Manuel Koller <koller at stat.math.ethz.ch>
+Seminar f?r Statistik, HG G 18, R?mistrasse 101
+ETH Z?rich ?8092 Z?rich ?SWITZERLAND
+phone: +41 44 632-4673 fax: ...-1228
+http://stat.ethz.ch/people/kollerma/
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: intercept_only.pdf
+Type: application/pdf
+Size: 921710 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20110617/8df4fdd9/attachment.pdf>
+
+From |r|edm@n @end|ng |rom c@ncercenter@co|umb|@@edu  Wed Jun 22 00:56:12 2011
+From: |r|edm@n @end|ng |rom c@ncercenter@co|umb|@@edu (Richard Friedman)
+Date: Tue, 21 Jun 2011 18:56:12 -0400
+Subject: [RsR] minimum sample size for the robust counterpart of the
+	t-test #3
+In-Reply-To: <BANLkTikp8ddFjOBw4GyEDZSs3kCzZ_SAFQ@mail.gmail.com>
+References: <916FFAB8-D1DC-407E-B645-09317A977E4E@cancercenter.columbia.edu>
+	<73a0b82b5ff4.4df8a356@usc.edu>
+	<6464A08D-BD86-4949-8D0B-5F976DADE49D@cancercenter.columbia.edu>
+	<72e09eec184c.4df9e59f@usc.edu>
+	<064652E7-35E1-4040-9EAD-53E85E40DE69@cancercenter.columbia.edu>
+	<BANLkTikp8ddFjOBw4GyEDZSs3kCzZ_SAFQ@mail.gmail.com>
+Message-ID: <331DA25E-1F9A-4F5F-A3AD-759A6DD4ED2A@cancercenter.columbia.edu>
+
+Dear Manuel (and list).
+
+	Thank you for doing so much  the work to answer my question.
+Much of the theory is beyond me at present although I plan on learning
+more about robust methods with time along with many other fields
+I have to learn. I would like to rephrase the question- your response
+deals mainly with power. What I need to know about more is Tyoe I
+error. Do robust methods ever increase type I -error lead to a greater
+number of false positives, for n=5 than does the classical t-test?
+In particular does the Huber with k=1.345? I have a particular
+reason for returning to this method even though it is apparently
+no longer the robust method of choice. A collaborator used it to find
+significance where the classical t-test did not, and I am wondering
+which test to believe.
+
+Thanks and best wishes,
+Rich
+
+
+
+On Jun 17, 2011, at 11:55 AM, Manuel Koller wrote:
+
+> Dear Richard,
+>
+> Since we did not quite cover your specific case, I ran another small
+> simulation. See the attached file. It is basically the simulation
+> study of our paper, but for models having only an intercept. I hope I
+> did not overlook anything when I did this. There was a lot going on
+> today... I apologize for the overloaded plots. I guess Figures 4, 7
+> and 8 are the most interesting figures.
+>
+> As Rand already stated, the asymmetric error distributions are a
+> problem: all the methods perform quite badly. Otherwise, the levels of
+> the tests are pretty much ok (even for OLS, i.e., t-test). But of
+> course, the power will be pretty bad. In numbers, for n = 5 you will
+> have approximately the correct level (+/- 2%), but a power of about
+> 40% only for an effect size of 1 (10% for an effect size of 0.4). And
+> this does not really depend on which method you are using.
+>
+> To conclude, I would recommend to use lmrob from robustbase with the
+> argument setting="KS2011".
+>
+> I hope this helps,
+>
+> Manuel
+>
+> On Thu, Jun 16, 2011 at 8:19 PM, Richard Friedman
+> <friedman at cancercenter.columbia.edu> wrote:
+>> Rand,
+>>
+>>        Thanks, I know very little about robust methods. I am  
+>> interested in
+>> whether rlm can be used in its default
+>> state or if I have to tearn much more to do use the methods  
+>> correctly.
+>>
+>> Best wishes,
+>> Rich
+>>
+>> On Jun 16, 2011, at 2:14 PM, Rand Wilcox wrote:
+>>
+>>> When dealing with M-estimators and the goal is to compute confidence
+>>> intervals, one thing you have to be careful about is skewed  
+>>> distributions.
+>>> Have not encountered any non-bootstrap method that performs well in
+>>> simulations where the confidence interval is based on an estimate  
+>>> of the
+>>> standard error. Just how symmetric the distribution must be seems  
+>>> unclear.
+>>> What works better is a percentile bootstrap method, even with  
+>>> fairly small
+>>> sample sizes. This is why the methods in my book focus on bootstrap
+>>> techniques when dealing with M-estimators.
+>>>
+>>>
+>>> However, have not yet seen the Koller and Stahel paper. Maybe this  
+>>> problem
+>>> has been addressed.
+>>>
+>>> Rand
+>>>
+>>> Rand Wilcox
+>>> Professor
+>>> Dept of Psychology
+>>> USC
+>>> Los Angeles, CA 90089-1061
+>>>
+>>> FAX: 213-746-9082
+>>> For information about statistics books and software, see
+>>> http://www-rcf.usc.edu/~rwilcox/
+>>> as well as
+>>> http://college.usc.edu/labs/rwilcox/home
+>>>
+>>> ----- Original Message -----
+>>> From: Richard Friedman <friedman at cancercenter.columbia.edu>
+>>> Date: Thursday, June 16, 2011 9:02 am
+>>> Subject: Re: [RsR] minimum sample size for the robust counterpart  
+>>> of the
+>>> t-test #2
+>>> To: Rand Wilcox <rwilcox at usc.edu>, r-sig-robust at r-project.org
+>>>
+>>>> Dear Rand (and List),
+>>>>
+>>>>        I read the relevant sections of your book and while  
+>>>> informative it
+>>>> did not answer my question
+>>>> directly as best I can see. I will restate the question more
+>>>> explicitly:
+>>>> A robust analog of the two sample  t-test is performed with the rlm
+>>>> function with the default parameters of
+>>>> the Huber method with K=1.345. Is there a minimum sample size for
+>>>> which it should be trusted?
+>>>> are 5 samples enough? 10 samples?
+>>>>
+>>>> If this question does not have a simple answer please let me know.
+>>>>
+>>>> Thanks and best wishes,
+>>>> Rich
+>>>>
+>>>>
+>>>> On Jun 15, 2011, at 3:19 PM, Rand Wilcox wrote:
+>>>>
+>>>>> There is general information about sample sizes and p-values, when
+>>>>
+>>>> using robust analogs of t, in my 2005 book (Introduction to Robust
+>>>> Estimation and Hypothesis Testing, Academic Press) .
+>>>>>
+>>>>> (A third edition will be out early in 2012. )
+>>>>>
+>>>>> Hope this helps.
+>>>>>
+>>>>> Rand
+>>>>>
+>>>>> Rand Wilcox
+>>>>> Professor
+>>>>> Dept of Psychology
+>>>>> USC
+>>>>> Los Angeles, CA 90089-1061
+>>>>>
+>>>>> FAX: 213-746-9082
+>>>>> For information about statistics books and software, see
+>>>>
+>>>> http://www-rcf.usc.edu/~rwilcox/
+>>>>>
+>>>>> as well as
+>>>>> http://college.usc.edu/labs/rwilcox/home
+>>>>>
+>>>>> ----- Original Message -----
+>>>>> From: Richard Friedman <friedman at cancercenter.columbia.edu>
+>>>>> Date: Wednesday, June 15, 2011 12:11 pm
+>>>>> Subject: [RsR] minimum sample size for the robust counterpart of
+>>>>
+>>>> the t-test
+>>>>>
+>>>>> To: r-sig-robust at r-project.org
+>>>>>
+>>>>>> Dear List,
+>>>>>>
+>>>>>>        I am a beginner in the use of robust methods. Is there a  
+>>>>>> minimum
+>>>>>> sample size
+>>>>>> for which the robust analog of a two sample t-test using rlm with
+>>>>>> default parameters and categorical
+>>>>>> explanatory variables may be trusted to yield reliable p-values?
+>>>>>> Is so, can you please point me at a reference which treats this
+>>>>>> problem.
+>>>>>> Thanks and best wishes,
+>>>>>> Rich
+>>>>>> ------------------------------------------------------------
+>>>>>> Richard A. Friedman, PhD
+>>>>>> Associate Research Scientist,
+>>>>>> Biomedical Informatics Shared Resource
+>>>>>> Herbert Irving Comprehensive Cancer Center (HICCC)
+>>>>>> Lecturer,
+>>>>>> Department of Biomedical Informatics (DBMI)
+>>>>>> Educational Coordinator,
+>>>>>> Center for Computational Biology and Bioinformatics (C2B2)/
+>>>>>> National Center for Multiscale Analysis of Genomic Networks  
+>>>>>> (MAGNet)
+>>>>>> Room 824
+>>>>>> Irving Cancer Research Center
+>>>>>> Columbia University
+>>>>>> 1130 St. Nicholas Ave
+>>>>>> New York, NY 10032
+>>>>>> (212)851-4765 (voice)
+>>>>>> friedman at cancercenter.columbia.edu
+>>>>>> http://cancercenter.columbia.edu/~friedman/
+>>>>>>
+>>>>>> I am a Bayesian. When I see a multiple-choice question on a test
+>>>>>> and I don't
+>>>>>> know the answer I say "eeney-meaney-miney-moe".
+>>>>>>
+>>>>>> Rose Friedman, Age 14
+>>>>>>
+>>>>>> _______________________________________________
+>>>>>> R-SIG-Robust at r-project.org mailing list
+>>>>>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>>>>>
+>>>>
+>>>>
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>
+>
+>
+>
+> -- 
+> Manuel Koller <koller at stat.math.ethz.ch>
+> Seminar f?r Statistik, HG G 18, R?mistrasse 101
+> ETH Z?rich  8092 Z?rich  SWITZERLAND
+> phone: +41 44 632-4673 fax: ...-1228
+> http://stat.ethz.ch/people/kollerma/
+> <intercept_only.pdf>
+
+
+
+From |@torre @end|ng |rom |@|@uj|@e@  Wed Jul 27 12:17:01 2011
+From: |@torre @end|ng |rom |@|@uj|@e@ (Pedro Latorre Carmona)
+Date: Wed, 27 Jul 2011 12:17:01 +0200
+Subject: [RsR] Call for Papers ICPRAM 2012
+Message-ID: <20110727121701.14756rhpijo08mu5@webmail.uji.es>
+
+Dear all,
+
+My name is Pedro Latorre Carmona, program co-chair of the "2012  
+International Conference on Pattern Recognition Applications and  
+Methods (ICPRAM2012)". I send you the Call for Papers for this  
+conference and would like to draw your attention in particular to the  
+six special sessions that are also organised. I hope you will find it  
+interesting and may contribute to ICPRAM 2012.
+
+
+*********************************************************************
+        2012 International Conference on Pattern Recognition
+                  Applications and Methods (ICPRAM2012)
+
+                            February 6-8, 2012
+                      Vilamoura, Algarve, Portugal
+                         http://www.icpram.org
+*********************************************************************
+
+ICPRAM (1st International Conference on Pattern Recognition Applications and
+Methods - http://www.icpram.org/) has an open call for papers, whose
+deadline is set for July 26, 2011. We hope you can participate in this
+conference by submitting a paper reflecting your current research in any of
+the following tracks:
+
+- Theory and Methods
+- Applications
+
+ICPRAM 2012 will be held in Vilamoura, Algarve, Portugal next year, on
+February 6-8, 2012.
+
+The conference will be sponsored by the Institute for Systems and
+Technologies of Information, Control and Communication (INSTICC) in
+cooperation with the Association for the Advancement of Artificial
+Intelligence (AAAI) and Pattern Analysis, Statistical Modelling and
+Computational Learning (PASCAL2), and technically co-sponsored by IEEE
+Signal Processing Society, Machine Learning for Signal Processing
+(MLSP) Technical Committee of IEEE, AERFAI (Asociaci?n Espanola de
+Reconocimiento de Formas y Analisis de Imagenes) and APRP (Associacao
+Portuguesa de Reconhecimento de Padroes). INSTICC is member of the Workflow
+Management Coalition (WfMC).
+
+ICPRAM would like to become a major point of contact between researchers,
+engineers and practitioners on the areas of Pattern Recognition, both from
+theoretical and application perspectives.
+
+Contributions describing applications of Pattern Recognition techniques to
+real-world problems, interdisciplinary research, experimental and/or
+theoretical studies yielding new insights that advance Pattern Recognition
+methods are especially encouraged.
+
+The conference program features a number of Keynote Lectures to be delivered
+by distinguished world-class researchers, including those listed below.
+
+The proceedings of ICPRAM will be submitted for indexation by Thomson
+Reuters Conference Proceedings Citation Index (ISI), INSPEC, DBLP and
+Elsevier Index (EI).
+All accepted papers (full, short and posters) will be published in the
+conference proceedings, under an ISBN reference, on paper and on CD-ROM
+support.
+A short list of presented papers will be selected so that revised and
+extended versions of these papers will be published by Springer-Verlag in a
+AISC Series book.
+Top selected papers in specific areas of interest will be published as a
+special issue in the Neurocomputing Journal.
+
+Best paper awards will be distributed during the conference closing session.
+Please check the website for further information
+(http://www.icpram.org/best_paper_awards.asp).
+
+All papers presented at the conference venue will be available at the
+SciTePress Digital Library (http://www.scitepress.org/DigitalLibrary/).
+SciTePress is member of CrossRef (http://www.crossref.org/).
+
+We also would like to highlight the possibility to submit to the following
+Special Sessions:
+
+- Algebraic Geometry in Machine Learning
+
+- Shape Analysis and Deformable Modeling
+
+- Machine Learning for Sequences
+
+- Pattern Recognition Applications in Remotely Sensed Hyperspectral Image
+Analysis
+
+- High-Dimensional Inference from Limited Data: Sparsity, Parsimony and
+Adaptivity
+
+- Interactive and Adaptive Techniques for Machine Learning, Recognition and
+Perception
+
+Workshops and further special sessions are also invited, with the condition
+that the topics do not overlap with the existing ones. If you wish to
+propose a workshop or a special session, for example based on the results of
+a specific research project, please contact the secretariat. Workshop chairs
+and Special Session chairs will benefit from logistics support and other
+types of support, including secretariat and financial support, to facilitate
+the development of a valid idea.
+
+ICPRAM 2012 will be held in conjunction with ICAART 2012
+(http://www.icaart.org/home.asp) and ICORES (http://www.icores.org) in
+Vilamoura, Algarve, Portugal next year, on February 6-8, 2012.
+Registration to ICPRAM will enable free access to the ICAART and ICORES
+conferences (as a non-speaker).
+
+IMPORTANT DATES:
+Regular Paper Submission: September 8, 2011 (extended)
+Authors Notification (regular papers): October 17, 2011
+Final Regular Paper Submission and Registration: October 31, 2011
+
+
+CONFERENCE CHAIR:
+Ana Fred, Technical University of Lisbon / IT, Portugal
+
+
+PROGRAM CO-CHAIRS:
+J. Salvador Sanchez, Jaume I University, Spain Pedro Latorre Carmona, Jaume
+I University, Spain
+
+KEYNOTES SPEAKERS:
+Ludmila Kuncheva, Bangor University, U.K.
+Tiberio Caetano, NICTA, Australia
+Francis Bach, INRIA, France
+Jose C. Principe, University of Florida, U.S.A.
+Joachim M. Buhmann, ETH Zurich, Switzerland
+
+
+PROGRAM COMMITTEE:
+Please check the program committee members at
+http://www.icpram.org/program_committee.asp
+
+
+
+CONFERENCE TRACKS:
+TRACK 1: THEORY AND METHODS
+- Exact and Approximate Inference
+- Density Estimation
+- Bayesian Models
+- Gaussian Processes
+- Model Selection
+- Graphical and Graph-based Models
+- Missing Data
+- Ensemble Methods
+- Neural Networks
+- Kernel Methods
+- Large Margin Methods
+- Classification
+- Regression
+- Sparsity
+- Feature Selection and Extraction
+- Spectral Methods
+- Embedding and Manifold Learning
+- Similarity and Distance Learning
+- Matrix Factorization
+- Clustering
+- ICA, PCA, CCA and other Linear Models
+- Fuzzy Logic
+- Active Learning
+- Cost-sensitive Learning
+- Incremental Learning
+- On-line Learning
+- Structured Learning
+- Multi-agent Learning
+- Multi-instance Learning
+- Reinforcement Learning
+- Instance-based Learning
+- Knowledge Acquisition and Representation
+- Meta Learning
+- Multi-strategy Learning
+- Case-based Reasoning
+- Inductive Learning
+- Computational Learning Theory
+- Cooperative Learning
+- Evolutionary Computation
+- Information Retrieval and Learning
+- Hybrid Learning Algorithms
+- Planning and Learning
+- Convex Optimization
+- Stochastic Methods
+- Combinatorial Optimization
+
+
+TRACK 2: APPLICATIONS
+- Natural Language Processing
+- Information Retrieval
+- Ranking
+- Web Applications
+- Economics, Business and Forecasting Applications
+- Bioinformatics and Systems Biology
+- Audio and Speech Processing
+- Signal Processing
+- Image Understanding
+- Sensors and Early Vision
+- Motion and Tracking
+- Image-based Modelling
+- Shape Representation
+- Object Recognition
+- Video Analysis
+- Medical Imaging
+- Learning and Adaptive Control
+- Perception
+- Learning in Process Automation
+- Learning of Action Patterns
+- Virtual Environments
+- Robotics
+
+
+
+From ccqu@nt @end|ng |rom gm@||@com  Thu Sep 29 01:12:19 2011
+From: ccqu@nt @end|ng |rom gm@||@com (Ben qant)
+Date: Wed, 28 Sep 2011 17:12:19 -0600
+Subject: [RsR] get outlier list without plot
+Message-ID: <CAG2PC+eO_fGUxL-DuNGs+H_qU-2DfTo9oyiyRtHHedP20984nQ@mail.gmail.com>
+
+Hello,
+
+First time posting on the robust list. New to R.
+
+How do I get the outliers list generated via uni.plot without opening a
+graphics device?
+
+Regards,
+
+Ben
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Dec 23 17:21:22 2011
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 23 Dec 2011 17:21:22 +0100
+Subject: [RsR] [R] nlrob problem
+In-Reply-To: <4EEF94B1.8080009@ieu.uzh.ch>
+References: <4EEF94B1.8080009@ieu.uzh.ch>
+Message-ID: <20212.43650.958624.811262@stat.math.ethz.ch>
+
+>>>>> Pascal A Niklaus <pascal.niklaus at ieu.uzh.ch>
+>>>>>     on Mon, 19 Dec 2011 20:46:57 +0100 writes:
+
+    > Dear all, I am not sure if this mail is for R-help or
+    > should be sent to R-devel instead, and therefore post to
+    > both.
+
+    > While using nlrob from package 'robustbase', I ran into
+    > the following problem:
+
+    > For psi-functions that can become zero
+    > (e.g. psi.bisquare), weights in the internal call to nls
+    > can become zero. Example:
+
+>    d <- data.frame(x=1:5,y=c(2,3,5,10,9))
+>    d.nlrob <- nlrob(y ~ k*x,start=list(k=1),data=d,psi=psi.bisquare)
+
+> I think the problem is as follows: After the call to nls, a weighted 
+> residual vector is calculated by dividing by sqrt(w). This generates 
+> NaN's for weights of zero, which leads to problems in the subsequent 
+> call to nls during the next iteration:
+
+>      for (iiter in 1:maxit) {
+>        ...
+>              w <- psi(resid/Scale, ...)
+>        ...
+>              data$w <- sqrt(w)
+>        ...
+>              out <- nls( ....., data=data ....... )
+>        ...
+>              resid <- -residuals(out)/sqrt(w)   # NaN for w=0
+>        ...
+>      }
+
+> I wonder whether this problem shouldn't be dealt with by setting 'w' to 
+> 0 for the NaN cases.
+
+> I can get a fit by calling nlrob with na.action=na.exclude, but I'd have 
+> intuitively assumed that na.action applies to the NAs in the data set 
+> passed to nlrob, not to the one internally generated by nlrob and passed 
+> to nls.
+
+You are right.
+The next version of robustbase (0.8-1) will have this fixed.
+
+Note however, that for me, in your example and in other more
+interesting ones, as soon as I use a redescending  psi() function,
+the IRLS iterations do *not* converge...
+but rather strangely ``cycle'' around the true solution.
+As a redescending psi() has a non-convex rho(), and non-linear
+problems depend quite a bit on "feasible"/"good" starting
+values, I currently think I would discourage from using such psi().
+
+
+As others, some possibly more expert in robust non-linear fitting,
+may be interested, and have interesting feedback,
+I'm crossposting this reply to the R-SIG-robust  mailing
+list.
+(Further replies should typically only go there!)
+
+> The second 'issue' is that the weights are passed as 'w', whereas the 
+> documentation of 'nls' says weights should be given as 'weights' :
+
+>     data: an optional data frame in which to evaluate the variables in
+>            ?formula? and ?weights?.  Can also be a list or an
+>            environment, but not a matrix.
+
+> I think it would be good to mention in the documentation of 'nls' that 
+> weights can be passed as 'w' as well.
+
+You have overlooked that nlrob uses a different *formula* for nls()
+ --- nowadays unnecessarily ---
+and that formula has  a 'w'.
+
+So this part of your report is not correct.
+
+Martin Maechler, ETH Zurich
+
+> Pascal Niklaus
+
+
+

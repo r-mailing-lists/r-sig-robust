@@ -1,0 +1,94 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2025-07",
+  "messages": [
+    {
+      "id": "msg-8f533045d1e4",
+      "message_id": "<25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>",
+      "from_name": "John Buggeln",
+      "from_email_hash": "b29b3c2f27a1367cf8406ef35a91f5b47b95ff259699544c0e1627f1e9778c47",
+      "date": "2025-07-01T11:39:34-04:00",
+      "subject": "[RsR] Case where options in mad() seemingly have no effect",
+      "subject_clean": "[RsR] Case where options in mad() seemingly have no effect",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello!\n\nI have what seems to be a quick question. Below I have pasted the code for the mad() function, from ?package::stats?. \n\nfunction (x, center = median(x), constant = 1.4826, na.rm = FALSE, \n  low = FALSE, high = FALSE) \n{\n  if (na.rm) \n    x <- x[!is.na(x)]\n  n <- length(x)\n  constant * if ((low || high) && n%%2 == 0) {\n    if (low && high) \n      stop(\"'low' and 'high' cannot be both TRUE\")\n    n2 <- n%/%2 + as.integer(high)\n    sort(abs(x - center), partial = n2)[n2]\n  }\n  else median(abs(x - center))\n}\n\nThe documentation states that the options ?low? and ?high? update the way the median is being calculated. However, in the code there is no update to ?center\" from the value of low or high. What am I missing here? There must be something fundamental I don?t understand about R implementing this function. \n\nI also have a small example where the options seemingly have to effect on the MAD calculation.\n\n###################VERSION INFO#############################\n\nR 4.5.0 on MacOSX 14.5 (M2 Apple Silicon)\nSys.getlocale() is \"en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8?\n\nInformation on package ?stats?\n\nDescription:\n\nPackage: stats\nVersion: 4.5.0\nPriority: base\nTitle: The R Stats Package\nAuthor: R Core Team and contributors worldwide\nMaintainer: R Core Team <do-use-Contact-address at r-project.org>\nContact: R-help mailing list <r-help at r-project.org>\nDescription: R statistical functions.\nLicense: Part of R 4.5.0\nImports: utils, grDevices, graphics\nSuggests: MASS, Matrix, SuppDists, methods, stats4\nNeedsCompilation: yes\nEncoding: UTF-8\nEnhances: Kendall, coin, multcomp, pcaPP, pspearman, robustbase\nBuilt: R 4.5.0; aarch64-apple-darwin20; 2025-04-11 20:15:23 UTC; unix\n\n###################EXAMPLE#############################\n\n> var <-scan(text=\"3.2 3.6 4.3 4.3 4.4 4.7 5.1 5.3 5.5 5.8 6.7 8.9\")\nRead 12 items\n> mad(var) \n[1] 0.88956\n> mad(var, high=TRUE)\n[1] 0.88956\n> mad(var, low=TRUE)\n[1] 0.88956\n\nThis is confusing because when calculated manually the MAD is different:\n\n> # Manually\n> median(abs(var-median(var)))*1.4826\n[1] 0.88956\n> median(abs(var-4.7))*1.4826 # LOW for median\n[1] 1.03782\n> median(abs(var-5.1))*1.4826 # HIGH for median\n[1] 1.11195\n\n\nBest,\n\nJohn Buggeln, MS\nPhD Candidate\nUniversity of Delaware",
+      "body_snippet": "Hello!\n\nI have what seems to be a quick question. Below I have pasted the code for the mad() function, from ?package::stats?. \n\nfunction (x, center = median(x), constant = 1.4826, na.rm = FALSE, \n  lo",
+      "thread_id": "thread-8f533045d1e4",
+      "thread_depth": 0,
+      "month": "2025-07"
+    },
+    {
+      "id": "msg-057a2317074d",
+      "message_id": "<26725.3887.748024.245636@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2025-07-02T12:51:27+02:00",
+      "subject": "[RsR] Case where options in mad() seemingly have no effect",
+      "subject_clean": "[RsR] Case where options in mad() seemingly have no effect",
+      "in_reply_to": "<25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>",
+      "references": [
+        "<25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>"
+      ],
+      "body_plain": ">>>>> John Buggeln \n>>>>>     on Tue, 1 Jul 2025 11:39:34 -0400 writes:\n\n    > Hello!\n    > I have what seems to be a quick question. Below I have pasted the code for the mad() function, from ?package::stats?. \n\n    > function (x, center = median(x), constant = 1.4826, na.rm = FALSE, \n    > \t        low = FALSE, high = FALSE) \n    > {\n    >   if (na.rm) \n    >      x <- x[!is.na(x)]\n    >   n <- length(x)\n    >   constant * if ((low || high) && n%%2 == 0) {\n    >      if (low && high) \n    >        stop(\"'low' and 'high' cannot be both TRUE\")\n    >      n2 <- n%/%2 + as.integer(high)\n    >      sort(abs(x - center), partial = n2)[n2]\n    >   }\n    >   else median(abs(x - center))\n    > }\n\n    > The documentation states that the options ?low? and ?high?\n    > update the way the median is being calculated.\n\nYes, but *not* the \"inner\" median(x) which is the default for `center`, \nbut rather the \"outer\" median( |x - center| ).\n\n> However, in the code there is no update to ?center\" from the value of low or high. What am I missing here? There must be something fundamental I don?t understand about R implementing this function. \n\nYes.  I think you just need to read the help file more carefully.\n\nIf you think the help file was not clear, can you propose an\nimprovement there ?\n\n    > I also have a small example where the options seemingly have to effect on the MAD calculation.\n\nYes, in that case there is no effect (of course, see below)\n\n    > ###################VERSION INFO#############################\n\n    > R 4.5.0 on MacOSX 14.5 (M2 Apple Silicon)\n    > Sys.getlocale() is \"en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8?\n\n    > Information on package ?stats?\n\n    > Description:\n\n\t..............\n\t..............\n\n\n... the R version  4.5.0   is all that counts;  'stats' is part of R !\n\n    > ###################EXAMPLE#############################\n\n    >> var <-scan(text=\"3.2 3.6 4.3 4.3 4.4 4.7 5.1 5.3 5.5 5.8 6.7 8.9\")\n    > Read 12 items\n    >> mad(var) \n    > [1] 0.88956\n    >> mad(var, high=TRUE)\n    > [1] 0.88956\n    >> mad(var, low=TRUE)\n    > [1] 0.88956\n\nIndeed, in this case, the outer lo-median, median, and hi-median\nare identical (using 'x' instead of 'var' (which is after all\nthe var() function)) :\n\n\n##--------------o<------------------o<------------------o<-----------\nx <- c(3.2, 3.6, 4.3, 4.3, 4.4, 4.7, 5.1, 5.3, 5.5, 5.8, 6.7, 8.9)\nmad(x)            # 0.88956\nmad(x, high=TRUE) # 0.88956\nmad(x, low =TRUE) # 0.88956\n\n## MM:  the same, yes, because in this case,\nsort(abs(x - median(x)))\n## [1] 0.2 0.2 0.4 0.5 0.6 0.6 0.6 0.9 1.3 1.7 1.8 4.0\n##      1   2   3   4   5   6   7   8   ..          12\n## the median(), lo-median() and hi-median  {w/o the constant factor}\n## are all == 0.6\n\n## MM: slightly more interesting (after all this is about robustness !\nx <- round(10*x)\nx[1:3] <- 1000 + 1:3\ndput(x) # c(1001, 1002, 1003, 43, 44, 47, 51, 53, 55, 58, 67, 89)\n## and now,\ncbind(mads <- c(lomad = mad(x, low=TRUE), mad = mad(x), himad = mad(x, high = TRUE))) / 1.4826\n## give\n\n## lomad 10.5\n## mad   11.5\n## himad 12.5\n##--------------o<------------------o<------------------o<-----------\n\n\nWith best regards,\nMartin\n\n\n\n\n    > This is confusing because when calculated manually the MAD is different:\n\nThis is not \"the MAD\" that we have defined; rather you use\ndifferent *center*, i.e. lo_median, median, or hi_median for the __center__ \n\n    >> # Manually\n    >> median(abs(var-median(var)))*1.4826\n    > [1] 0.88956\n    >> median(abs(var-4.7))*1.4826 # LOW for median\n    > [1] 1.03782\n    >> median(abs(var-5.1))*1.4826 # HIGH for median\n    > [1] 1.11195\n\n\n    > Best,\n\n    > John Buggeln, MS\n    > PhD Candidate\n    > University of Delaware\n    > _______________________________________________\n    > R-SIG-Robust at r-project.org mailing list\n    > https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": ">>>>> John Buggeln \n>>>>>     on Tue, 1 Jul 2025 11:39:34 -0400 writes:\n\n    > Hello!\n    > I have what seems to be a quick question. Below I have pasted the code for the mad() function, from ?package",
+      "thread_id": "thread-8f533045d1e4",
+      "thread_depth": 1,
+      "month": "2025-07"
+    },
+    {
+      "id": "msg-bc92729ae73b",
+      "message_id": "<6ED83CC9-B60B-4912-9BB7-002CD9351CA0@udel.edu>",
+      "from_name": "John Buggeln",
+      "from_email_hash": "b29b3c2f27a1367cf8406ef35a91f5b47b95ff259699544c0e1627f1e9778c47",
+      "date": "2025-07-02T12:14:12-04:00",
+      "subject": "[RsR] Case where options in mad() seemingly have no effect",
+      "subject_clean": "[RsR] Case where options in mad() seemingly have no effect",
+      "in_reply_to": "<26725.3887.748024.245636@stat.math.ethz.ch>",
+      "references": [
+        "<25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>",
+        "<26725.3887.748024.245636@stat.math.ethz.ch>"
+      ],
+      "body_plain": "This was clarifying, thank you for your response.\n\nA suggestion for the help file would be to specify which median the low/high options effect. E.g., \n\n\"if TRUE, compute the ?lo-median? of the absolute deviations, i.e., for even sample size, do not average the two middle values, but take the smaller one.?\n\nBest,\n\nJohn Buggeln, MS\nPhD Candidate\nUniversity of Delaware\n\n\n> \n> On Jul 2, 2025, at 6:51?AM, Martin Maechler <maechler at stat.math.ethz.ch> wrote:\n> \n>>>>>> John Buggeln \n>>>>>>    on Tue, 1 Jul 2025 11:39:34 -0400 writes:\n> \n>> Hello!\n>> I have what seems to be a quick question. Below I have pasted the code for the mad() function, from ?package::stats?. \n> \n>> function (x, center = median(x), constant = 1.4826, na.rm = FALSE, \n>>         low = FALSE, high = FALSE) \n>> {\n>>  if (na.rm) \n>>     x <- x[!is.na(x)]\n>>  n <- length(x)\n>>  constant * if ((low || high) && n%%2 == 0) {\n>>     if (low && high) \n>>       stop(\"'low' and 'high' cannot be both TRUE\")\n>>     n2 <- n%/%2 + as.integer(high)\n>>     sort(abs(x - center), partial = n2)[n2]\n>>  }\n>>  else median(abs(x - center))\n>> }\n> \n>> The documentation states that the options ?low? and ?high?\n>> update the way the median is being calculated.\n> \n> Yes, but *not* the \"inner\" median(x) which is the default for `center`, \n> but rather the \"outer\" median( |x - center| ).\n> \n>> However, in the code there is no update to ?center\" from the value of low or high. What am I missing here? There must be something fundamental I don?t understand about R implementing this function. \n> \n> Yes.  I think you just need to read the help file more carefully.\n> \n> If you think the help file was not clear, can you propose an\n> improvement there ?\n> \n>> I also have a small example where the options seemingly have to effect on the MAD calculation.\n> \n> Yes, in that case there is no effect (of course, see below)\n> \n>> ###################VERSION INFO#############################\n> \n>> R 4.5.0 on MacOSX 14.5 (M2 Apple Silicon)\n>> Sys.getlocale() is \"en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8?\n> \n>> Information on package ?stats?\n> \n>> Description:\n> \n> ..............\n> ..............\n> \n> \n> ... the R version  4.5.0   is all that counts;  'stats' is part of R !\n> \n>> ###################EXAMPLE#############################\n> \n>>> var <-scan(text=\"3.2 3.6 4.3 4.3 4.4 4.7 5.1 5.3 5.5 5.8 6.7 8.9\")\n>> Read 12 items\n>>> mad(var) \n>> [1] 0.88956\n>>> mad(var, high=TRUE)\n>> [1] 0.88956\n>>> mad(var, low=TRUE)\n>> [1] 0.88956\n> \n> Indeed, in this case, the outer lo-median, median, and hi-median\n> are identical (using 'x' instead of 'var' (which is after all\n> the var() function)) :\n> \n> \n> ##--------------o<------------------o<------------------o<-----------\n> x <- c(3.2, 3.6, 4.3, 4.3, 4.4, 4.7, 5.1, 5.3, 5.5, 5.8, 6.7, 8.9)\n> mad(x)            # 0.88956\n> mad(x, high=TRUE) # 0.88956\n> mad(x, low =TRUE) # 0.88956\n> \n> ## MM:  the same, yes, because in this case,\n> sort(abs(x - median(x)))\n> ## [1] 0.2 0.2 0.4 0.5 0.6 0.6 0.6 0.9 1.3 1.7 1.8 4.0\n> ##      1   2   3   4   5   6   7   8   ..          12\n> ## the median(), lo-median() and hi-median  {w/o the constant factor}\n> ## are all == 0.6\n> \n> ## MM: slightly more interesting (after all this is about robustness !\n> x <- round(10*x)\n> x[1:3] <- 1000 + 1:3\n> dput(x) # c(1001, 1002, 1003, 43, 44, 47, 51, 53, 55, 58, 67, 89)\n> ## and now,\n> cbind(mads <- c(lomad = mad(x, low=TRUE), mad = mad(x), himad = mad(x, high = TRUE))) / 1.4826\n> ## give\n> \n> ## lomad 10.5\n> ## mad   11.5\n> ## himad 12.5\n> ##--------------o<------------------o<------------------o<-----------\n> \n> \n> With best regards,\n> Martin\n> \n> \n> \n> \n>> This is confusing because when calculated manually the MAD is different:\n> \n> This is not \"the MAD\" that we have defined; rather you use\n> different *center*, i.e. lo_median, median, or hi_median for the __center__ \n> \n>>> # Manually\n>>> median(abs(var-median(var)))*1.4826\n>> [1] 0.88956\n>>> median(abs(var-4.7))*1.4826 # LOW for median\n>> [1] 1.03782\n>>> median(abs(var-5.1))*1.4826 # HIGH for median\n>> [1] 1.11195\n> \n> \n>> Best,\n> \n>> John Buggeln, MS\n>> PhD Candidate\n>> University of Delaware\n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "This was clarifying, thank you for your response.\n\nA suggestion for the help file would be to specify which median the low/high options effect. E.g., \n\n\"if TRUE, compute the ?lo-median? of the absolut",
+      "thread_id": "thread-8f533045d1e4",
+      "thread_depth": 2,
+      "month": "2025-07"
+    },
+    {
+      "id": "msg-5c16fcc46edd",
+      "message_id": "<26726.23193.29034.817131@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2025-07-03T12:25:29+02:00",
+      "subject": "[RsR] Case where options in mad() seemingly have no effect",
+      "subject_clean": "[RsR] Case where options in mad() seemingly have no effect",
+      "in_reply_to": "<6ED83CC9-B60B-4912-9BB7-002CD9351CA0@udel.edu>",
+      "references": [
+        "<25188DC0-6651-4EE9-B0C7-348D559B54ED@udel.edu>",
+        "<26725.3887.748024.245636@stat.math.ethz.ch>",
+        "<6ED83CC9-B60B-4912-9BB7-002CD9351CA0@udel.edu>"
+      ],
+      "body_plain": ">>>>> John Buggeln \n>>>>>     on Wed, 2 Jul 2025 12:14:12 -0400 writes:\n\n    > This was clarifying, thank you for your response.\n    > A suggestion for the help file would be to specify which median the low/high options effect. E.g., \n\n    > \"if TRUE, compute the ?lo-median? of the absolute deviations, i.e., for even sample size, do not average the two middle values, but take the smaller one.?\n\n    > Best,\n\n    > John Buggeln, MS\n    > PhD Candidate\n    > University of Delaware\n\n\nOk, thank you.\nI now have added something like your proposal to R's sources\nhelp file for mad()  [ <Rsrc>/src/library/stats/man/mad.Rd ;\nsvn rev 88376\n\nBest,\nMartin\n\n\n[......................]\n[......................]",
+      "body_snippet": ">>>>> John Buggeln \n>>>>>     on Wed, 2 Jul 2025 12:14:12 -0400 writes:\n\n    > This was clarifying, thank you for your response.\n    > A suggestion for the help file would be to specify which median t",
+      "thread_id": "thread-8f533045d1e4",
+      "thread_depth": 3,
+      "month": "2025-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-8f533045d1e4",
+      "subject": "[RsR] Case where options in mad() seemingly have no effect",
+      "message_count": 4,
+      "participants": [
+        "John Buggeln",
+        "Martin Maechler"
+      ],
+      "started": "2025-07-01T11:39:34-04:00",
+      "last_reply": "2025-07-03T12:25:29+02:00",
+      "root_message_id": "msg-8f533045d1e4"
+    }
+  ]
+}

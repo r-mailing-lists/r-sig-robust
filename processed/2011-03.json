@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2011-03",
+  "messages": [
+    {
+      "id": "msg-5a2af367df05",
+      "message_id": "<1301585710.32085.1435988005@webmail.messagingengine.com>",
+      "from_name": "Nicholas Lewin-Koh",
+      "from_email_hash": "db1e00ab5510a3449e0b3ccb12bc5842ab0ff9dc92e677241ea74ffd424c0ac9",
+      "date": "2011-03-31T08:35:10-07:00",
+      "subject": "[RsR] VIF for robust regression?",
+      "subject_clean": "[RsR] VIF for robust regression?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\nI was looking at the vif function in the car package\nand it it is trivial to modify to make a version for robust\nregression. However, after trying it out I noticed  that what \nwere reasonable values under ols, jumped way up. \nSo my thought is that either,\nI made a coding error, and the weights attribute needs to be used\nto modify the variance covariance matrix of the coefficients\nOr, the reduced variance from the robust regression, causes peripheral\npoints\n(outside the mve) to have much more influence in the r^2's for each\npredictor.\nSo that the standard vif measure, 1/(1-R^2_i) is not relevant in this\ncontext.\nAm I off base here? \n\nThanks\nNicholas\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: vif.lmrob.R\nType: application/octet-stream\nSize: 1026 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20110331/a12e3382/attachment.obj>",
+      "body_snippet": "Hi,\nI was looking at the vif function in the car package\nand it it is trivial to modify to make a version for robust\nregression. However, after trying it out I noticed  that what \nwere reasonable valu",
+      "thread_id": "thread-5a2af367df05",
+      "thread_depth": 0,
+      "month": "2011-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-5a2af367df05",
+      "subject": "[RsR] VIF for robust regression?",
+      "message_count": 1,
+      "participants": [
+        "Nicholas Lewin-Koh"
+      ],
+      "started": "2011-03-31T08:35:10-07:00",
+      "last_reply": "2011-03-31T08:35:10-07:00",
+      "root_message_id": "msg-5a2af367df05"
+    }
+  ]
+}

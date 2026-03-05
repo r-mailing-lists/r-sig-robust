@@ -1,0 +1,113 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2016-03",
+  "messages": [
+    {
+      "id": "msg-1f602a20e1f2",
+      "message_id": "<tencent_117207961428FC115695B7F7@qq.com>",
+      "from_name": "天源--",
+      "from_email_hash": "9b86e8f5bba6e0c252a4295487610f618c0d4aef6c65b33b66e8a34bb13eebf7",
+      "date": "2016-03-19T20:25:31+08:00",
+      "subject": "[RsR] cancer-pred",
+      "subject_clean": "[RsR] cancer-pred",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "hello?I have cancer-pred data.I want to read the data into R and output the first list variable y with below  statement,\nbut I always get the wrong result.which I need to amend?\n       mydata<-read.table(\"C:/Users/Desktop/cancer-pred.txt\",na.string=\".\",header=T)\n       mydata<-as.data.frame(mydata)\n        y\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20160319/1d927bce/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: cancer-pred.txt\nType: application/octet-stream\nSize: 6554 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20160319/1d927bce/attachment.obj>",
+      "body_snippet": "hello?I have cancer-pred data.I want to read the data into R and output the first list variable y with below  statement,\nbut I always get the wrong result.which I need to amend?\n       mydata<-read.ta",
+      "thread_id": "thread-1f602a20e1f2",
+      "thread_depth": 0,
+      "month": "2016-03"
+    },
+    {
+      "id": "msg-cb39b27359fa",
+      "message_id": "<CAOmnhGftdxLRyMVPVjggA3v9gB+81R8UKoKuzqpqQdxrQe5bGA@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2016-03-21T00:09:38+01:00",
+      "subject": "[RsR] cancer-pred",
+      "subject_clean": "[RsR] cancer-pred",
+      "in_reply_to": "<tencent_117207961428FC115695B7F7@qq.com>",
+      "references": [
+        "<tencent_117207961428FC115695B7F7@qq.com>"
+      ],
+      "body_plain": "Dear Tianyuan,\n\nI do not think this is the right place to ask this question.\n\nHowever, if your data frame has a variable y - to see this try head(mydata)\n-\n\nyou can see the variable y with the command\n\nmydata$y\n\nBest regards,\nValentin\n\n\n\nOn Sat, Mar 19, 2016 at 1:25 PM, ??-- <1456861180 at qq.com> wrote:\n\n> hello?I have cancer-pred data.I want to read the data into R and output\n> the first list variable y with below  statement,\n> but I always get the wrong result.which I need to amend?\n>\n>  mydata<-read.table(\"C:/Users/Desktop/cancer-pred.txt\",na.string=\".\",header=T)\n>        mydata<-as.data.frame(mydata)\n>         y\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear Tianyuan,\n\nI do not think this is the right place to ask this question.\n\nHowever, if your data frame has a variable y - to see this try head(mydata)\n-\n\nyou can see the variable y with the command",
+      "thread_id": "thread-1f602a20e1f2",
+      "thread_depth": 1,
+      "month": "2016-03"
+    },
+    {
+      "id": "msg-ea2c08460eed",
+      "message_id": "<D5987341-9B6F-444C-850C-2A1133D4FB27@alumni.rice.edu>",
+      "from_name": "Robert Chatfield",
+      "from_email_hash": "b035518d612b9c6e8320b5fcb236cee33147c1839ed94344f00355c9eb5a99fb",
+      "date": "2016-03-24T17:30:10-07:00",
+      "subject": "[RsR] \"standard deviation\" for slope in rlm rather than standard error",
+      "subject_clean": "[RsR] \"standard deviation\" for slope in rlm rather than standard error",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I wish to give general information about confidence in estimates of the\nslope in single-variate rlm         where I try to estimate ?emissions factors? which scale\npollutant fire-tracer amounts with amounts of fuel burned.  \n\nemissiions.rlm = rlm ( tracer ~ burn.amount + 1)    (default method)\n\ntracer = a * burn.amount + b\n\nPlease help with these naive questions: I have found no previous posts\nand am hardly sure that I will find the answers directly in the literature references.\n\n\nIs there a way to associate a ?standard deviation? rather than a ?standard error?\nto the slope estimate.   From the remarks about the value df.residual regarding the \npredicted-variable standard error, I understand that there must be intricacies.\n\nI do notice that the standard errors for the   slope a   printed  from summary(emissions.rlm) \nare rather smaller than those from  what I would get from  summary( lm ( tracer ~ burn.amount + 1) )\nwith or without omitting completely down weighted cases or using sum( emissiions.rlm$w -2 )\nfor the situations I investigate.  When there are no down-weighted observations, they\nseem similar.\n\nI would like to have standard deviations rather than standard errors, since the individual\nobservations are not likely completely independent, and it would be difficult and probably\nunwise to attach an independence estimate. (By the way, ?independent? takes on several\nmeanings, ?instruments provide independent results? vs ?meteorological variability is or is\nnot great?, and the latter idea has several interpretations also.) Those independence \nquestions are at least addressed by separate methods.\n\n\nNow my purpose is to make   _generalized_ comparisons     between similar situations,\nlm using an old estimation methodology for burn.amount\nrlm using the same old estimation methodology for burn.amount\nand\nlm and rlm using what I believe is a better methodology for burn.amount\n\nand where I have several variables to use for ?tracer? in the very same context.\n\n(Also a colleague in an earlier paper has quoted only a standard deviation in using the old\nestimation methodology for burn.amount, ? no doubt for very similar reasons.)\n\n\nOf course I give a warning that the quoted standard deviations or standard errors must \nused carefully and mostly compared to one another.\n\nPerhaps there are ways to guess intent in the rlm R code, but I hesitate a bit.\n\nBob Chatfield\n\n\n\n\n\nRobert Chatfield, Research Scientist\nEarth System Science, Atmospherics\nMail Stop 245-5\nNASA Ames Research Center\nMoffett Field, CA 94035  USA\nph: 650-604-5490  cell: 650-793-5227",
+      "body_snippet": "I wish to give general information about confidence in estimates of the\nslope in single-variate rlm         where I try to estimate ?emissions factors? which scale\npollutant fire-tracer amounts with a",
+      "thread_id": "thread-ea2c08460eed",
+      "thread_depth": 0,
+      "month": "2016-03"
+    },
+    {
+      "id": "msg-6ca1a186c72e",
+      "message_id": "<22264.59954.919241.878977@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2016-03-28T10:24:18+02:00",
+      "subject": "[RsR] [R] Robust ANCOVA",
+      "subject_clean": "[RsR] [R] Robust ANCOVA",
+      "in_reply_to": "<3089FB6F-BDC4-4083-8D5F-C75B4CBBFFAC@comcast.net>",
+      "references": [
+        "<862738374.1254636.1459097522717.JavaMail.yahoo.ref@mail.yahoo.com>",
+        "<862738374.1254636.1459097522717.JavaMail.yahoo@mail.yahoo.com>",
+        "<3089FB6F-BDC4-4083-8D5F-C75B4CBBFFAC@comcast.net>"
+      ],
+      "body_plain": ">>>>> David Winsemius <dwinsemius at comcast.net>\n>>>>>     on Sun, 27 Mar 2016 19:30:31 -0700 writes:\n\n    >> On Mar 27, 2016, at 9:52 AM, HAMID REZA ASHRAFI via\n    >> R-help <r-help at r-project.org> wrote:\n    >> \n    >> HiI have a set of data with two independent variables, a\n    >> pretest (covariate) and posttest (dependent variable).Can\n    >> anyone help me run robust ANCOVA?If you wish I can send\n    >> you the data file.yours [[alternative HTML version\n    >> deleted]]\n\n    > https://cran.r-project.org/web/views/Robust.html\n\n    > help(pac=MASS, rlm)\n\n    > # A starting point perhaps:\n\n    > MASS::rlm( Post ~ pre +IV1 + IV2, data=yourdataframe)\n\n    > David Winsemius Alameda, CA, USA\n\nIndeed.\nOr use the more sophisticated (and somewhat more robust /\nefficient) methods from package 'robustbase'\n\ninstall.packages(\"robustbase\")\nrequire(\"robustbase\")\nfm <- lmrob(Post ~ pre +IV1 + IV2, setting = \"KS2014\",\n            data=yourdataframe)\n\n\nwhere recent research lead to the recommendation of  setting=\"KS2014\",\nwhich indeed maybe relevant for \"ANCOVA\".\n\nMartin Maechler, ETH Zurich\n(and maintainer of 'robustbase', hence \"biased\" !)",
+      "body_snippet": ">>>>> David Winsemius <dwinsemius at comcast.net>\n>>>>>     on Sun, 27 Mar 2016 19:30:31 -0700 writes:\n\n    >> On Mar 27, 2016, at 9:52 AM, HAMID REZA ASHRAFI via\n    >> R-help <r-help at r-project.or",
+      "thread_id": "thread-6ca1a186c72e",
+      "thread_depth": 0,
+      "month": "2016-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-1f602a20e1f2",
+      "subject": "[RsR] cancer-pred",
+      "message_count": 2,
+      "participants": [
+        "Valentin Todorov",
+        "天源--"
+      ],
+      "started": "2016-03-19T20:25:31+08:00",
+      "last_reply": "2016-03-21T00:09:38+01:00",
+      "root_message_id": "msg-1f602a20e1f2"
+    },
+    {
+      "id": "thread-ea2c08460eed",
+      "subject": "[RsR] \"standard deviation\" for slope in rlm rather than standard error",
+      "message_count": 1,
+      "participants": [
+        "Robert Chatfield"
+      ],
+      "started": "2016-03-24T17:30:10-07:00",
+      "last_reply": "2016-03-24T17:30:10-07:00",
+      "root_message_id": "msg-ea2c08460eed"
+    },
+    {
+      "id": "thread-6ca1a186c72e",
+      "subject": "[RsR] [R] Robust ANCOVA",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2016-03-28T10:24:18+02:00",
+      "last_reply": "2016-03-28T10:24:18+02:00",
+      "root_message_id": "msg-6ca1a186c72e"
+    }
+  ]
+}

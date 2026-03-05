@@ -1,0 +1,119 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2010-04",
+  "messages": [
+    {
+      "id": "msg-99108aa8eb4b",
+      "message_id": "<789770.83253.qm@web112311.mail.gq1.yahoo.com>",
+      "from_name": "Alamgir Gir",
+      "from_email_hash": "d0951fbb296437b857731b22df239d93774889cdd520a14a32b468a64021b2e0",
+      "date": "2010-04-04T23:35:30-07:00",
+      "subject": "[RsR] ridge regressio",
+      "subject_clean": "[RsR] ridge regressio",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi\nI am writing a program for ridge regression using lts. I need your help please\n\nregards\nAlamgir\n\n\n\n\n      \n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi\nI am writing a program for ridge regression using lts. I need your help please\n\nregards\nAlamgir\n\n\n\n\n      \n\t[[alternative HTML version deleted]]",
+      "thread_id": "thread-99108aa8eb4b",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-bbc993c8fef8",
+      "message_id": "<4BBAEB4A.1020508@unige.ch>",
+      "from_name": "Olivier Renaud",
+      "from_email_hash": "6d71b22d0e62134f96165c0875cd64df6e65b064c8150892f2d49dcb83e43c33",
+      "date": "2010-04-06T10:05:30+02:00",
+      "subject": "[RsR] Can I calculate the p-value of the robust regression at this\tway?",
+      "subject_clean": "[RsR] Can I calculate the p-value of the robust regression at this\tway?",
+      "in_reply_to": "<loom.20100324T044117-751@post.gmane.org>",
+      "references": [
+        "<loom.20100324T044117-751@post.gmane.org>"
+      ],
+      "body_plain": "Hi,\nThe output of lmRob DOES provide the robust version of the R-squared \nunder \"Multiple R-Squared\". It does not directly provide a test that \ncompares the model with the model with no covariates (equivalent of the \n\"F test\"), but it can be obtained with the anova function as shown here:\n\n > creat.lmRob = lmRob(original1 ~ \napproprie1+approprie2+creativite1+creativite2, data=creatif)\n > creat00.lmRob = lmRob(original1 ~ 1, data=creatif)\n > anova (creat00.lmRob, creat.lmRob)\n\nThis can also be done with lmrob().\n\nConcerning the R-squared however, we have recently published a paper \nthat shows that the robust R-squared provided by lmRob is biased, \nsometimes to a large extent. We provide a consistent and robust \nestimator of R-squared (robR2w.WithCorrection in the output below) and a \nversion adjusted for the sample size (robR2w.AdjustedWithCorrection in \nthe output below). The code and an example are provided below.\n\nOlivier\n\nref: Renaud, O. & Victoria-Feser, M.-P. (2010). A robust coefficient of \ndetermination for regression. Journal of Statistical Planning and \nInference, 140, 1852-1862. http://dx.doi.org/10.1016/j.jspi.2010.01.008\n\n > library(robust)\n > source(\"robR2w.r\")\n\n > creat.lmRob = lmRob(original1 ~ \napproprie1+approprie2+creativite1+creativite2, data=creatif)\n\n > summary(creat.lmRob)\n\nCall: lmRob(formula = original1 ~ approprie1 + approprie2 + creativite1 +\n    creativite2, data = creatif)\n\nResiduals:\n        Min          1Q      Median          3Q         Max\n-1.96149388 -0.34543174 -0.05500626  0.23168813  1.73781067\n\nCoefficients:\n            Value         Std. Error    t value       Pr(>|t|)    \n(Intercept) -2.2744444543  1.2656121996 -1.7971100903  0.0784825453\napproprie1   0.0914187017  0.1187669959  0.7697315322  0.4451541682\napproprie2   0.1505246740  0.0934840433  1.6101643524  0.1137861853\ncreativite1  0.6270578015  0.1648705921  3.8033332300  0.0003963918\ncreativite2 -0.2384886952  0.1302348886 -1.8312197120  0.0731512215\n\nResidual standard error: 0.459508 on 49 degrees of freedom\nMultiple R-Squared: 0.183627\n\nTest for Bias:\n            statistic    p-value\nM-estimate   6.527018 0.25825825\nLS-estimate 10.368150 0.06545114\n\n > robR2w(creat.lmRob)\n$robR2w.NoCorrection\n[1] 0.3732078\n\n$robR2w.WithCorrection\n[1] 0.3302368\n\n$robR2w.AdjustedWithCorrection\n[1] 0.2604698\n\n\n\nfriendpine wrote:\n> The output for the rlm(),lmRob(),lmrob() didn't give the R-squared and the\n> p-value of the equation. There seems to be no function that can do these\n> things.Can we calculate it as in the OLS(ordinary least squared) regression? The\n> method in OLS use the SSE and SSR to calculate the f for F test. The p-value\n> generated in the F test is the p-value for the OLS regression equation. Can we\n> do it in the robust regression?\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \nOlivier.Renaud at unige.ch               http://www.unige.ch/fapse/mad/\nMethodology & Data Analysis - Psychology Dept - University of Geneva\nUniMail, Office 4164  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4\n\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20100406/c2374888/attachment.html>\n\n-------------- next part --------------\n\nrobR2w = function (rob.obj, correc=1.2076) {\n  ## R2 in robust regression, see\n  ## Renaud, O. & Victoria-Feser, M.-P. (2010). A robust coefficient of determination for regression. Journal of Statistical Planning and Inference, 140, 1852-???1862.\n  ## rob.obj is an lmRob object. correc is the correction for consistancy. Call:\n  ##\n  ## library(robust)\n  ## creat.lmRob = lmRob(original1 ~ approprie1+approprie2+creativite1+creativite2, data=creatif)\n  ## summary(creat.lmRob)\n  ## robR2w(creat.lmRob)\n  \n  ## Weights in robust regression\n  wt.bisquare = function(u, c = 4.685) {\n    U <- abs(u/c)\n    w <- ((1. + U) * (1. - U))^2.\n    w[U > 1.] <- 0.\n    w\n  }\n  weight.rob=function(rob.obj){\n    resid.rob=rob.obj$resid\n    scale.rob=(rob.obj$scale)*rob.obj$df.residual/length(resid.rob)\n    resid.rob= resid.rob/scale.rob\n    weight=wt.bisquare(resid.rob)\n  }\n\n  if (attr(rob.obj, \"class\") !=\"lmRob\")\n    stop(\"This function works only on lmRob objects\")\n  pred = rob.obj$fitted.values\n  resid = rob.obj$resid\n  resp = resid+pred\n  wgt = weight.rob(rob.obj)\n  scale.rob = rob.obj$scale\n  resp.mean = sum(wgt*resp)/sum(wgt)\n  pred.mean = sum(wgt*pred)/sum(wgt)\n  yMy = sum(wgt*(resp-resp.mean)^2)\n  rMr = sum(wgt*resid^2)\n  r2 = (yMy-rMr) / yMy\n  r2correc= (yMy-rMr) / (yMy-rMr +rMr*correc)\n  r2adjcor = 1-(1-r2correc) * (length(resid)-1) / (length(resid)-length(rob.obj$coefficients)-1)  \n  return(list(robR2w.NoCorrection=r2, robR2w.WithCorrection=r2correc, robR2w.AdjustedWithCorrection=r2adjcor))\n}",
+      "body_snippet": "Hi,\nThe output of lmRob DOES provide the robust version of the R-squared \nunder \"Multiple R-Squared\". It does not directly provide a test that \ncompares the model with the model with no covariates (eq",
+      "thread_id": "thread-bbc993c8fef8",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-82a6f649c8e3",
+      "message_id": "<364122.98465.qm@web112301.mail.gq1.yahoo.com>",
+      "from_name": "Alamgir Gir",
+      "from_email_hash": "d0951fbb296437b857731b22df239d93774889cdd520a14a32b468a64021b2e0",
+      "date": "2010-04-09T23:43:55-07:00",
+      "subject": "[RsR] robust ridge",
+      "subject_clean": "[RsR] robust ridge",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi dears\nI am writing a program in R for robust ridge estimator based on LTS. is there any code or package relating to it? could you please help me out?\n\nRegards\n\nAlamgir\nPh.D scholar \n\n\n\n\n      \n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hi dears\nI am writing a program in R for robust ridge estimator based on LTS. is there any code or package relating to it? could you please help me out?\n\nRegards\n\nAlamgir\nPh.D scholar \n\n\n\n\n      \n\t[[a",
+      "thread_id": "thread-82a6f649c8e3",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-068eb5c639ae",
+      "message_id": "<u2q4358fd1a1004222124p2171450fwd62fa325531ab18@mail.gmail.com>",
+      "from_name": "Daniel",
+      "from_email_hash": "e75e57f43599ba5e48d01f1d535f200935c93d65e50cefa56b0c382d1c1f0c97",
+      "date": "2010-04-23T01:24:05-03:00",
+      "subject": "[RsR] Vote Concentration Equation",
+      "subject_clean": "[RsR] Vote Concentration Equation",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello all,\nI'm just a beginner on R issue, but improving.\n\nDoes anyone knows how can I get vote concentration to each ID by city\n(CIDADE) considering each UF (State), because my data is long and has all\nstates together and IDs repeating across states.\nI also tried to get  totals and then apply for division, but R din't allow\nme to attach new column with less rows, of course.\nSo, someone have any light for me do that? Can I print values all without my\npain programing?\n\ntotal.UF <- tapply(senador$Votos, senador$UF, sum)\ntotal.MUN <- tapply(senador$Votos, senador$CODMUNIC09, sum)\n\nz <- cbind(senador, total.UF)\nError in data.frame(..., check.names = FALSE) :\n  arguments imply differing number of rows: 54861, 27\n\n========= my data look likes these ===========\n\n ID         UF     CIDADE       VOTOS\n1515      SP    S??o Paulo       15\n1515      SP    Campinas       100\n1515      SP    Santos             0\n1212      SP    S??o Paulo      1500\n1212      SP     Piracicaba      20\n1212     SP      Campinas      300\n1200     SP       Limeira          0\n1200      SP     S??o Paulo     2500\n1212      RJ    Rio de Janeiro 500\n1212      RJ      Niteroi           20\n1212     PR      Maring??       300\n1200     DF      Bras??lia          10\n1200     PR     Curitiba       2000\n\n\n-- \nDaniel Marcelino\n15?? 48' 00\" S 47?? 51' 50\" O\nhttp://ow.ly/FY8T\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello all,\nI'm just a beginner on R issue, but improving.\n\nDoes anyone knows how can I get vote concentration to each ID by city\n(CIDADE) considering each UF (State), because my data is long and has a",
+      "thread_id": "thread-068eb5c639ae",
+      "thread_depth": 0,
+      "month": "2010-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-99108aa8eb4b",
+      "subject": "[RsR] ridge regressio",
+      "message_count": 1,
+      "participants": [
+        "Alamgir Gir"
+      ],
+      "started": "2010-04-04T23:35:30-07:00",
+      "last_reply": "2010-04-04T23:35:30-07:00",
+      "root_message_id": "msg-99108aa8eb4b"
+    },
+    {
+      "id": "thread-bbc993c8fef8",
+      "subject": "[RsR] Can I calculate the p-value of the robust regression at this\tway?",
+      "message_count": 1,
+      "participants": [
+        "Olivier Renaud"
+      ],
+      "started": "2010-04-06T10:05:30+02:00",
+      "last_reply": "2010-04-06T10:05:30+02:00",
+      "root_message_id": "msg-bbc993c8fef8"
+    },
+    {
+      "id": "thread-82a6f649c8e3",
+      "subject": "[RsR] robust ridge",
+      "message_count": 1,
+      "participants": [
+        "Alamgir Gir"
+      ],
+      "started": "2010-04-09T23:43:55-07:00",
+      "last_reply": "2010-04-09T23:43:55-07:00",
+      "root_message_id": "msg-82a6f649c8e3"
+    },
+    {
+      "id": "thread-068eb5c639ae",
+      "subject": "[RsR] Vote Concentration Equation",
+      "message_count": 1,
+      "participants": [
+        "Daniel"
+      ],
+      "started": "2010-04-23T01:24:05-03:00",
+      "last_reply": "2010-04-23T01:24:05-03:00",
+      "root_message_id": "msg-068eb5c639ae"
+    }
+  ]
+}

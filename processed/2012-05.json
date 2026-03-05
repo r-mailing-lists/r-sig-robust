@@ -1,0 +1,136 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2012-05",
+  "messages": [
+    {
+      "id": "msg-d60c76862a09",
+      "message_id": "<CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "530ea8416ff84ccf4993b08b392a0ce8fbc0be5f566afe23ab26199efd0c1c29",
+      "date": "2012-05-31T11:41:06+02:00",
+      "subject": "[RsR] lmRob and lmrob",
+      "subject_clean": "[RsR] lmRob and lmrob",
+      "in_reply_to": "<op.we53ewldhgmlxk@osiris>",
+      "references": [
+        "<op.we53c9b1g6uu7q@osiris>",
+        "<op.we53ewldhgmlxk@osiris>"
+      ],
+      "body_plain": "Dear Suresh,\n\nI recommend using lmrob of the robustbase package.\n\nlmRob of the robust package used to have an advantage over lmrob if\nthere were categorical predictors, but as of robustbase version 0.9,\nthis is no longer the case.\n\nAlso note that lmrob has some extensions that aim to improve\nperformance for small data sets (setting=\"KS2011\"). Details and\nreferences are given in the help files of lmrob and lmrob.control.\n\nBest regards,\n\nManuel\n\nOn Thu, May 31, 2012 at 12:00 PM, Suresh Krishna <madzientist at gmail.com> wrote:\n>\n> Hi,\n>\n> I am a new, naive user who needs to use one of lmrob (package robustbase)\n> or lmRob (package robust) to do many robust regressions to small datasets\n> (N~50 points). Is there any recommendation as to which one I should use or\n> would find easier to use (better default options, more documentation etc)\n> ? Or are they more or less similar ?\n>\n> I saw the Robust taskview, but the explicit comparison of the 2 packages\n> there seems quite dated, so I thought I would ask here.\n>\n> Thank you very much for your work on the packages and for your help,\n>\n> Suresh\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n\n\n-- \nManuel Koller <koller at stat.math.ethz.ch>\nSeminar f?r Statistik, HG G 18, R?mistrasse 101\nETH Z?rich ?8092 Z?rich ?SWITZERLAND\nphone: +41 44 632-4673 fax: ...-1228\nhttp://stat.ethz.ch/people/kollerma/",
+      "body_snippet": "Dear Suresh,\n\nI recommend using lmrob of the robustbase package.\n\nlmRob of the robust package used to have an advantage over lmrob if\nthere were categorical predictors, but as of robustbase version 0.",
+      "thread_id": "thread-a38716d2b44c",
+      "thread_depth": 2,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-a38716d2b44c",
+      "message_id": "<op.we53c9b1g6uu7q@osiris>",
+      "from_name": "Suresh Krishna",
+      "from_email_hash": "6f968135dc0aff7f553a088d702a6886c416038eec2548024feab069326ce494",
+      "date": "2012-05-31T10:59:23+01:00",
+      "subject": "[RsR] lmRob and lmrob",
+      "subject_clean": "[RsR] lmRob and lmrob",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI am a new, naive user who needs to use one of lmrob (package robustbase)  \nor lmRob (package robust) to do many robust regressions to small datasets  \n(N~50 points). Is there any recommendation as to which one I should use or  \nwould find easier to use (better default options, more documentation etc)  \n? Or are they more or less similar ?\n\nI saw the Robust taskview, but the explicit comparison of the 2 packages  \nthere seems quite dated, so I thought I would ask here.\n\nThank you very much for your work on the packages and for your help,\n\nSuresh",
+      "body_snippet": "Hi,\n\nI am a new, naive user who needs to use one of lmrob (package robustbase)  \nor lmRob (package robust) to do many robust regressions to small datasets  \n(N~50 points). Is there any recommendation ",
+      "thread_id": "thread-a38716d2b44c",
+      "thread_depth": 0,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-6d2cd216ca39",
+      "message_id": "<op.we53ewldhgmlxk@osiris>",
+      "from_name": "Suresh Krishna",
+      "from_email_hash": "9e5c3c1f964c744daea4bab1c2a106541ec6c6ee0cf6fabc3e237898da89995b",
+      "date": "2012-05-31T11:00:22+01:00",
+      "subject": "[RsR] lmRob and lmrob",
+      "subject_clean": "[RsR] lmRob and lmrob",
+      "in_reply_to": "<op.we53c9b1g6uu7q@osiris>",
+      "references": [
+        "<op.we53c9b1g6uu7q@osiris>"
+      ],
+      "body_plain": "Hi,\n\nI am a new, naive user who needs to use one of lmrob (package robustbase)\nor lmRob (package robust) to do many robust regressions to small datasets\n(N~50 points). Is there any recommendation as to which one I should use or\nwould find easier to use (better default options, more documentation etc)\n? Or are they more or less similar ?\n\nI saw the Robust taskview, but the explicit comparison of the 2 packages\nthere seems quite dated, so I thought I would ask here.\n\nThank you very much for your work on the packages and for your help,\n\nSuresh",
+      "body_snippet": "Hi,\n\nI am a new, naive user who needs to use one of lmrob (package robustbase)\nor lmRob (package robust) to do many robust regressions to small datasets\n(N~50 points). Is there any recommendation as t",
+      "thread_id": "thread-a38716d2b44c",
+      "thread_depth": 1,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-2ae87b1fd91f",
+      "message_id": "<op.we56usuahgmlxk@osiris>",
+      "from_name": "Suresh Krishna",
+      "from_email_hash": "9e5c3c1f964c744daea4bab1c2a106541ec6c6ee0cf6fabc3e237898da89995b",
+      "date": "2012-05-31T12:14:42+01:00",
+      "subject": "[RsR] lmRob and lmrob",
+      "subject_clean": "[RsR] lmRob and lmrob",
+      "in_reply_to": "<CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>",
+      "references": [
+        "<op.we53c9b1g6uu7q@osiris>",
+        "<op.we53ewldhgmlxk@osiris>",
+        "<CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>"
+      ],
+      "body_plain": "Dear Manuel,\n\n> Also note that lmrob has some extensions that aim to improve\n> performance for small data sets (setting=\"KS2011\"). Details and\n> references are given in the help files of lmrob and lmrob.control.\n\nThank you. I am looking at your paper right now.\n\nI am guessing that it may be cheap and useful to increase max.it from the  \ndefault 50 to something like 1000 (like in the lmrob.control help page).  \nIs there another variable (or small number of variables) that I can  \nsimilarly increase if I am trying to use the function in a semi-automatic  \nmanner on a large number of datasets ?\n\nVery best, Suresh",
+      "body_snippet": "Dear Manuel,\n\n> Also note that lmrob has some extensions that aim to improve\n> performance for small data sets (setting=\"KS2011\"). Details and\n> references are given in the help files of lmrob and lmr",
+      "thread_id": "thread-a38716d2b44c",
+      "thread_depth": 3,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-e03e6ceea0e6",
+      "message_id": "<CAPUobv18CwxkfALEyEeg-A0uOcugwS7DS-okkpA5foRXjHmYvQ@mail.gmail.com>",
+      "from_name": "Manuel Koller",
+      "from_email_hash": "530ea8416ff84ccf4993b08b392a0ce8fbc0be5f566afe23ab26199efd0c1c29",
+      "date": "2012-05-31T13:41:08+02:00",
+      "subject": "[RsR] lmRob and lmrob",
+      "subject_clean": "[RsR] lmRob and lmrob",
+      "in_reply_to": "<op.we56usuahgmlxk@osiris>",
+      "references": [
+        "<op.we53c9b1g6uu7q@osiris>",
+        "<op.we53ewldhgmlxk@osiris>",
+        "<CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>",
+        "<op.we56usuahgmlxk@osiris>"
+      ],
+      "body_plain": "You may also want to look at k.max. For the simulations in the package\nvignette, lmrob_simulation.pdf, I used max.it = 500 and k.max = 2000.\n\nBest regards,\n\nManuel\n\nOn Thu, May 31, 2012 at 1:14 PM, Suresh Krishna <madzientist at gmail.com> wrote:\n>\n> Dear Manuel,\n>\n>\n>> Also note that lmrob has some extensions that aim to improve\n>> performance for small data sets (setting=\"KS2011\"). Details and\n>> references are given in the help files of lmrob and lmrob.control.\n>\n>\n> Thank you. I am looking at your paper right now.\n>\n> I am guessing that it may be cheap and useful to increase max.it from the\n> default 50 to something like 1000 (like in the lmrob.control help page). Is\n> there another variable (or small number of variables) that I can similarly\n> increase if I am trying to use the function in a semi-automatic manner on a\n> large number of datasets ?\n>\n> Very best, Suresh\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n\n\n-- \nManuel Koller <koller at stat.math.ethz.ch>\nSeminar f?r Statistik, HG G 18, R?mistrasse 101\nETH Z?rich ?8092 Z?rich ?SWITZERLAND\nphone: +41 44 632-4673 fax: ...-1228\nhttp://stat.ethz.ch/people/kollerma/",
+      "body_snippet": "You may also want to look at k.max. For the simulations in the package\nvignette, lmrob_simulation.pdf, I used max.it = 500 and k.max = 2000.\n\nBest regards,\n\nManuel\n\nOn Thu, May 31, 2012 at 1:14 PM, Su",
+      "thread_id": "thread-a38716d2b44c",
+      "thread_depth": 4,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-72614d1f7602",
+      "message_id": "<op.we6ko80hhgmlxk@osiris>",
+      "from_name": "Suresh Krishna",
+      "from_email_hash": "9e5c3c1f964c744daea4bab1c2a106541ec6c6ee0cf6fabc3e237898da89995b",
+      "date": "2012-05-31T17:13:46+01:00",
+      "subject": "[RsR] lmRob, lmrob and robust R-squared",
+      "subject_clean": "[RsR] lmRob, lmrob and robust R-squared",
+      "in_reply_to": "<op.we56usuahgmlxk@osiris>",
+      "references": [
+        "<op.we53c9b1g6uu7q@osiris>",
+        "<op.we53ewldhgmlxk@osiris>",
+        "<CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>",
+        "<op.we56usuahgmlxk@osiris>"
+      ],
+      "body_plain": "Dear Manuel and list-members,\n\nWhile trying to come up to speed on this topic, I discovered this earlier  \npost on this list from Olivier Renaud about a bias in the R-squared output  \n from lmRob and a function that provides a corrected R-squared value:\n\nhttps://stat.ethz.ch/pipermail/r-sig-robust/2010/000290.html\n\nDoes this issue also affect lmrob ? And would that fix be also valid with  \nlmrob ? (I have also contacted Olivier directly).\n\nThanks again,\n\nSuresh",
+      "body_snippet": "Dear Manuel and list-members,\n\nWhile trying to come up to speed on this topic, I discovered this earlier  \npost on this list from Olivier Renaud about a bias in the R-squared output  \n from lmRob and ",
+      "thread_id": "thread-a38716d2b44c",
+      "thread_depth": 4,
+      "month": "2012-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a38716d2b44c",
+      "subject": "[RsR] lmRob and lmrob",
+      "message_count": 6,
+      "participants": [
+        "Manuel Koller",
+        "Suresh Krishna"
+      ],
+      "started": "2012-05-31T10:59:23+01:00",
+      "last_reply": "2012-05-31T17:13:46+01:00",
+      "root_message_id": "msg-a38716d2b44c"
+    }
+  ]
+}

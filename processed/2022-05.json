@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2022-05",
+  "messages": [
+    {
+      "id": "msg-a468cc005670",
+      "message_id": "<CAHfBD2dsED+LFq+2n=r4jUHaqk6uhE4Z2tM21=V_LbhFiKF4Vg@mail.gmail.com>",
+      "from_name": "Kelly Thompson",
+      "from_email_hash": "f3b01c3a92c351b0c3a2a5f13f734e2441e6391b35660338b80d08f06b8e4401",
+      "date": "2022-05-03T08:57:05-04:00",
+      "subject": "[RsR] What R functions provide least median of squares regression analysis?",
+      "subject_clean": "[RsR] What R functions provide least median of squares regression analysis?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I know about these:\n\nlqs (with method = \"lms\", and lmsreg, which as I understand it is\nequivalent to lqs with method = \"lms\")\n\nMentions:\nhttps://www.rdocumentation.org/packages/MASS/versions/7.3-56/topics/lqs\n\nhttps://stat.ethz.ch/pipermail/r-help/2006-October/115681.html\n\nhttps://stat.ethz.ch/pipermail/r-help/2007-March/126564.html\n-----\nltsReg, https://www.rdocumentation.org/packages/robustbase/versions/0.1-2/topics/ltsReg\nnl.lmsNM, https://rdrr.io/cran/nlr/man/nl.lmsNM.html",
+      "body_snippet": "I know about these:\n\nlqs (with method = \"lms\", and lmsreg, which as I understand it is\nequivalent to lqs with method = \"lms\")\n\nMentions:\nhttps://www.rdocumentation.org/packages/MASS/versions/7.3-56/to",
+      "thread_id": "thread-a468cc005670",
+      "thread_depth": 0,
+      "month": "2022-05"
+    },
+    {
+      "id": "msg-172c0b358a4a",
+      "message_id": "<2c8976b4-e676-4102-e592-336f01d2555c@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2022-05-03T09:40:09-07:00",
+      "subject": "[RsR]  What R functions provide least median of squares regression analysis?",
+      "subject_clean": "[RsR]  What R functions provide least median of squares regression analysis?",
+      "in_reply_to": "<CAHfBD2dsED+LFq+2n=r4jUHaqk6uhE4Z2tM21=V_LbhFiKF4Vg@mail.gmail.com>",
+      "references": [
+        "<CAHfBD2dsED+LFq+2n=r4jUHaqk6uhE4Z2tM21=V_LbhFiKF4Vg@mail.gmail.com>"
+      ],
+      "body_plain": "Hi Kelly,\n\nThat's the only implementation I know, although I haven't used it in \nmany years. It is a notably difficult optimization problem, but I'm not \naware of any new developments in the algorithm after the mid- to \nlate-90's, so the implementation in MASS::lqs may very well the state of \nthe art version.\n\nMatias\n\n\nOn 2022-05-03 5:57 a.m., Kelly Thompson wrote:\n> [CAUTION: Non-UBC Email]\n>\n> I know about these:\n>\n> lqs (with method = \"lms\", and lmsreg, which as I understand it is\n> equivalent to lqs with method = \"lms\")\n>\n> Mentions:\n> https://www.rdocumentation.org/packages/MASS/versions/7.3-56/topics/lqs\n>\n> https://stat.ethz.ch/pipermail/r-help/2006-October/115681.html\n>\n> https://stat.ethz.ch/pipermail/r-help/2007-March/126564.html\n> -----\n> ltsReg, https://www.rdocumentation.org/packages/robustbase/versions/0.1-2/topics/ltsReg\n> nl.lmsNM, https://rdrr.io/cran/nlr/man/nl.lmsNM.html\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Hi Kelly,\n\nThat's the only implementation I know, although I haven't used it in \nmany years. It is a notably difficult optimization problem, but I'm not \naware of any new developments in the algorithm",
+      "thread_id": "thread-a468cc005670",
+      "thread_depth": 1,
+      "month": "2022-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a468cc005670",
+      "subject": "[RsR] What R functions provide least median of squares regression analysis?",
+      "message_count": 2,
+      "participants": [
+        "Kelly Thompson",
+        "Matias Salibian-Barrera"
+      ],
+      "started": "2022-05-03T08:57:05-04:00",
+      "last_reply": "2022-05-03T09:40:09-07:00",
+      "root_message_id": "msg-a468cc005670"
+    }
+  ]
+}

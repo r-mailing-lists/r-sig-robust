@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2007-03",
+  "messages": [
+    {
+      "id": "msg-6c0c433bd9ff",
+      "message_id": "<4c0e456b0703161023v41da945av529c8bf20019a1aa@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2007-03-16T18:23:52+01:00",
+      "subject": "[RsR] Fahrmeir and Tutz (1994)",
+      "subject_clean": "[RsR] Fahrmeir and Tutz (1994)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI have one non-robustness related question - does somebody know about\nan R package implementing the examples from the book:\n\nLudwig Fahrmeir and Gerhard Tutz (1994) \"Multivariate Statistical\nModeling Based on Generalized Linear Models\"\n\nI am aware about the package 'Fahrmeir', but it contains only the data sets.\n\nThanks,\nBest regards,\n\nValentin",
+      "body_snippet": "Hi,\n\nI have one non-robustness related question - does somebody know about\nan R package implementing the examples from the book:\n\nLudwig Fahrmeir and Gerhard Tutz (1994) \"Multivariate Statistical\nMode",
+      "thread_id": "thread-6c0c433bd9ff",
+      "thread_depth": 0,
+      "month": "2007-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-6c0c433bd9ff",
+      "subject": "[RsR] Fahrmeir and Tutz (1994)",
+      "message_count": 1,
+      "participants": [
+        "Valentin Todorov"
+      ],
+      "started": "2007-03-16T18:23:52+01:00",
+      "last_reply": "2007-03-16T18:23:52+01:00",
+      "root_message_id": "msg-6c0c433bd9ff"
+    }
+  ]
+}

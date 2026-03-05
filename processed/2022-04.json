@@ -1,0 +1,55 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2022-04",
+  "messages": [
+    {
+      "id": "msg-b8d46f89b733",
+      "message_id": "<CAHfBD2cNZCmt8F6nAZQui3_4Zms_LSmrSGUpxPuStoAoFdrvbg@mail.gmail.com>",
+      "from_name": "Kelly Thompson",
+      "from_email_hash": "f3b01c3a92c351b0c3a2a5f13f734e2441e6391b35660338b80d08f06b8e4401",
+      "date": "2022-04-24T12:32:08-04:00",
+      "subject": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
+      "subject_clean": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "The archives here seem to stop in March 2021.\nhttps://stat.ethz.ch/pipermail/r-sig-robust/",
+      "body_snippet": "The archives here seem to stop in March 2021.\nhttps://stat.ethz.ch/pipermail/r-sig-robust/",
+      "thread_id": "thread-b8d46f89b733",
+      "thread_depth": 0,
+      "month": "2022-04"
+    },
+    {
+      "id": "msg-c01343190c65",
+      "message_id": "<25190.21232.283241.414638@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2022-04-25T09:51:12+02:00",
+      "subject": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
+      "subject_clean": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
+      "in_reply_to": "<CAHfBD2cNZCmt8F6nAZQui3_4Zms_LSmrSGUpxPuStoAoFdrvbg@mail.gmail.com>",
+      "references": [
+        "<CAHfBD2cNZCmt8F6nAZQui3_4Zms_LSmrSGUpxPuStoAoFdrvbg@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> Kelly Thompson \n>>>>>     on Sun, 24 Apr 2022 12:32:08 -0400 writes:\n\n    > The archives here seem to stop in March 2021.\n    > https://stat.ethz.ch/pipermail/r-sig-robust/\n\nWell, they no longer do -- guess why?  ;-)\n\nYes, this is a low volume mailing list .. and it seems poeple do\nnot use e-mail as much as 10 years ago.\n\nBut in my experience you still get good answers on questions\nabout using robust methods (estimation, inference, ...) with R.\n\nBest regards,\nMartin\n\n--\nMartin Maechler\nETH Zurich   and  R Core team",
+      "body_snippet": ">>>>> Kelly Thompson \n>>>>>     on Sun, 24 Apr 2022 12:32:08 -0400 writes:\n\n    > The archives here seem to stop in March 2021.\n    > https://stat.ethz.ch/pipermail/r-sig-robust/\n\nWell, they no longer",
+      "thread_id": "thread-b8d46f89b733",
+      "thread_depth": 1,
+      "month": "2022-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b8d46f89b733",
+      "subject": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
+      "message_count": 2,
+      "participants": [
+        "Kelly Thompson",
+        "Martin Maechler"
+      ],
+      "started": "2022-04-24T12:32:08-04:00",
+      "last_reply": "2022-04-25T09:51:12+02:00",
+      "root_message_id": "msg-b8d46f89b733"
+    }
+  ]
+}

@@ -1,0 +1,4635 @@
+From bett@to|o83 @end|ng |rom exc|te@|t  Tue Feb  7 22:12:34 2012
+From: bett@to|o83 @end|ng |rom exc|te@|t (Elisabetta Mattiolo)
+Date: Tue, 7 Feb 2012 13:12:34 -0800
+Subject: [RsR] library cox robust : weights?
+Message-ID: <3234A46A64884DD9B9F317A9E49CF981@mail2world.com>
+
+
+I'm a italian student and I use R for my final degree thesis ... I want
+study a Robustly Proportional Hazards (Bednarski's teory) for a dataset
+of medical result. 
+I have exstimate with library coxrobust a coxr model (exponential
+weights)
+
+> s=Surv(survival,status)
+
+site , cyto5.6 and zeb1 are my esplicative variables so the model is:
+
+> exp=coxr(formula = s ~ site + cyto5.6 + zeb1, data = IHC, trunc =
+0.95, f.w= "exp" , singular.ok = TRUE, model = FALSE)
+
+with plot(exp) I can see 5 graphs 
+- the firs shows the standardizzed survival differences : one with Cox
+model, and one green with Kaplan -Meir stimator 
+-other four show the same differences for four strata, defined by the
+quartiles of the estimated linear predictor. 
+
+But my problem is the I want a graphic the robust exponential weight
+(log trasformed) versus case number for the dataset..
+If I ask R about weight of the model exp: 
+> exp$weights
+NULL
+If I write 
+> plot(exp$weights)
+Error in plot.window(...) : 'xlim' devono essere finiti
+Inoltre: Warning messages:
+1: In min(x) : no non-missing arguments to min; returning Inf
+2: In max(x) : no non-missing arguments to max; returning -Inf
+3: In min(x) : no non-missing arguments to min; returning Inf
+4: In max(x) : no non-missing arguments to max; returning -Inf
+
+
+Can you help me?
+Thanks and best regards
+
+Elisabetta 
+
+
+<P><p><font face="Arial, Helvetica, sans-serif" size="2" style="font-size:13.5px">_______________________________________________________________<BR>1 richiesta di amicizia<br>
+<a href="http://www.facebook.com/pages/Excite-Italia/101704826535618">Diventa fan di Excite su Facebook!</a></font>
+	[[alternative HTML version deleted]]
+
+
+
+From comtech@u@@ @end|ng |rom gm@||@com  Tue Apr 24 18:03:47 2012
+From: comtech@u@@ @end|ng |rom gm@||@com (Michael)
+Date: Tue, 24 Apr 2012 11:03:47 -0500
+Subject: [RsR] In robust PCA methods, how to get variance explained?
+Message-ID: <CAPNjSFYmhNdst+t3-OZtFq71jY70qpXfMkhnndsBp0ZVhrLo=w@mail.gmail.com>
+
+In robust PCA methods, how to get variance explained?
+
+For example, PcaHubert,
+
+how to get the variance explained which are similar to those concepts in
+traditional PCA?
+
+In traditional PCA, you have a bunch of eigenvalue lambdas...
+
+and you sort the lambdas from the biggest to the smallest,
+
+the lambda_i / (sum of all lambdas) is the variance explained by that
+principal component...
+
+how to obtain the equivalent concepts in PcaHubert?
+
+Thanks a lot!
+
+	[[alternative HTML version deleted]]
+
+
+
+From comtech@u@@ @end|ng |rom gm@||@com  Tue Apr 24 18:05:27 2012
+From: comtech@u@@ @end|ng |rom gm@||@com (Michael)
+Date: Tue, 24 Apr 2012 11:05:27 -0500
+Subject: [RsR] Are PcaHubert and PCAproj randomized algorithms?
+Message-ID: <CAPNjSFZA+kzxyEHJJzxOGKYh3jWoQFi1niriaEkffMWtKEbobg@mail.gmail.com>
+
+I am reading about these robust PCA functions in R...
+
+I read words like "random directions"...
+
+It seems that these algos are random algorithms, i.e their results will be
+different each time we run them?
+
+Thank you!
+
+	[[alternative HTML version deleted]]
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Tue Apr 24 21:07:21 2012
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Tue, 24 Apr 2012 21:07:21 +0200
+Subject: [RsR] In robust PCA methods, how to get variance explained?
+In-Reply-To: <CAPNjSFYmhNdst+t3-OZtFq71jY70qpXfMkhnndsBp0ZVhrLo=w@mail.gmail.com>
+References: <CAPNjSFYmhNdst+t3-OZtFq71jY70qpXfMkhnndsBp0ZVhrLo=w@mail.gmail.com>
+Message-ID: <CAOmnhGc21vKG8yRHC5k=O=xkHQJJKXZr9cdCKn+b5tVwVpPMoQ@mail.gmail.com>
+
+library(rrcov)
+data(bus)
+p <- ncol(bus)
+rpca <- PcaHubert(bus, k=p, kmax=p)
+summary(rpca)
+
+Hope this helps.
+Best regards,
+Valentin
+
+
+On Tue, Apr 24, 2012 at 6:03 PM, Michael <comtech.usa at gmail.com> wrote:
+
+> In robust PCA methods, how to get variance explained?
+>
+> For example, PcaHubert,
+>
+> how to get the variance explained which are similar to those concepts in
+> traditional PCA?
+>
+> In traditional PCA, you have a bunch of eigenvalue lambdas...
+>
+> and you sort the lambdas from the biggest to the smallest,
+>
+> the lambda_i / (sum of all lambdas) is the variance explained by that
+> principal component...
+>
+> how to obtain the equivalent concepts in PcaHubert?
+>
+> Thanks a lot!
+>
+>        [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+	[[alternative HTML version deleted]]
+
+
+
+From k@veh@v@k||| @end|ng |rom u|b@@c@be  Wed Apr 25 21:35:52 2012
+From: k@veh@v@k||| @end|ng |rom u|b@@c@be (Kaveh Vakili)
+Date: Wed, 25 Apr 2012 21:35:52 +0200
+Subject: [RsR] Are PcaHubert and PCAproj randomized algorithms?
+Message-ID: <232664f9852185790d@wm-srv.ulb.ac.be>
+
+yes, the solutions will not be the same but they should be fairly similar. 
+
+
+
+>I am reading about these robust PCA functions in R...
+>
+>I read words like "random directions"...
+>
+>It seems that these algos are random algorithms, i.e their results will be
+>different each time we run them?
+>
+>Thank you!
+>
+>	[[alternative HTML version deleted]]
+>
+>_______________________________________________
+>R-SIG-Robust at r-project.org mailing list
+>https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>
+
+
+
+From m@dz|ent|@t @end|ng |rom gm@||@com  Thu May 31 12:00:22 2012
+From: m@dz|ent|@t @end|ng |rom gm@||@com (Suresh Krishna)
+Date: Thu, 31 May 2012 11:00:22 +0100
+Subject: [RsR] lmRob and lmrob
+In-Reply-To: <op.we53c9b1g6uu7q@osiris>
+References: <op.we53c9b1g6uu7q@osiris>
+Message-ID: <op.we53ewldhgmlxk@osiris>
+
+
+Hi,
+
+I am a new, naive user who needs to use one of lmrob (package robustbase)
+or lmRob (package robust) to do many robust regressions to small datasets
+(N~50 points). Is there any recommendation as to which one I should use or
+would find easier to use (better default options, more documentation etc)
+? Or are they more or less similar ?
+
+I saw the Robust taskview, but the explicit comparison of the 2 packages
+there seems quite dated, so I thought I would ask here.
+
+Thank you very much for your work on the packages and for your help,
+
+Suresh
+
+
+
+From m@dz|ent|@t @end|ng |rom gm@||@com  Thu May 31 13:14:42 2012
+From: m@dz|ent|@t @end|ng |rom gm@||@com (Suresh Krishna)
+Date: Thu, 31 May 2012 12:14:42 +0100
+Subject: [RsR] lmRob and lmrob
+In-Reply-To: <CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>
+References: <op.we53c9b1g6uu7q@osiris> <op.we53ewldhgmlxk@osiris>
+	<CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>
+Message-ID: <op.we56usuahgmlxk@osiris>
+
+
+Dear Manuel,
+
+> Also note that lmrob has some extensions that aim to improve
+> performance for small data sets (setting="KS2011"). Details and
+> references are given in the help files of lmrob and lmrob.control.
+
+Thank you. I am looking at your paper right now.
+
+I am guessing that it may be cheap and useful to increase max.it from the  
+default 50 to something like 1000 (like in the lmrob.control help page).  
+Is there another variable (or small number of variables) that I can  
+similarly increase if I am trying to use the function in a semi-automatic  
+manner on a large number of datasets ?
+
+Very best, Suresh
+
+
+
+From m@dz|ent|@t @end|ng |rom gm@||@com  Thu May 31 18:13:46 2012
+From: m@dz|ent|@t @end|ng |rom gm@||@com (Suresh Krishna)
+Date: Thu, 31 May 2012 17:13:46 +0100
+Subject: [RsR] lmRob, lmrob and robust R-squared
+In-Reply-To: <op.we56usuahgmlxk@osiris>
+References: <op.we53c9b1g6uu7q@osiris> <op.we53ewldhgmlxk@osiris>
+	<CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>
+	<op.we56usuahgmlxk@osiris>
+Message-ID: <op.we6ko80hhgmlxk@osiris>
+
+
+Dear Manuel and list-members,
+
+While trying to come up to speed on this topic, I discovered this earlier  
+post on this list from Olivier Renaud about a bias in the R-squared output  
+ from lmRob and a function that provides a corrected R-squared value:
+
+https://stat.ethz.ch/pipermail/r-sig-robust/2010/000290.html
+
+Does this issue also affect lmrob ? And would that fix be also valid with  
+lmrob ? (I have also contacted Olivier directly).
+
+Thanks again,
+
+Suresh
+
+
+
+From ko||er @end|ng |rom @t@t@m@th@ethz@ch  Thu May 31 11:41:06 2012
+From: ko||er @end|ng |rom @t@t@m@th@ethz@ch (Manuel Koller)
+Date: Thu, 31 May 2012 11:41:06 +0200
+Subject: [RsR] lmRob and lmrob
+In-Reply-To: <op.we53ewldhgmlxk@osiris>
+References: <op.we53c9b1g6uu7q@osiris> <op.we53ewldhgmlxk@osiris>
+Message-ID: <CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>
+
+Dear Suresh,
+
+I recommend using lmrob of the robustbase package.
+
+lmRob of the robust package used to have an advantage over lmrob if
+there were categorical predictors, but as of robustbase version 0.9,
+this is no longer the case.
+
+Also note that lmrob has some extensions that aim to improve
+performance for small data sets (setting="KS2011"). Details and
+references are given in the help files of lmrob and lmrob.control.
+
+Best regards,
+
+Manuel
+
+On Thu, May 31, 2012 at 12:00 PM, Suresh Krishna <madzientist at gmail.com> wrote:
+>
+> Hi,
+>
+> I am a new, naive user who needs to use one of lmrob (package robustbase)
+> or lmRob (package robust) to do many robust regressions to small datasets
+> (N~50 points). Is there any recommendation as to which one I should use or
+> would find easier to use (better default options, more documentation etc)
+> ? Or are they more or less similar ?
+>
+> I saw the Robust taskview, but the explicit comparison of the 2 packages
+> there seems quite dated, so I thought I would ask here.
+>
+> Thank you very much for your work on the packages and for your help,
+>
+> Suresh
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+-- 
+Manuel Koller <koller at stat.math.ethz.ch>
+Seminar f?r Statistik, HG G 18, R?mistrasse 101
+ETH Z?rich ?8092 Z?rich ?SWITZERLAND
+phone: +41 44 632-4673 fax: ...-1228
+http://stat.ethz.ch/people/kollerma/
+
+
+
+From ko||er @end|ng |rom @t@t@m@th@ethz@ch  Thu May 31 13:41:08 2012
+From: ko||er @end|ng |rom @t@t@m@th@ethz@ch (Manuel Koller)
+Date: Thu, 31 May 2012 13:41:08 +0200
+Subject: [RsR] lmRob and lmrob
+In-Reply-To: <op.we56usuahgmlxk@osiris>
+References: <op.we53c9b1g6uu7q@osiris> <op.we53ewldhgmlxk@osiris>
+	<CAPUobv1U5XmG4R6B23wqo1wedbSA-NQEY-T+phRebmjYOKxRiw@mail.gmail.com>
+	<op.we56usuahgmlxk@osiris>
+Message-ID: <CAPUobv18CwxkfALEyEeg-A0uOcugwS7DS-okkpA5foRXjHmYvQ@mail.gmail.com>
+
+You may also want to look at k.max. For the simulations in the package
+vignette, lmrob_simulation.pdf, I used max.it = 500 and k.max = 2000.
+
+Best regards,
+
+Manuel
+
+On Thu, May 31, 2012 at 1:14 PM, Suresh Krishna <madzientist at gmail.com> wrote:
+>
+> Dear Manuel,
+>
+>
+>> Also note that lmrob has some extensions that aim to improve
+>> performance for small data sets (setting="KS2011"). Details and
+>> references are given in the help files of lmrob and lmrob.control.
+>
+>
+> Thank you. I am looking at your paper right now.
+>
+> I am guessing that it may be cheap and useful to increase max.it from the
+> default 50 to something like 1000 (like in the lmrob.control help page). Is
+> there another variable (or small number of variables) that I can similarly
+> increase if I am trying to use the function in a semi-automatic manner on a
+> large number of datasets ?
+>
+> Very best, Suresh
+>
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+-- 
+Manuel Koller <koller at stat.math.ethz.ch>
+Seminar f?r Statistik, HG G 18, R?mistrasse 101
+ETH Z?rich ?8092 Z?rich ?SWITZERLAND
+phone: +41 44 632-4673 fax: ...-1228
+http://stat.ethz.ch/people/kollerma/
+
+
+
+From @kr|@hn@ @end|ng |rom dpz@eu  Thu May 31 11:59:23 2012
+From: @kr|@hn@ @end|ng |rom dpz@eu (Suresh Krishna)
+Date: Thu, 31 May 2012 10:59:23 +0100
+Subject: [RsR] lmRob and lmrob
+Message-ID: <op.we53c9b1g6uu7q@osiris>
+
+
+Hi,
+
+I am a new, naive user who needs to use one of lmrob (package robustbase)  
+or lmRob (package robust) to do many robust regressions to small datasets  
+(N~50 points). Is there any recommendation as to which one I should use or  
+would find easier to use (better default options, more documentation etc)  
+? Or are they more or less similar ?
+
+I saw the Robust taskview, but the explicit comparison of the 2 packages  
+there seems quite dated, so I thought I would ask here.
+
+Thank you very much for your work on the packages and for your help,
+
+Suresh
+
+
+
+From k@veh@v@k||| @end|ng |rom u|b@@c@be  Wed Jun 13 16:26:24 2012
+From: k@veh@v@k||| @end|ng |rom u|b@@c@be (Kaveh Vakili)
+Date: Wed, 13 Jun 2012 16:26:24 +0200
+Subject: [RsR] robustX::rbwheel()
+Message-ID: <78064fd8a310652ee@wm-srv.ulb.ac.be>
+
+Dear All,
+
+looking at the documentation of rbwheel() 
+in package robustX, it appears one can 
+change the distribution of the good part
+ of the data by changing the "rGood" argument
+ in the function call. 
+
+Would anyone by any chance know how/whether 
+it is possible to change the distribution of 
+the outliers as well?
+
+Best regards,
+
+
+
+From @ndre@@@@||on@ @end|ng |rom ku|euven@be  Wed Jun 13 23:15:58 2012
+From: @ndre@@@@||on@ @end|ng |rom ku|euven@be (Andreas Alfons)
+Date: Wed, 13 Jun 2012 16:15:58 -0500
+Subject: [RsR] robustX::rbwheel()
+In-Reply-To: <ec06261c60cd48e8ba5ca1484979a833@ICTS-S-HUB3.luna.kuleuven.be>
+References: <ec06261c60cd48e8ba5ca1484979a833@ICTS-S-HUB3.luna.kuleuven.be>
+Message-ID: <CA+VS_fbJ5NUso1p9YLJDSHrLrJ4HHD5upraOFDi+01Zkwx+2Nw@mail.gmail.com>
+
+> looking at the documentation of rbwheel()
+> in package robustX, it appears one can
+> change the distribution of the good part
+> ?of the data by changing the "rGood" argument
+> ?in the function call.
+>
+> Would anyone by any chance know how/whether
+> it is possible to change the distribution of
+> the outliers as well?
+
+>From a quick look at the help file, it looks like you can do that with
+the "rOut" argument.
+
+- Andreas
+
+
+-- 
+Andreas Alfons
+Faculty of Business and Economics, KU Leuven
+www.econ.kuleuven.be/andreas.alfons/public/
+
+
+
+From k@veh@v@k||| @end|ng |rom w|@@ku|euven@be  Sat Jun 23 15:31:24 2012
+From: k@veh@v@k||| @end|ng |rom w|@@ku|euven@be (Kaveh)
+Date: Sat, 23 Jun 2012 13:31:24 +0000 (UTC)
+Subject: [RsR] Problem re-implementing whimed from package robustbase
+Message-ID: <loom.20120623T150028-746@post.gmane.org>
+
+Dear All,
+
+I'm trying to re-implement the Qn estimator in cpp 
+(using the c code from Prof. Maechler as a canvas). 
+
+As part of the Qn estimation algorithm we need to 
+perform repeated calls to the whimed_i() function 
+(for computing the weighted 'hi'-median). My problem 
+can be traced to these lines
+
+	n2 = n/2;/* =^= n/2 +1 with 0-indexing */
+	rPsort(a_psrt, n, n2);
+	trial = a_psrt[n2];
+
+
+Oddly enough, in my implementation, the results 
+of the first 10 values of 'trial' i get are the
+ same result as in prof Maechler's implementation,
+ but afterwards, my implementation diverges from his. 
+
+For example, with this data:
+
+set.seed(123)
+x<-round(runif(100,0,10),3)
+n<-length(x)
+ro<-0.001;
+
+If we add some printf()'s to Prof Maechler's 
+code on the line just before the '}while(1)'
+ we get: 
+
+        s_apsrt=0;
+	for (i = 0;i<n;++i) {
+	    a[i] = a_cand[i];
+	    w[i] = w_cand[i];
+	    s_apsrt += a[i];
+	}
+
+printf("%lf %i %lf\n",s_apsrt,n,trial);
+
+127.078001 49 2.232000
+58.367000 24 2.558000
+67.325000 49 1.206000
+30.730000 24 1.339000
+15.010000 12 1.284000
+7.409000 6 1.261000
+2.515000 2 1.232000
+1.255000 1 1.260000
+85.412000 43 1.846000
+40.249000 21 1.988000
+18.878000 10 1.916000
+9.359000 5 1.886000
+73.007000 44 1.549000
+35.188000 22 1.654000
+17.359000 11 1.601000
+7.812000 5 1.588000
+3.108000 2 1.566000
+
+At the same point, my implementation 
+yields (the last column is the iteration 
+number):
+
+127.078   49  2.232   0
+58.367   24  2.558   1
+67.325   49  1.206   2
+30.73   24  1.339   3
+15.01   12  1.284   4
+7.409   6  1.261   5
+2.515   2  1.232   6
+1.255   1  1.26   7
+85.412   43  1.846   8
+40.249   21  1.988   9
+19.455   10  1.916   10
+9.636   5  1.937   11
+74.477   44  1.581   12
+35.763   22  1.678   13
+16.586   10  1.613   14
+6.699   4  1.671   15
+
+Up to iteration 10, both 
+ implementations give the same results, 
+then, starting from 11 onwards, the values 
+of trial diverge. I'm puzzled as to why. 
+
+In trying to come up with a solution. 
+I was wondering whether anyone could 
+briefly explain/point to a reference 
+where it is explained how i could make 
+qn_sn.c as a stand alone code (with it's
+ own main(){}) so i can feed it unto a 
+debugger. When i try to compile the 
+attached file:
+
+gcc -I/usr/share/R/include -fpic -pipe -g -c qn_sn_test.c -o qn_sn_test
+
+I get: 
+
+In file included from qn_sn_test.c:4:0:
+/usr/share/R/include/R.h:49:13: error: two or more data types in declaration 
+specifiers
+/usr/share/R/include/R.h:49:1: warning: useless type name in empty declaration 
+[enabled by default]
+
+[ubuntu 12.04].
+
+Alternatively, maybe someone has a guess on what is 
+causing mqn.cpp to produce erroneous results after a
+ couple of iterations. I'm adding mqn.cpp below in case 
+that could help diagnose the problem.  
+
+Any input/help/advice is welcomed. 
+
+//###########qn_sn_whimed.cpp
+#include <stdio.h>   
+#include <inttypes.h>
+#include "robustbase.h"
+#include <R.h>
+#include <Rmath.h> /* -> <math.h> and much more */
+
+double whimed_i(double *a, int *w, int n, double* a_cand, double *a_psrt, int 
+*w_cand){
+/*
+  Algorithm to compute the weighted high median in O(n) time.
+
+  The whimed is defined as the smallest a[j] such that the sum
+  of the weights of all a[i] <= a[j] is strictly greater than
+  half of the total weight.
+
+  Arguments:
+
+  a: double array containing the observations
+  n: number of observations
+  w: array of (int/double) weights of the observations.
+*/
+
+    int n2, i, kcand,mm=0,vv1=1;
+    /* sum of weights: `int' do overflow when  n ~>= 1e5 */
+    int wleft, wmid, wright, w_tot, wrest;
+
+    double trial,s_apsrt;
+
+    w_tot = 0;
+    for (i = 0; i < n; ++i)
+	w_tot += w[i];
+    wrest = 0;
+
+/* REPEAT : */
+    do {
+	for (i = 0; i < n; ++i){
+	    a_psrt[i] = a[i];
+	}
+	n2 = n/2;/* =^= n/2 +1 with 0-indexing */
+	rPsort(a_psrt, n, n2);
+	trial = a_psrt[n2];
+	wleft = 0;    wmid  = 0;    wright= 0;
+	for (i = 0; i < n; ++i) {
+	    if (a[i] < trial)	wleft += w[i];
+	    else if (a[i] > trial) wright += w[i];
+	    else wmid += w[i];
+	}
+	/* wleft = sum_{i; a[i]	 < trial}  w[i]
+	 * wmid	 = sum_{i; a[i] == trial}  w[i] at least one 'i' since trial is 
+one a[]!
+	 * wright= sum_{i; a[i]	 > trial}  w[i]
+	 */
+	kcand = 0;
+	if (2 * (wrest + wleft) > w_tot) {
+	    for (i = 0; i < n; ++i) {
+		if (a[i] < trial) {
+		    a_cand[kcand] = a[i];
+		    w_cand[kcand] = w[i];	
+		    ++kcand;
+		}
+	    }
+	}
+	else if (2 * (wrest + wleft + wmid) <= w_tot) {
+	    for (i = 0; i < n; ++i) {
+		if (a[i] > trial) {
+		    a_cand[kcand] = a[i];
+		    w_cand[kcand] = w[i];	
+                    ++kcand;
+		}
+	    }
+	    wrest += wleft + wmid;
+	}
+	else {
+	    return trial;
+	}
+	mm++;
+	n = kcand;
+        s_apsrt=0;
+	for (i = 0;i<n;++i) {
+	    a[i] = a_cand[i];
+	    w[i] = w_cand[i];
+	    s_apsrt += a[i];
+	}
+
+    } while(1);
+
+} /* _WHIMED_ */
+
+/* Main routines for C API */
+double qn(double *x, int n, int finite_corr);
+/* these have no extra factors (no consistency factor & finite_corr): */
+double qn0(double *x, int n);
+
+
+/* ----------- Implementations -----------------------------------*/
+
+void Qn0(double *x, Sint *n, double *res) { *res = qn0(x, (int)*n); }
+
+
+double qn0(double *x, int n)
+{
+/*--------------------------------------------------------------------
+
+   Efficient algorithm for the scale estimator:
+
+       Q*_n = { |x_i - x_j|; i<j }_(k)	[= Qn without scaling ]
+
+		i.e. the k-th order statistic of the |x_i - x_j|
+
+   Parameters of the function Qn :
+       x  : double array containing the observations
+       n  : number of observations (n >=2)
+ */
+
+    double *y	  = (double *)R_alloc(n, sizeof(double));
+    double *work  = (double *)R_alloc(n, sizeof(double));
+    double *a_psrt = (double *)R_alloc(n, sizeof(double));
+    double *a_cand = (double *)R_alloc(n, sizeof(double));
+
+    int *left	  = (int *)R_alloc(n, sizeof(int));
+    int *right	  = (int *)R_alloc(n, sizeof(int));
+    int *p	  = (int *)R_alloc(n, sizeof(int));
+    int *q	  = (int *)R_alloc(n, sizeof(int));
+    int *weight	  = (int *)R_alloc(n, sizeof(int));
+
+    double trial = R_NaReal;/* -Wall */
+    Rboolean found;
+
+double w_tot=0.0;
+
+    int h, i, j,jj,jh,vv2=3,ll=0;
+    /* Following should be `long long int' : they can be of order n^2 */
+    int64_t k, knew, nl,nr, sump,sumq;
+
+    h = n / 2 + 1;
+    k = (int64_t)h * (h - 1) / 2;
+    for (i = 0; i < n; ++i) {
+	y[i] = x[i];
+	left [i] = n - i + 1;
+	right[i] = (i <= h) ? n : n - (i - h);
+	/* the n - (i-h) is from the paper; original code had `n' */
+    }
+    R_qsort(y, 1, n); /* y := sort(x) */
+    nl = (int64_t)n * (n + 1) / 2;
+    nr = (int64_t)n * n;
+    knew = k + nl;/* = k + (n+1 \over 2) */
+    found = FALSE;
+#ifdef DEBUG_qn
+    REprintf("qn0(): h,k= %2d,%2d;  nl,nr= %d,%d\n", h,k, nl,nr);
+#endif
+/* L200: */
+    while(!found && nr - nl > n) {
+	j = 0;
+	/* Truncation to float :
+	   try to make sure that the same values are got later (guard bits !) */
+	for (i = 1; i < n; ++i) {
+	    if (left[i] <= right[i]) {
+		weight[j] = right[i] - left[i] + 1;
+		jh = left[i] + weight[j] / 2;
+		work[j] = (float)(y[i] - y[n - jh]);
+		++j;
+	    }
+	}
+	trial = whimed_i(work, weight, j, a_cand, a_psrt, /*iw_cand*/ p);
+#ifdef DEBUG_qn
+	REprintf(" ..!found: whimed(");
+#  ifdef DEBUG_long
+	REprintf("wrk=c(");
+	for(i=0; i < j; i++) REprintf("%s%g", (i>0)? ", " : "", work[i]);
+	REprintf("),\n	   wgt=c(");
+	for(i=0; i < j; i++) REprintf("%s%d", (i>0)? ", " : "", weight[i]);
+	REprintf("), j= %3d) -> trial= %7g\n", j, trial);
+#  else
+	REprintf("j=%3d) -> trial= %g:", j, trial);
+#  endif
+#endif
+	j = 0;
+	for (i = n - 1; i >= 0; --i) {
+	    while (j < n && ((float)(y[i] - y[n - j - 1])) < trial)
+		++j;
+	    p[i] = j;
+	}
+#ifdef DEBUG_qn
+	REprintf(" f_1: j=%2d", j);
+#endif
+	j = n + 1;
+	for (i = 0; i < n; ++i) {
+	    while ((float)(y[i] - y[n - j + 1]) > trial)
+		--j;
+	    q[i] = j;
+	}
+	sump = 0;
+	sumq = 0;
+	for (i = 0; i < n; ++i) {
+	    sump += p[i];
+	    sumq += q[i] - 1;
+	}
+#ifdef DEBUG_qn
+	REprintf(" f_2 -> j=%2d, sump|q= %lld,%lld", j, sump,sumq);
+#endif
+	if (knew <= sump) {
+	    for (i = 0; i < n; ++i)
+		right[i] = p[i];
+	    nr = sump;
+#ifdef DEBUG_qn
+	    REprintf("knew <= sump =: nr , new right[]\n");
+#endif
+	} else if (knew > sumq) {
+	    for (i = 0; i < n; ++i)
+		left[i] = q[i];
+	    nl = sumq;
+#ifdef DEBUG_qn
+	    REprintf("knew > sumq =: nl , new left[]\n");
+#endif
+	} else { /* sump < knew <= sumq */
+	    found = TRUE;
+#ifdef DEBUG_qn
+	    REprintf("sump < knew <= sumq ---> FOUND\n");
+#endif
+	}
+	ll++;
+	if(ll>vv2)	found=TRUE;
+//	printf("%lf\n",trial);
+
+    } /* while */
+
+    if (found)
+	return trial;
+    else {
+#ifdef DEBUG_qn
+	REprintf(".. not fnd -> new work[]");
+#endif
+	j = 0;
+	for (i = 1; i < n; ++i) {
+	    for (jj = left[i]; jj <= right[i]; ++jj) {
+		work[j] = y[i] - y[n - jj];
+		j++;
+	    }/* j will be = sum_{i=2}^n (right[i] - left[i] + 1)_{+}  */
+	}
+#ifdef DEBUG_qn
+	REprintf(" of length %d; knew-nl=%d\n", j, knew-nl);
+#endif
+
+	/* return pull(work, j - 1, knew - nl)	: */
+	knew -= (nl + 1); /* -1: 0-indexing */
+	rPsort(work, j, knew);
+	return(work[knew]);
+    }
+} /* qn0 */
+
+double qn(double *x, int n, int finite_corr){
+/* Efficient algorithm for the scale estimator:
+
+	Qn = dn * 2.2219 * {|x_i-x_j|; i<j}_(k)
+*/
+    double r, dn = 1./*-Wall*/;
+
+    r = 2.2219 * qn0(x, n); /* asymptotic consistency for sigma^2 */
+    /*		 === */
+
+    if (finite_corr) {
+	if (n <= 9) {
+	    if	    (n == 2)	dn = .399;
+	    else if (n == 3)	dn = .994;
+	    else if (n == 4)	dn = .512;
+	    else if (n == 5)	dn = .844;
+	    else if (n == 6)	dn = .611;
+	    else if (n == 7)	dn = .857;
+	    else if (n == 8)	dn = .669;
+	    else if (n == 9)	dn = .872;
+	} else {
+	    if (n % 2 == 1)
+		dn = n / (n + 1.4);
+	    else /* (n % 2 == 0) */
+		dn = n / (n + 3.8);
+	}
+	return dn * r;
+    }
+    else return r;
+} /* qn */
+double pull(double *a_in, int n, int k){
+    int j;
+    double *a, ax;
+    char* vmax = vmaxget();
+    a = (double *)R_alloc(n, sizeof(double));
+    /* Copy a[] and use copy since it will be re-shuffled: */
+    for (j = 0; j < n; j++)
+	a[j] = a_in[j];
+
+    k--; /* 0-indexing */
+    rPsort(a, n, k);
+    ax = a[k];
+
+    vmaxset(vmax);
+    return ax;
+} /* pull */
+int main(){
+   printf("hello qn");
+   return 0;
+}
+
+//###########mqn.cpp
+
+#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+#include <ctime>
+#include <functional>
+#include <fstream>
+#include <inttypes.h>
+#include <iostream>
+#include <limits>
+#include <math.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <vector>
+
+#include <Eigen/Cholesky>
+#include <Eigen/Dense>
+#include <Eigen/LU>
+#include <Eigen/Eigenvalues>
+
+using namespace std;
+using namespace Eigen;
+using Eigen::VectorXd;
+using Eigen::VectorXi;
+
+double whimed_i(VectorXd& a,VectorXi& w,int n,VectorXd& a_cand,VectorXd& 
+a_psrt,VectorXi& w_cand){
+	int n2,i,k_cand,nn=n,vv1=1;
+	/* sum of weights: `int' do overflow when  n ~>= 1e5 */
+	int wleft,wmid,wright,w_tot,wrest,mm=0;
+	double trial,retv;
+	w_tot=w.sum();
+	wrest=0;
+	do{
+		a_psrt.head(nn)=a.head(nn);
+		n2=nn/2;
+		
+std::nth_element(a_psrt.data(),a_psrt.data()+n2,a_psrt.data()+nn);
+		trial=a_psrt(n2);
+		wleft=0;wmid=0;wright=0;
+		for (i=0;i<nn;++i){
+		    if(a(i)<trial)				wleft+=w(i);
+		    else if(a(i)>trial)				wright+=w(i);
+		    else wmid+=w(i);
+		}
+		k_cand=0;
+		if((2*(wrest+wleft))>w_tot){
+			for (i=0;i<nn;++i){
+				if(a(i)<trial){
+				    	a_cand(k_cand)=a(i);
+				    	w_cand(k_cand)=w(i);
+					++k_cand;
+				}
+			}
+		}
+		else if((2*(wrest+wleft+wmid))<=w_tot){
+			for (i=0;i<nn;++i){
+				if (a(i)>trial){
+					a_cand(k_cand)=a(i);
+					w_cand(k_cand)=w(i);
+					++k_cand;
+				}
+		    	}
+			wrest+=wleft+wmid;
+		} else {
+		        return(trial);
+		}
+		if(mm>100){
+			std::cout << "Achtung!" << std::endl;			
+			return(trial);
+		}
+		mm++;
+		nn=k_cand;
+		a.head(nn)=a_cand.head(nn);
+		w.head(nn)=w_cand.head(nn);
+cout << a.head(nn).sum()  <<  "   " << nn << "  " << trial  <<endl;
+	} while(1); 
+}
+double qn0(VectorXd& y,int n){
+		VectorXd work=VectorXd::Zero(n);
+		VectorXd a_psrt=VectorXd::Zero(n);
+		VectorXd a_cand=VectorXd::Zero(n);
+
+		VectorXi left=VectorXi::Zero(n);
+    		VectorXi right=VectorXi::Zero(n);
+    		VectorXi p=VectorXi::Zero(n);
+    		VectorXi q=VectorXi::Zero(n);
+    		VectorXi weight=VectorXi::Zero(n);
+
+		bool found;
+		int h,i,j,jj,jh,ll=0,vv2=3;
+		double ri,trial,dn=1.0;
+
+	    	int64_t k,knew,nl,nr,sump,sumq;
+		h=n/2+1;
+    		k=(int64_t)h*(h-1)/2;
+    		for(i=0;i<n;++i){
+			left(i)=n-i+1;
+			right(i)=(i<=h)?n:n-(i-h);
+		}
+		std::sort(y.data(),y.data()+y.size());
+		nl=(int64_t)n*(n+1)/2;
+		nr=(int64_t)n*n;
+		knew=k+nl;/*=k +(n+1 \over 2) */
+		found=false;	
+		while(!found && nr-nl>n){
+			j=0;
+			for(i=1;i<n;++i){
+				if(left(i)<=right(i)){
+					weight(j)=right(i)-left(i)+1;
+					jh=left(i)+weight(j)/2;
+					work(j)=(float)(y(i)-y(n-jh));
+					++j;
+				}
+			}
+			trial=whimed_i(work,weight,j,a_cand,a_psrt,p);
+			ll++;
+			j=0;
+			for(i=n-1;i>=0;--i){
+				while(j<n&&((float)(y(i)-y(n-j-1)))<trial) ++j;
+				p(i)=j;
+			}
+			j=n+1;
+			for(i=0;i<n;++i){
+				while((float)(y(i)-y(n-j+1))>trial)	--j;
+				q(i)=j;
+			}
+			sump=p.sum();
+			sumq=q.sum()-n;
+			if(knew<=sump){
+				right=p;
+				nr=sump;
+			} else if(knew>sumq){
+				left=q;
+				nl=sumq;
+			} else { /* sump < knew <= sumq */
+			    	found=true;
+			}
+			if(ll>vv2)	found=true;
+    		} /* while */
+		if(found) ri=trial;
+		else{
+			j=0;
+			for(i=1;i<n;++i){
+		    		for(jj=left(i);jj<=right(i);++jj){
+					work(j)=y(i)-y(n-jj);
+					j++;
+		    		}/* j will be=sum_{i=2}^n(right[i] - left[i] + 
+1)_{+}  */
+			}
+			std::nth_element(work.data(),work.data()+knew-nl-
+1,work.data()+j-1);
+			ri=work(knew-nl-1);
+		}
+    		ri*=2.2219;
+		if(n<=9){
+			if(n==2)	dn=.399;
+	    		else if(n==3)	dn=.994;
+	    		else if(n==4)	dn=.512;
+	    		else if(n==5)	dn=.844;
+	    		else if(n==6)	dn=.611;
+	    		else if(n==7)	dn=.857;
+	    		else if(n==8)	dn=.669;
+	    		else if(n==9)	dn=.872;
+		} else {	
+	    		if(n%2==1) dn=n/(n+1.4);
+	    		else dn=n/(n+3.8);
+		}
+		ri*=dn;
+		return(ri);
+}
+extern "C"{
+	void R_mqn(int* nR,double* xr,double* ro){
+		VectorXd x=Map<VectorXd>(xr,*nR);	
+		int n=*nR;
+		double ri=qn0(x,n);
+		*ro=ri;
+	}
+}
+
+
+
+From k@veh@v@k||| @end|ng |rom w|@@ku|euven@be  Sat Jun 23 21:27:25 2012
+From: k@veh@v@k||| @end|ng |rom w|@@ku|euven@be (Kaveh)
+Date: Sat, 23 Jun 2012 19:27:25 +0000 (UTC)
+Subject: [RsR] Problem re-implementing whimed from package robustbase
+References: <loom.20120623T150028-746@post.gmane.org>
+Message-ID: <loom.20120623T212456-305@post.gmane.org>
+
+
+Ok, "for make benefit" of future generations, i've attached to this 
+mail the ,stand alone' version of qn_sn.c (i've removed sn and 200 
+loc of bell and whistles to make it shorter). 
+
+I guess now i will feed both this and my implementation to a 
+debugger and see what is causing the strange divergence....
+
+#include <stdlib.h>
+#include <stdbool.h> 
+#include <stdio.h>   
+#include <inttypes.h>
+#include <R.h>
+#include <Rmath.h> /* -> <math.h> and much more */
+
+double qn0(double *x, int n);
+double whimed_i(double *a, int *w, int n, double* a_cand, double *a_psrt, int 
+*w_cand);
+double pull(double *a_in, int n, int k);
+int cmp (const void *a, const void *b);
+int main();
+
+
+double whimed_i(double *a, int *w, int n, double* a_cand, double *a_psrt, int 
+*w_cand){
+/*
+  Algorithm to compute the weighted high median in O(n) time.
+
+  The whimed is defined as the smallest a[j] such that the sum
+  of the weights of all a[i] <= a[j] is strictly greater than
+  half of the total weight.
+
+  Arguments:
+
+  a: double array containing the observations
+  n: number of observations
+  w: array of (int/double) weights of the observations.
+*/
+
+    int n2, i, kcand,mm=0,vv1=1;
+    /* sum of weights: `int' do overflow when  n ~>= 1e5 */
+    int wleft, wmid, wright, w_tot, wrest;
+
+    double trial,s_apsrt;
+
+    w_tot = 0;
+    for (i = 0; i < n; ++i)
+	w_tot += w[i];
+    wrest = 0;
+
+/* REPEAT : */
+    do {
+	for (i = 0; i < n; ++i){
+	    a_psrt[i] = a[i];
+	}
+	n2 = n/2;/* =^= n/2 +1 with 0-indexing */
+	trial = pull(a_psrt, n, n2);;
+	wleft = 0;    wmid  = 0;    wright= 0;
+	for (i = 0; i < n; ++i) {
+	    if (a[i] < trial)	wleft += w[i];
+	    else if (a[i] > trial) wright += w[i];
+	    else wmid += w[i];
+	}
+	/* wleft = sum_{i; a[i]	 < trial}  w[i]
+	 * wmid	 = sum_{i; a[i] == trial}  w[i] at least one 'i' since trial is 
+one a[]!
+	 * wright= sum_{i; a[i]	 > trial}  w[i]
+	 */
+	kcand = 0;
+	if (2 * (wrest + wleft) > w_tot) {
+	    for (i = 0; i < n; ++i) {
+		if (a[i] < trial) {
+		    a_cand[kcand] = a[i];
+		    w_cand[kcand] = w[i];	
+		    ++kcand;
+		}
+	    }
+	}
+	else if (2 * (wrest + wleft + wmid) <= w_tot) {
+	    for (i = 0; i < n; ++i) {
+		if (a[i] > trial) {
+		    a_cand[kcand] = a[i];
+		    w_cand[kcand] = w[i];	
+                    ++kcand;
+		}
+	    }
+	    wrest += wleft + wmid;
+	}
+	else {
+	    return trial;
+	}
+	mm++;
+	n = kcand;
+        s_apsrt=0;
+	for (i = 0;i<n;++i) {
+	    a[i] = a_cand[i];
+	    w[i] = w_cand[i];
+	    s_apsrt += a[i];
+	}
+
+    } while(1);
+
+} /* _WHIMED_ */
+
+/* Main routines for C API */
+//double qn(double *x, int n, int finite_corr);
+/* these have no extra factors (no consistency factor & finite_corr): */
+
+
+/* ----------- Implementations -----------------------------------*/
+
+//void Qn0(double *x, Sint *n, double *res) { *res = qn0(x, (int)*n); }
+
+int cmp (const void *pa, const void *pb){
+	double a = *(const double*)pa;
+   double b = *(const double*)pb;
+  return (int) (a - b);
+}
+
+double qn0(double *x, int n){
+/*--------------------------------------------------------------------
+
+   Efficient algorithm for the scale estimator:
+
+       Q*_n = { |x_i - x_j|; i<j }_(k)	[= Qn without scaling ]
+
+		i.e. the k-th order statistic of the |x_i - x_j|
+
+   Parameters of the function Qn :
+       x  : double array containing the observations
+       n  : number of observations (n >=2)
+ */
+
+    double *y	  = (double *)calloc(n, sizeof(double));
+    double *work  = (double *)calloc(n, sizeof(double));
+    double *a_psrt = (double *)calloc(n, sizeof(double));
+    double *a_cand = (double *)calloc(n, sizeof(double));
+
+    int *left	  = (int *)calloc(n, sizeof(int));
+    int *right	  = (int *)calloc(n, sizeof(int));
+    int *p	  = (int *)calloc(n, sizeof(int));
+    int *q	  = (int *)calloc(n, sizeof(int));
+    int *weight	  = (int *)calloc(n, sizeof(int));
+
+    double trial;
+    bool found;
+
+    double w_tot=0.0;
+
+    int h, i, j,jj,jh,vv2=3,ll=0;
+    /* Following should be `long long int' : they can be of order n^2 */
+    int64_t k, knew, nl,nr, sump,sumq;
+
+    h = n / 2 + 1;
+    k = (int64_t)h * (h - 1) / 2;
+    for (i = 0; i < n; ++i) {
+	y[i] = x[i];
+	left [i] = n - i + 1;
+	right[i] = (i <= h) ? n : n - (i - h);
+	/* the n - (i-h) is from the paper; original code had `n' */
+    }
+  //  R_qsort(y, 1, n); /* y := sort(x) */
+    qsort(y,n,sizeof(double),cmp);
+    nl = (int64_t)n * (n + 1) / 2;
+    nr = (int64_t)n * n;
+    knew = k + nl;/* = k + (n+1 \over 2) */
+    found = FALSE;
+#ifdef DEBUG_qn
+    REprintf("qn0(): h,k= %2d,%2d;  nl,nr= %d,%d\n", h,k, nl,nr);
+#endif
+/* L200: */
+    while(!found && nr - nl > n) {
+	j = 0;
+	/* Truncation to float :
+	   try to make sure that the same values are got later (guard bits !) */
+	for (i = 1; i < n; ++i) {
+	    if (left[i] <= right[i]) {
+		weight[j] = right[i] - left[i] + 1;
+		jh = left[i] + weight[j] / 2;
+		work[j] = (float)(y[i] - y[n - jh]);
+		++j;
+	    }
+	}
+	trial = whimed_i(work, weight, j, a_cand, a_psrt, /*iw_cand*/ p);
+#ifdef DEBUG_qn
+	REprintf(" ..!found: whimed(");
+#  ifdef DEBUG_long
+	REprintf("wrk=c(");
+	for(i=0; i < j; i++) REprintf("%s%g", (i>0)? ", " : "", work[i]);
+	REprintf("),\n	   wgt=c(");
+	for(i=0; i < j; i++) REprintf("%s%d", (i>0)? ", " : "", weight[i]);
+	REprintf("), j= %3d) -> trial= %7g\n", j, trial);
+#  else
+	REprintf("j=%3d) -> trial= %g:", j, trial);
+#  endif
+#endif
+	j = 0;
+	for (i = n - 1; i >= 0; --i) {
+	    while (j < n && ((float)(y[i] - y[n - j - 1])) < trial)
+		++j;
+	    p[i] = j;
+	}
+#ifdef DEBUG_qn
+	REprintf(" f_1: j=%2d", j);
+#endif
+	j = n + 1;
+	for (i = 0; i < n; ++i) {
+	    while ((float)(y[i] - y[n - j + 1]) > trial)
+		--j;
+	    q[i] = j;
+	}
+	sump = 0;
+	sumq = 0;
+	for (i = 0; i < n; ++i) {
+	    sump += p[i];
+	    sumq += q[i] - 1;
+	}
+#ifdef DEBUG_qn
+	REprintf(" f_2 -> j=%2d, sump|q= %lld,%lld", j, sump,sumq);
+#endif
+	if (knew <= sump) {
+	    for (i = 0; i < n; ++i)
+		right[i] = p[i];
+	    nr = sump;
+#ifdef DEBUG_qn
+	    REprintf("knew <= sump =: nr , new right[]\n");
+#endif
+	} else if (knew > sumq) {
+	    for (i = 0; i < n; ++i)
+		left[i] = q[i];
+	    nl = sumq;
+#ifdef DEBUG_qn
+	    REprintf("knew > sumq =: nl , new left[]\n");
+#endif
+	} else { /* sump < knew <= sumq */
+	    found = TRUE;
+#ifdef DEBUG_qn
+	    REprintf("sump < knew <= sumq ---> FOUND\n");
+#endif
+	}
+	ll++;
+	if(ll>vv2)	found=TRUE;
+//	printf("%lf\n",trial);
+
+    } /* while */
+
+    if (found)
+	return trial;
+    else {
+#ifdef DEBUG_qn
+	REprintf(".. not fnd -> new work[]");
+#endif
+	j = 0;
+	for (i = 1; i < n; ++i) {
+	    for (jj = left[i]; jj <= right[i]; ++jj) {
+		work[j] = y[i] - y[n - jj];
+		j++;
+	    }/* j will be = sum_{i=2}^n (right[i] - left[i] + 1)_{+}  */
+	}
+#ifdef DEBUG_qn
+	REprintf(" of length %d; knew-nl=%d\n", j, knew-nl);
+#endif
+
+	return (pull(work, j - 1, knew - nl));
+//	knew -= (nl + 1); /* -1: 0-indexing */
+//	rPsort(work, j, knew);
+//	return(work[knew]);
+    }
+} /* qn0 */
+
+
+double pull(double *a_in, int n, int k){
+    int j;
+    double *a, ax;
+  //  char* vmax = vmaxget();
+    a = (double *)calloc(n, sizeof(double));
+    /* Copy a[] and use copy since it will be re-shuffled: */
+    for (j = 0; j < n; j++)
+	a[j] = a_in[j];
+
+    k--; /* 0-indexing */
+    qsort(a,n,sizeof(double),cmp);   
+    ax = a[k];
+
+//    vmaxset(vmax);
+    return ax;
+} /* pull */
+int main(){
+	FILE *inFile;
+	double x[100],resu;
+	int i,n=100,numRead=0;
+	inFile=fopen("test.txt","r");
+	if (!inFile)		return 1;
+	for(i=0;i<n;i++) numRead=fscanf(inFile,"%lf",&x[i]);
+        printf("%lf\n",x[0]);
+	fclose(inFile);
+	resu=qn0(x,n);
+        printf("%lf\n",resu);
+	return 0;
+}
+
+
+
+From @ndre@@@@||on@ @end|ng |rom ku|euven@be  Sun Jun 24 23:05:27 2012
+From: @ndre@@@@||on@ @end|ng |rom ku|euven@be (Andreas Alfons)
+Date: Sun, 24 Jun 2012 23:05:27 +0200
+Subject: [RsR] Problem re-implementing whimed from package robustbase
+In-Reply-To: <f5a7bfb99a5649f99f6cbde2fcf181f0@ICTS-S-HUB3.luna.kuleuven.be>
+References: <loom.20120623T150028-746@post.gmane.org>
+	<f5a7bfb99a5649f99f6cbde2fcf181f0@ICTS-S-HUB3.luna.kuleuven.be>
+Message-ID: <CA+VS_fa9i54QjwP6b0Pwu7jsFyr==EyG59B0EBABZp=RSas8nw@mail.gmail.com>
+
+I only had a quick look at the code and did not have time to try it
+myself, but you made many more changes to the code besides swapping
+the C arrays to C++ Eigen data types.
+
+I would suggest one of the following approaches to go further:
+
+1) The original C code has been used for a long time and is proved to
+be reliable. If you need to use the EIgen data types for your
+application, you could simply write a wrapper function.
+
+2) If you really need to re-implement it, I would start by changing
+only as little as necessary to make it work with the Eigen data types.
+If you first have something that works, you can then incrementally make
+more changes to take advantage of the Eigen library.
+
+- Andreas
+
+
+On Sat, Jun 23, 2012 at 9:27 PM, Kaveh Vakili
+<Kaveh.Vakili at wis.kuleuven.be> wrote:
+>
+> Ok, "for make benefit" of future generations, i've attached to this
+> mail the ,stand alone' version of qn_sn.c (i've removed sn and 200
+> loc of bell and whistles to make it shorter).
+>
+> I guess now i will feed both this and my implementation to a
+> debugger and see what is causing the strange divergence....
+>
+> #include <stdlib.h>
+> #include <stdbool.h>
+> #include <stdio.h>
+> #include <inttypes.h>
+> #include <R.h>
+> #include <Rmath.h> /* -> <math.h> and much more */
+>
+> double qn0(double *x, int n);
+> double whimed_i(double *a, int *w, int n, double* a_cand, double *a_psrt, int
+> *w_cand);
+> double pull(double *a_in, int n, int k);
+> int cmp (const void *a, const void *b);
+> int main();
+>
+>
+> double whimed_i(double *a, int *w, int n, double* a_cand, double *a_psrt, int
+> *w_cand){
+> /*
+> ?Algorithm to compute the weighted high median in O(n) time.
+>
+> ?The whimed is defined as the smallest a[j] such that the sum
+> ?of the weights of all a[i] <= a[j] is strictly greater than
+> ?half of the total weight.
+>
+> ?Arguments:
+>
+> ?a: double array containing the observations
+> ?n: number of observations
+> ?w: array of (int/double) weights of the observations.
+> */
+>
+> ? ?int n2, i, kcand,mm=0,vv1=1;
+> ? ?/* sum of weights: `int' do overflow when ?n ~>= 1e5 */
+> ? ?int wleft, wmid, wright, w_tot, wrest;
+>
+> ? ?double trial,s_apsrt;
+>
+> ? ?w_tot = 0;
+> ? ?for (i = 0; i < n; ++i)
+> ? ? ? ?w_tot += w[i];
+> ? ?wrest = 0;
+>
+> /* REPEAT : */
+> ? ?do {
+> ? ? ? ?for (i = 0; i < n; ++i){
+> ? ? ? ? ? ?a_psrt[i] = a[i];
+> ? ? ? ?}
+> ? ? ? ?n2 = n/2;/* =^= n/2 +1 with 0-indexing */
+> ? ? ? ?trial = pull(a_psrt, n, n2);;
+> ? ? ? ?wleft = 0; ? ?wmid ?= 0; ? ?wright= 0;
+> ? ? ? ?for (i = 0; i < n; ++i) {
+> ? ? ? ? ? ?if (a[i] < trial) ? wleft += w[i];
+> ? ? ? ? ? ?else if (a[i] > trial) wright += w[i];
+> ? ? ? ? ? ?else wmid += w[i];
+> ? ? ? ?}
+> ? ? ? ?/* wleft = sum_{i; a[i] ?< trial} ?w[i]
+> ? ? ? ? * wmid ?= sum_{i; a[i] == trial} ?w[i] at least one 'i' since trial is
+> one a[]!
+> ? ? ? ? * wright= sum_{i; a[i] ?> trial} ?w[i]
+> ? ? ? ? */
+> ? ? ? ?kcand = 0;
+> ? ? ? ?if (2 * (wrest + wleft) > w_tot) {
+> ? ? ? ? ? ?for (i = 0; i < n; ++i) {
+> ? ? ? ? ? ? ? ?if (a[i] < trial) {
+> ? ? ? ? ? ? ? ? ? ?a_cand[kcand] = a[i];
+> ? ? ? ? ? ? ? ? ? ?w_cand[kcand] = w[i];
+> ? ? ? ? ? ? ? ? ? ?++kcand;
+> ? ? ? ? ? ? ? ?}
+> ? ? ? ? ? ?}
+> ? ? ? ?}
+> ? ? ? ?else if (2 * (wrest + wleft + wmid) <= w_tot) {
+> ? ? ? ? ? ?for (i = 0; i < n; ++i) {
+> ? ? ? ? ? ? ? ?if (a[i] > trial) {
+> ? ? ? ? ? ? ? ? ? ?a_cand[kcand] = a[i];
+> ? ? ? ? ? ? ? ? ? ?w_cand[kcand] = w[i];
+> ? ? ? ? ? ? ? ? ? ?++kcand;
+> ? ? ? ? ? ? ? ?}
+> ? ? ? ? ? ?}
+> ? ? ? ? ? ?wrest += wleft + wmid;
+> ? ? ? ?}
+> ? ? ? ?else {
+> ? ? ? ? ? ?return trial;
+> ? ? ? ?}
+> ? ? ? ?mm++;
+> ? ? ? ?n = kcand;
+> ? ? ? ?s_apsrt=0;
+> ? ? ? ?for (i = 0;i<n;++i) {
+> ? ? ? ? ? ?a[i] = a_cand[i];
+> ? ? ? ? ? ?w[i] = w_cand[i];
+> ? ? ? ? ? ?s_apsrt += a[i];
+> ? ? ? ?}
+>
+> ? ?} while(1);
+>
+> } /* _WHIMED_ */
+>
+> /* Main routines for C API */
+> //double qn(double *x, int n, int finite_corr);
+> /* these have no extra factors (no consistency factor & finite_corr): */
+>
+>
+> /* ----------- Implementations -----------------------------------*/
+>
+> //void Qn0(double *x, Sint *n, double *res) { *res = qn0(x, (int)*n); }
+>
+> int cmp (const void *pa, const void *pb){
+> ? ? ? ?double a = *(const double*)pa;
+> ? double b = *(const double*)pb;
+> ?return (int) (a - b);
+> }
+>
+> double qn0(double *x, int n){
+> /*--------------------------------------------------------------------
+>
+> ? Efficient algorithm for the scale estimator:
+>
+> ? ? ? Q*_n = { |x_i - x_j|; i<j }_(k) ?[= Qn without scaling ]
+>
+> ? ? ? ? ? ? ? ?i.e. the k-th order statistic of the |x_i - x_j|
+>
+> ? Parameters of the function Qn :
+> ? ? ? x ?: double array containing the observations
+> ? ? ? n ?: number of observations (n >=2)
+> ?*/
+>
+> ? ?double *y ? ? = (double *)calloc(n, sizeof(double));
+> ? ?double *work ?= (double *)calloc(n, sizeof(double));
+> ? ?double *a_psrt = (double *)calloc(n, sizeof(double));
+> ? ?double *a_cand = (double *)calloc(n, sizeof(double));
+>
+> ? ?int *left ? ? = (int *)calloc(n, sizeof(int));
+> ? ?int *right ? ?= (int *)calloc(n, sizeof(int));
+> ? ?int *p ? ? ? ?= (int *)calloc(n, sizeof(int));
+> ? ?int *q ? ? ? ?= (int *)calloc(n, sizeof(int));
+> ? ?int *weight ? = (int *)calloc(n, sizeof(int));
+>
+> ? ?double trial;
+> ? ?bool found;
+>
+> ? ?double w_tot=0.0;
+>
+> ? ?int h, i, j,jj,jh,vv2=3,ll=0;
+> ? ?/* Following should be `long long int' : they can be of order n^2 */
+> ? ?int64_t k, knew, nl,nr, sump,sumq;
+>
+> ? ?h = n / 2 + 1;
+> ? ?k = (int64_t)h * (h - 1) / 2;
+> ? ?for (i = 0; i < n; ++i) {
+> ? ? ? ?y[i] = x[i];
+> ? ? ? ?left [i] = n - i + 1;
+> ? ? ? ?right[i] = (i <= h) ? n : n - (i - h);
+> ? ? ? ?/* the n - (i-h) is from the paper; original code had `n' */
+> ? ?}
+> ?// ?R_qsort(y, 1, n); /* y := sort(x) */
+> ? ?qsort(y,n,sizeof(double),cmp);
+> ? ?nl = (int64_t)n * (n + 1) / 2;
+> ? ?nr = (int64_t)n * n;
+> ? ?knew = k + nl;/* = k + (n+1 \over 2) */
+> ? ?found = FALSE;
+> #ifdef DEBUG_qn
+> ? ?REprintf("qn0(): h,k= %2d,%2d; ?nl,nr= %d,%d\n", h,k, nl,nr);
+> #endif
+> /* L200: */
+> ? ?while(!found && nr - nl > n) {
+> ? ? ? ?j = 0;
+> ? ? ? ?/* Truncation to float :
+> ? ? ? ? ? try to make sure that the same values are got later (guard bits !) */
+> ? ? ? ?for (i = 1; i < n; ++i) {
+> ? ? ? ? ? ?if (left[i] <= right[i]) {
+> ? ? ? ? ? ? ? ?weight[j] = right[i] - left[i] + 1;
+> ? ? ? ? ? ? ? ?jh = left[i] + weight[j] / 2;
+> ? ? ? ? ? ? ? ?work[j] = (float)(y[i] - y[n - jh]);
+> ? ? ? ? ? ? ? ?++j;
+> ? ? ? ? ? ?}
+> ? ? ? ?}
+> ? ? ? ?trial = whimed_i(work, weight, j, a_cand, a_psrt, /*iw_cand*/ p);
+> #ifdef DEBUG_qn
+> ? ? ? ?REprintf(" ..!found: whimed(");
+> # ?ifdef DEBUG_long
+> ? ? ? ?REprintf("wrk=c(");
+> ? ? ? ?for(i=0; i < j; i++) REprintf("%s%g", (i>0)? ", " : "", work[i]);
+> ? ? ? ?REprintf("),\n ? ? wgt=c(");
+> ? ? ? ?for(i=0; i < j; i++) REprintf("%s%d", (i>0)? ", " : "", weight[i]);
+> ? ? ? ?REprintf("), j= %3d) -> trial= %7g\n", j, trial);
+> # ?else
+> ? ? ? ?REprintf("j=%3d) -> trial= %g:", j, trial);
+> # ?endif
+> #endif
+> ? ? ? ?j = 0;
+> ? ? ? ?for (i = n - 1; i >= 0; --i) {
+> ? ? ? ? ? ?while (j < n && ((float)(y[i] - y[n - j - 1])) < trial)
+> ? ? ? ? ? ? ? ?++j;
+> ? ? ? ? ? ?p[i] = j;
+> ? ? ? ?}
+> #ifdef DEBUG_qn
+> ? ? ? ?REprintf(" f_1: j=%2d", j);
+> #endif
+> ? ? ? ?j = n + 1;
+> ? ? ? ?for (i = 0; i < n; ++i) {
+> ? ? ? ? ? ?while ((float)(y[i] - y[n - j + 1]) > trial)
+> ? ? ? ? ? ? ? ?--j;
+> ? ? ? ? ? ?q[i] = j;
+> ? ? ? ?}
+> ? ? ? ?sump = 0;
+> ? ? ? ?sumq = 0;
+> ? ? ? ?for (i = 0; i < n; ++i) {
+> ? ? ? ? ? ?sump += p[i];
+> ? ? ? ? ? ?sumq += q[i] - 1;
+> ? ? ? ?}
+> #ifdef DEBUG_qn
+> ? ? ? ?REprintf(" f_2 -> j=%2d, sump|q= %lld,%lld", j, sump,sumq);
+> #endif
+> ? ? ? ?if (knew <= sump) {
+> ? ? ? ? ? ?for (i = 0; i < n; ++i)
+> ? ? ? ? ? ? ? ?right[i] = p[i];
+> ? ? ? ? ? ?nr = sump;
+> #ifdef DEBUG_qn
+> ? ? ? ? ? ?REprintf("knew <= sump =: nr , new right[]\n");
+> #endif
+> ? ? ? ?} else if (knew > sumq) {
+> ? ? ? ? ? ?for (i = 0; i < n; ++i)
+> ? ? ? ? ? ? ? ?left[i] = q[i];
+> ? ? ? ? ? ?nl = sumq;
+> #ifdef DEBUG_qn
+> ? ? ? ? ? ?REprintf("knew > sumq =: nl , new left[]\n");
+> #endif
+> ? ? ? ?} else { /* sump < knew <= sumq */
+> ? ? ? ? ? ?found = TRUE;
+> #ifdef DEBUG_qn
+> ? ? ? ? ? ?REprintf("sump < knew <= sumq ---> FOUND\n");
+> #endif
+> ? ? ? ?}
+> ? ? ? ?ll++;
+> ? ? ? ?if(ll>vv2) ? ? ?found=TRUE;
+> // ? ? ?printf("%lf\n",trial);
+>
+> ? ?} /* while */
+>
+> ? ?if (found)
+> ? ? ? ?return trial;
+> ? ?else {
+> #ifdef DEBUG_qn
+> ? ? ? ?REprintf(".. not fnd -> new work[]");
+> #endif
+> ? ? ? ?j = 0;
+> ? ? ? ?for (i = 1; i < n; ++i) {
+> ? ? ? ? ? ?for (jj = left[i]; jj <= right[i]; ++jj) {
+> ? ? ? ? ? ? ? ?work[j] = y[i] - y[n - jj];
+> ? ? ? ? ? ? ? ?j++;
+> ? ? ? ? ? ?}/* j will be = sum_{i=2}^n (right[i] - left[i] + 1)_{+} ?*/
+> ? ? ? ?}
+> #ifdef DEBUG_qn
+> ? ? ? ?REprintf(" of length %d; knew-nl=%d\n", j, knew-nl);
+> #endif
+>
+> ? ? ? ?return (pull(work, j - 1, knew - nl));
+> // ? ? ?knew -= (nl + 1); /* -1: 0-indexing */
+> // ? ? ?rPsort(work, j, knew);
+> // ? ? ?return(work[knew]);
+> ? ?}
+> } /* qn0 */
+>
+>
+> double pull(double *a_in, int n, int k){
+> ? ?int j;
+> ? ?double *a, ax;
+> ?// ?char* vmax = vmaxget();
+> ? ?a = (double *)calloc(n, sizeof(double));
+> ? ?/* Copy a[] and use copy since it will be re-shuffled: */
+> ? ?for (j = 0; j < n; j++)
+> ? ? ? ?a[j] = a_in[j];
+>
+> ? ?k--; /* 0-indexing */
+> ? ?qsort(a,n,sizeof(double),cmp);
+> ? ?ax = a[k];
+>
+> // ? ?vmaxset(vmax);
+> ? ?return ax;
+> } /* pull */
+> int main(){
+> ? ? ? ?FILE *inFile;
+> ? ? ? ?double x[100],resu;
+> ? ? ? ?int i,n=100,numRead=0;
+> ? ? ? ?inFile=fopen("test.txt","r");
+> ? ? ? ?if (!inFile) ? ? ? ? ? ?return 1;
+> ? ? ? ?for(i=0;i<n;i++) numRead=fscanf(inFile,"%lf",&x[i]);
+> ? ? ? ?printf("%lf\n",x[0]);
+> ? ? ? ?fclose(inFile);
+> ? ? ? ?resu=qn0(x,n);
+> ? ? ? ?printf("%lf\n",resu);
+> ? ? ? ?return 0;
+> }
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+-- 
+Andreas Alfons
+Faculty of Business and Economics, KU Leuven
+www.econ.kuleuven.be/andreas.alfons/public/
+
+
+
+From k@veh@v@k||| @end|ng |rom w|@@ku|euven@be  Mon Jun 25 09:05:29 2012
+From: k@veh@v@k||| @end|ng |rom w|@@ku|euven@be (Kaveh Vakili)
+Date: Mon, 25 Jun 2012 09:05:29 +0200
+Subject: [RsR] Problem re-implementing whimed from package robustbase
+In-Reply-To: <CA+VS_fa9i54QjwP6b0Pwu7jsFyr==EyG59B0EBABZp=RSas8nw@mail.gmail.com>
+References: <loom.20120623T150028-746@post.gmane.org>
+	<f5a7bfb99a5649f99f6cbde2fcf181f0@ICTS-S-HUB3.luna.kuleuven.be>
+	<CA+VS_fa9i54QjwP6b0Pwu7jsFyr==EyG59B0EBABZp=RSas8nw@mail.gmail.com>
+Message-ID: <4FE80DB9.9040807@wis.kuleuven.be>
+
+Dear Andreas,
+
+Suggestion (1) is a very good solution for my problem:
+  the part of my implementation causing the divergence
+  (whimed) is a function i'm not interested in modifying
+anyway.
+
+Still, i'm parsing both codes through a debugger when
+i'll get the time to get to the bottom of this (this problem
+  enticed my curiosity  and is a good occasion to learn to
+power use dbg).
+
+Best Regards,
+
+
+
+On 06/24/2012 11:05 PM, Andreas Alfons wrote:
+> I only had a quick look at the code and did not have time to try it
+> myself, but you made many more changes to the code besides swapping
+> the C arrays to C++ Eigen data types.
+>
+> I would suggest one of the following approaches to go further:
+>
+> 1) The original C code has been used for a long time and is proved to
+> be reliable. If you need to use the EIgen data types for your
+> application, you could simply write a wrapper function.
+>
+> 2) If you really need to re-implement it, I would start by changing
+> only as little as necessary to make it work with the Eigen data types.
+> If you first have something that works, you can then incrementally make
+> more changes to take advantage of the Eigen library.
+>
+> - Andreas
+>
+>
+
+
+
+From k@veh@v@k||| @end|ng |rom w|@@ku|euven@be  Fri Jun 29 14:55:34 2012
+From: k@veh@v@k||| @end|ng |rom w|@@ku|euven@be (Kaveh Vakili)
+Date: Fri, 29 Jun 2012 14:55:34 +0200
+Subject: [RsR] Problem re-implementing whimed from package robustbase
+In-Reply-To: <CA+VS_fa9i54QjwP6b0Pwu7jsFyr==EyG59B0EBABZp=RSas8nw@mail.gmail.com>
+References: <loom.20120623T150028-746@post.gmane.org>
+	<f5a7bfb99a5649f99f6cbde2fcf181f0@ICTS-S-HUB3.luna.kuleuven.be>
+	<CA+VS_fa9i54QjwP6b0Pwu7jsFyr==EyG59B0EBABZp=RSas8nw@mail.gmail.com>
+Message-ID: <4FEDA5C6.5020109@wis.kuleuven.be>
+
+
+
+Replacing
+
+     w_tot=w.sum();
+
+by
+
+     w_tot=w.head(n).sum();
+
+in the whimed function did the trick.
+(~a classic)
+
+
+On 06/24/2012 11:05 PM, Andreas Alfons wrote:
+> I only had a quick look at the code and did not have time to try it
+> myself, but you made many more changes to the code besides swapping
+> the C arrays to C++ Eigen data types.
+>
+> I would suggest one of the following approaches to go further:
+>
+> 1) The original C code has been used for a long time and is proved to
+> be reliable. If you need to use the EIgen data types for your
+> application, you could simply write a wrapper function.
+>
+> 2) If you really need to re-implement it, I would start by changing
+> only as little as necessary to make it work with the Eigen data types.
+> If you first have something that works, you can then incrementally make
+> more changes to take advantage of the Eigen library.
+>
+> - Andreas
+>
+>
+> On Sat, Jun 23, 2012 at 9:27 PM, Kaveh Vakili
+> <Kaveh.Vakili at wis.kuleuven.be> wrote:
+>> Ok, "for make benefit" of future generations, i've attached to this
+>> mail the ,stand alone' version of qn_sn.c (i've removed sn and 200
+>> loc of bell and whistles to make it shorter).
+>>
+>> I guess now i will feed both this and my implementation to a
+>> debugger and see what is causing the strange divergence....
+>>
+>> #include <stdlib.h>
+>> #include <stdbool.h>
+>> #include <stdio.h>
+>> #include <inttypes.h>
+>> #include <R.h>
+>> #include <Rmath.h> /* -> <math.h> and much more */
+>>
+>> double qn0(double *x, int n);
+>> double whimed_i(double *a, int *w, int n, double* a_cand, double *a_psrt, int
+>> *w_cand);
+>> double pull(double *a_in, int n, int k);
+>> int cmp (const void *a, const void *b);
+>> int main();
+>>
+>>
+>> double whimed_i(double *a, int *w, int n, double* a_cand, double *a_psrt, int
+>> *w_cand){
+>> /*
+>>   Algorithm to compute the weighted high median in O(n) time.
+>>
+>>   The whimed is defined as the smallest a[j] such that the sum
+>>   of the weights of all a[i] <= a[j] is strictly greater than
+>>   half of the total weight.
+>>
+>>   Arguments:
+>>
+>>   a: double array containing the observations
+>>   n: number of observations
+>>   w: array of (int/double) weights of the observations.
+>> */
+>>
+>>     int n2, i, kcand,mm=0,vv1=1;
+>>     /* sum of weights: `int' do overflow when  n ~>= 1e5 */
+>>     int wleft, wmid, wright, w_tot, wrest;
+>>
+>>     double trial,s_apsrt;
+>>
+>>     w_tot = 0;
+>>     for (i = 0; i < n; ++i)
+>>         w_tot += w[i];
+>>     wrest = 0;
+>>
+>> /* REPEAT : */
+>>     do {
+>>         for (i = 0; i < n; ++i){
+>>             a_psrt[i] = a[i];
+>>         }
+>>         n2 = n/2;/* =^= n/2 +1 with 0-indexing */
+>>         trial = pull(a_psrt, n, n2);;
+>>         wleft = 0;    wmid  = 0;    wright= 0;
+>>         for (i = 0; i < n; ++i) {
+>>             if (a[i] < trial)   wleft += w[i];
+>>             else if (a[i] > trial) wright += w[i];
+>>             else wmid += w[i];
+>>         }
+>>         /* wleft = sum_{i; a[i]  < trial}  w[i]
+>>          * wmid  = sum_{i; a[i] == trial}  w[i] at least one 'i' since trial is
+>> one a[]!
+>>          * wright= sum_{i; a[i]  > trial}  w[i]
+>>          */
+>>         kcand = 0;
+>>         if (2 * (wrest + wleft) > w_tot) {
+>>             for (i = 0; i < n; ++i) {
+>>                 if (a[i] < trial) {
+>>                     a_cand[kcand] = a[i];
+>>                     w_cand[kcand] = w[i];
+>>                     ++kcand;
+>>                 }
+>>             }
+>>         }
+>>         else if (2 * (wrest + wleft + wmid) <= w_tot) {
+>>             for (i = 0; i < n; ++i) {
+>>                 if (a[i] > trial) {
+>>                     a_cand[kcand] = a[i];
+>>                     w_cand[kcand] = w[i];
+>>                     ++kcand;
+>>                 }
+>>             }
+>>             wrest += wleft + wmid;
+>>         }
+>>         else {
+>>             return trial;
+>>         }
+>>         mm++;
+>>         n = kcand;
+>>         s_apsrt=0;
+>>         for (i = 0;i<n;++i) {
+>>             a[i] = a_cand[i];
+>>             w[i] = w_cand[i];
+>>             s_apsrt += a[i];
+>>         }
+>>
+>>     } while(1);
+>>
+>> } /* _WHIMED_ */
+>>
+>> /* Main routines for C API */
+>> //double qn(double *x, int n, int finite_corr);
+>> /* these have no extra factors (no consistency factor & finite_corr): */
+>>
+>>
+>> /* ----------- Implementations -----------------------------------*/
+>>
+>> //void Qn0(double *x, Sint *n, double *res) { *res = qn0(x, (int)*n); }
+>>
+>> int cmp (const void *pa, const void *pb){
+>>         double a = *(const double*)pa;
+>>    double b = *(const double*)pb;
+>>   return (int) (a - b);
+>> }
+>>
+>> double qn0(double *x, int n){
+>> /*--------------------------------------------------------------------
+>>
+>>    Efficient algorithm for the scale estimator:
+>>
+>>        Q*_n = { |x_i - x_j|; i<j }_(k)  [= Qn without scaling ]
+>>
+>>                 i.e. the k-th order statistic of the |x_i - x_j|
+>>
+>>    Parameters of the function Qn :
+>>        x  : double array containing the observations
+>>        n  : number of observations (n >=2)
+>>   */
+>>
+>>     double *y     = (double *)calloc(n, sizeof(double));
+>>     double *work  = (double *)calloc(n, sizeof(double));
+>>     double *a_psrt = (double *)calloc(n, sizeof(double));
+>>     double *a_cand = (double *)calloc(n, sizeof(double));
+>>
+>>     int *left     = (int *)calloc(n, sizeof(int));
+>>     int *right    = (int *)calloc(n, sizeof(int));
+>>     int *p        = (int *)calloc(n, sizeof(int));
+>>     int *q        = (int *)calloc(n, sizeof(int));
+>>     int *weight   = (int *)calloc(n, sizeof(int));
+>>
+>>     double trial;
+>>     bool found;
+>>
+>>     double w_tot=0.0;
+>>
+>>     int h, i, j,jj,jh,vv2=3,ll=0;
+>>     /* Following should be `long long int' : they can be of order n^2 */
+>>     int64_t k, knew, nl,nr, sump,sumq;
+>>
+>>     h = n / 2 + 1;
+>>     k = (int64_t)h * (h - 1) / 2;
+>>     for (i = 0; i < n; ++i) {
+>>         y[i] = x[i];
+>>         left [i] = n - i + 1;
+>>         right[i] = (i <= h) ? n : n - (i - h);
+>>         /* the n - (i-h) is from the paper; original code had `n' */
+>>     }
+>>   //  R_qsort(y, 1, n); /* y := sort(x) */
+>>     qsort(y,n,sizeof(double),cmp);
+>>     nl = (int64_t)n * (n + 1) / 2;
+>>     nr = (int64_t)n * n;
+>>     knew = k + nl;/* = k + (n+1 \over 2) */
+>>     found = FALSE;
+>> #ifdef DEBUG_qn
+>>     REprintf("qn0(): h,k= %2d,%2d;  nl,nr= %d,%d\n", h,k, nl,nr);
+>> #endif
+>> /* L200: */
+>>     while(!found && nr - nl > n) {
+>>         j = 0;
+>>         /* Truncation to float :
+>>            try to make sure that the same values are got later (guard bits !) */
+>>         for (i = 1; i < n; ++i) {
+>>             if (left[i] <= right[i]) {
+>>                 weight[j] = right[i] - left[i] + 1;
+>>                 jh = left[i] + weight[j] / 2;
+>>                 work[j] = (float)(y[i] - y[n - jh]);
+>>                 ++j;
+>>             }
+>>         }
+>>         trial = whimed_i(work, weight, j, a_cand, a_psrt, /*iw_cand*/ p);
+>> #ifdef DEBUG_qn
+>>         REprintf(" ..!found: whimed(");
+>> #  ifdef DEBUG_long
+>>         REprintf("wrk=c(");
+>>         for(i=0; i < j; i++) REprintf("%s%g", (i>0)? ", " : "", work[i]);
+>>         REprintf("),\n     wgt=c(");
+>>         for(i=0; i < j; i++) REprintf("%s%d", (i>0)? ", " : "", weight[i]);
+>>         REprintf("), j= %3d) -> trial= %7g\n", j, trial);
+>> #  else
+>>         REprintf("j=%3d) -> trial= %g:", j, trial);
+>> #  endif
+>> #endif
+>>         j = 0;
+>>         for (i = n - 1; i >= 0; --i) {
+>>             while (j < n && ((float)(y[i] - y[n - j - 1])) < trial)
+>>                 ++j;
+>>             p[i] = j;
+>>         }
+>> #ifdef DEBUG_qn
+>>         REprintf(" f_1: j=%2d", j);
+>> #endif
+>>         j = n + 1;
+>>         for (i = 0; i < n; ++i) {
+>>             while ((float)(y[i] - y[n - j + 1]) > trial)
+>>                 --j;
+>>             q[i] = j;
+>>         }
+>>         sump = 0;
+>>         sumq = 0;
+>>         for (i = 0; i < n; ++i) {
+>>             sump += p[i];
+>>             sumq += q[i] - 1;
+>>         }
+>> #ifdef DEBUG_qn
+>>         REprintf(" f_2 -> j=%2d, sump|q= %lld,%lld", j, sump,sumq);
+>> #endif
+>>         if (knew <= sump) {
+>>             for (i = 0; i < n; ++i)
+>>                 right[i] = p[i];
+>>             nr = sump;
+>> #ifdef DEBUG_qn
+>>             REprintf("knew <= sump =: nr , new right[]\n");
+>> #endif
+>>         } else if (knew > sumq) {
+>>             for (i = 0; i < n; ++i)
+>>                 left[i] = q[i];
+>>             nl = sumq;
+>> #ifdef DEBUG_qn
+>>             REprintf("knew > sumq =: nl , new left[]\n");
+>> #endif
+>>         } else { /* sump < knew <= sumq */
+>>             found = TRUE;
+>> #ifdef DEBUG_qn
+>>             REprintf("sump < knew <= sumq ---> FOUND\n");
+>> #endif
+>>         }
+>>         ll++;
+>>         if(ll>vv2)      found=TRUE;
+>> //      printf("%lf\n",trial);
+>>
+>>     } /* while */
+>>
+>>     if (found)
+>>         return trial;
+>>     else {
+>> #ifdef DEBUG_qn
+>>         REprintf(".. not fnd -> new work[]");
+>> #endif
+>>         j = 0;
+>>         for (i = 1; i < n; ++i) {
+>>             for (jj = left[i]; jj <= right[i]; ++jj) {
+>>                 work[j] = y[i] - y[n - jj];
+>>                 j++;
+>>             }/* j will be = sum_{i=2}^n (right[i] - left[i] + 1)_{+}  */
+>>         }
+>> #ifdef DEBUG_qn
+>>         REprintf(" of length %d; knew-nl=%d\n", j, knew-nl);
+>> #endif
+>>
+>>         return (pull(work, j - 1, knew - nl));
+>> //      knew -= (nl + 1); /* -1: 0-indexing */
+>> //      rPsort(work, j, knew);
+>> //      return(work[knew]);
+>>     }
+>> } /* qn0 */
+>>
+>>
+>> double pull(double *a_in, int n, int k){
+>>     int j;
+>>     double *a, ax;
+>>   //  char* vmax = vmaxget();
+>>     a = (double *)calloc(n, sizeof(double));
+>>     /* Copy a[] and use copy since it will be re-shuffled: */
+>>     for (j = 0; j < n; j++)
+>>         a[j] = a_in[j];
+>>
+>>     k--; /* 0-indexing */
+>>     qsort(a,n,sizeof(double),cmp);
+>>     ax = a[k];
+>>
+>> //    vmaxset(vmax);
+>>     return ax;
+>> } /* pull */
+>> int main(){
+>>         FILE *inFile;
+>>         double x[100],resu;
+>>         int i,n=100,numRead=0;
+>>         inFile=fopen("test.txt","r");
+>>         if (!inFile)            return 1;
+>>         for(i=0;i<n;i++) numRead=fscanf(inFile,"%lf",&x[i]);
+>>         printf("%lf\n",x[0]);
+>>         fclose(inFile);
+>>         resu=qn0(x,n);
+>>         printf("%lf\n",resu);
+>>         return 0;
+>> }
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>
+
+
+
+From comtech@u@@ @end|ng |rom gm@||@com  Wed Jul 18 20:26:59 2012
+From: comtech@u@@ @end|ng |rom gm@||@com (Michael)
+Date: Wed, 18 Jul 2012 13:26:59 -0500
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each IRLS
+	iteration?
+Message-ID: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com>
+
+Hi all,
+
+I am also confused about the manual:
+
+           a.  The input arguments:
+
+wt.method are the weights case weights (giving the relative importance of
+case, so a weight of 2 means there are two of these) or the inverse of the
+variances, so a weight of two means this error is half as variable?
+
+w (optional) initial down-weighting for each case.
+
+init (optional) initial values for the coefficients OR a method to find
+initial values OR the result of a fit with a coef component. Known methods
+are "ls" (the default) for an initial least-squares fit using weights
+w*weights, and "lts" for an unweighted least-trimmed squares fit with 200
+samples.
+
+
+
+b. The returned values:
+
+w the weights used in the IWLS process
+
+wresid a working residual, weighted for "inv.var" weights only.
+
+
+
+How to use these input arguments?
+
+Anybody please shed some light?
+
+Also, is my understanding below correct?
+
+The input argument "w" is used for the initial values of the rlm IRLS
+weighting and the output value "w" is the converged "w".
+
+The "weights" input argument is actually what I want to apply - if I have
+my own set of weights.
+And the real/actual weights are the product of "weights"(I supplied) and
+the converged output "w" (an output).
+
+
+If my understanding above is correct, how does "rlm" decide its "w" for
+each IRLS iteration then?
+
+Any pointers/tutorials/notes to the calculation of these "w"'s in each IRLS
+iteration?
+
+Thanks to all.
+
+	[[alternative HTML version deleted]]
+
+
+
+From S@E|||@on @end|ng |rom LGCGroup@com  Fri Jul 20 17:11:22 2012
+From: S@E|||@on @end|ng |rom LGCGroup@com (S Ellison)
+Date: Fri, 20 Jul 2012 16:11:22 +0100
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+	IRLS	iteration?
+In-Reply-To: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com>
+References: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com>
+Message-ID: <A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+
+ 
+
+> -----Original Message-----
+> Subject: [RsR] How does "rlm" in R decide its "w" weights for 
+> each IRLS iteration?
+> I am also confused about the manual:
+> 
+>            a.  The input arguments:
+> 
+> wt.method are the weights case weights (giving the relative 
+> importance of case, so a weight of 2 means there are two of 
+> these) or the inverse of the variances, so a weight of two 
+> means this error is half as variable?
+
+When you give rlm weights (called 'weights', not 'w' on input, though you can abbreviate to 'w'), you need to tell it which of these two possibilities you used. 
+If you gave it case numbers, say wt.method="case"; if you gave it inverse variance weights, say wt.method="inv.var".
+The default is "inv.var".
+
+
+> The input argument "w" is used for the initial values of the 
+> rlm IRLS weighting and the output value "w" is the converged "w".
+There is no input argument 'w' for rlm (see above). 
+The output w are a  calculated using the psi function, so between 0 and 1.
+The effective weights for the final estimate would then be something like w*weights, using the full name of the input argument (and if I haven't forgotten a square root somewhere). At least, that would work for a simple location estimate (eg rlm(x~1)).
+
+> If my understanding above is correct, how does "rlm" decide 
+> its "w" for each IRLS iteration then?
+It uses the given psi functions to calculate the iterative weights based on the scaled residuals.
+
+> Any pointers/tutorials/notes to the calculation of these 
+> "w"'s in each IRLS iteration?
+Read the cited references for a detailed guide. Or, of course, MASS - the package is, after all, intended to support the book, not replace it.
+
+
+
+S Ellison
+
+*******************************************************************
+This email and any attachments are confidential. Any use...{{dropped:8}}
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Fri Jul 20 20:57:01 2012
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Fri, 20 Jul 2012 20:57:01 +0200
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each IRLS
+	iteration?
+In-Reply-To: <A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+References: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+Message-ID: <CAOmnhGf4uWwHXfcGungQpfbBp3stJ2kq0bh7D2NwNsHnQBk+-w@mail.gmail.com>
+
+Hi Michael, S Ellison,
+
+I do not actually understand what you want to achieve with the M
+estimates of rlm in MASS, but why you do not give a try of lmrob in
+'robustbase'. Please have a llok in the references (?lmrob) about the
+advantages of MM estimators over the M estimators.
+
+Best regards,
+Valentin
+
+
+
+
+On Fri, Jul 20, 2012 at 5:11 PM, S Ellison <S.Ellison at lgcgroup.com> wrote:
+>
+>
+>> -----Original Message-----
+>> Subject: [RsR] How does "rlm" in R decide its "w" weights for
+>> each IRLS iteration?
+>> I am also confused about the manual:
+>>
+>>            a.  The input arguments:
+>>
+>> wt.method are the weights case weights (giving the relative
+>> importance of case, so a weight of 2 means there are two of
+>> these) or the inverse of the variances, so a weight of two
+>> means this error is half as variable?
+>
+> When you give rlm weights (called 'weights', not 'w' on input, though you can abbreviate to 'w'), you need to tell it which of these two possibilities you used.
+> If you gave it case numbers, say wt.method="case"; if you gave it inverse variance weights, say wt.method="inv.var".
+> The default is "inv.var".
+>
+>
+>> The input argument "w" is used for the initial values of the
+>> rlm IRLS weighting and the output value "w" is the converged "w".
+> There is no input argument 'w' for rlm (see above).
+> The output w are a  calculated using the psi function, so between 0 and 1.
+> The effective weights for the final estimate would then be something like w*weights, using the full name of the input argument (and if I haven't forgotten a square root somewhere). At least, that would work for a simple location estimate (eg rlm(x~1)).
+>
+>> If my understanding above is correct, how does "rlm" decide
+>> its "w" for each IRLS iteration then?
+> It uses the given psi functions to calculate the iterative weights based on the scaled residuals.
+>
+>> Any pointers/tutorials/notes to the calculation of these
+>> "w"'s in each IRLS iteration?
+> Read the cited references for a detailed guide. Or, of course, MASS - the package is, after all, intended to support the book, not replace it.
+>
+>
+>
+> S Ellison
+>
+> *******************************************************************
+> This email and any attachments are confidential. Any u...{{dropped:6}}
+
+
+
+From mroh@n @end|ng |rom doc@govt@nz  Mon Jul 23 00:07:46 2012
+From: mroh@n @end|ng |rom doc@govt@nz (Maheswaran Rohan)
+Date: Mon, 23 Jul 2012 10:07:46 +1200
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+	IRLSiteration?
+In-Reply-To: <CAOmnhGf4uWwHXfcGungQpfbBp3stJ2kq0bh7D2NwNsHnQBk+-w@mail.gmail.com>
+References: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com><A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+	<CAOmnhGf4uWwHXfcGungQpfbBp3stJ2kq0bh7D2NwNsHnQBk+-w@mail.gmail.com>
+Message-ID: <F38F24C992883A40BFDE79ACF59E2C5402E709AF@WGNHOEVS1.depcon.internal>
+
+Hi Valentin,
+
+If the contamination is mainly in the response direction, M-estimator
+provides good estimates for parameters and rlm can be used.
+
+Rohan
+
+-----Original Message-----
+From: r-sig-robust-bounces at r-project.org
+[mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Valentin
+Todorov
+Sent: Saturday, 21 July 2012 6:57 a.m.
+To: S Ellison
+Cc: r-sig-robust at r-project.org; r-help
+Subject: Re: [RsR] How does "rlm" in R decide its "w" weights for each
+IRLSiteration?
+
+Hi Michael, S Ellison,
+
+I do not actually understand what you want to achieve with the M
+estimates of rlm in MASS, but why you do not give a try of lmrob in
+'robustbase'. Please have a llok in the references (?lmrob) about the
+advantages of MM estimators over the M estimators.
+
+Best regards,
+Valentin
+
+
+
+
+On Fri, Jul 20, 2012 at 5:11 PM, S Ellison <S.Ellison at lgcgroup.com>
+wrote:
+>
+>
+>> -----Original Message-----
+>> Subject: [RsR] How does "rlm" in R decide its "w" weights for
+>> each IRLS iteration?
+>> I am also confused about the manual:
+>>
+>>            a.  The input arguments:
+>>
+>> wt.method are the weights case weights (giving the relative
+>> importance of case, so a weight of 2 means there are two of
+>> these) or the inverse of the variances, so a weight of two
+>> means this error is half as variable?
+>
+> When you give rlm weights (called 'weights', not 'w' on input, though
+you can abbreviate to 'w'), you need to tell it which of these two
+possibilities you used.
+> If you gave it case numbers, say wt.method="case"; if you gave it
+inverse variance weights, say wt.method="inv.var".
+> The default is "inv.var".
+>
+>
+>> The input argument "w" is used for the initial values of the
+>> rlm IRLS weighting and the output value "w" is the converged "w".
+> There is no input argument 'w' for rlm (see above).
+> The output w are a  calculated using the psi function, so between 0
+and 1.
+> The effective weights for the final estimate would then be something
+like w*weights, using the full name of the input argument (and if I
+haven't forgotten a square root somewhere). At least, that would work
+for a simple location estimate (eg rlm(x~1)).
+>
+>> If my understanding above is correct, how does "rlm" decide
+>> its "w" for each IRLS iteration then?
+> It uses the given psi functions to calculate the iterative weights
+based on the scaled residuals.
+>
+>> Any pointers/tutorials/notes to the calculation of these
+>> "w"'s in each IRLS iteration?
+> Read the cited references for a detailed guide. Or, of course, MASS -
+the package is, after all, intended to support the book, not replace it.
+>
+>
+>
+> S Ellison
+>
+> *******************************************************************
+> This email and any attachments are confidential. Any u...{{dropped:10}}
+
+
+
+From S@E|||@on @end|ng |rom LGCGroup@com  Mon Jul 23 15:19:46 2012
+From: S@E|||@on @end|ng |rom LGCGroup@com (S Ellison)
+Date: Mon, 23 Jul 2012 14:19:46 +0100
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+ IRLSiteration?
+In-Reply-To: <F38F24C992883A40BFDE79ACF59E2C5402E709AF@WGNHOEVS1.depcon.internal>
+References: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com><A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+	<CAOmnhGf4uWwHXfcGungQpfbBp3stJ2kq0bh7D2NwNsHnQBk+-w@mail.gmail.com>
+	<F38F24C992883A40BFDE79ACF59E2C5402E709AF@WGNHOEVS1.depcon.internal>
+Message-ID: <A4E5A0B016B8CB41A485FC629B633CED4694ECAF26@GOLD.corp.lgc-group.com>
+
+rlm includes an MM estimator.
+
+S Ellison 
+
+> -----Original Message-----
+> From: Maheswaran Rohan [mailto:mrohan at doc.govt.nz] 
+> Sent: 22 July 2012 23:08
+> To: Valentin Todorov; S Ellison
+> Cc: r-sig-robust at r-project.org; r-help
+> Subject: RE: [RsR] How does "rlm" in R decide its "w" weights 
+> for each IRLSiteration?
+> 
+> Hi Valentin,
+> 
+> If the contamination is mainly in the response direction, 
+> M-estimator provides good estimates for parameters and rlm 
+> can be used.
+> 
+> Rohan
+> 
+> -----Original Message-----
+> From: r-sig-robust-bounces at r-project.org
+> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of 
+> Valentin Todorov
+> Sent: Saturday, 21 July 2012 6:57 a.m.
+> To: S Ellison
+> Cc: r-sig-robust at r-project.org; r-help
+> Subject: Re: [RsR] How does "rlm" in R decide its "w" weights 
+> for each IRLSiteration?
+> 
+> Hi Michael, S Ellison,
+> 
+> I do not actually understand what you want to achieve with 
+> the M estimates of rlm in MASS, but why you do not give a try 
+> of lmrob in 'robustbase'. Please have a llok in the 
+> references (?lmrob) about the advantages of MM estimators 
+> over the M estimators.
+> 
+> Best regards,
+> Valentin
+> 
+> 
+> 
+> 
+> On Fri, Jul 20, 2012 at 5:11 PM, S Ellison <S.Ellison at lgcgroup.com>
+> wrote:
+> >
+> >
+> >> -----Original Message-----
+> >> Subject: [RsR] How does "rlm" in R decide its "w" weights for each 
+> >> IRLS iteration?
+> >> I am also confused about the manual:
+> >>
+> >>            a.  The input arguments:
+> >>
+> >> wt.method are the weights case weights (giving the relative 
+> >> importance of case, so a weight of 2 means there are two of
+> >> these) or the inverse of the variances, so a weight of two 
+> means this 
+> >> error is half as variable?
+> >
+> > When you give rlm weights (called 'weights', not 'w' on 
+> input, though
+> you can abbreviate to 'w'), you need to tell it which of 
+> these two possibilities you used.
+> > If you gave it case numbers, say wt.method="case"; if you gave it
+> inverse variance weights, say wt.method="inv.var".
+> > The default is "inv.var".
+> >
+> >
+> >> The input argument "w" is used for the initial values of 
+> the rlm IRLS 
+> >> weighting and the output value "w" is the converged "w".
+> > There is no input argument 'w' for rlm (see above).
+> > The output w are a  calculated using the psi function, so between 0
+> and 1.
+> > The effective weights for the final estimate would then be something
+> like w*weights, using the full name of the input argument 
+> (and if I haven't forgotten a square root somewhere). At 
+> least, that would work for a simple location estimate (eg rlm(x~1)).
+> >
+> >> If my understanding above is correct, how does "rlm" 
+> decide its "w" 
+> >> for each IRLS iteration then?
+> > It uses the given psi functions to calculate the iterative weights
+> based on the scaled residuals.
+> >
+> >> Any pointers/tutorials/notes to the calculation of these "w"'s in 
+> >> each IRLS iteration?
+> > Read the cited references for a detailed guide. Or, of 
+> course, MASS -
+> the package is, after all, intended to support the book, not 
+> replace it.
+> >
+> >
+> >
+> > S Ellison
+> >
+> > *******************************************************************
+> > This email and any attachments are confidential. Any 
+> u...{{dropped:6}}
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> ##############################################
+> This e-mail (and attachments) is confidential and may be 
+> legally privileged.
+> ##############################################
+> 
+
+*******************************************************************
+This email and any attachments are confidential. Any use...{{dropped:8}}
+
+
+
+From mroh@n @end|ng |rom doc@govt@nz  Mon Jul 23 22:51:53 2012
+From: mroh@n @end|ng |rom doc@govt@nz (Maheswaran Rohan)
+Date: Tue, 24 Jul 2012 08:51:53 +1200
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+	IRLSiteration?
+In-Reply-To: <500D5A9D.7030907@itwm.fraunhofer.de>
+References: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com><A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+	<CAOmnhGf4uWwHXfcGungQpfbBp3stJ2kq0bh7D2NwNsHnQBk+-w@mail.gmail.com>
+	<F38F24C992883A40BFDE79ACF59E2C5402E709AF@WGNHOEVS1.depcon.internal>
+	<A4E5A0B016B8CB41A485FC629B633CED4694ECAF26@GOLD.corp.lgc-group.com>
+	<500D5A9D.7030907@itwm.fraunhofer.de>
+Message-ID: <F38F24C992883A40BFDE79ACF59E2C5402E70E15@WGNHOEVS1.depcon.internal>
+
+Your code is running for M-estimator, but not for MM (I don't know the
+reason).
+See the results here.
+
+>  set.seed(123)
+>  xr=rpois(100,lambda=3)
+>  xn=rnorm(100)
+>  xf =as.factor(xr)
+>  yn=rnorm(100)+xn+xr
+>  form=yn~xn+xf
+> library(MASS)
+
+> rlm(form,method="MM")
+Error: lqs failed: all the samples were singular
+
+> rlm(form,method="M")
+Call:
+rlm(formula = form, method = "M")
+Converged in 7 iterations
+
+Coefficients:
+(Intercept)          xn         xf1         xf2         xf3         xf4 
+  0.2017169   0.8708498   0.4001550   2.0120847   2.7285940   3.2854743 
+        xf5         xf6         xf7         xf8 
+  4.9677143   6.0077015   6.4267159   9.8351416 
+
+Degrees of freedom: 100 total; 90 residual
+Scale estimate: 0.713
+
+Regards
+Rohan
+
+
+
+
+-----Original Message-----
+From: Dr. Peter Ruckdeschel
+[mailto:peter.ruckdeschel at itwm.fraunhofer.de] 
+Sent: Tuesday, 24 July 2012 2:07 a.m.
+To: r-sig-robust at r-project.org
+Cc: Valentin Todorov; Maheswaran Rohan; S.Ellison at lgcgroup.com
+Subject: Re: [RsR] How does "rlm" in R decide its "w" weights for each
+IRLSiteration?
+
+To what it's worth:
+
+Valentin very well knows about the MM implementation of rlm;
+
+it is simply that lmrob is a more recent implementation which has
+taken up _very_ recent current research results on this field and
+also includes the combined case (i.e. factors  and numerics as
+regressors) (see ?lmrob) or try
+
+set.seed(123)
+ xr=rpois(100,lambda=3)
+ xn=rnorm(100)
+ xf =as.factor(xr)
+ yn=rnorm(100)+xn+xr
+ form=yn~xn+xf
+ rlm(form,method="MM")
+Error: lqs failed: all the samples were singular
+> lmrob(form,method="MM")
+
+Call:
+lmrob(formula = form, method = "MM")
+
+Coefficients:
+(Intercept)           xn          xf1          xf2          xf3         
+xf4 
+     0.2260       0.8957       0.3633       1.9949       2.6660      
+3.2966 
+        xf5          xf6          xf7          xf8 
+     4.9415       5.9208       6.4388       9.8285 
+
+Hth, best, Peter
+
+Am 23.07.2012 15:19, schrieb S Ellison:
+> rlm includes an MM estimator.
+>
+> S Ellison 
+>
+>> -----Original Message-----
+>> From: Maheswaran Rohan [mailto:mrohan at doc.govt.nz] 
+>> Sent: 22 July 2012 23:08
+>> To: Valentin Todorov; S Ellison
+>> Cc: r-sig-robust at r-project.org; r-help
+>> Subject: RE: [RsR] How does "rlm" in R decide its "w" weights 
+>> for each IRLSiteration?
+>>
+>> Hi Valentin,
+>>
+>> If the contamination is mainly in the response direction, 
+>> M-estimator provides good estimates for parameters and rlm 
+>> can be used.
+>>
+>> Rohan
+>>
+>> -----Original Message-----
+>> From: r-sig-robust-bounces at r-project.org
+>> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of 
+>> Valentin Todorov
+>> Sent: Saturday, 21 July 2012 6:57 a.m.
+>> To: S Ellison
+>> Cc: r-sig-robust at r-project.org; r-help
+>> Subject: Re: [RsR] How does "rlm" in R decide its "w" weights 
+>> for each IRLSiteration?
+>>
+>> Hi Michael, S Ellison,
+>>
+>> I do not actually understand what you want to achieve with 
+>> the M estimates of rlm in MASS, but why you do not give a try 
+>> of lmrob in 'robustbase'. Please have a llok in the 
+>> references (?lmrob) about the advantages of MM estimators 
+>> over the M estimators.
+>>
+>> Best regards,
+>> Valentin
+>>
+>>
+>>
+>>
+>> On Fri, Jul 20, 2012 at 5:11 PM, S Ellison <S.Ellison at lgcgroup.com>
+>> wrote:
+>>>
+>>>> -----Original Message-----
+>>>> Subject: [RsR] How does "rlm" in R decide its "w" weights for each 
+>>>> IRLS iteration?
+>>>> I am also confused about the manual:
+>>>>
+>>>>            a.  The input arguments:
+>>>>
+>>>> wt.method are the weights case weights (giving the relative 
+>>>> importance of case, so a weight of 2 means there are two of
+>>>> these) or the inverse of the variances, so a weight of two 
+>> means this 
+>>>> error is half as variable?
+>>> When you give rlm weights (called 'weights', not 'w' on 
+>> input, though
+>> you can abbreviate to 'w'), you need to tell it which of 
+>> these two possibilities you used.
+>>> If you gave it case numbers, say wt.method="case"; if you gave it
+>> inverse variance weights, say wt.method="inv.var".
+>>> The default is "inv.var".
+>>>
+>>>
+>>>> The input argument "w" is used for the initial values of 
+>> the rlm IRLS 
+>>>> weighting and the output value "w" is the converged "w".
+>>> There is no input argument 'w' for rlm (see above).
+>>> The output w are a  calculated using the psi function, so between 0
+>> and 1.
+>>> The effective weights for the final estimate would then be something
+>> like w*weights, using the full name of the input argument 
+>> (and if I haven't forgotten a square root somewhere). At 
+>> least, that would work for a simple location estimate (eg rlm(x~1)).
+>>>> If my understanding above is correct, how does "rlm" 
+>> decide its "w" 
+>>>> for each IRLS iteration then?
+>>> It uses the given psi functions to calculate the iterative weights
+>> based on the scaled residuals.
+>>>> Any pointers/tutorials/notes to the calculation of these "w"'s in 
+>>>> each IRLS iteration?
+>>> Read the cited references for a detailed guide. Or, of 
+>> course, MASS -
+>> the package is, after all, intended to support the book, not 
+>> replace it.
+>>>
+>>>
+>>> S Ellison
+>>>
+>>> *******************************************************************
+>>> This email and any attachments are confidential. Any 
+>> u...{{dropped:6}}
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>> ##############################################
+>> This e-mail (and attachments) is confidential and may be 
+>> legally privileged.
+>> ##############################################
+>>
+> *******************************************************************
+> This email and any attachments are confidential. Any\ ...{{dropped:22}}
+
+
+
+From S@E|||@on @end|ng |rom LGCGroup@com  Mon Jul 23 23:00:27 2012
+From: S@E|||@on @end|ng |rom LGCGroup@com (S Ellison)
+Date: Mon, 23 Jul 2012 22:00:27 +0100
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+ IRLSiteration?
+In-Reply-To: <500D5A9D.7030907@itwm.fraunhofer.de>
+References: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com><A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+	<CAOmnhGf4uWwHXfcGungQpfbBp3stJ2kq0bh7D2NwNsHnQBk+-w@mail.gmail.com>
+	<F38F24C992883A40BFDE79ACF59E2C5402E709AF@WGNHOEVS1.depcon.internal>
+	<A4E5A0B016B8CB41A485FC629B633CED4694ECAF26@GOLD.corp.lgc-group.com>,
+	<500D5A9D.7030907@itwm.fraunhofer.de>
+Message-ID: <A4E5A0B016B8CB41A485FC629B633CED4694ED9F4A@GOLD.corp.lgc-group.com>
+
+I am aware of the lmrob implementation; I've been following it with considerable interest. 
+As a matter of fact I see robustbase all round as a better implementation of robust statistics than MASS, and lmrob as a good example of a specialised package with sound research overtaking the more general teaching package that MASS represents. It was just the brevity of Valentin's post - which pointed specifically to MM-estimates' performance - that led me to note for the OP's benefit that an MM estimate was also included in MASS. 
+
+But thanks for the thought.
+
+Steve Ellison,
+Lab of the Government Chemist
+Teddington
+UK
+________________________________________
+From: Dr. Peter Ruckdeschel [peter.ruckdeschel at itwm.fraunhofer.de]
+Sent: 23 July 2012 15:07
+To: r-sig-robust at r-project.org
+Cc: Valentin Todorov; mrohan at doc.govt.nz; S Ellison
+Subject: Re: [RsR] How does "rlm" in R decide its "w" weights for each IRLSiteration?
+
+To what it's worth:
+
+Valentin very well knows about the MM implementation of rlm;
+
+it is simply that lmrob is a more recent implementation which has
+taken up _very_ recent current research results on this field and
+also includes the combined case (i.e. factors  and numerics as
+regressors) (see ?lmrob) or try
+
+> set.seed(123)
+> xr=rpois(100,lambda=3)
+> xn=rnorm(100)
+> xf =as.factor(xr)
+> yn=rnorm(100)+xn+xr
+> form=yn~xn+xf
+> rlm(form,method="MM")
+Error: lqs failed: all the samples were singular
+> lmrob(form,method="MM")
+
+Call:
+lmrob(formula = form, method = "MM")
+
+Coefficients:
+(Intercept)           xn          xf1          xf2          xf3
+xf4
+     0.2260       0.8957       0.3633       1.9949       2.6660
+3.2966
+        xf5          xf6          xf7          xf8
+     4.9415       5.9208       6.4388       9.8285
+
+Hth, best, Peter
+
+Am 23.07.2012 15:19, schrieb S Ellison:
+> rlm includes an MM estimator.
+>
+> S Ellison
+>
+>> -----Original Message-----
+>> From: Maheswaran Rohan [mailto:mrohan at doc.govt.nz]
+>> Sent: 22 July 2012 23:08
+>> To: Valentin Todorov; S Ellison
+>> Cc: r-sig-robust at r-project.org; r-help
+>> Subject: RE: [RsR] How does "rlm" in R decide its "w" weights
+>> for each IRLSiteration?
+>>
+>> Hi Valentin,
+>>
+>> If the contamination is mainly in the response direction,
+>> M-estimator provides good estimates for parameters and rlm
+>> can be used.
+>>
+>> Rohan
+>>
+>> -----Original Message-----
+>> From: r-sig-robust-bounces at r-project.org
+>> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of
+>> Valentin Todorov
+>> Sent: Saturday, 21 July 2012 6:57 a.m.
+>> To: S Ellison
+>> Cc: r-sig-robust at r-project.org; r-help
+>> Subject: Re: [RsR] How does "rlm" in R decide its "w" weights
+>> for each IRLSiteration?
+>>
+>> Hi Michael, S Ellison,
+>>
+>> I do not actually understand what you want to achieve with
+>> the M estimates of rlm in MASS, but why you do not give a try
+>> of lmrob in 'robustbase'. Please have a llok in the
+>> references (?lmrob) about the advantages of MM estimators
+>> over the M estimators.
+>>
+>> Best regards,
+>> Valentin
+>>
+>>
+>>
+>>
+>> On Fri, Jul 20, 2012 at 5:11 PM, S Ellison <S.Ellison at lgcgroup.com>
+>> wrote:
+>>>
+>>>> -----Original Message-----
+>>>> Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+>>>> IRLS iteration?
+>>>> I am also confused about the manual:
+>>>>
+>>>>            a.  The input arguments:
+>>>>
+>>>> wt.method are the weights case weights (giving the relative
+>>>> importance of case, so a weight of 2 means there are two of
+>>>> these) or the inverse of the variances, so a weight of two
+>> means this
+>>>> error is half as variable?
+>>> When you give rlm weights (called 'weights', not 'w' on
+>> input, though
+>> you can abbreviate to 'w'), you need to tell it which of
+>> these two possibilities you used.
+>>> If you gave it case numbers, say wt.method="case"; if you gave it
+>> inverse variance weights, say wt.method="inv.var".
+>>> The default is "inv.var".
+>>>
+>>>
+>>>> The input argument "w" is used for the initial values of
+>> the rlm IRLS
+>>>> weighting and the output value "w" is the converged "w".
+>>> There is no input argument 'w' for rlm (see above).
+>>> The output w are a  calculated using the psi function, so between 0
+>> and 1.
+>>> The effective weights for the final estimate would then be something
+>> like w*weights, using the full name of the input argument
+>> (and if I haven't forgotten a square root somewhere). At
+>> least, that would work for a simple location estimate (eg rlm(x~1)).
+>>>> If my understanding above is correct, how does "rlm"
+>> decide its "w"
+>>>> for each IRLS iteration then?
+>>> It uses the given psi functions to calculate the iterative weights
+>> based on the scaled residuals.
+>>>> Any pointers/tutorials/notes to the calculation of these "w"'s in
+>>>> each IRLS iteration?
+>>> Read the cited references for a detailed guide. Or, of
+>> course, MASS -
+>> the package is, after all, intended to support the book, not
+>> replace it.
+>>>
+>>>
+>>> S Ellison
+>>>
+>>> *******************************************************************
+>>> This email and any attachments are confidential. Any
+>> u...{{dropped:6}}
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>> ##############################################
+>> This e-mail (and attachments) is confidential and may be
+>> legally privileged.
+>> ##############################################
+>>
+> *******************************************************************
+> This email and any attachments are confidential. Any u...{{dropped:25}}
+
+
+
+From peter@ruckde@che| @end|ng |rom |twm@|r@unho|er@de  Mon Jul 23 16:07:25 2012
+From: peter@ruckde@che| @end|ng |rom |twm@|r@unho|er@de (Dr. Peter Ruckdeschel)
+Date: Mon, 23 Jul 2012 16:07:25 +0200
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+	IRLSiteration?
+In-Reply-To: <A4E5A0B016B8CB41A485FC629B633CED4694ECAF26@GOLD.corp.lgc-group.com>
+References: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com><A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+	<CAOmnhGf4uWwHXfcGungQpfbBp3stJ2kq0bh7D2NwNsHnQBk+-w@mail.gmail.com>
+	<F38F24C992883A40BFDE79ACF59E2C5402E709AF@WGNHOEVS1.depcon.internal>
+	<A4E5A0B016B8CB41A485FC629B633CED4694ECAF26@GOLD.corp.lgc-group.com>
+Message-ID: <500D5A9D.7030907@itwm.fraunhofer.de>
+
+To what it's worth:
+
+Valentin very well knows about the MM implementation of rlm;
+
+it is simply that lmrob is a more recent implementation which has
+taken up _very_ recent current research results on this field and
+also includes the combined case (i.e. factors  and numerics as
+regressors) (see ?lmrob) or try
+
+> set.seed(123)
+> xr=rpois(100,lambda=3)
+> xn=rnorm(100)
+> xf =as.factor(xr)
+> yn=rnorm(100)+xn+xr
+> form=yn~xn+xf
+> rlm(form,method="MM")
+Error: lqs failed: all the samples were singular
+> lmrob(form,method="MM")
+
+Call:
+lmrob(formula = form, method = "MM")
+
+Coefficients:
+(Intercept)           xn          xf1          xf2          xf3         
+xf4 
+     0.2260       0.8957       0.3633       1.9949       2.6660      
+3.2966 
+        xf5          xf6          xf7          xf8 
+     4.9415       5.9208       6.4388       9.8285 
+
+Hth, best, Peter
+
+Am 23.07.2012 15:19, schrieb S Ellison:
+> rlm includes an MM estimator.
+>
+> S Ellison 
+>
+>> -----Original Message-----
+>> From: Maheswaran Rohan [mailto:mrohan at doc.govt.nz] 
+>> Sent: 22 July 2012 23:08
+>> To: Valentin Todorov; S Ellison
+>> Cc: r-sig-robust at r-project.org; r-help
+>> Subject: RE: [RsR] How does "rlm" in R decide its "w" weights 
+>> for each IRLSiteration?
+>>
+>> Hi Valentin,
+>>
+>> If the contamination is mainly in the response direction, 
+>> M-estimator provides good estimates for parameters and rlm 
+>> can be used.
+>>
+>> Rohan
+>>
+>> -----Original Message-----
+>> From: r-sig-robust-bounces at r-project.org
+>> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of 
+>> Valentin Todorov
+>> Sent: Saturday, 21 July 2012 6:57 a.m.
+>> To: S Ellison
+>> Cc: r-sig-robust at r-project.org; r-help
+>> Subject: Re: [RsR] How does "rlm" in R decide its "w" weights 
+>> for each IRLSiteration?
+>>
+>> Hi Michael, S Ellison,
+>>
+>> I do not actually understand what you want to achieve with 
+>> the M estimates of rlm in MASS, but why you do not give a try 
+>> of lmrob in 'robustbase'. Please have a llok in the 
+>> references (?lmrob) about the advantages of MM estimators 
+>> over the M estimators.
+>>
+>> Best regards,
+>> Valentin
+>>
+>>
+>>
+>>
+>> On Fri, Jul 20, 2012 at 5:11 PM, S Ellison <S.Ellison at lgcgroup.com>
+>> wrote:
+>>>
+>>>> -----Original Message-----
+>>>> Subject: [RsR] How does "rlm" in R decide its "w" weights for each 
+>>>> IRLS iteration?
+>>>> I am also confused about the manual:
+>>>>
+>>>>            a.  The input arguments:
+>>>>
+>>>> wt.method are the weights case weights (giving the relative 
+>>>> importance of case, so a weight of 2 means there are two of
+>>>> these) or the inverse of the variances, so a weight of two 
+>> means this 
+>>>> error is half as variable?
+>>> When you give rlm weights (called 'weights', not 'w' on 
+>> input, though
+>> you can abbreviate to 'w'), you need to tell it which of 
+>> these two possibilities you used.
+>>> If you gave it case numbers, say wt.method="case"; if you gave it
+>> inverse variance weights, say wt.method="inv.var".
+>>> The default is "inv.var".
+>>>
+>>>
+>>>> The input argument "w" is used for the initial values of 
+>> the rlm IRLS 
+>>>> weighting and the output value "w" is the converged "w".
+>>> There is no input argument 'w' for rlm (see above).
+>>> The output w are a  calculated using the psi function, so between 0
+>> and 1.
+>>> The effective weights for the final estimate would then be something
+>> like w*weights, using the full name of the input argument 
+>> (and if I haven't forgotten a square root somewhere). At 
+>> least, that would work for a simple location estimate (eg rlm(x~1)).
+>>>> If my understanding above is correct, how does "rlm" 
+>> decide its "w" 
+>>>> for each IRLS iteration then?
+>>> It uses the given psi functions to calculate the iterative weights
+>> based on the scaled residuals.
+>>>> Any pointers/tutorials/notes to the calculation of these "w"'s in 
+>>>> each IRLS iteration?
+>>> Read the cited references for a detailed guide. Or, of 
+>> course, MASS -
+>> the package is, after all, intended to support the book, not 
+>> replace it.
+>>>
+>>>
+>>> S Ellison
+>>>
+>>> *******************************************************************
+>>> This email and any attachments are confidential. Any 
+>> u...{{dropped:6}}
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>> ##############################################
+>> This e-mail (and attachments) is confidential and may be 
+>> legally privileged.
+>> ##############################################
+>>
+> *******************************************************************
+> This email and any attachments are confidential. Any u...{{dropped:15}}
+
+
+
+From ko||er @end|ng |rom @t@t@m@th@ethz@ch  Tue Jul 24 08:20:59 2012
+From: ko||er @end|ng |rom @t@t@m@th@ethz@ch (Manuel Koller)
+Date: Tue, 24 Jul 2012 08:20:59 +0200
+Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+	IRLSiteration?
+In-Reply-To: <F38F24C992883A40BFDE79ACF59E2C5402E70E15@WGNHOEVS1.depcon.internal>
+References: <CAPNjSFatT_rcYb_cn3uDWAJJwfCi_TOxLAU2ACyPv1wy3ewLDQ@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED429C8C7EAF@GOLD.corp.lgc-group.com>
+	<CAOmnhGf4uWwHXfcGungQpfbBp3stJ2kq0bh7D2NwNsHnQBk+-w@mail.gmail.com>
+	<F38F24C992883A40BFDE79ACF59E2C5402E709AF@WGNHOEVS1.depcon.internal>
+	<A4E5A0B016B8CB41A485FC629B633CED4694ECAF26@GOLD.corp.lgc-group.com>
+	<500D5A9D.7030907@itwm.fraunhofer.de>
+	<F38F24C992883A40BFDE79ACF59E2C5402E70E15@WGNHOEVS1.depcon.internal>
+Message-ID: <CAPUobv2LYvqYNKFCdp27_RauCse1_Do21G47Ub+DcuWWx1tHsg@mail.gmail.com>
+
+Dear all,
+
+We've put quite some work into lmrob lately. There are some
+enhancements for small samples, where we advocate the SMDM estimate
+which gives a better scale estimate, important when performing tests
+(use setting="KS2011").
+
+Also lmrob does not fail for binary/categorical designs like the
+example Rohan posted below. Robustbase 0.9-3 features the "nonsingular
+subsampling" (also called "contstrained s." during development)
+algorithm which makes the distinction between categorical and
+continuous predictors obsolete. The idea is, that it just works,
+whatever your data might be. Note that the version 0.9-2 of robustbase
+available on CRAN does most of it as well, we mainly improved
+numerical properties in 0.9-3.
+
+Best regards,
+
+Manuel
+
+On Mon, Jul 23, 2012 at 10:51 PM, Maheswaran Rohan <mrohan at doc.govt.nz> wrote:
+> Your code is running for M-estimator, but not for MM (I don't know the
+> reason).
+> See the results here.
+>
+>>  set.seed(123)
+>>  xr=rpois(100,lambda=3)
+>>  xn=rnorm(100)
+>>  xf =as.factor(xr)
+>>  yn=rnorm(100)+xn+xr
+>>  form=yn~xn+xf
+>> library(MASS)
+>
+>> rlm(form,method="MM")
+> Error: lqs failed: all the samples were singular
+>
+>> rlm(form,method="M")
+> Call:
+> rlm(formula = form, method = "M")
+> Converged in 7 iterations
+>
+> Coefficients:
+> (Intercept)          xn         xf1         xf2         xf3         xf4
+>   0.2017169   0.8708498   0.4001550   2.0120847   2.7285940   3.2854743
+>         xf5         xf6         xf7         xf8
+>   4.9677143   6.0077015   6.4267159   9.8351416
+>
+> Degrees of freedom: 100 total; 90 residual
+> Scale estimate: 0.713
+>
+> Regards
+> Rohan
+>
+>
+>
+>
+> -----Original Message-----
+> From: Dr. Peter Ruckdeschel
+> [mailto:peter.ruckdeschel at itwm.fraunhofer.de]
+> Sent: Tuesday, 24 July 2012 2:07 a.m.
+> To: r-sig-robust at r-project.org
+> Cc: Valentin Todorov; Maheswaran Rohan; S.Ellison at lgcgroup.com
+> Subject: Re: [RsR] How does "rlm" in R decide its "w" weights for each
+> IRLSiteration?
+>
+> To what it's worth:
+>
+> Valentin very well knows about the MM implementation of rlm;
+>
+> it is simply that lmrob is a more recent implementation which has
+> taken up _very_ recent current research results on this field and
+> also includes the combined case (i.e. factors  and numerics as
+> regressors) (see ?lmrob) or try
+>
+> set.seed(123)
+>  xr=rpois(100,lambda=3)
+>  xn=rnorm(100)
+>  xf =as.factor(xr)
+>  yn=rnorm(100)+xn+xr
+>  form=yn~xn+xf
+>  rlm(form,method="MM")
+> Error: lqs failed: all the samples were singular
+>> lmrob(form,method="MM")
+>
+> Call:
+> lmrob(formula = form, method = "MM")
+>
+> Coefficients:
+> (Intercept)           xn          xf1          xf2          xf3
+> xf4
+>      0.2260       0.8957       0.3633       1.9949       2.6660
+> 3.2966
+>         xf5          xf6          xf7          xf8
+>      4.9415       5.9208       6.4388       9.8285
+>
+> Hth, best, Peter
+>
+> Am 23.07.2012 15:19, schrieb S Ellison:
+>> rlm includes an MM estimator.
+>>
+>> S Ellison
+>>
+>>> -----Original Message-----
+>>> From: Maheswaran Rohan [mailto:mrohan at doc.govt.nz]
+>>> Sent: 22 July 2012 23:08
+>>> To: Valentin Todorov; S Ellison
+>>> Cc: r-sig-robust at r-project.org; r-help
+>>> Subject: RE: [RsR] How does "rlm" in R decide its "w" weights
+>>> for each IRLSiteration?
+>>>
+>>> Hi Valentin,
+>>>
+>>> If the contamination is mainly in the response direction,
+>>> M-estimator provides good estimates for parameters and rlm
+>>> can be used.
+>>>
+>>> Rohan
+>>>
+>>> -----Original Message-----
+>>> From: r-sig-robust-bounces at r-project.org
+>>> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of
+>>> Valentin Todorov
+>>> Sent: Saturday, 21 July 2012 6:57 a.m.
+>>> To: S Ellison
+>>> Cc: r-sig-robust at r-project.org; r-help
+>>> Subject: Re: [RsR] How does "rlm" in R decide its "w" weights
+>>> for each IRLSiteration?
+>>>
+>>> Hi Michael, S Ellison,
+>>>
+>>> I do not actually understand what you want to achieve with
+>>> the M estimates of rlm in MASS, but why you do not give a try
+>>> of lmrob in 'robustbase'. Please have a llok in the
+>>> references (?lmrob) about the advantages of MM estimators
+>>> over the M estimators.
+>>>
+>>> Best regards,
+>>> Valentin
+>>>
+>>>
+>>>
+>>>
+>>> On Fri, Jul 20, 2012 at 5:11 PM, S Ellison <S.Ellison at lgcgroup.com>
+>>> wrote:
+>>>>
+>>>>> -----Original Message-----
+>>>>> Subject: [RsR] How does "rlm" in R decide its "w" weights for each
+>>>>> IRLS iteration?
+>>>>> I am also confused about the manual:
+>>>>>
+>>>>>            a.  The input arguments:
+>>>>>
+>>>>> wt.method are the weights case weights (giving the relative
+>>>>> importance of case, so a weight of 2 means there are two of
+>>>>> these) or the inverse of the variances, so a weight of two
+>>> means this
+>>>>> error is half as variable?
+>>>> When you give rlm weights (called 'weights', not 'w' on
+>>> input, though
+>>> you can abbreviate to 'w'), you need to tell it which of
+>>> these two possibilities you used.
+>>>> If you gave it case numbers, say wt.method="case"; if you gave it
+>>> inverse variance weights, say wt.method="inv.var".
+>>>> The default is "inv.var".
+>>>>
+>>>>
+>>>>> The input argument "w" is used for the initial values of
+>>> the rlm IRLS
+>>>>> weighting and the output value "w" is the converged "w".
+>>>> There is no input argument 'w' for rlm (see above).
+>>>> The output w are a  calculated using the psi function, so between 0
+>>> and 1.
+>>>> The effective weights for the final estimate would then be something
+>>> like w*weights, using the full name of the input argument
+>>> (and if I haven't forgotten a square root somewhere). At
+>>> least, that would work for a simple location estimate (eg rlm(x~1)).
+>>>>> If my understanding above is correct, how does "rlm"
+>>> decide its "w"
+>>>>> for each IRLS iteration then?
+>>>> It uses the given psi functions to calculate the iterative weights
+>>> based on the scaled residuals.
+>>>>> Any pointers/tutorials/notes to the calculation of these "w"'s in
+>>>>> each IRLS iteration?
+>>>> Read the cited references for a detailed guide. Or, of
+>>> course, MASS -
+>>> the package is, after all, intended to support the book, not
+>>> replace it.
+>>>>
+>>>>
+>>>> S Ellison
+>>>>
+>>>> *******************************************************************
+>>>> This email and any attachments are confidential. Any
+>>> u...{{dropped:6}}
+>>>
+>>> _______________________________________________
+>>> R-SIG-Robust at r-project.org mailing list
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>> ##############################################
+>>> This e-mail (and attachments) is confidential and may be
+>>> legally privileged.
+>>> ##############################################
+>>>
+>> *******************************************************************
+>> This email and any attachments are confidential. Any\ ...{{dropped:22}}
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+-- 
+Manuel Koller <koller at stat.math.ethz.ch>
+Seminar f?r Statistik, HG G 18, R?mistrasse 101
+ETH Z?rich  8092 Z?rich  SWITZERLAND
+phone: +41 44 632-4673 fax: ...-1228
+http://stat.ethz.ch/people/kollerma/
+
+
+
+From |@br|c|ov@@@e|@| @end|ng |rom gm@||@com  Sun Aug 26 07:33:05 2012
+From: |@br|c|ov@@@e|@| @end|ng |rom gm@||@com (Fabricio Vasselai)
+Date: Sun, 26 Aug 2012 02:33:05 -0300
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+	matrix encountered
+In-Reply-To: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+Message-ID: <CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+
+Dear list,
+
+I've been trying different models with lmRob for the past days and I was
+wondering: is there a maximum number of variables to include in a model so
+to avoid the following error in lmRob?
+The error message is:
+
+Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,  :
+  Singular matrix encountered.Erro em ans[[i]]$call : $ operator is
+invalid for atomic vectors
+
+
+It seems to me that there is a limit of 14 independent variables plus the
+intercept. It can run any combination of variables in any dataset I try, as
+far as final parameters are not beyond this limit.
+Is it right? I did not find information about this yet. Is there a way to
+go beyond this number of variables?
+
+Thanks in advance!
+Best,
+
+FABRICIO
+
+	[[alternative HTML version deleted]]
+
+
+
+From k@veh@v@k||| @end|ng |rom w|@@ku|euven@be  Sun Aug 26 11:59:28 2012
+From: k@veh@v@k||| @end|ng |rom w|@@ku|euven@be (Kaveh Vakili)
+Date: Sun, 26 Aug 2012 11:59:28 +0200
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+Message-ID: <5039F380.7020801@wis.kuleuven.be>
+
+
+
+whatever it is, it is specific to the dataset you are using, not the 
+software:
+
+library(robust)
+p<-20
+n<-200
+x<-matrix(rnorm(n*p),n,p)
+b<-rnorm(p+1)
+y<-cbind(1,x)%*%b+rnorm(n)
+lmRob(y~x)
+
+
+you should therefore provide more informations about the dataset,
+
+
+
+
+
+On 08/26/2012 07:33 AM, Fabricio Vasselai wrote:
+> Dear list,
+>
+> I've been trying different models with lmRob for the past days and I was
+> wondering: is there a maximum number of variables to include in a model so
+> to avoid the following error in lmRob?
+> The error message is:
+>
+> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,  :
+>    Singular matrix encountered.Erro em ans[[i]]$call : $ operator is
+> invalid for atomic vectors
+>
+>
+> It seems to me that there is a limit of 14 independent variables plus the
+> intercept. It can run any combination of variables in any dataset I try, as
+> far as final parameters are not beyond this limit.
+> Is it right? I did not find information about this yet. Is there a way to
+> go beyond this number of variables?
+>
+> Thanks in advance!
+> Best,
+>
+> FABRICIO
+>
+> 	[[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From |@br|c|ov@@@e|@| @end|ng |rom gm@||@com  Sun Aug 26 16:18:09 2012
+From: |@br|c|ov@@@e|@| @end|ng |rom gm@||@com (Fabricio Vasselai)
+Date: Sun, 26 Aug 2012 11:18:09 -0300
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <5039F380.7020801@wis.kuleuven.be>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<5039F380.7020801@wis.kuleuven.be>
+Message-ID: <CAEkXS9Km+_-KqW54b8jZkBbkhyU1WsGOqFq5NRea02Jc7aKHaQ@mail.gmail.com>
+
+Thank you very much for the fast reply.
+
+What info about the dataset would be helpful to figure out what's going on
+about that error message? I am using a dataset wth N = 602, with
+information political institution in countries. Variables are almost all
+continuous and a few are binary. I am running two interation terms in the
+models. I'll be more than happy to provide any needed info.
+
+
+
+2012/8/26 Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>
+
+>
+>
+> whatever it is, it is specific to the dataset you are using, not the
+> software:
+>
+> library(robust)
+> p<-20
+> n<-200
+> x<-matrix(rnorm(n*p),n,p)
+> b<-rnorm(p+1)
+> y<-cbind(1,x)%*%b+rnorm(n)
+> lmRob(y~x)
+>
+>
+> you should therefore provide more informations about the dataset,
+>
+>
+>
+>
+>
+>
+> On 08/26/2012 07:33 AM, Fabricio Vasselai wrote:
+>
+>> Dear list,
+>>
+>> I've been trying different models with lmRob for the past days and I was
+>> wondering: is there a maximum number of variables to include in a model so
+>> to avoid the following error in lmRob?
+>> The error message is:
+>>
+>> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,
+>>  :
+>>    Singular matrix encountered.Erro em ans[[i]]$call : $ operator is
+>>
+>> invalid for atomic vectors
+>>
+>>
+>> It seems to me that there is a limit of 14 independent variables plus the
+>> intercept. It can run any combination of variables in any dataset I try,
+>> as
+>> far as final parameters are not beyond this limit.
+>> Is it right? I did not find information about this yet. Is there a way to
+>> go beyond this number of variables?
+>>
+>> Thanks in advance!
+>> Best,
+>>
+>> FABRICIO
+>>
+>>         [[alternative HTML version deleted]]
+>>
+>> ______________________________**_________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>
+>>
+>
+> ______________________________**_________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>
+>
+
+	[[alternative HTML version deleted]]
+
+
+
+From @ndre@@@@||on@ @end|ng |rom ku|euven@be  Sun Aug 26 20:16:13 2012
+From: @ndre@@@@||on@ @end|ng |rom ku|euven@be (Andreas Alfons)
+Date: Sun, 26 Aug 2012 20:16:13 +0200
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <93a3bc2ae3c94e4c97856187b4756b24@ICTS-S-HUB3.luna.kuleuven.be>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<5039F380.7020801@wis.kuleuven.be>
+	<93a3bc2ae3c94e4c97856187b4756b24@ICTS-S-HUB3.luna.kuleuven.be>
+Message-ID: <CA+VS_fYCKPAkhFdBkBFPs0UyKfeTM-pL5dsC4PBU4eGWPSpipA@mail.gmail.com>
+
+On Sun, Aug 26, 2012 at 4:18 PM, Fabricio Vasselai
+<fabriciovasselai at gmail.com> wrote:
+> Thank you very much for the fast reply.
+>
+> What info about the dataset would be helpful to figure out what's going on
+> about that error message? I am using a dataset wth N = 602, with
+> information political institution in countries. Variables are almost all
+> continuous and a few are binary. I am running two interation terms in the
+> models. I'll be more than happy to provide any needed info.
+
+Without a fully reproducible example (data + code), I'm afraid there's
+not much anybody can really do to help you.  If your data are
+confidential, please try to reproduce the error with simulated data.
+
+-Andreas
+
+
+> 2012/8/26 Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>
+>
+>>
+>>
+>> whatever it is, it is specific to the dataset you are using, not the
+>> software:
+>>
+>> library(robust)
+>> p<-20
+>> n<-200
+>> x<-matrix(rnorm(n*p),n,p)
+>> b<-rnorm(p+1)
+>> y<-cbind(1,x)%*%b+rnorm(n)
+>> lmRob(y~x)
+>>
+>>
+>> you should therefore provide more informations about the dataset,
+>>
+>>
+>>
+>>
+>>
+>>
+>> On 08/26/2012 07:33 AM, Fabricio Vasselai wrote:
+>>
+>>> Dear list,
+>>>
+>>> I've been trying different models with lmRob for the past days and I was
+>>> wondering: is there a maximum number of variables to include in a model so
+>>> to avoid the following error in lmRob?
+>>> The error message is:
+>>>
+>>> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,
+>>>  :
+>>>    Singular matrix encountered.Erro em ans[[i]]$call : $ operator is
+>>>
+>>> invalid for atomic vectors
+>>>
+>>>
+>>> It seems to me that there is a limit of 14 independent variables plus the
+>>> intercept. It can run any combination of variables in any dataset I try,
+>>> as
+>>> far as final parameters are not beyond this limit.
+>>> Is it right? I did not find information about this yet. Is there a way to
+>>> go beyond this number of variables?
+>>>
+>>> Thanks in advance!
+>>> Best,
+>>>
+>>> FABRICIO
+>>>
+>>>         [[alternative HTML version deleted]]
+>>>
+>>> ______________________________**_________________
+>>> R-SIG-Robust at r-project.org mailing list
+>>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>
+>>>
+>>
+>> ______________________________**_________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>
+>>
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+-- 
+Andreas Alfons
+Faculty of Business and Economics, KU Leuven
+www.econ.kuleuven.be/andreas.alfons/public/
+
+
+
+From |@br|c|ov@@@e|@| @end|ng |rom gm@||@com  Sun Aug 26 07:20:28 2012
+From: |@br|c|ov@@@e|@| @end|ng |rom gm@||@com (Fabricio Vasselai)
+Date: Sun, 26 Aug 2012 02:20:28 -0300
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+	matrix encountered
+Message-ID: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+
+Dear list,
+
+I've been trying different models with lmRob for the past days and I was
+wondering: is there a maximum number of variables to include in a model so
+to avoid the following error in lmRob?
+The error message is:
+
+Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,  :
+  Singular matrix encountered.Erro em ans[[i]]$call : $ operator is
+invalid for atomic vectors
+
+
+It seems to me that there is a limit of 14 independent variables plus the
+intercept. It can run any combination of variables in any dataset I try, as
+far as final parameters are not beyond this limit.
+Is it right? I did not find information about this yet. Is there a way to
+go beyond this number of variables?
+
+Thanks in advance!
+Best,
+
+FABRICIO
+
+	[[alternative HTML version deleted]]
+
+
+
+From ko||er @end|ng |rom @t@t@m@th@ethz@ch  Mon Aug 27 17:27:48 2012
+From: ko||er @end|ng |rom @t@t@m@th@ethz@ch (Manuel Koller)
+Date: Mon, 27 Aug 2012 17:27:48 +0200
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <CA+VS_fYCKPAkhFdBkBFPs0UyKfeTM-pL5dsC4PBU4eGWPSpipA@mail.gmail.com>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<5039F380.7020801@wis.kuleuven.be>
+	<93a3bc2ae3c94e4c97856187b4756b24@ICTS-S-HUB3.luna.kuleuven.be>
+	<CA+VS_fYCKPAkhFdBkBFPs0UyKfeTM-pL5dsC4PBU4eGWPSpipA@mail.gmail.com>
+Message-ID: <CAPUobv0iQ4u=fxHLs-K0B-DfpazVEB+x_FjxcUNe-7iuK7nNMQ@mail.gmail.com>
+
+Dear Fabricio,
+
+Have you tried to fit the data using lm? If it does not work there,
+then the problem most likely lies with the dataset.
+Did you use lmRob (package robust) for a specific reason? The newer
+versions of lmrob (package robustbase) also support categorical
+variables, even without reverting to M-S estimates. You could also try
+to fit your data using lmrob. Just make sure to use the most recent
+version (0.9-3). You can check this by typing the command
+sessionInfo().
+
+Best regards,
+
+Manuel
+
+On Sun, Aug 26, 2012 at 8:16 PM, Andreas Alfons
+<andreas.alfons at kuleuven.be> wrote:
+> On Sun, Aug 26, 2012 at 4:18 PM, Fabricio Vasselai
+> <fabriciovasselai at gmail.com> wrote:
+>> Thank you very much for the fast reply.
+>>
+>> What info about the dataset would be helpful to figure out what's going on
+>> about that error message? I am using a dataset wth N = 602, with
+>> information political institution in countries. Variables are almost all
+>> continuous and a few are binary. I am running two interation terms in the
+>> models. I'll be more than happy to provide any needed info.
+>
+> Without a fully reproducible example (data + code), I'm afraid there's
+> not much anybody can really do to help you.  If your data are
+> confidential, please try to reproduce the error with simulated data.
+>
+> -Andreas
+>
+>
+>> 2012/8/26 Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>
+>>
+>>>
+>>>
+>>> whatever it is, it is specific to the dataset you are using, not the
+>>> software:
+>>>
+>>> library(robust)
+>>> p<-20
+>>> n<-200
+>>> x<-matrix(rnorm(n*p),n,p)
+>>> b<-rnorm(p+1)
+>>> y<-cbind(1,x)%*%b+rnorm(n)
+>>> lmRob(y~x)
+>>>
+>>>
+>>> you should therefore provide more informations about the dataset,
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> On 08/26/2012 07:33 AM, Fabricio Vasselai wrote:
+>>>
+>>>> Dear list,
+>>>>
+>>>> I've been trying different models with lmRob for the past days and I was
+>>>> wondering: is there a maximum number of variables to include in a model so
+>>>> to avoid the following error in lmRob?
+>>>> The error message is:
+>>>>
+>>>> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,
+>>>>  :
+>>>>    Singular matrix encountered.Erro em ans[[i]]$call : $ operator is
+>>>>
+>>>> invalid for atomic vectors
+>>>>
+>>>>
+>>>> It seems to me that there is a limit of 14 independent variables plus the
+>>>> intercept. It can run any combination of variables in any dataset I try,
+>>>> as
+>>>> far as final parameters are not beyond this limit.
+>>>> Is it right? I did not find information about this yet. Is there a way to
+>>>> go beyond this number of variables?
+>>>>
+>>>> Thanks in advance!
+>>>> Best,
+>>>>
+>>>> FABRICIO
+>>>>
+>>>>         [[alternative HTML version deleted]]
+>>>>
+>>>> ______________________________**_________________
+>>>> R-SIG-Robust at r-project.org mailing list
+>>>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>
+>>>>
+>>>
+>>> ______________________________**_________________
+>>> R-SIG-Robust at r-project.org mailing list
+>>> https://stat.ethz.ch/mailman/**listinfo/r-sig-robust<https://stat.ethz.ch/mailman/listinfo/r-sig-robust>
+>>>
+>>
+>>         [[alternative HTML version deleted]]
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>
+>
+> --
+> Andreas Alfons
+> Faculty of Business and Economics, KU Leuven
+> www.econ.kuleuven.be/andreas.alfons/public/
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+-- 
+Manuel Koller <koller at stat.math.ethz.ch>
+Seminar f?r Statistik, HG G 18, R?mistrasse 101
+ETH Z?rich  8092 Z?rich  SWITZERLAND
+phone: +41 44 632-4673 fax: ...-1228
+http://stat.ethz.ch/people/kollerma/
+
+
+
+From S@E|||@on @end|ng |rom LGCGroup@com  Tue Aug 28 15:46:00 2012
+From: S@E|||@on @end|ng |rom LGCGroup@com (S Ellison)
+Date: Tue, 28 Aug 2012 14:46:00 +0100
+Subject: [RsR] Maximum number of variables with lmRob? Error:
+	singular	matrix encountered
+In-Reply-To: <CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+Message-ID: <A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+
+One 'obvious' possibility with interactions for a lot of predictors is that you might have no cells in the full interaction table with more than 1 observation. That would result in a singular model due to exact fitting.
+
+S Ellison
+
+
+> -----Original Message-----
+> From: r-sig-robust-bounces at r-project.org 
+> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of 
+> Fabricio Vasselai
+> Sent: 26 August 2012 06:33
+> To: r-sig-robust
+> Subject: [RsR] Maximum number of variables with lmRob? Error: 
+> singular matrix encountered
+> 
+> Dear list,
+> 
+> I've been trying different models with lmRob for the past 
+> days and I was
+> wondering: is there a maximum number of variables to include 
+> in a model so to avoid the following error in lmRob?
+> The error message is:
+> 
+> Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, 
+> nrep = nrep,  :
+>   Singular matrix encountered.Erro em ans[[i]]$call : $ 
+> operator is invalid for atomic vectors
+> 
+> 
+> It seems to me that there is a limit of 14 independent 
+> variables plus the intercept. It can run any combination of 
+> variables in any dataset I try, as far as final parameters 
+> are not beyond this limit.
+> Is it right? I did not find information about this yet. Is 
+> there a way to go beyond this number of variables?
+> 
+> Thanks in advance!
+> Best,
+> 
+> FABRICIO
+> 
+> 	[[alternative HTML version deleted]]
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> 
+
+*******************************************************************
+This email and any attachments are confidential. Any use...{{dropped:8}}
+
+
+
+From |@br|c|ov@@@e|@| @end|ng |rom gm@||@com  Wed Aug 29 21:37:21 2012
+From: |@br|c|ov@@@e|@| @end|ng |rom gm@||@com (Fabricio Vasselai)
+Date: Wed, 29 Aug 2012 16:37:21 -0300
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+Message-ID: <CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>
+
+Dears, Thank you very much for your replies so far.
+
+First, about my dataset, I am not allowed to publish it here yet. But I am
+arranging to simulate something similar to show you a data-baase example of
+the problem.
+
+Manuel: you just gave me a good idea. And indeed, the problem does not
+happen when I use lmrob! Awesome. The only problem is: when I run smaller
+models, with 10 variables for instance, so lmRob does work for me, then the
+results from lmRob and from lmrob are substantialy different. Sorry for the
+silly question, but I would be very interesting in understanding why those
+two versions of the package could give such a difference. It can be very
+interesting to asnwer many theoretical qusetions.
+
+S.Ellison: very right, it would make sense. But the problem still happens
+with only one interaction, unfortunattely.
+
+Thanks a lot right now for the insights.
+
+FABRICIO
+
+
+
+2012/8/28 S Ellison <S.Ellison at lgcgroup.com>
+
+> One 'obvious' possibility with interactions for a lot of predictors is
+> that you might have no cells in the full interaction table with more than 1
+> observation. That would result in a singular model due to exact fitting.
+>
+> S Ellison
+>
+>
+> > -----Original Message-----
+> > From: r-sig-robust-bounces at r-project.org
+> > [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of
+> > Fabricio Vasselai
+> > Sent: 26 August 2012 06:33
+> > To: r-sig-robust
+> > Subject: [RsR] Maximum number of variables with lmRob? Error:
+> > singular matrix encountered
+> >
+> > Dear list,
+> >
+> > I've been trying different models with lmRob for the past
+> > days and I was
+> > wondering: is there a maximum number of variables to include
+> > in a model so to avoid the following error in lmRob?
+> > The error message is:
+> >
+> > Error in lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx,
+> > nrep = nrep,  :
+> >   Singular matrix encountered.Erro em ans[[i]]$call : $
+> > operator is invalid for atomic vectors
+> >
+> >
+> > It seems to me that there is a limit of 14 independent
+> > variables plus the intercept. It can run any combination of
+> > variables in any dataset I try, as far as final parameters
+> > are not beyond this limit.
+> > Is it right? I did not find information about this yet. Is
+> > there a way to go beyond this number of variables?
+> >
+> > Thanks in advance!
+> > Best,
+> >
+> > FABRICIO
+> >
+> >       [[alternative HTML version deleted]]
+> >
+> > _______________________________________________
+> > R-SIG-Robust at r-project.org mailing list
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> >
+>
+> *******************************************************************
+> This email and any attachments are confidential. Any u...{{dropped:12}}
+
+
+
+From ko||er @end|ng |rom @t@t@m@th@ethz@ch  Thu Aug 30 08:26:14 2012
+From: ko||er @end|ng |rom @t@t@m@th@ethz@ch (Manuel Koller)
+Date: Thu, 30 Aug 2012 08:26:14 +0200
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+	<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>
+Message-ID: <CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>
+
+Dear Fabricio
+
+Great that it works with lmrob :-). Are the differences really that
+"substantial"? Even when taking the standard error into account?
+Of course, you would expect "some" differences, because the two
+methods do not use the exact same algorithms and also use different
+default configuration parameters:
+
+- For datasets with categorical and continuous variables, lmRob uses
+an M-S-estimate as initial estimate (replacing the S-estimate). It is
+basically an L1-estimate for the categorical part and an S-estimate
+for the continuous part. lmrob does not need to split the estimation
+into categorical and continuous parts, it just computes an S-estimate.
+That's one source of differences.
+
+- The defaults for the psi- or rho-functions used are different. If I
+remember correctly, lmRob uses the so-called "optimal" while lmrob
+uses the bisquare psi-function. While "optimal" is clearly worse, both
+are prone to produce somewhat unstable estimates for small datasets
+(if you draw sensitivity curves of the initial estimates you will get
+non-smooth curves with many jumps, etc). That's why we advocate to use
+psi-functions that redescend more slowly, like "lqq" (only available
+for lmrob). That's another source of differences.
+
+- lmrob uses randomized algorithms and thus produces slightly
+different results for different seeds.
+
+BTW: Have you considered using the config option setting="KS2011" in
+lmrob? This is an alternative set of default options using the "lqq"
+psi-function and SMDM-estimates instead of MM-estimates. This will
+give you better tests, especially if you have many predictors and a
+not so large dataset.
+
+Best regards,
+
+Manuel
+
+On Wed, Aug 29, 2012 at 9:37 PM, Fabricio Vasselai
+<fabriciovasselai at gmail.com> wrote:
+> Dears, Thank you very much for your replies so far.
+>
+> First, about my dataset, I am not allowed to publish it here yet. But I am
+> arranging to simulate something similar to show you a data-baase example of
+> the problem.
+>
+> Manuel: you just gave me a good idea. And indeed, the problem does not
+> happen when I use lmrob! Awesome. The only problem is: when I run smaller
+> models, with 10 variables for instance, so lmRob does work for me, then the
+> results from lmRob and from lmrob are substantialy different. Sorry for the
+> silly question, but I would be very interesting in understanding why those
+> two versions of the package could give such a difference. It can be very
+> interesting to asnwer many theoretical qusetions.
+>
+> S.Ellison: very right, it would make sense. But the problem still happens
+> with only one interaction, unfortunattely.
+>
+> Thanks a lot right now for the insights.
+>
+> FABRICIO
+>
+>
+
+-- 
+Manuel Koller <koller at stat.math.ethz.ch>
+Seminar f?r Statistik, HG G 18, R?mistrasse 101
+ETH Z?rich  8092 Z?rich  SWITZERLAND
+phone: +41 44 632-4673 fax: ...-1228
+http://stat.ethz.ch/people/kollerma/
+
+
+
+From k@veh@v@k||| @end|ng |rom w|@@ku|euven@be  Thu Aug 30 12:04:17 2012
+From: k@veh@v@k||| @end|ng |rom w|@@ku|euven@be (Kaveh Vakili)
+Date: Thu, 30 Aug 2012 12:04:17 +0200
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+	<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>
+	<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>
+Message-ID: <503F3AA1.3000805@wis.kuleuven.be>
+
+
+Dear Manual,
+
+This all sounds very existing, would you do by any chance
+have a link to a white paper where these numerous
+innovations are explained more in detail than in the
+lmRob help files?
+
+Best regards,
+
+
+
+
+On 08/30/2012 08:26 AM, Manuel Koller wrote:
+> - lmrob uses randomized algorithms and thus produces slightly
+> different results for different seeds.
+
+
+
+From k@veh@v@k||| @end|ng |rom w|@@ku|euven@be  Thu Aug 30 12:20:45 2012
+From: k@veh@v@k||| @end|ng |rom w|@@ku|euven@be (Kaveh Vakili)
+Date: Thu, 30 Aug 2012 12:20:45 +0200
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <503F3AA1.3000805@wis.kuleuven.be>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+	<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>
+	<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>
+	<503F3AA1.3000805@wis.kuleuven.be>
+Message-ID: <503F3E7D.1030603@wis.kuleuven.be>
+
+
+Sorry I accidentally send a draft message to the list
+  (maybe the heatwave).
+
+Below the correct version
+
+
+
+Dear Manuel,
+
+This all sounds very exiting, would you by any chance
+have a link to a white paper/technical report where
+these innovations are documented in greater details
+  than in the help files associated with lmRob?
+
+Best regards,
+
+
+On 08/30/2012 12:04 PM, Kaveh Vakili wrote:
+>
+> Dear Manual,
+>
+> This all sounds very existing, would you do by any chance
+> have a link to a white paper where these numerous
+> innovations are explained more in detail than in the
+> lmRob help files?
+>
+> Best regards,
+>
+>
+>
+>
+> On 08/30/2012 08:26 AM, Manuel Koller wrote:
+>> - lmrob uses randomized algorithms and thus produces slightly
+>> different results for different seeds.
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Aug 30 12:53:23 2012
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 30 Aug 2012 12:53:23 +0200
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <503F3E7D.1030603@wis.kuleuven.be>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+	<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>
+	<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>
+	<503F3AA1.3000805@wis.kuleuven.be>
+	<503F3E7D.1030603@wis.kuleuven.be>
+Message-ID: <20543.17955.708721.286372@stat.math.ethz.ch>
+
+>>>>> "KV" == Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>
+>>>>>     on Thu, 30 Aug 2012 12:20:45 +0200 writes:
+
+    KV> Sorry I accidentally send a draft message to the list
+    KV> (maybe the heatwave).
+
+    KV> Below the correct version
+
+
+
+    KV> Dear Manuel,
+
+    KV> This all sounds very exiting, would you by any chance
+    KV> have a link to a white paper/technical report where
+    KV> these innovations are documented in greater details
+    KV> than in the help files associated with lmRob?
+
+I think you have understood that Manuel advocates using lmrob(),
+[not lmRob() !!]
+
+So please do look at  ?lmrob
+It has several references, most notably to
+
+  Koller, M. and Stahel, W.A. (2011), Sharpening Wald-type inference
+  in robust regression for small samples, _Computational Statistics
+  & Data Analysis_ *55*(8), 2504-2515.
+
+For newer results, manual will provide newer links.
+
+Unfortunately, stupid editorial processes lead to papers not
+being published just because they want to publicize a simple
+good idea for a new algorithm that has not been found by anyone
+in 20-30 years history, but the editor/referees still claim the
+idea to be too simple to be worth publishing .....
+
+Martin
+
+    KV> Best regards,
+
+
+    KV> On 08/30/2012 12:04 PM, Kaveh Vakili wrote:
+    >> 
+    >> Dear Manual,
+    >> 
+    >> This all sounds very existing, would you do by any chance
+    >> have a link to a white paper where these numerous
+    >> innovations are explained more in detail than in the
+    >> lmRob help files?
+    >> 
+    >> Best regards,
+    >> 
+    >> 
+    >> 
+    >> 
+    >> On 08/30/2012 08:26 AM, Manuel Koller wrote:
+    >>> - lmrob uses randomized algorithms and thus produces slightly
+    >>> different results for different seeds.
+    >> 
+    >> _______________________________________________
+    >> R-SIG-Robust at r-project.org mailing list
+    >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+    KV> _______________________________________________
+    KV> R-SIG-Robust at r-project.org mailing list
+    KV> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From ko||er @end|ng |rom @t@t@m@th@ethz@ch  Thu Aug 30 13:22:06 2012
+From: ko||er @end|ng |rom @t@t@m@th@ethz@ch (Manuel Koller)
+Date: Thu, 30 Aug 2012 13:22:06 +0200
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <20543.17955.708721.286372@stat.math.ethz.ch>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+	<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>
+	<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>
+	<503F3AA1.3000805@wis.kuleuven.be> <503F3E7D.1030603@wis.kuleuven.be>
+	<20543.17955.708721.286372@stat.math.ethz.ch>
+Message-ID: <CAPUobv2rQ4EzHexyk2sYQheEhfYPc5t45DFCQqXSd5TCyDy4+Q@mail.gmail.com>
+
+Hi Kaveh
+
+Martin already gave the reference to paper where we develop the SMDM
+estimators. The second paper he mentions can be found on arxiv for now
+(arXiv:1208.5595v1, http://arxiv.org/abs/1208.5595). There you can
+find the algorithm we implemented in lmrob that can also compute
+S-estimates when there are categorical variables present.
+
+Best regards,
+
+Manuel
+
+On Thu, Aug 30, 2012 at 12:53 PM, Martin Maechler
+<maechler at stat.math.ethz.ch> wrote:
+>>>>>> "KV" == Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>
+>>>>>>     on Thu, 30 Aug 2012 12:20:45 +0200 writes:
+>
+>     KV> Sorry I accidentally send a draft message to the list
+>     KV> (maybe the heatwave).
+>
+>     KV> Below the correct version
+>
+>
+>
+>     KV> Dear Manuel,
+>
+>     KV> This all sounds very exiting, would you by any chance
+>     KV> have a link to a white paper/technical report where
+>     KV> these innovations are documented in greater details
+>     KV> than in the help files associated with lmRob?
+>
+> I think you have understood that Manuel advocates using lmrob(),
+> [not lmRob() !!]
+>
+> So please do look at  ?lmrob
+> It has several references, most notably to
+>
+>   Koller, M. and Stahel, W.A. (2011), Sharpening Wald-type inference
+>   in robust regression for small samples, _Computational Statistics
+>   & Data Analysis_ *55*(8), 2504-2515.
+>
+> For newer results, manual will provide newer links.
+>
+> Unfortunately, stupid editorial processes lead to papers not
+> being published just because they want to publicize a simple
+> good idea for a new algorithm that has not been found by anyone
+> in 20-30 years history, but the editor/referees still claim the
+> idea to be too simple to be worth publishing .....
+>
+> Martin
+>
+>     KV> Best regards,
+>
+>
+>     KV> On 08/30/2012 12:04 PM, Kaveh Vakili wrote:
+>     >>
+>     >> Dear Manual,
+>     >>
+>     >> This all sounds very existing, would you do by any chance
+>     >> have a link to a white paper where these numerous
+>     >> innovations are explained more in detail than in the
+>     >> lmRob help files?
+>     >>
+>     >> Best regards,
+>     >>
+>     >>
+>     >>
+>     >>
+>     >> On 08/30/2012 08:26 AM, Manuel Koller wrote:
+>     >>> - lmrob uses randomized algorithms and thus produces slightly
+>     >>> different results for different seeds.
+>     >>
+>     >> _______________________________________________
+>     >> R-SIG-Robust at r-project.org mailing list
+>     >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>     KV> _______________________________________________
+>     KV> R-SIG-Robust at r-project.org mailing list
+>     KV> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+-- 
+Manuel Koller <koller at stat.math.ethz.ch>
+Seminar f?r Statistik, HG G 18, R?mistrasse 101
+ETH Z?rich  8092 Z?rich  SWITZERLAND
+phone: +41 44 632-4673 fax: ...-1228
+http://stat.ethz.ch/people/kollerma/
+
+
+
+From |@br|c|ov@@@e|@| @end|ng |rom gm@||@com  Mon Sep  3 20:14:25 2012
+From: |@br|c|ov@@@e|@| @end|ng |rom gm@||@com (Fabricio Vasselai)
+Date: Mon, 3 Sep 2012 15:14:25 -0300
+Subject: [RsR] Maximum number of variables with lmRob? Error: singular
+ matrix encountered
+In-Reply-To: <CAPUobv2rQ4EzHexyk2sYQheEhfYPc5t45DFCQqXSd5TCyDy4+Q@mail.gmail.com>
+References: <CAEkXS9Kkm6Xnxv3G2cLAOik0vDdDxqrH1QCE2Y2AUYxB66p-zA@mail.gmail.com>
+	<CAEkXS9KK2sS0-SEj3JgL1W398TSk7xjff68-9jTZnUzGEGPy0g@mail.gmail.com>
+	<A4E5A0B016B8CB41A485FC629B633CED46954973C8@GOLD.corp.lgc-group.com>
+	<CAEkXS9KoNZZHxnAYpofhhSDe=AviYKZ1rTFEf+HgP3J8GYxHfg@mail.gmail.com>
+	<CAPUobv0oa5dPnzDsoyKPpNS=r7BzH5Ws9Gutb2=BUf4DFPQwnw@mail.gmail.com>
+	<503F3AA1.3000805@wis.kuleuven.be> <503F3E7D.1030603@wis.kuleuven.be>
+	<20543.17955.708721.286372@stat.math.ethz.ch>
+	<CAPUobv2rQ4EzHexyk2sYQheEhfYPc5t45DFCQqXSd5TCyDy4+Q@mail.gmail.com>
+Message-ID: <CAEkXS9LyQegqhejgqq7CK0e48owJh7Uj5EQPzX-b1AAP+hUxgA@mail.gmail.com>
+
+Dears,
+
+Sorry for taking so long to get in touch again. But I really thank the
+insights so far. Mainly, I really apreciate the detailed answer given by
+Manuel.
+
+> Great that it works with lmrob :-). Are the differences really that
+> "substantial"? Even when taking the standard error into account?
+> Of course, you would expect "some" differences, because the two
+> methods do not use the exact same algorithms and also use different
+> default configuration parameters:
+
+Indeed, depending on the models I run, one or other results are quite
+different when I use lmrob and lmRob. More clearly in the p-values. but you
+are right that (a) it is not the usual pattern, as generally results are
+similar but lmrob seems to be more efficient; (b) if considering the std
+errors, most differences seems to be not that different anymor;
+
+> - For datasets with categorical and continuous variables, lmRob uses
+> an M-S-estimate as initial estimate (replacing the S-estimate). It is
+> basically an L1-estimate for the categorical part and an S-estimate
+> for the continuous part. lmrob does not need to split the estimation
+> into categorical and continuous parts, it just computes an S-estimate.
+> That's one source of differences.
+
+Yep, this is a perfect point to be made. The models I've been trying they
+always mix continuous and binary variables. LmRob goes directly for a M-S
+estimate. After I read your email, I tried separate models for continuous
+and for binary variables both with lmrob and lmRob. Differences in results
+from the models with only continuous variables were always tiny. Even
+simulating data and models, I got the same results, i.e. I think most
+differences I've been experiencing between lmrob and lmRob were due to the
+different approach to the mix of continuous and categorical variables.
+
+> - The defaults for the psi- or rho-functions used are different. If I
+> remember correctly, lmRob uses the so-called "optimal" while lmrob
+> uses the bisquare psi-function. While "optimal" is clearly worse, both
+> are prone to produce somewhat unstable estimates for small datasets
+> (if you draw sensitivity curves of the initial estimates you will get
+> non-smooth curves with many jumps, etc). That's why we advocate to use
+> psi-functions that redescend more slowly, like "lqq" (only available
+> for lmrob). That's another source of differences.
+
+Ok. Acknowledged, it makes sense. I have a dataset of 600 cases, running
+models with 16 varaibles, 3 interactions. Even though, as I said I think
+the main differences I found so far were due to how each function handles
+the mix of different types of variables.
+
+> BTW: Have you considered using the config option setting="KS2011" in
+> lmrob? This is an alternative set of default options using the "lqq"
+> psi-function and SMDM-estimates instead of MM-estimates. This will
+> give you better tests, especially if you have many predictors and a
+> not so large dataset.
+
+Cool, I will try this, as it speaks to me: not so large dataset, not so
+small models.
+
+Thanks a ton for the info, Manuel. And thanks everybody for the references.
+
+FABRICIO
+
+
+
+
+
+2012/8/30 Manuel Koller <koller at stat.math.ethz.ch>
+
+> Hi Kaveh
+>
+> Martin already gave the reference to paper where we develop the SMDM
+> estimators. The second paper he mentions can be found on arxiv for now
+> (arXiv:1208.5595v1, http://arxiv.org/abs/1208.5595). There you can
+> find the algorithm we implemented in lmrob that can also compute
+> S-estimates when there are categorical variables present.
+>
+> Best regards,
+>
+> Manuel
+>
+> On Thu, Aug 30, 2012 at 12:53 PM, Martin Maechler
+> <maechler at stat.math.ethz.ch> wrote:
+> >>>>>> "KV" == Kaveh Vakili <kaveh.vakili at wis.kuleuven.be>
+> >>>>>>     on Thu, 30 Aug 2012 12:20:45 +0200 writes:
+> >
+> >     KV> Sorry I accidentally send a draft message to the list
+> >     KV> (maybe the heatwave).
+> >
+> >     KV> Below the correct version
+> >
+> >
+> >
+> >     KV> Dear Manuel,
+> >
+> >     KV> This all sounds very exiting, would you by any chance
+> >     KV> have a link to a white paper/technical report where
+> >     KV> these innovations are documented in greater details
+> >     KV> than in the help files associated with lmRob?
+> >
+> > I think you have understood that Manuel advocates using lmrob(),
+> > [not lmRob() !!]
+> >
+> > So please do look at  ?lmrob
+> > It has several references, most notably to
+> >
+> >   Koller, M. and Stahel, W.A. (2011), Sharpening Wald-type inference
+> >   in robust regression for small samples, _Computational Statistics
+> >   & Data Analysis_ *55*(8), 2504-2515.
+> >
+> > For newer results, manual will provide newer links.
+> >
+> > Unfortunately, stupid editorial processes lead to papers not
+> > being published just because they want to publicize a simple
+> > good idea for a new algorithm that has not been found by anyone
+> > in 20-30 years history, but the editor/referees still claim the
+> > idea to be too simple to be worth publishing .....
+> >
+> > Martin
+> >
+> >     KV> Best regards,
+> >
+> >
+> >     KV> On 08/30/2012 12:04 PM, Kaveh Vakili wrote:
+> >     >>
+> >     >> Dear Manual,
+> >     >>
+> >     >> This all sounds very existing, would you do by any chance
+> >     >> have a link to a white paper where these numerous
+> >     >> innovations are explained more in detail than in the
+> >     >> lmRob help files?
+> >     >>
+> >     >> Best regards,
+> >     >>
+> >     >>
+> >     >>
+> >     >>
+> >     >> On 08/30/2012 08:26 AM, Manuel Koller wrote:
+> >     >>> - lmrob uses randomized algorithms and thus produces slightly
+> >     >>> different results for different seeds.
+> >     >>
+> >     >> _______________________________________________
+> >     >> R-SIG-Robust at r-project.org mailing list
+> >     >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> >
+> >     KV> _______________________________________________
+> >     KV> R-SIG-Robust at r-project.org mailing list
+> >     KV> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> >
+> > _______________________________________________
+> > R-SIG-Robust at r-project.org mailing list
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>
+>
+> --
+> Manuel Koller <koller at stat.math.ethz.ch>
+> Seminar f?r Statistik, HG G 18, R?mistrasse 101
+> ETH Z?rich  8092 Z?rich  SWITZERLAND
+> phone: +41 44 632-4673 fax: ...-1228
+> http://stat.ethz.ch/people/kollerma/
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+	[[alternative HTML version deleted]]
+
+
+
+From @j@y@h@h @end|ng |rom m@y|n@org  Mon Oct 15 13:20:07 2012
+From: @j@y@h@h @end|ng |rom m@y|n@org (Ajay Shah)
+Date: Mon, 15 Oct 2012 16:50:07 +0530
+Subject: [RsR] Robust fixed effects model?
+Message-ID: <CA++P4r2oM9D6yuBfR+g0WkiGnJYx3zcRexg9_-4weLen2XGkSg@mail.gmail.com>
+
+Folks,
+
+I recently came across a robust MM-estimator for panel data with fixed
+effects by Bramati & Croux, Econometrics journal, 2007. The article
+is: http://onlinelibrary.wiley.com/doi/10.1111/j.1368-423X.2007.00220.x/abstract
+
+There is some matlab code at:
+http://www.econ.kuleuven.be/public/NDBAE06/programs/
+
+I wonder if there is some experience and R code for this on this list.
+
+-- 
+Ajay Shah
+ajayshah at mayin.org
+http://www.mayin.org/ajayshah
+http://ajayshahblog.blogspot.com
+
+
+
+From @ndrew@h@||ord @end|ng |rom gm@||@com  Tue Nov 20 09:05:39 2012
+From: @ndrew@h@||ord @end|ng |rom gm@||@com (Andrew Halford)
+Date: Tue, 20 Nov 2012 16:05:39 +0800
+Subject: [RsR] extracting weights from nlrob
+Message-ID: <CAJrFtqLc+KY6ETWjo4iwqhTFNA=J2bN0V34zHOc9zKNwMk-z3Q@mail.gmail.com>
+
+Hi Listers,
+
+I have been running a robust 2nd order polynomial regression and I want to
+extract the weights information to see what datapoints are behaving as
+outliers. Although I can see the summary data for the weights as part of
+the output, I have not been able to find any help for extracting all the
+individual weights. I would also like to be able to colour these points on
+a scatterplot if possible.
+
+I also cannot find any R packages that provide a way to calculate and
+remove outliers in nonlinear regressions - along the lines of the paper by
+Motulsky and Brown 2006.
+
+Any advice on this would be most welcome.
+
+Thanks for help.
+
+Andy
+
+-- 
+Andrew Halford Ph.D
+Adjunct Research Scientist
+University of Guam & Curtin University
+Ph: +61 (0) 468 419 473
+
+	[[alternative HTML version deleted]]
+
+
+
+From rk@t @end|ng |rom zh@w@ch  Tue Nov 20 10:40:49 2012
+From: rk@t @end|ng |rom zh@w@ch (Andreas Ruckstuhl)
+Date: Tue, 20 Nov 2012 10:40:49 +0100
+Subject: [RsR] extracting weights from nlrob
+In-Reply-To: <CAJrFtqLc+KY6ETWjo4iwqhTFNA=J2bN0V34zHOc9zKNwMk-z3Q@mail.gmail.com>
+References: <CAJrFtqLc+KY6ETWjo4iwqhTFNA=J2bN0V34zHOc9zKNwMk-z3Q@mail.gmail.com>
+Message-ID: <50AB5021.5030708@zhaw.ch>
+
+Dear Andy
+
+I would recommend to use lmrob for running polynomial regression. It can 
+handle outliers on leverage points much better than nlrob.
+
+library(robustbase)
+
+set.seed(54362)
+DAT <- data.frame(x=c(seq(-5,5,by=1), 8))
+DAT$xq <- DAT$x^2
+DAT$y <- 2 + 3*DAT$x + 1.2*DAT$xq + rnorm(nrow(DAT), sd=1.5)
+DAT$y[nrow(DAT)] <- 60
+
+DAT.lm <-  lm(y ~ x + xq, data=DAT)
+summary(DAT.lm)
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)
+## (Intercept)   5.9686     2.4849   2.402 0.039770 *
+## x             2.1114     0.5750   3.672 0.005141 **
+## xq            0.7117     0.1257   5.663 0.000308 ***
+## ---
+## Residual standard error: 6.41 on 9 degrees of freedom
+
+
+DAT.rlm <-  lmrob(y ~ x + xq, data=DAT)
+summary(DAT.rlm)
+##             Estimate Std. Error t value Pr(>|t|)
+## (Intercept)  1.48591    0.47660   3.118   0.0124 *
+## x            2.72508    0.08822  30.890 1.91e-10 ***
+## xq           1.24015    0.02458  50.457 2.37e-12 ***
+## ---
+## Robust residual standard error: 1.451
+
+str(DAT.rlm)
+
+(h.rw <- DAT.rlm$weights)
+h.sel <- h.rw < 0.1
+
+plot(y~x, data=DAT)
+lines(DAT$x, predict(DAT.rlm), col="blue", lwd=2)
+lines(DAT$x, predict(DAT.lm), col="red")
+points(DAT$x[h.sel], DAT$y[h.sel], pch=16, col="orange")
+
+## I don't know the paper by Motulsky and Brown 2006. I do not recommend
+## removing outliers but just recommend identifying outliers and if
+## possible correct typos and such things.
+
+
+
+DAT.nlrob1 <-  nlrob(y ~ a + b*x + c*x^2, start=list(a=6,b=2,c=0.7),
+                      data=DAT)
+summary(DAT.nlrob1)
+## Formula: y ~ a + b * x + c * x^2
+## Parameters:
+##   Estimate Std. Error t value Pr(>|t|)
+## a   5.1419     2.0241   2.540  0.03169 *
+## b   1.8283     0.4775   3.829  0.00403 **
+## c   0.7177     0.1004   7.148 5.38e-05 ***
+## ---
+## Robust residual standard error: 4.521
+
+## nlrob cannot cope wit outliers on leverage points!
+
+## Hence
+h.d <- (DAT$x-median( DAT$x))/mad(DAT$x)
+DAT$wx <- 1/sqrt(1+8*pmax(0, h.d^2-1)/sqrt(2))
+DAT.nlrob2 <-  nlrob(y ~ a + b*x + c*x^2, start=list(a=6,b=2,c=0.7) 
+,data=DAT,
+                      weights=DAT$wx)
+summary(DAT.nlrob2)
+## Parameters:
+##   Estimate Std. Error t value Pr(>|t|)
+## a  1.81836    0.74151   2.452   0.0366 *
+## b  2.69350    0.16763  16.068 6.20e-08 ***
+## c  1.19773    0.05919  20.236 8.19e-09 ***
+## ---
+## Robust residual standard error: 1.417
+
+str(DAT.nlrob2)
+DAT.nlrob2$w.r
+  ## [1] 1.00000000 1.00000000 1.00000000 1.00000000 1.00000000 1.00000000
+  ## [7] 1.00000000 0.88186039 1.00000000 1.00000000 1.00000000 0.04762281
+
+## These are more reliable results.
+## But be careful. This approach with weighting does not yield a
+## high-breakdown estimator.
+
+
+And by the way:
+I guess you will be very careful with expressions like 'DAT$x^2' because 
+of numerical issues, won't you.
+
+
+
+All the best,
+Andreas
+
+
+
+
+Am 20.11.2012 09:05, schrieb Andrew Halford:
+> Hi Listers,
+>
+> I have been running a robust 2nd order polynomial regression and I want to
+> extract the weights information to see what datapoints are behaving as
+> outliers. Although I can see the summary data for the weights as part of
+> the output, I have not been able to find any help for extracting all the
+> individual weights. I would also like to be able to colour these points on
+> a scatterplot if possible.
+>
+> I also cannot find any R packages that provide a way to calculate and
+> remove outliers in nonlinear regressions - along the lines of the paper by
+> Motulsky and Brown 2006.
+>
+> Any advice on this would be most welcome.
+>
+> Thanks for help.
+>
+> Andy
+>
+
+-- 
+----------------------------------------------------------------------
+
+Prof. Dr. Andreas Ruckstuhl
+ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+IDP Institut f?r Datenanalyse und Prozessdesign
+Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+Postfach                          Fax   : +41 (0)58 935 78 12
+CH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch
+                                   WWW   : http://www.idp.zhaw.ch
+
+
+

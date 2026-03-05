@@ -1,0 +1,508 @@
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Feb  1 12:39:33 2017
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 1 Feb 2017 12:39:33 +0100
+Subject: [RsR] glmrob - fit statistics: R^2 - r-squared ?
+In-Reply-To: <CAN072pOvw99ofNUz47Bgw0A1Rz6rzTDBRJxiJqLzZvj9gUZBww@mail.gmail.com>
+References: <CAN072pOvw99ofNUz47Bgw0A1Rz6rzTDBRJxiJqLzZvj9gUZBww@mail.gmail.com>
+Message-ID: <22673.51445.189361.285649@stat.math.ethz.ch>
+
+>>>>> F... F... <.... at gmail.com>  on Tue, 31 Jan 2017 20:17:31 -0500 writes:
+
+    > Dear Prof. Maechler:
+    > I am using the glmrob function from your package and am interested in
+    > having fit statistics (r-squared). Summary doesn't give me that. Is there
+    > another way to obtain it?
+
+I'm replying to the dedicated mailing list, "robust statistics with R",
+(BCC'ing to F.F. who asked me in private):
+
+Even standard R's   glm()  does not provide an R^2 for
+generalized linear models, because it is doubtful how it should
+be defined outside of least squares and the normal distribution
+assumption.
+
+But of course, other goodness-of-fit (GOF) measures do make
+sense, and summary(glm(..)) provides deviances, dispersion
+parameter estimates and AIC  aiming in that direction.
+
+
+For linear models with the 'normal' family, we typically use lmrob(),
+and there, the summary method now has been providing a _robust_
+version of R^2, thanks to this research paper (and code contribution),
+
+     Renaud, O. and Victoria-Feser, M.-P. (2010).  A robust coefficient
+     of determination for regression, _Journal of Statistical Planning
+     and Inference_ *140*, 1852-1862.
+
+we now have
+
+> mod1 <- lmrob(stack.loss ~ ., data = stackloss)
+> summary(mod1)
+
+Call:
+lmrob(formula = stack.loss ~ ., data = stackloss)
+ \--> method = "MM"
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-10.50974  -1.43819  -0.09134   1.02503   7.23113 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -41.52462    5.29780  -7.838 4.82e-07 ***
+Air.Flow      0.93885    0.11743   7.995 3.68e-07 ***
+Water.Temp    0.57955    0.26296   2.204   0.0416 *  
+Acid.Conc.   -0.11292    0.06989  -1.616   0.1246    
+---
+Signif. codes:  0 ?***? 0.001 ?**? 0.01 ?*? 0.05 ?.? 0.1 ? ? 1
+
+Robust residual standard error: 1.912 
+Multiple R-squared:  0.9593,	Adjusted R-squared:  0.9521 
+^^^^^^^^^^^^^^^^^^              ^^^^^^^^^^^^^^^^^^
+
+[.............]
+[.............]
+
+and the help page explains:
+
+r.squared: robust ?R squared? or R^2, a coefficient of determination:
+          This is the consistency corrected robust coefficient of
+          determination by Renaud and Victoria-Feser (2010).
+
+-----------------------------
+
+I have not known of similar research / proposals for
+non-Gaussian robustified GLMs, and so there hasn't been anything
+in "summary(glmrob(..))" in the robustbase package,
+but maybe there are proposals out there which the readers of
+R-SIG-robust know about ?
+
+We would be interested to know...
+
+Martin Maechler
+ETH Zurich
+
+
+
+From Z@ch@ry_Ru@h @end|ng |rom @tudent@um|@edu  Wed Apr 19 21:57:09 2017
+From: Z@ch@ry_Ru@h @end|ng |rom @tudent@um|@edu (Rush, Zachary W)
+Date: Wed, 19 Apr 2017 19:57:09 +0000
+Subject: [RsR] Strange Theoretical Correlation Question
+Message-ID: <BE69BD4B-6154-4582-8127-3449FBE24B64@student.uml.edu>
+
+Hello, I don?t know if this is the right place to ask, but robust statistics sounded correct to me. I apologize if I?m asking in the wrong place. I?m a college student and my statistics professor posed us a strange question that I haven?t been able to find an answer for. However, I?ve heard that R had found some sort of answer and had implemented it, leading to why I?m asking here. 
+
+Onto the question.
+
+If I have this right, the R^2 value is the correlation between a line and its data values. As such, the closer the value is to one, the better the line fits the data. However, this value does not work when the line is forced through the origin, that is, the y-intercept is forced to be 0. I had heard that R has corrected for this by changing the equation when using the cor() function with a line through (0,0). Is this true? If so, what is this new equation and where was this gathered from?
+
+Again, if I?m asking in the wrong place or I have heard incorrectly about the function, I sincerely apologize.
+
+Any help is appreciated.
+
+Thanks,
+Zach
+
+From @dom@||k @end|ng |rom @|u@c@  Thu Sep  7 03:13:36 2017
+From: @dom@||k @end|ng |rom @|u@c@ (Alice Domalik)
+Date: Wed, 6 Sep 2017 18:13:36 -0700 (PDT)
+Subject: [RsR] robust PCA in robComposition
+Message-ID: <632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>
+
+I am trying to perform a robust PCA analysis on compositional data. My data set includes 400 diet samples from a species of predatory fish. 
+For each sample, I have the percent of the diet that is comprised of 7 species of prey item. Each row sums to 100. 
+
+sandlance rockfish salmon saury anchovy herring squid 
+100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000 
+100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000 
+75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000 
+
+I tried "pcaCoDa(diet.df)" (from the package robComposition), b ut I get the following error: 
+
+
+
+Error in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[, 1:i]), : incorrect number of subscripts on matrix 
+
+
+
+
+What does this error mean and how can I resolve the problem? 
+
+	[[alternative HTML version deleted]]
+
+
+
+From peter@|||zmo@er @end|ng |rom tuw|en@@c@@t  Thu Sep  7 06:26:40 2017
+From: peter@|||zmo@er @end|ng |rom tuw|en@@c@@t (Filzmoser Peter)
+Date: Thu, 7 Sep 2017 04:26:40 +0000
+Subject: [RsR] robust PCA in robComposition
+In-Reply-To: <632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>
+References: <632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>
+Message-ID: <1504758400160.23094@tuwien.ac.at>
+
+Hard to say without no more details about the data frame. Maybe there are zeros included?
+Best regards,
+Peter
+
+------------------------------------------------------------------------------
+Prof. Dr. Peter Filzmoser
+CSTAT - Computational Statistics
+Institute of Statistics & Mathematical Methods in Economics
+Vienna University of Technology
+Wiedner Hauptstr. 8-10
+1040 Vienna, Austria
+(DVR: 0005886)
+Tel. +43 1 58801 10560
+FAX +43 1 58801 105699
+e-mail: P.Filzmoser at tuwien.ac.at
+http://www.statistik.tuwien.ac.at/public/filz/
+------------------------------------------------------------------------------
+
+________________________________________
+From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Alice Domalik <adomalik at sfu.ca>
+Sent: Thursday, September 7, 2017 3:13 AM
+To: r-sig-robust at r-project.org
+Subject: [RsR] robust PCA in robComposition
+
+I am trying to perform a robust PCA analysis on compositional data. My data set includes 400 diet samples from a species of predatory fish.
+For each sample, I have the percent of the diet that is comprised of 7 species of prey item. Each row sums to 100.
+
+sandlance rockfish salmon saury anchovy herring squid
+100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000
+100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000
+75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000
+
+I tried "pcaCoDa(diet.df)" (from the package robComposition), b ut I get the following error:
+
+
+
+Error in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[, 1:i]), : incorrect number of subscripts on matrix
+
+
+
+
+What does this error mean and how can I resolve the problem?
+
+        [[alternative HTML version deleted]]
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From @dom@||k @end|ng |rom @|u@c@  Thu Sep  7 15:21:05 2017
+From: @dom@||k @end|ng |rom @|u@c@ (Alice Domalik)
+Date: Thu, 7 Sep 2017 06:21:05 -0700 (PDT)
+Subject: [RsR] robust PCA in robComposition
+In-Reply-To: <1504758400160.23094@tuwien.ac.at>
+References: <632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>
+ <1504758400160.23094@tuwien.ac.at>
+Message-ID: <2124604615.78038283.1504790465732.JavaMail.zimbra@sfu.ca>
+
+My data set includes lots of zeros and 100's. 
+I thought that might be the problem, but I could find anything in the documentation about requirements for the data frame. 
+
+Alice 
+
+
+From: "Filzmoser Peter" <peter.filzmoser at tuwien.ac.at> 
+To: "Alice Domalik" <adomalik at sfu.ca>, r-sig-robust at r-project.org 
+Sent: Wednesday, September 6, 2017 8:26:40 PM 
+Subject: Re: robust PCA in robComposition 
+
+Hard to say without no more details about the data frame. Maybe there are zeros included? 
+Best regards, 
+Peter 
+
+------------------------------------------------------------------------------ 
+Prof. Dr. Peter Filzmoser 
+CSTAT - Computational Statistics 
+Institute of Statistics & Mathematical Methods in Economics 
+Vienna University of Technology 
+Wiedner Hauptstr. 8-10 
+1040 Vienna, Austria 
+(DVR: 0005886) 
+Tel. +43 1 58801 10560 
+FAX +43 1 58801 105699 
+e-mail: P.Filzmoser at tuwien.ac.at 
+http://www.statistik.tuwien.ac.at/public/filz/ 
+------------------------------------------------------------------------------ 
+
+________________________________________ 
+From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of Alice Domalik <adomalik at sfu.ca> 
+Sent: Thursday, September 7, 2017 3:13 AM 
+To: r-sig-robust at r-project.org 
+Subject: [RsR] robust PCA in robComposition 
+
+I am trying to perform a robust PCA analysis on compositional data. My data set includes 400 diet samples from a species of predatory fish. 
+For each sample, I have the percent of the diet that is comprised of 7 species of prey item. Each row sums to 100. 
+
+sandlance rockfish salmon saury anchovy herring squid 
+100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000 
+100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000 
+75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000 
+
+I tried "pcaCoDa(diet.df)" (from the package robComposition), b ut I get the following error: 
+
+
+
+Error in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[, 1:i]), : incorrect number of subscripts on matrix 
+
+
+
+
+What does this error mean and how can I resolve the problem? 
+
+[[alternative HTML version deleted]] 
+
+_______________________________________________ 
+R-SIG-Robust at r-project.org mailing list 
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust 
+
+	[[alternative HTML version deleted]]
+
+
+
+From |@@huyu @end|ng |rom gm@||@com  Fri Sep  8 21:20:43 2017
+From: |@@huyu @end|ng |rom gm@||@com (Shu Yu Fan)
+Date: Fri, 8 Sep 2017 12:20:43 -0700
+Subject: [RsR] R-SIG-Robust Digest, Vol 87, Issue 2
+In-Reply-To: <mailman.19.1504864802.16185.r-sig-robust@r-project.org>
+References: <mailman.19.1504864802.16185.r-sig-robust@r-project.org>
+Message-ID: <CAE8NEzsYZYtW3-G=pR62yo_spgT+74Av2D7hxJAuTe+kzuAHFw@mail.gmail.com>
+
+I am not an expert in the area, but I think 0 and 100 are not allowed in
+the data frame. I generated a fake dataset, with one row with 0 and 100
+(and each row adds up to 100, 200*6), I got a message that "n<=p, are you
+serious?". LOL. When I generated a data set with non-zero proportions,
+everything seems working fine.
+
+I am kind of curious why you chose this method. :)
+
+Shuyu
+
+
+On Sep 8, 2017 03:03, <r-sig-robust-request at r-project.org> wrote:
+
+> Send R-SIG-Robust mailing list submissions to
+>         r-sig-robust at r-project.org
+>
+> To subscribe or unsubscribe via the World Wide Web, visit
+>         https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> or, via email, send a message with subject or body 'help' to
+>         r-sig-robust-request at r-project.org
+>
+> You can reach the person managing the list at
+>         r-sig-robust-owner at r-project.org
+>
+> When replying, please edit your Subject line so it is more specific
+> than "Re: Contents of R-SIG-Robust digest..."
+>
+>
+> Today's Topics:
+>
+>    1. Re:  robust PCA in robComposition (Alice Domalik)
+>
+>
+> ----------------------------------------------------------------------
+>
+> Message: 1
+> Date: Thu, 7 Sep 2017 06:21:05 -0700 (PDT)
+> From: Alice Domalik <adomalik at sfu.ca>
+> To: Filzmoser Peter <peter.filzmoser at tuwien.ac.at>
+> Cc: r-sig-robust at r-project.org
+> Subject: Re: [RsR] robust PCA in robComposition
+> Message-ID: <2124604615.78038283.1504790465732.JavaMail.zimbra at sfu.ca>
+> Content-Type: text/plain; charset="UTF-8"
+>
+> My data set includes lots of zeros and 100's.
+> I thought that might be the problem, but I could find anything in the
+> documentation about requirements for the data frame.
+>
+> Alice
+>
+>
+> From: "Filzmoser Peter" <peter.filzmoser at tuwien.ac.at>
+> To: "Alice Domalik" <adomalik at sfu.ca>, r-sig-robust at r-project.org
+> Sent: Wednesday, September 6, 2017 8:26:40 PM
+> Subject: Re: robust PCA in robComposition
+>
+> Hard to say without no more details about the data frame. Maybe there are
+> zeros included?
+> Best regards,
+> Peter
+>
+> ------------------------------------------------------------
+> ------------------
+> Prof. Dr. Peter Filzmoser
+> CSTAT - Computational Statistics
+> Institute of Statistics & Mathematical Methods in Economics
+> Vienna University of Technology
+> Wiedner Hauptstr. 8-10
+> 1040 Vienna, Austria
+> (DVR: 0005886)
+> Tel. +43 1 58801 10560
+> FAX +43 1 58801 105699
+> e-mail: P.Filzmoser at tuwien.ac.at
+> http://www.statistik.tuwien.ac.at/public/filz/
+> ------------------------------------------------------------
+> ------------------
+>
+> ________________________________________
+> From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of
+> Alice Domalik <adomalik at sfu.ca>
+> Sent: Thursday, September 7, 2017 3:13 AM
+> To: r-sig-robust at r-project.org
+> Subject: [RsR] robust PCA in robComposition
+>
+> I am trying to perform a robust PCA analysis on compositional data. My
+> data set includes 400 diet samples from a species of predatory fish.
+> For each sample, I have the percent of the diet that is comprised of 7
+> species of prey item. Each row sums to 100.
+>
+> sandlance rockfish salmon saury anchovy herring squid
+> 100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000
+> 100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000
+> 75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000
+>
+> I tried "pcaCoDa(diet.df)" (from the package robComposition), b ut I get
+> the following error:
+>
+>
+>
+> Error in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[,
+> 1:i]), : incorrect number of subscripts on matrix
+>
+>
+>
+>
+> What does this error mean and how can I resolve the problem?
+>
+> [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>         [[alternative HTML version deleted]]
+>
+>
+>
+> ------------------------------
+>
+> Subject: Digest Footer
+>
+> _______________________________________________
+> R-SIG-Robust mailing list
+> R-SIG-Robust at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+> ------------------------------
+>
+> End of R-SIG-Robust Digest, Vol 87, Issue 2
+> *******************************************
+>
+
+	[[alternative HTML version deleted]]
+
+
+
+From d|m@n@todorov @end|ng |rom gm@||@com  Thu Sep  7 20:29:16 2017
+From: d|m@n@todorov @end|ng |rom gm@||@com (Diman Todorov)
+Date: Thu, 07 Sep 2017 18:29:16 +0000
+Subject: [RsR] robust PCA in robComposition
+In-Reply-To: <2124604615.78038283.1504790465732.JavaMail.zimbra@sfu.ca>
+References: <632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>
+ <1504758400160.23094@tuwien.ac.at>
+ <2124604615.78038283.1504790465732.JavaMail.zimbra@sfu.ca>
+Message-ID: <CAEecyFOUrKESNQyv1QcDMgBfOu1kbVRCwHCMvZficT+vqKnHJA@mail.gmail.com>
+
+I am not sure PCA is the best approach when your data is not normally
+distributed. There are approaches to discrete PCA but ultimately you may
+want to consider alternative methods depending on what it is you are
+looking for
+
+Diman
+
+On Thu, 7 Sep 2017 at 06:21 Alice Domalik <adomalik at sfu.ca> wrote:
+
+> My data set includes lots of zeros and 100's.
+> I thought that might be the problem, but I could find anything in the
+> documentation about requirements for the data frame.
+>
+> Alice
+>
+>
+> From: "Filzmoser Peter" <peter.filzmoser at tuwien.ac.at>
+> To: "Alice Domalik" <adomalik at sfu.ca>, r-sig-robust at r-project.org
+> Sent: Wednesday, September 6, 2017 8:26:40 PM
+> Subject: Re: robust PCA in robComposition
+>
+> Hard to say without no more details about the data frame. Maybe there are
+> zeros included?
+> Best regards,
+> Peter
+>
+>
+> ------------------------------------------------------------------------------
+> Prof. Dr. Peter Filzmoser
+> CSTAT - Computational Statistics
+> Institute of Statistics & Mathematical Methods in Economics
+> Vienna University of Technology
+> Wiedner Hauptstr. 8-10
+> 1040 Vienna, Austria
+> (DVR: 0005886)
+> Tel. +43 1 58801 10560 <+43%201%205880110560>
+> FAX +43 1 58801 105699 <+43%201%2058801105699>
+> e-mail: P.Filzmoser at tuwien.ac.at
+> http://www.statistik.tuwien.ac.at/public/filz/
+>
+> ------------------------------------------------------------------------------
+>
+> ________________________________________
+> From: R-SIG-Robust <r-sig-robust-bounces at r-project.org> on behalf of
+> Alice Domalik <adomalik at sfu.ca>
+> Sent: Thursday, September 7, 2017 3:13 AM
+> To: r-sig-robust at r-project.org
+> Subject: [RsR] robust PCA in robComposition
+>
+> I am trying to perform a robust PCA analysis on compositional data. My
+> data set includes 400 diet samples from a species of predatory fish.
+> For each sample, I have the percent of the diet that is comprised of 7
+> species of prey item. Each row sums to 100.
+>
+> sandlance rockfish salmon saury anchovy herring squid
+> 100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000
+> 100.00000 0.00000 0.00000 0.00000 0 0.000000 0.00000
+> 75.00000 0.00000 0.00000 0.00000 0 25.000000 0.00000
+>
+> I tried "pcaCoDa(diet.df)" (from the package robComposition), b ut I get
+> the following error:
+>
+>
+>
+> Error in x.ilr[, i] <- sqrt((i)/(i + 1)) * log(((apply(as.matrix(x[,
+> 1:i]), : incorrect number of subscripts on matrix
+>
+>
+>
+>
+> What does this error mean and how can I resolve the problem?
+>
+> [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>         [[alternative HTML version deleted]]
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+	[[alternative HTML version deleted]]
+
+
+

@@ -1,0 +1,41 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2015-10",
+  "messages": [
+    {
+      "id": "msg-37b0ff9972cb",
+      "message_id": "<22063.49243.817162.87946@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2015-10-27T19:20:11+01:00",
+      "subject": "[RsR] question (seeds robustbase::ltsReg)",
+      "subject_clean": "[RsR] question (seeds robustbase::ltsReg)",
+      "in_reply_to": "<562A614C.8020609@wis.kuleuven.be>",
+      "references": [
+        "<CY1PR0701MB1275B0F67FB6EB7A91D9F718B1BB0@CY1PR0701MB1275.namprd07.prod.outlook.com>",
+        "<1976629323.739273.1434576332027.JavaMail.yahoo@mail.yahoo.com>",
+        "<21890.28414.170388.723918@stat.math.ethz.ch>",
+        "<562A614C.8020609@wis.kuleuven.be>"
+      ],
+      "body_plain": "I'm answering on the dedicated mailing list,\nif others are asking the same question, they my now find it here\nvia Google :\n\n>>>>> kaveh  <Kaveh.Vakili @ KU Leuven >\n>>>>>     on Fri, 23 Oct 2015 18:33:16 +0200 writes:\n\n    > Dear Prof. Maechler,\n\n    > I hope this email finds you well. I have a question about\n    > the way seeds are set in robustbase::ltsReg and I hope\n    > this is the correct way to ask it.\n\n    > It will be simpler to illustrate it with an example:\n\n    > -----------------------------------------------------------------------------------\n    > #I run a fastlts regression, say on the stackloss data:\n\n    > library(robustbase)\n    > mycont <- rrcov.control(seed=.Random.seed)\n    > lts1 <- ltsReg(stack.loss~.,data=stackloss,control=mycont)\n\n\n    > #Doing this changes the content of .Random.seed:\n    > .Random.seed[6]\n    > rm(.Random.seed);a1<-runif(1)\n    > #compare with above:\n    > .Random.seed[6]\n\n    > mycont <- rrcov.control(seed=.Random.seed)\n    > lts2 <- ltsReg(stack.loss~.,data=stackloss,control=mycont)\n\n    > #I am now expecting the fastlts fits to change a bit,\n    > since I used two different seeds. Yet, I systematically\n    > observe that:\n\n    > lts2$scale-lts1$scale\n\nis 0...\n\nEven more,\n\n  all.equal(lts1, lts2)\n\nactually confirms they are the same solutions.\n\n    > -----------------------------------------------------------------------------------\n\n    > My questions is: am I passing different seeds to lts1 and\n    > lts2 or do I not use the 'seed' function correctly?\n\nYes, you *are* passing different seeds to lts1 and lts2\n\n(and even easier is to *NOT* set any seeds here: Then, ltsReg() uses R's\n internal .Random.seed manipulation, which also gets different random\n numbers every time !!)\n\nIn this very small scale simple data set,  stackloss,\n\nmany (or most ((or all)) ?) seeds may be sufficient to find the\n\"minimal\" / \"optimal\" subset of observations (i.e., the true LTS estimate)\n\n==> hence many (or most ((or all)) ?) of the ltsReg() solutions\n    coincide for such a small simple data set.\n\n    > Thanks in advance for your time,\n\nYou are welcome!\n\nBest regards,\nMartin Maechler",
+      "body_snippet": "I'm answering on the dedicated mailing list,\nif others are asking the same question, they my now find it here\nvia Google :\n\n>>>>> kaveh  <Kaveh.Vakili @ KU Leuven >\n>>>>>     on Fri, 23 Oct 2015 18:33",
+      "thread_id": "thread-37b0ff9972cb",
+      "thread_depth": 0,
+      "month": "2015-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-37b0ff9972cb",
+      "subject": "[RsR] question (seeds robustbase::ltsReg)",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2015-10-27T19:20:11+01:00",
+      "last_reply": "2015-10-27T19:20:11+01:00",
+      "root_message_id": "msg-37b0ff9972cb"
+    }
+  ]
+}

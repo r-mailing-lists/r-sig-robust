@@ -1,0 +1,155 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2009-03",
+  "messages": [
+    {
+      "id": "msg-82bbc273f60a",
+      "message_id": "<AABCCBEC-169C-419A-829A-80C3AC889AB6@idsia.ch>",
+      "from_name": "Marco Zaffalon",
+      "from_email_hash": "130f9b955798026c5bcbc915f52f1fd9aae0ea5297a1e3bd0433f2e3dda803fc",
+      "date": "2009-03-04T14:46:22+01:00",
+      "subject": "[RsR] PhD position at IDSIA: credal networks",
+      "subject_clean": "[RsR] PhD position at IDSIA: credal networks",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "A PhD position at IDSIA (Lugano, Switzerland) is open for applications.\n\nThe position is concerned with developing theory and algorithms for  \ncredal networks. Credal networks extend Bayesian nets to deal with  \nimprecisely specified probabilities, and can be regarded as sets of  \nBayesian networks. Credal networks are used for robust inference in  \nknowledge-based systems as well as in data mining and statistics.\n\nThe position is funded by the Swiss National Science Foundation. The  \ninitial appointment will be for 3 years, with possible prolongation.  \nThe goal is to finish the PhD thesis within 3-4 years. The new PhD  \nstudent will be supervised by Marco Zaffalon, will join the IDSIA  \ngroup on imprecise probability, currently made of 5 postdocs, and will  \nbe involved in international research collaborations.\n\nThe salary is roughly 38,000 Swiss Francs per year (~= 33,000 USD ~=  \n25,500 EUR), low taxes. There is travel funding in case of papers  \naccepted at conferences. The official language at IDSIA is English.\n\nThe deadline for applications is 20 March 2009.\n\nDetails can be found here:\nhttp://www.idsia.ch/~zaffalon/positions/2009unify.html.\n\nThanks for your attention,\nMarco Zaffalon\nSenior Researcher - IDSIA",
+      "body_snippet": "A PhD position at IDSIA (Lugano, Switzerland) is open for applications.\n\nThe position is concerned with developing theory and algorithms for  \ncredal networks. Credal networks extend Bayesian nets to ",
+      "thread_id": "thread-82bbc273f60a",
+      "thread_depth": 0,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-7fcc416704be",
+      "message_id": "<hMRtlAV8.1236917404.5140250.takada@bus.osaka-cu.ac.jp>",
+      "from_name": "Teruko Takada",
+      "from_email_hash": "ad8f58a11e834c569f70d91b1e34dc9d830a1055ae5995f62aaa5b090cceb7f5",
+      "date": "2009-03-13T13:10:04+09:00",
+      "subject": "[RsR] Where can I find the source code for cov.rob?",
+      "subject_clean": "[RsR] Where can I find the source code for cov.rob?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nPlease let me know where I can find all the related\nsource codes (possibly R and C) for cov.rob()\nwhich is the function for minimum volume ellipsoid\nestimation.\n\nI found that the R function cov.rob() exhibits\nexcellent performance in analyzing the tail behavior\nof those data distributed as fat-tailed.\nTherefore, I would like to examine all the detailed\nsource codes for the computation of cov.rob().\n\nAfter installation of R binary packages,\nthe library MASS is located as R/library/MASS\nwhere all the other packages are placed.\nHowever, in the R source file packages\n(R-2.8.1.tar.gz and R-latest.tar.gz),\nthe library MASS cannot be found under the folder\nR*/src/library, where all the package\nfolders are supposed to be placed.\n\nIn the package VR, I found MASS.c and cov.trob.R.\nThough cov.rob is explained in the manual of VR,\nI cannot find the source code in the package VR.\n\nI greatly appreciate your help, in advance.\n\nBest regards,\n\np.s. This is the first time for me to submit to this\nmailing list. Please excuse me if there is any\ninappropriate things.",
+      "body_snippet": "Dear all,\n\nPlease let me know where I can find all the related\nsource codes (possibly R and C) for cov.rob()\nwhich is the function for minimum volume ellipsoid\nestimation.\n\nI found that the R function",
+      "thread_id": "thread-7fcc416704be",
+      "thread_depth": 0,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-05a88e9727b1",
+      "message_id": "<bWMdHZFi.1236924102.2733540.takada@bus.osaka-cu.ac.jp>",
+      "from_name": "Teruko Takada",
+      "from_email_hash": "ad8f58a11e834c569f70d91b1e34dc9d830a1055ae5995f62aaa5b090cceb7f5",
+      "date": "2009-03-13T15:01:42+09:00",
+      "subject": "[RsR] It is found!",
+      "subject_clean": "[RsR] It is found!",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nR definition of cov.rob is found in lqs.R in VR package.\nThank you!",
+      "body_snippet": "Dear all,\n\nR definition of cov.rob is found in lqs.R in VR package.\nThank you!",
+      "thread_id": "thread-05a88e9727b1",
+      "thread_depth": 0,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-4482b04c7841",
+      "message_id": "<4c0e456b0903130232g7dcb3c1bsaabe6778bc6c5e85@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2009-03-13T10:32:29+01:00",
+      "subject": "[RsR] It is found!",
+      "subject_clean": "[RsR] It is found!",
+      "in_reply_to": "<bWMdHZFi.1236924102.2733540.takada@bus.osaka-cu.ac.jp>",
+      "references": [
+        "<bWMdHZFi.1236924102.2733540.takada@bus.osaka-cu.ac.jp>"
+      ],
+      "body_plain": "Dear Teruko,\n\nyes, the R source code of cov.rob() is found in lqs.R in the package\nMASS which in turn is to be found in the package bundle VR, but the\nactual computations are performed by the C functions in lqs.C.\n\nBut why don't you install the package rrcov where you will find a\nfunction CovRobust() providing interface to most of the available\nalgorithms for high breakdown multivariate location and covariance,\nnamely:\n\nCovMcd(), CovSest(), CovSde(), CovOgk(), CovMest() and CovMve().\n\nIf you need more information about these methods than the provided in\nthe package as well as pointers where to find the source code, please\nwrite me.\n\n???\n\nBest regards,\n\nValentin\n\n\nOn Fri, Mar 13, 2009 at 7:01 AM, Teruko Takada\n<takada at bus.osaka-cu.ac.jp> wrote:\n>\n> Dear all,\n>\n> R definition of cov.rob is found in lqs.R in VR package.\n> Thank you!\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Dear Teruko,\n\nyes, the R source code of cov.rob() is found in lqs.R in the package\nMASS which in turn is to be found in the package bundle VR, but the\nactual computations are performed by the C functi",
+      "thread_id": "thread-05a88e9727b1",
+      "thread_depth": 1,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-fba7db3c5327",
+      "message_id": "<18874.53702.562974.926023@cmath-5.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2009-03-13T22:36:06+01:00",
+      "subject": "[RsR] Where can I find the source code for cov.rob?",
+      "subject_clean": "[RsR] Where can I find the source code for cov.rob?",
+      "in_reply_to": "<hMRtlAV8.1236917404.5140250.takada@bus.osaka-cu.ac.jp>",
+      "references": [
+        "<hMRtlAV8.1236917404.5140250.takada@bus.osaka-cu.ac.jp>"
+      ],
+      "body_plain": ">>>>> \"TT\" == Teruko Takada <takada at bus.osaka-cu.ac.jp>\n>>>>>     on Fri, 13 Mar 2009 13:10:04 +0900 (JST) writes:\n\n    TT> Dear all,\n\n    TT> Please let me know where I can find all the related\n    TT> source codes (possibly R and C) for cov.rob()\n    TT> which is the function for minimum volume ellipsoid\n    TT> estimation.\n\n    TT> I found that the R function cov.rob() exhibits\n    TT> excellent performance in analyzing the tail behavior\n    TT> of those data distributed as fat-tailed.\n    TT> Therefore, I would like to examine all the detailed\n    TT> source codes for the computation of cov.rob().\n\n    TT> After installation of R binary packages,\n    TT> the library MASS is located as R/library/MASS\n    TT> where all the other packages are placed.\n    TT> However, in the R source file packages\n    TT> (R-2.8.1.tar.gz and R-latest.tar.gz),\n    TT> the library MASS cannot be found under the folder\n    TT> R*/src/library, where all the package\n    TT> folders are supposed to be placed.\n\nwell, it can be found there, but it's wrapped a bit more than\nyou expected:\nThe 'Recommended' packages are all added in compressed form,\nand MASS is part of the VR bundle \n\n    TT> In the package VR, \n\nit's not a package : VR is a \"bundle\" of 4 packages,\none of which MASS which has the sources you want.\n\ncov.rob() -->  .C(mve_fitlots, ...)\nand the C code is in  VR/MASS/src/lqs.c \n\n\n    TT> In the package VR, I found MASS.c and cov.trob.R.\n    TT> Though cov.rob is explained in the manual of VR,\n    TT> I cannot find the source code in the package VR.\n\n    TT> I greatly appreciate your help, in advance.\n\nyou're welcome\nMartin Maechler, ETH Zurich\n\n    TT> Best regards,\n\n    TT> p.s. This is the first time for me to submit to this\n    TT> mailing list. Please excuse me if there is any\n    TT> inappropriate things.",
+      "body_snippet": ">>>>> \"TT\" == Teruko Takada <takada at bus.osaka-cu.ac.jp>\n>>>>>     on Fri, 13 Mar 2009 13:10:04 +0900 (JST) writes:\n\n    TT> Dear all,\n\n    TT> Please let me know where I can find all the related\n  ",
+      "thread_id": "thread-7fcc416704be",
+      "thread_depth": 1,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-d51e618289aa",
+      "message_id": "<OFE643ED0C.AE74A567-ON8525758A.00834A94-8525758A.00834A97@fordham.edu>",
+      "from_name": "HRISHIKESH D. VINOD",
+      "from_email_hash": "eb26ac0492bba356478866ed258419ebcb1651beef55697ed7bdf11a550f5e9d",
+      "date": "2009-03-31T19:54:03-04:00",
+      "subject": "[RsR] R-conf. New York City, June 18-19, 2009, contribute your robust model R functions",
+      "subject_clean": "[RsR] R-conf. New York City, June 18-19, 2009, contribute your robust model R functions",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi\nI believe that following info is of interest to your special interest group\nsince we welcome presentation of ideas (R-functions) dealing with\nrobust methods.  Roger Koenker is keynote speaker.\n\nConference on Quantitative Social Science Research Using R\n\nJune 18-19 (Thursday-Friday), 2009, Fordham University, 113 West 60th\nStreet, New York, NY. (next door to the Lincoln Center for Performing\nArts).\n\nConference website: http://www.cis.fordham.edu/QR2009\n\nThe conference offers opportunity to enthusiastic users of R (software and\nGraphics system) to important policy and research problems in social\nsciences to learn, meet and mingle.\n1) Speakers include authors of books and /or packages for R, published\nresearchers and editors of important journals in Statistics and social\nsciences: Andrew Gelman (Columbia), Kosuke Imai (Princeton), Roger Koenker\n(Illinois), Keith A. Markus (Columbia), Bruce D. McCullough (Drexel), H. D.\nVinod (Fordham), Achim Zeileis (Vienna)?\n2) The proceedings book will be published by Springer (publisher of Use R!\nseries) in 2009.\n3) Opportunity to present Replication / extension of published papers using\nR, poster session\n4) Opportunity to present new useful R functions (including teaching\nmaterial) poster session\n5) A tutorial cum refresher session teaching R will be given and useful\n\n\nHrishikesh (Rick) D. Vinod\nProfessor of Economics, Fordham University\nE-Mail: Vinod at fordham.edu  Tel 718-817-4065,\nSecretary 718-817-4048, Fax 718-817-3518\nWeb page:  http://www.fordham.edu/economics/vinod",
+      "body_snippet": "Hi\nI believe that following info is of interest to your special interest group\nsince we welcome presentation of ideas (R-functions) dealing with\nrobust methods.  Roger Koenker is keynote speaker.\n\nCon",
+      "thread_id": "thread-d51e618289aa",
+      "thread_depth": 0,
+      "month": "2009-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-82bbc273f60a",
+      "subject": "[RsR] PhD position at IDSIA: credal networks",
+      "message_count": 1,
+      "participants": [
+        "Marco Zaffalon"
+      ],
+      "started": "2009-03-04T14:46:22+01:00",
+      "last_reply": "2009-03-04T14:46:22+01:00",
+      "root_message_id": "msg-82bbc273f60a"
+    },
+    {
+      "id": "thread-7fcc416704be",
+      "subject": "[RsR] Where can I find the source code for cov.rob?",
+      "message_count": 2,
+      "participants": [
+        "Martin Maechler",
+        "Teruko Takada"
+      ],
+      "started": "2009-03-13T13:10:04+09:00",
+      "last_reply": "2009-03-13T22:36:06+01:00",
+      "root_message_id": "msg-7fcc416704be"
+    },
+    {
+      "id": "thread-05a88e9727b1",
+      "subject": "[RsR] It is found!",
+      "message_count": 2,
+      "participants": [
+        "Teruko Takada",
+        "Valentin Todorov"
+      ],
+      "started": "2009-03-13T15:01:42+09:00",
+      "last_reply": "2009-03-13T10:32:29+01:00",
+      "root_message_id": "msg-05a88e9727b1"
+    },
+    {
+      "id": "thread-d51e618289aa",
+      "subject": "[RsR] R-conf. New York City, June 18-19, 2009, contribute your robust model R functions",
+      "message_count": 1,
+      "participants": [
+        "HRISHIKESH D. VINOD"
+      ],
+      "started": "2009-03-31T19:54:03-04:00",
+      "last_reply": "2009-03-31T19:54:03-04:00",
+      "root_message_id": "msg-d51e618289aa"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2015-05",
+  "messages": [
+    {
+      "id": "msg-1831b54febd4",
+      "message_id": "<415226696.655238.1432329848667.JavaMail.yahoo@mail.yahoo.com>",
+      "from_name": "michael westphal",
+      "from_email_hash": "e17384a2ef7d5fe80dcd39def7370ca509d169a0409fc933310cb817d437e409",
+      "date": "2015-05-22T21:24:08Z",
+      "subject": "[RsR] Comparing OLS and robust regression",
+      "subject_clean": "[RsR] Comparing OLS and robust regression",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello:\nI am using R 3.0.2.\nI have built robust regression models with rlm, because regression diagnostic tests (Q-Q plots) indicate there are large outliers. How do I best compare the goodness of fit between robust regression and OLS? ?Does it make sense to only compare residual standard error? ?If not, what do you suggest? Thanks.\nMichael\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello:\nI am using R 3.0.2.\nI have built robust regression models with rlm, because regression diagnostic tests (Q-Q plots) indicate there are large outliers. How do I best compare the goodness of fit ",
+      "thread_id": "thread-1831b54febd4",
+      "thread_depth": 0,
+      "month": "2015-05"
+    },
+    {
+      "id": "msg-b6cde42ac6f2",
+      "message_id": "<0C52EDD1A3F3744598A6749A094A80590171753D21E1@QUANTICSSERVER.quantics.local>",
+      "from_name": "Francis Bursa",
+      "from_email_hash": "2434eab2902d5e79e869d1bccebc25031113c17d4042035f62af104fd4f3a24b",
+      "date": "2015-05-25T11:12:20+01:00",
+      "subject": "[RsR] Possible bug in rlm",
+      "subject_clean": "[RsR] Possible bug in rlm",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI think I have discovered a bug in rlm(). I have asked about this on the r-help mailing list, and also emailed Brian Ripley and Bill Venables about this directly, but have not received any replies, so I am hoping this list will be able to help.\n\n\nThe issue is the following: occasionally when there are no outliers the scale estimate can be wrong. The following code snippet is an example:\n\n\n\ndose <- c(0,1,2,0,1,2)\n\nresponse <- c(0.659,1.633,3.621,1.803,3.093,4.424)\n\nline <- c(1,1,1,2,2,2)\n\nk2 <- seq(1.5,5,by=0.01)\n\nrepNA <- rep(NA,length(k2))\n\nscale <- repNA\n\nniter <- repNA\n\nfor (i in 1:length(k2)){\n\n  rlm.fit <- rlm(response~dose+factor(line), psi=psi.huber,k=1.345,\n\n                         scale.est=\"proposal 2\",k2=k2[i])\n\n  scale[i] <- rlm.fit$s\n\n  niter[i] <- length(rlm.fit$conv)\n\n}\n\nplot(k2,scale,type=\"b\",col=niter)\n\n\n\nFor this dataset there are no outliers, so I would expect the scale to be a smooth function of k2 once k2 is reasonably large, certainly for k2 > 2. However, there is a funny jump in the scale estimate around k2 = 2.4, just at the point where the number of iterations to convergence falls from 3 to 1.\n\n\n\nLooking at the source code, it appears that on each iteration, the scale is updated, then the parameters, and then a check for convergence is carried out just for the parameters, not the scale. So I would guess that in the range around k2=2.5 convergence is being reached when in fact the scale estimate hasn't converged.\n\n\n\nI am using MASS version 7.3-33 and R version 3.1.0 on Windows.\n\n\n\nI am not sure how common this issue is but there does not seem to be anything special about my dataset so it could be quite generic. Am I right that this is a bug?\n\nMany thanks,\nFrancis Bursa\n\n------------------\nFrancis Bursa\nStatistician\n\nQuantics Consulting Ltd\n28 Drumsheugh Gardens\nEdinburgh\nEH3 7RN\n\nTelephone: +44 (0) 131 440 2781 ext 207\n\nQuantics - complex data into clear results\nQuantics is an ISO 9001 registered company\nwww.quantics.co.uk<http://www.quantics.co.uk/>\n\nPlease note that the contents of this e-mail (including any attachments) are confidential and may be legally privileged. If you are not the intended recipient you may not read, copy, distribute or make any other use of this email or its contents. If received in error, please tell us immediately by telephone on +44 (0) 131 440 2781 quoting the name of the sender and the intended recipient, then delete it from your system. Thank you.\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\n\nI think I have discovered a bug in rlm(). I have asked about this on the r-help mailing list, and also emailed Brian Ripley and Bill Venables about this directly, but have not received any rep",
+      "thread_id": "thread-b6cde42ac6f2",
+      "thread_depth": 0,
+      "month": "2015-05"
+    },
+    {
+      "id": "msg-b70a9da48898",
+      "message_id": "<55641C3D.2060700@zhaw.ch>",
+      "from_name": "Andreas Ruckstuhl",
+      "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
+      "date": "2015-05-26T09:09:49+02:00",
+      "subject": "[RsR] Comparing OLS and robust regression",
+      "subject_clean": "[RsR] Comparing OLS and robust regression",
+      "in_reply_to": "<415226696.655238.1432329848667.JavaMail.yahoo@mail.yahoo.com>",
+      "references": [
+        "<415226696.655238.1432329848667.JavaMail.yahoo@mail.yahoo.com>"
+      ],
+      "body_plain": "Dear Michael\n\nI recommend to compare the graphical residual analysis of both fits. \nThis is done best when lmrob() of the package robustbase is used because \nthen you can proceed as follows\n\nlibrary(robustbase)\nD.rlm <- lmrob(y ~ x1 + x2, data=D, setting='KS2011')\npar(mfrow=c(2,3))\nplot(D.rlm)\n\n\nIf the robust fit does not show any outliers or any other strange \nthings, the classical and the robust fit should agree. If there are \noutliers you cannot trust the output of the classical fit (i.e., \nestimated coefficients, standard errors and test results). In this case \nyou must use the results of the robust fit.\n\n\nBest regards\nAndreas\n\n\nAm 22.05.2015 um 23:24 schrieb michael westphal via R-SIG-Robust:\n> Hello:\n> I am using R 3.0.2.\n> I have built robust regression models with rlm, because regression diagnostic tests (Q-Q plots) indicate there are large outliers. How do I best compare the goodness of fit between robust regression and OLS?  Does it make sense to only compare residual standard error?  If not, what do you suggest? Thanks.\n> Michael\n>\n> \t[[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nIDP Institut f?r Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
+      "body_snippet": "Dear Michael\n\nI recommend to compare the graphical residual analysis of both fits. \nThis is done best when lmrob() of the package robustbase is used because \nthen you can proceed as follows\n\nlibrary(r",
+      "thread_id": "thread-1831b54febd4",
+      "thread_depth": 1,
+      "month": "2015-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-1831b54febd4",
+      "subject": "[RsR] Comparing OLS and robust regression",
+      "message_count": 2,
+      "participants": [
+        "Andreas Ruckstuhl",
+        "michael westphal"
+      ],
+      "started": "2015-05-22T21:24:08+00:00",
+      "last_reply": "2015-05-26T09:09:49+02:00",
+      "root_message_id": "msg-1831b54febd4"
+    },
+    {
+      "id": "thread-b6cde42ac6f2",
+      "subject": "[RsR] Possible bug in rlm",
+      "message_count": 1,
+      "participants": [
+        "Francis Bursa"
+      ],
+      "started": "2015-05-25T11:12:20+01:00",
+      "last_reply": "2015-05-25T11:12:20+01:00",
+      "root_message_id": "msg-b6cde42ac6f2"
+    }
+  ]
+}

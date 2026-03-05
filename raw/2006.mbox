@@ -1,0 +1,4678 @@
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Wed Jan 11 00:31:06 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Wed, 11 Jan 2006 00:31:06 +0100
+Subject: [RsR] Traditional vs. lattice graphics
+References: <mailman.9.1136026801.16787.r-sig-robust@r-project.org>
+	<1136048023.20398.250836441@webmail.messagingengine.com>
+Message-ID: <013501c6163d$edb62070$1b01a8c0@KILER>
+
+Thanks a lot. Actually my pragmatic question concerned the plots in rrcov,
+which I have implemented as base graphics. Since some of them are quite ugly
+(these that are multipanel, comparing classic and robust estimates) I
+implemented them with lattice/grid but never dared to release such a mixed
+version.
+
+
+
+Best regards,
+
+Valentin
+
+
+
+----- Original Message ----- 
+From: "Nicholas Lewin-Koh" <nikko at hailmail.net>
+To: <r-sig-robust at r-project.org>; "Valentin Todorov"
+<valentin.todorov at chello.at>
+Cc: "Martin Maechler" <maechler at stat.math.ethz.ch>; "Achim Zeileis"
+<Achim.Zeileis at wu-wien.ac.at>
+Sent: Saturday, December 31, 2005 5:53 PM
+Subject: Re: [RsR] Traditional vs. lattice graphics
+
+
+> Hi,
+> In general I agree with Martin and Achim except for one small point.
+> If you construct your basic plots using grid, it is very easy to
+> incorporate
+> them into a lattice framework later, since each plot can sit in a
+> viewport.
+> Even better would be to use a framework so the plot is constructed as a
+> layout
+> and a series of additions to the plot area, then it is very easy to
+> write panel functions
+> for lattice, if conditioning is desired later.
+>
+> My experience with base graphics has been that I can only go so far, and
+> I have
+> had to switch to grid in the end. Also, grid seems to integrate pretty
+> well with s4
+> classes, even though Paul used s3 classes for grid. It is very natural
+> to
+> construct s4 graphics classes with a slot for a vieport tree, and
+> various grobs.
+>
+> That's my 2c
+>
+> Cheers and happy new year
+>
+> Nicholas
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Jan 11 10:20:08 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 11 Jan 2006 10:20:08 +0100
+Subject: [RsR] Traditional vs. lattice graphics
+In-Reply-To: <013501c6163d$edb62070$1b01a8c0@KILER>
+References: <mailman.9.1136026801.16787.r-sig-robust@r-project.org>
+	<1136048023.20398.250836441@webmail.messagingengine.com>
+	<013501c6163d$edb62070$1b01a8c0@KILER>
+Message-ID: <17348.52680.803195.381731@stat.math.ethz.ch>
+
+>>>>> "Valentin" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>     on Wed, 11 Jan 2006 00:31:06 +0100 writes:
+
+    Valentin> Thanks a lot. Actually my pragmatic question
+    Valentin> concerned the plots in rrcov, which I have
+    Valentin> implemented as base graphics. Since some of them
+    Valentin> are quite ugly (these that are multipanel,
+    Valentin> comparing classic and robust estimates) I
+    Valentin> implemented them with lattice/grid but never dared
+    Valentin> to release such a mixed version.
+
+aah.  Well in such case, I'd strongly encourage use of
+grid/lattice.  Exactly because such plots are cumbersome to
+program with traditional graphics, lattice was based on the much
+more powerful grid paradigm.
+
+Martin
+
+    Valentin> ----- Original Message ----- 
+    Valentin> From: "Nicholas Lewin-Koh" <nikko at hailmail.net>
+    Valentin> To: <r-sig-robust at r-project.org>; "Valentin Todorov"
+    Valentin> <valentin.todorov at chello.at>
+    Valentin> Cc: "Martin Maechler" <maechler at stat.math.ethz.ch>; "Achim Zeileis"
+    Valentin> <Achim.Zeileis at wu-wien.ac.at>
+    Valentin> Sent: Saturday, December 31, 2005 5:53 PM
+    Valentin> Subject: Re: [RsR] Traditional vs. lattice graphics
+
+
+    >> Hi,
+    >> In general I agree with Martin and Achim except for one small point.
+    >> If you construct your basic plots using grid, it is very easy to
+    >> incorporate
+    >> them into a lattice framework later, since each plot can sit in a
+    >> viewport.
+    >> Even better would be to use a framework so the plot is constructed as a
+    >> layout
+    >> and a series of additions to the plot area, then it is very easy to
+    >> write panel functions
+    >> for lattice, if conditioning is desired later.
+    >> 
+    >> My experience with base graphics has been that I can only go so far, and
+    >> I have
+    >> had to switch to grid in the end. Also, grid seems to integrate pretty
+    >> well with s4
+    >> classes, even though Paul used s3 classes for grid. It is very natural
+    >> to
+    >> construct s4 graphics classes with a slot for a vieport tree, and
+    >> various grobs.
+    >> 
+    >> That's my 2c
+    >> 
+    >> Cheers and happy new year
+    >> 
+    >> Nicholas
+
+
+
+From c|@ud|o @end|ng |rom un|ve@|t  Wed Jan 11 12:29:15 2006
+From: c|@ud|o @end|ng |rom un|ve@|t (claudio)
+Date: Wed, 11 Jan 2006 12:29:15 +0100 (CET)
+Subject: [RsR] Gamma shape and scale
+In-Reply-To: <17300.9156.266887.251826@stat.math.ethz.ch>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+	<17300.9156.266887.251826@stat.math.ethz.ch>
+Message-ID: <Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>
+
+Dear All,
+sorry for the silly question.
+Does anyone have R code for the (plain) shape and scale Gamma 
+model using M type estimators?
+
+Thanks,
+Claudio
+
+--------------------------------------------------------------
+Claudio Agostinelli
+Dipartimento di Statistica
+Universita' Ca' Foscari di Venezia
+San Giobbe, Cannaregio 873
+30121 Venezia
+Tel: 041 2347446, Fax: 041 2347444
+email: claudio at unive.it, www: www.dst.unive.it/~claudio
+--------------------------------------------------------------
+Per favore non mandatemi allegati in Word o PowerPoint.
+Si veda http://www.gnu.org/philosophy/no-word-attachments.html
+
+Please avoid sending me Word or PowerPoint attachments.
+See http://www.gnu.org/philosophy/no-word-attachments.html
+
+
+
+From M@tth|@@@Koh| @end|ng |rom @t@m@t@@de  Wed Jan 11 16:27:39 2006
+From: M@tth|@@@Koh| @end|ng |rom @t@m@t@@de (Matthias Kohl)
+Date: Wed, 11 Jan 2006 16:27:39 +0100
+Subject: [RsR] Gamma shape and scale
+In-Reply-To: <Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>	<17296.47912.627297.777639@stat.math.ethz.ch>	<000401c5f861$b2e49c50$0100a8c0@MARONNA>	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>	<17300.9156.266887.251826@stat.math.ethz.ch>
+	<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>
+Message-ID: <43C523EB.2050406@stamats.de>
+
+Hello Claudio,
+
+my R package ROptEst can be used to compute optimally robust estimators 
+for all L2-differentiable (differentiable in quadratic mean) parametric 
+families which are based on a univariate distribution (e.g., the Gamma 
+model). You can find it under (not yet on CRAN):
+http://www.stamats.de/RobASt.htm
+You will also need the packages distr, distrEx, RandVar and evd which 
+are on CRAN.
+
+Using Linux you might get an error by R CMD check, but this is due to 
+some problems with S4 class protoypes which I haven't corrected yet and 
+which do not affect the corresponding methods you need.
+
+After the installation there is the R Skript "GammaModel.R" in the 
+directory of .../ROptEst/Scripts which might help you. Moreover, you can 
+find a short treatment of the Gamma model in Chapter 6 of my thesis
+http://www.stamats.de/ThesisMKohl.pdf
+
+Feel free to contact me directly, if you encounter problems!
+
+Kind regards,
+Matthias
+
+>Dear All,
+>sorry for the silly question.
+>Does anyone have R code for the (plain) shape and scale Gamma 
+>model using M type estimators?
+>
+>Thanks,
+>Claudio
+>
+>--------------------------------------------------------------
+>Claudio Agostinelli
+>Dipartimento di Statistica
+>Universita' Ca' Foscari di Venezia
+>San Giobbe, Cannaregio 873
+>30121 Venezia
+>Tel: 041 2347446, Fax: 041 2347444
+>email: claudio at unive.it, www: www.dst.unive.it/~claudio
+>--------------------------------------------------------------
+>Per favore non mandatemi allegati in Word o PowerPoint.
+>Si veda http://www.gnu.org/philosophy/no-word-attachments.html
+>
+>Please avoid sending me Word or PowerPoint attachments.
+>See http://www.gnu.org/philosophy/no-word-attachments.html
+>
+>_______________________________________________
+>R-SIG-Robust at r-project.org mailing list
+>https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>  
+>
+
+
+-- 
+StaMatS - Statistik + Mathematik Service
+Dr. rer. nat. Matthias Kohl
+E-Mail: matthias.kohl at stamats.de
+Home: www.stamats.de
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Wed Jan 11 16:42:45 2006
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Wed, 11 Jan 2006 07:42:45 -0800 (PST)
+Subject: [RsR] Gamma shape and scale
+In-Reply-To: <Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+	<17300.9156.266887.251826@stat.math.ethz.ch>
+	<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>
+Message-ID: <Pine.LNX.4.61.0601110738140.7213@cedar.stat.ubc.ca>
+
+
+Hi Claudio,
+
+M-estimators in Hampel et al. (1986, pp 238-257) have been implemented by 
+Alfio Marazzi. Look in:
+
+http://www.iumsp.ch/Unites/us/Alfio/msp_programmes.htm
+
+Full disclosure: these estimators were also implemented in the S-PLUS 
+robust library.
+
+Matias
+
+
+On Wed, 11 Jan 2006, claudio wrote:
+
+> Dear All,
+> sorry for the silly question.
+> Does anyone have R code for the (plain) shape and scale Gamma
+> model using M type estimators?
+>
+> Thanks,
+> Claudio
+>
+> --------------------------------------------------------------
+> Claudio Agostinelli
+> Dipartimento di Statistica
+> Universita' Ca' Foscari di Venezia
+> San Giobbe, Cannaregio 873
+> 30121 Venezia
+> Tel: 041 2347446, Fax: 041 2347444
+> email: claudio at unive.it, www: www.dst.unive.it/~claudio
+> --------------------------------------------------------------
+> Per favore non mandatemi allegati in Word o PowerPoint.
+> Si veda http://www.gnu.org/philosophy/no-word-attachments.html
+>
+> Please avoid sending me Word or PowerPoint attachments.
+> See http://www.gnu.org/philosophy/no-word-attachments.html
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Jan 19 18:30:34 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 19 Jan 2006 18:30:34 +0100
+Subject: [RsR] function naming for "robust ..."
+In-Reply-To: <17322.35378.533261.42930@stat.math.ethz.ch>
+References: <43A93E9C.2060708@tuwien.ac.at> <43A9D23B.2030207@stat.ubc.ca>
+	<17322.35378.533261.42930@stat.math.ethz.ch>
+Message-ID: <17359.52410.239037.391030@stat.math.ethz.ch>
+
+I'm finally taking up this thread from before Christmas:
+
+>>>>> "MMa" == Martin Maechler <maechler at stat.math.ethz.ch>
+>>>>>     on Thu, 22 Dec 2005 12:12:50 +0100 writes:
+
+>>>>> "Matias" == Matias Salibian-Barrera <matias at stat.ubc.ca>
+>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:
+
+    MMa> .........
+
+    Matias> A few days ago I uploaded the package "roblm" to CRAN.
+    Matias> ........
+
+    Matias> Note that the name of the package (and the
+    Matias> corresponding class) is "roblm", but this does not
+    Matias> mean that I necessarily prefer this name over
+    Matias> others. I've been working on this for some time now,
+    Matias> and for the reasons that I mentioned in Treviso
+    Matias> ("rlm" and "lmRob" are already taken) I settled for
+    Matias> roblm.
+
+    MMa> yes. In Treviso, we had talked about trying to go for "rlm" and
+    MMa> I had offered to try to resolve the name clash with MASS::rlm().
+    MMa> I now think that this may not be a good idea:  rlm()
+    MMa> in MASS is really relatively prominent in the MASS book with
+    MMa> years of tradition, and usage in many places.  Also its default
+    MMa> method is "M", not "MM" { for a good reason: back compatibility
+    MMa> with older versions of rlm()}.
+    MMa> Hence our new  (robust|rob|rf|r)lm(Rob) function would never be
+    MMa> 'call-compatible' to MASS::rlm() and for that reason I think we
+    MMa> should strive for a different naming scheme.
+
+    MMa> Andreas Ruckstuhl had raised the point already at Treviso, and
+    MMa> on this list (Dec 7, "Re: [RsR] OGK covariance estimator") where
+    MMa> he'd proposed
+    MMa> r*   [as 'rlm' in MASS]
+    MMa> rob* [as 'roblm' above]
+    MMa> rf*  ["[R]obust [F]itting of ..", used in Andreas' package]
+
+    MMa> The last one may be a bit more logical than all the others,
+    MMa> since in one sense there's just one linear model with different
+    MMa> fitting methodologies, since in fact,
+    MMa> the error distribution hasn't been part of the
+    MMa> model specification __for most statistical software__
+
+    MMa> OTOH, "rob" is easy to pronounce/spell
+    MMa> [OTOH, there's all the people called 'Rob' ...]
+
+    MMa> As you can guess, from Andreas' list, I'd either take
+    MMa> 'rob*' or 'rf*' and don't have strong preference.
+
+In the mean time, I have talked with Andreas, and he has agreed
+to go for 'rob*' rather than 'rf*' which he preferred for good
+reasons.
+
+Since there were no further comments or suggestions,
+I think we've settled to adopt the 
+   prefix  'rob'
+
+for 'robustifying' functions like  'lm', 'glm'  etc, hence will
+have roblm(), robglm() ..
+
+==> We (well, Andreas, Mat?as and I, to a large extent) can now
+collaborate on moving parts of Matias' "roblm" and Andreas'
+unpublished "RobFit" package to  robustbase,
+using function names roblm() and robglm() returning objects of
+class 'roblm' or 'robglm'. 
+
+Ideas and suggestions on this topic are very welcome!
+
+The question how to adopt good function names for a
+robustified cov() is a bit less trivial, 
+since
+
+  1) there are even more methods around
+
+  2) in S and R, there have been diverging traditions to call these:
+    MASS has  cov.rob() but also cov.trob() cov.mcd(), cov.mve()
+    where only the latter two are called from cov.rob()
+
+  3) Of course, the "." convention is somewhat deprecated currently
+     {since it leads to confusion with S3 method definitions}.
+
+I think our aim should be to go for
+robcov() eventually with many possible 'method = "...."'
+-------- arguments 
+and also   probably have it return an S4 class object, along the
+line the working group "Multivariate" in Treviso has proposed
+it.
+OTOH, I'd also like to add Valentin's good  covMcd() {and also ltsReg()}
+function to the  "robustbase" package as soon as possible,
+and currently I'd propose to just keep covMcd() "as is"
+and later have	  
+    robcov(*, method = "MCD")		or rather
+    robcov(*, method = "fastMCD1999") 
+call Valentin's  covMcd()  
+Apropos the method name: Now that I've seen the algorithm again,
+I'm pretty much convinced that we'd see new (at least slightly
+new)  fast MCDs in the future...
+
+BTW, there is draft version 0.0-1 of "robustbase"
+around (and inspectable from https://svn.r-project.org/R-packages/)
+which in particular has many data sets to be used as examples;
+most of them from Valentin Todorov, but also Rousseeuw/Croux'
+Sn() and Qn() and the OGK cov.estimator, basically the code from
+Kjell Konis. 
+
+I plan to make the package also available 
+>>> as source package only <<<  (i.e. *.tar.gz) 
+for those who know how to install packages from the source
+in order to get comment;
+Since there are too many ``TO DO'' in there, I think it should
+initially not go to CRAN, because once it is widely used, we
+cannot easily modify the API (function arguments and result values/classes)
+any more. OTOH, there are good reasons to aim for a CRAN version of the
+package for spring, where even then it will probably still be 
+version 0.x-y.
+
+Martin Maechler,
+ETH Zurich
+
+
+
+From c|@ud|o @end|ng |rom un|ve@|t  Fri Jan 20 12:50:43 2006
+From: c|@ud|o @end|ng |rom un|ve@|t (claudio)
+Date: Fri, 20 Jan 2006 12:50:43 +0100 (CET)
+Subject: [RsR] function naming for "robust ..."
+Message-ID: <Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>
+
+Ciao Martin,
+
+I would like, progressively, standardize my package 'wle' with the standard of 
+robustbase. If think, for me, the easy way is to start with lm function (since 
+you (you, matias and andreas) are working on roblm).
+
+Are you thinking of a mechanism, like roblm(*, method="MM"), in this case there 
+are any way for R to register "method" from other package once loaded, so that, 
+for instance, we can have, automatically, roblm(*, method="WL") for my 
+function? i.e., for the final user:
+
+> library(robustbase)
+> roblm(*, method="WL") Error: method "WL" for "roblm" not found
+> library(wle) # new version of the library
+> roblm(*, method="WL") # now it works
+.....
+
+Otherwise, what kind of convention should I use for the name:
+roblmwle
+robwlelm
+
+This is a potential problem for extending the functions to any other new method 
+available in the future. What is your suggestion?
+
+Claudio
+
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Fri Jan 20 14:55:15 2006
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Werner Stahel)
+Date: Fri, 20 Jan 2006 14:55:15 +0100
+Subject: [RsR] names for robust fitting functions
+Message-ID: <17360.60355.748034.739093@stat.math.ethz.ch>
+
+Dear all
+
+A late contribution to the discussion about names:
+I personally prefer if the most important characteristic of a
+function leads to the frist part of the name. As a nice effect,
+this leads to a meaningful grouping in alphabetic order.
+
+The important characteristic is the model or problem. Therefore,
+I prefer 
+lmrob  to  roblm
+Even though lmRob is taken by S-Plus, lmrob is still new. I do
+not know if  covrob  is taken more often than  robcov .
+Sorry for opening the question again ...
+
+Best regards
+
+Werner Stahel
+----------------- This message was sent by ---------------------------
+Werner Stahel                              http://stat.ethz.ch/~stahel
+Seminar fuer Statistik                     phone  :    +41 1 632 34 30
+ETH-Zentrum, LEO D8                        fax    :    +41 1 632 12 28
+CH-8092 Zurich, Switzerland                meet me: Leonhardstr.27, D8
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Jan 20 22:38:51 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 20 Jan 2006 22:38:51 +0100
+Subject: [RsR] function naming for "robust ..."
+In-Reply-To: <Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>
+References: <Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>
+Message-ID: <17361.22635.911892.563447@stat.math.ethz.ch>
+
+>>>>> "Claudio" == Claudio Agostinelli <claudio at unive.it>
+>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:
+
+    Claudio> Ciao Martin, I would like, progressively,
+    Claudio> standardize my package 'wle' with the standard of
+    Claudio> robustbase. If think, for me, the easy way is to
+    Claudio> start with lm function (since you (you, matias and
+    Claudio> andreas) are working on roblm).
+
+and robglm() / glmrob()  {taking up Werner's naming suggestion
+which I find very worth of consideration -- other takers, please.. ?}
+
+    Claudio> Are you thinking of a mechanism, like roblm(*,
+    Claudio> method="MM"), in this case there are any way for R
+    Claudio> to register "method" from other package once
+    Claudio> loaded, so that, for instance, we can have,
+    Claudio> automatically, roblm(*, method="WL") for my
+    Claudio> function? i.e., for the final user:
+
+    >> library(robustbase)
+    >> roblm(*, method="WL") Error: method "WL" for "roblm" not found
+    >> library(wle) # new version of the library
+    >> roblm(*, method="WL") # now it works
+
+
+    Claudio> Otherwise, what kind of convention should I use for the name:
+    Claudio> roblmwle
+    Claudio> robwlelm
+
+Thank you for the interesting and very relevant question!
+
+Indeed, "robustbase" itself should not contain all possible
+methods, but rather just the 'base', and particular we had
+agreed for the time being to focus on the methodology of the MMY
+book.
+
+OTOH, it makes very much sense to allow and encourage
+``plugins'' from other packages {that will have a 'Depends: robustbase'}.
+
+    Claudio> This is a potential problem for extending the functions to any other new method 
+    Claudio> available in the future. What is your suggestion?
+
+well I hope we will converge some time in the future on how to
+do robust linear regression .. :-) {well for  p > n, we probably
+still have slack ...}
+In any case, I think it's a very good idea to allow for
+plugins, and I also agree that we should do this by a naming
+convention.
+
+In some cases, we (the community of S programmers) have used the
+convention to call the plugin for method <Meth> to function
+<Func>  " <Func>.<Meth> "  where I think we should nowadays most
+probably use  <Func>_<Meth>
+this would give  lmrob_wle() or roblm_wle()  for your plugin
+function.
+But note that we will not only have to agree on the naming
+scheme, but also on exactly what arguments the function must
+accept (it can have further optional ones) and what exactly its
+return value has to look like.
+But I think it's too early to get into these details already
+now. 
+
+Martin
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Tue Jan 31 00:26:14 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Tue, 31 Jan 2006 00:26:14 +0100
+Subject: [RsR]  synchronization with contributing packages
+References: <Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>
+	<17361.22635.911892.563447@stat.math.ethz.ch>
+Message-ID: <025d01c625f4$903295c0$1b01a8c0@KILER>
+
+Dear All,
+
+after returning home from the Robcla'2006 workshop in Florence (thanks,
+Marko), I would like to continue here a discussion that we started with
+Martin (in German). We think that more opinions are necessary.
+
+What happens with packages that contribute to robustbase, at least now, in
+the early stages?
+When, at what stage of maturity of robustbase,  should the contributed code
+be removed from the other packages and they have to rely on 'Depends:
+robustbase'?
+
+Best regards,
+Valentin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Jan 31 18:12:52 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 31 Jan 2006 18:12:52 +0100
+Subject: [RsR] synchronization with contributing packages
+In-Reply-To: <025d01c625f4$903295c0$1b01a8c0@KILER>
+References: <Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>
+Message-ID: <17375.39572.244559.449913@stat.math.ethz.ch>
+
+>>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:
+
+    ValenT> Dear All, after returning home from the Robcla'2006
+    ValenT> workshop in Florence (thanks, Marko), I would like
+    ValenT> to continue here a discussion that we started with
+    ValenT> Martin (in German). We think that more opinions are
+    ValenT> necessary.
+
+and we are still waiting...
+
+    ValenT> What happens with packages that contribute to
+    ValenT> robustbase, at least now, in the early stages?
+
+    ValenT> When, at what stage of maturity of robustbase,
+    ValenT> should the contributed code be removed from the
+    ValenT> other packages and they have to rely on 
+    ValenT> 'Depends: robustbase'?
+
+In theory, the code that has been moved to robustbase could be
+stripped from the other package immediately after a new version
+(that contains the "moved functionality") of 'robustbase' is
+released to CRAN and available from there both in source and
+(MacOSX + Windows) binary formats.
+
+This theory works when people use
+   install.packages(...., dependencies = TRUE)
+and because in windows (and I think Mac OSX), the menus
+"Packages" -> "install packages" uses the ``dependencies = TRUE'' setting.
+
+In practice, I would aim for a more pragmatic solution;
+e.g., after the appearance of the new version of robustbase, 
+wait for several weeks before stripping the functionality from
+your package.  Well actually, as package author, you can do it
+immediately in your sources, but only release a new version of
+your package to CRAN after a certain amount of time.
+
+Martin
+
+And yes, as Valentin, I am very much interested to hear what
+others think...
+
+
+
+From c|@ud|o @end|ng |rom un|ve@|t  Wed Feb  1 11:32:24 2006
+From: c|@ud|o @end|ng |rom un|ve@|t (claudio)
+Date: Wed, 1 Feb 2006 11:32:24 +0100 (CET)
+Subject: [RsR] useR! conference deadline
+In-Reply-To: <17375.39572.244559.449913@stat.math.ethz.ch>
+References: <Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>
+	<17375.39572.244559.449913@stat.math.ethz.ch>
+Message-ID: <Pine.LNX.4.64.0602011032270.6661@vivaldi.dst.unive.it>
+
+Dear All (sorry for possible cross posting),
+
+The submission deadline for `useR! 2006', the second R user conference to be
+held in Vienna June 15-17 2006, is only three weeks ahead. Now is the 
+perfect time to submit abstracts for user-contributed sessions!
+
+The sessions will be a platform to bring together R users, contributers,
+package maintainers and developers in the S spirit that `users are developers'.
+People from different fields will show us how they solve problems
+with R in fascinating applications, including
+   - Applied Statistics & Biostatistics
+   - Bayesian Statistics
+   - Bioinformatics
+   - Econometrics & Finance
+   - Machine Learning
+   - Marketing
+   - ROBUST STATISTICS
+   - Spatial Statistics
+   - Statistics in the Social and Political Sciences
+   - Teaching
+   - Visualization & Graphics
+   - and many more.
+
+I invite all in this mailing list to submit abstracts on topics presenting 
+innovations or exciting applications of R, especially in the field of 
+Robust Statistics. A web page offering more information on the `useR!' 
+conference, abstract submission, registration and Vienna is available at
+
+   http://www.R-project.org/useR-2006/
+
+The deadline for submissions is February 28, 2006.
+
+Best and I hope to see you in Vienna,
+Claudio Agostinelli
+
+--------------------------------------------------------------
+Claudio Agostinelli
+Dipartimento di Statistica
+Universita' Ca' Foscari di Venezia
+San Giobbe, Cannaregio 873
+30121 Venezia
+Tel: 041 2347446, Fax: 041 2347444
+email: claudio at unive.it, www: www.dst.unive.it/~claudio
+--------------------------------------------------------------
+Per favore non mandatemi allegati in Word o PowerPoint.
+Si veda http://www.gnu.org/philosophy/no-word-attachments.html
+
+Please avoid sending me Word or PowerPoint attachments.
+See http://www.gnu.org/philosophy/no-word-attachments.html
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Wed Feb  1 16:07:42 2006
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Wed, 1 Feb 2006 07:07:42 -0800 (PST)
+Subject: [RsR] synchronization with contributing packages
+In-Reply-To: <17375.39572.244559.449913@stat.math.ethz.ch>
+Message-ID: <Pine.GSO.4.10.10602010702140.14678-100000@hajek.stat.ubc.ca>
+
+
+I agree with the more pragmatic approach suggested by Martin: one waits
+for a reasonably stable robustbase version that includes the code in
+question, and then the original package is made to depend on robustbase
+(or cease to exist if it has been included completely).
+
+Matias
+
+
+On Tue, 31 Jan 2006, Martin Maechler wrote:
+
+> >>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+> >>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:
+>
+[snip] 
+>     ValenT> When, at what stage of maturity of robustbase,
+>     ValenT> should the contributed code be removed from the
+>     ValenT> other packages and they have to rely on 
+>     ValenT> 'Depends: robustbase'?
+> 
+[snip]
+>
+> In practice, I would aim for a more pragmatic solution;
+> e.g., after the appearance of the new version of robustbase, 
+> wait for several weeks before stripping the functionality from
+> your package.  Well actually, as package author, you can do it
+> immediately in your sources, but only release a new version of
+> your package to CRAN after a certain amount of time.
+> 
+> Martin
+> 
+> And yes, as Valentin, I am very much interested to hear what
+> others think...
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From kon|@ @end|ng |rom @t@t@@ox@@c@uk  Wed Feb  1 16:51:21 2006
+From: kon|@ @end|ng |rom @t@t@@ox@@c@uk (Kjell Konis)
+Date: Wed, 1 Feb 2006 15:51:21 +0000
+Subject: [RsR] your talk at Robcla
+In-Reply-To: <4c0e456b0601310656t31be7330mef504fb16c97acd3@mail.gmail.com>
+References: <4c0e456b0601310656t31be7330mef504fb16c97acd3@mail.gmail.com>
+Message-ID: <493B0518-D679-42B4-80C7-48C0F54DD208@stats.ox.ac.uk>
+
+Hi Valentin,
+
+You can find a copy of the slides from my talk at ROBCLA 2006 here:
+
+   http://www.stats.ox.ac.uk/~konis/robust/ROBCLA2006-konis.pdf
+
+(they are quite similar to the first third of my RSR talk).
+
+Kjell
+
+
+On Jan 31, 2006, at 2:56 PM, Valentin Todorov wrote:
+
+> Dear Kjell,
+>
+> Hope that you had nice time in Piacenza and an easy trip home. Or are
+> you still en route?
+>
+> When I talked with several people that were not in Florence, I got the
+> impression that there is a substantial interest in your talk. I wonder
+> if you could post it on RSR. This could set off also an interesting
+> discussion. I do not know if Marko is going to publish the talks on
+> the Robcla site.
+>
+> Best regards,
+> Valentin
+>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Feb  1 19:17:31 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 1 Feb 2006 19:17:31 +0100
+Subject: [RsR] function naming for "robust ..."
+In-Reply-To: <17361.22635.911892.563447@stat.math.ethz.ch>
+References: <Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>
+	<17361.22635.911892.563447@stat.math.ethz.ch>
+Message-ID: <17376.64315.269821.239928@stat.math.ethz.ch>
+
+>>>>> "Martin" == Martin Maechler <maechler at stat.math.ethz.ch>
+>>>>>     on Fri, 20 Jan 2006 22:38:51 +0100 writes:
+
+>>>>> "Claudio" == Claudio Agostinelli <claudio at unive.it>
+>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:
+
+    Claudio> Ciao Martin, I would like, progressively,
+    Claudio> standardize my package 'wle' with the standard of
+    Claudio> robustbase. If think, for me, the easy way is to
+    Claudio> start with lm function (since you (you, matias and
+    Claudio> andreas) are working on roblm).
+
+    Martin> and robglm() / glmrob()  {taking up Werner's naming suggestion
+    Martin> which I find very worth of consideration -- other takers, please.. ?}
+I did not get a reaction on the above,
+nor did Werner on his original question.
+
+Valentin answered to me in private that he also prefers to use 
+a suffix instead of a prefix in this case, i.e.,
+*appending*  'rob'  rather than
+*prepending* it to other function names.
+
+Since I really would like to go ahead and incorporate some more
+functionality, 
+ - notably robust-glm from Andreas (and Eva and..),
+ - but probably also soon the main "fast" functions from
+   Valentin's "rrcov" package
+ - and hopefully also soon the 'robust lm' from Matias' "roblm"
+
+it is really important to have a decision here.
+Should it be
+   1) rob<Method>   or
+   2) <Method>rob   ?
+
+I currently count 3 votes for "2)", namely Werner's (who proposed it),
+mine and Valentin's.
+
+Maybe we don't really need another formal voting...
+
+Martin Maechler, ETH Zurich
+
+PS: I will be at the useR'2006 as well, and yes, it would be
+    great to have enough "mass" there for a "robustness" part...
+
+
+
+From rk@ @end|ng |rom zhw|n@ch  Wed Feb  1 19:23:10 2006
+From: rk@ @end|ng |rom zhw|n@ch (Ruckstuhl Andreas (rks))
+Date: Wed, 1 Feb 2006 19:23:10 +0100
+Subject: [RsR] synchronization with contributing packages
+Message-ID: <B7C02093A9C6FB47B417FC3FAB0D721403697D@langouste.zhwin.ch>
+
+
+I agree with the more pragmatic approach suggested by Martin and supported by Matias as well.
+
+All the best
+Andreas
+
+>> -----Urspr?ngliche Nachricht-----
+>> Von: r-sig-robust-bounces at r-project.org 
+>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von 
+>> Matias Salibian-Barrera
+>> Gesendet: Mittwoch, 1. Februar 2006 16:08
+>> An: r-sig-robust at stat.math.ethz.ch
+>> Betreff: Re: [RsR] synchronization with contributing packages
+>> 
+>> 
+>> 
+>> I agree with the more pragmatic approach suggested by 
+>> Martin: one waits
+>> for a reasonably stable robustbase version that includes the code in
+>> question, and then the original package is made to depend on 
+>> robustbase
+>> (or cease to exist if it has been included completely).
+>> 
+>> Matias
+>> 
+>> 
+>> On Tue, 31 Jan 2006, Martin Maechler wrote:
+>> 
+>> > >>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+>> > >>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:
+>> >
+>> [snip] 
+>> >     ValenT> When, at what stage of maturity of robustbase,
+>> >     ValenT> should the contributed code be removed from the
+>> >     ValenT> other packages and they have to rely on 
+>> >     ValenT> 'Depends: robustbase'?
+>> > 
+>> [snip]
+>> >
+>> > In practice, I would aim for a more pragmatic solution;
+>> > e.g., after the appearance of the new version of robustbase, 
+>> > wait for several weeks before stripping the functionality from
+>> > your package.  Well actually, as package author, you can do it
+>> > immediately in your sources, but only release a new version of
+>> > your package to CRAN after a certain amount of time.
+>> > 
+>> > Martin
+>> > 
+>> > And yes, as Valentin, I am very much interested to hear what
+>> > others think...
+>> > 
+>> > _______________________________________________
+>> > R-SIG-Robust at r-project.org mailing list
+>> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>> >
+>> 
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>
+
+
+
+From P@F||zmo@er @end|ng |rom tuw|en@@c@@t  Thu Feb  2 08:03:12 2006
+From: P@F||zmo@er @end|ng |rom tuw|en@@c@@t (Peter Filzmoser)
+Date: Thu, 02 Feb 2006 08:03:12 +0100
+Subject: [RsR] robustbase, names
+Message-ID: <43E1AEB0.3000700@tuwien.ac.at>
+
+I understand that moving functions to robustbase is only
+meant for "basic" functions, and not for more specialized
+methods. Eg. I don't think it would make much sense to
+merge the package mvoutlier into robustbase.
+In that case the pragmatic proposal of Martin is fine.
+
+Concerning names: Both variants are attractive:
+1) With "rob"... we can easiliy see which functions exist
+on robustness. However, this might be more interesting
+for "robustnics".
+2) With ..."rob" it is easier for the user to guess the
+"robustified" version of what he/she is using all the
+time.
+Since robustnics are well informed about the progress
+of "Robustness and R" ;-) I would prefer the second variant.
+
+Yes and - sure, I will also come to useR! and send an
+abstract.
+
+Best regards,
+Peter
+
+-------------------------------------------------------
+From: Peter Filzmoser
+       E-mail: P.Filzmoser at tuwien.ac.at
+       Internet:
+       http://www.statistik.tuwien.ac.at/public/filz/
+
+
+
+From c|@ud|o @end|ng |rom un|ve@|t  Thu Feb  2 11:19:08 2006
+From: c|@ud|o @end|ng |rom un|ve@|t (claudio)
+Date: Thu, 2 Feb 2006 11:19:08 +0100 (CET)
+Subject: [RsR] robustbase, names
+In-Reply-To: <43E1AEB0.3000700@tuwien.ac.at>
+References: <43E1AEB0.3000700@tuwien.ac.at>
+Message-ID: <Pine.LNX.4.64.0602021107000.10140@vivaldi.dst.unive.it>
+
+On Thu, 2 Feb 2006, Peter Filzmoser wrote:
+
+> I understand that moving functions to robustbase is only
+> meant for "basic" functions, and not for more specialized
+> methods. Eg. I don't think it would make much sense to
+> merge the package mvoutlier into robustbase.
+> In that case the pragmatic proposal of Martin is fine.
+
+I agree with the pragmatic proposal of Martin. Perhaps, there could be a 
+warning message when the old package is load (or in robustbase or in 
+both) that say something along the lines:
+
+the function FUNCTION is moving from package PACKAGE to package robustbase 
+in the next version, please use the function in the robustbase package for 
+your code.
+
+Followed perhaps by a list of changed in the function call like 
+equivalence between arguments
+
+> Concerning names: Both variants are attractive:
+> 1) With "rob"... we can easiliy see which functions exist
+> on robustness. However, this might be more interesting
+> for "robustnics".
+> 2) With ..."rob" it is easier for the user to guess the
+> "robustified" version of what he/she is using all the
+> time.
+> Since robustnics are well informed about the progress
+> of "Robustness and R" ;-) I would prefer the second variant.
+
+I will prefere the second variant too, also because, you could have
+
+covrobfoo (for a robust method foo in robust covariance estimate)
+
+and
+
+lmortho (for orthogonal regression in linear model)
+
+and
+
+lmorthorob (for robust method on orthogonal regression in linear model)
+
+And as Peter said: Yes and - sure, I will also come to useR! and send an 
+abstract.
+
+Claudio
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Feb 10 14:14:14 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 10 Feb 2006 14:14:14 +0100
+Subject: [RsR] Package 'robustbase' available from CRAN
+Message-ID: <17388.37286.225638.71351@stat.math.ethz.ch>
+
+Dear "robust R users",
+
+Yesterday, I have uploaded the first public version (0.1-2) of
+the 'robustbase' package to CRAN.  It has appeared on the CRAN
+master (in Vienna) and will propagate to the mirror sites within
+a few days at most. For Windows users, the *binary* version of
+the package will also hopefully become available till after the
+weekend.
+
+Since I'll be vacationing for a bit more than a week (and then
+be busy with other duties), I've wanted to make this available
+in time, for your feedback and usage.
+Currently,  packageDescription("robustbase") contains
+
+  NOTE: SEVERAL PARTS ARE STILL PRELIMINARY AND MAY BE
+	CHANGED IN THE FUTURE. THIS TYPICALLY INCLUDES
+	ARGUMENT NAMES, DEFAULTS FOR ARGUMENTS AND RETURN
+	VALUES.
+
+for good reasons.  This is also remarked on some of the help
+pages (but not on all where it should be!)
+
+
+Content:  
+--------
+
+ 1) Many data sets, particularly from the book of Rousseeuw &
+  Leroy, mostly thanks to Valentin Todorov; all of them with
+  nice help pages :
+
+     > data(package = "robustbase")
+     Data sets in package $,1rx(Brobustbase$,1ry(B:
+
+     Animals2              Brain and Body Weights for 65 Species of
+			   Land Animals
+     SiegelsEx             Siegel's Exact Fit Example Data
+     aircraft              Aircraft Data
+     airmay                Air Quality Data
+     bushfire              Campbell Bushfire Data
+     carrots               Insect Damages on Carrots
+     cloud                 Cloud point of a Liquid
+     coleman               Coleman Data Set
+     delivery              Delivery Time Data
+     education             Education Expenditure Data
+     epilepsy              Epilepsy Attacks Data Set
+     exAM                  Example Data of Antille and May - for Simple
+			   Regression
+     hbk                   Hawkins, Bradu, Kass's Artificial Data
+     heart                 Heart Catherization Data
+     lactic                Lactic Acid Concentration Measurement Data
+     milk                  Daudin's Milk Composition Data
+     pension               Pension Funds Data
+     phosphor              Phosphorus Content Data
+     pilot                 Pilot-Plant Data
+     salinity              Salinity Data
+     starsCYG              Hertzsprung-Russell Diagram Data of Star
+			   Cluster CYG OB1
+     telef                 Number of International Calls from Belgium
+     vaso                  Vaso Constriction Data Set
+     wood                  Modified Data on Wood Specific Gravity
+
+  I strongly recommend that you start using these datasets in
+  your packages and scripts even if you don't use 'robustbase'
+  there yet.  
+  To use a dataset from another package, you don't need to
+  attach nor load that package; it's sufficient to say, e.g.,
+
+     data(wood, package = "robustbase") 
+
+ 2) covMcd() and covLts()  as they were in a version of
+    Valentin's "rrcov" package several weeks ago; these are
+    slightly older than in the very newest version of 'rrcov'.
+    However, that will probably change with next release of
+    'robustbase', hopefully within less than a month.
+
+ 3) New functionality that hasn't been available in "public" R
+    packages till now :
+
+    - glmrob()  {by Andreas Ruckstuhl, based on Eva Cantoni's
+		  work for S-plus (and a tiny bit of my) }
+
+        for robust Binomial (inkl. Bernoulli/Binary) and Poisson
+        GLMs, including model selection based on quasi deviance differences.
+
+    - Qn() and Sn()  scale estimates by Rousseeuw & Croux
+	   [50% breakdown but considerably more efficient than MAD]; 
+	   based on their S-plus + Fortran code; ported to R by me.
+
+    - covOGK():  The orthogonalized Gnanadesikan-Kettering
+	 estimate for "fast" "high-dimensional" cov-estimation,
+	 by Maronna & Zamar (2002); based on the code from Kjell Konis.
+	 This includes their univariate tau-estimate, I've
+	 called 'scaleTau2()' {since there's a different
+	 scaleTau() in other places}. However, that tau-estimate
+	 currently lacks a consistency correction factor. 
+	 Hence covOGK() is not consistent (by a constant factor,
+	 so still useful for correlations).
+	 THIS will DEFINITELY change in the future!
+
+    - nlrob()  for robust non-linear regression; this a
+	slightly enhanced version of what has been
+	available as 'rnls()' from package 'sfsmisc'. 
+        Also based mainly on Andreas Ruckstuhl's work.
+
+  4) Somewhat experimental code for an S4 class of
+     "psi-function" objects.
+
+
+
+Near-term plans for 'robustbase' include:
+---------------
+(within one-two months?)
+
+ - Porting work of Matias Salibian-Barrera for
+   fast high breakdown robust linear regression (via
+   MM-estimators).  Based on the fastLTS and hopefully a
+   fast regression S-estimator.
+
+ - cleanup of "psi function"-class and making use of it for
+   glmrob() {and lmrob() when that exists}.
+
+ - improvements for covMcd() and ltsReg() by Valentin
+
+ - univariate tau-estimates for scale, *including* consistency
+   correction factors; here, I'll be glad for your input
+   (containing code)
+
+ - Implement and discuss ``the'' S4 class of (robust)
+   multivariate-scatter+location estimates; probably
+   based on input from the working group "multivariate" in Treviso
+   (http://www.econ.kuleuven.be/public/NDBAE49/R/Rmultivariate.pdf);
+   but that needs more details, and probably would benefit from
+   discussion maybe on this mailing list.
+
+ - Related to the above: start using a  "universal"  covrob()
+   function that will have a 'method' argument; 
+   e.g., with method = "MCD" / "OGK" to call the ``lower level''
+   covMcd() & covOGK() functions.    
+   {I think the Treviso working group "multivariate" called this function
+    covCenter() ??}.
+   This will return an S4 object inheriting from but typically
+   extending the new S4 class (of last paragraph).
+   
+
+
+For mid- and longer term, there's much more of course. 
+I still hope that we can go along our original goal of receiving
+all data sets and quite a bit of code that ``go along'' with the
+upcoming Maronna-Martin-Yohai book.
+I expect quite a bit of it will depend on what happens
+exactly with the "robust" package project of Kjell Konis (and
+Insightful); in particular, with what licence that will appear.
+
+
+Martin Maechler, ETH Zurich
+
+
+
+From c|@ud|o @end|ng |rom un|ve@|t  Tue Feb 21 14:48:34 2006
+From: c|@ud|o @end|ng |rom un|ve@|t (claudio)
+Date: Tue, 21 Feb 2006 14:48:34 +0100 (CET)
+Subject: [RsR] Special Issue on Robust Statistics in SMA journal
+Message-ID: <Pine.LNX.4.64.0602211445150.9059@vivaldi.dst.unive.it>
+
+Dear All,
+
+Matilde Bini asked me to forward the message below to the list. Sorry for 
+possible cross-posting.
+
+Claudio
+_____________________________________________________________
+
+CALL FOR PAPERS
+
+STATISTICAL METHODS & APPLICATIONS - JISS
+
+Thematic Issue on "Robust multivariate statistical methods"
+
+http://www.springer.com/sgw/cda/frontpage/0,11855,5-10128-70-1169174-0,00.html
+
+The objective of this thematic issue is to be a forum for new developments
+and applications of robust statistical methods for multivariate data.
+
+The contributions to theoretical as well as applied statistics dealing with
+ROBUST STATISTICS are welcome. The following areas are mentioned, but other
+related topics are welcome as well.
+
+Concepts and theory of robust statistics
+Nonparametric methods; nonparametric and semiparametric models
+Multivariate analysis
+Data depth
+Statistical computing, graphics and data mining
+Regression quantile
+Linear and generalized linear models; mixed models
+Biostatistics
+Statistical methods in signal processing
+Statistical methods in business and finance
+Statistics in bioinformatics
+Asymptotic theory and efficiency
+
+The first paper will be written by
+Stephan Morghentaler
+Mathematics Department,
+Ecole Polytechnique F?d?rale,
+Lausanne, Switzerland
+
+and will deal with the state of the art of robust statistics.
+
+The DEADLINE for submissions is April 30, 2006.
+
+The papers must contain original unpublished work that is not being
+submitted for publication elsewhere. Manuscripts submitted to this
+special issue will be refereed according to standard procedures for
+Statistical Methods and Applications
+
+The editorial process is expected to proceed rapidly thereafter
+(Expected decision date is August 30, 2006).
+Submission electronically is encouraged.
+Please e-mail a postscript or PDF file of your manuscript to
+Maurizio Vichi
+Dept. Statistica, Probabilit? e Statistiche Applicate
+P.le A. Moro, 5
+I-00185 Rome
+Italy
+
+e-mail: maurizio.vichi at uniroma1.it
+=====================================
+
+Prof. Matilde Bini
+Dipartimento di Statistica "G. Parenti"
+Universit? degli Studi di Firenze
+Viale Morgagni, 59 - 50134 Firenze - Italy
+Tel. +39 055 4237251 Cell. 329 2609898
+
+------------------------------------------------------------------
+
+From c|@ud|o @end|ng |rom un|ve@|t  Tue Feb 21 15:16:00 2006
+From: c|@ud|o @end|ng |rom un|ve@|t (claudio)
+Date: Tue, 21 Feb 2006 15:16:00 +0100 (CET)
+Subject: [RsR] Robust session at useR 2006
+In-Reply-To: <Pine.LNX.4.64.0602211445150.9059@vivaldi.dst.unive.it>
+References: <Pine.LNX.4.64.0602211445150.9059@vivaldi.dst.unive.it>
+Message-ID: <Pine.LNX.4.64.0602211513330.9059@vivaldi.dst.unive.it>
+
+Dear All,
+
+After the good response from the conference "Robust Statistics and R" in
+Treviso last October, we feel that a good opportunity for sharing our work
+and get feedback is the conference "useR!", held from June 15-17, 2006, in 
+Vienna: http://www.r-project.org/useR-2006/
+
+We are trying to organize a contributed session (semi-plenary) plus a
+so-called useR! island (semi-plenary spotlight presentations plus posters
+and table for discussions) on robust statistics.
+
+To this aim we would like to invite you to submit an abstract for a talk 
+orposter presentation to this conference via the on-line form available on 
+the conference's website. Please note that the deadline for abstract 
+submissions is February 28, 2006.
+
+These persons will submit an abstract:
+
+- Claudio Agostinelli: Robust estimation in circular data
+- Valentin Todorov: Robust location and scatter estimators for
+                     Multivariate Analysis
+- Peter Filtzmoser: Multivariate outlier detection
+- Heinrich Fritz: robust PCA by projection pursuit
+- Mathias Templ: Stability of Cluster Analysis
+- Rudi Dutter
+- Martin Maechler
+- Andreas Ruckstuhl
+
+Please, join them by submitting an abstract.
+
+Best,
+Claudio Agostinelli, Peter Filzmoser, Matias Salibian Barrera, Martin
+Maechler, Valentin Todorov.
+
+--------------------------------------------------------------
+Claudio Agostinelli
+Dipartimento di Statistica
+Universita' Ca' Foscari di Venezia
+San Giobbe, Cannaregio 873
+30121 Venezia
+Tel: 041 2347446, Fax: 041 2347444
+email: claudio at unive.it, www: www.dst.unive.it/~claudio
+--------------------------------------------------------------
+Per favore non mandatemi allegati in Word o PowerPoint.
+Si veda http://www.gnu.org/philosophy/no-word-attachments.html
+
+Please avoid sending me Word or PowerPoint attachments.
+See http://www.gnu.org/philosophy/no-word-attachments.html
+
+
+
+From P@F||zmo@er @end|ng |rom tuw|en@@c@@t  Mon Mar  6 11:41:21 2006
+From: P@F||zmo@er @end|ng |rom tuw|en@@c@@t (Peter Filzmoser)
+Date: Mon, 06 Mar 2006 11:41:21 +0100
+Subject: [RsR] covrob
+Message-ID: <440C11D1.9060602@tuwien.ac.at>
+
+Hi all,
+
+During the last weeks we worked on a flexible wrapper
+for combining functions for robust estimation of
+location and covariance. This was seen as one of the
+main tasks of the working group on multivariate analysis
+in Treviso.
+Please, have a look at
+
+http://www.statistik.tuwien.ac.at/rsr/groups/mva.html
+
+There you can find a description of the resulting function,
+with all the problems encountered. Moreover, you can
+download a package with the R implementation.
+
+We are waiting for your comments. There are many questions
+on how to intelligently design such a wrapper function,
+and we would really like to have your feedback.
+
+Best regards,
+
+Peter Filzmoser and Heinrich Fritz
+
+-------------------------------------------------------
+       Dept. of Statistics & Probability Theory
+       Vienna University of Technology
+       Wiedner Hauptstrasse 8-10
+       A-1040 Vienna, Austria
+       Tel. +43 1 58801/10733
+       Fax. +43 1 58801/10799
+       E-mail: P.Filzmoser at tuwien.ac.at
+       Internet:
+       http://www.statistik.tuwien.ac.at/public/filz/
+
+
+
+From Peter@Ruckde@che| @end|ng |rom un|-b@yreuth@de  Wed Mar 22 18:06:33 2006
+From: Peter@Ruckde@che| @end|ng |rom un|-b@yreuth@de (Peter Ruckdeschel)
+Date: Wed, 22 Mar 2006 18:06:33 +0100
+Subject: [RsR] covrob --- some OOP-comments
+In-Reply-To: <440C11D1.9060602@tuwien.ac.at>
+References: <440C11D1.9060602@tuwien.ac.at>
+Message-ID: <44218419.8060301@uni-bayreuth.de>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+ 
+Hi Peter and Heinrich,
+
+> During the last weeks we worked on a flexible wrapper
+> for combining functions for robust estimation of
+> location and covariance. This was seen as one of the
+> main tasks of the working group on multivariate analysis
+> in Treviso.
+
+First of all thank you for providing this very flexible interface.
+I had a look on your description in
+http://www.statistik.tuwien.ac.at/rsr/groups/mva/Abstract.pdf
+and like to comment on it:
+
+(*) argument function.control:
+
+For the moment, I agree with you  that the "..." as argument will
+probably do.
+         In the long run, however, a "capsulated" argument
+function.control would
+help to avoid name clashes in the named arguments (e.g. by partial
+matching!)
+and hence IMHO should be preferred.
+This applies in particular if external developpers will call your
+function within
+their functions and hence have to pass their additional arguments
+together with
+yours to their functions.
+Also a clearer structure is imposed and function calls become easier to
+read than in
+an unstructured list.
+
+(*) accessor/replacement functions:
+
+You do not mention accessor/replacement functions for your S4-class
+"covstruct".  Replacement might not be desired external to /covrob/.
+Like in the lm-structure, however, it would be nice if you could inspect
+the slots of an object of class "covstruct" by such accessor functions.
+E.g., if A is of class "covstruct", cov.classic(A) should return slot
+cov.classic of A. As to programming, this is only book-keeping, but it
+is handy for the user...
+
+(*) S3 paradigm for plot,summary,print
+
+Last issue: Why would you follow the S3-paradigm in defining plot,
+print, summary
+for "covstruct"? Wouldn't it be more consistent with S4 to also register
+these functions
+as S4 generics and then deriving particular methods by "setMethod"?
+This would save you from declaring them in style  <function>.<class>.
+More important, (later) S4 could give you more flexibility , e.g. using
+a different dispatch
+if plot takes a second (differently) classed argument.
+
+Having made these points, I want to emphasize that this is /not/ to
+criticize your work, which of course is a valuable step towards the goals
+set in Treviso.
+
+Thank you already
+Peter
+
+
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.5 (MingW32)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+ 
+iD8DBQFEIYQY1sqtPxlkLZ0RAve4AKC46HztUh+xsNDBrMpn01i3VwgT7ACgiIjB
+HlV7Ih5J7R1I/tw1/06jP8M=
+=kMVe
+-----END PGP SIGNATURE-----
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Peter.Ruckdeschel.vcf
+Type: text/x-vcard
+Size: 520 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20060322/40f9f5df/attachment.vcf>
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Thu Mar 23 00:48:44 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Thu, 23 Mar 2006 00:48:44 +0100
+Subject: [RsR] covrob --- some OOP-comments
+References: <440C11D1.9060602@tuwien.ac.at> <44218419.8060301@uni-bayreuth.de>
+Message-ID: <01c201c64e0b$27ed7cc0$0132a8c0@KILER>
+
+Dear all,
+
+I was waiting with my comments on Peter&Heinrich's contribution until I have
+a working example (in rrcov/robustbase) but following Peter I'll add now my
+2 cent.
+
+I agree completely with Peter's comments:
+- encapsulation by a control object instead of ellipses
+- using of access or methods. For example an access or getDistance() can
+either return the distances if present or recompute them each time. Ideal
+would be a kind of lazy evaluation when the distances are computed by first
+access and stored and the next time they are just returned, but I do not
+know how to do this in R.
+- S4 style show/plot/summary methods
+
+And in addition:
+
+- I would prefer to use inheritance instead of wrapping, i.e. define a base
+class for classic estimates, derive an abstract robust-estimates class from
+it and derive concrete robust estimates as necessary: mcd, M, ogk, etc. This 
+allowes to treat the objects polymorphically. I have tried to represent 
+these ideas in the following class diagram:
+
+http://www.het2.org/wiki/upload/d/d6/Rrcov.gif
+
+and I have just uploaded a new version of rrcov to CRAN containing some of
+the implementation (psi-functions for constrained M-estimates).
+
+And last but not least - no comments but COMPLIMENTS for the covariance
+structure plots!
+
+best regards,
+Valentin
+
+----- Original Message ----- 
+From: "Peter Ruckdeschel" <Peter.Ruckdeschel at uni-bayreuth.de>
+To: "Peter Filzmoser" <P.Filzmoser at tuwien.ac.at>;
+<R-SIG-Robust at stat.math.ethz.ch>
+Sent: Wednesday, March 22, 2006 6:06 PM
+Subject: Re: [RsR] covrob --- some OOP-comments
+
+
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA1
+>
+> Hi Peter and Heinrich,
+>
+>> During the last weeks we worked on a flexible wrapper
+>> for combining functions for robust estimation of
+>> location and covariance. This was seen as one of the
+>> main tasks of the working group on multivariate analysis
+>> in Treviso.
+>
+> First of all thank you for providing this very flexible interface.
+> I had a look on your description in
+> http://www.statistik.tuwien.ac.at/rsr/groups/mva/Abstract.pdf
+> and like to comment on it:
+>
+> (*) argument function.control:
+>
+> For the moment, I agree with you  that the "..." as argument will
+> probably do.
+>         In the long run, however, a "capsulated" argument
+> function.control would
+> help to avoid name clashes in the named arguments (e.g. by partial
+> matching!)
+> and hence IMHO should be preferred.
+> This applies in particular if external developpers will call your
+> function within
+> their functions and hence have to pass their additional arguments
+> together with
+> yours to their functions.
+> Also a clearer structure is imposed and function calls become easier to
+> read than in
+> an unstructured list.
+>
+> (*) accessor/replacement functions:
+>
+> You do not mention accessor/replacement functions for your S4-class
+> "covstruct".  Replacement might not be desired external to /covrob/.
+> Like in the lm-structure, however, it would be nice if you could inspect
+> the slots of an object of class "covstruct" by such accessor functions.
+> E.g., if A is of class "covstruct", cov.classic(A) should return slot
+> cov.classic of A. As to programming, this is only book-keeping, but it
+> is handy for the user...
+>
+> (*) S3 paradigm for plot,summary,print
+>
+> Last issue: Why would you follow the S3-paradigm in defining plot,
+> print, summary
+> for "covstruct"? Wouldn't it be more consistent with S4 to also register
+> these functions
+> as S4 generics and then deriving particular methods by "setMethod"?
+> This would save you from declaring them in style  <function>.<class>.
+> More important, (later) S4 could give you more flexibility , e.g. using
+> a different dispatch
+> if plot takes a second (differently) classed argument.
+>
+> Having made these points, I want to emphasize that this is /not/ to
+> criticize your work, which of course is a valuable step towards the goals
+> set in Treviso.
+>
+> Thank you already
+> Peter
+>
+>
+>
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1.2.5 (MingW32)
+> Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+>
+> iD8DBQFEIYQY1sqtPxlkLZ0RAve4AKC46HztUh+xsNDBrMpn01i3VwgT7ACgiIjB
+> HlV7Ih5J7R1I/tw1/06jP8M=
+> =kMVe
+> -----END PGP SIGNATURE-----
+>
+>
+
+
+--------------------------------------------------------------------------------
+
+
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From Peter@Ruckde@che| @end|ng |rom un|-b@yreuth@de  Thu Mar 23 18:33:40 2006
+From: Peter@Ruckde@che| @end|ng |rom un|-b@yreuth@de (Peter Ruckdeschel)
+Date: Thu, 23 Mar 2006 18:33:40 +0100
+Subject: [RsR] covrob --- some OOP-comments
+In-Reply-To: <01c201c64e0b$27ed7cc0$0132a8c0@KILER>
+References: <440C11D1.9060602@tuwien.ac.at> <44218419.8060301@uni-bayreuth.de>
+	<01c201c64e0b$27ed7cc0$0132a8c0@KILER>
+Message-ID: <4422DBF4.8040500@uni-bayreuth.de>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+ 
+On Thu, 23 Mar 2006, Valentin Todorov wrote:
+
+[snip]
+
+> - using of access or methods. For example an access or getDistance() can
+> either return the distances if present or recompute them each time. Ideal
+> would be a kind of lazy evaluation when the distances are computed by first
+> access and stored and the next time they are just returned, but I do not
+> know how to do this in R.
+
+This /is/ possible:
+*define a class vectororNULL (as in the "Green Book")
+*declare slot 'md' (or perhaps better 'distance') to be of class
+vectororNULL
+  in the setClass-command for 'covstruct'
+*write an accessor function 'distance' (i.e. a method under a corresp.
+S4-generic)
+  which in the first place checks if the 'distance' is NULL and if so writes
+  the values into the parent frame--- something like
+  eval.parent(substitute( object at distance <- distanceValues ))
+
+You might even think of allowing for more general distances than
+Mahalanobis later ... which would imply that the name of such a
+distance function should be linked to the 'distance' slot above
+to form a more general class.
+
+By means of S4, this may easily be done at a later stage of development,
+because we simply could derive another class from 'covstruct'
+with a corresponding additional slot of class 'newdistancestruct'
+and declare covrob a generic function ...
+
+> - S4 style show/plot/summary methods
+>
+> And in addition:
+>
+> - I would prefer to use inheritance instead of wrapping, i.e. define a base
+> class for classic estimates, derive an abstract robust-estimates class from
+> it and derive concrete robust estimates as necessary: mcd, M, ogk, etc.
+This
+> allowes to treat the objects polymorphically. I have tried to represent
+> these ideas in the following class diagram:
+>
+> http://www.het2.org/wiki/upload/d/d6/Rrcov.gif
+
+again my 2 cents:
+
+[1] Just a question of understanding:
+
+Are the methods displayed in Valentin's diagram (like show(),...)
+meant to follow the S4 paradigm, i.e. dispatched according to a
+generic, or are they meant to be functional slots (like in classical
+OOP, e.g. C++)?
+I think, given that there will only be a few different methods for some
+few general classes, these methods should be S4 style methods.
+The approach of functional slots has its advantages if we would have
+new corresponding methods for (almost) every new instance of
+the corresponding class but I think this does not apply here.
+
+[2] more general:
+
+In the "pure" OOP setup as in the Valentin's display,
+I would suggest to go one step further and to treat the
+control structures like alpha, maxiter,...  as follows:
+
+* define an abstract method-class "CovMethodClass" with
+slots "method" [a string as the current argument of covrob)] and
+a slot "control.structure" of  class "Any".
+
+* for each proposed derive a new descendant class to
+"CovMethodClass";
+  for these descendants, provide
+- - suitable prototypes (for default instantiation)
+- - accessor/replacement functions for the corresp. control structures.
+- - an S4 method "getCovMethod" which produces a call to the
+   corresponding method with all corresponding control-structures.
+
+So calling covrob we either
+# use the default instantiation (prototype)
+   of the  (descendant) "CovMethodClass" - argument,
+or
+# beforehand instantiate a corresp. object and
+   modify its control structures by the accessor/replacement functions.
+
+In any case, we do not need to pass on any control structures
+to 'covrob' directly, but rather an argument 'method'
+of class "CovMethodClass" [or descendants] ;
+in 'covrob' then simply use
+    eval(getCovMethod(method))
+which gives us a maximum of flexibility.
+
+The same of course could be done in case of other control structures
+like for the psi functions.
+
+On the other hand, we should keep in mind that all these dispatching
+operations will cost some computation time --- so we should
+thoroughly test whether this gain in generality is worth this extra
+effort.
+
+[OT] : Valentin, what do you use as tool to draw your diagram?
+We have been using some different tool for our S4 packages, but ours
+did not yield half as good results as yours ; ( to be discussed offline ;-)
+
+[snip]
+
+> And last but not least - no comments but COMPLIMENTS for the covariance
+> structure plots!
+
+I join Valentin in this point!
+
+Peter
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.5 (MingW32)
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+ 
+iD8DBQFEItv01sqtPxlkLZ0RAnwiAJ9UnUPWkfTNBWmfsJa+ytJj7hL1GQCgqiU7
+jBEN9MiPaCIwMwTs01h5nIM=
+=41FO
+-----END PGP SIGNATURE-----
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Peter.Ruckdeschel.vcf
+Type: text/x-vcard
+Size: 520 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20060323/00618f3f/attachment.vcf>
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Thu Mar 23 22:10:26 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Thu, 23 Mar 2006 22:10:26 +0100
+Subject: [RsR] covrob --- some OOP-comments
+References: <440C11D1.9060602@tuwien.ac.at> <44218419.8060301@uni-bayreuth.de>
+	<01c201c64e0b$27ed7cc0$0132a8c0@KILER>
+	<4422DBF4.8040500@uni-bayreuth.de>
+Message-ID: <000a01c64ebe$34e0ac50$0132a8c0@KILER>
+
+
+>> - using of accessor methods. ...
+
+> This /is/ possible:
+> *define a class vectororNULL (as in the "Green Book")
+> *declare slot 'md' (or perhaps better 'distance') to be of class
+> vectororNULL
+>  in the setClass-command for 'covstruct'
+> *write an accessor function 'distance' (i.e. a method under a corresp.
+> S4-generic)
+>  which in the first place checks if the 'distance' is NULL and if so 
+> writes
+>  the values into the parent frame--- something like
+>  eval.parent(substitute( object at distance <- distanceValues ))
+
+Yes, everything is in the last line, but I still do not know which object 
+will be modified.
+In C++ and friends I would define
+    dist=null;
+in the constructor and then write a get-accessor like this
+
+vector getDistance(){
+    if(dist==null)
+        dist = computeDIstance();
+    return dist;
+}
+
+> [1] Just a question of understanding:
+>
+> Are the methods displayed in Valentin's diagram (like show(),...)
+> meant to follow the S4 paradigm, i.e. dispatched according to a
+> generic, or are they meant to be functional slots (like in classical
+> OOP, e.g. C++)?
+
+I had S4 classes in mind, but it is not that easy to express this in UML:
+particularly, the classes Cov, Mcd, Ogk and Mest are S4 classes returned by
+the functions cov, covMcd, covOgk and covMest respectively. Most of their
+methods - show/plot/summary - are implemented for Cov or the abstract CovR
+and can be applied polymorphic on the subclasses.
+
+> [2] more general:
+>
+> In the "pure" OOP setup as in the Valentin's display,
+...
+
+this needs further thinking and discussing...
+
+> The same of course could be done in case of other control structures
+> like for the psi functions.
+
+have a look at my implementation of the psi-functions used for the 
+constrained
+M-estimates in covMest() in the new version of rrcov that I uploaded 
+yesterday
+(still stays in Incoming, I'll send it you offline).
+
+> On the other hand, we should keep in mind that all these dispatching
+> operations will cost some computation time --- so we should
+> thoroughly test whether this gain in generality is worth this extra
+> effort.
+
+very important. A straightforward, !OOP implementation can be more than
+twice faster than S4 implementation. I'll provide some more computational
+evidence.
+
+
+> [OT] : Valentin, what do you use as tool to draw your diagram?
+> We have been using some different tool for our S4 packages, but ours
+> did not yield half as good results as yours ; ( to be discussed offline 
+> ;-)
+
+this particular diagram was done with ArgoUML, but I am still not satisfied.
+Before I was using Objecteering, but they have a complicated licensing 
+model.
+The best that I have used for a long time was Rational Rose: comercial and
+extremely expensive, later I used TogetherJ. I do not know what happened,
+I am afraid Borland bought them. More on this topic - offline.
+
+best regards,
+Valentin
+
+
+
+From Peter@Ruckde@che| @end|ng |rom un|-b@yreuth@de  Fri Mar 24 14:51:37 2006
+From: Peter@Ruckde@che| @end|ng |rom un|-b@yreuth@de (Peter Ruckdeschel)
+Date: Fri, 24 Mar 2006 14:51:37 +0100
+Subject: [RsR] covrob --- some OOP-comments
+In-Reply-To: <000a01c64ebe$34e0ac50$0132a8c0@KILER>
+References: <440C11D1.9060602@tuwien.ac.at>
+	<44218419.8060301@uni-bayreuth.de>	<01c201c64e0b$27ed7cc0$0132a8c0@KILER>	<4422DBF4.8040500@uni-bayreuth.de>
+	<000a01c64ebe$34e0ac50$0132a8c0@KILER>
+Message-ID: <4423F969.4070802@uni-bayreuth.de>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+ 
+Hi
+
+On Thu, 23 Mar 2006, Valentin Todorov wrote:
+>On Thu, 23 Mar 2006, Peter Ruckdeschel wrote:
+>>On Thu, 23 Mar 2006, Valentin Todorov wrote:
+
+>>>- using of accessor methods. ...
+
+[snip]
+
+>>*write an accessor function 'distance' (i.e. a method under a corresp.
+>>S4-generic)
+>>which in the first place checks if the 'distance' is NULL and if so
+>>writes
+>>the values into the parent frame--- something like
+>>eval.parent(substitute( object at distance <- distanceValues ))
+>
+>
+>Yes, everything is in the last line, but I still do not know which object
+>will be modified.
+
+sorry for having been too imprecise here: 'object' was meant to be the
+argument of
+class 'covstruct' of the function 'distance' (resp. getDistance) upon
+which 'distance'
+dispatched by the S4 mechanism.
+The evaluation in the parent frame should imitate the
+call-by-reference-passing
+of arguments as in your sketch of C++  code below:
+
+>In C++ and friends I would define
+> dist=null;
+>in the constructor and then write a get-accessor like this
+>
+>vector getDistance(){
+> if(dist==null)
+> dist = computeDIstance();
+> return dist;
+>}
+
+[snip]
+
+>>Are the methods displayed in Valentin's diagram (like show(),...)
+>>meant to follow the S4 paradigm, i.e. dispatched according to a
+>>generic, or are they meant to be functional slots (like in classical
+>>OOP, e.g. C++)?
+>
+>
+>I had S4 classes in mind, but it is not that easy to express this in UML:
+>particularly, the classes Cov, Mcd, Ogk and Mest are S4 classes returned by
+>the functions cov, covMcd, covOgk and covMest respectively. Most of their
+>methods - show/plot/summary - are implemented for Cov or the abstract CovR
+>and can be applied polymorphic on the subclasses.
+
+Thank you for this clarification.
+
+>>[2] more general:
+>>
+>>In the "pure" OOP setup as in the Valentin's display,
+>
+>...
+>
+>this needs further thinking and discussing...
+
+This was just a suggestion anyway!
+  --- I was only wondering  how to cope with control structures
+which may not so easily be organized in a hereditary class-hierarchy,
+but (see below)
+
+>>The same of course could be done in case of other control structures
+>>like for the psi functions.
+>
+>
+>have a look at my implementation of the psi-functions used for the
+>constrained M-estimates in covMest() in the new version of rrcov that
+> I uploaded yesterday
+>(still stays in Incoming, I'll send it you offline).
+
+
+Now it's in the regular archive :-) --- and I have had a look into it:
+
+In fact your code to covMest () shows how to cope with
+varying control stuctures in a simpler and computational
+efficient manor than with my proposed S4 classes!
+(except for the passing of single parameters of control,
+ which then should be avoided)
+
+>>On the other hand, we should keep in mind that all these dispatching
+>>operations will cost some computation time --- so we should
+>>thoroughly test whether this gain in generality is worth this extra
+>>effort.
+>
+>
+>very important. A straightforward, !OOP implementation can be more than
+>twice faster than S4 implementation.
+
+I had imagined something like that -- but of course without
+computational evidence!
+
+>I'll provide some more computational evidence.
+
+Thank you -- touch?;
+
+ [snip]
+
+Best regards
+Peter
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.1 (MingW32)
+Comment: GnuPT 2.6.2.1 by EQUIPMENTE.DE
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+ 
+iD8DBQFEI/lox+/gN8KI3u0RAqGiAKCxNZCmZpaTxaHNds6B4LNgzvjBEACggPmH
+lE679gXhLoZlrOUDlHYbcX8=
+=I0iP
+-----END PGP SIGNATURE-----
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Peter.Ruckdeschel.vcf
+Type: text/x-vcard
+Size: 473 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20060324/c8fe4f70/attachment.vcf>
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Mar 24 18:44:25 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 24 Mar 2006 18:44:25 +0100
+Subject: [RsR] covrob --- some OOP-comments
+In-Reply-To: <4423F969.4070802@uni-bayreuth.de>
+References: <440C11D1.9060602@tuwien.ac.at> <44218419.8060301@uni-bayreuth.de>
+	<01c201c64e0b$27ed7cc0$0132a8c0@KILER>
+	<4422DBF4.8040500@uni-bayreuth.de>
+	<000a01c64ebe$34e0ac50$0132a8c0@KILER>
+	<4423F969.4070802@uni-bayreuth.de>
+Message-ID: <17444.12281.982207.952805@stat.math.ethz.ch>
+
+>>>>> "PetRd" == Peter Ruckdeschel <Peter.Ruckdeschel at uni-bayreuth.de>
+>>>>>     on Fri, 24 Mar 2006 14:51:37 +0100 writes:
+
+
+    PetRd> On Thu, 23 Mar 2006, Valentin Todorov wrote:
+    >> On Thu, 23 Mar 2006, Peter Ruckdeschel wrote:
+    >>> On Thu, 23 Mar 2006, Valentin Todorov wrote:
+
+    >>>> - using of accessor methods. ...
+
+    PetRd> [snip]
+
+    >>> *write an accessor function 'distance' (i.e. a method under a corresp.
+    >>> S4-generic)
+    >>> which in the first place checks if the 'distance' is NULL and if so
+    >>> writes
+    >>> the values into the parent frame--- something like
+    >>> eval.parent(substitute( object at distance <- distanceValues ))
+    >> 
+    >> 
+    >> Yes, everything is in the last line, but I still do not know which object
+    >> will be modified.
+
+    PetRd> sorry for having been too imprecise here: 'object' was meant to be the
+    PetRd> argument of
+    PetRd> class 'covstruct' of the function 'distance' (resp. getDistance) upon
+    PetRd> which 'distance'
+    PetRd> dispatched by the S4 mechanism.
+    PetRd> The evaluation in the parent frame should imitate the
+    PetRd> call-by-reference-passing
+    PetRd> of arguments as in your sketch of C++  code below:
+
+    >> In C++ and friends I would define
+    >> dist=null;
+    >> in the constructor and then write a get-accessor like this
+    >> 
+    >> vector getDistance(){
+    >> if(dist==null)
+    >> dist = computeDIstance();
+    >> return dist;
+    >> }
+
+    PetRd> [snip]
+
+    >>> Are the methods displayed in Valentin's diagram (like show(),...)
+    >>> meant to follow the S4 paradigm, i.e. dispatched according to a
+    >>> generic, or are they meant to be functional slots (like in classical
+    >>> OOP, e.g. C++)?
+    >> 
+    >> I had S4 classes in mind, but it is not that easy to express this in UML:
+    >> particularly, the classes Cov, Mcd, Ogk and Mest are S4 classes returned by
+    >> the functions cov, covMcd, covOgk and covMest respectively. Most of their
+    >> methods - show/plot/summary - are implemented for Cov or the abstract CovR
+    >> and can be applied polymorphic on the subclasses.
+
+    PetRd> Thank you for this clarification.
+
+yes, thank you, Valentin; 
+that also sounds very well designed to me!
+
+I agree that a class treee i.e. inheritance is a very good thing
+here!
+But I still think we should  keep the  covrob(....,  method = "..")   
+approach, additionally to your proposal;
+if only mainly for didactical / documentational reasons.
+
+    >>> [2] more general:
+    >>> 
+    >>> In the "pure" OOP setup as in the Valentin's display,
+    >> 
+    >> ...
+    >> 
+    >> this needs further thinking and discussing...
+
+    PetRd> This was just a suggestion anyway!
+    PetRd> --- I was only wondering  how to cope with control structures
+    PetRd> which may not so easily be organized in a hereditary class-hierarchy,
+    PetRd> but (see below)
+
+    >>> The same of course could be done in case of other control structures
+    >>> like for the psi functions.
+    >> 
+    >> 
+    >> have a look at my implementation of the psi-functions used for the
+    >> constrained M-estimates in covMest() in the new version of rrcov that
+    >> I uploaded yesterday
+    >> (still stays in Incoming, I'll send it you offline).
+
+
+    PetRd> Now it's in the regular archive :-) --- and I have had a look into it:
+
+    PetRd> In fact your code to covMest () shows how to cope with
+    PetRd> varying control stuctures in a simpler and computational
+    PetRd> efficient manor than with my proposed S4 classes!
+    PetRd> (except for the passing of single parameters of control,
+    PetRd> which then should be avoided)
+
+    >>> On the other hand, we should keep in mind that all these dispatching
+    >>> operations will cost some computation time --- so we should
+    >>> thoroughly test whether this gain in generality is worth this extra
+    >>> effort.
+    >> 
+    >> 
+    >> very important. A straightforward, !OOP implementation can be more than
+    >> twice faster than S4 implementation.
+
+    PetRd> I had imagined something like that -- but of course without
+    PetRd> computational evidence!
+
+    >> I'll provide some more computational evidence.
+
+    PetRd> Thank you -- touch?;
+
+But I (and most R-core members in general) think that this
+should not be taken to make a decision against using S4.
+Some parts of the *current* S4 implementation are still
+relatively slow, since most things happen on an interpreted
+level (i.e. most is written in R) instead of a compiled level
+(i.e. written in C).  But that's just a property of the current
+implementation and not an inherent property of the S4 OOP
+paradigm (so called "Function based" OOP as opposed to the other
+"Class based" OOP that C++ or Java make use of).
+
+I'm strongly advocating that we stay with S4 and use proper S4
+methods for the S4 classed objects {instead of adding function slots}.
+
+--- --- 
+
+Now a few further comments on the original Fritz+Filzmoser
+proposal   http://www.statistik.tuwien.ac.at/rsr/groups/mva/Abstract.pdf
+which I found very stimulating; thank you Peter (and
+Heinrich)!  I hope I am not repeating things that Peter
+Ruckdeschel or Valentin already stressed and which I agree.
+Below, I will refer to page numbers sometimes (and I enumerate
+my points just for easier reference): 
+
+1. In general I think we should have a bit less "optional"
+   parts; in particular, top of page 4, I think one could
+   require 'method'.
+
+2. Mahalanobis distances (=: MDs) [still in 2.2, p.4]: 
+   I think there are several important covrob() methods which
+   work with MDs internally anyway; *and* recomputing them by
+   the caller ("wrapper") is not really cheap.
+   In these cases, I think we should provide for a way that the
+   method function can return the MDs and the "wrapping
+   function", namely, covrob() can make use of these values
+   directly instead of recomputing them eventually.
+
+3. '3.1  arguments of covrob()' :
+   x: should be a numeric matrix  *or a data frame*
+      
+   and that's trivial to implement:  
+            if(!is.matrix(x))  x <- data.matrix(x)
+
+4. [3.1] 'cor: logical indicating if correlation should also be returned'
+   
+   I don't think that's a good idea.  It complicates the whole
+   design slightly but unnecessarily. 
+   
+   Rather, we should define a smart  cor()  (S4) method for our class
+   which
+    - uses an existing cor matrix ``if it's there''
+    - calls cov2cor() otherwise  {and stores the corr.matrix with
+       the object; with similar implementation as Peter R has
+       explained for the 'md' / 'distance' slot and
+       getDistance() accessor}.
+
+5. [3.1] 'weight.quantile' (chisq quantile for computing 0/1
+   weights based on the MDs):  Definitely not here, but rather
+   provide a method again that computes 0/1 weights -- (*or other
+   weights which I would prefer*) from a covR object.
+
+6. '3.2 output of covrob' (page 5)
+   (which really describes the class returned.)
+
+   No 'md.wt' slot:  1) computation is trivial ; 
+		     2) why these weights and not others
+			
+7. '4. Additional functions'  as was said before in this thread:
+
+   - very nice graphics!
+
+   - We should use proper S4 methods and not S3-like 
+     <generic>.<class> functions
+
+------------------
+
+I assume that at least the base class(es) ('Cov', 'CovR' in
+Valentin's naming scheme) should be put into 'robustbase'  ASAP,
+so other packages can import them from the robustbase namespace
+and extend (aka "inherit from") them.
+
+May I remind everyone that there has been a new version, 0.1-4,
+on CRAN for a while; unfortunately not available as binary
+package for windows (because of some small C library
+incompatibilities that have been resolved in the mean time).
+Additionally to the source package on CRAN, you can also always
+look at the current development version of "robustbase" at
+https://svn.R-project.org/R-packages/trunk/robustbase/
+
+Something that has not happened yet, is any integration of Matias
+Salibian-Barrera's "roblm / lmrob()" functionality.
+
+Martin Maechler, ETH Zurich
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Sat Mar 25 11:18:49 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Sat, 25 Mar 2006 11:18:49 +0100
+Subject: [RsR] covrob --- some OOP-comments
+References: <440C11D1.9060602@tuwien.ac.at>
+	<44218419.8060301@uni-bayreuth.de><01c201c64e0b$27ed7cc0$0132a8c0@KILER><4422DBF4.8040500@uni-bayreuth.de><000a01c64ebe$34e0ac50$0132a8c0@KILER><4423F969.4070802@uni-bayreuth.de>
+	<17444.12281.982207.952805@stat.math.ethz.ch>
+Message-ID: <002301c64ff5$82647000$0132a8c0@KILER>
+
+----- Original Message ----- 
+From: "Martin Maechler" <maechler at stat.math.ethz.ch>
+...
+
+>I assume that at least the base class(es) ('Cov', 'CovR' in
+>Valentin's naming scheme) should be put into 'robustbase'  ASAP,
+>so other packages can import them from the robustbase namespace
+>and extend (aka "inherit from") them.
+
+I have uploaded a new version of rrcov with constrained M-estimates of 
+location and scatter covMest(), for test purposes,  which still returns an 
+S3 class. Now I am implementing Cov, CovR and the derived from them Mest 
+which I want to upload in the next days. As soon as this construction is 
+stable, I'll move all three of them to robustbase (Martin, I rely on your 
+support). After that I'll port covMcd to return an S4 class derived from 
+CovR.
+
+Two questions arise:
+- is there some "standard" for naming classes. I assume the usual starting 
+with a capital letter? In some cases one can go further and select a 
+particular capital letter. For example in Visual C++/MFC every class started 
+with a capital C (in our case we would have Ccov, CcovR, Cmcd, Cogk, Cmest).
+- What happens with the user of, for example covMcd() when it begins to 
+return an S4 class "Mcd" instead of the current S3 "mcd". Of course these 
+that just use print/plot/summary will not notice the change, but what about 
+these that use the returned object within their programs? This is actually a 
+general question on compatibility.
+
+best regards,
+Valentin
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Sat Mar 25 13:51:59 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Sat, 25 Mar 2006 13:51:59 +0100
+Subject: [RsR] covrob --- some OOP-comments
+References: <440C11D1.9060602@tuwien.ac.at>
+	<44218419.8060301@uni-bayreuth.de><01c201c64e0b$27ed7cc0$0132a8c0@KILER><4422DBF4.8040500@uni-bayreuth.de><000a01c64ebe$34e0ac50$0132a8c0@KILER><4423F969.4070802@uni-bayreuth.de>
+	<17444.12281.982207.952805@stat.math.ethz.ch>
+Message-ID: <006801c6500a$e80f2700$0132a8c0@KILER>
+
+   >> I had S4 classes in mind, but it is not that easy to express this in 
+UML:
+    >> particularly, the classes Cov, Mcd, Ogk and Mest are S4 classes 
+returned by
+    >> the functions cov, covMcd, covOgk and covMest respectively. Most of 
+their
+    >> methods - show/plot/summary - are implemented for Cov or the abstract 
+CovR
+    >> and can be applied polymorphic on the subclasses.
+
+    PetRd> Thank you for this clarification.
+
+>yes, thank you, Valentin;
+>that also sounds very well designed to me!
+
+>I agree that a class treee i.e. inheritance is a very good thing
+>here!
+>But I still think we should  keep the  covrob(....,  method = "..")
+>approach, additionally to your proposal;
+>if only mainly for didactical / documentational reasons.
+
+Completely agree. What I meant is that we do not need a wrapper for unifying 
+the output by restructuring the objects returned by the different 
+estimators, but rather rely on inheritance, as in the object model that I 
+proposed, which builds the necessary building blocks.
+
+------
+
+    >> I'll provide some more computational evidence.
+
+    PetRd> Thank you -- touch?;
+
+>But I (and most R-core members in general) think that this
+>should not be taken to make a decision against using S4.
+>Some parts of the *current* S4 implementation are still
+>relatively slow, since most things happen on an interpreted
+>level (i.e. most is written in R) instead of a compiled level
+>(i.e. written in C).  But that's just a property of the current
+>implementation and not an inherent property of the S4 OOP
+>paradigm (so called "Function based" OOP as opposed to the other
+>"Class based" OOP that C++ or Java make use of).
+
+>I'm strongly advocating that we stay with S4 and use proper S4
+>methods for the S4 classed objects {instead of adding function slots}.
+
+I mean that the S4 implementation is ONLY twice slower and one can sacrifice 
+this for the attained clarity and maintainability. With the "computational 
+evidence" I want to show that the S4  version is AT MOST twice slower, ... 
+but actually it looks much better.
+
+... to be continued ...
+
+best
+Valentin
+
+
+
+From e0325693 @end|ng |rom @tud4@tuw|en@@c@@t  Sun Mar 26 23:34:57 2006
+From: e0325693 @end|ng |rom @tud4@tuw|en@@c@@t (Heinrich Fritz)
+Date: Sun, 26 Mar 2006 23:34:57 +0200
+Subject: [RsR] covrob --- some OOP-comments
+Message-ID: <20060326233457.n65v0urqsco40ksg@webmail.tuwien.ac.at>
+
+Dear Peter, Valentin and Martin,
+
+Thanks for your comments on the package covrob!!
+
+Your suggestions are very constructive, we already updated the 
+implementation according to your remarks. The new version is now online 
+at
+
+http://www.statistik.tuwien.ac.at/rsr/groups/mva.html
+
+with the following changes:
+
+(*) The class has been renamed (from covStruct) to cov
+
+	Further there is a covR - class available (derived from cov). At the 
+moment it does not include any other slots.
+
+(*) S3 - S4 mix:
+This problem has been resolved.
+
+The following functions are still available for the (S4) cov object:
+
+plot <taking one or two objects>
+print
+summary
+
+(*) I have improved the argument - passing.
+
+The reason why I chose to use the ... implementation was the following:
+
+Some cov estimation methods (covOGK) do not take a "control" - argument 
+for passing input arguments. The covrob wrapper should work with as 
+many existing cov - methods as possible (without changing those 
+methods!!!) and in this case passing arguments is only possible by the 
+... syntax. However if a cov - method (like covMest or covMcd) takes a 
+control - argument for passing other arguments this control structure 
+will be passed anyway.
+
+I have now explicitly added the control - argument to covrob.
+
+My suggestion for passing arguments via a control - structure is to use 
+a simple list. In my opinion it is not really comfortable for users to 
+instantiate a new class for (almost) every single call of covrob.
+
+Further the only disadvantage by using a simple list is, that since no 
+slots (and slot - data types) are defined the user could pass anything 
+via the control structure. This has to be caught anyway because it is 
+always possible to call an function with invalid arguments (e.g. cov 
+(testdata, alpha = "asd"))
+
+So the now implemented solution would work the following way:
+
+covrob (testdata, method = "<estimator>", control = list (argument1 = 
+.., argument2 = ..))
+
+or this would work too:
+
+covrob (testdata, method = "<estimator>", argument1 = .., argument2 = ..)
+
+The problem with the second version is, that there may be naming 
+problems (as mentioned by XX)- (e.g. a cov - estimator takes an 
+argument called "method") but this is only for assuring, that covrob 
+works with existing cov estimators which do not take a control - 
+structure. (e.g. the author does not know anything about the covrob - 
+package.)
+
+(*) Further I have implemented a function for applying the control - 
+object to the input arguments..
+
+function (x, a1 = <default 4 a1>, a2 = <default 4 a2>, a3 = <default 4 
+a3>, <further arguments>, control)
+{
+	if (!missing (control))
+	{
+		if (!is.null(control$a1))		a1 = control$a1
+		if (!is.null(control$a2))		a2 = control$a2
+		if (!is.null(control$a3))		a3 = control$a3
+		# other arguments..
+	}
+	....
+}
+
+would then be
+
+function (x, a1 = <default 4 a1>, a2 = <default 4 a2>, a3 = <default 4 
+a3>, <further arguments>, control)
+{
+	if (!missing (control))
+		ParseControlStructure (control)
+	....
+}
+
+This was possible by the (very excellent) code from Peter
+
+>> eval.parent(substitute( object at distance <- distanceValues ))
+
+I don't know if it is the common way of passing arguments by reference, 
+but this is very powerful!
+
+The advantage of this approach is that the control - structure does not 
+need to contain all arguments which can be passed to the function but 
+only those which should really be set.
+
+An example of the function ParseControlStructure can be found in the 
+corresponding help
+file.
+
+(*) Accesssor functions
+
+I have implemented several accessor functions:
+
+cov
+cor			returning (first time: calculating) the correlation matrix
+center
+method		returning the name of the estimator..
+details		returning the whole output - object of the cov - estimation method
+datadim
+mah			mahalanobis distances.
+mah.wt		only calculating the mah - weights (as Martin Maechler proposed.)
+
+These are generic functions - I hope this is the way it was intended!
+
+(*) Mahalanobis distances.
+
+They are now taken from the output object of the cov - method (if available)
+
+(*)
+
+* from Martin Maechler: *
+>
+> 1. In general I think we should have a bit less "optional"
+>   parts; in particular, top of page 4, I think one could
+>   require 'method'.>    require 'method'.
+
+Again: We wanted to be compatible to as many (existing) covariance 
+estimation methods as possible. I don't believe that it is very 
+expensive to check whether a method-string has been returned or not.
+
+(*)
+
+> '3.1  arguments of covrob()' :
+>   x: should be a numeric matrix  *or a data frame*
+
+This has been implemented anyway. It was not described correctly in the pdf.
+
+(*)
+
+* from Valentin Todorov *
+
+> - What happens with the user of, for example covMcd() when it begins to
+> return an S4 class "Mcd" instead of the current S3 "mcd". Of course these
+> that just use print/plot/summary will not notice the change, but what about
+> these that use the returned object within their programs? This is actually a
+> general question on compatibility.
+
+This was exactly the reason why we chose the wrapping - solution. It 
+should work (and generate S4 output) using available functions because 
+we assumed that it is impossible to change the output of functions 
+which are already published and in use by others. Code, relying on 
+these functions to produce the output described in the help - pages, 
+would not work anymore. Everybody using these functions would have to 
+change his code. So I think the wrapping - version is the solution with 
+the fewest compatibility problems.
+
+(*) I've kicked the classical estimation.
+Instead I've implemented an estimator "cov.classic"
+
+best regards,
+
+Heinrich
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Mar 27 14:41:20 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 27 Mar 2006 14:41:20 +0200
+Subject: [RsR] covrob --- some OOP-comments
+In-Reply-To: <002301c64ff5$82647000$0132a8c0@KILER>
+References: <440C11D1.9060602@tuwien.ac.at> <44218419.8060301@uni-bayreuth.de>
+	<01c201c64e0b$27ed7cc0$0132a8c0@KILER>
+	<4422DBF4.8040500@uni-bayreuth.de>
+	<000a01c64ebe$34e0ac50$0132a8c0@KILER>
+	<4423F969.4070802@uni-bayreuth.de>
+	<17444.12281.982207.952805@stat.math.ethz.ch>
+	<002301c64ff5$82647000$0132a8c0@KILER>
+Message-ID: <17447.56688.238243.568965@stat.math.ethz.ch>
+
+>>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>     on Sat, 25 Mar 2006 11:18:49 +0100 writes:
+
+    ValenT> ----- Original Message ----- 
+    ValenT> From: "Martin Maechler" <maechler at stat.math.ethz.ch>
+    ValenT> ...
+
+    >> I assume that at least the base class(es) ('Cov', 'CovR' in
+    >> Valentin's naming scheme) should be put into 'robustbase'  ASAP,
+    >> so other packages can import them from the robustbase namespace
+    >> and extend (aka "inherit from") them.
+
+    ValenT> I have uploaded a new version of rrcov with
+    ValenT> constrained M-estimates of location and scatter
+    ValenT> covMest(), for test purposes, which still returns an
+    ValenT> S3 class. Now I am implementing Cov, CovR and the
+    ValenT> derived from them Mest which I want to upload in the
+    ValenT> next days. As soon as this construction is stable,
+    ValenT> I'll move all three of them to robustbase (Martin, I
+    ValenT> rely on your support). 
+
+sure.
+As I alluded earlier, I'd also be happy for you to get direct
+write access to the subversion repository, i.e. to the database engine
+which is behind https://svn.R-project.org/R-packages/trunk/robustbase
+
+    ValenT> After that I'll port covMcd to return an S4 class derived from CovR.
+
+    ValenT> Two questions arise:
+
+    ValenT> - is there some "standard" for naming classes. I
+    ValenT> assume the usual starting with a capital letter? In
+    ValenT> some cases one can go further and select a
+    ValenT> particular capital letter. For example in Visual
+    ValenT> C++/MFC every class started with a capital C (in our
+    ValenT> case we would have Ccov, CcovR, Cmcd, Cogk, Cmest).
+
+There are "some" standards, but not endorsed officially; 
+particularly there is no capitalization or "prefix"
+standard.  In a 'function based' OO system like S4, the classes
+are a bit less visible than in a 'class based' system like C++/Java.
+
+Several of the more classical R packages that have been using S4 
+use simple all-lowercase-alphabet class names such as 'mle' or
+'pixmap' but also 'sparseMatrix'.  The one ``rule'' that I think
+"everyone" agrees on is  that the creator function, particularly of
+a ``principal'' class, should have the identical
+name as the class it creates. E.g. mle() returns S4 objects of
+class 'mle', Matrix() returns objects inheriting from class
+"Matrix", etc.  However even this rule is sometimes not
+practical for diverse reasons, typically name clashes with
+already existing functionality in R (in possibly other packages, etc).
+One of the main reasons that IMO it doesn't make sense trying to
+impose such standards is the fact that S (and hence R) has a
+history of more than 20 years, and one has wanted to stay back
+compatible as much as possible when providing new facilities.
+
+If we try to adhere to the only "agreed upon" standard above, our
+class would need to be called  "covrob";  its super class (which
+conceptually also contains the classical non-robustly estimated
+covariance structures) could well be called "cov", even though
+the standard cov() function does not return classed objects.
+Further thinking about this directly leads to Valentin's 2nd
+question: 
+
+    ValenT> - What happens with the user of, for example
+    ValenT> covMcd() when it begins to return an S4 class "Mcd"
+    ValenT> instead of the current S3 "mcd". 
+
+    ValenT> Of course these that just use print/plot/summary
+    ValenT> will not notice the change, but what about these
+    ValenT> that use the returned object within their programs?
+
+Very good point that has also come to my mind when contemplating
+your proposed inheritance / class hierarchy:
+
+All the user's code / scripts / functions that rely on the
+current structue of, say,  covMcd(),  will stop working
+correctly.
+
+    ValenT> This is actually a general question on compatibility.
+
+Indeed!
+
+One approach that I usually favor is to require new function
+names for getting the new-class results *and*
+keep the old functions returning a back-compatible result; in
+the present case keep covMcd() or covOGK() returning the lists
+(and maybe S3 class) they currently return.
+
+That would be one argument pro only having covrob() return an S4
+class and all the underlying "method functions" return lists
+(possibly with an S3 class) -- just about what Peter and Heinz
+have been proposing.  Additionally one could have newly named
+functions {say 'covMCD'} that call the same underlying "method
+functions" as covrob, e.g. call 'covMcd(..)', and only covMCD
+would return an S4 class "covMCD" which extends (or "inherits
+from") "covrob".
+
+The completely alternative approach would be to declare that all
+current users of 'rrcov' (or 'robustbase') should change their
+scripts and functions whenever they start using the
+new_generation-version of "robustbase" and start using the slots
+(or accessor functions were we provide them) of the new
+S4-classed return values.
+This 2nd ``brutal'' approach (of non-compatible upgrade) is
+possible in situations where not too many users of the current
+package exist, and they basically agree to do the extra work of
+upgrading their R scripts.
+Personally, I'm  *very*  reluctant against compatibility
+breaking -- though I agree it has to happen sometimes in order
+to not hinder progress.
+
+Martin
+
+
+
+From kon|@ @end|ng |rom @t@t@@ox@@c@uk  Mon Mar 27 20:50:09 2006
+From: kon|@ @end|ng |rom @t@t@@ox@@c@uk (Kjell Konis)
+Date: Mon, 27 Mar 2006 19:50:09 +0100
+Subject: [RsR] covrob --- some OOP-comments
+In-Reply-To: <20060326233457.n65v0urqsco40ksg@webmail.tuwien.ac.at>
+References: <20060326233457.n65v0urqsco40ksg@webmail.tuwien.ac.at>
+Message-ID: <A06F16FC-FB5A-4615-A74E-192AFC863EA4@stats.ox.ac.uk>
+
+Hi Heinrich,
+
+I thought you might be interested in taking a look at the cov and  
+covRob functions in the (Insightful*) Robust Library.  I am in the  
+process of updating these so that they work under both R and S-Plus.   
+You can find a snapshot of the project here.
+
+   www.stats.ox.ac.uk/~konis/robust/robust.tar.gz
+
+It's not in a very user friendly form yet but it should work on 32- 
+bit Linux (that's what I have been using anyways) if you do the  
+following.
+
+% unpack robust.tar.gz
+% cd robust/src
+% make -f Makefile
+% cd ..
+% R
+<...>
+ > library(lattice)
+ > source("build.q")
+ > runif(1)
+ > # make a covRob object
+ > rob <- covRob(woodmod.dat)
+ > # make a cov object
+ > cls <- cov(woodmod.dat)
+ > # try the print, summary and plot methods
+ > # fit both classical and robust at the same time
+ > fm <- fit.models(list(Robust = "covRob", Classical = "cov"), data  
+= woodmod.dat)
+ > # try the print summary and plot methods on these
+
+You may also want to take a look at how the control parameters can be  
+passed to covRob.  It uses a method quite similar to the one you  
+describe.
+
+Hope this is helpful.
+
+Kjell
+
+*Note that this code has not been released under the *GPL yet.  It  
+should be soon but they've been telling me that for a while now.  BTW  
+the license is in license.txt and claims to be an open source license  
+but I don't actually want to read it.
+
+
+On 26 Mar 2006, at 22:34, Heinrich Fritz wrote:
+
+> Dear Peter, Valentin and Martin,
+>
+> Thanks for your comments on the package covrob!!
+>
+> Your suggestions are very constructive, we already updated the
+> implementation according to your remarks. The new version is now  
+> online
+> at
+>
+> http://www.statistik.tuwien.ac.at/rsr/groups/mva.html
+>
+> with the following changes:
+>
+> (*) The class has been renamed (from covStruct) to cov
+>
+> 	Further there is a covR - class available (derived from cov). At the
+> moment it does not include any other slots.
+>
+> (*) S3 - S4 mix:
+> This problem has been resolved.
+>
+> The following functions are still available for the (S4) cov object:
+>
+> plot <taking one or two objects>
+> print
+> summary
+>
+> (*) I have improved the argument - passing.
+>
+> The reason why I chose to use the ... implementation was the  
+> following:
+>
+> Some cov estimation methods (covOGK) do not take a "control" -  
+> argument
+> for passing input arguments. The covrob wrapper should work with as
+> many existing cov - methods as possible (without changing those
+> methods!!!) and in this case passing arguments is only possible by the
+> ... syntax. However if a cov - method (like covMest or covMcd) takes a
+> control - argument for passing other arguments this control structure
+> will be passed anyway.
+>
+> I have now explicitly added the control - argument to covrob.
+>
+> My suggestion for passing arguments via a control - structure is to  
+> use
+> a simple list. In my opinion it is not really comfortable for users to
+> instantiate a new class for (almost) every single call of covrob.
+>
+> Further the only disadvantage by using a simple list is, that since no
+> slots (and slot - data types) are defined the user could pass anything
+> via the control structure. This has to be caught anyway because it is
+> always possible to call an function with invalid arguments (e.g. cov
+> (testdata, alpha = "asd"))
+>
+> So the now implemented solution would work the following way:
+>
+> covrob (testdata, method = "<estimator>", control = list (argument1 =
+> .., argument2 = ..))
+>
+> or this would work too:
+>
+> covrob (testdata, method = "<estimator>", argument1 = .., argument2  
+> = ..)
+>
+> The problem with the second version is, that there may be naming
+> problems (as mentioned by XX)- (e.g. a cov - estimator takes an
+> argument called "method") but this is only for assuring, that covrob
+> works with existing cov estimators which do not take a control -
+> structure. (e.g. the author does not know anything about the covrob -
+> package.)
+>
+> (*) Further I have implemented a function for applying the control -
+> object to the input arguments..
+>
+> function (x, a1 = <default 4 a1>, a2 = <default 4 a2>, a3 = <default 4
+> a3>, <further arguments>, control)
+> {
+> 	if (!missing (control))
+> 	{
+> 		if (!is.null(control$a1))		a1 = control$a1
+> 		if (!is.null(control$a2))		a2 = control$a2
+> 		if (!is.null(control$a3))		a3 = control$a3
+> 		# other arguments..
+> 	}
+> 	....
+> }
+>
+> would then be
+>
+> function (x, a1 = <default 4 a1>, a2 = <default 4 a2>, a3 = <default 4
+> a3>, <further arguments>, control)
+> {
+> 	if (!missing (control))
+> 		ParseControlStructure (control)
+> 	....
+> }
+>
+> This was possible by the (very excellent) code from Peter
+>
+>>> eval.parent(substitute( object at distance <- distanceValues ))
+>
+> I don't know if it is the common way of passing arguments by  
+> reference,
+> but this is very powerful!
+>
+> The advantage of this approach is that the control - structure does  
+> not
+> need to contain all arguments which can be passed to the function but
+> only those which should really be set.
+>
+> An example of the function ParseControlStructure can be found in the
+> corresponding help
+> file.
+>
+> (*) Accesssor functions
+>
+> I have implemented several accessor functions:
+>
+> cov
+> cor			returning (first time: calculating) the correlation matrix
+> center
+> method		returning the name of the estimator..
+> details		returning the whole output - object of the cov -  
+> estimation method
+> datadim
+> mah			mahalanobis distances.
+> mah.wt		only calculating the mah - weights (as Martin Maechler  
+> proposed.)
+>
+> These are generic functions - I hope this is the way it was intended!
+>
+> (*) Mahalanobis distances.
+>
+> They are now taken from the output object of the cov - method (if  
+> available)
+>
+> (*)
+>
+> * from Martin Maechler: *
+>>
+>> 1. In general I think we should have a bit less "optional"
+>>   parts; in particular, top of page 4, I think one could
+>>   require 'method'.>    require 'method'.
+>
+> Again: We wanted to be compatible to as many (existing) covariance
+> estimation methods as possible. I don't believe that it is very
+> expensive to check whether a method-string has been returned or not.
+>
+> (*)
+>
+>> '3.1  arguments of covrob()' :
+>>   x: should be a numeric matrix  *or a data frame*
+>
+> This has been implemented anyway. It was not described correctly in  
+> the pdf.
+>
+> (*)
+>
+> * from Valentin Todorov *
+>
+>> - What happens with the user of, for example covMcd() when it  
+>> begins to
+>> return an S4 class "Mcd" instead of the current S3 "mcd". Of  
+>> course these
+>> that just use print/plot/summary will not notice the change, but  
+>> what about
+>> these that use the returned object within their programs? This is  
+>> actually a
+>> general question on compatibility.
+>
+> This was exactly the reason why we chose the wrapping - solution. It
+> should work (and generate S4 output) using available functions because
+> we assumed that it is impossible to change the output of functions
+> which are already published and in use by others. Code, relying on
+> these functions to produce the output described in the help - pages,
+> would not work anymore. Everybody using these functions would have to
+> change his code. So I think the wrapping - version is the solution  
+> with
+> the fewest compatibility problems.
+>
+> (*) I've kicked the classical estimation.
+> Instead I've implemented an estimator "cov.classic"
+>
+> best regards,
+>
+> Heinrich
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Mon Apr  3 01:28:15 2006
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Mon, 3 Apr 2006 01:28:15 +0200
+Subject: [RsR] covrob --- some OOP-comments
+In-Reply-To: <17447.56688.238243.568965@stat.math.ethz.ch>
+References: <440C11D1.9060602@tuwien.ac.at> <44218419.8060301@uni-bayreuth.de>
+	<01c201c64e0b$27ed7cc0$0132a8c0@KILER>
+	<4422DBF4.8040500@uni-bayreuth.de>
+	<000a01c64ebe$34e0ac50$0132a8c0@KILER>
+	<4423F969.4070802@uni-bayreuth.de>
+	<17444.12281.982207.952805@stat.math.ethz.ch>
+	<002301c64ff5$82647000$0132a8c0@KILER>
+	<17447.56688.238243.568965@stat.math.ethz.ch>
+Message-ID: <4c0e456b0604021628v637eb963o503cf66ff6fab7d5@mail.gmail.com>
+
+Contrary to our assumption, it seems that S3 and S4 classes cannot
+live in freedom in one and the same package, which forces me to give
+up my initial plans and rather start a new (temporary) package,
+"rr4cov" - which will contain all S4 stuff, until it is stable. After
+that I'll move it to robustbase and I hope it will not be necessary to
+create a separate "robust4base" package. In order not to disturb the
+current and potential users of rrcov, I'll not upload the new one to
+CRAN, but will put it at the follwoing address  for testing and
+comments (please!)
+
+Source tar:
+http://www.het2.org/wiki/upload/5/5b/Rr4cov_0.1-1.tar.gz
+
+Windows binary:
+http://www.het2.org/wiki/upload/7/76/Rr4cov_0.1-1.zip
+
+I have also changed the naming scheme, trying to make it consistent
+with several of the simplest OO-naming conventions - see the updated
+diagram at
+
+http://www.het2.org/wiki/upload/d/d6/Rrcov.gif
+
+best regards,
+valentin
+
+
+
+
+> There are "some" standards, but not endorsed officially;
+> particularly there is no capitalization or "prefix"
+> standard.  In a 'function based' OO system like S4, the classes
+> are a bit less visible than in a 'class based' system like C++/Java.
+>
+> Several of the more classical R packages that have been using S4
+> use simple all-lowercase-alphabet class names such as 'mle' or
+> 'pixmap' but also 'sparseMatrix'.  The one ``rule'' that I think
+> "everyone" agrees on is  that the creator function, particularly of
+> a ``principal'' class, should have the identical
+> name as the class it creates. E.g. mle() returns S4 objects of
+> class 'mle', Matrix() returns objects inheriting from class
+> "Matrix", etc.  However even this rule is sometimes not
+> practical for diverse reasons, typically name clashes with
+> already existing functionality in R (in possibly other packages, etc).
+> One of the main reasons that IMO it doesn't make sense trying to
+> impose such standards is the fact that S (and hence R) has a
+> history of more than 20 years, and one has wanted to stay back
+> compatible as much as possible when providing new facilities.
+>
+> If we try to adhere to the only "agreed upon" standard above, our
+> class would need to be called  "covrob";  its super class (which
+> conceptually also contains the classical non-robustly estimated
+> covariance structures) could well be called "cov", even though
+> the standard cov() function does not return classed objects.
+> Further thinking about this directly leads to Valentin's 2nd
+> question:
+>
+>     ValenT> - What happens with the user of, for example
+>     ValenT> covMcd() when it begins to return an S4 class "Mcd"
+>     ValenT> instead of the current S3 "mcd".
+>
+>     ValenT> Of course these that just use print/plot/summary
+>     ValenT> will not notice the change, but what about these
+>     ValenT> that use the returned object within their programs?
+>
+> Very good point that has also come to my mind when contemplating
+> your proposed inheritance / class hierarchy:
+>
+> All the user's code / scripts / functions that rely on the
+> current structue of, say,  covMcd(),  will stop working
+> correctly.
+>
+>     ValenT> This is actually a general question on compatibility.
+>
+> Indeed!
+>
+> One approach that I usually favor is to require new function
+> names for getting the new-class results *and*
+> keep the old functions returning a back-compatible result; in
+> the present case keep covMcd() or covOGK() returning the lists
+> (and maybe S3 class) they currently return.
+>
+> That would be one argument pro only having covrob() return an S4
+> class and all the underlying "method functions" return lists
+> (possibly with an S3 class) -- just about what Peter and Heinz
+> have been proposing.  Additionally one could have newly named
+> functions {say 'covMCD'} that call the same underlying "method
+> functions" as covrob, e.g. call 'covMcd(..)', and only covMCD
+> would return an S4 class "covMCD" which extends (or "inherits
+> from") "covrob".
+>
+> The completely alternative approach would be to declare that all
+> current users of 'rrcov' (or 'robustbase') should change their
+> scripts and functions whenever they start using the
+> new_generation-version of "robustbase" and start using the slots
+> (or accessor functions were we provide them) of the new
+> S4-classed return values.
+> This 2nd ``brutal'' approach (of non-compatible upgrade) is
+> possible in situations where not too many users of the current
+> package exist, and they basically agree to do the extra work of
+> upgrading their R scripts.
+> Personally, I'm  *very*  reluctant against compatibility
+> breaking -- though I agree it has to happen sometimes in order
+> to not hinder progress.
+>
+> Martin
+>
+
+
+
+From |or @end|ng |rom zhw|n@ch  Thu Apr 20 13:19:14 2006
+From: |or @end|ng |rom zhw|n@ch (=?iso-8859-1?Q?Locher_Ren=E9_=28lor=29?=)
+Date: Thu, 20 Apr 2006 13:19:14 +0200
+Subject: [RsR] robustbase V 0.1-5
+Message-ID: <55CCE5E061CD0C4B97B57166249441FE0B20C4@langouste.zhwin.ch>
+
+Dear Martin
+
+As you think, that this discussion (and the dataset) is interesting enough for other people working on robustness, I followed your suggestion and posted this mail for the R-SIG-robust-Community. You might recapitulate later our discussion leading to this mail for the rest of the R-SIG-robust-Community.
+
+I have mentioned this morning during our phonecall, that the dataset included cannot be published at the moment officially with all the information statisticians would like. I am sure that a will finally get the permission to do so and you will send additional variables. For the moment I can give you only the following information:
+
+LNOx:   log of hourly mean of NOx concentration in ambient air [ppb] next to a highly frequented motorway
+LNOxEm: log of hourly sum of NOx emission of cars on this motorway in arbitrary units
+sqrtWS: Square root of wind speed [m/s]
+
+The model I used for this discussion is not the full model I am using to describe the ambient concentration at the moment. Furthermore, I am still working on the improvement of the model. Be aware that this dataset contains, contrary to the former extract, still some NAs!
+
+Here is again the (slightly modified) code I have (finally) used to test lmrob() V 0.1-5 discussed in our mail thread:
+
+library(robustbase)
+dat <- na.omit(read.table(file="air.txt"))
+dat$julday <- factor(dat$julday)
+dim(dat)  ## 8197    5
+
+r.MM01 <- lmrob(LNOx ~ LNOxEm + sqrtWS + julday,
+                dat=dat,  compute.rd = FALSE)  
+
+I got the repeated error message: 
+Too many singular resamples
+Aborting
+
+and could not abort the function by pressing Control-C. A part of this problem has been fixed meanwhile by you.
+
+Kind regards
+
+Ren?
+
+
+
+Ren? Locher                                   E-Mail: rene.locher at zhwin.ch
+Institut f?r Datenanalyse und Prozessdesign   Tel:    052/ 267 7810
+Z?rcher Hochschule Winterthur                 Fax:    052/ 268 7810
+Technopark / J?gerstrasse 2                   
+Postfach
+CH-8400 Winterthur                            http://www.idp.zhwin.ch
+ 
+ 
+
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: air.txt
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20060420/53b5c0d1/attachment.txt>
+
+From |or @end|ng |rom zhw|n@ch  Thu Apr 20 18:45:57 2006
+From: |or @end|ng |rom zhw|n@ch (=?iso-8859-1?Q?Locher_Ren=E9_=28lor=29?=)
+Date: Thu, 20 Apr 2006 18:45:57 +0200
+Subject: [RsR] Addendum to test dataset for robustbase V 0.1-5
+Message-ID: <55CCE5E061CD0C4B97B57166249441FE0B20D7@langouste.zhwin.ch>
+
+Hello to everybody
+
+I have sent you another dataset than I thougt. The description is still valid but there are more NAs in it so that some factor levels are less populated than in the other dataset.
+
+To get the same "quality" for the dataset you need to execute two lines of code in addition.
+
+
+library(robustbase)
+dat <- na.omit(read.table(file="air.txt"))
+
+jul <- names(table(dat$julday))[table(dat$julday)>=20]
+dat <- dat[is.element(dat$julday,jul),]
+
+dat$julday <- factor(dat$julday)
+dim(dat)  ## 8088    5
+      
+r.MM01 <- lmrob(LNOx ~ LNOxEm + sqrtWS + julday,
+                dat=dat,  compute.rd = FALSE)
+
+
+Kind regards
+
+Ren?
+
+
+
+Ren? Locher                                   E-Mail: rene.locher at zhwin.ch
+Institut f?r Datenanalyse und Prozessdesign   Tel:    052/ 267 7810
+Z?rcher Hochschule Winterthur                 Fax:    052/ 268 7810
+Technopark / J?gerstrasse 2                   
+Postfach
+CH-8400 Winterthur                            http://www.idp.zhwin.ch
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon May  1 17:33:49 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 1 May 2006 17:33:49 +0200
+Subject: [RsR] plugins for lmrob()
+In-Reply-To: <17361.22635.911892.563447@stat.math.ethz.ch>
+References: <Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>
+	<17361.22635.911892.563447@stat.math.ethz.ch>
+Message-ID: <17494.10845.6685.883069@stat.math.ethz.ch>
+
+Dear "robust R users",
+
+I'm taking up a subject of several months ago,
+namely on how to set up some conventions in order to allow 
+``plugging'' new methods for  lmrob() {as we in the mean time
+came to call it}.
+
+In the discussion below, I ended up proposing that
+the ``method functions'' for  lmrob(*, method = <METH>)
+should be R functions called   lmrob_<METH>
+
+I still think this is a reasonable scheme, but of course am very
+open for reconsideration and better proposals.
+In particular, the current lmrob() implementation has the
+following "call tree" :
+  lmrob()
+   |
+   \-> lmrob.fit.MM()
+        |-> lmrob.S()
+        \-> lmrob.MM()
+
+where lmrob.fit.MM() also checks if "lmrob.MM()" converged, and
+if not, uses the initial S-estimate.
+One could argue that lmrob.MM() really just computes an
+M-estimate from a given fixed scale and an initial estimate;
+hence it could be renamed to  lmrob_M()  {using the name scheme above}.
+OTOH,  lmrob.MM() uses special code to compute robust standard
+errors, which---I assume---is only sensible for MM-, not for
+arbitrary M- estimates.
+
+Further, from the above desired name changes, we will also have
+to change the current  lmrob.control() function to something
+like lmrob_MM.control(); and more generally I think we would
+want to allow a lmrob_<METH>.control() function for every
+lmrob_<METH>() function.  Or does anyone see a better alternative?
+
+
+The current released version of the "robustbase" package, 0.1-5,
+still has no 'method' argument and is ``hardwired'' to use
+Matias' implementation of the MM-estimator built on
+(Matias+Victor)'s fast-S-estimator.
+
+Before releasing the next version of 'robustbase', which will
+have slightly more options for lmrob() anyway, I would like to
+go into the indicated direction and allow 'method = "...."' for
+lmrob(); keeping the current default of course, but also
+1) allowing "S" (or rather "fastS" or "fast S" ?) which would use
+   what the currently named lmrob.S() does
+2) and  "LTS" (or rather "fast LTS" ?) which would use what
+   ltsReg() does.
+
+But it should be possible to implement this in a way such that
+e.g., by loading a future version of Claudio's "wle" package, also
+something like   lmrob(*, method = "WL")   would work by using
+Claudio's function(s).
+
+Your feedback on this is very welcome!
+
+There is also one other issue about current  lmrob(), ltsReg(),
+etc on which I will post another message to the list, soon.
+
+Martin
+
+>>>>> "MM" == Martin Maechler <maechler at stat.math.ethz.ch>
+>>>>>     on Fri, 20 Jan 2006 22:38:51 +0100 writes:
+
+>>>>> "Claudio" == Claudio Agostinelli <claudio at unive.it>
+>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:
+
+    Claudio> Ciao Martin, I would like, progressively,
+    Claudio> standardize my package 'wle' with the standard of
+    Claudio> robustbase. If think, for me, the easy way is to
+    Claudio> start with lm function (since you (you, matias and
+    Claudio> andreas) are working on roblm).
+
+    MM> and robglm() / glmrob() {taking up Werner's naming
+    MM> suggestion which I find very worth of consideration --
+    MM> other takers, please.. ?}
+
+    Claudio> Are you thinking of a mechanism, like roblm(*,
+    Claudio> method="MM"), in this case there are any way for R
+    Claudio> to register "method" from other package once
+    Claudio> loaded, so that, for instance, we can have,
+    Claudio> automatically, roblm(*, method="WL") for my
+    Claudio> function? i.e., for the final user:
+
+    >>> library(robustbase) roblm(*, method="WL") Error: method
+    >>> "WL" for "roblm" not found library(wle) # new version of
+    >>> the library roblm(*, method="WL") # now it works
+
+
+    Claudio> Otherwise, what kind of convention should I use for
+    Claudio> the name: roblmwle robwlelm
+
+    MM> Thank you for the interesting and very relevant
+    MM> question!
+
+    MM> Indeed, "robustbase" itself should not contain all
+    MM> possible methods, but rather just the 'base', and
+    MM> particular we had agreed for the time being to focus on
+    MM> the methodology of the MMY book.
+
+    MM> OTOH, it makes very much sense to allow and encourage
+    MM> ``plugins'' from other packages {that will have a
+    MM> 'Depends: robustbase'}.
+
+    Claudio> This is a potential problem for extending the
+    Claudio> functions to any other new method available in the
+    Claudio> future. What is your suggestion?
+
+    MM> well I hope we will converge some time in the future on
+    MM> how to do robust linear regression .. :-) {well for p >
+    MM> n, we probably still have slack ...}  In any case, I
+    MM> think it's a very good idea to allow for plugins, and I
+    MM> also agree that we should do this by a naming
+    MM> convention.
+
+    MM> In some cases, we (the community of S programmers) have
+    MM> used the convention to call the plugin for method <Meth>
+    MM> to function <Func> " <Func>.<Meth> " where I think we
+    MM> should nowadays most probably use <Func>_<Meth> this
+    MM> would give lmrob_wle() or roblm_wle() for your plugin
+    MM> function.  But note that we will not only have to agree
+    MM> on the naming scheme, but also on exactly what arguments
+    MM> the function must accept (it can have further optional
+    MM> ones) and what exactly its return value has to look
+    MM> like.  But I think it's too early to get into these
+    MM> details already now.
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon May  1 18:02:07 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 1 May 2006 18:02:07 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+Message-ID: <17494.12543.521069.761483@stat.math.ethz.ch>
+
+Many of the "high breakdown point" robust estimators, and
+particularly those currently in the 'robustbase' package are
+based on random (re)sampling, i.e., chosing random subsets of
+the data, then compute "candidate estimates" for each sample,
+and then going on. 
+
+This "resampling" has also been a main ingredient for other "modern"
+statistical algorithms, e.g. kmeans() clustering, and of course
+for all MCMC or other simulation based methods.
+
+In R, we have always adhered to the convention, that such
+estimators should use R's random number generators (=: RNGs) and
+hence their result will be a function of the initial random seed --
+.Random.seed in S and R, typically set via  set.seed().
+
+The current algorithm implmentations in 'robustbase' however do
+not adhere to the convention, but rather use an own (cheap) RNG
+[covMcd(), ltsReg()] or the RNG provided by the operating system
+C library rand() function [lmrob()] --- and in all these cases,
+always use the same random seed, by default.
+
+Of course, this has the advantage that all your students get the
+same estimates for the same data (well, at least on the same
+computer hardware and software combination), but I think we
+should switch to using R's RNGs and have all these results
+properly depend on the current random seed, i.e. typically only
+give the same results after the set.seed(<n>) call.
+
+Package 'MASS' function lqs(), i.e. lqs.default() has an
+optional argument  'seed'  with this help description:
+
+  seed: the seed to be used for random sampling: see
+       '.Random.seed'.  The current value of '.Random.seed' will
+       be preserved if it is set.. 
+
+I propose to do the same for all "sampling" functions in
+'robustbase'.  This will change the meaning of 'seed' for the
+rrcov.control() list used in covMcd() and ltsReg() which already
+now is there, but is used for a simple builtin RNG, and does not
+depend on R's .Random.seed at all.
+
+What do you think?
+
+Martin Maechler, ETH Zurich
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Mon May  1 19:19:25 2006
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Mon, 01 May 2006 10:19:25 -0700
+Subject: [RsR] estimators based on random samples... - should be random
+In-Reply-To: <17494.12543.521069.761483@stat.math.ethz.ch>
+References: <17494.12543.521069.761483@stat.math.ethz.ch>
+Message-ID: <4456431D.4080500@stat.ubc.ca>
+
+
+Hello,
+
+Thanks Martin for (once again!) taking the lead in sparking a 
+discussion. My comments are inserted below.
+
+> In R, we have always adhered to the convention, that such
+> estimators should use R's random number generators (=: RNGs) and
+> hence their result will be a function of the initial random seed --
+> .Random.seed in S and R, typically set via  set.seed().
+
+A good convention, IMHO.
+
+> The current algorithm implmentations in 'robustbase' however do
+> not adhere to the convention, but rather use an own (cheap) RNG
+> [covMcd(), ltsReg()] or the RNG provided by the operating system
+> C library rand() function [lmrob()] --- and in all these cases,
+> always use the same random seed, by default.
+
+I believe this (each algorithm using its own or the operating system's 
+RNG) is merely due to the "atomized" nature of the development of the 
+separate pieces of code that are now in robustbase, and does not reflect 
+an "a priori design criteria".
+
+> Of course, this has the advantage that all your students get the
+> same estimates for the same data (well, at least on the same
+> computer hardware and software combination), but I think we
+> should switch to using R's RNGs and have all these results
+> properly depend on the current random seed, i.e. typically only
+> give the same results after the set.seed(<n>) call.
+
+Probably the most noticeable effect of this change would be that in some 
+cases consecutive calls to fit the same model on the same data may yield 
+different results, and high levels of anxiety on the "uninitiated" user 
+will surely follow...
+
+I guess if the convergence criteria of these algorithms is sufficiently 
+tight then this will typically happen only on those cases where the 
+existence of two (or more) solutions is actually informative (and 
+probably relevant for the analysis). Maybe somebody has had other 
+experiences?
+
+I second Martin's suggestion, but add that we accompany this change with 
+good examples (one for each model?) on the documentation illustrating 
+how different solutions can yield more insight on the analysis.
+
+Matias
+
+
+--
+______________________________________________________________
+Matias Salibian-Barrera - Department of Statistics
+University of British Columbia - matias at stat.ubc.ca
+Phone: (604) 822-3410 - Fax: (604) 822-6960
+
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Wed May  3 14:01:22 2006
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Werner Stahel)
+Date: Wed, 3 May 2006 14:01:22 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+Message-ID: <17496.39826.761987.626296@stat.math.ethz.ch>
+
+I clearly advocate the use of R's random numbers throughout.
+
+I think that an argument seed= is not needed, since the handling
+of random numbers is easy without it. The user can call set.seed
+before calling lmrob and, if needed, store the old seed and
+reset .Random.seed to this value later.
+
+As to the naming issue, I dislike the underline as a part of a
+name, because I use ESS. I prefer names like
+lmrobMM
+lmrobS
+
+Is there a need for method="fastS"? Will there be other
+submethods of S-estimators? If so, I again like the main things
+first:  Sfast  instead of  fastS .
+
+Greetings
+Werner 
+----------------- This message was sent by ---------------------------
+Werner Stahel                              http://stat.ethz.ch/~stahel
+Seminar fuer Statistik                     phone  :    +41 1 632 34 30
+ETH-Zentrum, LEO D8                        fax    :    +41 1 632 12 28
+CH-8092 Zurich, Switzerland                meet me: Leonhardstr.27, D8
+
+
+
+From rk@ @end|ng |rom zhw|n@ch  Wed May  3 16:38:28 2006
+From: rk@ @end|ng |rom zhw|n@ch (Ruckstuhl Andreas (rks))
+Date: Wed, 3 May 2006 16:38:28 +0200
+Subject: [RsR] plugins for lmrob()
+Message-ID: <B7C02093A9C6FB47B417FC3FAB0D721420DA91@langouste.zhwin.ch>
+
+Dear "robust R users",
+
+Regarding the "plugging" of new methods I would like to see something like this (example for method "MM"):
+
+On a first level, there is the method "MM", hence
+
+	lmrob(*, method = lmrob.fit.MM) ## where lmrob.fit.MM is an R function
+
+On a second level, there may be different ways to generate the initial S estimator, hence
+
+	lmrob(*, method = lmrob.fit.MM, initial=lmrob.fit.Sfast), 
+
+where lmrob.fit.Sfast() (or maybe lmrob.fit.MM.Sfast())  calculates the initial values. There is an open issue however, whether the argument "initial" should not be better part of the argument "control" like
+
+	lmrob(*, method = lmrob.fit.MM, control=lmrob.MM.control(initial=lmrob.fit.Sfast)) 	
+
+(I think, it is sensible that the control function depends on the method.)  
+
+There should be a separate method for regression M-estimators (e.g., lmrob.fit.M()) since this method is still the adequate for the analysis of fixed effects models. The function lmrob.fit.M() may even include bounded influence regression estimators. 
+
+
+All the best
+Andreas
+
+
+-----Urspr?ngliche Nachricht-----
+Von: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von Martin Maechler
+Gesendet: Montag, 1. Mai 2006 17:34
+An: R-SIG-Robust at stat.math.ethz.ch
+Betreff: [RsR] plugins for lmrob()
+
+
+Dear "robust R users",
+
+I'm taking up a subject of several months ago,
+namely on how to set up some conventions in order to allow 
+``plugging'' new methods for  lmrob() {as we in the mean time came to call it}.
+
+In the discussion below, I ended up proposing that
+the ``method functions'' for  lmrob(*, method = <METH>)
+should be R functions called   lmrob_<METH>
+
+I still think this is a reasonable scheme, but of course am very open for reconsideration and better proposals. In particular, the current lmrob() implementation has the following "call tree" :
+  lmrob()
+   |
+   \-> lmrob.fit.MM()
+        |-> lmrob.S()
+        \-> lmrob.MM()
+
+where lmrob.fit.MM() also checks if "lmrob.MM()" converged, and if not, uses the initial S-estimate. One could argue that lmrob.MM() really just computes an M-estimate from a given fixed scale and an initial estimate; hence it could be renamed to  lmrob_M()  {using the name scheme above}. OTOH,  lmrob.MM() uses special code to compute robust standard errors, which---I assume---is only sensible for MM-, not for arbitrary M- estimates.
+
+Further, from the above desired name changes, we will also have to change the current  lmrob.control() function to something like lmrob_MM.control(); and more generally I think we would want to allow a lmrob_<METH>.control() function for every
+lmrob_<METH>() function.  Or does anyone see a better alternative?
+
+
+The current released version of the "robustbase" package, 0.1-5, still has no 'method' argument and is ``hardwired'' to use Matias' implementation of the MM-estimator built on (Matias+Victor)'s fast-S-estimator.
+
+Before releasing the next version of 'robustbase', which will have slightly more options for lmrob() anyway, I would like to go into the indicated direction and allow 'method = "...."' for
+lmrob(); keeping the current default of course, but also
+1) allowing "S" (or rather "fastS" or "fast S" ?) which would use
+   what the currently named lmrob.S() does
+2) and  "LTS" (or rather "fast LTS" ?) which would use what
+   ltsReg() does.
+
+But it should be possible to implement this in a way such that e.g., by loading a future version of Claudio's "wle" package, also
+something like   lmrob(*, method = "WL")   would work by using
+Claudio's function(s).
+
+Your feedback on this is very welcome!
+
+There is also one other issue about current  lmrob(), ltsReg(), etc on which I will post another message to the list, soon.
+
+Martin
+
+>>>>> "MM" == Martin Maechler <maechler at stat.math.ethz.ch>
+>>>>>     on Fri, 20 Jan 2006 22:38:51 +0100 writes:
+
+>>>>> "Claudio" == Claudio Agostinelli <claudio at unive.it>
+>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:
+
+    Claudio> Ciao Martin, I would like, progressively,
+    Claudio> standardize my package 'wle' with the standard of
+    Claudio> robustbase. If think, for me, the easy way is to
+    Claudio> start with lm function (since you (you, matias and
+    Claudio> andreas) are working on roblm).
+
+    MM> and robglm() / glmrob() {taking up Werner's naming
+    MM> suggestion which I find very worth of consideration --
+    MM> other takers, please.. ?}
+
+    Claudio> Are you thinking of a mechanism, like roblm(*,
+    Claudio> method="MM"), in this case there are any way for R
+    Claudio> to register "method" from other package once
+    Claudio> loaded, so that, for instance, we can have,
+    Claudio> automatically, roblm(*, method="WL") for my
+    Claudio> function? i.e., for the final user:
+
+    >>> library(robustbase) roblm(*, method="WL") Error: method
+    >>> "WL" for "roblm" not found library(wle) # new version of
+    >>> the library roblm(*, method="WL") # now it works
+
+
+    Claudio> Otherwise, what kind of convention should I use for
+    Claudio> the name: roblmwle robwlelm
+
+    MM> Thank you for the interesting and very relevant
+    MM> question!
+
+    MM> Indeed, "robustbase" itself should not contain all
+    MM> possible methods, but rather just the 'base', and
+    MM> particular we had agreed for the time being to focus on
+    MM> the methodology of the MMY book.
+
+    MM> OTOH, it makes very much sense to allow and encourage
+    MM> ``plugins'' from other packages {that will have a
+    MM> 'Depends: robustbase'}.
+
+    Claudio> This is a potential problem for extending the
+    Claudio> functions to any other new method available in the
+    Claudio> future. What is your suggestion?
+
+    MM> well I hope we will converge some time in the future on
+    MM> how to do robust linear regression .. :-) {well for p >
+    MM> n, we probably still have slack ...}  In any case, I
+    MM> think it's a very good idea to allow for plugins, and I
+    MM> also agree that we should do this by a naming
+    MM> convention.
+
+    MM> In some cases, we (the community of S programmers) have
+    MM> used the convention to call the plugin for method <Meth>
+    MM> to function <Func> " <Func>.<Meth> " where I think we
+    MM> should nowadays most probably use <Func>_<Meth> this
+    MM> would give lmrob_wle() or roblm_wle() for your plugin
+    MM> function.  But note that we will not only have to agree
+    MM> on the naming scheme, but also on exactly what arguments
+    MM> the function must accept (it can have further optional
+    MM> ones) and what exactly its return value has to look
+    MM> like.  But I think it's too early to get into these
+    MM> details already now.
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From c|@ud|o @end|ng |rom un|ve@|t  Mon May  8 13:50:14 2006
+From: c|@ud|o @end|ng |rom un|ve@|t (claudio)
+Date: Mon, 8 May 2006 13:50:14 +0200 (CEST)
+Subject: [RsR] estimators based on random samples... - should be random
+In-Reply-To: <4456431D.4080500@stat.ubc.ca>
+References: <17494.12543.521069.761483@stat.math.ethz.ch>
+	<4456431D.4080500@stat.ubc.ca>
+Message-ID: <Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>
+
+Hello,
+
+I agree on the convention of R, i.e. to use the R random number generators 
+and the set.seed() function to set the seed. Do you have 
+any suggestions on how to implement/handling these functions from C and 
+fortran; is there examples or documentation to take a look? (At least, 
+for me, this is one of the reason I still use generators from outside R)
+
+As Matias point out, at the end of this email, methods may have more than 
+one solution. In wle package I implement some plots to contrast different 
+solutions. An example is in wle.lm (example(wle.lm)).
+
+Claudio
+
+
+On Mon, 1 May 2006, Matias Salibian-Barrera wrote:
+
+>
+> Hello,
+>
+> Thanks Martin for (once again!) taking the lead in sparking a
+> discussion. My comments are inserted below.
+>
+>> In R, we have always adhered to the convention, that such
+>> estimators should use R's random number generators (=: RNGs) and
+>> hence their result will be a function of the initial random seed --
+>> .Random.seed in S and R, typically set via  set.seed().
+>
+> A good convention, IMHO.
+>
+>> The current algorithm implmentations in 'robustbase' however do
+>> not adhere to the convention, but rather use an own (cheap) RNG
+>> [covMcd(), ltsReg()] or the RNG provided by the operating system
+>> C library rand() function [lmrob()] --- and in all these cases,
+>> always use the same random seed, by default.
+>
+> I believe this (each algorithm using its own or the operating system's
+> RNG) is merely due to the "atomized" nature of the development of the
+> separate pieces of code that are now in robustbase, and does not reflect
+> an "a priori design criteria".
+>
+>> Of course, this has the advantage that all your students get the
+>> same estimates for the same data (well, at least on the same
+>> computer hardware and software combination), but I think we
+>> should switch to using R's RNGs and have all these results
+>> properly depend on the current random seed, i.e. typically only
+>> give the same results after the set.seed(<n>) call.
+>
+> Probably the most noticeable effect of this change would be that in some
+> cases consecutive calls to fit the same model on the same data may yield
+> different results, and high levels of anxiety on the "uninitiated" user
+> will surely follow...
+>
+> I guess if the convergence criteria of these algorithms is sufficiently
+> tight then this will typically happen only on those cases where the
+> existence of two (or more) solutions is actually informative (and
+> probably relevant for the analysis). Maybe somebody has had other
+> experiences?
+>
+> I second Martin's suggestion, but add that we accompany this change with
+> good examples (one for each model?) on the documentation illustrating
+> how different solutions can yield more insight on the analysis.
+>
+> Matias
+>
+>
+> --
+> ______________________________________________________________
+> Matias Salibian-Barrera - Department of Statistics
+> University of British Columbia - matias at stat.ubc.ca
+> Phone: (604) 822-3410 - Fax: (604) 822-6960
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+--------------------------------------------------------------
+Claudio Agostinelli
+Dipartimento di Statistica
+Universita' Ca' Foscari di Venezia
+San Giobbe, Cannaregio 873
+30121 Venezia
+Tel: 041 2347446, Fax: 041 2347444
+email: claudio at unive.it, www: www.dst.unive.it/~claudio
+--------------------------------------------------------------
+Per favore non mandatemi allegati in Word o PowerPoint.
+Si veda http://www.gnu.org/philosophy/no-word-attachments.html
+
+Please avoid sending me Word or PowerPoint attachments.
+See http://www.gnu.org/philosophy/no-word-attachments.html
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Tue May  9 00:38:18 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Tue, 9 May 2006 00:38:18 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+References: <17494.12543.521069.761483@stat.math.ethz.ch><4456431D.4080500@stat.ubc.ca>
+	<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>
+Message-ID: <005201c672f0$1a97c7b0$0132a8c0@KILER>
+
+Ciao Claudio,
+
+
+> I agree on the convention of R, i.e. to use the R random number generators
+> and the set.seed() function to set the seed. Do you have
+> any suggestions on how to implement/handling these functions from C and
+> fortran; is there examples or documentation to take a look? (At least,
+> for me, this is one of the reason I still use generators from outside R)
+
+Some hints could be found in Writing R Extensions.
+I have built a very simple, Hello World type package with C and Fortran 
+calls of the R random generator - www.het2.org/~valentin/rhello_1.0.tar.gz
+Check the functions userndC() and userndF().
+
+Unfortunately this is not guaranteed to be portable across systems and I 
+have only tested on Windows.
+
+HTH
+best regards,
+valentin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue May  9 08:51:46 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 9 May 2006 08:51:46 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+In-Reply-To: <005201c672f0$1a97c7b0$0132a8c0@KILER>
+References: <17494.12543.521069.761483@stat.math.ethz.ch>
+	<4456431D.4080500@stat.ubc.ca>
+	<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>
+	<005201c672f0$1a97c7b0$0132a8c0@KILER>
+Message-ID: <17504.15362.475325.408837@stat.math.ethz.ch>
+
+>>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>     on Tue, 9 May 2006 00:38:18 +0200 writes:
+
+    ValenT> Ciao Claudio,
+    >> I agree on the convention of R, i.e. to use the R random number generators
+    >> and the set.seed() function to set the seed. Do you have
+    >> any suggestions on how to implement/handling these functions from C and
+    >> fortran; is there examples or documentation to take a look? (At least,
+    >> for me, this is one of the reason I still use generators from outside R)
+
+    ValenT> Some hints could be found in Writing R Extensions.
+
+Well, for C, I think there's not just hints, but an extensive
+documentation in the "Writing R Extensions" manual.
+For Fortran, the manual says that you must write a C wrapper.
+I've already done the latter for 'robustbase' though not
+committed yet, nor implemented it for ltsReg() and covMCD().
+
+By the way, Valentin,
+do you feel it is important to remain with Fortran there?
+In general, I end up 'f2c'ing (Fortran to C translating) Fortran
+source and work with C; not the least because I get better
+compiler warnings and easier debugging tools.
+
+    ValenT> I have built a very simple, Hello World type package
+    ValenT> with C and Fortran calls of the R random generator -
+    ValenT> www.het2.org/~valentin/rhello_1.0.tar.gz Check the
+    ValenT> functions userndC() and userndF().
+
+Thank you, Valentin, that can be useful for less experienced
+people.  Maybe you could make this into a small package  'fortranDemo'
+and submit that to CRAN?
+
+    ValenT> Unfortunately this is not guaranteed to be portable
+    ValenT> across systems and I have only tested on Windows.
+
+But it is the approach I will use as well for robustbase
+(at least as long as we still have Fortran as opposed to C
+sources) and I think it works portably at least for "usual
+setups" (e.g. GNU compilers and libraries).
+
+Martin
+
+    ValenT> HTH
+    ValenT> best regards,
+    ValenT> valentin
+
+
+
+From H@rry@Southworth @end|ng |rom @@tr@zenec@@com  Tue May  9 12:17:17 2006
+From: H@rry@Southworth @end|ng |rom @@tr@zenec@@com (Southworth, Harry)
+Date: Tue, 9 May 2006 11:17:17 +0100 
+Subject: [RsR] Library for regression with t-distributed data
+Message-ID: <D808EA148335074698927652E8E5182F09CE3350@ukapphdevmsx01.ukap.astrazeneca.net>
+
+Dear list,
+
+I'm a noob. If there is already a library/package for regression with
+t-distributed residuals, please forgive me and ignore me.
+
+I have an S-PLUS library for fitting, and studying regression models under
+the assumption of t-distributed data. I never got around to fully validating
+it, so never made it publicly available. I sometimes use the functions and
+they appear to work.
+
+There are functions for printing, plotting and summarizing. Also, there are
+functions for computing profile likelihoods. The library lets the user
+decide if they want to fix the degrees of freedom parameter, or let it vary.
+IWLS is used, as described by Lange, Little and Taylor.
+
+>From memory, I implemented the option to use the expected information, but
+was never convinced that I did it correctly (I don't recall why I
+implemented it in the first place). Also there is no help system. Apart from
+that, it's ok but needs a bit more testing out in the wild.
+
+All of the code is S3 - there is no precompiled C or anything else. It ought
+to be straightforward to port to R.
+
+I've sat on this library for a long time and am unlikely ever to complete it
+on my own. Therefore, if anyone would like to assume ownership of it and
+port to R, or if anyone would like to collaborate with me on finalizing it ,
+I would be very grateful.
+
+Thanks,
+Harry.
+
+____________________________________________
+
+Harry Southworth,
+FE2 A/2 Parklands,
+Alderley Park,
+Cheshire, SK10 4TG, UK
+Tel.: +44 1625 518327
+Mobile: 07867 676073
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue May  9 12:39:45 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 9 May 2006 12:39:45 +0200
+Subject: [RsR] plugins for lmrob()
+In-Reply-To: <B7C02093A9C6FB47B417FC3FAB0D721420DA91@langouste.zhwin.ch>
+References: <B7C02093A9C6FB47B417FC3FAB0D721420DA91@langouste.zhwin.ch>
+Message-ID: <17504.29041.635350.876183@stat.math.ethz.ch>
+
+Thank you, Andreas (and Werner),
+for your valuable feedback.
+
+>>>>> "ARu" == Ruckstuhl Andreas \(rks\) <Ruckstuhl>
+>>>>>     on Wed, 3 May 2006 16:38:28 +0200 writes:
+
+
+    ARu> Regarding the "plugging" of new methods I would like to
+    ARu> see something like this (example for method "MM"):
+
+    ARu> On a first level, there is the method "MM", hence
+
+    ARu>  lmrob(*, method = lmrob.fit.MM) ## where lmrob.fit.MM is an R function
+
+    ARu> On a second level, there may be different ways to
+    ARu> generate the initial S estimator, hence
+
+    ARu> lmrob(*, method = lmrob.fit.MM, initial=lmrob.fit.Sfast),
+
+    ARu> where lmrob.fit.Sfast() (or maybe lmrob.fit.MM.Sfast())
+    ARu> calculates the initial values. There is an open issue
+    ARu> however, whether the argument "initial" should not be
+    ARu> better part of the argument "control" like
+
+    ARu> lmrob(*, method = lmrob.fit.MM, control=lmrob.MM.control(initial=lmrob.fit.Sfast))
+
+    ARu> (I think, it is sensible that the control function
+    ARu> depends on the method.)
+
+Indeed. After seeing your proposal, and more thinking I'm tending to
+the conclusion that it would probably be best to *only* allow
+     method =  <R-function_with_specific_properties>
+
+Of course, all the function to be used as 'method' argument for
+lmrob() must have
+
+  1) arguments  x : ~= model.matrix(...)
+		y : target variable 
+		     {BTW: We should allow *multi*variate
+			   'y' eventually, the same as lm() does!}
+	      ... : all (?) further arguments coming from a function-specific
+		    <foo.bar>.control(..) function call
+
+  2) return value: a list(.) with a few well specified components,
+     such as 
+	  coefficients, scale, cov,
+	  weights, residuals, fitted.values,
+	  seed, converged, rank, ...
+
+
+    ARu> There should be a separate method for regression
+    ARu> M-estimators (e.g., lmrob.fit.M()) since this method is
+    ARu> still the adequate for the analysis of fixed effects
+    ARu> models. 
+
+Yes, or needed as building block (i.e. a
+"sub - method") for the even more important case of a mixture of
+categorical and continuous predictors.
+
+    ARu> The function lmrob.fit.M() may even include
+    ARu> bounded influence regression estimators.
+
+Indeed; also if only for comparison with these once famous
+"optimal" methods.
+
+Now just someone has to do this...
+
+Martin
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Wed May 10 00:52:01 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Wed, 10 May 2006 00:52:01 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+References: <17494.12543.521069.761483@stat.math.ethz.ch><4456431D.4080500@stat.ubc.ca><Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it><005201c672f0$1a97c7b0$0132a8c0@KILER>
+	<17504.15362.475325.408837@stat.math.ethz.ch>
+Message-ID: <012f01c673bb$2f4530a0$0132a8c0@KILER>
+
+> By the way, Valentin,
+> do you feel it is important to remain with Fortran there?
+> In general, I end up 'f2c'ing (Fortran to C translating) Fortran
+> source and work with C; not the least because I get better
+> compiler warnings and easier debugging tools.
+
+I am not happy with the Fortran in covMcd and ltsReg, but:
+1. I still do not believe in the automatic coversion (yes, you are right, I 
+had first at least to try it)
+2. I would like to redesign the programs
+3. I would prefer C++ rather than C.
+
+For all these I still have not found enough time.
+
+By the way my trials to download an f2c converter ended with the download of 
+a "Free download Manager"! and nothing more. I'll appreciate some info.
+
+best regards
+valentin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed May 10 09:27:02 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 10 May 2006 09:27:02 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+In-Reply-To: <012f01c673bb$2f4530a0$0132a8c0@KILER>
+References: <17494.12543.521069.761483@stat.math.ethz.ch>
+	<4456431D.4080500@stat.ubc.ca>
+	<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>
+	<005201c672f0$1a97c7b0$0132a8c0@KILER>
+	<17504.15362.475325.408837@stat.math.ethz.ch>
+	<012f01c673bb$2f4530a0$0132a8c0@KILER>
+Message-ID: <17505.38342.122548.346570@stat.math.ethz.ch>
+
+>>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>     on Wed, 10 May 2006 00:52:01 +0200 writes:
+
+    >> By the way, Valentin,
+    >> do you feel it is important to remain with Fortran there?
+    >> In general, I end up 'f2c'ing (Fortran to C translating) Fortran
+    >> source and work with C; not the least because I get better
+    >> compiler warnings and easier debugging tools.
+
+    ValenT> I am not happy with the Fortran in covMcd and ltsReg, but:
+    ValenT> 1. I still do not believe in the automatic coversion (yes, you are right, I 
+    ValenT> had first at least to try it)
+
+    ValenT> 2. I would like to redesign the programs
+
+    ValenT> 3. I would prefer C++ rather than C.
+
+C++ complicates things slightly and typically is a tad (10% ?) slower than C.
+R's C API is a C and not C++ API anyway.
+I think it's only worth using C++ for some kind of problems
+(e.g. when a class structure can make the program much more readable),
+and I doubt that the covMcd() or ltsReg() algorithms belong to
+this class.
+
+    ValenT> For all these I still have not found enough time.
+
+    ValenT> By the way my trials to download an f2c converter ended with the download of 
+    ValenT> a "Free download Manager"! and nothing more. I'll appreciate some info.
+
+f2c  is from the Bell Labs -- AFAIK by some of the same people
+who invented C.  Good Linux distributions provide a package for
+it. Googling 'f2c' gives a good site (http://www.netlib/org/f2c)
+as first hit for me. 
+I've used it -- plus an extra perl script I wrote myself --
+many times in the past ten years; even parts of R itself were
+done using it.
+
+BTW, I thought of doing the conversion (for fast MCD & LTS)
+     myself, rather than you having to do it.
+
+Martin
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Wed May 10 09:46:58 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Wed, 10 May 2006 09:46:58 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+References: <17494.12543.521069.761483@stat.math.ethz.ch><4456431D.4080500@stat.ubc.ca><Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it><005201c672f0$1a97c7b0$0132a8c0@KILER><17504.15362.475325.408837@stat.math.ethz.ch><012f01c673bb$2f4530a0$0132a8c0@KILER>
+	<17505.38342.122548.346570@stat.math.ethz.ch>
+Message-ID: <000501c67405$eaaf3fd0$0132a8c0@KILER>
+
+> C++ complicates things slightly
+
+you mean under R, not in general?
+
+>and typically is a tad (10% ?) slower than C.
+
+and assembler is even faster!
+
+> R's C API is a C and not C++ API anyway.
+
+
+> I think it's only worth using C++ for some kind of problems
+> (e.g. when a class structure can make the program much more readable),
+
+and this is almost always the case - a class structure makes a program 
+always more readable
+
+> and I doubt that the covMcd() or ltsReg() algorithms belong to
+> this class.
+
+not until they are translated 1-1 from Fortran. I doubt also that covMcd/Lts 
+are readable at all now and I expect the readability to decrease (with much 
+more than 10%) when converted authomatically to C.
+
+
+>
+>    ValenT> For all these I still have not found enough time.
+>
+>    ValenT> By the way my trials to download an f2c converter ended with 
+> the download of
+>    ValenT> a "Free download Manager"! and nothing more. I'll appreciate 
+> some info.
+>
+> f2c  is from the Bell Labs -- AFAIK by some of the same people
+> who invented C.  Good Linux distributions provide a package for
+> it.
+
+sorry, forgot to say that I was searching for windows package.
+
+>Googling 'f2c' gives a good site (http://www.netlib/org/f2c)
+> as first hit for me.
+
+for me too, but this results in "Error 404 - Page not found"
+
+> I've used it -- plus an extra perl script I wrote myself --
+> many times in the past ten years; even parts of R itself were
+> done using it.
+>
+> BTW, I thought of doing the conversion (for fast MCD & LTS)
+>     myself, rather than you having to do it.
+>
+> Martin
+>
+>
+
+Valentin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed May 10 10:38:26 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 10 May 2006 10:38:26 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+In-Reply-To: <000501c67405$eaaf3fd0$0132a8c0@KILER>
+References: <17494.12543.521069.761483@stat.math.ethz.ch>
+	<4456431D.4080500@stat.ubc.ca>
+	<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>
+	<005201c672f0$1a97c7b0$0132a8c0@KILER>
+	<17504.15362.475325.408837@stat.math.ethz.ch>
+	<012f01c673bb$2f4530a0$0132a8c0@KILER>
+	<17505.38342.122548.346570@stat.math.ethz.ch>
+	<000501c67405$eaaf3fd0$0132a8c0@KILER>
+Message-ID: <17505.42626.686762.557334@stat.math.ethz.ch>
+
+>>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>     on Wed, 10 May 2006 09:46:58 +0200 writes:
+
+	  .................
+
+    ValenT> By the way my trials to download an f2c converter ended with 
+    >> the download of
+    ValenT> a "Free download Manager"! and nothing more. I'll appreciate 
+    >> some info.
+    >> 
+    >> f2c  is from the Bell Labs -- AFAIK by some of the same people
+    >> who invented C.  Good Linux distributions provide a package for
+    >> it.
+
+    ValenT> sorry, forgot to say that I was searching for windows package.
+
+    >> Googling 'f2c' gives a good site (http://www.netlib/org/f2c)
+    >> as first hit for me.
+
+    ValenT> for me too, but this results in "Error 404 - Page not found"
+
+I'm sorry: There's a simple typo in the above; correct is
+http://www.netlib.org/f2c
+
+Martin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed May 10 11:21:10 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 10 May 2006 11:21:10 +0200
+Subject: [RsR] estimators based on random samples... - should be random
+In-Reply-To: <000501c67405$eaaf3fd0$0132a8c0@KILER>
+References: <17494.12543.521069.761483@stat.math.ethz.ch>
+	<4456431D.4080500@stat.ubc.ca>
+	<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>
+	<005201c672f0$1a97c7b0$0132a8c0@KILER>
+	<17504.15362.475325.408837@stat.math.ethz.ch>
+	<012f01c673bb$2f4530a0$0132a8c0@KILER>
+	<17505.38342.122548.346570@stat.math.ethz.ch>
+	<000501c67405$eaaf3fd0$0132a8c0@KILER>
+Message-ID: <17505.45190.411985.966832@stat.math.ethz.ch>
+
+>>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>     on Wed, 10 May 2006 09:46:58 +0200 writes:
+
+    >> C++ complicates things slightly
+    ValenT> you mean under R, not in general?
+
+yes. It slightly complicates things for interfacing to any S dialect,
+including R and S-plus.
+
+    >> and typically is a tad (10% ?) slower than C.
+
+    ValenT> and assembler is even faster!
+
+:-)
+
+    >> R's C API is a C and not C++ API anyway.
+
+
+    >> I think it's only worth using C++ for some kind of problems
+    >> (e.g. when a class structure can make the program much more readable),
+
+    ValenT> and this is almost always the case - a class structure makes a program 
+    ValenT> always more readable
+
+I'm not going to debate further here;   of course what
+"readable" means exactly depends very much on the reader, 
+and in particular on what kind of reading one is used to...
+
+
+    >> and I doubt that the covMcd() or ltsReg() algorithms belong to
+    >> this class.
+
+    ValenT> not until they are translated 1-1 from Fortran. I doubt also that covMcd/Lts 
+    ValenT> are readable at all now and I expect the readability to decrease (with much 
+    ValenT> more than 10%) when converted authomatically to C.
+
+I agree that readability would decrease slightly *) --
+but if it's "not readable at all now", i.e., 0% readable,
+it cannot get much lower by a decrease  :-) :-)
+
+Martin
+
+*) for that reason I had developed my perl script to
+ post-process the result; and I usually also invest a few hours
+ of manual postprocessing such that in the end, I believe that
+ readability would be about the same.
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Mon May 22 23:55:49 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Mon, 22 May 2006 23:55:49 +0200
+Subject: [RsR] covrob --- some OOP-comments
+References: <440C11D1.9060602@tuwien.ac.at><44218419.8060301@uni-bayreuth.de><01c201c64e0b$27ed7cc0$0132a8c0@KILER><4422DBF4.8040500@uni-bayreuth.de><000a01c64ebe$34e0ac50$0132a8c0@KILER><4423F969.4070802@uni-bayreuth.de><17444.12281.982207.952805@stat.math.ethz.ch><002301c64ff5$82647000$0132a8c0@KILER>
+	<17447.56688.238243.568965@stat.math.ethz.ch>
+Message-ID: <00da01c67dea$7d186d90$0132a8c0@KILER>
+
+I have finally uploaded the new version of rrcov containing the S4 classes 
+which previously were in the preview package rr4cov. May be it is necessary 
+to write more about it, but for now only briefly:
+
+- unfortunately I still have not removed the classes and data sets that are 
+already in robustbase
+- I have solved the naming convention and the coexisting of S3 and S4 
+classes in the following way:
+    - a class name starts with a capital letter
+    - a function, generic or method name starts with a lowercase, except for 
+the functions returning an S4 objects, which have the same name as the 
+corresponding S4 class (aka constructor). Thus we can have parallel covMest 
+(function returning S3 object "mest") and CovMest (function) returning a 
+CovMest (class) object.
+    - In the ..\inst\doc directory I have added UML diagrams depicting the 
+class hierarchy, next time also vignette will appear.
+    - The new S4 classes have their own show/plot/summary methods
+    - later the S3 classes and the corresponding functions will be 
+"deprecated", similarly as in Java: i.e. a function which is deprecated 
+issues a warning each time when invoked, saying that it is deprecated, in 
+one of the following releases will be removed and it is recommended to use 
+the function so and so.
+
+- Control parameters: in the same way as above, rrcov.control will be 
+deprecated. Now we will have a CovControl virtual base class and derived 
+classes like CovControlMest, CovControlMcd, etc. each containing the 
+necessary parameters. The "estim" parameter is "substituted" by a generic 
+'estimate' and methods 'estimate' in each of the derived classes.
+
+- There was an inconsistency in the returning of the correlation in covMest 
+as compared to covMcd - now this parameter and value are removed completely 
+and a user wants to use the correlation matrix instead of the covariance, 
+she/he can call the accessor method getCorr()  instead of getCov().
+
+best regards,
+Valentin
+
+
+
+----- Original Message ----- 
+From: "Martin Maechler" <maechler at stat.math.ethz.ch>
+To: "Valentin Todorov" <valentin.todorov at chello.at>
+Cc: <R-SIG-Robust at stat.math.ethz.ch>
+Sent: Monday, March 27, 2006 2:41 PM
+Subject: Re: [RsR] covrob --- some OOP-comments
+
+
+>>>>>> "ValenT" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>>     on Sat, 25 Mar 2006 11:18:49 +0100 writes:
+>
+>    ValenT> ----- Original Message ----- 
+>    ValenT> From: "Martin Maechler" <maechler at stat.math.ethz.ch>
+>    ValenT> ...
+>
+>    >> I assume that at least the base class(es) ('Cov', 'CovR' in
+>    >> Valentin's naming scheme) should be put into 'robustbase'  ASAP,
+>    >> so other packages can import them from the robustbase namespace
+>    >> and extend (aka "inherit from") them.
+>
+>    ValenT> I have uploaded a new version of rrcov with
+>    ValenT> constrained M-estimates of location and scatter
+>    ValenT> covMest(), for test purposes, which still returns an
+>    ValenT> S3 class. Now I am implementing Cov, CovR and the
+>    ValenT> derived from them Mest which I want to upload in the
+>    ValenT> next days. As soon as this construction is stable,
+>    ValenT> I'll move all three of them to robustbase (Martin, I
+>    ValenT> rely on your support).
+>
+> sure.
+> As I alluded earlier, I'd also be happy for you to get direct
+> write access to the subversion repository, i.e. to the database engine
+> which is behind https://svn.R-project.org/R-packages/trunk/robustbase
+>
+>    ValenT> After that I'll port covMcd to return an S4 class derived from 
+> CovR.
+>
+>    ValenT> Two questions arise:
+>
+>    ValenT> - is there some "standard" for naming classes. I
+>    ValenT> assume the usual starting with a capital letter? In
+>    ValenT> some cases one can go further and select a
+>    ValenT> particular capital letter. For example in Visual
+>    ValenT> C++/MFC every class started with a capital C (in our
+>    ValenT> case we would have Ccov, CcovR, Cmcd, Cogk, Cmest).
+>
+> There are "some" standards, but not endorsed officially;
+> particularly there is no capitalization or "prefix"
+> standard.  In a 'function based' OO system like S4, the classes
+> are a bit less visible than in a 'class based' system like C++/Java.
+>
+> Several of the more classical R packages that have been using S4
+> use simple all-lowercase-alphabet class names such as 'mle' or
+> 'pixmap' but also 'sparseMatrix'.  The one ``rule'' that I think
+> "everyone" agrees on is  that the creator function, particularly of
+> a ``principal'' class, should have the identical
+> name as the class it creates. E.g. mle() returns S4 objects of
+> class 'mle', Matrix() returns objects inheriting from class
+> "Matrix", etc.  However even this rule is sometimes not
+> practical for diverse reasons, typically name clashes with
+> already existing functionality in R (in possibly other packages, etc).
+> One of the main reasons that IMO it doesn't make sense trying to
+> impose such standards is the fact that S (and hence R) has a
+> history of more than 20 years, and one has wanted to stay back
+> compatible as much as possible when providing new facilities.
+>
+> If we try to adhere to the only "agreed upon" standard above, our
+> class would need to be called  "covrob";  its super class (which
+> conceptually also contains the classical non-robustly estimated
+> covariance structures) could well be called "cov", even though
+> the standard cov() function does not return classed objects.
+> Further thinking about this directly leads to Valentin's 2nd
+> question:
+>
+>    ValenT> - What happens with the user of, for example
+>    ValenT> covMcd() when it begins to return an S4 class "Mcd"
+>    ValenT> instead of the current S3 "mcd".
+>
+>    ValenT> Of course these that just use print/plot/summary
+>    ValenT> will not notice the change, but what about these
+>    ValenT> that use the returned object within their programs?
+>
+> Very good point that has also come to my mind when contemplating
+> your proposed inheritance / class hierarchy:
+>
+> All the user's code / scripts / functions that rely on the
+> current structue of, say,  covMcd(),  will stop working
+> correctly.
+>
+>    ValenT> This is actually a general question on compatibility.
+>
+> Indeed!
+>
+> One approach that I usually favor is to require new function
+> names for getting the new-class results *and*
+> keep the old functions returning a back-compatible result; in
+> the present case keep covMcd() or covOGK() returning the lists
+> (and maybe S3 class) they currently return.
+>
+> That would be one argument pro only having covrob() return an S4
+> class and all the underlying "method functions" return lists
+> (possibly with an S3 class) -- just about what Peter and Heinz
+> have been proposing.  Additionally one could have newly named
+> functions {say 'covMCD'} that call the same underlying "method
+> functions" as covrob, e.g. call 'covMcd(..)', and only covMCD
+> would return an S4 class "covMCD" which extends (or "inherits
+> from") "covrob".
+>
+> The completely alternative approach would be to declare that all
+> current users of 'rrcov' (or 'robustbase') should change their
+> scripts and functions whenever they start using the
+> new_generation-version of "robustbase" and start using the slots
+> (or accessor functions were we provide them) of the new
+> S4-classed return values.
+> This 2nd ``brutal'' approach (of non-compatible upgrade) is
+> possible in situations where not too many users of the current
+> package exist, and they basically agree to do the extra work of
+> upgrading their R scripts.
+> Personally, I'm  *very*  reluctant against compatibility
+> breaking -- though I agree it has to happen sometimes in order
+> to not hinder progress.
+>
+> Martin
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Mon Jun 12 00:18:09 2006
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Mon, 12 Jun 2006 00:18:09 +0200
+Subject: [RsR] covRob with M-estimates in S-Plus
+Message-ID: <001501c68da4$f9c55550$0132a8c0@KILER>
+
+In their talk at ICORS'2005 in Finland, "Choosing a Multivariate Estimate for High Dimensional Data", Maronna, Yohai and Villar say (about the problem of the S estimates with high dimensional data):
+"Rocke (1996) realized this fact and proposed that rho depend on p: He defined a "translated
+bisquare" family of functions. It seems that his proposal had only limited diffusion, although it has
+been implemented in S-Plus."
+
+Recently, I was surprised to find out that unfortunately, although implemented in S-Plus, no body could use the translated biweight functions, proposed by Rocke, because of a simple error in the code.
+
+The function Rho.param() which computes the parameters for the constrained M-estimator tries to choose between biweight, translated biweight and LWS:
+
+         # alpha <= alf.b
+         c1 <- uniroot(eq.rho.b, lower = 1, upper = 20, p = p, r = r)$root
+=>     alf.b <- 1 - pchisq(c1, p)
+         if(alpha <= alf.b)
+             return(list(rho = "b", r = r, alf.b = alf.b, alf.LWS = NA, c = c1,
+                 b0 = (r * c1 * c1)/6, M = 0))
+    ...
+
+The line 
+
+    >>> alf.b <- 1 - pchisq(c1, p) <<< 
+
+always chooses the biweight, although this should be the case only for p <= 3 (see Rocke 1996). 
+
+The proper condition should be 
+
+    >>> alf.b <- 1 - pchisq(c1*c1, p) <<< 
+
+[same in Kiel's robust package]
+
+Best regards,
+
+Valentin
+
+
+
+
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Jun 23 10:42:58 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 23 Jun 2006 10:42:58 +0200
+Subject: [RsR] High breakdown/efficiency statistics -- was RE: [R]
+	Rosner's test
+In-Reply-To: <001701c6961b$2452fe20$0e7e11ac@gne.windows.gene.com>
+References: <17562.23802.793188.600782@stat.math.ethz.ch>
+	<001701c6961b$2452fe20$0e7e11ac@gne.windows.gene.com>
+Message-ID: <17563.43410.601845.498856@stat.math.ethz.ch>
+
+I'm CC'ing this to the R-SIG-robust mailing list
+ [R Special Interest Group on robust statistics]
+so it's properly archived there as well.
+Follow up ideally should only go there.
+
+{BTW: Did you know that to *search* mailing list archives of
+      such R-SIG-foo mailing lists, you can use google very
+      efficiently by prepending the mailing list name and 'site:stat.ethz.ch'?
+      e.g., use google search on
+      "R-SIG-robust site:stat.ethz.ch lmrob"
+}
+      
+>>>>> "BertG" == Berton Gunter <gunter.berton at gene.com>
+>>>>>     on Thu, 22 Jun 2006 09:44:33 -0700 writes:
+
+    BertG> Many thanks for this Martin. There now are several
+    BertG> packages with what appear to be overlapping functions
+    BertG> (or at least algorithms). Besides those you
+    BertG> mentioned, "robust" and "roblm" are at least two others.
+
+actually quite particular ones:
+
+- "roblm" by Matias Salibian-Barreras is really predecessor to
+  parts in 'robustbase'. His roblm() function is now  lmrob() in
+  robustbase, i.e., robustbase::lmrob(), and lmrob() is a bit
+  more efficient and further has a anova() method.
+
+- "robust" : by Kjell Konis -- is planned to become a full port
+	   of the S-plus library section "robust" (from
+	   Insightful, also mainly by Kjell Konis, built
+	   on code of many more, see DESCRIPTION).
+   At the moment it comes with a 'Insightful Robust Library License'
+   which seems a kind of open source licence, but pretty "peculiar"
+   (to me: IANAL (I am not a lawyer)).
+
+   At the moment it only has "robust covariance + location", but
+   when it will contain everything from its S-plus counterpart,
+   it will be a very nice benchmark; in many parts "first rate".
+
+    BertG> Any recommendations about how or whether to
+    BertG> choose among these for us enthusiastic but non-expert
+    BertG> users?
+
+As I said (in reply to Andy's suggestion) there will be a CRAN
+task view "real soon now" 
+in order to give some guidance on the diverse packages with
+robustness functionality.
+
+    BertG> Cheers, Bert
+ 
+
+    >> -----Original Message----- From: Martin Maechler
+    >> [mailto:maechler at stat.math.ethz.ch] Sent: Thursday, June
+    >> 22, 2006 2:04 AM To: Berton Gunter Cc: 'Robert Powell';
+    >> r-help at stat.math.ethz.ch Subject: Re: [R] Rosner's test
+    >> 
+    >> >>>>> "BertG" == Berton Gunter <gunter.berton at gene.com>
+    >> >>>>> on Tue, 13 Jun 2006 14:34:48 -0700 writes:
+    >> 
+    BertG> RSiteSearch('Rosner') ?RSiteSearch or search directly
+    BertG> from CRAN.
+    >>
+    BertG> Incidentally, I'll repeat what I've said
+    BertG> before. Don't do outlier tests.  They're
+    BertG> dangerous. Use robust methods instead.
+    >>  Yes, yes, yes!!!
+    >> 
+    >> Note that rlm() or cov.rob() from recommended package
+    >> MASS will most probably be sufficient for your needs.
+    >> 
+    >> For slightly newer methodology, look at package
+    >> 'robustbase', or also 'rrcov'.
+    >> 
+    >> Martin Maechler, ETH Zurich
+    >> 
+    BertG> -- Bert Gunter Genentech Non-Clinical Statistics
+    BertG> South San Francisco, CA
+    >>
+    BertG> "The business of the statistician is to catalyze the
+    BertG> scientific learning process."  - George E. P. Box
+    >>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Jul  5 14:51:02 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 5 Jul 2006 14:51:02 +0200
+Subject: [RsR] [R] p-values for robust regression
+In-Reply-To: <f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>
+References: <f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>
+Message-ID: <17579.46518.812020.585297@stat.math.ethz.ch>
+
+  [Oops! Written 6 hours ago, the following was accidentally not sent.]
+
+>>>>> "Celso" == Celso Barros <celso.barros at gmail.com>
+>>>>>     on Wed, 5 Jul 2006 04:09:17 -0300 writes:
+
+    Celso> When I run rlm to obtain robust standard errors, my output does not include
+    Celso> p-values. Is there any reason p-values should not be used in this case? 
+
+yes (see also below).
+
+    Celso> Is there an argument I could use in rlm so that the output does
+    Celso> include p-values?
+no.
+
+What are the reasons?
+
+How to properly do hypothesis testing in the context of robust
+regression has partly been an open research problem.  Whereas
+or has been solved in Elvezio Ronchetti's PhD thesis (1982)
+by tau-tests, see chapter 7 of  Hampel, Rousseeuw, Ronchetti,
+Stahel (1986), these are not (directly) related to standard
+errors, and t-tests with some degrees of freedom.
+Hence they are not so intuitively explainable, and not entirely
+trivial to implement.  Probably this is one of reasons, why they
+(tau-tests) haven't been programmed for MASS (the book and the R package).
+
+Recent research, namely,
+     Croux, C., Dhaene, G. and Hoorelbeke, D. (2003) _Robust standard
+     errors for robust estimators_, Discussion Papers Series 03.16,
+     K.U. Leuven, CES.
+has been made use of by Matias Salibian-Barrera's roblm()
+function now available as  lmrob() from package 'robustbase'.
+There,  mod <- lmrob(........);  summary( mod ) 
+does provide you with P-values.
+But we still recommend *not* to ``believe in the P-values''
+blindly, but rather base your data analysis on serious analysis
+of residuals and other model checking.
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Jul  5 14:51:02 2006
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 5 Jul 2006 14:51:02 +0200
+Subject: [RsR] [R] p-values for robust regression
+In-Reply-To: <f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>
+References: <f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>
+Message-ID: <17579.46518.812020.585297@stat.math.ethz.ch>
+
+  [Oops! Written 6 hours ago, the following was accidentally not sent.]
+
+>>>>> "Celso" == Celso Barros <celso.barros at gmail.com>
+>>>>>     on Wed, 5 Jul 2006 04:09:17 -0300 writes:
+
+    Celso> When I run rlm to obtain robust standard errors, my output does not include
+    Celso> p-values. Is there any reason p-values should not be used in this case? 
+
+yes (see also below).
+
+    Celso> Is there an argument I could use in rlm so that the output does
+    Celso> include p-values?
+no.
+
+What are the reasons?
+
+How to properly do hypothesis testing in the context of robust
+regression has partly been an open research problem.  Whereas
+or has been solved in Elvezio Ronchetti's PhD thesis (1982)
+by tau-tests, see chapter 7 of  Hampel, Rousseeuw, Ronchetti,
+Stahel (1986), these are not (directly) related to standard
+errors, and t-tests with some degrees of freedom.
+Hence they are not so intuitively explainable, and not entirely
+trivial to implement.  Probably this is one of reasons, why they
+(tau-tests) haven't been programmed for MASS (the book and the R package).
+
+Recent research, namely,
+     Croux, C., Dhaene, G. and Hoorelbeke, D. (2003) _Robust standard
+     errors for robust estimators_, Discussion Papers Series 03.16,
+     K.U. Leuven, CES.
+has been made use of by Matias Salibian-Barrera's roblm()
+function now available as  lmrob() from package 'robustbase'.
+There,  mod <- lmrob(........);  summary( mod ) 
+does provide you with P-values.
+But we still recommend *not* to ``believe in the P-values''
+blindly, but rather base your data analysis on serious analysis
+of residuals and other model checking.
+
+______________________________________________
+R-help at stat.math.ethz.ch mailing list
+https://stat.ethz.ch/mailman/listinfo/r-help
+PLEASE do read the posting guide! http://www.R-project.org/posting-guide.html
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Wed Jul  5 19:19:10 2006
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Wed, 05 Jul 2006 10:19:10 -0700
+Subject: [RsR] [R] p-values for robust regression
+In-Reply-To: <17579.46518.812020.585297@stat.math.ethz.ch>
+References: <f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>
+	<17579.46518.812020.585297@stat.math.ethz.ch>
+Message-ID: <44ABF48E.4090307@stat.ubc.ca>
+
+
+Dear Celso,
+
+I would only add a few comments to Martin's explanation below:
+
+- tau-tests were primarily meant for general nested hypotheses, whereas 
+for a hypothesis of the form "beta_j = 0" for a single index "j" one can 
+also use (as it's done for glm estimators, say) *approximate* p-values 
+based on a normal approximation to the distribution of the ratio 
+"estimator / standard error" -- these are the p-values that 
+"summary.lmrob" currently reports, based on the *robust standard errors* 
+of Croux et al. 2003 (full reference in Martin's e-mail below) that 
+remain valid even when the data may contain asymmetric outliers;
+
+- the asymptotic distribution of tau-tests is known for symmetrically 
+distributed errors and, furthermore, it involves a weighted sum of 
+independent chi-squared distributions, with weights depending on the 
+eigenvalues of the (asymptotic) covariance matrix of the explanatory 
+variables. Not surprisingly, their p-values are rather difficult to 
+calculate in practice (although approximations do exist: see Alfio 
+Marazzi's ROBETH and S-PLUS's robust libraries);
+
+- for nested linear hypotheses, the tests in Markatou and Hettmansperger 
+(1990, "Robust bounded-influence tests in linear models", JASA, 85, 
+187-190) provide an alternative to the tau-tests with the "usual" 
+asymptotic chi-squared distribution, although this asymptotic 
+approximation is also known to hold for symmetrically distributed 
+errors, and moreover, seems to be rather sensitive to the presence of 
+outliers (see my paper in JSPI, 2005, 128, 241-257), while the Robust 
+Bootstrap performs quite well in estimating the p-values for these 
+robust tests.
+
+
+Summarizing:
+
+- the standard errors and p-values for individual hypotheses of the form 
+"beta_j=0" reported by summary.lmrob (in robustbase) are (robust) 
+asymptotic approximations, which should be interpreted and used accordingly;
+- if you're interested in nested linear hypotheses, there are some 
+proposals in the literature to obtain robust p-values for robust tests 
+although they have not been implemented in robustbase yet (hopefully 
+they will be in the near future).
+
+Best,
+
+Matias
+
+--
+______________________________________________________________
+Matias Salibian-Barrera - Department of Statistics
+University of British Columbia - matias at stat.ubc.ca
+Phone: (604) 822-3410 - Fax: (604) 822-6960
+
+
+Martin Maechler wrote:
+>   [Oops! Written 6 hours ago, the following was accidentally not sent.]
+> 
+>>>>>> "Celso" == Celso Barros <celso.barros at gmail.com>
+>>>>>>     on Wed, 5 Jul 2006 04:09:17 -0300 writes:
+> 
+>     Celso> When I run rlm to obtain robust standard errors, my output does not include
+>     Celso> p-values. Is there any reason p-values should not be used in this case? 
+> 
+> yes (see also below).
+> 
+>     Celso> Is there an argument I could use in rlm so that the output does
+>     Celso> include p-values?
+> no.
+> 
+> What are the reasons?
+> 
+> How to properly do hypothesis testing in the context of robust
+> regression has partly been an open research problem.  Whereas
+> or has been solved in Elvezio Ronchetti's PhD thesis (1982)
+> by tau-tests, see chapter 7 of  Hampel, Rousseeuw, Ronchetti,
+> Stahel (1986), these are not (directly) related to standard
+> errors, and t-tests with some degrees of freedom.
+> Hence they are not so intuitively explainable, and not entirely
+> trivial to implement.  Probably this is one of reasons, why they
+> (tau-tests) haven't been programmed for MASS (the book and the R package).
+> 
+> Recent research, namely,
+>      Croux, C., Dhaene, G. and Hoorelbeke, D. (2003) _Robust standard
+>      errors for robust estimators_, Discussion Papers Series 03.16,
+>      K.U. Leuven, CES.
+> has been made use of by Matias Salibian-Barrera's roblm()
+> function now available as  lmrob() from package 'robustbase'.
+> There,  mod <- lmrob(........);  summary( mod ) 
+> does provide you with P-values.
+> But we still recommend *not* to ``believe in the P-values''
+> blindly, but rather base your data analysis on serious analysis
+> of residuals and other model checking.
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> 
+> 
+
+
+--
+
+
+
+From uh@@@on @end|ng |rom uch|c@go@edu  Tue Oct  3 05:40:53 2006
+From: uh@@@on @end|ng |rom uch|c@go@edu (Uri Hasson)
+Date: Mon,  2 Oct 2006 22:40:53 -0500 (CDT)
+Subject: [RsR] Question re' MCD, MVE and Pearson's correlation
+Message-ID: <20061002224053.ADR84009@m4500-03.uchicago.edu>
+
+Dear group members,
+
+I have posted this question on the R-help mailing list, but
+did not get any reply. Could anyone here point me to the right
+direction?
+
+Cheers,
+Uri Hasson
+
+Message:
+I am trying to use MCD and MVE methods in the analysis of
+functional imaging
+(fMRI) data. But, before doing that, I want to understand the
+sampling distribution of the correlation parameter given by
+MCD and MVE (cov.mcd$cor, cov.mve$cor).
+
+To this end, I conducted a simulation where in each of 100000
+epochs, I
+a.    construct a matrix from two vectors, each containing 40
+numbers
+randomly sampled from a normal distribution.
+b.    apply cov.mve and cov.mcd to the resulting matrix.
+c.    obtain the correlations in the subsets selected by
+cor.mve: e.g., if
+the matrix is called cormat20.ans, I request:
+
+current.mve20 <- round(cov.mve(cormat20.ans, cor=T)$cor[[2]] ,3)
+
+At the end of the day, I have the sampling distribution for
+these correlations [i.e., what correlations exist in the
+subsets that MVE and MCD tend to pick up when sampling from
+normal distribution].
+
+Here is my question: Because MVE and MCD select the most
+central 20 points (of the 40), I wanted to compare the
+resulting sampling distributions to that of a Pearson's "r"
+correlation coefficient (i.e., a Pearson's r with
+N=20; the goal was to establish whether the significance
+thresholds are similar).  However the three sampling
+distributions are quite different. That is, the sampling
+distribution of Pearson's R (N=20) is very different
+than that of cov.mve and cov.mcd (with N=20 [20 being the
+subset selected of the 40 points]).  The sampling distribution
+of Pearson's R with N=40 is also very different than that of
+MVE and MCD.
+
+If anyone knows, or could point me to sources information that
+discuss the issue of the sampling distribution of of
+cov.mve$cor and cov.mcd$cor and their relations to the
+pearson's R, I would be very grateful.
+
+I have put the simulation code I used here:
+http://home.uchicago.edu/~uhasson/pearson-mcd-mve.R.txt
+
+And an image of the resulting sampling distributions here:
+http://home.uchicago.edu/~uhasson/correl.comparison.tiff
+
+
+Sincerely,
+Uri Hasson
+The Brain Research Imaging Center
+The University of Chicago
+
+
+

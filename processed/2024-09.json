@@ -1,0 +1,63 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2024-09",
+  "messages": [
+    {
+      "id": "msg-5d4667129aba",
+      "message_id": "<rEPSL-QaSd-OSy1KsQaFdg@geopod-ismtpd-1>",
+      "from_name": "mzyphur m@iii@g oii i@st@ts@org",
+      "from_email_hash": "252b54e096b1cc2b7cae76e00ed703f3596525227cfc47687b655cf5c7e64f69",
+      "date": "2024-09-04T07:22:00Z",
+      "subject": "[RsR] Online courses: Instats Launches All-Access Subscriptions",
+      "subject_clean": "[RsR] Online courses: Instats Launches All-Access Subscriptions",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240904/e18ac21d/attachment.html>",
+      "body_snippet": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240904/e18ac21d/attachment.html>",
+      "thread_id": "thread-5d4667129aba",
+      "thread_depth": 0,
+      "month": "2024-09"
+    },
+    {
+      "id": "msg-e5e722ce3079",
+      "message_id": "<LuT1NIwLTCmooN0yjmr7QQ@geopod-ismtpd-16>",
+      "from_name": "mzyphur m@iii@g oii i@st@ts@org",
+      "from_email_hash": "252b54e096b1cc2b7cae76e00ed703f3596525227cfc47687b655cf5c7e64f69",
+      "date": "2024-09-17T21:25:00Z",
+      "subject": "[RsR] Online Course: Statistics and Data Science using Tidyverse in R",
+      "subject_clean": "[RsR] Online Course: Statistics and Data Science using Tidyverse in R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240917/6f453274/attachment.html>",
+      "body_snippet": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20240917/6f453274/attachment.html>",
+      "thread_id": "thread-e5e722ce3079",
+      "thread_depth": 0,
+      "month": "2024-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-5d4667129aba",
+      "subject": "[RsR] Online courses: Instats Launches All-Access Subscriptions",
+      "message_count": 1,
+      "participants": [
+        "mzyphur m@iii@g oii i@st@ts@org"
+      ],
+      "started": "2024-09-04T07:22:00+00:00",
+      "last_reply": "2024-09-04T07:22:00+00:00",
+      "root_message_id": "msg-5d4667129aba"
+    },
+    {
+      "id": "thread-e5e722ce3079",
+      "subject": "[RsR] Online Course: Statistics and Data Science using Tidyverse in R",
+      "message_count": 1,
+      "participants": [
+        "mzyphur m@iii@g oii i@st@ts@org"
+      ],
+      "started": "2024-09-17T21:25:00+00:00",
+      "last_reply": "2024-09-17T21:25:00+00:00",
+      "root_message_id": "msg-e5e722ce3079"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2009-02",
+  "messages": [
+    {
+      "id": "msg-08ffcd39bc32",
+      "message_id": "<37fda5350902231454n3c592b4dv96d137b026266f09@mail.gmail.com>",
+      "from_name": "Mike Lawrence",
+      "from_email_hash": "2cf5c45daf2bcfeb581fd328c254e7d124b2d987d065fec7c07ea1d9ddb67b05",
+      "date": "2009-02-23T18:54:01-04:00",
+      "subject": "[RsR] Univariate Location estimator for skewed distributions?",
+      "subject_clean": "[RsR] Univariate Location estimator for skewed distributions?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nLooking for a little advice on which robust estimator to use. Gist: I\nneed a univariate estimator of location that performs well when the\ntrue distribution is positively skewed.\n\nContext: I study human manual response time (RT), which yields\nnotoriously positively skewed data. What's more, this skew can be\nsystematic such that a given experimental manipulation may affect both\nskew and location of the RT distribution. Much work has been done to\nindependently quantify these effects, relying on such procedures as\nmaximum likelihood estimation of ex-gaussian parameters, etc. However,\nsuch procedures necessitate >50 RT observations per cell of interest\nand many common experiments collect as few as 20 observations per\ncell. In such circumstances I'm relatively resigned to focusing on\nlocation only, but this is a field where outliers, manifestations of\nthe human failing to pay attention to the response stimulus, are\ncommon, yielding occasional large positive data points. These outliers\ncould possibly be represented as a uniform distribution.\n\nWith this context in mind, I'm hoping the list could direct me to R\ncode for an appropriate robust estimator of location. That is, an\nestimator that is OK if the true source distribution is skewed but\nthat will be robust against outliers as described above.\n\nCheers,\n\nMike\n\n-- \nMike Lawrence\nGraduate Student\nDepartment of Psychology\nDalhousie University\n\nLooking to arrange a meeting? Check my public calendar:\nhttp://tinyurl.com/mikes-public-calendar\n\n~ Certainty is folly... I think. ~",
+      "body_snippet": "Hi all,\n\nLooking for a little advice on which robust estimator to use. Gist: I\nneed a univariate estimator of location that performs well when the\ntrue distribution is positively skewed.\n\nContext: I s",
+      "thread_id": "thread-08ffcd39bc32",
+      "thread_depth": 0,
+      "month": "2009-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-08ffcd39bc32",
+      "subject": "[RsR] Univariate Location estimator for skewed distributions?",
+      "message_count": 1,
+      "participants": [
+        "Mike Lawrence"
+      ],
+      "started": "2009-02-23T18:54:01-04:00",
+      "last_reply": "2009-02-23T18:54:01-04:00",
+      "root_message_id": "msg-08ffcd39bc32"
+    }
+  ]
+}

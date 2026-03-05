@@ -1,0 +1,109 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2012-04",
+  "messages": [
+    {
+      "id": "msg-cbb18f9ae7ff",
+      "message_id": "<CAPNjSFYmhNdst+t3-OZtFq71jY70qpXfMkhnndsBp0ZVhrLo=w@mail.gmail.com>",
+      "from_name": "Michael",
+      "from_email_hash": "bcce04fb171ea2e0e1183d516248ccbe9e816010059627028b091dd2d6255a0b",
+      "date": "2012-04-24T11:03:47-05:00",
+      "subject": "[RsR] In robust PCA methods, how to get variance explained?",
+      "subject_clean": "[RsR] In robust PCA methods, how to get variance explained?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "In robust PCA methods, how to get variance explained?\n\nFor example, PcaHubert,\n\nhow to get the variance explained which are similar to those concepts in\ntraditional PCA?\n\nIn traditional PCA, you have a bunch of eigenvalue lambdas...\n\nand you sort the lambdas from the biggest to the smallest,\n\nthe lambda_i / (sum of all lambdas) is the variance explained by that\nprincipal component...\n\nhow to obtain the equivalent concepts in PcaHubert?\n\nThanks a lot!\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "In robust PCA methods, how to get variance explained?\n\nFor example, PcaHubert,\n\nhow to get the variance explained which are similar to those concepts in\ntraditional PCA?\n\nIn traditional PCA, you have ",
+      "thread_id": "thread-cbb18f9ae7ff",
+      "thread_depth": 0,
+      "month": "2012-04"
+    },
+    {
+      "id": "msg-debe90a13f8e",
+      "message_id": "<CAPNjSFZA+kzxyEHJJzxOGKYh3jWoQFi1niriaEkffMWtKEbobg@mail.gmail.com>",
+      "from_name": "Michael",
+      "from_email_hash": "bcce04fb171ea2e0e1183d516248ccbe9e816010059627028b091dd2d6255a0b",
+      "date": "2012-04-24T11:05:27-05:00",
+      "subject": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
+      "subject_clean": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I am reading about these robust PCA functions in R...\n\nI read words like \"random directions\"...\n\nIt seems that these algos are random algorithms, i.e their results will be\ndifferent each time we run them?\n\nThank you!\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "I am reading about these robust PCA functions in R...\n\nI read words like \"random directions\"...\n\nIt seems that these algos are random algorithms, i.e their results will be\ndifferent each time we run t",
+      "thread_id": "thread-debe90a13f8e",
+      "thread_depth": 0,
+      "month": "2012-04"
+    },
+    {
+      "id": "msg-0a1d4cd82c61",
+      "message_id": "<CAOmnhGc21vKG8yRHC5k=O=xkHQJJKXZr9cdCKn+b5tVwVpPMoQ@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2012-04-24T21:07:21+02:00",
+      "subject": "[RsR] In robust PCA methods, how to get variance explained?",
+      "subject_clean": "[RsR] In robust PCA methods, how to get variance explained?",
+      "in_reply_to": "<CAPNjSFYmhNdst+t3-OZtFq71jY70qpXfMkhnndsBp0ZVhrLo=w@mail.gmail.com>",
+      "references": [
+        "<CAPNjSFYmhNdst+t3-OZtFq71jY70qpXfMkhnndsBp0ZVhrLo=w@mail.gmail.com>"
+      ],
+      "body_plain": "library(rrcov)\ndata(bus)\np <- ncol(bus)\nrpca <- PcaHubert(bus, k=p, kmax=p)\nsummary(rpca)\n\nHope this helps.\nBest regards,\nValentin\n\n\nOn Tue, Apr 24, 2012 at 6:03 PM, Michael <comtech.usa at gmail.com> wrote:\n\n> In robust PCA methods, how to get variance explained?\n>\n> For example, PcaHubert,\n>\n> how to get the variance explained which are similar to those concepts in\n> traditional PCA?\n>\n> In traditional PCA, you have a bunch of eigenvalue lambdas...\n>\n> and you sort the lambdas from the biggest to the smallest,\n>\n> the lambda_i / (sum of all lambdas) is the variance explained by that\n> principal component...\n>\n> how to obtain the equivalent concepts in PcaHubert?\n>\n> Thanks a lot!\n>\n>        [[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "library(rrcov)\ndata(bus)\np <- ncol(bus)\nrpca <- PcaHubert(bus, k=p, kmax=p)\nsummary(rpca)\n\nHope this helps.\nBest regards,\nValentin\n\n\nOn Tue, Apr 24, 2012 at 6:03 PM, Michael <comtech.usa at gmail.com>",
+      "thread_id": "thread-cbb18f9ae7ff",
+      "thread_depth": 1,
+      "month": "2012-04"
+    },
+    {
+      "id": "msg-e69fc03f6c19",
+      "message_id": "<232664f9852185790d@wm-srv.ulb.ac.be>",
+      "from_name": "Kaveh Vakili",
+      "from_email_hash": "790ec46189bffff51402ab6234a4139fbe2663d524a2cc9fa8c7dde820abfff4",
+      "date": "2012-04-25T21:35:52+02:00",
+      "subject": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
+      "subject_clean": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "yes, the solutions will not be the same but they should be fairly similar. \n\n\n\n>I am reading about these robust PCA functions in R...\n>\n>I read words like \"random directions\"...\n>\n>It seems that these algos are random algorithms, i.e their results will be\n>different each time we run them?\n>\n>Thank you!\n>\n>\t[[alternative HTML version deleted]]\n>\n>_______________________________________________\n>R-SIG-Robust at r-project.org mailing list\n>https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>",
+      "body_snippet": "yes, the solutions will not be the same but they should be fairly similar. \n\n\n\n>I am reading about these robust PCA functions in R...\n>\n>I read words like \"random directions\"...\n>\n>It seems that these",
+      "thread_id": "thread-e69fc03f6c19",
+      "thread_depth": 0,
+      "month": "2012-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-cbb18f9ae7ff",
+      "subject": "[RsR] In robust PCA methods, how to get variance explained?",
+      "message_count": 2,
+      "participants": [
+        "Michael",
+        "Valentin Todorov"
+      ],
+      "started": "2012-04-24T11:03:47-05:00",
+      "last_reply": "2012-04-24T21:07:21+02:00",
+      "root_message_id": "msg-cbb18f9ae7ff"
+    },
+    {
+      "id": "thread-debe90a13f8e",
+      "subject": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
+      "message_count": 1,
+      "participants": [
+        "Michael"
+      ],
+      "started": "2012-04-24T11:05:27-05:00",
+      "last_reply": "2012-04-24T11:05:27-05:00",
+      "root_message_id": "msg-debe90a13f8e"
+    },
+    {
+      "id": "thread-e69fc03f6c19",
+      "subject": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
+      "message_count": 1,
+      "participants": [
+        "Kaveh Vakili"
+      ],
+      "started": "2012-04-25T21:35:52+02:00",
+      "last_reply": "2012-04-25T21:35:52+02:00",
+      "root_message_id": "msg-e69fc03f6c19"
+    }
+  ]
+}

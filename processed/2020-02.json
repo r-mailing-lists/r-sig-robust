@@ -1,0 +1,63 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2020-02",
+  "messages": [
+    {
+      "id": "msg-2ece53664f67",
+      "message_id": "<24152.58721.990592.737968@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2020-02-28T11:03:13+01:00",
+      "subject": "[RsR] New maintainer?? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "subject_clean": "[RsR] New maintainer?? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear R Robustniks,\n\nas I am the maintainer of package 'robustbase' and am submitting\na new version of it to CRAN,\nit came to my knowledge that package 'robust' (= the original\nS-plus \"Library 'robust', then released to CRAN, maintained by\nKjell Konis for time) has been orphaned on CRAN relatively\nrecently.\nAs I have 'robust' among the 'Suggests: ' entries of \"my\"\npackage 'robustbase' I now get a  NOTE   about suggesting an\norphaned package.\nI've been formally a co-author of that package (togeth\n\nI personally would think it to be a loss for the \"robustnik\ncommunity\" if this package would not remain easily available\n(notably on Windows, also the Mac where most people cannot\n install package from the source but are used to install the\n binary built package from CRAN).\n\nAre some you willing and capable to become the maintainer of\n'robust' (with the perspective to do this for a couple of years)?\n\nBest,\nMartin\n\n--\nMartin <Maechler at stat.math.ethz.ch>   http://stat.ethz.ch/~maechler\nSeminar f?r Statistik, ETH Z?rich   HG G 16         R?mistrasse 101\nCH-8092 Zurich, SWITZERLAND\nphone: +41-44-632-3408      fax: ...-1228     <><",
+      "body_snippet": "Dear R Robustniks,\n\nas I am the maintainer of package 'robustbase' and am submitting\na new version of it to CRAN,\nit came to my knowledge that package 'robust' (= the original\nS-plus \"Library 'robust'",
+      "thread_id": "thread-2ece53664f67",
+      "thread_depth": 0,
+      "month": "2020-02"
+    },
+    {
+      "id": "msg-647092693b79",
+      "message_id": "<CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2020-02-28T22:31:21+01:00",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "subject_clean": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear Martin,\nI was thinking of this since Kjell\nabandoned the package, but I was not sure to what extent would this be\nnecessary - most of the functionality of 'robust' we already moved to\n'robustbase' and/or 'rrcov', therefore it suggests/imports these packages.\nLet us see in the next days what still remains there and is valuable and\ndecide what to do.\n\nBest regards,\nValentin\n\nOn Fri, 28 Feb 2020, 11:03 am Martin Maechler, <maechler at stat.math.ethz.ch>\nwrote:\n\n> Dear R Robustniks,\n>\n> as I am the maintainer of package 'robustbase' and am submitting\n> a new version of it to CRAN,\n> it came to my knowledge that package 'robust' (= the original\n> S-plus \"Library 'robust', then released to CRAN, maintained by\n> Kjell Konis for time) has been orphaned on CRAN relatively\n> recently.\n> As I have 'robust' among the 'Suggests: ' entries of \"my\"\n> package 'robustbase' I now get a  NOTE   about suggesting an\n> orphaned package.\n> I've been formally a co-author of that package (togeth\n>\n> I personally would think it to be a loss for the \"robustnik\n> community\" if this package would not remain easily available\n> (notably on Windows, also the Mac where most people cannot\n>  install package from the source but are used to install the\n>  binary built package from CRAN).\n>\n> Are some you willing and capable to become the maintainer of\n> 'robust' (with the perspective to do this for a couple of years)?\n>\n> Best,\n> Martin\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear Martin,\nI was thinking of this since Kjell\nabandoned the package, but I was not sure to what extent would this be\nnecessary - most of the functionality of 'robust' we already moved to\n'robustbase",
+      "thread_id": "thread-647092693b79",
+      "thread_depth": 0,
+      "month": "2020-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-2ece53664f67",
+      "subject": "[RsR] New maintainer?? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2020-02-28T11:03:13+01:00",
+      "last_reply": "2020-02-28T11:03:13+01:00",
+      "root_message_id": "msg-2ece53664f67"
+    },
+    {
+      "id": "thread-647092693b79",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "message_count": 1,
+      "participants": [
+        "Valentin Todorov"
+      ],
+      "started": "2020-02-28T22:31:21+01:00",
+      "last_reply": "2020-02-28T22:31:21+01:00",
+      "root_message_id": "msg-647092693b79"
+    }
+  ]
+}

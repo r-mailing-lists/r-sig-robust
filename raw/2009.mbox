@@ -1,0 +1,2338 @@
+From M|ke@L@wrence @end|ng |rom d@|@c@  Mon Feb 23 23:54:01 2009
+From: M|ke@L@wrence @end|ng |rom d@|@c@ (Mike Lawrence)
+Date: Mon, 23 Feb 2009 18:54:01 -0400
+Subject: [RsR] Univariate Location estimator for skewed distributions?
+Message-ID: <37fda5350902231454n3c592b4dv96d137b026266f09@mail.gmail.com>
+
+Hi all,
+
+Looking for a little advice on which robust estimator to use. Gist: I
+need a univariate estimator of location that performs well when the
+true distribution is positively skewed.
+
+Context: I study human manual response time (RT), which yields
+notoriously positively skewed data. What's more, this skew can be
+systematic such that a given experimental manipulation may affect both
+skew and location of the RT distribution. Much work has been done to
+independently quantify these effects, relying on such procedures as
+maximum likelihood estimation of ex-gaussian parameters, etc. However,
+such procedures necessitate >50 RT observations per cell of interest
+and many common experiments collect as few as 20 observations per
+cell. In such circumstances I'm relatively resigned to focusing on
+location only, but this is a field where outliers, manifestations of
+the human failing to pay attention to the response stimulus, are
+common, yielding occasional large positive data points. These outliers
+could possibly be represented as a uniform distribution.
+
+With this context in mind, I'm hoping the list could direct me to R
+code for an appropriate robust estimator of location. That is, an
+estimator that is OK if the true source distribution is skewed but
+that will be robust against outliers as described above.
+
+Cheers,
+
+Mike
+
+-- 
+Mike Lawrence
+Graduate Student
+Department of Psychology
+Dalhousie University
+
+Looking to arrange a meeting? Check my public calendar:
+http://tinyurl.com/mikes-public-calendar
+
+~ Certainty is folly... I think. ~
+
+
+
+From z@||@|on @end|ng |rom |d@|@@ch  Wed Mar  4 14:46:22 2009
+From: z@||@|on @end|ng |rom |d@|@@ch (Marco Zaffalon)
+Date: Wed, 4 Mar 2009 14:46:22 +0100
+Subject: [RsR] PhD position at IDSIA: credal networks
+Message-ID: <AABCCBEC-169C-419A-829A-80C3AC889AB6@idsia.ch>
+
+A PhD position at IDSIA (Lugano, Switzerland) is open for applications.
+
+The position is concerned with developing theory and algorithms for  
+credal networks. Credal networks extend Bayesian nets to deal with  
+imprecisely specified probabilities, and can be regarded as sets of  
+Bayesian networks. Credal networks are used for robust inference in  
+knowledge-based systems as well as in data mining and statistics.
+
+The position is funded by the Swiss National Science Foundation. The  
+initial appointment will be for 3 years, with possible prolongation.  
+The goal is to finish the PhD thesis within 3-4 years. The new PhD  
+student will be supervised by Marco Zaffalon, will join the IDSIA  
+group on imprecise probability, currently made of 5 postdocs, and will  
+be involved in international research collaborations.
+
+The salary is roughly 38,000 Swiss Francs per year (~= 33,000 USD ~=  
+25,500 EUR), low taxes. There is travel funding in case of papers  
+accepted at conferences. The official language at IDSIA is English.
+
+The deadline for applications is 20 March 2009.
+
+Details can be found here:
+http://www.idsia.ch/~zaffalon/positions/2009unify.html.
+
+Thanks for your attention,
+Marco Zaffalon
+Senior Researcher - IDSIA
+
+
+
+From t@k@d@ @end|ng |rom bu@@o@@k@-cu@@c@jp  Fri Mar 13 05:10:04 2009
+From: t@k@d@ @end|ng |rom bu@@o@@k@-cu@@c@jp (Teruko Takada)
+Date: Fri, 13 Mar 2009 13:10:04 +0900 (JST)
+Subject: [RsR] Where can I find the source code for cov.rob?
+Message-ID: <hMRtlAV8.1236917404.5140250.takada@bus.osaka-cu.ac.jp>
+
+
+Dear all,
+
+Please let me know where I can find all the related
+source codes (possibly R and C) for cov.rob()
+which is the function for minimum volume ellipsoid
+estimation.
+
+I found that the R function cov.rob() exhibits
+excellent performance in analyzing the tail behavior
+of those data distributed as fat-tailed.
+Therefore, I would like to examine all the detailed
+source codes for the computation of cov.rob().
+
+After installation of R binary packages,
+the library MASS is located as R/library/MASS
+where all the other packages are placed.
+However, in the R source file packages
+(R-2.8.1.tar.gz and R-latest.tar.gz),
+the library MASS cannot be found under the folder
+R*/src/library, where all the package
+folders are supposed to be placed.
+
+In the package VR, I found MASS.c and cov.trob.R.
+Though cov.rob is explained in the manual of VR,
+I cannot find the source code in the package VR.
+
+I greatly appreciate your help, in advance.
+
+Best regards,
+
+p.s. This is the first time for me to submit to this
+mailing list. Please excuse me if there is any
+inappropriate things.
+
+
+
+From t@k@d@ @end|ng |rom bu@@o@@k@-cu@@c@jp  Fri Mar 13 07:01:42 2009
+From: t@k@d@ @end|ng |rom bu@@o@@k@-cu@@c@jp (Teruko Takada)
+Date: Fri, 13 Mar 2009 15:01:42 +0900 (JST)
+Subject: [RsR] It is found!
+Message-ID: <bWMdHZFi.1236924102.2733540.takada@bus.osaka-cu.ac.jp>
+
+
+Dear all,
+
+R definition of cov.rob is found in lqs.R in VR package.
+Thank you!
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Fri Mar 13 10:32:29 2009
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Fri, 13 Mar 2009 10:32:29 +0100
+Subject: [RsR] It is found!
+In-Reply-To: <bWMdHZFi.1236924102.2733540.takada@bus.osaka-cu.ac.jp>
+References: <bWMdHZFi.1236924102.2733540.takada@bus.osaka-cu.ac.jp>
+Message-ID: <4c0e456b0903130232g7dcb3c1bsaabe6778bc6c5e85@mail.gmail.com>
+
+Dear Teruko,
+
+yes, the R source code of cov.rob() is found in lqs.R in the package
+MASS which in turn is to be found in the package bundle VR, but the
+actual computations are performed by the C functions in lqs.C.
+
+But why don't you install the package rrcov where you will find a
+function CovRobust() providing interface to most of the available
+algorithms for high breakdown multivariate location and covariance,
+namely:
+
+CovMcd(), CovSest(), CovSde(), CovOgk(), CovMest() and CovMve().
+
+If you need more information about these methods than the provided in
+the package as well as pointers where to find the source code, please
+write me.
+
+???
+
+Best regards,
+
+Valentin
+
+
+On Fri, Mar 13, 2009 at 7:01 AM, Teruko Takada
+<takada at bus.osaka-cu.ac.jp> wrote:
+>
+> Dear all,
+>
+> R definition of cov.rob is found in lqs.R in VR package.
+> Thank you!
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Mar 13 22:36:06 2009
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 13 Mar 2009 22:36:06 +0100
+Subject: [RsR] Where can I find the source code for cov.rob?
+In-Reply-To: <hMRtlAV8.1236917404.5140250.takada@bus.osaka-cu.ac.jp>
+References: <hMRtlAV8.1236917404.5140250.takada@bus.osaka-cu.ac.jp>
+Message-ID: <18874.53702.562974.926023@cmath-5.math.ethz.ch>
+
+>>>>> "TT" == Teruko Takada <takada at bus.osaka-cu.ac.jp>
+>>>>>     on Fri, 13 Mar 2009 13:10:04 +0900 (JST) writes:
+
+    TT> Dear all,
+
+    TT> Please let me know where I can find all the related
+    TT> source codes (possibly R and C) for cov.rob()
+    TT> which is the function for minimum volume ellipsoid
+    TT> estimation.
+
+    TT> I found that the R function cov.rob() exhibits
+    TT> excellent performance in analyzing the tail behavior
+    TT> of those data distributed as fat-tailed.
+    TT> Therefore, I would like to examine all the detailed
+    TT> source codes for the computation of cov.rob().
+
+    TT> After installation of R binary packages,
+    TT> the library MASS is located as R/library/MASS
+    TT> where all the other packages are placed.
+    TT> However, in the R source file packages
+    TT> (R-2.8.1.tar.gz and R-latest.tar.gz),
+    TT> the library MASS cannot be found under the folder
+    TT> R*/src/library, where all the package
+    TT> folders are supposed to be placed.
+
+well, it can be found there, but it's wrapped a bit more than
+you expected:
+The 'Recommended' packages are all added in compressed form,
+and MASS is part of the VR bundle 
+
+    TT> In the package VR, 
+
+it's not a package : VR is a "bundle" of 4 packages,
+one of which MASS which has the sources you want.
+
+cov.rob() -->  .C(mve_fitlots, ...)
+and the C code is in  VR/MASS/src/lqs.c 
+
+
+    TT> In the package VR, I found MASS.c and cov.trob.R.
+    TT> Though cov.rob is explained in the manual of VR,
+    TT> I cannot find the source code in the package VR.
+
+    TT> I greatly appreciate your help, in advance.
+
+you're welcome
+Martin Maechler, ETH Zurich
+
+    TT> Best regards,
+
+    TT> p.s. This is the first time for me to submit to this
+    TT> mailing list. Please excuse me if there is any
+    TT> inappropriate things.
+
+
+
+From v|nod @end|ng |rom |ordh@m@edu  Wed Apr  1 01:54:03 2009
+From: v|nod @end|ng |rom |ordh@m@edu (HRISHIKESH D. VINOD)
+Date: Tue, 31 Mar 2009 19:54:03 -0400
+Subject: [RsR] R-conf. New York City, June 18-19, 2009,
+ contribute your robust model R functions
+Message-ID: <OFE643ED0C.AE74A567-ON8525758A.00834A94-8525758A.00834A97@fordham.edu>
+
+
+Hi
+I believe that following info is of interest to your special interest group
+since we welcome presentation of ideas (R-functions) dealing with
+robust methods.  Roger Koenker is keynote speaker.
+
+Conference on Quantitative Social Science Research Using R
+
+June 18-19 (Thursday-Friday), 2009, Fordham University, 113 West 60th
+Street, New York, NY. (next door to the Lincoln Center for Performing
+Arts).
+
+Conference website: http://www.cis.fordham.edu/QR2009
+
+The conference offers opportunity to enthusiastic users of R (software and
+Graphics system) to important policy and research problems in social
+sciences to learn, meet and mingle.
+1) Speakers include authors of books and /or packages for R, published
+researchers and editors of important journals in Statistics and social
+sciences: Andrew Gelman (Columbia), Kosuke Imai (Princeton), Roger Koenker
+(Illinois), Keith A. Markus (Columbia), Bruce D. McCullough (Drexel), H. D.
+Vinod (Fordham), Achim Zeileis (Vienna)?
+2) The proceedings book will be published by Springer (publisher of Use R!
+series) in 2009.
+3) Opportunity to present Replication / extension of published papers using
+R, poster session
+4) Opportunity to present new useful R functions (including teaching
+material) poster session
+5) A tutorial cum refresher session teaching R will be given and useful
+
+
+Hrishikesh (Rick) D. Vinod
+Professor of Economics, Fordham University
+E-Mail: Vinod at fordham.edu  Tel 718-817-4065,
+Secretary 718-817-4048, Fax 718-817-3518
+Web page:  http://www.fordham.edu/economics/vinod
+
+
+
+From r@u@er@@p@|n @end|ng |rom gm@||@com  Wed Apr 15 10:56:02 2009
+From: r@u@er@@p@|n @end|ng |rom gm@||@com (Usuario R)
+Date: Wed, 15 Apr 2009 10:56:02 +0200
+Subject: [RsR] Mann-Whitney Normal approximation formula in wilcox.test
+	function
+Message-ID: <e013b3630904150156kcd9dd2di1143d8d0d295977f@mail.gmail.com>
+
+Hi,
+
+I have found the formula for the Mann-Whitney test when a normal
+approximation has to be computed, this is:
+
+
+NTIES <- table(r)
+SIGMA <- sqrt((n.x * n.y/12) * ((n.x + n.y + 1) - sum(NTIES^3 - NTIES)/((n.x
++ n.y) * (n.x + n.y - 1))))
+
+Where:
+r <- rank(c(x - mu, y))
+n.x <- as.double(length(x))
+n.y <- as.double(length(y))
+
+
+This formula does not match with the ones found in the theory (
+http://en.wikipedia.org/wiki/Mann-Whitney_U_test#Normal_approximation )
+
+Does anyone know why?
+
+Thanks a lot.
+Regards
+
+	[[alternative HTML version deleted]]
+
+
+
+From jt @end|ng |rom @@@@@@@@@@@  Tue May 19 11:04:08 2009
+From: jt @end|ng |rom @@@@@@@@@@@ (jt)
+Date: Tue, 19 May 2009 10:04:08 +0100
+Subject: [RsR] Permanent C++ Programmer in London, UK, England
+Message-ID: <4A127608.5000803@.............>
+
+Hello ~
+
+I'm recruiting for a hedge fund (type) business (based in London,
+England, UK) that are looking for good C++ programmers with preferably
+some experience in statistical modeling/programming/analysis.   Perhaps
+you are a statistician, mathematician or physicist (for example) by
+background but a programmer by experience (or a graduate)?
+
+You should ideally also have scripting experience in one if not more
+languages such as R, Python, Perl etc.
+
+There is much more to the job than just scripting and programming,
+potentially you could find yourself becoming actively involved in
+statistical side too of the business too.
+
+To learn more please contact me using james<at>...........
+
+Kind regards,
+JAMES
+
+. . . .
+
+James Tobin
+...............
+
+
+
+
+
+From Ev@@C@nton| @end|ng |rom un|ge@ch  Tue Aug  4 15:50:42 2009
+From: Ev@@C@nton| @end|ng |rom un|ge@ch (Eva Cantoni)
+Date: Tue, 04 Aug 2009 15:50:42 +0200
+Subject: [RsR] Rcmd and robust tools
+Message-ID: <4A783CB2.2090006@unige.ch>
+
+Hi everybody:
+
+within our applied undergraduate courses, we would like to teach some
+robust approaches (essentially multiple regression and covariance matrix
+estimation) using R and the R commander Graphical User Interface (Rcmd).
+Did anybody in this list already extend the R commander to include
+robust methods (either from the robust or robustbase package), or is
+anybody interested in collaborating to add this facility to Rcmd ?
+
+Best regards,
+Eva
+
+-- 
+
+ Dr Eva Cantoni                 phone  : (+41) 22 379 8240
+ Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299
+ 40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at unige.ch
+ CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni
+
+
+
+From ||e||ow@ @end|ng |rom uc@d@edu  Tue Aug  4 17:26:43 2009
+From: ||e||ow@ @end|ng |rom uc@d@edu (Ian Fellows)
+Date: Tue, 4 Aug 2009 08:26:43 -0700
+Subject: [RsR] Rcmd and robust tools
+In-Reply-To: <4A783CB2.2090006@unige.ch>
+Message-ID: <DC5F16295A9440B78338E2AEBA4EDD5F@gpbdmx>
+
+Hi Eva,
+
+I'm not sure about Rcmdr, but I just released the Deducer package to CRAN
+which uses HCCM by default with linear models. The online manual gives some
+screenshots, but I have yet to write the regression page.
+
+Manual:
+http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+
+Cheers,
+Ian Fellows
+
+Announcement:
+---------------------------------------------------------------------------
+
+
+Deducer 0.1 has been released to CRAN
+
+Deducer is designed to be a free, easy to use, alternative to proprietary
+software such as SPSS, JMP, and Minitab. It has a menu system to do common
+data manipulation and data analysis tasks, and an excel-like spreadsheet in
+which to view and edit data frames. The goal of the project is to two fold. 
+
+	1. Provide an intuitive interface so that non-technical users 
+	   can learn and perform analyses without programming getting 
+	   in their way. 
+	2. Increase the efficiency of expert R users when performing 
+         common tasks by replacing hundreds of keystrokes with a few 
+         mouse clicks. Also, as much as possible the GUI should not 
+         get in their way if they just want to do some programming. 
+
+Deducer is integrated into the Windows RGui, and the cross-platform Java
+console JGR, and is also usable and accessible from the command line.
+Screen shots and examples can be viewed in the online wiki manual:
+
+http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+
+Comments and questions are more than welcome. A discussion group has been
+created for any questions or recommendations.
+
+http://groups.google.com/group/deducer
+
+Deducer Features:
+
+Data manipulation:
+	1. Factor editor
+	2. Variable recoding
+	3. data sorting
+	4. data frame merging
+	5. transposing a data frame
+	6. subseting
+
+Analysis:
+	1. Frequencies
+	2. Descriptives
+	3. Contingency tables
+		a. Nicely formatted tables with optional
+			i. Percentages
+			ii. Expected counts
+			iii. Residuals
+		b. Statistical tests
+			i. chi-squared 
+			ii. likelihood ratio
+			iii. fisher's exact
+			iv. mantel haenszel
+			v. kendall's tau
+			vi. spearman's rho
+			vii. kruskal-wallis
+			viii. mid-p values for all exact/monte carlo tests
+	4. One sample tests
+		a. T-test
+		b. Shapiro-wilk
+		c. Histogram/box-plot summaries
+	5. Two sample tests
+		a. T-test (student and welch)
+		b. Permutation test
+		c. Wilcoxon
+		d. Brunner-munzel
+		e. Kolmogorov-smirnov
+		f. Jitter/box-plot group comparison
+	6. K-sample tests
+		a. Anova (usual and welch)
+		b. Kruskal-wallis
+		c. Jitter/boxplot comparison
+	7. Correlation
+		a. Nicely formatted correlation matrices
+		b. Pearson's
+		c. Kendall's
+		d. Spearman's
+		e. Scatterplot paneled array
+		f. Circle plot
+		g. Full correlation matrix plot
+        8.Generalized Linear Models
+		a. Model preview
+		b. Intuitive model builder
+		c. diagnostic plots 
+		d. Component residual and added variable plots
+		e. Anova (type II and III implementing LR, Wald and F tests)
+		f. Parameter summary tables and parameter correlations
+		g. Influence and colinearity diagnostics
+		h. Post-hoc tests and confidence intervals 
+		   with (or without) adjustments for multiple testing.
+		i. Custom linear hypothesis tests
+		j. Effect mean summaries (with confidence intervals), and
+plots
+		k. Exports: Residuals, Standardized residuals, Studentized
+ 		   residuals, Predicted Values (linear and link), Cooks 
+		   distance, DFBETA, DFFITS, hat values, and Cov Ratio
+		l. Observation weights and subseting
+	9. Logistic Regression
+		a. All GLM features
+		b. ROC Plot
+	10. Linear Model
+		a. All GLM features
+       	b. Heteroskedastic robust tests
+
+-----Original Message-----
+From: r-sig-robust-bounces at r-project.org
+[mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Eva Cantoni
+Sent: Tuesday, August 04, 2009 6:51 AM
+To: r-sig-robust
+Subject: [RsR] Rcmd and robust tools
+
+Hi everybody:
+
+within our applied undergraduate courses, we would like to teach some
+robust approaches (essentially multiple regression and covariance matrix
+estimation) using R and the R commander Graphical User Interface (Rcmd).
+Did anybody in this list already extend the R commander to include
+robust methods (either from the robust or robustbase package), or is
+anybody interested in collaborating to add this facility to Rcmd ?
+
+Best regards,
+Eva
+
+-- 
+
+ Dr Eva Cantoni                 phone  : (+41) 22 379 8240
+ Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299
+ 40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at unige.ch
+ CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni
+
+_______________________________________________
+R-SIG-Robust at r-project.org mailing list
+https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Aug  4 17:45:21 2009
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 4 Aug 2009 17:45:21 +0200
+Subject: [RsR] Rcmdr and robust tools
+In-Reply-To: <DC5F16295A9440B78338E2AEBA4EDD5F@gpbdmx>
+References: <4A783CB2.2090006@unige.ch>
+	<DC5F16295A9440B78338E2AEBA4EDD5F@gpbdmx>
+Message-ID: <19064.22417.796303.829502@lynne.math.ethz.ch>
+
+Hi Eva & Ian & other robustniks,
+
+>>>>> "IF" == Ian Fellows <ifellows at ucsd.edu>
+>>>>>     on Tue, 4 Aug 2009 08:26:43 -0700 writes:
+
+    IF> Hi Eva,
+    IF> I'm not sure about Rcmdr, but I just released the Deducer package to CRAN
+    IF> which uses HCCM by default with linear models. The online manual gives some
+    IF> screenshots, but I have yet to write the regression page.
+
+Hmm, one of the acronym definition pages on the web says
+
+>> HCCM
+>> 
+>> Acronym	Definition
+
+>> HCCM		Healthcare Continuum Model
+>> HCCM		Discharge Under Honorable Conditions, Convenience of the Man
+
+But let's assume you mean heteroscedasticity correction as
+provided e.g. by package 'sandwich'.
+
+Note that using that *not* robust estimation in the sense of
+most people reading this mailing list.
+
+But now to the topic of 'Deducer' vs 'Rcmdr' (note: Subject amended: "+r") :
+One reason 'Rcmdr' has been quite nice for teaching has been
+that you can somewhat easily *modify* it,
+by adding your own menu entries; modify or even omit existing ones.
+
+How easy is that with 'Deducer' ?
+
+Regards,
+Martin Maechler, ETH Zurich
+
+    IF> Manual:
+    IF> http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+
+
+    IF> Cheers,
+    IF> Ian Fellows
+
+
+
+From ||e||ow@ @end|ng |rom uc@d@edu  Tue Aug  4 18:38:44 2009
+From: ||e||ow@ @end|ng |rom uc@d@edu (Ian Fellows)
+Date: Tue, 4 Aug 2009 09:38:44 -0700
+Subject: [RsR] Rcmdr and robust tools
+In-Reply-To: <19064.22417.796303.829502@lynne.math.ethz.ch>
+Message-ID: <80A69BFD5E4548489737AB046DCDD53D@gpbdmx>
+
+Martin,
+
+It depends a little on the context. If you are using Deducer from the
+windows Rgui, the adding and deleting items is pretty easy via the winMenu*
+family of functions. If you are using JGR menus and menu items can be added
+with jgr.addMenu and jgr.addMenuItem, but there is currently no way to
+arbitrarily remove a menu without jumping into Java (though there is a
+preference item to suppress Deducer's menus at start-up. If you are calling
+Deducer from the terminal via the deducer() function which brings up a text
+menu, there is no way to customize. In the future it would be a good idea to
+have a unified plug-in API.
+
+
+HCCM - Heteroscedasticity-Corrected Covariance Matrices
+see hccm function in package car. Perhaps it is mostly Neto that uses this
+terminology.
+
+You are right that perhaps this is not what the original poster is looking
+for, as it is not outlier resistant. 
+
+What kinds of customizations do you make in RCmdr for classes that you
+teach? Do you add whole dialogs, or just edit the menu options?
+
+Ian
+
+
+
+-----Original Message-----
+From: Martin Maechler [mailto:maechler at stat.math.ethz.ch] 
+Sent: Tuesday, August 04, 2009 8:45 AM
+To: Fellows, Ian
+Cc: 'Eva Cantoni'; 'r-sig-robust'
+Subject: Re: [RsR] Rcmdr and robust tools
+
+Hi Eva & Ian & other robustniks,
+
+>>>>> "IF" == Ian Fellows <ifellows at ucsd.edu>
+>>>>>     on Tue, 4 Aug 2009 08:26:43 -0700 writes:
+
+    IF> Hi Eva,
+    IF> I'm not sure about Rcmdr, but I just released the Deducer package to
+CRAN
+    IF> which uses HCCM by default with linear models. The online manual
+gives some
+    IF> screenshots, but I have yet to write the regression page.
+
+Hmm, one of the acronym definition pages on the web says
+
+>> HCCM
+>> 
+>> Acronym	Definition
+
+>> HCCM		Healthcare Continuum Model
+>> HCCM		Discharge Under Honorable Conditions, Convenience of the Man
+
+But let's assume you mean heteroscedasticity correction as
+provided e.g. by package 'sandwich'.
+
+Note that using that *not* robust estimation in the sense of
+most people reading this mailing list.
+
+But now to the topic of 'Deducer' vs 'Rcmdr' (note: Subject amended: "+r") :
+One reason 'Rcmdr' has been quite nice for teaching has been
+that you can somewhat easily *modify* it,
+by adding your own menu entries; modify or even omit existing ones.
+
+How easy is that with 'Deducer' ?
+
+Regards,
+Martin Maechler, ETH Zurich
+
+    IF> Manual:
+    IF> http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+
+
+    IF> Cheers,
+    IF> Ian Fellows
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Tue Aug  4 22:13:31 2009
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Tue, 4 Aug 2009 22:13:31 +0200
+Subject: [RsR] Rcmd and robust tools
+In-Reply-To: <DC5F16295A9440B78338E2AEBA4EDD5F@gpbdmx>
+References: <4A783CB2.2090006@unige.ch>
+	<DC5F16295A9440B78338E2AEBA4EDD5F@gpbdmx>
+Message-ID: <4c0e456b0908041313u3a1bcc93q9901123c67b02ff3@mail.gmail.com>
+
+Dear Eva,
+
+The recent book:
+
+Statistical Data Analysis Explained: Applied Environmental Statistics with R
+by C. Reimann, P. Filzmoser, R.G. Garrett, and R. Dutter; Wiley,
+Chichester, 2008.
+
+uses both (a modified) R Commander and robust methods, but I hope
+Peter Filzmoser and Rudi Dutter read also this list and can tell more.
+
+
+Best regards,
+Valentin
+
+
+
+
+
+On Tue, Aug 4, 2009 at 5:26 PM, Ian Fellows<ifellows at ucsd.edu> wrote:
+> Hi Eva,
+>
+> I'm not sure about Rcmdr, but I just released the Deducer package to CRAN
+> which uses HCCM by default with linear models. The online manual gives some
+> screenshots, but I have yet to write the regression page.
+>
+> Manual:
+> http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+>
+> Cheers,
+> Ian Fellows
+>
+> Announcement:
+> ---------------------------------------------------------------------------
+>
+>
+> Deducer 0.1 has been released to CRAN
+>
+> Deducer is designed to be a free, easy to use, alternative to proprietary
+> software such as SPSS, JMP, and Minitab. It has a menu system to do common
+> data manipulation and data analysis tasks, and an excel-like spreadsheet in
+> which to view and edit data frames. The goal of the project is to two fold.
+>
+> ? ? ? ?1. Provide an intuitive interface so that non-technical users
+> ? ? ? ? ? can learn and perform analyses without programming getting
+> ? ? ? ? ? in their way.
+> ? ? ? ?2. Increase the efficiency of expert R users when performing
+> ? ? ? ? common tasks by replacing hundreds of keystrokes with a few
+> ? ? ? ? mouse clicks. Also, as much as possible the GUI should not
+> ? ? ? ? get in their way if they just want to do some programming.
+>
+> Deducer is integrated into the Windows RGui, and the cross-platform Java
+> console JGR, and is also usable and accessible from the command line.
+> Screen shots and examples can be viewed in the online wiki manual:
+>
+> http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+>
+> Comments and questions are more than welcome. A discussion group has been
+> created for any questions or recommendations.
+>
+> http://groups.google.com/group/deducer
+>
+> Deducer Features:
+>
+> Data manipulation:
+> ? ? ? ?1. Factor editor
+> ? ? ? ?2. Variable recoding
+> ? ? ? ?3. data sorting
+> ? ? ? ?4. data frame merging
+> ? ? ? ?5. transposing a data frame
+> ? ? ? ?6. subseting
+>
+> Analysis:
+> ? ? ? ?1. Frequencies
+> ? ? ? ?2. Descriptives
+> ? ? ? ?3. Contingency tables
+> ? ? ? ? ? ? ? ?a. Nicely formatted tables with optional
+> ? ? ? ? ? ? ? ? ? ? ? ?i. Percentages
+> ? ? ? ? ? ? ? ? ? ? ? ?ii. Expected counts
+> ? ? ? ? ? ? ? ? ? ? ? ?iii. Residuals
+> ? ? ? ? ? ? ? ?b. Statistical tests
+> ? ? ? ? ? ? ? ? ? ? ? ?i. chi-squared
+> ? ? ? ? ? ? ? ? ? ? ? ?ii. likelihood ratio
+> ? ? ? ? ? ? ? ? ? ? ? ?iii. fisher's exact
+> ? ? ? ? ? ? ? ? ? ? ? ?iv. mantel haenszel
+> ? ? ? ? ? ? ? ? ? ? ? ?v. kendall's tau
+> ? ? ? ? ? ? ? ? ? ? ? ?vi. spearman's rho
+> ? ? ? ? ? ? ? ? ? ? ? ?vii. kruskal-wallis
+> ? ? ? ? ? ? ? ? ? ? ? ?viii. mid-p values for all exact/monte carlo tests
+> ? ? ? ?4. One sample tests
+> ? ? ? ? ? ? ? ?a. T-test
+> ? ? ? ? ? ? ? ?b. Shapiro-wilk
+> ? ? ? ? ? ? ? ?c. Histogram/box-plot summaries
+> ? ? ? ?5. Two sample tests
+> ? ? ? ? ? ? ? ?a. T-test (student and welch)
+> ? ? ? ? ? ? ? ?b. Permutation test
+> ? ? ? ? ? ? ? ?c. Wilcoxon
+> ? ? ? ? ? ? ? ?d. Brunner-munzel
+> ? ? ? ? ? ? ? ?e. Kolmogorov-smirnov
+> ? ? ? ? ? ? ? ?f. Jitter/box-plot group comparison
+> ? ? ? ?6. K-sample tests
+> ? ? ? ? ? ? ? ?a. Anova (usual and welch)
+> ? ? ? ? ? ? ? ?b. Kruskal-wallis
+> ? ? ? ? ? ? ? ?c. Jitter/boxplot comparison
+> ? ? ? ?7. Correlation
+> ? ? ? ? ? ? ? ?a. Nicely formatted correlation matrices
+> ? ? ? ? ? ? ? ?b. Pearson's
+> ? ? ? ? ? ? ? ?c. Kendall's
+> ? ? ? ? ? ? ? ?d. Spearman's
+> ? ? ? ? ? ? ? ?e. Scatterplot paneled array
+> ? ? ? ? ? ? ? ?f. Circle plot
+> ? ? ? ? ? ? ? ?g. Full correlation matrix plot
+> ? ? ? ?8.Generalized Linear Models
+> ? ? ? ? ? ? ? ?a. Model preview
+> ? ? ? ? ? ? ? ?b. Intuitive model builder
+> ? ? ? ? ? ? ? ?c. diagnostic plots
+> ? ? ? ? ? ? ? ?d. Component residual and added variable plots
+> ? ? ? ? ? ? ? ?e. Anova (type II and III implementing LR, Wald and F tests)
+> ? ? ? ? ? ? ? ?f. Parameter summary tables and parameter correlations
+> ? ? ? ? ? ? ? ?g. Influence and colinearity diagnostics
+> ? ? ? ? ? ? ? ?h. Post-hoc tests and confidence intervals
+> ? ? ? ? ? ? ? ? ? with (or without) adjustments for multiple testing.
+> ? ? ? ? ? ? ? ?i. Custom linear hypothesis tests
+> ? ? ? ? ? ? ? ?j. Effect mean summaries (with confidence intervals), and
+> plots
+> ? ? ? ? ? ? ? ?k. Exports: Residuals, Standardized residuals, Studentized
+> ? ? ? ? ? ? ? ? ? residuals, Predicted Values (linear and link), Cooks
+> ? ? ? ? ? ? ? ? ? distance, DFBETA, DFFITS, hat values, and Cov Ratio
+> ? ? ? ? ? ? ? ?l. Observation weights and subseting
+> ? ? ? ?9. Logistic Regression
+> ? ? ? ? ? ? ? ?a. All GLM features
+> ? ? ? ? ? ? ? ?b. ROC Plot
+> ? ? ? ?10. Linear Model
+> ? ? ? ? ? ? ? ?a. All GLM features
+> ? ? ? ?b. Heteroskedastic robust tests
+>
+> -----Original Message-----
+> From: r-sig-robust-bounces at r-project.org
+> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Eva Cantoni
+> Sent: Tuesday, August 04, 2009 6:51 AM
+> To: r-sig-robust
+> Subject: [RsR] Rcmd and robust tools
+>
+> Hi everybody:
+>
+> within our applied undergraduate courses, we would like to teach some
+> robust approaches (essentially multiple regression and covariance matrix
+> estimation) using R and the R commander Graphical User Interface (Rcmd).
+> Did anybody in this list already extend the R commander to include
+> robust methods (either from the robust or robustbase package), or is
+> anybody interested in collaborating to add this facility to Rcmd ?
+>
+> Best regards,
+> Eva
+>
+> --
+>
+> ?Dr Eva Cantoni ? ? ? ? ? ? ? ? phone ?: (+41) 22 379 8240
+> ?Econom?trie - Univ. Gen?ve ? ? fax ? ?: (+41) 22 379 8299
+> ?40, Bd du Pont d'Arve ? ? ? ? ?e-mail : Eva.Cantoni at unige.ch
+> ?CH-1211 Gen?ve 4 ? ? ? ? ? ? ? http://www.unige.ch/ses/metri/cantoni
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From R@Dutter @end|ng |rom tuw|en@@c@@t  Wed Aug  5 14:14:13 2009
+From: R@Dutter @end|ng |rom tuw|en@@c@@t (Rudi Dutter)
+Date: Wed, 05 Aug 2009 14:14:13 +0200
+Subject: [RsR] Rcmd and robust tools
+In-Reply-To: <4c0e456b0908041313u3a1bcc93q9901123c67b02ff3@mail.gmail.com>
+References: <4A783CB2.2090006@unige.ch>	<DC5F16295A9440B78338E2AEBA4EDD5F@gpbdmx>
+	<4c0e456b0908041313u3a1bcc93q9901123c67b02ff3@mail.gmail.com>
+Message-ID: <4A797795.3030905@tuwien.ac.at>
+
+Hi Eva,
+
+Thanks to Valentin for the nice remarks.
+
+In our group we are developing a package called DAS+R on the basis of
+the Rcommander. A very preliminary version is available from
+http://www.statistik.tuwien.ac.at/StatDA/DASplusR/
+It particularly considers spatial data and only has small attempts to
+use robust methods at the moment (e.g. in generating a well scaled
+background map).
+
+We do not have much experience in using the system in teaching,
+nevertheless we observed that students accept and enjoy very much the
+possibility of clicking instead of learning commands by hard. So I would
+be very much interested in a cooperation and exchange of ideas.
+
+Best regards,
+Rudi
+
+Valentin Todorov wrote:
+> Dear Eva,
+>
+> The recent book:
+>
+> Statistical Data Analysis Explained: Applied Environmental Statistics with R
+> by C. Reimann, P. Filzmoser, R.G. Garrett, and R. Dutter; Wiley,
+> Chichester, 2008.
+>
+> uses both (a modified) R Commander and robust methods, but I hope
+> Peter Filzmoser and Rudi Dutter read also this list and can tell more.
+>
+>
+> Best regards,
+> Valentin
+>
+>
+>
+>
+>
+> On Tue, Aug 4, 2009 at 5:26 PM, Ian Fellows<ifellows at ucsd.edu> wrote:
+>   
+>> Hi Eva,
+>>
+>> I'm not sure about Rcmdr, but I just released the Deducer package to CRAN
+>> which uses HCCM by default with linear models. The online manual gives some
+>> screenshots, but I have yet to write the regression page.
+>>
+>> Manual:
+>> http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+>>
+>> Cheers,
+>> Ian Fellows
+>>
+>> Announcement:
+>> ---------------------------------------------------------------------------
+>>
+>>
+>> Deducer 0.1 has been released to CRAN
+>>
+>> Deducer is designed to be a free, easy to use, alternative to proprietary
+>> software such as SPSS, JMP, and Minitab. It has a menu system to do common
+>> data manipulation and data analysis tasks, and an excel-like spreadsheet in
+>> which to view and edit data frames. The goal of the project is to two fold.
+>>
+>>        1. Provide an intuitive interface so that non-technical users
+>>           can learn and perform analyses without programming getting
+>>           in their way.
+>>        2. Increase the efficiency of expert R users when performing
+>>         common tasks by replacing hundreds of keystrokes with a few
+>>         mouse clicks. Also, as much as possible the GUI should not
+>>         get in their way if they just want to do some programming.
+>>
+>> Deducer is integrated into the Windows RGui, and the cross-platform Java
+>> console JGR, and is also usable and accessible from the command line.
+>> Screen shots and examples can be viewed in the online wiki manual:
+>>
+>> http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+>>
+>> Comments and questions are more than welcome. A discussion group has been
+>> created for any questions or recommendations.
+>>
+>> http://groups.google.com/group/deducer
+>>
+>> Deducer Features:
+>>
+>> Data manipulation:
+>>        1. Factor editor
+>>        2. Variable recoding
+>>        3. data sorting
+>>        4. data frame merging
+>>        5. transposing a data frame
+>>        6. subseting
+>>
+>> Analysis:
+>>        1. Frequencies
+>>        2. Descriptives
+>>        3. Contingency tables
+>>                a. Nicely formatted tables with optional
+>>                        i. Percentages
+>>                        ii. Expected counts
+>>                        iii. Residuals
+>>                b. Statistical tests
+>>                        i. chi-squared
+>>                        ii. likelihood ratio
+>>                        iii. fisher's exact
+>>                        iv. mantel haenszel
+>>                        v. kendall's tau
+>>                        vi. spearman's rho
+>>                        vii. kruskal-wallis
+>>                        viii. mid-p values for all exact/monte carlo tests
+>>        4. One sample tests
+>>                a. T-test
+>>                b. Shapiro-wilk
+>>                c. Histogram/box-plot summaries
+>>        5. Two sample tests
+>>                a. T-test (student and welch)
+>>                b. Permutation test
+>>                c. Wilcoxon
+>>                d. Brunner-munzel
+>>                e. Kolmogorov-smirnov
+>>                f. Jitter/box-plot group comparison
+>>        6. K-sample tests
+>>                a. Anova (usual and welch)
+>>                b. Kruskal-wallis
+>>                c. Jitter/boxplot comparison
+>>        7. Correlation
+>>                a. Nicely formatted correlation matrices
+>>                b. Pearson's
+>>                c. Kendall's
+>>                d. Spearman's
+>>                e. Scatterplot paneled array
+>>                f. Circle plot
+>>                g. Full correlation matrix plot
+>>        8.Generalized Linear Models
+>>                a. Model preview
+>>                b. Intuitive model builder
+>>                c. diagnostic plots
+>>                d. Component residual and added variable plots
+>>                e. Anova (type II and III implementing LR, Wald and F tests)
+>>                f. Parameter summary tables and parameter correlations
+>>                g. Influence and colinearity diagnostics
+>>                h. Post-hoc tests and confidence intervals
+>>                   with (or without) adjustments for multiple testing.
+>>                i. Custom linear hypothesis tests
+>>                j. Effect mean summaries (with confidence intervals), and
+>> plots
+>>                k. Exports: Residuals, Standardized residuals, Studentized
+>>                   residuals, Predicted Values (linear and link), Cooks
+>>                   distance, DFBETA, DFFITS, hat values, and Cov Ratio
+>>                l. Observation weights and subseting
+>>        9. Logistic Regression
+>>                a. All GLM features
+>>                b. ROC Plot
+>>        10. Linear Model
+>>                a. All GLM features
+>>        b. Heteroskedastic robust tests
+>>
+>> -----Original Message-----
+>> From: r-sig-robust-bounces at r-project.org
+>> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Eva Cantoni
+>> Sent: Tuesday, August 04, 2009 6:51 AM
+>> To: r-sig-robust
+>> Subject: [RsR] Rcmd and robust tools
+>>
+>> Hi everybody:
+>>
+>> within our applied undergraduate courses, we would like to teach some
+>> robust approaches (essentially multiple regression and covariance matrix
+>> estimation) using R and the R commander Graphical User Interface (Rcmd).
+>> Did anybody in this list already extend the R commander to include
+>> robust methods (either from the robust or robustbase package), or is
+>> anybody interested in collaborating to add this facility to Rcmd ?
+>>
+>> Best regards,
+>> Eva
+>>
+>> --
+>>
+>>  Dr Eva Cantoni                 phone  : (+41) 22 379 8240
+>>  Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299
+>>  40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at unige.ch
+>>  CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>
+>>     
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+>
+>   
+
+-- 
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+From: Prof. Dr. Rudolf Dutter
+      Dept. of Statistics and Probability Theory
+      Vienna University of Technology,
+      Wiedner Hauptstr. 7 ("Goldenes Lamm")
+      A-1040 Vienna, Austria
+      Tel. +43 1 58801/10730
+      FAX  +43 1 58801/10798
+      E-Mail: R.Dutter at tuwien.ac.at
+      Internet: http://www.statistik.tuwien.ac.at/public/dutt/
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+
+
+From Ev@@C@nton| @end|ng |rom un|ge@ch  Wed Aug 12 10:10:02 2009
+From: Ev@@C@nton| @end|ng |rom un|ge@ch (Eva Cantoni)
+Date: Wed, 12 Aug 2009 10:10:02 +0200
+Subject: [RsR] Rcmd and robust tools
+In-Reply-To: <4A783CB2.2090006@unige.ch>
+References: <4A783CB2.2090006@unige.ch>
+Message-ID: <4A8278DA.20409@unige.ch>
+
+Thank you to all of you for your suggestions. We will evaluate the
+options in light of our needs and decide what to do.
+
+Best regards,
+Eva Cantoni
+
+Rudi Dutter wrote:
+> Hi Eva,
+>
+> Thanks to Valentin for the nice remarks.
+>
+> In our group we are developing a package called DAS+R on the basis of
+> the Rcommander. A very preliminary version is available from
+> http://www.statistik.tuwien.ac.at/StatDA/DASplusR/
+> It particularly considers spatial data and only has small attempts to
+> use robust methods at the moment (e.g. in generating a well scaled
+> background map).
+>
+> We do not have much experience in using the system in teaching,
+> nevertheless we observed that students accept and enjoy very much the
+> possibility of clicking instead of learning commands by hard. So I would
+> be very much interested in a cooperation and exchange of ideas.
+>
+> Best regards,
+> Rudi
+>
+> Valentin Todorov wrote:
+>   
+>> Dear Eva,
+>>
+>> The recent book:
+>>
+>> Statistical Data Analysis Explained: Applied Environmental Statistics with R
+>> by C. Reimann, P. Filzmoser, R.G. Garrett, and R. Dutter; Wiley,
+>> Chichester, 2008.
+>>
+>> uses both (a modified) R Commander and robust methods, but I hope
+>> Peter Filzmoser and Rudi Dutter read also this list and can tell more.
+>>
+>>
+>> Best regards,
+>> Valentin
+>>
+>>
+>>
+>>
+>>
+>> On Tue, Aug 4, 2009 at 5:26 PM, Ian Fellows<ifellows at ucsd.edu> wrote:
+>>   
+>>     
+>>> Hi Eva,
+>>>
+>>> I'm not sure about Rcmdr, but I just released the Deducer package to CRAN
+>>> which uses HCCM by default with linear models. The online manual gives some
+>>> screenshots, but I have yet to write the regression page.
+>>>
+>>> Manual:
+>>> http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+>>>
+>>> Cheers,
+>>> Ian Fellows
+>>>
+>>> Announcement:
+>>> ---------------------------------------------------------------------------
+>>>
+>>>
+>>> Deducer 0.1 has been released to CRAN
+>>>
+>>> Deducer is designed to be a free, easy to use, alternative to proprietary
+>>> software such as SPSS, JMP, and Minitab. It has a menu system to do common
+>>> data manipulation and data analysis tasks, and an excel-like spreadsheet in
+>>> which to view and edit data frames. The goal of the project is to two fold.
+>>>
+>>>        1. Provide an intuitive interface so that non-technical users
+>>>           can learn and perform analyses without programming getting
+>>>           in their way.
+>>>        2. Increase the efficiency of expert R users when performing
+>>>         common tasks by replacing hundreds of keystrokes with a few
+>>>         mouse clicks. Also, as much as possible the GUI should not
+>>>         get in their way if they just want to do some programming.
+>>>
+>>> Deducer is integrated into the Windows RGui, and the cross-platform Java
+>>> console JGR, and is also usable and accessible from the command line.
+>>> Screen shots and examples can be viewed in the online wiki manual:
+>>>
+>>> http://www.deducer.org/pmwiki/pmwiki.php?n=Main.DeducerManual
+>>>
+>>> Comments and questions are more than welcome. A discussion group has been
+>>> created for any questions or recommendations.
+>>>
+>>> http://groups.google.com/group/deducer
+>>>
+>>> Deducer Features:
+>>>
+>>> Data manipulation:
+>>>        1. Factor editor
+>>>        2. Variable recoding
+>>>        3. data sorting
+>>>        4. data frame merging
+>>>        5. transposing a data frame
+>>>        6. subseting
+>>>
+>>> Analysis:
+>>>        1. Frequencies
+>>>        2. Descriptives
+>>>        3. Contingency tables
+>>>                a. Nicely formatted tables with optional
+>>>                        i. Percentages
+>>>                        ii. Expected counts
+>>>                        iii. Residuals
+>>>                b. Statistical tests
+>>>                        i. chi-squared
+>>>                        ii. likelihood ratio
+>>>                        iii. fisher's exact
+>>>                        iv. mantel haenszel
+>>>                        v. kendall's tau
+>>>                        vi. spearman's rho
+>>>                        vii. kruskal-wallis
+>>>                        viii. mid-p values for all exact/monte carlo tests
+>>>        4. One sample tests
+>>>                a. T-test
+>>>                b. Shapiro-wilk
+>>>                c. Histogram/box-plot summaries
+>>>        5. Two sample tests
+>>>                a. T-test (student and welch)
+>>>                b. Permutation test
+>>>                c. Wilcoxon
+>>>                d. Brunner-munzel
+>>>                e. Kolmogorov-smirnov
+>>>                f. Jitter/box-plot group comparison
+>>>        6. K-sample tests
+>>>                a. Anova (usual and welch)
+>>>                b. Kruskal-wallis
+>>>                c. Jitter/boxplot comparison
+>>>        7. Correlation
+>>>                a. Nicely formatted correlation matrices
+>>>                b. Pearson's
+>>>                c. Kendall's
+>>>                d. Spearman's
+>>>                e. Scatterplot paneled array
+>>>                f. Circle plot
+>>>                g. Full correlation matrix plot
+>>>        8.Generalized Linear Models
+>>>                a. Model preview
+>>>                b. Intuitive model builder
+>>>                c. diagnostic plots
+>>>                d. Component residual and added variable plots
+>>>                e. Anova (type II and III implementing LR, Wald and F tests)
+>>>                f. Parameter summary tables and parameter correlations
+>>>                g. Influence and colinearity diagnostics
+>>>                h. Post-hoc tests and confidence intervals
+>>>                   with (or without) adjustments for multiple testing.
+>>>                i. Custom linear hypothesis tests
+>>>                j. Effect mean summaries (with confidence intervals), and
+>>> plots
+>>>                k. Exports: Residuals, Standardized residuals, Studentized
+>>>                   residuals, Predicted Values (linear and link), Cooks
+>>>                   distance, DFBETA, DFFITS, hat values, and Cov Ratio
+>>>                l. Observation weights and subseting
+>>>        9. Logistic Regression
+>>>                a. All GLM features
+>>>                b. ROC Plot
+>>>        10. Linear Model
+>>>                a. All GLM features
+>>>        b. Heteroskedastic robust tests
+>>>
+>>> -----Original Message-----
+>>> From: r-sig-robust-bounces at r-project.org
+>>> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of Eva Cantoni
+>>> Sent: Tuesday, August 04, 2009 6:51 AM
+>>> To: r-sig-robust
+>>> Subject: [RsR] Rcmd and robust tools
+>>>
+>>> Hi everybody:
+>>>
+>>> within our applied undergraduate courses, we would like to teach some
+>>> robust approaches (essentially multiple regression and covariance matrix
+>>> estimation) using R and the R commander Graphical User Interface (Rcmd).
+>>> Did anybody in this list already extend the R commander to include
+>>> robust methods (either from the robust or robustbase package), or is
+>>> anybody interested in collaborating to add this facility to Rcmd ?
+>>>
+>>> Best regards,
+>>> Eva
+>>>
+>>> --
+>>>
+>>>  Dr Eva Cantoni                 phone  : (+41) 22 379 8240
+>>>  Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299
+>>>  40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at unige.ch
+>>>  CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni
+>>>
+>>> _______________________________________________
+>>> R-SIG-Robust at r-project.org mailing list
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>>
+>>> _______________________________________________
+>>> R-SIG-Robust at r-project.org mailing list
+>>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>>
+>>>     
+>>>       
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list
+>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>>
+>>
+>>   
+>>     
+>
+>   
+
+
+-- 
+
+ Dr Eva Cantoni                 phone  : (+41) 22 379 8240
+ Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299
+ 40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at unige.ch
+ CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni
+
+
+
+From c@@nwe@h@ @end|ng |rom gm@||@com  Tue Aug 18 10:24:32 2009
+From: c@@nwe@h@ @end|ng |rom gm@||@com (Anwesha Chakrabarti)
+Date: Tue, 18 Aug 2009 13:54:32 +0530
+Subject: [RsR] SES
+Message-ID: <a28956f70908180124m39f5fb2fj9f9ed42143f0dde@mail.gmail.com>
+
+Hi
+I was trying to estimate simultaneous equation system in R using systemfit.
+I used the following commands
+>library(systemfit)
+> data(Kmenta)
+> attach(Kmenta)
+ >eqDemand<-consump~price+income
+> eqSupply<-consump~price+farmprice+trend
+> fitsur<-systemfit("SUR",list(demand=eqDemand, supply=eqSupply))
+and got the following error messege
+
+Error in systemfit("SUR", list(demand = eqDemand, supply = eqSupply)) :
+argument 'formula' must be an object of class 'formula' or a list of objects
+of class 'formula'
+
+Can anyone tell me how to overcome this problem?
+
+regards
+
+Anwesha
+
+	[[alternative HTML version deleted]]
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Aug 18 12:27:15 2009
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 18 Aug 2009 12:27:15 +0200
+Subject: [RsR] SES
+In-Reply-To: <a28956f70908180124m39f5fb2fj9f9ed42143f0dde@mail.gmail.com>
+References: <a28956f70908180124m39f5fb2fj9f9ed42143f0dde@mail.gmail.com>
+Message-ID: <19082.33283.575239.602177@lynne.math.ethz.ch>
+
+PLEASE!
+
+You already sent this to R-help .. which makes sense ..
+
+do *NOT* send such questions to other mailing lists, like 
+'R-SIG-robust'  to which it really does *not* belong.
+
+Martin Maechler, ETH Zurich
+
+>>>>> "AC" == Anwesha Chakrabarti <c.anwesha at gmail.com>
+>>>>>     on Tue, 18 Aug 2009 13:54:32 +0530 writes:
+
+    AC> Hi I was trying to estimate simultaneous equation system
+    AC> in R using systemfit.  I used the following commands
+    >> library(systemfit) data(Kmenta) attach(Kmenta)
+    >> eqDemand<-consump~price+income
+    >> eqSupply<-consump~price+farmprice+trend
+    >> fitsur<-systemfit("SUR",list(demand=eqDemand,
+    >> supply=eqSupply))
+    AC> and got the following error messege
+
+    AC> Error in systemfit("SUR", list(demand = eqDemand, supply
+    AC> = eqSupply)) : argument 'formula' must be an object of
+    AC> class 'formula' or a list of objects of class 'formula'
+
+    AC> Can anyone tell me how to overcome this problem?
+
+    AC> regards
+
+    AC> Anwesha
+
+    AC> 	[[alternative HTML version deleted]]
+
+    AC> _______________________________________________
+    AC> R-SIG-Robust at r-project.org mailing list
+    AC> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From @te|@n@herzog @end|ng |rom un|b@@@ch  Tue Sep 15 18:34:55 2009
+From: @te|@n@herzog @end|ng |rom un|b@@@ch (Stefan Herzog)
+Date: Tue, 15 Sep 2009 18:34:55 +0200
+Subject: [RsR] Robust (approximated) Bayesian statistics: BIC of robust
+	methods?
+Message-ID: <3747C121-6357-4DFB-A561-B606F2B8A936@unibas.ch>
+
+Hi,
+
+
+I'm trying to find ressources on robust (approximated) Bayesian  
+statistics, but I'm not finding what I'm looking for; maybe you can  
+give me a hint where to look.
+
+Basically I'm looking for a way to get a BIC (Bayesian information  
+criterion; Schwartz, 1978) for a model fit of robust methods. E.g. if  
+I apply a robust regression (e.g., lmrob), is there a way to get  
+(something like) a BIC for the model? For some regression models in R  
+one can apply something like:
+
+stepAIC (mymodel.glm, k=log(n))
+
+Or one can calculate the BIC based on the SSEs (sum of squared  
+errors). I somehow fear/feel that the SSE-approach cannot be directly  
+applied to robust methods as they use different measures to obtain  
+their optimized estimates (e.g. least trimmed squares regression  
+estimator).
+
+Can you give me hint where to look or how to think about this issue?  
+Thanks!
+
+Sorry if I'm asking a painfully obvious or wrong question.
+
+
+Best regards,
+
+Stefan Herzog
+
+
+-------------------------------------------------------------
+Dr. Stefan Herzog, Research Scientist
+Center for Cognitive and Decision Sciences
+
+Department of Psychology
+University of Basel
+Missionsstrasse 64A
+CH-4055 Basel
+Switzerland
+
+Tel   +41 61 267 06 15
+Fax  +41 61 267 04 41
+stefan.herzog at unibas.ch
+http://www.psycho.unibas.ch/herzog/
+
+
+
+From E|vez|o@Ronchett| @end|ng |rom un|ge@ch  Wed Sep 16 12:31:33 2009
+From: E|vez|o@Ronchett| @end|ng |rom un|ge@ch (Elvezio Ronchetti)
+Date: Wed, 16 Sep 2009 12:31:33 +0200
+Subject: [RsR] Robust (approximated) Bayesian statistics: BIC of robust
+ methods?
+In-Reply-To: <3747C121-6357-4DFB-A561-B606F2B8A936@unibas.ch>
+References: <3747C121-6357-4DFB-A561-B606F2B8A936@unibas.ch>
+Message-ID: <4AB0BE85.6000500@unige.ch>
+
+Hi,
+
+Check Machado(1993) Econometric Theory.
+All the best.
+
+Elvezio Ronchetti
+Dept. of Econometrics
+University of Geneva
+Blv. Pont d'Arve 40
+CH-1211 Geneva
+SWITZERLAND
+
+e-mail     Elvezio.Ronchetti at unige.ch
+tel        +41 22 379 8131
+tel (secr) +41 22 379 8229
+Fax        +41 22 379 8299
+http://www.unige.ch/ses/metri/ronchetti/
+
+
+Stefan Herzog wrote:
+> Hi,
+> 
+> 
+> I'm trying to find ressources on robust (approximated) Bayesian  
+> statistics, but I'm not finding what I'm looking for; maybe you can  
+> give me a hint where to look.
+> 
+> Basically I'm looking for a way to get a BIC (Bayesian information  
+> criterion; Schwartz, 1978) for a model fit of robust methods. E.g. if  I 
+> apply a robust regression (e.g., lmrob), is there a way to get  
+> (something like) a BIC for the model? For some regression models in R  
+> one can apply something like:
+> 
+> stepAIC (mymodel.glm, k=log(n))
+> 
+> Or one can calculate the BIC based on the SSEs (sum of squared  errors). 
+> I somehow fear/feel that the SSE-approach cannot be directly  applied to 
+> robust methods as they use different measures to obtain  their optimized 
+> estimates (e.g. least trimmed squares regression  estimator).
+> 
+> Can you give me hint where to look or how to think about this issue?  
+> Thanks!
+> 
+> Sorry if I'm asking a painfully obvious or wrong question.
+> 
+> 
+> Best regards,
+> 
+> Stefan Herzog
+> 
+> 
+> -------------------------------------------------------------
+> Dr. Stefan Herzog, Research Scientist
+> Center for Cognitive and Decision Sciences
+> 
+> Department of Psychology
+> University of Basel
+> Missionsstrasse 64A
+> CH-4055 Basel
+> Switzerland
+> 
+> Tel   +41 61 267 06 15
+> Fax  +41 61 267 04 41
+> stefan.herzog at unibas.ch
+> http://www.psycho.unibas.ch/herzog/
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From @j@y@h@h @end|ng |rom m@y|n@org  Thu Sep 24 21:57:21 2009
+From: @j@y@h@h @end|ng |rom m@y|n@org (Ajay Shah)
+Date: Fri, 25 Sep 2009 01:27:21 +0530
+Subject: [RsR] Robust location estimator - an interesting application in
+	finance
+Message-ID: <20090924195721.GQ188@ajay-shahs-macbook-pro.local>
+
+One interesting application of a robust location estimator is in
+computing reference rates on OTC markets. Traders on an OTC market
+know the ruling price but others do not. So an information agency asks
+a bunch of dealers what the price is.
+
+Dealers typically have positions on the market and have an incentive
+to lie. Hence, it's useful to have a robust location estimator. The
+British Bankers Association has used a `fixed trimmed mean' where the
+four most extreme observations are thrown away and the average of the
+remainder is used as the `reference rate' of the market. This is the
+method underlying LIBOR.
+
+A while ago, Donald Lien and John Cita suggested that it would make
+more sense to experiment with a few different levels of trimming, and
+pick the one where the standard deviation of the trimmed mean
+(obtained through the bootstrap) is the lowest. They termed this the
+`adaptive trimmed mean' or the ATM.
+
+One advantage of the above two ideas is that they are simple to
+explain to regulators and traders.
+
+My question is: How far can contemporary knowledge in robust
+statistics improve upon this scheme? If one uses robustbase::lmrob(x ~
+1) and gets a location estimator, would it be much better?
+
+Here is some data for experimentation:
+
+  load(url("http://www.mayin.org/ajayshah/tmp/all.rda"))
+
+This gives you an object "all" which has 44 columns of data. Each of
+these columns is one set of values obtained from a bunch of dealers.
+
+I did:
+
+  library(refrate)
+  results <- matrix(NA, nrow=length(fileslist), ncol=4)
+  colnames(results) <- c("lmrob","median","atm","mean")
+  for (i in 1:length(fileslist)) {
+    tmp <- na.omit(all[,i])
+    a <- try(lmrob(tmp ~ 1)$coefficients)
+    result <- NA
+    if (class(a) != "try-error") {result <- a}
+    results[i,] <- c(result,
+                     median(tmp),
+                     referencerate(tmp)["atm"],
+                     mean(tmp))
+  }
+  cor(results, use="pairwise.complete.obs")
+
+where the function referencerate() implements the Lien/Cita scheme
+described above. (I can email you this code if there is interest). I
+have two findings:
+
+(a) lmrob() often breaks. It shouldn't. I have sent in one bug report.
+
+(b) The correlation matrix shows very high correlations:
+
+             lmrob    median       atm      mean
+  lmrob  1.0000000 
+  median 0.9998192 1.0000000 
+  atm    0.9999741 0.9998113 1.0000000 
+  mean   0.9993983 0.9994536 0.9996133 1.0000000
+
+The correlations with the ATM are: lmrob > median > mean. So lmrob()
+and the ATM seem to agree a lot.
+
+Looking deeper, an important feature in this (financial) application
+is that dealers should not see a location estimator where a small
+cartel can produce a large distort the price. So their gains from
+forming a cartel should be low. Would lmrob() be much different from
+the ATM in this?
+
+-- 
+Ajay Shah                                      http://www.mayin.org/ajayshah  
+ajayshah at mayin.org                             http://ajayshahblog.blogspot.com
+<*(:-? - wizard who doesn't know the answer.
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Thu Sep 24 23:31:42 2009
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Thu, 24 Sep 2009 14:31:42 -0700
+Subject: [RsR] Robust location estimator - an interesting application
+ in	finance
+In-Reply-To: <20090924195721.GQ188@ajay-shahs-macbook-pro.local>
+References: <20090924195721.GQ188@ajay-shahs-macbook-pro.local>
+Message-ID: <4ABBE53E.7030900@stat.ubc.ca>
+
+Very interesting post Ajay. I will think about it in more detail in the 
+coming days. Meanwhile, I believe I can offer a possible explanation for 
+the "failures" of lmrob(). They may be related to the fact that some 
+columns of the object "all" have more than half of their observations 
+identical to each other.
+
+For example, if I do:
+
+ > load(url("http://www.mayin.org/ajayshah/tmp/all.rda"))
+ > mad(na.omit(all[,11]))
+[1] 0
+
+The same goes for columns 12, 17, 18, 23 and 24.
+
+What happens in these samples is that the majority of the data don't 
+have any variability and thus a robust ("majority rules") scale 
+estimator is zero. This breaks the calculations for the estimated 
+correlation matrix of the regression estimators (the code is probably 
+trying to divide by zero). I agree this should be fixed in the code and 
+the output re-arranged accordingly. I'll work on it.
+
+Now to the more interesting parts of your e-mail...
+
+Matias
+
+
+
+
+Ajay Shah wrote:
+> One interesting application of a robust location estimator is in
+> computing reference rates on OTC markets. Traders on an OTC market
+> know the ruling price but others do not. So an information agency asks
+> a bunch of dealers what the price is.
+> 
+> Dealers typically have positions on the market and have an incentive
+> to lie. Hence, it's useful to have a robust location estimator. The
+> British Bankers Association has used a `fixed trimmed mean' where the
+> four most extreme observations are thrown away and the average of the
+> remainder is used as the `reference rate' of the market. This is the
+> method underlying LIBOR.
+> 
+> A while ago, Donald Lien and John Cita suggested that it would make
+> more sense to experiment with a few different levels of trimming, and
+> pick the one where the standard deviation of the trimmed mean
+> (obtained through the bootstrap) is the lowest. They termed this the
+> `adaptive trimmed mean' or the ATM.
+> 
+> One advantage of the above two ideas is that they are simple to
+> explain to regulators and traders.
+> 
+> My question is: How far can contemporary knowledge in robust
+> statistics improve upon this scheme? If one uses robustbase::lmrob(x ~
+> 1) and gets a location estimator, would it be much better?
+> 
+> Here is some data for experimentation:
+> 
+>   load(url("http://www.mayin.org/ajayshah/tmp/all.rda"))
+> 
+> This gives you an object "all" which has 44 columns of data. Each of
+> these columns is one set of values obtained from a bunch of dealers.
+> 
+> I did:
+> 
+>   library(refrate)
+>   results <- matrix(NA, nrow=length(fileslist), ncol=4)
+>   colnames(results) <- c("lmrob","median","atm","mean")
+>   for (i in 1:length(fileslist)) {
+>     tmp <- na.omit(all[,i])
+>     a <- try(lmrob(tmp ~ 1)$coefficients)
+>     result <- NA
+>     if (class(a) != "try-error") {result <- a}
+>     results[i,] <- c(result,
+>                      median(tmp),
+>                      referencerate(tmp)["atm"],
+>                      mean(tmp))
+>   }
+>   cor(results, use="pairwise.complete.obs")
+> 
+> where the function referencerate() implements the Lien/Cita scheme
+> described above. (I can email you this code if there is interest). I
+> have two findings:
+> 
+> (a) lmrob() often breaks. It shouldn't. I have sent in one bug report.
+> 
+> (b) The correlation matrix shows very high correlations:
+> 
+>              lmrob    median       atm      mean
+>   lmrob  1.0000000 
+>   median 0.9998192 1.0000000 
+>   atm    0.9999741 0.9998113 1.0000000 
+>   mean   0.9993983 0.9994536 0.9996133 1.0000000
+> 
+> The correlations with the ATM are: lmrob > median > mean. So lmrob()
+> and the ATM seem to agree a lot.
+> 
+> Looking deeper, an important feature in this (financial) application
+> is that dealers should not see a location estimator where a small
+> cartel can produce a large distort the price. So their gains from
+> forming a cartel should be low. Would lmrob() be much different from
+> the ATM in this?
+>
+
+
+
+From rk@t @end|ng |rom zh@w@ch  Mon Sep 28 09:23:56 2009
+From: rk@t @end|ng |rom zh@w@ch (Andreas Ruckstuhl)
+Date: Mon, 28 Sep 2009 09:23:56 +0200
+Subject: [RsR] Robust location estimator - an interesting application
+ in	finance
+In-Reply-To: <20090924195721.GQ188@ajay-shahs-macbook-pro.local>
+References: <20090924195721.GQ188@ajay-shahs-macbook-pro.local>
+Message-ID: <4AC0648C.6050706@zhaw.ch>
+
+Dear Ajay
+
+I agree on what Matias said.
+
+In addition, I wondered whether you should not better use a "direct" 
+robust location estimator instead of the robust location estimator based 
+on the regression case. For example, there is R function huberM() which 
+returns a robust M-estimation of location based on a safe way of 
+calculating the robust scale estimator. An additional advantage of using 
+huberM() is, that the resulting M-estimator has breakdown-point 0.5 
+which is (much) higher than that of a trimmed mean.
+
+To sell the robust M-estimator, you can talk of "an estimator which 
+down-weights outliers automatically according to their outlyingness".
+(The M-estimator can also be modified that it removes very distant 
+outliers completely by using a redescending psi-function.)
+
+All the best
+Andreas
+
+
+Some addtional comments
+
+Ajay Shah schrieb:
+> One interesting application of a robust location estimator is in
+> computing reference rates on OTC markets. Traders on an OTC market
+> know the ruling price but others do not. So an information agency asks
+> a bunch of dealers what the price is.
+> 
+> Dealers typically have positions on the market and have an incentive
+> to lie. Hence, it's useful to have a robust location estimator. The
+> British Bankers Association has used a `fixed trimmed mean' where the
+> four most extreme observations are thrown away and the average of the
+> remainder is used as the `reference rate' of the market. This is the
+> method underlying LIBOR.
+> 
+> A while ago, Donald Lien and John Cita suggested that it would make
+> more sense to experiment with a few different levels of trimming, and
+> pick the one where the standard deviation of the trimmed mean
+> (obtained through the bootstrap) is the lowest. They termed this the
+> `adaptive trimmed mean' or the ATM.
+> 
+> One advantage of the above two ideas is that they are simple to
+> explain to regulators and traders.
+> 
+> My question is: How far can contemporary knowledge in robust
+> statistics improve upon this scheme? If one uses robustbase::lmrob(x ~
+> 1) and gets a location estimator, would it be much better?
+> 
+> Here is some data for experimentation:
+> 
+>   load(url("http://www.mayin.org/ajayshah/tmp/all.rda"))
+> 
+> This gives you an object "all" which has 44 columns of data. Each of
+> these columns is one set of values obtained from a bunch of dealers.
+> 
+> I did:
+> 
+>   library(refrate)
+>   results <- matrix(NA, nrow=length(fileslist), ncol=4)
+>   colnames(results) <- c("lmrob","median","atm","mean")
+>   for (i in 1:length(fileslist)) {
+>     tmp <- na.omit(all[,i])
+>     a <- try(lmrob(tmp ~ 1)$coefficients)
+>     result <- NA
+>     if (class(a) != "try-error") {result <- a}
+>     results[i,] <- c(result,
+>                      median(tmp),
+>                      referencerate(tmp)["atm"],
+>                      mean(tmp))
+>   }
+>   cor(results, use="pairwise.complete.obs")
+> 
+> where the function referencerate() implements the Lien/Cita scheme
+> described above. (I can email you this code if there is interest). I
+> have two findings:
+> 
+> (a) lmrob() often breaks. It shouldn't. I have sent in one bug report.
+> 
+> (b) The correlation matrix shows very high correlations:
+> 
+>              lmrob    median       atm      mean
+>   lmrob  1.0000000 
+>   median 0.9998192 1.0000000 
+>   atm    0.9999741 0.9998113 1.0000000 
+>   mean   0.9993983 0.9994536 0.9996133 1.0000000
+> 
+> The correlations with the ATM are: lmrob > median > mean. So lmrob()
+> and the ATM seem to agree a lot.
+> 
+> Looking deeper, an important feature in this (financial) application
+> is that dealers should not see a location estimator where a small
+> cartel can produce a large distort the price. So their gains from
+> forming a cartel should be low. Would lmrob() be much different from
+> the ATM in this?
+> 
+
+-- 
+----------------------------------------------------------------------
+
+Prof. Dr. Andreas Ruckstuhl
+ZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften
+IDP Institut f?r Datenanalyse und Prozessdesign
+Rosenstrasse 3                    Tel.  : +41 (0)58 934 78 12
+Postfach                          Fax   : +41 (0)58 935 78 12
+CH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch
+                                   WWW   : http://www.idp.zhaw.ch
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Sep 28 13:08:25 2009
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 28 Sep 2009 13:08:25 +0200
+Subject: [RsR] Robust location estimator - an interesting application in
+	finance
+In-Reply-To: <4AC0648C.6050706@zhaw.ch>
+References: <20090924195721.GQ188@ajay-shahs-macbook-pro.local>
+	<4AC0648C.6050706@zhaw.ch>
+Message-ID: <19136.39209.87524.356065@lynne.math.ethz.ch>
+
+>>>>> "ARu" == Andreas Ruckstuhl <rkst at zhaw.ch>
+>>>>>     on Mon, 28 Sep 2009 09:23:56 +0200 writes:
+
+    ARu> Dear Ajay
+    ARu> I agree on what Matias said.
+
+    ARu> In addition, I wondered whether you should not better use a "direct" 
+    ARu> robust location estimator instead of the robust location estimator based 
+    ARu> on the regression case. For example, there is R function huberM() which 
+    ARu> returns a robust M-estimation of location based on a safe way of 
+    ARu> calculating the robust scale estimator. An additional advantage of using 
+    ARu> huberM() is, that the resulting M-estimator has breakdown-point 0.5 
+    ARu> which is (much) higher than that of a trimmed mean.
+
+    ARu> To sell the robust M-estimator, you can talk of "an estimator which 
+    ARu> down-weights outliers automatically according to their outlyingness".
+    ARu> (The M-estimator can also be modified that it removes very distant 
+    ARu> outliers completely by using a redescending psi-function.)
+
+Yes, indeed, thank you, Andreas,
+I was also going to propose using  huberM(),
+which I had written a few years ago, exactly for dealing with
+the "degenerate" case of having more than half of the
+observations being equal.
+
+Nonetheless, Ajay, I'm grateful for your bug report!
+
+Regards,
+Martin Maechler, ETH Zurich
+
+
+
+From O||v|er@Ren@ud @end|ng |rom un|ge@ch  Tue Dec  8 13:56:58 2009
+From: O||v|er@Ren@ud @end|ng |rom un|ge@ch (Olivier Renaud)
+Date: Tue, 08 Dec 2009 13:56:58 +0100
+Subject: [RsR] Several bugs for th lmRob function
+Message-ID: <4B1E4D1A.4030500@unige.ch>
+
+Dear all,
+Today, I send two mails related to robust ANOVA in R, but since the 
+scope and target are different, it is better to separate the subjects. 
+In the next mail, there is a praise to improve the accessibility of 
+robust methods for ANOVA. As far as I can understand, roust ANOVA cannot 
+be run with lmrob from the robustbase library, see the other mail. In 
+this mail, I list several bugs in lmRob from the robust library.
+
+    * There is a bug in the function "lmRob": when formulas with
+      interaction between factors are given, only the main effects are
+      considered as factors, but the interaction is considered as a
+      continuous variable. This is problematic, since the initial
+      estimator is very likely give an error because of the discrete
+      type of the interaction. Example:
+
+     > summary(lmRob (formula = Resp~Origine*Sexe, data = POVm3))
+
+    Error in psi.weight(wi[wcnd], ipsi, xk) :
+      NA/NaN/Inf in foreign function call (arg 2)
+    In addition: Warning message:
+    In lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,  :
+      Initial scale less than tl =  1e-06 .
+
+    Attached is a fix to the function lmRob, see the two lines with "###
+    added". I'm not a guru programmer so you might have to check the
+    code. With this corrected function, the above call works.
+
+
+    * It is not a bug, but there are more initial algorithms than
+      initial.alg in lmRob.control let the user choose. More
+      importantly, depending on the type of covariates, the user's
+      choice can be silently overridden (in the function
+      lmRob.fit.compute). I do not criticize this, but I suggest that
+      (a) a message is displayed to inform the user of this modification
+      and (b) that the initial algorithm that is finally used be written
+      the lmRob object. For the moment, the user has no way to know
+      which initial algorithm is used.
+
+
+    * There is a bug in the function "anova.lmRob": in the presence of
+      missing values in the covariates, the models that are compared do
+      not contain the same number of observations, which drives the
+      inference completely wrong. Again, I am not a specialist, but I
+      think it comes from the line
+
+                   curobj <- update(object, curfrm)   
+    which uses the original data frame instead of using only the
+    observations with no missing in the FULL model (which are given in
+    the lm object obj$model). When smaller models are compared,
+    typically some observations that were not used in the full model are
+    used. I'm not sure how to fix this bug.
+
+
+    * Maybe related to this missing value problem, I have found an F
+      value equal to -133, although the corresponding t-value in summary
+      was close to zero, but not suspect.
+
+     > anova(lmRob(ttf~income*sexe,data=cig,na.action=na.omit))
+
+    Terms added sequentially (first to last)
+
+                Chisq Df  RobustF     Pr(F)   
+    (Intercept)        1                      
+    income             1   69.576 < 2.2e-16 ***
+    sexe               1   14.989  7.97e-05 ***
+    income:sexe        1 -133.293         1   
+    ---
+    Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    Warning messages:
+    1: In chi.weight(res/Scale, ipsi, yc) - chi.weight(Res/Scale, ipsi,  :
+      longer object length is not a multiple of shorter object length
+    2: In chi.weight(res/Scale, ipsi, yc) - chi.weight(Res/Scale, ipsi,  :
+      longer object length is not a multiple of shorter object length
+
+
+    * Some prominent members of the S/R community will not consider this
+      as a bug, but in a companion mail, I give arguments to include
+      so-called "Type III sums of squares" or effect tested marginally.
+      In the context of unbalanced ANOVA, there are other prominent
+      members of the statistics community that give extremely convincing
+      arguments, see other mail. I know it can be done by hand, but for
+      an average user, having it as an optional argument to anova.lmRob
+      would be an important argument to use R and robust ANOVA.
+
+ Cheers,
+Olivier
+
+-- 
+!!! New e-mail, please update your address book !!!
+Olivier.Renaud at unige.ch               http://www.unige.ch/fapse/mad/
+Methodology & Data Analysis - Psychology Dept - University of Geneva
+UniMail, Office 4164  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20091208/044d577f/attachment.html>
+
+-------------- next part --------------
+ lmRob = 
+function (formula, data, weights, subset, na.action, model = TRUE, 
+    x = FALSE, y = FALSE, contrasts = NULL, nrep = NULL, control = lmRob.control(...), 
+    genetic.control = NULL, ...) 
+{
+    the.call <- match.call()
+    m <- match.call(expand = FALSE)
+    m$model <- m$x <- m$y <- m$contrasts <- m$nrep <- NULL
+    m$control <- m$genetic.control <- m$... <- NULL
+    m[[1]] <- as.name("model.frame")
+    m <- eval(m, sys.parent())
+    Terms <- attr(m, "terms")
+    weights <- model.extract(m, weights)
+    Y <- model.extract(m, "response")
+    X <- model.matrix(Terms, m, contrasts)
+    if (nrow(X) <= ncol(X)) 
+        stop("Robust method is inappropriate: not enough observations.")
+    asgn <- attr(X, "assign")
+    if (!is.list(asgn)) 
+        asgn <- splus.assign(asgn, attr(Terms, "term.labels"))
+    factor.names <- names(m)[sapply(m, is.factor)]  ### Forgets that interaction can also be factors !
+    at = attr(Terms,"factors")   ### added
+    if (length(factor.names)>0)
+      factor.names <- names(apply(at[ setdiff(dimnames(at)[[1]], factor.names),, drop=FALSE ], 2, sum)==0) ### added
+    x1.idx <- unname(unlist(asgn[factor.names]))
+    X1 <- X[, x1.idx, drop = FALSE]
+    X2 <- X[, setdiff(1:(dim(X)[2]), x1.idx), drop = FALSE]
+    p2 <- ncol(X2)
+    cnam2 <- dimnames(X2)[[2]]
+    if (dim(X1)[2] > 0 && p2 > 1 && cnam2[1] == "(Intercept)") {
+        X1 <- cbind(X2[, 1], X1)
+        dimnames(X1)[[2]][1] <- "(Intercept)"
+        X2 <- X2[, -1, drop = FALSE]
+        x1.idx <- c(1L, x1.idx)
+    }
+    else if (p2 == 1 && cnam2 == "(Intercept)") {
+        X1 <- X
+        x1.idx <- 1:ncol(X)
+        X2 <- NULL
+    }
+    if (length(dim(X1)) && dim(X1)[2] == 0) {
+        X1 <- NULL
+        x1.idx <- NULL
+    }
+    if (length(dim(X2)) && dim(X2)[2] == 0) 
+        X2 <- NULL
+
+    print(x1.idx)
+    print(X2)
+
+    fit <- if (length(weights)) 
+        lmRob.wfit(X, Y, weights, x1 = X1, x2 = X2, x1.idx = x1.idx, 
+            nrep = nrep, robust.control = control, genetic.control = genetic.control)
+    else lmRob.fit(X, Y, x1 = X1, x2 = X2, x1.idx = x1.idx, nrep = nrep, 
+        robust.control = control, genetic.control = genetic.control)
+    if (is.null(fit)) 
+        return(NULL)
+    fit$terms <- Terms
+    fit$call <- the.call
+    x.names <- dimnames(X)[[2]]
+    pasgn <- asgn
+    qrx <- qr(X)
+    Rk <- qrx[["rank"]]
+    piv <- qrx[["pivot"]][1:Rk]
+    newpos <- match(1:Rk, piv)
+    if (length(x.names)) 
+        names(newpos) <- x.names
+    for (j in names(asgn)) {
+        aj <- asgn[[j]]
+        aj <- aj[ok <- (nj <- newpos[aj]) <= Rk]
+        if (length(aj)) {
+            asgn[[j]] <- aj
+            pasgn[[j]] <- nj[ok]
+        }
+        else asgn[[j]] <- pasgn[[j]] <- NULL
+    }
+    effects <- X * matrix(fit$coefficients, byrow = TRUE, nrow = nrow(X), 
+        ncol = ncol(X))
+    fit$effects <- sqrt(colSums(effects^2))
+    fit$assign <- asgn
+    if (model) 
+        fit$model <- m
+    if (x) 
+        fit$x <- X
+    if (y) 
+        fit$y <- Y
+    attr(fit, "na.message") <- attr(m, "na.message")
+    if (!is.null(attr(m, "na.action"))) 
+        fit$na.action <- attr(m, "na.action")
+    fit
+}
+
+From O||v|er@Ren@ud @end|ng |rom un|ge@ch  Tue Dec  8 13:57:39 2009
+From: O||v|er@Ren@ud @end|ng |rom un|ge@ch (Olivier Renaud)
+Date: Tue, 08 Dec 2009 13:57:39 +0100
+Subject: [RsR] praise for taking good care of ANOVA in the robust libraries
+	in R
+Message-ID: <4B1E4D43.3020101@unige.ch>
+
+Re,
+With this mail, I would like to praise for taking good care of ANOVA in 
+the robust libraries in R. May I recall that in fields like psychology, 
+more that 80% of the articles contain an ANOVA whereas less that 10% of 
+them contain a regression. Doing statistical consulting with 
+psychologists for 10 years, here are the points I find essential to 
+convince psychologists to use R and robust procedures for ANOVA:
+
+(A) If I understand correctly, lmrob will eventually supersede lmRob. I 
+strongly suggest that a real reflection is taken concerning X variables 
+that are factors. As I understand, lmrob cannot handle such data since 
+the initial algorithm will very likely fail with such covariates. I 
+suggest adding the possibility to have a L1-type of initial algorithm 
+(or similar) with these covariates or to use separate initial algorithms 
+for the continuous covariates and the factors, like in lmRob.
+
+(B) Provide so-called "Type III sums of squares" or effects tested 
+marginally in the anova.lmrob or anova.lmRob (+ to implement anova.lmrob 
+for only one model). I know it can be done by hand, but for an average 
+user, having it as an optional argument to anova.lm(R/r)ob would be an 
+important argument to use R and robust ANOVA. Since this is an extremely 
+hot topic within the S/R community, I give below what I believe to be 
+convincing arguments given by (other) prominent members of the 
+statistics community. By the way, "marginal" or "Type III sums of 
+squares" are in several important R libraries, like in the car library 
+(used by Rcommander, see function Anova (with a capital A) with its 
+type="III" argument) and the nlme library (see anova.lme with its 
+type="marginal" argument).
+
+(C) Since ANOVA is so much used, why not write a small function aovrob 
+that just call lmrob with the appropriate arguments for the initial 
+algorithm and return anova.lmrob of the object, with marginal as the 
+default value ?
+
+
+Arguments for "marginal" or "Type III sums of squares" (for part (B))
+
+Some prominent members of the S/R community gave over the years many 
+negatives comment "Type III sums of squares" or effect tested 
+marginally. However their examples were often in regression (e.g. 
+polynomial). In the context of unbalanced ANOVA, there are other 
+prominent members of the statistics community that give extremely 
+convincing arguments.
+
+The big difference comes from the fact that in almost all real examples, 
+if the design is unbalanced, this is due to (hopefully MAR) missing 
+values, and not due to an underlying population distribution that is 
+unbalanced. On the contrary, in regression, the distribution of X is 
+supposed to be fixed (or loosely speaking to reflect the population 
+distribution but computations are conditioned on the sample values).
+
+Suppose you have data with two factors but unfortunately an unbalanced 
+design. You want to test the two main effects and the interaction. The 
+model is
+$Y_{ijk}=\mu +\gamma _{j} +\theta _{k} +(\gamma\theta )_{jk} +E_{ijk}$ 
+with $k=1, \ldots, n_{ij}$
+Your favorite software propose you several ANOVA tables called Type I, 
+II, III, etc. Which one to choose ?
+
+Let's concentrate on Type I, where terms are added sequentially, and 
+Type III, where terms are tested marginally (to the full model).
+
+To decide,
+
+    * One might argue about unique explained variance and use this
+      argument to favor one given Type
+
+    * One might argue that for testing a main effect, the Type III make
+      no sense since the "null" model contains the interaction but not
+      the main effect.
+
+    * Searle (1987), Milliken & Johnson (1992) and others however simply
+      argue that as statisticians, we should not look at explain
+      variances or philosophical arguments about what a model should
+      contain, but one should simply look to what null hypothesis each
+      test corresponds. They clearly show that
+
+    with the Type III SS, the corresponding H0 are exactly what we expect:
+    $\gamma_1=\gamma_2= \cdots = \gamma_a (=0)$,
+    $\theta_1=\theta_2= \cdots = \theta_b (=0)$, and
+    $(\gamma\theta)_{11}=(\gamma\theta)_{12}= \cdots =
+    (\gamma\theta)_{ab} (=0)$
+
+    whereas for Type I SS, the corresponding H0 for the first factor is
+    (see Searle p. 112 and 114 for an example):
+    $\rho'_1=\rho'_2= \cdots = \rho'_a (=0)$, where $\rho'_i = \sum_j
+    n_{ij} \mu_{ij} / n_{i.}$
+
+    and even more complex for the second factor, where we do not even
+    test that some parameters are 0:
+    $\delta'_j=\sum_i n_{ij} \rho'_j \forall j$, where $\delta'_i =
+    \sum_i n_{ij} \mu_{ij} / n_{.j}$
+
+In 10 years of consulting, I have never seen a psychologist willing to 
+test such an odd hypothesis !
+
+Just looking at the corresponding null hypotheses hopefully will 
+convince some of you that, for unbalanced ANOVA, if "Type III" is 
+recommended in many applied field and used as default by e.g. SAS and 
+SPSS is not so surprising.
+
+Finally, a technical detail: in the presence of interaction, the exact 
+definition of Type III for classical method is slightly more involved 
+(from help file of Statistica):
+"The Type III sums of squares attributable to an effect is computed as 
+the sums of squares for the effect controlling for any effects of equal 
+or lower degree and orthogonal to any higher-order interaction effects 
+(if any) that contain it. The orthogonality to higher-order containing 
+interaction is what gives Type III sums of squares the desirable 
+properties associated with linear combinations of least squares means in 
+ANOVA designs with no missing cells."
+Also, if programmed correctly, it is "invariant to the choice of the 
+coding of effects for categorical predictor variables (e.g., the use of 
+the sigma-restricted or overparameterized model) and to the choice of 
+the particular g2 inverse of X'X used to solve the normal equations".
+
+References
+Searle, S. R. (1987). Linear models for unbalanced data. New York: Wiley.
+Milliken, G. A., & Johnson, D. E. (1992). Analysis of messy data: Vol. 
+I. Designed experiments. New York:
+Chapman & Hall
+
+Sorry for the long mail, but it is in the hope that more and more users 
+will turn to robust procedure and to R.
+
+Cheers,
+Olivier
+
+-- 
+!!! New e-mail, please update your address book !!!
+Olivier.Renaud at unige.ch               http://www.unige.ch/fapse/mad/
+Methodology & Data Analysis - Psychology Dept - University of Geneva
+UniMail, Office 4164  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From kje||@kon|@ @end|ng |rom ep||@ch  Mon Dec 14 16:27:18 2009
+From: kje||@kon|@ @end|ng |rom ep||@ch (Konis Kjell)
+Date: Mon, 14 Dec 2009 16:27:18 +0100
+Subject: [RsR] Several bugs for th lmRob function
+In-Reply-To: <4B1E4D1A.4030500@unige.ch>
+References: <4B1E4D1A.4030500@unige.ch>
+Message-ID: <596FCCCB-E25C-4B7C-A594-3040E1E0C2F3@epfl.ch>
+
+Dear Olivier,
+
+First of all thank you very much for the patch. I'll take a look at including it as soon as I can. Also, there is a function aovRob in the funs* directory of the robust package. It hasn't been "ported" from S-Plus yet but that really shouldn't too difficult. I'll let you know when I've made some progress.
+
+Cheers,
+Kjell
+
+
+*you will probably need to get the source code via svn from R-Forge.
+
+On 8 d?c. 2009, at 13:56, Olivier Renaud wrote:
+
+> Dear all,
+> Today, I send two mails related to robust ANOVA in R, but since the scope and target are different, it is better to separate the subjects. In the next mail, there is a praise to improve the accessibility of robust methods for ANOVA. As far as I can understand, roust ANOVA cannot be run with lmrob from the robustbase library, see the other mail. In this mail, I list several bugs in lmRob from the robust library. 
+> 
+> 	? There is a bug in the function "lmRob": when formulas with interaction between factors are given, only the main effects are considered as factors, but the interaction is considered as a continuous variable. This is problematic, since the initial estimator is very likely give an error because of the discrete type of the interaction. Example:
+> > summary(lmRob (formula = Resp~Origine*Sexe, data = POVm3))
+> Error in psi.weight(wi[wcnd], ipsi, xk) : 
+>   NA/NaN/Inf in foreign function call (arg 2)
+> In addition: Warning message:
+> In lmRob.fit.compute(x2, y, x1 = x1, x1.idx = x1.idx, nrep = nrep,  :
+>   Initial scale less than tl =  1e-06 .
+> 
+> Attached is a fix to the function lmRob, see the two lines with "### added". I'm not a guru programmer so you might have to check the code. With this corrected function, the above call works.
+> 
+> 	? It is not a bug, but there are more initial algorithms than initial.alg in lmRob.control let the user choose. More importantly, depending on the type of covariates, the user's choice can be silently overridden (in the function lmRob.fit.compute). I do not criticize this, but I suggest that (a) a message is displayed to inform the user of this modification and (b) that the initial algorithm that is finally used be written the lmRob object. For the moment, the user has no way to know which initial algorithm is used.
+> 
+> 	? There is a bug in the function "anova.lmRob": in the presence of missing values in the covariates, the models that are compared do not contain the same number of observations, which drives the inference completely wrong. Again, I am not a specialist, but I think it comes from the line
+>                curobj <- update(object, curfrm)    
+> which uses the original data frame instead of using only the observations with no missing in the FULL model (which are given in the lm object obj$model). When smaller models are compared, typically some observations that were not used in the full model are used. I'm not sure how to fix this bug.
+> 
+> 	? Maybe related to this missing value problem, I have found an F value equal to -133, although the corresponding t-value in summary was close to zero, but not suspect.
+> > anova(lmRob(ttf~income*sexe,data=cig,na.action=na.omit))
+> 
+> Terms added sequentially (first to last)
+> 
+>             Chisq Df  RobustF     Pr(F)    
+> (Intercept)        1                       
+> income             1   69.576 < 2.2e-16 ***
+> sexe               1   14.989  7.97e-05 ***
+> income:sexe        1 -133.293         1    
+> ---
+> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> Warning messages:
+> 1: In chi.weight(res/Scale, ipsi, yc) - chi.weight(Res/Scale, ipsi,  :
+>   longer object length is not a multiple of shorter object length
+> 2: In chi.weight(res/Scale, ipsi, yc) - chi.weight(Res/Scale, ipsi,  :
+>   longer object length is not a multiple of shorter object length
+> 
+> 	? Some prominent members of the S/R community will not consider this as a bug, but in a companion mail, I give arguments to include so-called "Type III sums of squares" or effect tested marginally. In the context of unbalanced ANOVA, there are other prominent members of the statistics community that give extremely convincing arguments, see other mail. I know it can be done by hand, but for an average user, having it as an optional argument to anova.lmRob would be an important argument to use R and robust ANOVA.
+>  Cheers,
+> Olivier
+> 
+> -- 
+> !!! New e-mail, please update your address book !!!
+> 
+> Olivier.Renaud at unige.ch               http://www.unige.ch/fapse/mad/
+> 
+> Methodology & Data Analysis - Psychology Dept - University of Geneva
+> UniMail, Office 4164  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4
+> 
+> <lmRobMod210.r>_______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From |@mpr|@nou @end|ng |rom y@hoo@com  Mon Dec 28 12:04:01 2009
+From: |@mpr|@nou @end|ng |rom y@hoo@com (Iasonas Lamprianou)
+Date: Mon, 28 Dec 2009 03:04:01 -0800 (PST)
+Subject: [RsR] anova
+In-Reply-To: <mailman.7.1260874805.26066.r-sig-robust@r-project.org>
+Message-ID: <679192.49989.qm@web58902.mail.re1.yahoo.com>
+
+Dear friends, 
+
+I have run an ANOVA using a linear variable as dependent and a nominal variable with five groups as independent (factor). The F test is statistically significant F(4, 431)=2.54, p=0.036.However, the multiple comparisons have shown no difference between any two groups (no matter whether I used sheffe, tukeys, lsd etc). What is the interpretation? Do I need a robust anova here?
+
+Thanks
+Jason
+
+
+
+
+
+

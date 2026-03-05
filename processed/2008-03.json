@@ -1,0 +1,176 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2008-03",
+  "messages": [
+    {
+      "id": "msg-aad46581d28f",
+      "message_id": "<4c0e456b0802291603y53353cafw902212b4a3dd0c1b@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
+      "date": "2008-03-01T01:03:22+01:00",
+      "subject": "[RsR] Pictures from Banff",
+      "subject_clean": "[RsR] Pictures from Banff",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "After having updated 'rrcov' I feel like updating my picture album from Banff.\n\nEnjoy:\n\nhttp://picasaweb.google.at/valentin.to/RSRBanff2007\n\nAll pictures are available from the authors in full resolution, as\nwell as printed or as a poster in any size, upon request.\n\nBest regards,\nValentin",
+      "body_snippet": "After having updated 'rrcov' I feel like updating my picture album from Banff.\n\nEnjoy:\n\nhttp://picasaweb.google.at/valentin.to/RSRBanff2007\n\nAll pictures are available from the authors in full resolut",
+      "thread_id": "thread-aad46581d28f",
+      "thread_depth": 0,
+      "month": "2008-03"
+    },
+    {
+      "id": "msg-b27f86836d99",
+      "message_id": "<47CED6C6.8030409@stat.ubc.ca>",
+      "from_name": "Matias Salibian-Barrera",
+      "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
+      "date": "2008-03-05T09:22:14-08:00",
+      "subject": "[RsR] Pictures from Banff",
+      "subject_clean": "[RsR] Pictures from Banff",
+      "in_reply_to": "<4c0e456b0802291603y53353cafw902212b4a3dd0c1b@mail.gmail.com>",
+      "references": [
+        "<4c0e456b0802291603y53353cafw902212b4a3dd0c1b@mail.gmail.com>"
+      ],
+      "body_plain": "Some more pictures are available at\n\nhttp://www.stat.ubc.ca/~matias/RsR2007\n\nI have not had time to select them or rotate them, so they are basically \njust as they came off the memory card...\n\nMatias\n\n\n\nValentin Todorov wrote:\n> After having updated 'rrcov' I feel like updating my picture album from Banff.\n> \n> Enjoy:\n> \n> http://picasaweb.google.at/valentin.to/RSRBanff2007\n> \n> All pictures are available from the authors in full resolution, as\n> well as printed or as a poster in any size, upon request.\n> \n> Best regards,\n> Valentin\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n_____________________________________________________\nMatias Salibian-Barrera - Department of Statistics\nThe University of British Columbia\nPhone: (604) 822-3410 - Fax: (604) 822-6960\n\"The plural of anecdote is not data\" (George Stigler?)",
+      "body_snippet": "Some more pictures are available at\n\nhttp://www.stat.ubc.ca/~matias/RsR2007\n\nI have not had time to select them or rotate them, so they are basically \njust as they came off the memory card...\n\nMatias\n",
+      "thread_id": "thread-aad46581d28f",
+      "thread_depth": 1,
+      "month": "2008-03"
+    },
+    {
+      "id": "msg-5a65ba61e18c",
+      "message_id": "<18400.62589.136698.499233@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2008-03-19T12:09:49+01:00",
+      "subject": "[RsR] useR! 2008 submission deadline - robustness talks!",
+      "subject_clean": "[RsR] useR! 2008 submission deadline - robustness talks!",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear R-Robustniks,\n\nI just wanted to remind you of the submission deadline\n(and early registration deadline!) of \n2008-03-31\n==========  --> Website http://www.R-project.org/useR-2008/\n\nuseR! 2008, the R user conference, takes place at ... TU Dortmund, Germany\nfrom 2008-08-12 to 2008-08-14. \nPre-conference tutorials will take place on August 11.\n\nAs some of you have heard already, one of the half-day tutorials\n   http://www.statistik.uni-dortmund.de/useR-2008/tutorials/\nwill be by Professor Elvezio Ronchetti and me with a\n     \"Introduction to Robust Statistics with R\"\nwith the goals to\n- \"propagandize\" robust statistics to the active R community\n- making use of the many robustness-related R packages.\n  {of which there should be a CRAN-task view \"Real Soon Now\"}\n\nPlease consider submitting a paper in time, in order to help\nmaking \"robustness\" an important subject at the meeting.\nNote that Ursula Gather, Roland Fried and other 'robustniks' are\npart of the local organizing statistics department; another good\nreason to be there this summer!\n\nMartin Maechler, ETH Zurich\nfor the program committee, useR! 2008",
+      "body_snippet": "Dear R-Robustniks,\n\nI just wanted to remind you of the submission deadline\n(and early registration deadline!) of \n2008-03-31\n==========  --> Website http://www.R-project.org/useR-2008/\n\nuseR! 2008, th",
+      "thread_id": "thread-5a65ba61e18c",
+      "thread_depth": 0,
+      "month": "2008-03"
+    },
+    {
+      "id": "msg-769036d8acdc",
+      "message_id": "<Prayer.1.0.16.0803210351560.3594@wm1.tc.umn.edu>",
+      "from_name": "kh@@x131 m@iii@g oii um@@edu",
+      "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
+      "date": "2008-03-21T03:51:56-05:00",
+      "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "subject_clean": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi Every One, I am novice to R and am writing programe for Least trimmed \nsquare(LTS) estimation in R. if anyone of you have done it already or if \nthere is somthing that can give me some more background about LTS \nRegression. please let me know.\n\nThanks,\nDost M Khan\nkhanx131 at umn.edu",
+      "body_snippet": "Hi Every One, I am novice to R and am writing programe for Least trimmed \nsquare(LTS) estimation in R. if anyone of you have done it already or if \nthere is somthing that can give me some more backgro",
+      "thread_id": "thread-769036d8acdc",
+      "thread_depth": 0,
+      "month": "2008-03"
+    },
+    {
+      "id": "msg-a9fb485f2b7d",
+      "message_id": "<000901c88b54$174fd240$6f01a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2008-03-21T14:04:24+01:00",
+      "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "subject_clean": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "in_reply_to": null,
+      "references": [
+        "<Prayer.1.0.16.0803210351560.3594@wm1.tc.umn.edu>"
+      ],
+      "body_plain": "Dear Dost,\n\ninstall package 'robustbase' and have a look at ltsReg(), i.e.\n\ninstall.packages(\"robustbase\")\nlibrary(robustbase)\n?ltsReg\n\nThe help page will give you some references to start with.\n\nHope this helps,\n\nBest regards,\nValentin\n\n\n\n----- Original Message ----- \nFrom: <khanx131 at umn.edu>\nTo: <r-sig-robust at r-project.org>\nCc: <khanx131 at umn.edu>\nSent: Friday, March 21, 2008 9:51 AM\nSubject: [RsR] Least Trimmed Square(LTS) estimation in R\n\n\nHi Every One, I am novice to R and am writing programe for Least trimmed \nsquare(LTS) estimation in R. if anyone of you have done it already or if \nthere is somthing that can give me some more background about LTS \nRegression. please let me know.\n\nThanks,\nDost M Khan\nkhanx131 at umn.edu\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_snippet": "Dear Dost,\n\ninstall package 'robustbase' and have a look at ltsReg(), i.e.\n\ninstall.packages(\"robustbase\")\nlibrary(robustbase)\n?ltsReg\n\nThe help page will give you some references to start with.\n\nHope",
+      "thread_id": "thread-769036d8acdc",
+      "thread_depth": 1,
+      "month": "2008-03"
+    },
+    {
+      "id": "msg-f64c0905819e",
+      "message_id": "<8070D7AB-EBC2-4D56-A9C8-EC225776182C@udo.edu>",
+      "from_name": "Robin Nunkesser",
+      "from_email_hash": "811416f0121421c612ed89d800f0cdcf0528746afb8720d4db5abd4f691cff50",
+      "date": "2008-03-21T18:30:02+01:00",
+      "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "subject_clean": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "in_reply_to": "<mailman.3.1206097201.31257.r-sig-robust@r-project.org>",
+      "references": [
+        "<mailman.3.1206097201.31257.r-sig-robust@r-project.org>"
+      ],
+      "body_plain": "The package robustbase contains an LTS impementation. More information  \nabout the algorithm may be found in the help of the package. The  \npackage RFreak also contains an LTS algorithm, which is mainly  \nintended for complicated data situations.\n\nBest Regards,\nRobin Nunkesser",
+      "body_snippet": "The package robustbase contains an LTS impementation. More information  \nabout the algorithm may be found in the help of the package. The  \npackage RFreak also contains an LTS algorithm, which is main",
+      "thread_id": "thread-f64c0905819e",
+      "thread_depth": 0,
+      "month": "2008-03"
+    },
+    {
+      "id": "msg-67c2faabba0b",
+      "message_id": "<1206373633.47e7cd01810eb@newton.stat.ubc.ca>",
+      "from_name": "m@ti@s m@iii@g oii st@t@ubc@c@",
+      "from_email_hash": "678a2d333dcf11dea465c87bd851ba0351ab15d4b8496b84467926d01af46fea",
+      "date": "2008-03-24T08:47:13-07:00",
+      "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "subject_clean": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "in_reply_to": "<Prayer.1.0.16.0803210351560.3594@wm1.tc.umn.edu>",
+      "references": [
+        "<Prayer.1.0.16.0803210351560.3594@wm1.tc.umn.edu>"
+      ],
+      "body_plain": "Hello Dost,\n\nNo need to do it yourself. Good implementations of LTS estimators have been\npublicly available for a long time. \n\nCurrently, they are available in R as part of the robustbase library, among others.\n\n> install.packages('robustbase')\n> library(robustbase)\n> help(ltsReg)\n\nshould get you going.\n\nMatias\n\n\n\n\nQuoting khanx131 at umn.edu:\n\n> Hi Every One, I am novice to R and am writing programe for Least trimmed \n> square(LTS) estimation in R. if anyone of you have done it already or if \n> there is somthing that can give me some more background about LTS \n> Regression. please let me know.\n> \n> Thanks,\n> Dost M Khan\n> khanx131 at umn.edu\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Hello Dost,\n\nNo need to do it yourself. Good implementations of LTS estimators have been\npublicly available for a long time. \n\nCurrently, they are available in R as part of the robustbase library, amo",
+      "thread_id": "thread-769036d8acdc",
+      "thread_depth": 1,
+      "month": "2008-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-aad46581d28f",
+      "subject": "[RsR] Pictures from Banff",
+      "message_count": 2,
+      "participants": [
+        "Matias Salibian-Barrera",
+        "Valentin Todorov"
+      ],
+      "started": "2008-03-01T01:03:22+01:00",
+      "last_reply": "2008-03-05T09:22:14-08:00",
+      "root_message_id": "msg-aad46581d28f"
+    },
+    {
+      "id": "thread-5a65ba61e18c",
+      "subject": "[RsR] useR! 2008 submission deadline - robustness talks!",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2008-03-19T12:09:49+01:00",
+      "last_reply": "2008-03-19T12:09:49+01:00",
+      "root_message_id": "msg-5a65ba61e18c"
+    },
+    {
+      "id": "thread-769036d8acdc",
+      "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "message_count": 3,
+      "participants": [
+        "Valentin Todorov",
+        "kh@@x131 m@iii@g oii um@@edu",
+        "m@ti@s m@iii@g oii st@t@ubc@c@"
+      ],
+      "started": "2008-03-21T03:51:56-05:00",
+      "last_reply": "2008-03-24T08:47:13-07:00",
+      "root_message_id": "msg-769036d8acdc"
+    },
+    {
+      "id": "thread-f64c0905819e",
+      "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
+      "message_count": 1,
+      "participants": [
+        "Robin Nunkesser"
+      ],
+      "started": "2008-03-21T18:30:02+01:00",
+      "last_reply": "2008-03-21T18:30:02+01:00",
+      "root_message_id": "msg-f64c0905819e"
+    }
+  ]
+}

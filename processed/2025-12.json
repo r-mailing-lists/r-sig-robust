@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2025-12",
+  "messages": [
+    {
+      "id": "msg-4cf1a677535e",
+      "message_id": "<1e4cde6379dca886dfc8d47faa53780e@transmittingscience.com>",
+      "from_name": "Soledad De Esteban-Trivigno",
+      "from_email_hash": "8f86d344535c2d752798833f8aa7b9b289c3f06b2847533734edeade3b9f0d42",
+      "date": "2025-12-09T21:42:41Z",
+      "subject": "[RsR] Online course: Introduction to Machine Learning in R - January 2026",
+      "subject_clean": "[RsR] Online course: Introduction to Machine Learning in R - January 2026",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear colleagues,\n\nTransmitting Science is offering a new edition of the course \n\"Introduction to Machine Learning in R\".\n\nCourse webpage: \nhttps://www.transmittingscience.com/courses/statistics-and-bioinformatics/introduction-to-machine-learning-in-r/\n\nThe aim of this course is to introduce participants to the main \ncomponents for implementing machine learning in R using the {tidymodels} \nand {tidyverse} framework packages. The course will cover both the \ntheoretical background and practical workflow of defining the problem, \ndata preparation, applying algorithms such as Extreme Gradient Boosting \nand Random Forests, and evaluating model performance.\n\nInstruction will combine lectures, guided examples, live-coding \nsessions, and practical exercises.\n\nFor any questions, please write to courses at transmittingscience.com\n\nBest regards\n\nSole\n\n-- \nSoledad De Esteban-Trivigno, PhD\nDirector\nTransmitting Science\nwww.transmittingscience.com/courses\n\nBluesky @soledeesteban.bsky.social\nX @SoleDeEsteban\nOrcid: https://orcid.org/0000-0002-2049-0890\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear colleagues,\n\nTransmitting Science is offering a new edition of the course \n\"Introduction to Machine Learning in R\".\n\nCourse webpage: \nhttps://www.transmittingscience.com/courses/statistics-and-bi",
+      "thread_id": "thread-4cf1a677535e",
+      "thread_depth": 0,
+      "month": "2025-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-4cf1a677535e",
+      "subject": "[RsR] Online course: Introduction to Machine Learning in R - January 2026",
+      "message_count": 1,
+      "participants": [
+        "Soledad De Esteban-Trivigno"
+      ],
+      "started": "2025-12-09T21:42:41+00:00",
+      "last_reply": "2025-12-09T21:42:41+00:00",
+      "root_message_id": "msg-4cf1a677535e"
+    }
+  ]
+}

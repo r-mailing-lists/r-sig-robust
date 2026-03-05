@@ -1,0 +1,3542 @@
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Sat Nov  5 20:07:13 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Sat, 5 Nov 2005 20:07:13 +0100
+Subject: [RsR] "Robust Statistics in R" - Mailing List
+Message-ID: <17261.737.183423.52210@stat.math.ethz.ch>
+
+Dear participants of the Treviso workshop on
+"Robust Statistics and R",
+
+let me first thank once more, in the name of us all, the
+organizing committee, notably Claudio Agostinelli as local
+organizer, for the very nice workshop!
+
+In several of the working groups, people had asked for a mailing
+list in order to continue the productive discussions.  Since
+further, Claudio has had a hardware problem on the computer
+that hosted the provisional 'rsr' "mailing list" (rather just an
+e-mail alias), it had become somewhat more urgent to be able to
+send e-mail to all the workshop participants at once.
+
+As a site maintainer of many R-related mailing lists, I had
+offered to build an 'R-SIG-Robust' list ("R Special Interest
+Group on Robust Statistcs").  Earlier today, you should already
+have received a computer generated e-mail that welcomed you to
+the list and gave you a list password and instructions to change
+your subscription, etc.
+
+Since I've subscribed everyone on the list I got from Claudio,
+there are currently 78 subscribers, many of which Italian
+students and others who might want to unsubscribe again.
+
+More importantly, I know that there are quite a few more people
+interested in both robust statistics and R.  Please tell your
+colleagues who might be interested (and if they were not
+workshop participants!) about it:
+On a Unixish system such as Linux or Mac OSX, subscribing is
+just a one-liner in your shell:
+     echo subscribe | mail r-sig-robust at r-project.org
+[Well, that will send an e-mail to your address and you'll have
+ to reply to that e-mail for confirmation]
+
+- - - -
+
+Note that the mailing list is pretty private at the moment
+{as opposed to e.g., R-help which is much more open}:
+
+- only subscribers can freely post to the list
+- only subscribers can look at the list archive {we can discuss
+   this; and decide to keep the archives publicly available on the web}
+- the subscribers e-mail addresses can only be seen by the list
+  moderators, currently Claudio Agostinelly, Matias Salibian-Barrera and me
+
+I hope this mailing list will help to keep the "RsR project"
+rolling on, after the promising and enjoyable start in Treviso.
+
+Martin
+
+Martin <Maechler at stat.math.ethz.ch>  http://stat.ethz.ch/people/maechler
+Seminar fuer Statistik, ETH-Zentrum  LEO C16	Leonhardstr. 27
+ETH (Federal Inst. Technology)	8092 Zurich	SWITZERLAND
+phone: +41-44-632-3408		fax: ...-1228			<><
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Nov 14 12:41:16 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 14 Nov 2005 12:41:16 +0100
+Subject: [RsR] [R] Robust Non-linear Regression
+In-Reply-To: <9AC105024CEA64458BF66D1DE13CA50D070FB3B2@tibbemeexs1.eu.jnj.com>
+References: <9AC105024CEA64458BF66D1DE13CA50D070FB3B2@tibbemeexs1.eu.jnj.com>
+Message-ID: <17272.30684.543345.857234@stat.math.ethz.ch>
+
+Package 'sfsmisc' has had a function  'rnls()' for a while 
+which does robust non-linear regression via M-estimation.
+
+[The name of the function is probably *really* a misnomer,
+ since the 'ls' part stands for "least squares"!]
+
+Two weeks ago, there's been a small workshop
+"Robustness and R" in Treviso (It),
+http://www.dst.unive.it/rsr/
+
+where we've talked about available and missing robustness
+functionality ``in R''.  One consequence of the workshop is the
+new mailing list "R-SIG-Robust" {to which I CC this message} 
+and another planned and hopefully even more consequential
+consequence will be collaboration on producing more widely
+available robustness functionality for R.  Do subscribe to the
+list if you are interested.
+
+>>>>> "Vermeiren" == Vermeiren, Hans [VRCBE] <Vermeiren>
+>>>>>     on Sun, 13 Nov 2005 22:47:31 +0100 writes:
+
+    Vermeiren> Hi, I'm trying to use Robust non-linear
+    Vermeiren> regression to fit dose response curves.  Maybe I
+    Vermeiren> didnt look good enough, but I dind't find robust
+    Vermeiren> methods for NON linear regression implemented in
+    Vermeiren> R. A method that looked good to me but is
+    Vermeiren> unfortunately not (yet) implemented in R is
+    Vermeiren> described in
+    Vermeiren> http://www.graphpad.com/articles/RobustNonlinearRegression_files/frame.htm
+
+ 
+    Vermeiren> in short: instead of using the premise that the
+    Vermeiren> residuals are gaussian they propose a Lorentzian
+    Vermeiren> distribution, in stead of minimizing the squared
+    Vermeiren> residus SUM (Y-Yhat)^2, the objective function is
+    Vermeiren> now SUM log(1+(Y-Yhat)^2/ RobustSD)
+ 
+    Vermeiren> where RobustSD is the 68th percentile of the
+    Vermeiren> absolute value of the residues
+
+ 
+    Vermeiren> my question is: is there a smart and elegant way
+    Vermeiren> to change to objective function from squared
+    Vermeiren> Distance to log(1+D^2/Rsd^2) ?
+
+no; not easily.
+ 
+    Vermeiren> or alternatively to write this as a weighted
+    Vermeiren> non-linear regression where the weights are
+    Vermeiren> recalculated during the iterations in nlme it is
+    Vermeiren> possible to specify weights, possibly that is the
+    Vermeiren> way to do it, but I didn't manage to get it
+    Vermeiren> working the weights should then be something
+    Vermeiren> like:
+ 
+    Vermeiren> SUM (log(1+(resid(.)/quantile(all_residuals,0.68))^2))
+    Vermeiren>   / SUM (resid(.))
+ 
+rnls() mentioned does use robust weights and IRLS (iteratively
+reweighted LS) making use of  nls() and rlm(),
+similarly to your suggestion.
+
+    Vermeiren> the test data I use :
+
+    Vermeiren> x<-seq(-5,-2,length=50)
+    Vermeiren> x<-rep(x,4)
+    Vermeiren> y<-SSfpl(x,0,100,-3.5,1)
+    Vermeiren> y<-y+rnorm(length(y),sd=5)
+    Vermeiren> y[sample(1:length(y),floor(length(y)/50))]<-200 # add 2% outliers at 200
+
+Since you have only outliers in 'y' and none in 'x',
+you could use the 'nlrq' (nonlinear regression quantiles)
+package that Roger Koenker mentioned.
+
+To really robustify such self starting models as the 4-parameter
+logistic 'SSfpl' above, you would also need to provide a robust
+initial estimator; 
+maybe that could be done pretty easily 'rlm()' instead of 'lm()' and
+using 'rnls()' instead of 'nls()' also for the "initial" part in
+something like
+
+SSfpl.rob <-
+selfStart(~ A + (B - A)/(1 + exp((xmid - input)/scal)), 
+          initial = function( ...) { ...... },
+          parameters= c("A","B","xmid","scal"))
+ 
+{look at 'SSfpl() for the initial estimator}.
+
+However, BTW, currently the "plinear" version fails for our robust
+nonlinear procedure 'rnls()'.
+
+Martin Maechler, ETH Zurich
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Nov 29 09:18:16 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 29 Nov 2005 09:18:16 +0100
+Subject: [RsR] [R] Robust smoothing
+In-Reply-To: <200511281942.jASJgjEo004369@ohm.gene.com>
+References: <IQOH3O$7167E5D1DFB02C59B108538C94CE73D8@libero.it>
+	<200511281942.jASJgjEo004369@ohm.gene.com>
+Message-ID: <17292.3784.195519.15503@stat.math.ethz.ch>
+
+  [Cross-posted to R-SIG-robust,
+   the Special Interest Group (mailing list) on "Robustness and R"]
+
+>>>>> "BertG" == Berton Gunter <gunter.berton at gene.com>
+>>>>>     on Mon, 28 Nov 2005 11:42:45 -0800 writes:
+
+    BertG> Note: As I believe Brian Ripley pointed out in his
+    BertG> MASS book, loess may not be as resistant to outliers
+    BertG> (which is one aspect of robustness; robustness of
+    BertG> efficiency is another) as you think. The problem is
+    BertG> that it starts off with LS estimates and these can be
+    BertG> so distorted by unusual values that the reweighting
+    BertG> cannot properly recover; i.e. convergence is to a
+    BertG> local minimum far from the desired global one. 
+
+indeed  {I've researched on that about 15 years ago as part of
+my Ph.D.}.
+I'm convinced that robust smoothing should be done quite
+analogously to how (many agree) it should happen for parametric
+regression:
+
+1) initialized by a ``high breakdown'' (that's not a trivial notion when you do
+   non-parametric curve estimation!) smoother;  
+2) From that compute residuals r_i  and compute  weights w_i := psi(r_i)/r_i
+   typically for a redescending psi.
+3) Now use these weights for the ``high efficiency'' smoother,
+   e.g., smooth.spline(), 
+   maybe even without iterating {``1-step M-estimator'' idea}
+   or then with iterating, i.e. reweighting.
+
+For that reason, i.e. for being able to do "1)", 
+I had collected algorithms for fast running medians {quite some time ago}
+and added the R function  runmed()  {running medians}
+which should be very fast, particularly for large data where
+it's of optimal complexity see  help(runmed).
+
+Martin Maechler, ETH Zurich
+
+
+    BertG> You might wish to read the documentation for rlm() (in
+    BertG> MASS, the package) and the appropriate sections of
+    BertG> MASS, the book.
+
+    BertG> Cheers,
+
+    BertG> -- Bert Gunter Genentech Non-Clinical Statistics
+    BertG> South San Francisco, CA
+ 
+    BertG> "The business of the statistician is to catalyze the
+    BertG> scientific learning process."  - George E. P. Box
+ 
+ 
+
+    >> -----Original Message----- From:
+    >> r-help-bounces at stat.math.ethz.ch
+    >> [mailto:r-help-bounces at stat.math.ethz.ch] On Behalf Of
+    >> Marta Colombo Sent: Monday, November 28, 2005 10:38 AM
+    >> To: R help Subject: [R] Robust fitting
+    >> 
+    >> Good evening,I am Marta Colombo, student of "Politecnico
+    >> di Milano". I'm studying Local Regression Techniques such
+    >> as loess, smoothing splines and kernel
+    >> smoothers. Choosing "symmetric" for the argument "family"
+    >> in loess function it is possible to produce a robust
+    >> estimate , in function smooth.spline and ksmooth I didn't
+    >> find this possibility.  Well, is there a way to produce a
+    >> robust estimate using smoothing splines or kernel
+    >> smoothers? And if the answer is no, why? I'm asking these
+    >> questions because I need to know loess' advantages and
+    >> disadvantages compared to other techniques. Thank you
+    >> very much for attention,
+    >> 
+    >> Marta Colombo
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Dec  2 22:22:48 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 2 Dec 2005 22:22:48 +0100
+Subject: [RsR] [R] M-estimator R function question
+In-Reply-To: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+Message-ID: <17296.47912.627297.777639@stat.math.ethz.ch>
+
+>>>>> "Rand" == Rand Wilcox <rwilcox at usc.edu>
+>>>>>     on Fri, 02 Dec 2005 10:42:48 -0800 (PST) writes:
+
+    Rand> In the robust library of S+, it is possible to compute
+    Rand> Rocke's constrained M-estimator of scatter and
+    Rand> location. Can't find anything within R that does the
+    Rand> same thing. Can someone tell me whether any package
+    Rand> exists for computing it?
+
+I can't offhand.
+There's the cov.rob functions in 'MASS' and the  'rrcov' package
+which do similar (better ? :-) things.
+
+Note that for a few weeks now, there's the R-SIG-robust mailing
+list [--> CC to there],  on which we plan to talk about and coordinate the
+development of more robust methods for R --- as an offspring
+from the Treviso workshop "Robustness and R".
+
+Unfortunately, some things (e.g. workshop "minutes") are still a
+bit in a waiting state.
+
+One thing we'd be very interested is the OGK estimator of
+Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some
+of the authors sold their code exclusively to Insightful (the
+S-plus company).
+
+    Rand> Thanks.
+
+You're welcome.
+
+    Rand> 	Rand Wilcox Professor Dept of Psychology
+    Rand> University of Southern California Los Angeles, CA
+    Rand> 90089-1061 FAX: 213-746-9082
+
+Martin Maechler, ETH Zurich
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Sat Dec  3 00:29:46 2005
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Sat, 3 Dec 2005 00:29:46 +0100
+Subject: [RsR] [R] M-estimator R function question
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+Message-ID: <00be01c5f798$485d4950$1b01a8c0@KILER>
+
+Dear Rand,
+unfortunately, right now none of the R packages can compute Rocke's
+constrained M-estimator of scatter and location. I have implemented this
+estimator as function covMTB in rrcov - see
+http://www.dst.unive.it/rsr/Todorov-treviso.pdf , slide 35 - but I have
+still some open problems to solve before releasing it to CRAN. I hope to be
+able to do this even before Christmas. And if you look at the next slide in
+this presentation, you will see that there is an working implementation of
+OGK, as mentioned by Martin. Again, I hope to release it very soon.
+
+Best regards,
+Valentin
+
+
+
+----- Original Message ----- 
+From: "Martin Maechler" <maechler at stat.math.ethz.ch>
+To: "Rand Wilcox" <rwilcox at usc.edu>
+Cc: <r-help at stat.math.ethz.ch>; <R-SIG-Robust at stat.math.ethz.ch>
+Sent: Friday, December 02, 2005 10:22 PM
+Subject: Re: [RsR] [R] M-estimator R function question
+
+
+> >>>>> "Rand" == Rand Wilcox <rwilcox at usc.edu>
+> >>>>>     on Fri, 02 Dec 2005 10:42:48 -0800 (PST) writes:
+>
+>     Rand> In the robust library of S+, it is possible to compute
+>     Rand> Rocke's constrained M-estimator of scatter and
+>     Rand> location. Can't find anything within R that does the
+>     Rand> same thing. Can someone tell me whether any package
+>     Rand> exists for computing it?
+>
+> I can't offhand.
+> There's the cov.rob functions in 'MASS' and the  'rrcov' package
+> which do similar (better ? :-) things.
+>
+> Note that for a few weeks now, there's the R-SIG-robust mailing
+> list [--> CC to there],  on which we plan to talk about and coordinate the
+> development of more robust methods for R --- as an offspring
+> from the Treviso workshop "Robustness and R".
+>
+> Unfortunately, some things (e.g. workshop "minutes") are still a
+> bit in a waiting state.
+>
+> One thing we'd be very interested is the OGK estimator of
+> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some
+> of the authors sold their code exclusively to Insightful (the
+> S-plus company).
+>
+>     Rand> Thanks.
+>
+> You're welcome.
+>
+>     Rand> Rand Wilcox Professor Dept of Psychology
+>     Rand> University of Southern California Los Angeles, CA
+>     Rand> 90089-1061 FAX: 213-746-9082
+>
+> Martin Maechler, ETH Zurich
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From rm@ronn@ @end|ng |rom m@||@ret|n@@@r  Sat Dec  3 22:55:00 2005
+From: rm@ronn@ @end|ng |rom m@||@ret|n@@@r (Ricardo Maronna)
+Date: Sat, 3 Dec 2005 18:55:00 -0300
+Subject: [RsR] [R] M-estimator R function question
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+Message-ID: <000401c5f861$b2e49c50$0100a8c0@MARONNA>
+
+One observation about the following.
+
+> One thing we'd be very interested is the OGK estimator of
+> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some
+> of the authors sold their code exclusively to Insightful (the
+> S-plus company).
+
+    Insightful has implemented the procedure in some way I ignore (actually, 
+I don't like the way it works), but unfortunately I got not a single dollar 
+from that!. Anybody is free to implement the method (which is extremely 
+simple) in whatever language.
+            Ricardo
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Dec  5 08:42:45 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 5 Dec 2005 08:42:45 +0100
+Subject: [RsR] OGK covariance estimator
+In-Reply-To: <000401c5f861$b2e49c50$0100a8c0@MARONNA>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+Message-ID: <17299.61301.345904.106734@stat.math.ethz.ch>
+
+>>>>> "Ricardo" == Ricardo Maronna <rmaronna at mail.retina.ar>
+>>>>>     on Sat, 3 Dec 2005 18:55:00 -0300 writes:
+
+    Ricardo> One observation about the following.
+
+   [ so I *was* able to provoke some action on the R-SIG-Robust
+     list :-) ;-) ]
+
+    MM> One thing we'd be very interested is the OGK estimator of
+    MM> Maronna and Zamar (JASA, 2002).  Unfortunately, there,
+    MM> too, some of the authors sold their code exclusively to
+    MM> Insightful (the S-plus company).
+
+    Ricardo>     Insightful has implemented the procedure in
+    Ricardo> some way I ignore (actually, I don't like the way
+    Ricardo> it works), but unfortunately I got not a single
+    Ricardo> dollar from that!. Anybody is free to implement the
+    Ricardo> method (which is extremely simple) in whatever
+    Ricardo> language.  
+
+indeed.  I apologize for my remark above where I should have
+given either less or then more info. I'll do the latter now: 
+I think even before the paper came out, I got in contact with a
+student from Ruben (Fatemah) who had programmed things for S-plus; I got
+the code (S+ and C) but eventually learned I was not allowed to
+use it for R because of a contract with Insightful. 
+
+But indeed, that shouldn't be a problem, since I think one
+should program the OGK using R (S) code alone {just using
+eigen() and other matrix operations},
+and have the univariate scale estimate be a plug-in, i.e.,
+a function argument.  There, one could use  Qn, Sn  {I now have
+these two in the not yet-released package on "basic robust statistic"},
+the tau-estimate (from the 2002 JASA paper) or any other
+consistent scale estimate -- ideally by passing it as an R
+function to the ``cov.okg(...)'' function {or should that be
+ ``covRob(..., method="OGK")'' ?}.
+
+Martin Maechler, ETH Zurich
+
+
+
+From P@F||zmo@er @end|ng |rom tuw|en@@c@@t  Mon Dec  5 09:02:54 2005
+From: P@F||zmo@er @end|ng |rom tuw|en@@c@@t (Peter Filzmoser)
+Date: Mon, 05 Dec 2005 09:02:54 +0100
+Subject: [RsR] OGK covariance estimator
+In-Reply-To: <17299.61301.345904.106734@stat.math.ethz.ch>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>	<17296.47912.627297.777639@stat.math.ethz.ch>	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<17299.61301.345904.106734@stat.math.ethz.ch>
+Message-ID: <4393F42E.5070302@tuwien.ac.at>
+
+Martin Maechler wrote:
+
+> But indeed, that shouldn't be a problem, since I think one
+> should program the OGK using R (S) code alone {just using
+> eigen() and other matrix operations},
+> and have the univariate scale estimate be a plug-in, i.e.,
+> a function argument.  There, one could use  Qn, Sn  {I now have
+> these two in the not yet-released package on "basic robust statistic"},
+
+Martin, we are working now on a fast implementation of the
+Qn, using C++ code in R. Have you done that similarly?
+
+
+> the tau-estimate (from the 2002 JASA paper) or any other
+> consistent scale estimate -- ideally by passing it as an R
+> function to the ``cov.okg(...)'' function {or should that be
+>  ``covRob(..., method="OGK")'' ?}.
+> 
+> Martin Maechler, ETH Zurich
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> 
+> 
+
+
+-- 
+-------------------------------------------------------
+From: Prof. Dr. Peter Filzmoser
+       Dept. of Statistics & Probability Theory
+       Vienna University of Technology
+       Wiedner Hauptstrasse 8-10
+       A-1040 Vienna, Austria
+       Tel. +43 1 58801/10733
+       Fax. +43 1 58801/10799
+       E-mail: P.Filzmoser at tuwien.ac.at
+       Internet:
+       http://www.statistik.tuwien.ac.at/public/filz/
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Dec  5 10:07:07 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 5 Dec 2005 10:07:07 +0100
+Subject: [RsR] OGK covariance estimator
+In-Reply-To: <4393F42E.5070302@tuwien.ac.at>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<17299.61301.345904.106734@stat.math.ethz.ch>
+	<4393F42E.5070302@tuwien.ac.at>
+Message-ID: <17300.827.804750.592569@stat.math.ethz.ch>
+
+>>>>> "Peter" == Peter Filzmoser <P.Filzmoser at tuwien.ac.at>
+>>>>>     on Mon, 05 Dec 2005 09:02:54 +0100 writes:
+
+    Peter> Martin Maechler wrote:
+    >> But indeed, that shouldn't be a problem, since I think
+    >> one should program the OGK using R (S) code alone {just
+    >> using eigen() and other matrix operations}, and have the
+    >> univariate scale estimate be a plug-in, i.e., a function
+    >> argument.  There, one could use Qn, Sn {I now have these
+    >> two in the not yet-released package on "basic robust
+    >> statistic"},
+
+    Peter> Martin, we are working now on a fast implementation
+    Peter> of the Qn, using C++ code in R. Have you done that
+    Peter> similarly?
+
+I have based it on C code which had been based on the original
+Fortran code from Croux and Rousseeuw available from Antwerpen.
+Is there a faster algorithm now?
+
+Given the traffic on this list, 
+and the not-yet-publication of the Treviso working group
+"minutes", let me open the topic to which I alluded above as
+well: Our working group ("regression", later joined by
+"econometrics") talked about the possibility and then
+desirability of an R package on "(basic) robust statitics" which
+
+ 1)  will be backed up by many `robustniks'
+ 2)  will remain focused, and hence (at least initially)
+     primarily based on the methodology in the upcoming book 
+     by Maronna, Martin and Yohai (=: MMY); and even from there,
+     primarily on
+      a) regression [including GLM, non-lin reg, maybe a bit more]
+      b) multivariate : "location + scatter"
+ 3)  have quite a few authors (in the work group, we had some "commitments"),
+     with me as coordinator and maintainer.
+ 4)  other "Robustness in R" packages would *build*
+     (i.e. "Depend" in  R package lingo) on that basic package,
+     and authors that contribute code from their own package
+     would of course remain authors and would also keep the
+     functions in their own packages (for a while at least; later their
+     package will load or even attach the "basic robust"
+     package, and hence have the functionality available indirectly).
+
+-- more details are in the minutes of our workgroup(s) that I've
+   sent to Matias {as Treviso co-organizer} to be put on the
+   (Treviso RSR) webpage.
+
+I think it would be great to get feedback from the R-SIG-robust
+audience on the above; particularly if you think that the idea
+is problematic or needs amendments/improvements before being
+workable.
+
+Last week, I had added the following to (my latex version of) the minutes:
+
+------------------------
+
+ Later notes -- by Martin Maechler, only
+ ---------------------------------------
+
+  o  Proposed names for the `basic robust statistics' package:
+     1. robstats
+     2. robbase
+     3. baseRob
+
+   I'm choosing the first one for now.
+
+  o I've added (Rousseeuw & Croux)'s Qn and Sn estimators of
+    scale, based on an R package I had started in 2002, which is
+    based on the Fortran code from Antwerpen. 
+
+  \item I plan to add ``\emph{psi - Function}'' objects, using an S4 class,
+    with instances for Huber, Hampel, Biweight, etc, at least for the
+    M-estimators (of location / regression).
+    Such an object should contain  $\rho$, $\psi$, $w(x) := \psi(x)/x$,
+    $\psi'$ (= $d/\mathrm{dx} \psi$) functions, default values for the tuning
+    constants, and functionals such as $E_X[\psi(X)^2]$,  $E_X[\psi'(X)]$,
+    for $X\sim N(0,1)$ (these functionals are still \emph{functions} of the
+    tuning parameters).
+
+    Very similarly, I'm interested also in the $\chi$ functions used for
+    B-/V- optimal M-estimators of \emph{scale}, both the monotone and the
+    redescending ones.
+
+    In general, I think we should add ``\textbf{basic M-estimation}''
+    things to the package as well, similar to, but
+    more general than \code{MASS::huber}; note that I'd like to
+    contribute \code{sfsmisc::huberM} (my `improved' \code{huber})
+    to the \pkg{robstats} as well.
+
+------------------------
+
+and actually I've done the S4 class for "psi-function" objects
+last Friday.
+
+Now I'm interested to hear more..
+Martin
+
+
+
+From kon|@ @end|ng |rom @t@t@@ox@@c@uk  Mon Dec  5 11:29:11 2005
+From: kon|@ @end|ng |rom @t@t@@ox@@c@uk (Kjell Konis)
+Date: Mon, 5 Dec 2005 10:29:11 +0000
+Subject: [RsR] [R] M-estimator R function question
+In-Reply-To: <000401c5f861$b2e49c50$0100a8c0@MARONNA>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+Message-ID: <F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+
+Here is an implementation of the OGK estimator completely in R.  I  
+haven't touched it for a while and I forget how thoroughly I tested  
+it so use it with a bit of caution.
+
+   http://www.stats.ox.ac.uk/~konis/pairwise.q
+
+Ricardo, can you be more specific about what you don't like in the  
+implementation of OGK in S-Plus?
+
+Kjell
+
+
+
+On Dec 3, 2005, at 9:55 PM, Ricardo Maronna wrote:
+
+> One observation about the following.
+>
+>> One thing we'd be very interested is the OGK estimator of
+>> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some
+>> of the authors sold their code exclusively to Insightful (the
+>> S-plus company).
+>
+>     Insightful has implemented the procedure in some way I ignore  
+> (actually,
+> I don't like the way it works), but unfortunately I got not a  
+> single dollar
+> from that!. Anybody is free to implement the method (which is  
+> extremely
+> simple) in whatever language.
+>             Ricardo
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Mon Dec  5 12:25:56 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Mon, 5 Dec 2005 12:25:56 +0100
+Subject: [RsR] [R] M-estimator R function question
+In-Reply-To: <F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+Message-ID: <17300.9156.266887.251826@stat.math.ethz.ch>
+
+>>>>> "Kjell" == Kjell Konis <konis at stats.ox.ac.uk>
+>>>>>     on Mon, 5 Dec 2005 10:29:11 +0000 writes:
+
+    Kjell> Here is an implementation of the OGK estimator
+    Kjell> completely in R.  I haven't touched it for a while
+    Kjell> and I forget how thoroughly I tested it so use it
+    Kjell> with a bit of caution.
+
+    Kjell>    http://www.stats.ox.ac.uk/~konis/pairwise.q
+
+excellent!  That's exactly what I meant (in my post two hours
+ago):
+
+  The general OGK algorithm, but with the  flexibility of the main
+  function having arguments for the "building block" functions, so
+  one can use different univariate sigma() or ``weight()'' functions!
+
+When we'll start to discuss things along the  covRobust()
+proposal(s) from the "multivariate" working group, we'll also
+have to think about function name(s) and the returned object
+("output"),  but I think our student will be able use your
+function "as is".
+
+Thanks a lot, Kjell!
+
+Martin.
+
+
+
+From kr|@te|@joo@@en@ @end|ng |rom econ@ku|euven@be  Mon Dec  5 12:39:05 2005
+From: kr|@te|@joo@@en@ @end|ng |rom econ@ku|euven@be (Kristel Joossens)
+Date: Mon, 05 Dec 2005 12:39:05 +0100
+Subject: [RsR] [R] M-estimator R function question
+In-Reply-To: <17300.9156.266887.251826@stat.math.ethz.ch>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>	<17296.47912.627297.777639@stat.math.ethz.ch>	<000401c5f861$b2e49c50$0100a8c0@MARONNA>	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+	<17300.9156.266887.251826@stat.math.ethz.ch>
+Message-ID: <439426D9.6070603@econ.kuleuven.be>
+
+Martin Maechler wrote:
+>>>>>>"Kjell" == Kjell Konis <konis at stats.ox.ac.uk>
+>>>>>>    on Mon, 5 Dec 2005 10:29:11 +0000 writes:
+>     Kjell> Here is an implementation of the OGK estimator
+>     Kjell> completely in R.  I haven't touched it for a while
+>     Kjell> and I forget how thoroughly I tested it so use it
+>     Kjell> with a bit of caution.
+>     Kjell>    http://www.stats.ox.ac.uk/~konis/pairwise.q
+> excellent!  That's exactly what I meant (in my post two hours
+> ago): 
+>   The general OGK algorithm, but with the  flexibility of the main
+>   function having arguments for the "building block" functions, so
+>   one can use different univariate sigma() or ``weight()'' functions!
+> When we'll start to discuss things along the  covRobust()
+> proposal(s) from the "multivariate" working group, we'll also
+> have to think about function name(s) and the returned object
+> ("output"),  but I think our student will be able use your
+> function "as is".
+> 
+> Thanks a lot, Kjell
+Yes, thanks a lot already.
+
+Concerning the ``multivariate'' working group, I have put a preliminary 
+Tex and Pdf-file of what we discussed in Treviso online.
+It can be retreived from: http://www.econ.kuleuven.be/public/ndbae49/R/
+
+If anyone has comments or would like to change/update/add things to the 
+Tex/Pdf-file you can always contact me or send me an updated Tex-file.
+
+Best regards,
+Kristel
+> Martin.
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+__________________________________________
+Kristel Joossens        Ph.D. Student
+Research Center ORSTAT  K.U. Leuven
+Naamsestraat 69         Tel: +32 16 326929
+3000 Leuven, Belgium    Fax: +32 16 326732
+E-mail:  Kristel.Joossens at econ.kuleuven.be
+http://www.econ.kuleuven.be/public/ndbae49
+
+Disclaimer: http://www.kuleuven.be/cwis/email_disclaimer.htm
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Mon Dec  5 13:27:29 2005
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Mon, 5 Dec 2005 13:27:29 +0100
+Subject: [RsR] [R] M-estimator R function question
+In-Reply-To: <439426D9.6070603@econ.kuleuven.be>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+	<17300.9156.266887.251826@stat.math.ethz.ch>
+	<439426D9.6070603@econ.kuleuven.be>
+Message-ID: <4c0e456b0512050427v2af94525n4aaf7e43847e257a@mail.gmail.com>
+
+Hi Kristel,
+a couple of additions to your 'minutes' (Section 2.3 Other):
+
+1. The MATLAB implementation of D. Pe?na & F. Prieto can be found at:
+http://halweb.uc3m.es/fjp/kur.zip
+
+2. An R implementation of the estimator of D. Olive described in the
+CSDA paper can be found in
+http://www.math.siu.edu/olive/rpack.txt - function covmba()
+
+3. I have R interface to some of the FORTRAN programs of Hawkins, but
+may be only the MWMCD (linear discriminant analysis)  is of interest.
+
+best regards,
+Valentin
+
+On 12/5/05, Kristel Joossens <kristel.joossens at econ.kuleuven.be> wrote:
+> Martin Maechler wrote:
+> >>>>>>"Kjell" == Kjell Konis <konis at stats.ox.ac.uk>
+> >>>>>>    on Mon, 5 Dec 2005 10:29:11 +0000 writes:
+> >     Kjell> Here is an implementation of the OGK estimator
+> >     Kjell> completely in R.  I haven't touched it for a while
+> >     Kjell> and I forget how thoroughly I tested it so use it
+> >     Kjell> with a bit of caution.
+> >     Kjell>    http://www.stats.ox.ac.uk/~konis/pairwise.q
+> > excellent!  That's exactly what I meant (in my post two hours
+> > ago):
+> >   The general OGK algorithm, but with the  flexibility of the main
+> >   function having arguments for the "building block" functions, so
+> >   one can use different univariate sigma() or ``weight()'' functions!
+> > When we'll start to discuss things along the  covRobust()
+> > proposal(s) from the "multivariate" working group, we'll also
+> > have to think about function name(s) and the returned object
+> > ("output"),  but I think our student will be able use your
+> > function "as is".
+> >
+> > Thanks a lot, Kjell
+> Yes, thanks a lot already.
+>
+> Concerning the ``multivariate'' working group, I have put a preliminary
+> Tex and Pdf-file of what we discussed in Treviso online.
+> It can be retreived from: http://www.econ.kuleuven.be/public/ndbae49/R/
+>
+> If anyone has comments or would like to change/update/add things to the
+> Tex/Pdf-file you can always contact me or send me an updated Tex-file.
+>
+> Best regards,
+> Kristel
+> > Martin.
+> >
+> > _______________________________________________
+> > R-SIG-Robust at r-project.org mailing list
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+> --
+> __________________________________________
+> Kristel Joossens        Ph.D. Student
+> Research Center ORSTAT  K.U. Leuven
+> Naamsestraat 69         Tel: +32 16 326929
+> 3000 Leuven, Belgium    Fax: +32 16 326732
+> E-mail:  Kristel.Joossens at econ.kuleuven.be
+> http://www.econ.kuleuven.be/public/ndbae49
+>
+> Disclaimer: http://www.kuleuven.be/cwis/email_disclaimer.htm
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Mon Dec  5 23:23:16 2005
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Mon, 05 Dec 2005 14:23:16 -0800
+Subject: [RsR] OGK covariance estimator
+In-Reply-To: <17300.827.804750.592569@stat.math.ethz.ch>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>	<17296.47912.627297.777639@stat.math.ethz.ch>	<000401c5f861$b2e49c50$0100a8c0@MARONNA>	<17299.61301.345904.106734@stat.math.ethz.ch>	<4393F42E.5070302@tuwien.ac.at>
+	<17300.827.804750.592569@stat.math.ethz.ch>
+Message-ID: <4394BDD4.10000@stat.ubc.ca>
+
+
+Martin Maechler wrote:
+>   \item I plan to add ``\emph{psi - Function}'' objects, using an S4 class,
+>     with instances for Huber, Hampel, Biweight, etc, at least for the
+>     M-estimators (of location / regression).
+>     Such an object should contain  $\rho$, $\psi$, $w(x) := \psi(x)/x$,
+>     $\psi'$ (= $d/\mathrm{dx} \psi$) functions, default values for the tuning
+>     constants, and functionals such as $E_X[\psi(X)^2]$,  $E_X[\psi'(X)]$,
+>     for $X\sim N(0,1)$ (these functionals are still \emph{functions} of the
+>     tuning parameters).
+ > [snip]
+> and actually I've done the S4 class for "psi-function" objects
+> last Friday.
+> 
+> Now I'm interested to hear more..
+
+I think estimating functions are "natural" candidates to be treated as 
+S4 objects, as Martin's blueprint shows above.
+
+One question: I have written the "workhorses" of my code in C and the 
+"psi" functions are defined inside the C code (tuning constants are 
+taken from R). If we move towards having the "psi" functions constructed 
+in R (which I think is a good idea for many reasons), is there an easy 
+way to have the C code use them? .Call() comes to mind, but of course, I 
+would want to re-write the least possible number of lines of my original 
+C code.
+
+Matias
+
+PS: A website collecting the working groups minutes and other related 
+material to this project is already being set up and will be announced 
+in this list when it becomes "live" (which should happen soon).
+
+
+
+From jcbouette @end|ng |rom gm@||@com  Tue Dec  6 11:04:06 2005
+From: jcbouette @end|ng |rom gm@||@com (Jean-Christophe BOUETTE)
+Date: Tue, 6 Dec 2005 11:04:06 +0100
+Subject: [RsR] Package title (was: OGK covariance estimator)
+Message-ID: <11544d000512060204j1c64fbcbr@mail.gmail.com>
+
+> Date: Mon, 5 Dec 2005 10:07:07 +0100
+> From: Martin Maechler <maechler at stat.math.ethz.ch>
+> Subject: Re: [RsR] OGK covariance estimator
+> To: Peter Filzmoser <P.Filzmoser at tuwien.ac.at>
+> Cc: R-SIG-Robust at stat.math.ethz.ch
+> Message-ID: <17300.827.804750.592569 at stat.math.ethz.ch>
+> Content-Type: text/plain; charset=us-ascii
+>
+>
+>  o  Proposed names for the `basic robust statistics' package:
+>     1. robstats
+>     2. robbase
+>     3. baseRob
+>
+
+What about:
+robuSTats
+
+the good thing with this name is that is contains the word "robust",
+so everybody knows what it is about, and you will find the package
+each time you search for "robust" on the R help archives...
+
+just my two cents...
+
+Jean-Christophe.
+
+
+> Now I'm interested to hear more..
+> Martin
+
+
+
+From rm@ronn@ @end|ng |rom m@||@ret|n@@@r  Tue Dec  6 01:02:22 2005
+From: rm@ronn@ @end|ng |rom m@||@ret|n@@@r (Ricardo Maronna)
+Date: Mon, 5 Dec 2005 21:02:22 -0300
+Subject: [RsR] R function
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+Message-ID: <000501c5fa5c$2975ac00$89ca0ac8@MARONNA>
+
+
+> Ricardo, can you be more specific about what you don't like in the
+> implementation of OGK in S-Plus?
+
+Hi Kjell,
+    The "pure" OGK estimate works regardless of the collinearity of the 
+data.
+    The resulting estimate needs some improvement step. We thought of the 
+simple "one-step hard rejection". It was indicated in the paper that no 
+explicit matrix inversion is required for this step, so that it can be made 
+to work even for collinear data.
+    I have tried the S-Plus version with data that were definitely not 
+collinear, and I got an error message of the sort "matrix not invertible". I 
+couldn't figure out why.
+
+    By the way, on later reflexion I have thought that a better improvement 
+would be to use the "pure" OGK as the starting point for the iterations of 
+an S-estimate, which would be much cheaper than subsampling.
+                        Regards,
+                                Ricardo
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Tue Dec  6 15:53:32 2005
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Tue, 6 Dec 2005 15:53:32 +0100
+Subject: [RsR] Package title (was: OGK covariance estimator)
+In-Reply-To: <11544d000512060204j1c64fbcbr@mail.gmail.com>
+References: <11544d000512060204j1c64fbcbr@mail.gmail.com>
+Message-ID: <4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>
+
+Why not simply 'robusta'
+
+It is very easy also to find a logo for the package - robusta means:
+- a coffee plant - Coffea canephora (robusta)
+http://en.wikipedia.org/wiki/Image:Detail_of_Coffea_canephora_branch_and_leaves.jpg
+
+- a palm tree - Washingtonia robusta
+- a cactus - Opuntia robusta
+
+best
+valentin
+
+
+On 12/6/05, Jean-Christophe BOUETTE <jcbouette at gmail.com> wrote:
+> > Date: Mon, 5 Dec 2005 10:07:07 +0100
+> > From: Martin Maechler <maechler at stat.math.ethz.ch>
+> > Subject: Re: [RsR] OGK covariance estimator
+> > To: Peter Filzmoser <P.Filzmoser at tuwien.ac.at>
+> > Cc: R-SIG-Robust at stat.math.ethz.ch
+> > Message-ID: <17300.827.804750.592569 at stat.math.ethz.ch>
+> > Content-Type: text/plain; charset=us-ascii
+> >
+> >
+> >  o  Proposed names for the `basic robust statistics' package:
+> >     1. robstats
+> >     2. robbase
+> >     3. baseRob
+> >
+>
+> What about:
+> robuSTats
+>
+> the good thing with this name is that is contains the word "robust",
+> so everybody knows what it is about, and you will find the package
+> each time you search for "robust" on the R help archives...
+>
+> just my two cents...
+>
+> Jean-Christophe.
+>
+>
+> > Now I'm interested to hear more..
+> > Martin
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Dec  6 17:26:18 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 6 Dec 2005 17:26:18 +0100
+Subject: [RsR] Package title (was: OGK covariance estimator)
+In-Reply-To: <4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>
+References: <11544d000512060204j1c64fbcbr@mail.gmail.com>
+	<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>
+Message-ID: <17301.48042.657996.90972@stat.math.ethz.ch>
+
+>>>>> "Valentin" == Valentin Todorov <valentin.to at gmail.com>
+>>>>>     on Tue, 6 Dec 2005 15:53:32 +0100 writes:
+
+    Valentin> Why not simply 'robusta'
+    Valentin> It is very easy also to find a logo for the package - robusta means:
+    Valentin> - a coffee plant - Coffea canephora (robusta)
+    Valentin> http://en.wikipedia.org/wiki/Image:Detail_of_Coffea_canephora_branch_and_leaves.jpg
+
+    Valentin> - a palm tree - Washingtonia robusta
+    Valentin> - a cactus - Opuntia robusta
+
+cute!
+
+Thank you, Valentin and Jean-Christophe!
+I think both proposals are better than my original ones
+{though I would not like to capitalize the 'ST' (in 'robuSTats')}.
+
+As a Swiss, I should of course plan to organize a vote
+now about the package *name* 
+{ strictly speaking, the package "title" is something else: namely
+  the text after 'Title:' in package DESCRIPTION file.  
+  Currently, I have 'Title: Robust Statistics'
+  there, but that's something that can easily be changed later;
+  changing the package *name* however is much less desirable at
+  some later time.
+}
+but instead of the vote, I'm waiting for more
+comments/suggestions.
+Where I'd personally slightly prefer 'robusta', I note that the
+name could also be a drawback, when searching for it, e.g., by google.
+
+Martin
+
+
+    Valentin> On 12/6/05, Jean-Christophe BOUETTE <jcbouette at gmail.com> wrote:
+    >> > Date: Mon, 5 Dec 2005 10:07:07 +0100
+    >> > From: Martin Maechler <maechler at stat.math.ethz.ch>
+    >> > Subject: Re: [RsR] OGK covariance estimator
+    >> > To: Peter Filzmoser <P.Filzmoser at tuwien.ac.at>
+    >> > Cc: R-SIG-Robust at stat.math.ethz.ch
+    >> >
+    >> >
+    >> >  o  Proposed names for the `basic robust statistics' package:
+    >> >     1. robstats
+    >> >     2. robbase
+    >> >     3. baseRob
+    >> >
+    >> 
+    >> What about:
+    >> robuSTats
+    >> 
+    >> the good thing with this name is that is contains the word "robust",
+    >> so everybody knows what it is about, and you will find the package
+    >> each time you search for "robust" on the R help archives...
+    >> 
+    >> just my two cents...
+    >> 
+    >> Jean-Christophe.
+    >> 
+    >> 
+    >> > Now I'm interested to hear more..
+    >> > Martin
+
+
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Tue Dec  6 20:11:00 2005
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Tue, 6 Dec 2005 20:11:00 +0100
+Subject: [RsR] [R] M-estimator R function question
+In-Reply-To: <4394428F.8040006@econ.kuleuven.be>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+	<17300.9156.266887.251826@stat.math.ethz.ch>
+	<439426D9.6070603@econ.kuleuven.be>
+	<4c0e456b0512050427v2af94525n4aaf7e43847e257a@mail.gmail.com>
+	<4394428F.8040006@econ.kuleuven.be>
+Message-ID: <4c0e456b0512061111k3e129b8fg4e44cae807fa1e1c@mail.gmail.com>
+
+1. The FORTRAN code of D. Hawkins can be found at
+ftp://www.stat.umn.edu/pub/fsa/readme.ftp
+
+My R interface is only on my local PC and I'll release the MWCD in rrcov.
+
+2. For completeness you can add to the list the exchange and branch
+and bound algorithms of Jose Agullo.
+
+Best regards,
+Valentin
+
+On 12/5/05, Kristel Joossens <kristel.joossens at econ.kuleuven.be> wrote:
+> Hello Valentin,
+>
+> Thanks a lot for the information. I will add it!
+> Just one question concerning 3. Can you give me a link where this can be
+> found?
+>
+> Best regards,
+> Kristel
+>
+> Valentin Todorov wrote:
+> > Hi Kristel,
+> > a couple of additions to your 'minutes' (Section 2.3 Other):
+> >
+> > 1. The MATLAB implementation of D. Pe?na & F. Prieto can be found at:
+> > http://halweb.uc3m.es/fjp/kur.zip
+> >
+> > 2. An R implementation of the estimator of D. Olive described in the
+> > CSDA paper can be found in
+> > http://www.math.siu.edu/olive/rpack.txt - function covmba()
+> >
+> > 3. I have R interface to some of the FORTRAN programs of Hawkins, but
+> > may be only the MWMCD (linear discriminant analysis)  is of interest.
+> >
+> > best regards,
+> > Valentin
+> >
+> > On 12/5/05, Kristel Joossens <kristel.joossens at econ.kuleuven.be> wrote:
+> >
+> >>Martin Maechler wrote:
+> >>
+> >>>>>>>>"Kjell" == Kjell Konis <konis at stats.ox.ac.uk>
+> >>>>>>>>   on Mon, 5 Dec 2005 10:29:11 +0000 writes:
+> >>>
+> >>>    Kjell> Here is an implementation of the OGK estimator
+> >>>    Kjell> completely in R.  I haven't touched it for a while
+> >>>    Kjell> and I forget how thoroughly I tested it so use it
+> >>>    Kjell> with a bit of caution.
+> >>>    Kjell>    http://www.stats.ox.ac.uk/~konis/pairwise.q
+> >>>excellent!  That's exactly what I meant (in my post two hours
+> >>>ago):
+> >>>  The general OGK algorithm, but with the  flexibility of the main
+> >>>  function having arguments for the "building block" functions, so
+> >>>  one can use different univariate sigma() or ``weight()'' functions!
+> >>>When we'll start to discuss things along the  covRobust()
+> >>>proposal(s) from the "multivariate" working group, we'll also
+> >>>have to think about function name(s) and the returned object
+> >>>("output"),  but I think our student will be able use your
+> >>>function "as is".
+> >>>
+> >>>Thanks a lot, Kjell
+> >>
+> >>Yes, thanks a lot already.
+> >>
+> >>Concerning the ``multivariate'' working group, I have put a preliminary
+> >>Tex and Pdf-file of what we discussed in Treviso online.
+> >>It can be retreived from: http://www.econ.kuleuven.be/public/ndbae49/R/
+> >>
+> >>If anyone has comments or would like to change/update/add things to the
+> >>Tex/Pdf-file you can always contact me or send me an updated Tex-file.
+> >>
+> >>Best regards,
+> >>Kristel
+> >>
+> >>>Martin.
+> >>>
+> >>>_______________________________________________
+> >>>R-SIG-Robust at r-project.org mailing list
+> >>>https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> >>
+> >>--
+> >>__________________________________________
+> >>Kristel Joossens        Ph.D. Student
+> >>Research Center ORSTAT  K.U. Leuven
+> >>Naamsestraat 69         Tel: +32 16 326929
+> >>3000 Leuven, Belgium    Fax: +32 16 326732
+> >>E-mail:  Kristel.Joossens at econ.kuleuven.be
+> >>http://www.econ.kuleuven.be/public/ndbae49
+> >>
+> >>Disclaimer: http://www.kuleuven.be/cwis/email_disclaimer.htm
+> >>
+> >>_______________________________________________
+> >>R-SIG-Robust at r-project.org mailing list
+> >>https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> >>
+>
+> --
+> __________________________________________
+> Kristel Joossens        Ph.D. Student
+> Research Center ORSTAT  K.U. Leuven
+> Naamsestraat 69         Tel: +32 16 326929
+> 3000 Leuven, Belgium    Fax: +32 16 326732
+> E-mail:  Kristel.Joossens at econ.kuleuven.be
+> http://www.econ.kuleuven.be/public/ndbae49
+>
+> Disclaimer: http://www.kuleuven.be/cwis/email_disclaimer.htm
+>
+>
+
+
+
+From chr|@h @end|ng |rom @t@t@@uc|@@c@uk  Tue Dec  6 22:01:13 2005
+From: chr|@h @end|ng |rom @t@t@@uc|@@c@uk (Christian Hennig)
+Date: Tue, 6 Dec 2005 21:01:13 +0000 (GMT)
+Subject: [RsR] The descriptive statistics/EDA group in Treviso
+In-Reply-To: <4c0e456b0512061111k3e129b8fg4e44cae807fa1e1c@mail.gmail.com>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+	<17300.9156.266887.251826@stat.math.ethz.ch>
+	<439426D9.6070603@econ.kuleuven.be>
+	<4c0e456b0512050427v2af94525n4aaf7e43847e257a@mail.gmail.com>
+	<4394428F.8040006@econ.kuleuven.be>
+	<4c0e456b0512061111k3e129b8fg4e44cae807fa1e1c@mail.gmail.com>
+Message-ID: <Pine.LNX.4.64.0512062009530.2696@egon.stats.ucl.ac.uk>
+
+Hi,
+
+I wanted to post the minutes of the descriptive statistics/EDA group in 
+Treviso but unfortunately I lost my material from this group somewhere 
+between Treviso, Cyprus and London. Sorry for that. (Anybody else of 
+the group is of course invited to add or correct something.)
+
+Here are some things that I remind.
+
+We felt that we were in a difficult position with our group's topic 
+because the field of descriptive statistics and EDA is very broad and though
+some of us have written code that could be seen to belong to this topic, 
+nobody of the Treviso group members is currently involved in any kind of 
+project concerning the implementation or unification of implementations of 
+any existing methods - we just implemented our own stuff to make it 
+available.
+
+Therefore our group didn't start any continuing projects.
+Instead, we discussed some basic issues and tried to work 
+through some existing functions and documentation.
+
+First we tried to demarcate our topic "robust descriptive statistics and 
+EDA" somehow. Generally, more or less every technique in 
+statistics can be seen as descriptive or explorative as long as it is not 
+used with a model-based background. This comprises more or less simple 
+summary statistics, smoothing methods, and the whole field of data visualization.
+Related to robust statistics, model-free outlier identification rules and 
+sensitivity curves can also be included.
+
+It seems that some scientists use the term "robust" only in
+connection with model-based settings while they prefer the term
+"resistant" for descriptive/EDA techniques, which refers to the change of 
+the results of a method caused by small changes in the data. Concepts such 
+as minimax asymptotic variance are of course not of interest in 
+non-model-based settings. It is quite difficult to decide whether some 
+methods (especially graphical ones) are qualified to be called "resistant"
+or "robust".
+
+We then excluded projection techniques such as PCA, which are usually 
+discussed under the title "multivariate analysis" from what we tried to 
+discuss.
+
+Quite few resistant techniques are implemented, and they are 
+difficult to find. Descriptive statistics and/or EDA are seemingly not 
+official keywords (though "robust", "smooth" and something like "graphics"
+are). For example, only a very small part of the techniques suggested in 
+Tukey and co-author's legendary books seem to be implemented.
+
+There is no unification of input/output procedures at all, and 
+standard techniques like the boxplot do not use plot/summary-methods 
+and the like. However, given the variety in the whole field, we agreed 
+that full unification is not desirable.
+
+The best thing to do is perhaps to give some non-binding recommendations 
+such as
+* read documentation and code of existing related methods first (this 
+refers to methods serving the same purpose such as smoothing methods, 
+projection methods, visualization of univariate data etc.) and try to make 
+input and output similar,
+* use print/plot/summary-methods following the standard converntions 
+whenever possible,
+* if your method has an in-built outlier identification, give out an 
+outlier identifier or score vector,
+* use "robust" in the keywords (and hope that eda or descriptive will be 
+introduced as official keyword, if it applies).
+
+Not too original, I'm afriad, but at least we kept in mind some valuable
+stimulations for our own next packages.
+
+All the best,
+Christian Hennig
+
+
+
+*** --- ***
+Christian Hennig
+University College London, Department of Statistical Science
+Gower St., London WC1E 6BT, phone +44 207 679 1698
+chrish at stats.ucl.ac.uk, www.homepages.ucl.ac.uk/~ucakche
+
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Wed Dec  7 09:25:41 2005
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Werner Stahel)
+Date: Wed, 7 Dec 2005 09:25:41 +0100
+Subject: [RsR] Package title (was: OGK covariance estimator)
+In-Reply-To: <17301.48042.657996.90972@stat.math.ethz.ch>
+References: <11544d000512060204j1c64fbcbr@mail.gmail.com>
+	<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>
+	<17301.48042.657996.90972@stat.math.ethz.ch>
+Message-ID: <17302.40069.407291.362568@stat.math.ethz.ch>
+
+Hello
+
+Names are always nice to discuss. Let me add a simple proposal
+for the name of the package:
+robust
+Since this should be the well maintained collection of robust
+methods, I would go for the "generic" name.
+
+Werner
+
+
+
+From c|@ud|o @end|ng |rom un|ve@|t  Wed Dec  7 10:00:17 2005
+From: c|@ud|o @end|ng |rom un|ve@|t (claudio)
+Date: Wed, 7 Dec 2005 10:00:17 +0100 (CET)
+Subject: [RsR] RSR slides
+Message-ID: <Pine.LNX.4.64.0512070956530.923@linaria.dst.unive.it>
+
+Dear All,
+I finally post today the slides of the talks in the RSR website under the 
+following address:
+
+www.dst.unive.it/rsr/program.html
+
+In case of problems in downloading the material, please contact me 
+directly at my address.
+
+Claudio
+
+--------------------------------------------------------------
+Claudio Agostinelli
+Dipartimento di Statistica
+Universita' Ca' Foscari di Venezia
+San Giobbe, Cannaregio 873
+30121 Venezia
+Tel: 041 2347446, Fax: 041 2347444
+email: claudio at unive.it, www: www.dst.unive.it/~claudio
+--------------------------------------------------------------
+Per favore non mandatemi allegati in Word o PowerPoint.
+Si veda http://www.gnu.org/philosophy/no-word-attachments.html
+
+Please avoid sending me Word or PowerPoint attachments.
+See http://www.gnu.org/philosophy/no-word-attachments.html
+
+
+
+From A|||o@M@r@zz| @end|ng |rom chuv@ch  Wed Dec  7 12:20:53 2005
+From: A|||o@M@r@zz| @end|ng |rom chuv@ch (Alfio Marazzi)
+Date: Wed, 07 Dec 2005 12:20:53 +0100
+Subject: [RsR] Package title
+Message-ID: <5.1.0.14.2.20051207121842.023b1008@pop.intranet.chuv>
+
+Hallo,
+I agree with Werner's proposal:   "robust"
+Alfio
+
+
+
+From R@Dutter @end|ng |rom tuw|en@@c@@t  Wed Dec  7 15:13:16 2005
+From: R@Dutter @end|ng |rom tuw|en@@c@@t (Rudi Dutter)
+Date: Wed, 07 Dec 2005 15:13:16 +0100
+Subject: [RsR] Package title
+References: <5.1.0.14.2.20051207121842.023b1008@pop.intranet.chuv>
+Message-ID: <4396EDFC.BE4FDE6F@tuwien.ac.at>
+
+Dear `robustniks',
+
+First I liked very much one of the proposed names in the letter by Martin on
+Dec. 5, namely 
+"baseRob".
+I thought that starting with 'base' is a good thing. Unfortunately it doesn't
+contain the keyword 'robust'.
+Therefore I find that the name "robust" is short and contains the essential.
+Rudi
+
+Alfio Marazzi wrote:
+> 
+> Hallo,
+> I agree with Werner's proposal:   "robust"
+> Alfio
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+-- 
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+From: Prof. Dr. Rudolf Dutter
+      Dept. of Statistics and Probability Theory
+      Vienna University of Technology,
+      Wiedner Hauptstr. 8-10
+      A-1040 Vienna, Austria
+      Tel. +43 1 58801/10730
+      FAX  +43 1 58801/10799
+      E-Mail: R.Dutter at tuwien.ac.at
+      Internet: http://www.statistik.tuwien.ac.at/public/dutt/
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+
+
+
+From rk@ @end|ng |rom zhw|n@ch  Wed Dec  7 08:57:22 2005
+From: rk@ @end|ng |rom zhw|n@ch (Ruckstuhl Andreas (rks))
+Date: Wed, 7 Dec 2005 08:57:22 +0100
+Subject: [RsR] OGK covariance estimator
+Message-ID: <B7C02093A9C6FB47B417FC3FAB0D72140368C0@langouste.zhwin.ch>
+
+Dear Martin
+
+Many thanks for starting the discussion.
+
+A few comments to your additional thoughts:
+
+>> -----Urspr?ngliche Nachricht-----
+>> Von: r-sig-robust-bounces at r-project.org 
+>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von 
+>> Martin Maechler
+>> Gesendet: Montag, 5. Dezember 2005 10:07
+>> An: Peter Filzmoser
+>> Cc: R-SIG-Robust at stat.math.ethz.ch
+>> Betreff: Re: [RsR] OGK covariance estimator
+>> 
+>> Given the traffic on this list, 
+>> and the not-yet-publication of the Treviso working group 
+>> "minutes", let me open the topic to which I alluded above as
+>> well: Our working group ("regression", later joined by
+>> "econometrics") talked about the possibility and then 
+>> desirability of an R package on "(basic) robust statitics" which
+>> 
+>>  1)  will be backed up by many `robustniks'
+>>  2)  will remain focused, and hence (at least initially)
+>>      primarily based on the methodology in the upcoming book 
+>>      by Maronna, Martin and Yohai (=: MMY); and even from there,
+>>      primarily on
+>>       a) regression [including GLM, non-lin reg, maybe a bit more]
+>>       b) multivariate : "location + scatter"
+>>  3)  have quite a few authors (in the work group, we had 
+>> some "commitments"),
+>>      with me as coordinator and maintainer.
+>>  4)  other "Robustness in R" packages would *build*
+>>      (i.e. "Depend" in  R package lingo) on that basic package,
+>>      and authors that contribute code from their own package
+>>      would of course remain authors and would also keep the
+>>      functions in their own packages (for a while at least; 
+>> later their
+>>      package will load or even attach the "basic robust"
+>>      package, and hence have the functionality available indirectly).
+>> 
+>> -- more details are in the minutes of our workgroup(s) that I've
+>>    sent to Matias {as Treviso co-organizer} to be put on the
+>>    (Treviso RSR) webpage.
+>> 
+>> I think it would be great to get feedback from the 
+>> R-SIG-robust audience on the above; particularly if you 
+>> think that the idea is problematic or needs 
+>> amendments/improvements before being workable.
+>> 
+>> Last week, I had added the following to (my latex version 
+>> of) the minutes:
+>> 
+>> ------------------------
+>> 
+>>  Later notes -- by Martin Maechler, only
+>>  ---------------------------------------
+>> 
+>>   o  Proposed names for the `basic robust statistics' package:
+>>      1. robstats
+>>      2. robbase
+>>      3. baseRob
+>> 
+>>    I'm choosing the first one for now.
+
+I good name for the packages is need. Some of the criteria should be that it should be intuitive, easy to remember and easy to find by google. I give slightly more preferences to a names starting with rob....
+
+>> 
+>>   o I've added (Rousseeuw & Croux)'s Qn and Sn estimators of
+>>     scale, based on an R package I had started in 2002, which is
+>>     based on the Fortran code from Antwerpen. 
+>> 
+>>   \item I plan to add ``\emph{psi - Function}'' objects, 
+>> using an S4 class,
+>>     with instances for Huber, Hampel, Biweight, etc, at least for the
+>>     M-estimators (of location / regression).
+>>     Such an object should contain  $\rho$, $\psi$, $w(x) := 
+>> \psi(x)/x$,
+>>     $\psi'$ (= $d/\mathrm{dx} \psi$) functions, default 
+>> values for the tuning
+>>     constants, and functionals such as $E_X[\psi(X)^2]$,  
+>> $E_X[\psi'(X)]$,
+>>     for $X\sim N(0,1)$ (these functionals are still 
+>> \emph{functions} of the
+>>     tuning parameters).
+
+I support this approach; in particular that these objects should return more elements than the current versions in MASS. However, this objects are needed not just for linear regression models but also for GLMs. So I wonder whether there are alternatives for including the functionals (based on the normal case) in the same object.
+
+Enclose, you find a temporary private package containing several functions. You are probably most interested in the robust fitting of Generalized Linear Models based on E. Cantoni and E. Ronchetti (2001). It is a new implementation. The fitting function is called rfglm(). There is also a function to compare two models: modsel.rfglm(). The name of this function is under revision. I going to call it anova (i.e. I will implement anova.rfglm()).
+
+Talking about names: how should we call functions which do i.e. robust fitting of a glm:
+	rfglm  (Robust Fitting of GLM)
+	rglm
+	robglm
+
+Any comments to the naming or to the functions itself are very welcome.
+
+
+>> 
+>>     Very similarly, I'm interested also in the $\chi$ 
+>> functions used for
+>>     B-/V- optimal M-estimators of \emph{scale}, both the 
+>> monotone and the
+>>     redescending ones.
+>> 
+>>     In general, I think we should add ``\textbf{basic M-estimation}''
+>>     things to the package as well, similar to, but
+>>     more general than \code{MASS::huber}; note that I'd like to
+>>     contribute \code{sfsmisc::huberM} (my `improved' \code{huber})
+>>     to the \pkg{robstats} as well.
+>> 
+>> ------------------------
+>> 
+>> and actually I've done the S4 class for "psi-function" 
+>> objects last Friday.
+
+Great! 
+>> 
+>> Now I'm interested to hear more..
+>> Martin
+
+
+All the best
+Andreas
+>> 
+>> _______________________________________________
+>> R-SIG-Robust at r-project.org mailing list 
+>> https://stat.ethz.ch/mailman/listinfo/r-sig->> robust
+>> 
+
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: RobFit_0.2.1.zip
+Type: application/x-zip-compressed
+Size: 139091 bytes
+Desc: RobFit_0.2.1.zip
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20051207/1a0903fe/attachment.bin>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: RobFit_0.2.1.tar.gz
+Type: application/x-gzip
+Size: 25777 bytes
+Desc: RobFit_0.2.1.tar.gz
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20051207/1a0903fe/attachment-0001.bin>
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Dec  7 15:29:50 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 7 Dec 2005 15:29:50 +0100
+Subject: [RsR] Package title (was: OGK covariance estimator)
+In-Reply-To: <17302.40069.407291.362568@stat.math.ethz.ch>
+References: <11544d000512060204j1c64fbcbr@mail.gmail.com>
+	<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>
+	<17301.48042.657996.90972@stat.math.ethz.ch>
+	<17302.40069.407291.362568@stat.math.ethz.ch>
+Message-ID: <17302.61918.196538.812904@stat.math.ethz.ch>
+
+>>>>> "Wst" == Werner Stahel <stahel at stat.math.ethz.ch>
+>>>>>     on Wed, 7 Dec 2005 09:25:41 +0100 writes:
+
+    Wst> Hello Names are always nice to discuss. Let me add a
+    Wst> simple proposal for the name of the package: robust
+    Wst> Since this should be the well maintained collection of
+    Wst> robust methods, I would go for the "generic" name.
+
+(and Alfio Marazzi agreed with you).
+
+There is one very good reason against 'robust':
+Insightful's  library(robust) for S-plus.
+
+Our package will certainly not be a clone, and probably quite
+different in more than respect.  If we chose the same name,
+that would lead to a *lot* of potential user confusion for those
+who use both R and S-plus.
+I'm sorry but I think that "robust" is really already taken in
+the world of S ...
+
+Martin
+
+
+
+From Zo|t@n@Kmetty @end|ng |rom k@h@hu  Thu Dec  8 11:09:01 2005
+From: Zo|t@n@Kmetty @end|ng |rom k@h@hu (Kmetty Zoltan)
+Date: Thu, 8 Dec 2005 11:09:01 +0100
+Subject: [RsR] sm
+Message-ID: <124C4B7F63D7484DAE025A1154BF437384D963@MEX.kshad.hu>
+
+Hy!
+
+ 
+
+Im not sure in the right place, but i have some question about R
+programming, I hope you should help me. Now im doing a statistical
+matching (datafusion) microsimulation project, and i try to programme it
+in R.
+
+Has everybody any experience (R codes, which package to use...) in this
+theme? 
+
+ 
+
+Zoltan Kmetty
+
+Hungarian Central Statistical Office
+
+
+	[[alternative HTML version deleted]]
+
+
+
+From P@F||zmo@er @end|ng |rom tuw|en@@c@@t  Thu Dec  8 11:26:11 2005
+From: P@F||zmo@er @end|ng |rom tuw|en@@c@@t (Peter Filzmoser)
+Date: Thu, 08 Dec 2005 11:26:11 +0100
+Subject: [RsR] Package title
+In-Reply-To: <17302.61918.196538.812904@stat.math.ethz.ch>
+References: <11544d000512060204j1c64fbcbr@mail.gmail.com>	<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>	<17301.48042.657996.90972@stat.math.ethz.ch>	<17302.40069.407291.362568@stat.math.ethz.ch>
+	<17302.61918.196538.812904@stat.math.ethz.ch>
+Message-ID: <43980A43.20107@tuwien.ac.at>
+
+Martin Maechler wrote:
+>>>>>>"Wst" == Werner Stahel <stahel at stat.math.ethz.ch>
+>>>>>>    on Wed, 7 Dec 2005 09:25:41 +0100 writes:
+> 
+> 
+>     Wst> Hello Names are always nice to discuss. Let me add a
+>     Wst> simple proposal for the name of the package: robust
+>     Wst> Since this should be the well maintained collection of
+>     Wst> robust methods, I would go for the "generic" name.
+> 
+> (and Alfio Marazzi agreed with you).
+> 
+> There is one very good reason against 'robust':
+> Insightful's  library(robust) for S-plus.
+> 
+> Our package will certainly not be a clone, and probably quite
+> different in more than respect.  If we chose the same name,
+> that would lead to a *lot* of potential user confusion for those
+> who use both R and S-plus.
+> I'm sorry but I think that "robust" is really already taken in
+> the world of S ...
+
+How about "robust-base"? I rather prefer longer abbreviations
+than shorter if confusion can be avoided. The advantage is that
+we can then also have packages "robust-mva", "robust-glm" etc.,
+and it is easy to find all "robust" packages since they are
+in alphabetical order.
+
+Peter
+
+> 
+> Martin
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> 
+> 
+
+
+-- 
+-------------------------------------------------------
+From: Prof. Dr. Peter Filzmoser
+       Dept. of Statistics & Probability Theory
+       Vienna University of Technology
+       Wiedner Hauptstrasse 8-10
+       A-1040 Vienna, Austria
+       Tel. +43 1 58801/10733
+       Fax. +43 1 58801/10799
+       E-mail: P.Filzmoser at tuwien.ac.at
+       Internet:
+       http://www.statistik.tuwien.ac.at/public/filz/
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Dec  9 10:48:38 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 9 Dec 2005 10:48:38 +0100
+Subject: [RsR] Package title
+In-Reply-To: <17305.15557.299642.91604@celebrian.ci.tuwien.ac.at>
+References: <11544d000512060204j1c64fbcbr@mail.gmail.com>
+	<4c0e456b0512060653i40404f19y3722c84e296df4ad@mail.gmail.com>
+	<17301.48042.657996.90972@stat.math.ethz.ch>
+	<17302.40069.407291.362568@stat.math.ethz.ch>
+	<17302.61918.196538.812904@stat.math.ethz.ch>
+	<43980A43.20107@tuwien.ac.at>
+	<17305.15557.299642.91604@celebrian.ci.tuwien.ac.at>
+Message-ID: <17305.21238.502015.472396@stat.math.ethz.ch>
+
+>>>>> "FrL" == Friedrich Leisch <Friedrich.Leisch at tuwien.ac.at>
+>>>>>     on Fri, 9 Dec 2005 09:13:57 +0100 writes:
+
+>>>>> On Thu, 08 Dec 2005 11:26:11 +0100,
+>>>>> Peter Filzmoser (PF) wrote:
+
+
+    >> How about "robust-base"? I rather prefer longer abbreviations
+    >> than shorter if confusion can be avoided. The advantage is that
+    >> we can then also have packages "robust-mva", "robust-glm" etc.,
+    >> and it is easy to find all "robust" packages since they are
+    >> in alphabetical order.
+
+    FrL> The dash is not a legal character for package names, because, e.g.,
+
+yes, thank you Fritz;
+and thanks to the other proposals and thoughts.
+
+     .....
+
+    FrL> We could do robust.base, roubust.mva, ... though.
+
+As long as packages cannot export their C API, and also for
+other reasons, I don't think I'd aim for more than one
+"basic robustness" package.
+One of the major points has been that the package becomes so
+important (and "well done") that it will become a 'Recommended'
+one.
+For that very reason, it should not try to do "everything"
+(robust) but the *important* things, maybe in the sense that we
+("workgroup regression" and others, at Treviso) had outlined
+earlier.
+
+Other people would build specialized packages that have 
+'Depends: BasicRobustStatistics' in their DESCRIPTION setup,
+
+where, given the comments so far (and my taste..)
+I'd still vote for
+    'robusta'  (from Valentin)
+or  'robustats'
+
+I'd definitely like something easy to spell (correctly) and to
+pronounce.  The 2nd proposal (above) is already at the border of
+being easily understood in oral communications.
+
+Martin
+
+
+
+From jcbouette @end|ng |rom gm@||@com  Fri Dec  9 13:47:41 2005
+From: jcbouette @end|ng |rom gm@||@com (Jean-Christophe BOUETTE)
+Date: Fri, 9 Dec 2005 13:47:41 +0100
+Subject: [RsR]  Package title
+Message-ID: <11544d000512090447v7e112e6fo@mail.gmail.com>
+
+Hi everybody
+
+Ok, if a votation is going to take place I vote for
+robustat :-)
+
+I also volunteer for testing the package... I'd volunteer for
+developing it if I were older than six months with R ;-)
+
+So please feel free to send me private e-mails.
+Jean-Christophe.
+
+> Date: Fri, 9 Dec 2005 10:48:38 +0100
+> From: Martin Maechler <maechler at stat.math.ethz.ch>
+> Subject: Re: [RsR] Package title
+> To: Friedrich.Leisch at tuwien.ac.at
+> Cc: r-sig-robust at r-project.org
+> Message-ID: <17305.21238.502015.472396 at stat.math.ethz.ch>
+> Content-Type: text/plain; charset=us-ascii
+>
+> >>>>> "FrL" == Friedrich Leisch <Friedrich.Leisch at tuwien.ac.at>
+> >>>>>     on Fri, 9 Dec 2005 09:13:57 +0100 writes:
+>
+> >>>>> On Thu, 08 Dec 2005 11:26:11 +0100,
+> >>>>> Peter Filzmoser (PF) wrote:
+>
+>
+>    >> How about "robust-base"? I rather prefer longer abbreviations
+>    >> than shorter if confusion can be avoided. The advantage is that
+>    >> we can then also have packages "robust-mva", "robust-glm" etc.,
+>    >> and it is easy to find all "robust" packages since they are
+>    >> in alphabetical order.
+>
+>    FrL> The dash is not a legal character for package names, because, e.g.,
+>
+> yes, thank you Fritz;
+> and thanks to the other proposals and thoughts.
+>
+>     .....
+>
+>    FrL> We could do robust.base, roubust.mva, ... though.
+>
+> As long as packages cannot export their C API, and also for
+> other reasons, I don't think I'd aim for more than one
+> "basic robustness" package.
+> One of the major points has been that the package becomes so
+> important (and "well done") that it will become a 'Recommended'
+> one.
+> For that very reason, it should not try to do "everything"
+> (robust) but the *important* things, maybe in the sense that we
+> ("workgroup regression" and others, at Treviso) had outlined
+> earlier.
+>
+> Other people would build specialized packages that have
+> 'Depends: BasicRobustStatistics' in their DESCRIPTION setup,
+>
+> where, given the comments so far (and my taste..)
+> I'd still vote for
+>    'robusta'  (from Valentin)
+> or  'robustats'
+>
+> I'd definitely like something easy to spell (correctly) and to
+> pronounce.  The 2nd proposal (above) is already at the border of
+> being easily understood in oral communications.
+>
+> Martin
+>
+>
+>
+> ------------------------------
+>
+> _______________________________________________
+> R-SIG-Robust mailing list
+> R-SIG-Robust at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Dec  9 14:37:05 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 9 Dec 2005 14:37:05 +0100
+Subject: [RsR] Package title
+In-Reply-To: <11544d000512090447v7e112e6fo@mail.gmail.com>
+References: <11544d000512090447v7e112e6fo@mail.gmail.com>
+Message-ID: <17305.34945.268465.777346@stat.math.ethz.ch>
+
+>>>>> "Jean-Christophe" == Jean-Christophe BOUETTE <jcbouette at gmail.com>
+>>>>>     on Fri, 9 Dec 2005 13:47:41 +0100 writes:
+
+    Jean-Christophe> Hi everybody
+    Jean-Christophe> Ok, if a votation is going to take place I vote for
+    Jean-Christophe> robustat :-)
+
+you mean    mean(c(robusta, robustats)) 
+or rather  huber(c(robusta, robustats))  ;-) ?
+
+The reason for "*stats" was that there's already the basic
+"stats"  (and "stats4") package...
+
+
+
+From Friedrich@Leisch m@iii@g oii tuwie@@@c@@t  Fri Dec  9 15:09:49 2005
+From: Friedrich@Leisch m@iii@g oii tuwie@@@c@@t (Friedrich@Leisch m@iii@g oii tuwie@@@c@@t)
+Date: Fri, 9 Dec 2005 15:09:49 +0100
+Subject: [RsR] Package title
+In-Reply-To: <17305.34945.268465.777346@stat.math.ethz.ch>
+References: <11544d000512090447v7e112e6fo@mail.gmail.com>
+	<17305.34945.268465.777346@stat.math.ethz.ch>
+Message-ID: <17305.36909.632949.308900@celebrian.ci.tuwien.ac.at>
+
+>>>>> On Fri, 9 Dec 2005 14:37:05 +0100,
+>>>>> Martin Maechler (MM) wrote:
+
+>>>>> "Jean-Christophe" == Jean-Christophe BOUETTE <jcbouette at gmail.com>
+>>>>>     on Fri, 9 Dec 2005 13:47:41 +0100 writes:
+
+  Jean-Christophe> Hi everybody
+  Jean-Christophe> Ok, if a votation is going to take place I vote for
+  Jean-Christophe> robustat :-)
+
+  > you mean    mean(c(robusta, robustats)) 
+  > or rather  huber(c(robusta, robustats))  ;-) ?
+
+  > The reason for "*stats" was that there's already the basic
+  > "stats"  (and "stats4") package...
+
+Using google to evaluate vocabulary seems popular these days (see the
+thread on Gibraltar on r-devel ;-), so let's see:
+
+As someone (forgot who) has already mentioned in this thread, googling
+gives 2.1 million hits for "robusta", 70 for "robustat" and 9 for
+"robustats".
+
+So together with the very good argument on "stats" and "stats4" by
+Martin I'd strongly vote for "robustats". If we put a package of that
+name on CRAN I expect it to be the Google top hit for its name within
+a few weeks (if not days).
+
+Just my 2c,
+Fritz
+
+PS: Of course we may also make the top hit for "robusta" ... googling
+for the single letter "R" returns the R homepage as top link for a
+couple of years now. But it is not really necessary to make searching
+hard ... and searching for "robusta", e.g., in publication databases
+may return a large number of biological articles for a long time.
+
+
+
+From jcbouette @end|ng |rom gm@||@com  Fri Dec  9 15:26:21 2005
+From: jcbouette @end|ng |rom gm@||@com (Jean-Christophe BOUETTE)
+Date: Fri, 9 Dec 2005 15:26:21 +0100
+Subject: [RsR] Package title
+In-Reply-To: <17305.36909.632949.308900@celebrian.ci.tuwien.ac.at>
+References: <11544d000512090447v7e112e6fo@mail.gmail.com>
+	<17305.34945.268465.777346@stat.math.ethz.ch>
+	<17305.36909.632949.308900@celebrian.ci.tuwien.ac.at>
+Message-ID: <11544d000512090626ib75e9b3w@mail.gmail.com>
+
+an example of "publication database" :
+http://scholar.google.com
+robusta : more than 20 thousands hits
+robustat : 14 hits
+robustats : no hit.
+...
+
+Jean-Christophe.
+
+2005/12/9, Friedrich.Leisch at tuwien.ac.at <Friedrich.Leisch at tuwien.ac.at>:
+> >>>>> On Fri, 9 Dec 2005 14:37:05 +0100,
+> >>>>> Martin Maechler (MM) wrote:
+>
+> >>>>> "Jean-Christophe" == Jean-Christophe BOUETTE <jcbouette at gmail.com>
+> >>>>>     on Fri, 9 Dec 2005 13:47:41 +0100 writes:
+>
+>  Jean-Christophe> Hi everybody
+>  Jean-Christophe> Ok, if a votation is going to take place I vote for
+>  Jean-Christophe> robustat :-)
+>
+>  > you mean    mean(c(robusta, robustats))
+>  > or rather  huber(c(robusta, robustats))  ;-) ?
+>
+>  > The reason for "*stats" was that there's already the basic
+>  > "stats"  (and "stats4") package...
+>
+> Using google to evaluate vocabulary seems popular these days (see the
+> thread on Gibraltar on r-devel ;-), so let's see:
+>
+> As someone (forgot who) has already mentioned in this thread, googling
+> gives 2.1 million hits for "robusta", 70 for "robustat" and 9 for
+> "robustats".
+>
+> So together with the very good argument on "stats" and "stats4" by
+> Martin I'd strongly vote for "robustats". If we put a package of that
+> name on CRAN I expect it to be the Google top hit for its name within
+> a few weeks (if not days).
+>
+> Just my 2c,
+> Fritz
+>
+> PS: Of course we may also make the top hit for "robusta" ... googling
+> for the single letter "R" returns the R homepage as top link for a
+> couple of years now. But it is not really necessary to make searching
+> hard ... and searching for "robusta", e.g., in publication databases
+> may return a large number of biological articles for a long time.
+>
+
+
+
+From @t@he| @end|ng |rom @t@t@m@th@ethz@ch  Fri Dec  9 16:53:15 2005
+From: @t@he| @end|ng |rom @t@t@m@th@ethz@ch (Werner Stahel)
+Date: Fri, 9 Dec 2005 16:53:15 +0100
+Subject: [RsR] Package title
+Message-ID: <17305.43115.707102.174066@stat.math.ethz.ch>
+
+Hi
+
+The name again ...
+I prefer 
+robustbase
+to 
+robustats
+as I am not sure everybody appreciates and remembers the lacking
+second st (that would lead to  robuststats )
+
+This package should include all the stuff that you planned.
+If there will be robust.mva, it will be additional material, while
+robustbase 
+should include procedures for mva, regression, ...
+
+Take care
+
+Werner Stahel
+----------------- This message was sent by ---------------------------
+Werner Stahel                              http://stat.ethz.ch/~stahel
+Seminar fuer Statistik                     phone  :    +41 1 632 34 30
+ETH-Zentrum, LEO D8                        fax    :    +41 1 632 12 28
+CH-8092 Zurich, Switzerland                meet me: Leonhardstr.27, D8
+
+
+
+From A|||o@M@r@zz| @end|ng |rom chuv@ch  Sat Dec 10 19:32:59 2005
+From: A|||o@M@r@zz| @end|ng |rom chuv@ch (Alfio Marazzi)
+Date: Sat, 10 Dec 2005 19:32:59 +0100
+Subject: [RsR] Package title
+Message-ID: <5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>
+
+Hi,
+
+again, I agree with Werner: robustbase (robust-base, robust.base) is much 
+easer to remember than robstats (robstat) and more appropriate than robusta.
+
+Alfio
+
+
+
+From P@F||zmo@er @end|ng |rom tuw|en@@c@@t  Mon Dec 12 09:48:58 2005
+From: P@F||zmo@er @end|ng |rom tuw|en@@c@@t (Peter Filzmoser)
+Date: Mon, 12 Dec 2005 09:48:58 +0100
+Subject: [RsR] Web page
+Message-ID: <439D397A.7000808@tuwien.ac.at>
+
+Dear all,
+
+In Treviso we talked about an own web page for "Robust
+Statistics and R". Here it is:
+
+http://www.r-project.org/Robust
+
+(the real address is http://www.statistik.tuwien.ac.at/rsr/)
+
+You can also find the page via the R web page
+http://www.r-project.org/
+under "Related Projects", which is at
+http://www.r-project.org/other-projects.html
+
+There is an entry
+Robust: Robust Statistics with R
+     This web page contains information about the development of tools 
+in
+     R for methods in Robust Statistics.
+
+The web page includes information on
+- our mailing list
+- important events
+- results of the working groups in Treviso
+- software on robustness
+
+Of course, it is far from being complete. One reason is also
+that we didn't get the minutes from all working groups.
+
+Please, feel free to make suggestions for improving the page!
+
+We are also thinking about installing a tool like "wiki" to
+allow for a more interactive page.
+
+Best regards,
+Peter
+-- 
+-------------------------------------------------------
+From: Prof. Dr. Peter Filzmoser
+       Dept. of Statistics & Probability Theory
+       Vienna University of Technology
+       Wiedner Hauptstrasse 8-10
+       A-1040 Vienna, Austria
+       Tel. +43 1 58801/10733
+       Fax. +43 1 58801/10799
+       E-mail: P.Filzmoser at tuwien.ac.at
+       Internet:
+       http://www.statistik.tuwien.ac.at/public/filz/
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Dec 14 16:12:33 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 14 Dec 2005 16:12:33 +0100
+Subject: [RsR] Package name
+In-Reply-To: <5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>
+References: <5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>
+Message-ID: <17312.13921.354305.320499@stat.math.ethz.ch>
+
+>>>>> "Alfio" == Alfio Marazzi <Alfio.Marazzi at chuv.ch>
+>>>>>     on Sat, 10 Dec 2005 19:32:59 +0100 writes:
+
+    Alfio> Hi,
+    Alfio> again, I agree with Werner: robustbase (robust-base, robust.base) is much 
+    Alfio> easer to remember than robstats (robstat) and more appropriate than robusta.
+
+and we haven't heard anything further.
+I'd like to reach a conclusion.
+
+On some forums, the last answer is taken to be okay when nobody
+replies anymore.  I doubt though that this would be the case
+here :-)
+
+In my (biased) view I think we have the following highest
+ranking contenders ("-" and "." are not to be used in package names):
+
+ 1  robustbase
+ 2  robustats
+ 3  robustat
+ 4  robusta
+
+with some google-statistics arguments against #4.
+
+Unless there are urgent new contenders, 
+can I collect votes, please?
+To make it interesting, everyone would have 3 votes that can of
+course be partitioned as  3 or 2+1 or 1+1+1.
+
+Ideally, you send them privately to me {where you have to trust
+my honesty ;-)}, or then (mis)use the list.
+
+In order to easily collect the votes, a simple e-mail with only
+one line such as 
+
+Alfio  3 0 0 0
+       ( "Alfio gives all his 3 votes to 'robustbase'") 
+or
+Martin 0 1 0 2
+       ( "Martin gives 1 to 'robustats' and 2 to 'robusta')
+
+would make things quite efficient for me
+since I could use read.table() and rowSums() and colSums() to
+check and summarize.
+
+Unless we get new contenders (i.e. names for the above list)
+within the next 12 hours, I'll be collecting votes till
+Sunday, Dec.18, midnight MET (= UTC+1).
+
+Martin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Dec 15 17:52:46 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 15 Dec 2005 17:52:46 +0100
+Subject: [RsR] Package name voting state
+In-Reply-To: <17312.13921.354305.320499@stat.math.ethz.ch>
+References: <5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>
+	<17312.13921.354305.320499@stat.math.ethz.ch>
+Message-ID: <17313.40798.623273.319760@stat.math.ethz.ch>
+
+I didn't get strong statements for yet another name, so the vote
+"is it" ...  Well, it seems pretty clear at the moment, but
+then, many more people could still vote...
+
+A simple R script (and a cron job) auto-produces the
+webpage
+	http://stat.ethz.ch/~maechler/R-sig-robust-vote.html
+from the data file {that I update manually}.
+
+I know from politics that it is strictly forbidden to publish
+polls when the vote is still happening {because of the
+well-known "the winner takes it all" effect},
+but then we want to have some fun, too...  ;-)
+
+Martin
+
+>>>>> "MM" == Martin Maechler <maechler at stat.math.ethz.ch>
+>>>>>     on Wed, 14 Dec 2005 16:12:33 +0100 writes:
+
+     .........
+
+    MM> I'd like to reach a conclusion.
+
+    MM> On some forums, the last answer is taken to be okay when nobody
+    MM> replies anymore.  I doubt though that this would be the case
+    MM> here :-)
+
+    MM> In my (biased) view I think we have the following highest
+    MM> ranking contenders ("-" and "." are not to be used in package names):
+
+    MM> 1  robustbase
+    MM> 2  robustats
+    MM> 3  robustat
+    MM> 4  robusta
+
+    MM> with some google-statistics arguments against #4.
+
+    MM> Unless there are urgent new contenders, 
+    MM> can I collect votes, please?
+    MM> To make it interesting, everyone would have 3 votes that can of
+    MM> course be partitioned as  3 or 2+1 or 1+1+1.
+
+    MM> Ideally, you send them privately to me {where you have to trust
+    MM> my honesty ;-)}, or then (mis)use the list.
+
+    MM> In order to easily collect the votes, a simple e-mail with only
+    MM> one line such as 
+
+    MM> Alfio  3 0 0 0
+    MM> ( "Alfio gives all his 3 votes to 'robustbase'") 
+    MM> or
+    MM> Martin 0 1 0 2
+    MM> ( "Martin gives 1 to 'robustats' and 2 to 'robusta')
+
+    MM> would make things quite efficient for me
+    MM> since I could use read.table() and rowSums() and colSums() to
+    MM> check and summarize.
+
+    MM> Unless we get new contenders (i.e. names for the above list)
+    MM> within the next 12 hours, I'll be collecting votes till
+    MM> Sunday, Dec.18, midnight MET (= UTC+1).
+
+
+
+From henr|c@n||@@on @end|ng |rom @t@t|@t|con@@e  Mon Dec 19 13:52:34 2005
+From: henr|c@n||@@on @end|ng |rom @t@t|@t|con@@e (Henric Nilsson)
+Date: Mon, 19 Dec 2005 13:52:34 +0100 (CET)
+Subject: [RsR] Robust Statistical Methods with R book
+Message-ID: <3048.83.253.15.61.1134996754.squirrel@poisson.statisticon.se>
+
+
+Dear list,
+
+While ordering some books at CRC Press, I stumbled on the "Robust
+Statistical Methods with R" by Jana Jureckova and Jan Picek.
+
+http://www.crcpress.com/shopping_cart/products/product_contents.asp?id=&parent_id=&sku=C4541
+
+It seems it was released pretty recently, but maybe some of you have
+already managed to obtain a copy. Any comments (before I'm spending the
+money)?
+
+
+Thanks,
+Henric
+
+
+
+From Peter@Ruckde@che| @end|ng |rom un|-b@yreuth@de  Mon Dec 19 22:11:55 2005
+From: Peter@Ruckde@che| @end|ng |rom un|-b@yreuth@de (Peter Ruckdeschel)
+Date: Mon, 19 Dec 2005 22:11:55 +0100
+Subject: [RsR] Minutes and/or reports of the working groups ...
+Message-ID: <43A7221B.2090909@uni-bayreuth.de>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+ 
+hi
+
+first of all apologies for the late sending -- we will try to be
+better/earlier
+next time;
+
+on http://www.uni-bayreuth.de/departments/math/org/mathe7/RsR/
+you may find  a report of the working group "Time series" of the
+RsR workshop ---
+
+general remarks:
+
+*we would like to take you all in as to
+  point "Open Questions / Wish list"
+
+*all project proposals are open for
+  contributions / suggestions
+
+Best regards,
+Peter
+
+
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.1 (MingW32)
+Comment: GnuPT 2.6.2.1 by EQUIPMENTE.DE
+Comment: Using GnuPG with Mozilla - http://enigmail.mozdev.org
+ 
+iD8DBQFDpyIbx+/gN8KI3u0RAhTfAJ9Q2Ldj5fvZcpgntTdtqOW779z0lwCgrUXC
+PAFdyPahaPkrO5VZPlnmqIc=
+=xiwA
+-----END PGP SIGNATURE-----
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Peter.Ruckdeschel.vcf
+Type: text/x-vcard
+Size: 473 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20051219/c9e4dedf/attachment.vcf>
+
+From v@|ent|n@to @end|ng |rom gm@||@com  Tue Dec 20 13:20:33 2005
+From: v@|ent|n@to @end|ng |rom gm@||@com (Valentin Todorov)
+Date: Tue, 20 Dec 2005 13:20:33 +0100
+Subject: [RsR] [R] M-estimator R function question
+In-Reply-To: <F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+Message-ID: <4c0e456b0512200420n1425897ds3fca557cc584671e@mail.gmail.com>
+
+Dear Kjell ,
+
+beware of a minor error in the pairwise code that you posted: the
+weights in gk.sigmamu() will never become 0, even if abs(x) > c1.
+
+The correction should be:
+
+gk.sigmamu <- function(x, c1 = 4.5, c2 = 3.0, mu.too = FALSE, ...)
+{
+  n <- length(x)
+  medx <- median(x)
+  sigma0 <- median(abs(x - medx))
+
+  # VT::19.12.2005 - should give 0 weights if abs(x - medx) / sigma0 > c1
+  #
+  #  w <- (x - medx) / sigma0
+  #  w <- (1.0 - (w / c1)^2)^2
+  #  w[w < 0.0] <- 0.0
+
+  w <- abs(x - medx) / sigma0
+  w <- ifelse(w<=c1,(1.0 - (w / c1)^2)^2,0)
+
+  # VT::19.12.2005 - END
+
+  mu <- sum(x * w) / sum(w)
+...... ... ... ..
+
+
+best regard
+valentin
+
+On 12/5/05, Kjell Konis <konis at stats.ox.ac.uk> wrote:
+> Here is an implementation of the OGK estimator completely in R.  I
+> haven't touched it for a while and I forget how thoroughly I tested
+> it so use it with a bit of caution.
+>
+>    http://www.stats.ox.ac.uk/~konis/pairwise.q
+>
+> Ricardo, can you be more specific about what you don't like in the
+> implementation of OGK in S-Plus?
+>
+> Kjell
+>
+>
+>
+> On Dec 3, 2005, at 9:55 PM, Ricardo Maronna wrote:
+>
+> > One observation about the following.
+> >
+> >> One thing we'd be very interested is the OGK estimator of
+> >> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some
+> >> of the authors sold their code exclusively to Insightful (the
+> >> S-plus company).
+> >
+> >     Insightful has implemented the procedure in some way I ignore
+> > (actually,
+> > I don't like the way it works), but unfortunately I got not a
+> > single dollar
+> > from that!. Anybody is free to implement the method (which is
+> > extremely
+> > simple) in whatever language.
+> >             Ricardo
+> >
+> > _______________________________________________
+> > R-SIG-Robust at r-project.org mailing list
+> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Dec 20 14:38:04 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 20 Dec 2005 14:38:04 +0100
+Subject: [RsR] Package name vote --> 'robustbase'
+In-Reply-To: <17313.40798.623273.319760@stat.math.ethz.ch>
+References: <5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>
+	<17312.13921.354305.320499@stat.math.ethz.ch>
+	<17313.40798.623273.319760@stat.math.ethz.ch>
+Message-ID: <17320.2364.99323.779079@stat.math.ethz.ch>
+
+As most of you have probably seen in the mean time,
+the name 'robustbase' wone by a large margin:
+
+ robustbase 45
+ robustats   9
+ robusta     5
+ robustat    1
+
+Thanks to all 20 voters!  As a politically active Swiss, I'm
+used to voting differently than the majority ;-)
+
+I plan to make the `always current' state of the (source)
+package available (by "svn" or "subversion", but also https) at
+the same URL as other R packages already are;  I will announce
+it here, when it's ready. Probably, it will also make sense to submit it
+to CRAN even very early and unfinished, just for the reason that
+windows users who can't build R packages from the source, can
+easily install the package.
+
+Now we can get to work on it, i.e. putting functionality there.
+We might want to really consider Andreas Ruckstuhl's posted
+private package (on Dec 7) and his question
+
+ARu> Talking about names: how should we call functions which do
+ARu> i.e. robust fitting of a glm: 
+ARu>
+ARu> 	rfglm  (Robust Fitting of GLM)
+ARu> 	rglm
+ARu> 	robglm
+
+DATA SETS
+---------
+Of course, since this package is somewhat focused on the
+Maronna-Martin-Yohai book, we should eventually get their
+datasets in there, and Ricardo and Victor agreed in Treviso to
+provide them eventually.
+
+OTOH, it's quite useful to have data sets available from the
+beginning in order to write examples and tests using those data.
+I've already asked some individuals about this, but do ask here
+in public for useful / sensible / well known and non-large data sets
+to be also part of the package; such that the examples (on each
+help page!) could make use of those data sets.
+I've got already what I call 'Animals2' which is another version
+of the "brain vs body weight" data, namely the union of the two MASS
+data sets 'Animals' and 'mammals'.
+Of course, Rousseeuw & Leroy (1990), contains a few dozens more
+data sets, some of which would be interesting. 
+Several of them are currently already in Valentin's 'rrcov'
+package, and -- if Valentin agrees -- I would propose to just
+"mirror them" in the new 'robustbase' package.  Eventually, they
+could be removed from 'rrcov', namely at least then when rrcov
+would "Depend" on 'robustbase' (i.e. load or attach robustbase
+when rrov itself is loaded).
+
+Note BTW that the stackloss data *is* already in the core
+package 'datasets' (and I don't understand why at least three
+other CRAN packages have *also* provided the stackloss data,
+just with slightly different variable names.. ; well, one of
+them is package 'MPV' providing all data sets from the book 'Montgomery,
+Peck & Vining').
+Also, we really don't need data sets that are already in
+"standard" or "recommended" R packages; i.e., notably we could
+well make use of all those you see from
+     data(package = "datasets")  # standard
+     data(package = "MASS")      # recommended
+
+you can always use datasets from other packages by
+    data(<name>, package = <packagename>)
+e.g.  data(mammals, package = "MASS")
+
+Further note:  Apart from univariate data, if there are not very
+  good reasons , we'd only want data frames, not matrices or
+  single vectors, since the latter can always easily be
+  extracted from the data frames. 
+
+Now if you'd consider "donating" data sets to the 'robustbase'
+package, please send me two files,
+1) a table (*.tab, *.txt or *.csv) file, typically; or a binary *.rda
+   file, see the manual "Writing R Extensions", section 'Package
+   subdirectories'
+2) a *.Rd file as produced from  prompt(<your_dataframe>)
+   and edited __by you__ where you have filled in the relevant
+   information about the data.
+
+Martin Maechler.
+
+
+
+
+>>>>> "MM" == Martin Maechler <maechler at stat.math.ethz.ch>
+>>>>>     on Thu, 15 Dec 2005 17:52:46 +0100 writes:
+
+    MM> I didn't get strong statements for yet another name, so the vote
+    MM> "is it" ...  Well, it seems pretty clear at the moment, but
+    MM> then, many more people could still vote...
+
+    MM> A simple R script (and a cron job) auto-produces the
+    MM> webpage
+    MM> http://stat.ethz.ch/~maechler/R-sig-robust-vote.html
+    MM> from the data file {that I update manually}.
+
+    MM> I know from politics that it is strictly forbidden to publish
+    MM> polls when the vote is still happening {because of the
+    MM> well-known "the winner takes it all" effect},
+    MM> but then we want to have some fun, too...  ;-)
+
+
+
+From P@F||zmo@er @end|ng |rom tuw|en@@c@@t  Tue Dec 20 14:48:05 2005
+From: P@F||zmo@er @end|ng |rom tuw|en@@c@@t (Peter Filzmoser)
+Date: Tue, 20 Dec 2005 14:48:05 +0100
+Subject: [RsR] Robust Statistical Methods with R book
+In-Reply-To: <3048.83.253.15.61.1134996754.squirrel@poisson.statisticon.se>
+References: <3048.83.253.15.61.1134996754.squirrel@poisson.statisticon.se>
+Message-ID: <43A80B95.60105@tuwien.ac.at>
+
+Dear Henric,
+
+The book is indeed brand new, and I also ordered it. I am sure
+it is very interesting and useful, the authors are well
+known in the robustness community. Nice Christmas present!
+
+Best regards,
+Peter
+
+Henric Nilsson wrote:
+> Dear list,
+> 
+> While ordering some books at CRC Press, I stumbled on the "Robust
+> Statistical Methods with R" by Jana Jureckova and Jan Picek.
+> 
+> http://www.crcpress.com/shopping_cart/products/product_contents.asp?id=&parent_id=&sku=C4541
+> 
+> It seems it was released pretty recently, but maybe some of you have
+> already managed to obtain a copy. Any comments (before I'm spending the
+> money)?
+> 
+> 
+> Thanks,
+> Henric
+> 
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+> 
+> 
+
+
+-- 
+-------------------------------------------------------
+From: Prof. Dr. Peter Filzmoser
+       Dept. of Statistics & Probability Theory
+       Vienna University of Technology
+       Wiedner Hauptstrasse 8-10
+       A-1040 Vienna, Austria
+       Tel. +43 1 58801/10733
+       Fax. +43 1 58801/10799
+       E-mail: P.Filzmoser at tuwien.ac.at
+       Internet:
+       http://www.statistik.tuwien.ac.at/public/filz/
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Dec 20 14:53:53 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 20 Dec 2005 14:53:53 +0100
+Subject: [RsR] Mailing list archives -- public or only for subscribers?
+Message-ID: <17320.3313.620430.584005@stat.math.ethz.ch>
+
+Dear R-SIG-Robust subscribers,
+
+most of you got on this mailing list without having been
+explicitly asked, namely just by attending the Treviso workshop
+(and by not explicitly *un*subscribing since the list has been
+created).
+
+For this reason, and for "data protection" reasons, I had set up
+the mailing list *archives* to be only available to list
+subscribers (and you need to enter your e-mail address and
+mailing list password to get at them starting from the mailing
+list "site"  https://stat.ethz.ch/mailman/listinfo/r-sig-robust )
+
+There is one drawback with this approach, and that's the reason
+of my posting:
+You cannot send an URL ("link") of the list archives or a specific
+message to outsiders; something which can be useful and happens
+quite frequently with the R-help list archives, e.g.
+ >> please look at this interesting posting on R-help :
+ >>   https://stat.ethz.ch/pipermail/r-help/2005-December/082432.html
+
+or any other list archives of public R (or other) mailing lists
+on our server: All of these are open to the public.
+
+Of course, there is one single advantage of non-public mailing list
+archives: They cannot be misused by "address harvesters".
+Though E-mail addresses are automatically changed by replacing
+the single character @-sign by the four letters " at " every
+where, this may not be enough protection for some people...
+Of course, this applies only to those *posting* to the list, not
+to everyone subscribed.
+
+Now I'm proposing to *open* the archives of R-SIG-robust to
+public reading, and am interested in getting feedback on this,
+particularly if you oppose it.  {non-feedback would mean
+implicitly be taken as "yes, of course, that's fine, go ahead!"}
+
+Martin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Tue Dec 20 16:14:19 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Tue, 20 Dec 2005 16:14:19 +0100
+Subject: [RsR] [R] M-estimator R function question
+In-Reply-To: <4c0e456b0512200420n1425897ds3fca557cc584671e@mail.gmail.com>
+References: <Pine.GSO.4.33.0512021038590.10772-100000@wilcox.usc.edu>
+	<17296.47912.627297.777639@stat.math.ethz.ch>
+	<000401c5f861$b2e49c50$0100a8c0@MARONNA>
+	<F341201C-4BF8-4F5A-BA38-40F03BD83E19@stats.ox.ac.uk>
+	<4c0e456b0512200420n1425897ds3fca557cc584671e@mail.gmail.com>
+Message-ID: <17320.8139.643201.670000@stat.math.ethz.ch>
+
+>>>>> "Valentin" == Valentin Todorov <valentin.to at gmail.com>
+>>>>>     on Tue, 20 Dec 2005 13:20:33 +0100 writes:
+
+    Valentin> Dear Kjell ,
+    Valentin> beware of a minor error in the pairwise code that you posted: the
+    Valentin> weights in gk.sigmamu() will never become 0, even if abs(x) > c1.
+
+Indeed!
+
+    Valentin> The correction should be:
+
+>>      gk.sigmamu <- function(x, c1 = 4.5, c2 = 3.0, mu.too = FALSE, ...)
+>>      {
+>> 	n <- length(x)
+>> 	medx <- median(x)
+>> 	sigma0 <- median(abs(x - medx))
+>> 
+>> 	# VT::19.12.2005 - should give 0 weights if abs(x - medx) / sigma0 > c1
+>> 	#
+>> 	#  w <- (x - medx) / sigma0
+>> 	#  w <- (1.0 - (w / c1)^2)^2
+>> 	#  w[w < 0.0] <- 0.0
+>> 
+>> 	w <- abs(x - medx) / sigma0
+>> 	w <- ifelse(w<=c1,(1.0 - (w / c1)^2)^2,0)
+>> 
+>> 	# VT::19.12.2005 - END
+>> 
+>> 	mu <- sum(x * w) / sum(w)
+>> 	...... ... ... ..
+
+    Valentin> best regard
+    Valentin> valentin
+
+Note however that Kjell was trying to be smart, namely *not*
+using ifelse() in such a case -- for efficiency reasons. But he
+forgot to do it properly: Here,  pmax()  is much more efficient
+than ifelse().  Note that gk.sigmamu() is really the function that is called
+many times, so it makes sense to write it as efficiently as possible
+--- still keeping it well readable.
+
+I had also applied a few minor cosmetic improvements to Kjell's
+original code --- but overlooked the obvious buglet ! ---  
+which now leads to 
+
+gk.sigmamu <- function(x, c1 = 4.5, c2 = 3.0, mu.too = FALSE, ...)
+{
+    n <- length(x)
+    medx <- median(x)
+    x. <- abs(x - medx)
+    c.sigma0 <- c1 * median(x.)
+    w <- pmax(0, 1 - (x. / c.sigma0)^2)^2
+    mu <- sum(x * w) / sum(w)
+
+    x <- (x - mu) / sigma0
+    rho <- x^2
+    rho[rho > c2^2] <- c2^2
+    ## sigma2 <- sigma0^2 / n * sum(rho)
+
+    ## return
+    c(if(mu.too) mu,
+      ## sqrt(sigma2) == sqrt( sigma0^2 / n * sum(rho) ) :
+      sigma0 * sqrt(sum(rho)/n))
+}
+
+
+Martin Maechler, ETH Zurich
+
+
+    Valentin> On 12/5/05, Kjell Konis <konis at stats.ox.ac.uk> wrote:
+    >> Here is an implementation of the OGK estimator completely in R.  I
+    >> haven't touched it for a while and I forget how thoroughly I tested
+    >> it so use it with a bit of caution.
+    >> 
+    >> http://www.stats.ox.ac.uk/~konis/pairwise.q
+    >> 
+    >> Ricardo, can you be more specific about what you don't like in the
+    >> implementation of OGK in S-Plus?
+    >> 
+    >> Kjell
+    >> 
+    >> 
+    >> 
+    >> On Dec 3, 2005, at 9:55 PM, Ricardo Maronna wrote:
+    >> 
+    >> > One observation about the following.
+    >> >
+    >> >> One thing we'd be very interested is the OGK estimator of
+    >> >> Maronna and Zamar (JASA, 2002).  Unfortunately, there, too, some
+    >> >> of the authors sold their code exclusively to Insightful (the
+    >> >> S-plus company).
+    >> >
+    >> >     Insightful has implemented the procedure in some way I ignore
+    >> > (actually,
+    >> > I don't like the way it works), but unfortunately I got not a
+    >> > single dollar
+    >> > from that!. Anybody is free to implement the method (which is
+    >> > extremely
+    >> > simple) in whatever language.
+    >> >             Ricardo
+    >> >
+    >> > _______________________________________________
+    >> > R-SIG-Robust at r-project.org mailing list
+    >> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+    >> 
+    >> _______________________________________________
+    >> R-SIG-Robust at r-project.org mailing list
+    >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+    >> 
+
+    Valentin> _______________________________________________
+    Valentin> R-SIG-Robust at r-project.org mailing list
+    Valentin> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From Ev@@C@nton| @end|ng |rom metr|@un|ge@ch  Tue Dec 20 18:35:19 2005
+From: Ev@@C@nton| @end|ng |rom metr|@un|ge@ch (Eva Cantoni)
+Date: Tue, 20 Dec 2005 18:35:19 +0100
+Subject: [RsR] Package name vote --> 'robustbase'
+In-Reply-To: <17320.2364.99323.779079@stat.math.ethz.ch>
+References: <5.1.0.14.2.20051210193001.023cfaf0@pop.intranet.chuv>
+	<17312.13921.354305.320499@stat.math.ethz.ch>
+	<17313.40798.623273.319760@stat.math.ethz.ch>
+	<17320.2364.99323.779079@stat.math.ethz.ch>
+Message-ID: <43A840D7.5040308@metri.unige.ch>
+
+>
+>
+>ARu> Talking about names: how should we call functions which do
+>ARu> i.e. robust fitting of a glm: 
+>ARu>
+>ARu> 	rfglm  (Robust Fitting of GLM)
+>ARu> 	rglm
+>ARu> 	robglm
+>
+>  
+>
+I have no preference, but consistency with the robust version of lm is 
+probably needed.
+
+Happy Christmas/ Season greetings to you all!
+
+Eva
+
+-- 
+
+ Dr Eva Cantoni                 phone  : (+41) 22 379 8240
+ Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299
+ 40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at metri.unige.ch
+ CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni
+
+
+
+From P@F||zmo@er @end|ng |rom tuw|en@@c@@t  Wed Dec 21 12:38:04 2005
+From: P@F||zmo@er @end|ng |rom tuw|en@@c@@t (Peter Filzmoser)
+Date: Wed, 21 Dec 2005 12:38:04 +0100
+Subject: [RsR] Minutes Treviso
+Message-ID: <43A93E9C.2060708@tuwien.ac.at>
+
+Please, have a look at the RSR home page
+
+http://www.statistik.tuwien.ac.at/rsr/
+
+where you can find now minutes from the workshop in
+Treviso from *all* working groups!
+
+Thanks a lot to the contributors.
+
+Regards,
+Peter
+-- 
+-------------------------------------------------------
+From: Prof. Dr. Peter Filzmoser
+       Dept. of Statistics & Probability Theory
+       Vienna University of Technology
+       Wiedner Hauptstrasse 8-10
+       A-1040 Vienna, Austria
+       Tel. +43 1 58801/10733
+       Fax. +43 1 58801/10799
+       E-mail: P.Filzmoser at tuwien.ac.at
+       Internet:
+       http://www.statistik.tuwien.ac.at/public/filz/
+
+
+
+From jcbouette @end|ng |rom gm@||@com  Wed Dec 21 14:13:38 2005
+From: jcbouette @end|ng |rom gm@||@com (Jean-Christophe BOUETTE)
+Date: Wed, 21 Dec 2005 14:13:38 +0100
+Subject: [RsR] Function names
+Message-ID: <11544d000512210513l5566a0f8w@mail.gmail.com>
+
+I wasn't in Treviso, but the question was adressed in
+http://www.dst.unive.it/rsr/Konis-treviso.pdf
+and the answer was glmRob... the same as in Insightful's library.
+
+Or do we need another vote? ;-)
+
+Of course it is not consistent with rlm, but it can be aliased as lmRob.
+
+Joyeux No?l ? tous,
+Jean-Christophe.
+
+> >ARu> Talking about names: how should we call functions which do
+> >ARu> i.e. robust fitting of a glm:
+> >ARu>
+> >ARu>   rfglm  (Robust Fitting of GLM)
+> >ARu>   rglm
+> >ARu>   robglm
+> >
+> >
+> >
+> I have no preference, but consistency with the robust version of lm is
+> probably needed.
+>
+> Happy Christmas/ Season greetings to you all!
+>
+> Eva
+>
+> --
+>
+>  Dr Eva Cantoni                 phone  : (+41) 22 379 8240
+>  Econom?trie - Univ. Gen?ve     fax    : (+41) 22 379 8299
+>  40, Bd du Pont d'Arve          e-mail : Eva.Cantoni at metri.unige.ch
+>  CH-1211 Gen?ve 4               http://www.unige.ch/ses/metri/cantoni
+>
+>
+>
+> ------------------------------
+>
+> _______________________________________________
+> R-SIG-Robust mailing list
+> R-SIG-Robust at r-project.org
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From Friedrich@Leisch m@iii@g oii tuwie@@@c@@t  Wed Dec 21 14:43:18 2005
+From: Friedrich@Leisch m@iii@g oii tuwie@@@c@@t (Friedrich@Leisch m@iii@g oii tuwie@@@c@@t)
+Date: Wed, 21 Dec 2005 14:43:18 +0100
+Subject: [RsR] Function names
+In-Reply-To: <11544d000512210513l5566a0f8w@mail.gmail.com>
+References: <11544d000512210513l5566a0f8w@mail.gmail.com>
+Message-ID: <17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>
+
+>>>>> On Wed, 21 Dec 2005 14:13:38 +0100,
+>>>>> Jean-Christophe BOUETTE (JB) wrote:
+
+  > I wasn't in Treviso, but the question was adressed in
+  > http://www.dst.unive.it/rsr/Konis-treviso.pdf
+  > and the answer was glmRob... the same as in Insightful's library.
+
+  > Or do we need another vote? ;-)
+
+I'm not sure about another vote, but what I am sure about is, that we
+need to be *very* careful when using the same names as S-Plus does: If
+we use the same name, the functions should be fully compatible, i.e.,
+take the same arguments (with same names) and return the same objects.
+
+So the real question is not what name to use, but whether we want a
+clone of the S-Plus function or not.
+
+ Pro clone: Code using the function can be used on both S-Plus and R
+
+ Contra clone: The first solution to a given problem is not always the
+ best one.
+
+Kjells talk was mostly on recreating the existing S-Plus solution
+(based on the possible "code donation" by Insightful). If you remember
+the discussion after his talk: there were several people (including
+myself) who are not so enthusiastic about cloning the robust library,
+because we would make some design decisions differently.
+
+Don't get me wrong: I liked Kjell's talk very much and the Splus
+robust library has a lot of good stuff in it, but time goes on, and
+people tend to learn.
+
+We are now at a point where we can get it right, and we have the
+advantage of existing prototype code, which we can analyze for
+strengths and weaknesses. All I'm saying is don't clone without
+thinking first. If we use a different name, we can play around and see
+what the outcome will be. If we use the same name, users will expect
+that at some point in time it does (almost) exactly the same thing as
+the S-plus function.
+
+Just my 2c
+
+Best,
+Fritz
+
+-- 
+-------------------------------------------------------------------
+                        Friedrich Leisch 
+Institut f?r Statistik                     Tel: (+43 1) 58801 10715
+Technische Universit?t Wien                Fax: (+43 1) 58801 10798
+Wiedner Hauptstra?e 8-10/1071
+A-1040 Wien, Austria             http://www.ci.tuwien.ac.at/~leisch
+
+
+
+From Friedrich@Leisch m@iii@g oii tuwie@@@c@@t  Wed Dec 21 14:45:49 2005
+From: Friedrich@Leisch m@iii@g oii tuwie@@@c@@t (Friedrich@Leisch m@iii@g oii tuwie@@@c@@t)
+Date: Wed, 21 Dec 2005 14:45:49 +0100
+Subject: [RsR] Function names
+In-Reply-To: <17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>
+References: <11544d000512210513l5566a0f8w@mail.gmail.com>
+	<17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>
+Message-ID: <17321.23693.348508.367831@galadriel.ci.tuwien.ac.at>
+
+>>>>> On Wed, 21 Dec 2005 14:43:18 +0100,
+>>>>> Friedrich Leisch (FL) wrote:
+
+>>>>> On Wed, 21 Dec 2005 14:13:38 +0100,
+>>>>> Jean-Christophe BOUETTE (JB) wrote:
+
+  >> I wasn't in Treviso,
+
+[...]
+
+  > Kjells talk was mostly on recreating the existing S-Plus solution
+  > (based on the possible "code donation" by Insightful). If you remember
+  > the discussion after his talk:
+
+Sorry, meant to write "If those of you whe were in Treviso remember
+..."
+
+Fritz
+
+-- 
+-------------------------------------------------------------------
+                        Friedrich Leisch 
+Institut f?r Statistik                     Tel: (+43 1) 58801 10715
+Technische Universit?t Wien                Fax: (+43 1) 58801 10798
+Wiedner Hauptstra?e 8-10/1071
+A-1040 Wien, Austria             http://www.ci.tuwien.ac.at/~leisch
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Wed Dec 21 15:38:48 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Wed, 21 Dec 2005 15:38:48 +0100
+Subject: [RsR] Function names
+In-Reply-To: <17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>
+References: <11544d000512210513l5566a0f8w@mail.gmail.com>
+	<17321.23542.81073.786554@galadriel.ci.tuwien.ac.at>
+Message-ID: <17321.26872.29963.272433@stat.math.ethz.ch>
+
+>>>>> "FrL" == Friedrich Leisch <Friedrich.Leisch at tuwien.ac.at>
+>>>>>     on Wed, 21 Dec 2005 14:43:18 +0100 writes:
+
+>>>>> On Wed, 21 Dec 2005 14:13:38 +0100,
+>>>>> Jean-Christophe BOUETTE (JB) wrote:
+
+    >> I wasn't in Treviso, but the question was adressed in
+    >> http://www.dst.unive.it/rsr/Konis-treviso.pdf
+    >> and the answer was glmRob... the same as in Insightful's library.
+
+    >> Or do we need another vote? ;-)
+
+maybe, but Fritz has almost entirely described my own thoughts on this:
+
+    FrL> I'm not sure about another vote, but what I am sure about is, that we
+    FrL> need to be *very* careful when using the same names as S-Plus does: If
+    FrL> we use the same name, the functions should be fully compatible, i.e.,
+    FrL> take the same arguments (with same names) and return the same objects.
+
+    FrL> So the real question is not what name to use, but whether we want a
+    FrL> clone of the S-Plus function or not.
+
+    FrL> Pro clone: Code using the function can be used on both S-Plus and R
+
+    FrL> Contra clone: The first solution to a given problem is not always the
+    FrL> best one.
+
+    FrL> Kjells talk was mostly on recreating the existing S-Plus solution
+    FrL> (based on the possible "code donation" by Insightful). If you remember
+    FrL> the discussion after his talk: there were several people (including
+    FrL> myself) who are not so enthusiastic about cloning the robust library,
+    FrL> because we would make some design decisions differently.
+
+    FrL> Don't get me wrong: I liked Kjell's talk very much and the Splus
+    FrL> robust library has a lot of good stuff in it, but time goes on, and
+    FrL> people tend to learn.
+
+    FrL> We are now at a point where we can get it right, and we have the
+    FrL> advantage of existing prototype code, which we can analyze for
+    FrL> strengths and weaknesses. All I'm saying is don't clone without
+    FrL> thinking first. If we use a different name, we can play around and see
+    FrL> what the outcome will be. If we use the same name, users will expect
+    FrL> that at some point in time it does (almost) exactly the same thing as
+    FrL> the S-plus function.
+
+As a matter of fact, when talking about the name of the package
+'robustbase', I made quite clear that in my opinion, to take the name
+'robust' was absolutely wrong, for the same reasons Fritz has used above.
+
+We will be developing functionality partly "from scratch", hopefully
+state-of-the-art, and often will differ from what the S-plus
+library section 'robust' has, sometimes very much on purpose.
+Hence for the same reason that 'robust' was no option to me as
+package name, the function names of S-plus 'robust' are not
+an option now, in general.
+*If* the donation (mentioned by Kjell, cited above by Fritz)
+will ever happen {and with a reasonable licence, I'd say},  some
+of us might be interested to use that donation for producing a
+'robust' package which would probably strive to be a clone of S+
+library(robust).
+In specific cases (with no particular ones in mind), we
+might consider using identical names; this would be even more
+true if the above donation happened quickly enough ((and would
+be accompanied by a licence similar to (L)GPL. "Only for
+academic use" or similar statements would make them unusable for
+the 'robustbase' package IMO))
+
+    FrL> Just my 2c
+and my 2 Rp. :-)
+
+Martin Maechler, ETH Zurich
+
+
+
+From m@t|@@ @end|ng |rom @t@t@ubc@c@  Wed Dec 21 23:07:55 2005
+From: m@t|@@ @end|ng |rom @t@t@ubc@c@ (Matias Salibian-Barrera)
+Date: Wed, 21 Dec 2005 14:07:55 -0800
+Subject: [RsR] Robust regression
+In-Reply-To: <43A93E9C.2060708@tuwien.ac.at>
+References: <43A93E9C.2060708@tuwien.ac.at>
+Message-ID: <43A9D23B.2030207@stat.ubc.ca>
+
+
+Dear List,
+
+A few days ago I uploaded the package "roblm" to CRAN. It implements 
+MM-regression estimators and currently has some diagnostic plots as 
+well. The documentation needs quite a bit of work, but the main 
+information is there.
+
+Note that the name of the package (and the corresponding class) is 
+"roblm", but this does not mean that I necessarily prefer this name over 
+others. I've been working on this for some time now, and for the reasons 
+that I mentioned in Treviso ("rlm" and "lmRob" are already taken) I 
+settled for roblm.
+
+I took the liberty to re-organize the regression workgroup minutes 
+relating to linear regression in a format closer to a "to-do" list. I 
+would very much appreciate your feedback. Names within parenthesis 
+indicate "volunteers" for a particular task. Please feel free to correct 
+all my mistakes (and to add your name to the list of volunteers!)
+
+Thanks.
+
+Matias
+
+-- An initial (partial) list of things that remain to be done for robust 
+linear regression
+
+- expose the "initial estimator" as a separate function.
+	This should include the fast-S (already built-in), the
+	alternate M-S estimator for the case of many factor
+	variables (Victor can provide code), and the heuristic
+	initial estimator of Yohai-Pena (Victor has code?)
+- explore how to use score ("psi") functions declared in
+	R (as S4 objects) in the C code
+- decide which options should stay in the "control" function
+- add to summary.roblm(), print.roblm() and
+	print.summary.roblm() information on which estimation
+	method was used (MM, etc)
+- write a model selection function (Victor has code for a robust
+	backward stepwise method (RFPE?); Elvezio may know of / have
+	code for the robust Cp; Eva can provide this part?)
+- write an "anova" function using robust F-, Wald tests	(Matias)
+- add the robust weights to the returned object (Matias)
+- improve / complete roblm documentation (Matias)
+- incorporate more data sets (with documentation) (Matias)
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Dec 22 12:08:55 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 22 Dec 2005 12:08:55 +0100
+Subject: [RsR] Robust regression
+In-Reply-To: <43A9D23B.2030207@stat.ubc.ca>
+References: <43A93E9C.2060708@tuwien.ac.at>
+	<43A9D23B.2030207@stat.ubc.ca>
+Message-ID: <17322.35143.535242.881553@stat.math.ethz.ch>
+
+>>>>> "Matias" == Matias Salibian-Barrera <matias at stat.ubc.ca>
+>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:
+
+    Matias> Dear List,
+
+    Matias> A few days ago I uploaded the package "roblm" to CRAN. It implements 
+    Matias> MM-regression estimators and currently has some diagnostic plots as 
+    Matias> well. The documentation needs quite a bit of work, but the main 
+    Matias> information is there.
+
+
+Thank you, Matias!
+
+    Matias> Note that the name of the package (and the corresponding class) is 
+    Matias> "roblm", but this does not mean that I necessarily prefer this name over 
+    Matias> others. I've been working on this for some time now, and for the reasons 
+    Matias> that I mentioned in Treviso ("rlm" and "lmRob" are already taken) I 
+    Matias> settled for roblm.
+
+(I'm replying to this in a different e-mail on  
+ "function naming ... " )
+
+    Matias> I took the liberty to re-organize the regression
+    Matias> workgroup minutes relating to linear regression in a
+    Matias> format closer to a "to-do" list. I would very much
+    Matias> appreciate your feedback. Names within parenthesis
+    Matias> indicate "volunteers" for a particular task. Please
+    Matias> feel free to correct all my mistakes (and to add
+    Matias> your name to the list of volunteers!)
+
+
+    Matias> -- An initial (partial) list of things that remain
+    Matias>    to be done for robust linear regression
+
+>>     - expose the "initial estimator" as a separate function.
+>> 	    This should include the fast-S (already built-in), the
+>> 	    alternate M-S estimator for the case of many factor
+>> 	    variables (Victor can provide code), and the heuristic
+>> 	    initial estimator of Yohai-Pena (Victor has code?)
+
+>>     - explore how to use score ("psi") functions declared in
+>> 	    R (as S4 objects) in the C code
+
+good point (which you've raised on this list earlier, but didn't
+get an answer)!
+I'm not yet sure what the optimal approach would be here.
+There is some overhead calling the interpreted R code from the C
+code.  In the mean time I had an idea which might be more
+flexible: The R class could have a slot which is (empty or) a
+pointer ("externalptr") to a C function if that is available.
+
+Hence for some score/psi/rho/.. functions one, R would call fast
+builtin C-code where one still would have the full flexibility
+of "playing with" new *-functions..
+
+>>     - decide which options should stay in the "control" function
+>>     - add to summary.roblm(), print.roblm() and
+>> 	    print.summary.roblm() information on which estimation
+>> 	    method was used (MM, etc)
+>>     - write a model selection function (Victor has code for a robust
+>> 	    backward stepwise method (RFPE?); Elvezio may know of / have
+>> 	    code for the robust Cp; Eva can provide this part?)
+>>     - write an "anova" function using robust F-, Wald tests	(Matias)
+
+yes, in my view; I had argued in Treviso that 'anova' shoold be
+used as function for comparing nested models also in situations
+where it's really not an '[an]alysis [o]f [va]riance' anymore.
+
+>>     - add the robust weights to the returned object (Matias)
+
+I agree.  This applies to almost all robust procedures.
+Here we should also try to find a common name
+('wts','weights',..), and also 'standardize' I think; either
+requiring 
+max_i w_i = 1 (natural for  w(r_i) = psi(r_i) / r_i)  or then  
+sum_i w_i = 1 (natural for  formulae using the weights)
+
+
+>>     - improve / complete roblm documentation (Matias)
+
+>>     - incorporate more data sets (with documentation) (Matias)
+
+I've also asked for this a few days ago, and Valentin has
+promised to provide quite a few from the Rousseeuw-Leroy book.
+Hopefully, those from the MMY book (Maronna-Martin-Yohai) will
+also be provided relatively soon.
+
+Martin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Thu Dec 22 12:12:50 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Thu, 22 Dec 2005 12:12:50 +0100
+Subject: [RsR] function naming for "robust ..."
+In-Reply-To: <43A9D23B.2030207@stat.ubc.ca>
+References: <43A93E9C.2060708@tuwien.ac.at>
+	<43A9D23B.2030207@stat.ubc.ca>
+Message-ID: <17322.35378.533261.42930@stat.math.ethz.ch>
+
+>>>>> "Matias" == Matias Salibian-Barrera <matias at stat.ubc.ca>
+>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:
+
+	  .........
+
+    Matias> A few days ago I uploaded the package "roblm" to CRAN.
+    Matias>  ........
+
+    Matias> Note that the name of the package (and the
+    Matias> corresponding class) is "roblm", but this does not
+    Matias> mean that I necessarily prefer this name over
+    Matias> others. I've been working on this for some time now,
+    Matias> and for the reasons that I mentioned in Treviso
+    Matias> ("rlm" and "lmRob" are already taken) I settled for
+    Matias> roblm.
+
+yes. In Treviso, we had talked about trying to go for "rlm" and
+I had offered to try to resolve the name clash with MASS::rlm().
+I now think that this may not be a good idea:  rlm()
+in MASS is really relatively prominent in the MASS book with
+years of tradition, and usage in many places.  Also its default
+method is "M", not "MM" { for a good reason: back compatibility
+with older versions of rlm()}.
+Hence our new  (robust|rob|rf|r)lm(Rob) function would never be
+'call-compatible' to MASS::rlm() and for that reason I think we
+should strive for a different naming scheme.
+
+Andreas Ruckstuhl had raised the point already at Treviso, and
+on this list (Dec 7, "Re: [RsR] OGK covariance estimator") where
+he'd proposed
+     r*   [as 'rlm' in MASS]
+     rob* [as 'roblm' above]
+     rf*  ["[R]obust [F]itting of ..", used in Andreas' package]
+
+The last one may be a bit more logical than all the others,
+since in one sense there's just one linear model with different
+fitting methodologies, since in fact,
+the error distribution hasn't been part of the
+model specification __for most statistical software__
+
+OTOH, "rob" is easy to pronounce/spell
+[OTOH, there's all the people called 'Rob' ...]
+
+As you can guess, from Andreas' list, I'd either take
+'rob*' or 'rf*' and don't have strong preference.  
+Other opinions?
+
+Martin
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Dec 23 11:53:09 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 23 Dec 2005 11:53:09 +0100
+Subject: [RsR] Mailing list archives --> now public
+In-Reply-To: <17320.3313.620430.584005@stat.math.ethz.ch>
+References: <17320.3313.620430.584005@stat.math.ethz.ch>
+Message-ID: <17323.55061.834485.995958@stat.math.ethz.ch>
+
+Since I didn't get any protests, (and one encouragement),
+I have now opened the mailing list *archives* for public
+reading.
+
+Note that for "posting" (i.e. sending anything to the list), you
+must still be subscribed to the list (or be explicitly approved
+by one of {Claudio, Matias, Martin}).
+
+As a consequence, we now can "cite"  R-SIG-robust postings such
+as the (only) one from Andreas, where he had asked for feedback:
+   https://stat.ethz.ch/pipermail/r-sig-robust/2005/000024.html
+
+(The 's' in "https" means that you will be asked *once* to
+ approve a only semi-official certificate of our web server;
+ just do approve and make sure the approval is remembered by
+ your web browser.)
+
+Martin
+
+>>>>> "MM" == Martin Maechler <maechler at stat.math.ethz.ch>
+>>>>>     on Tue, 20 Dec 2005 14:53:53 +0100 writes:
+
+    MM> Dear R-SIG-Robust subscribers,
+    MM> most of you got on this mailing list without having been
+    MM> explicitly asked, namely just by attending the Treviso workshop
+    MM> (and by not explicitly *un*subscribing since the list has been
+    MM> created).
+
+    MM> For this reason, and for "data protection" reasons, I had set up
+    MM> the mailing list *archives* to be only available to list
+    MM> subscribers (and you need to enter your e-mail address and
+    MM> mailing list password to get at them starting from the mailing
+    MM> list "site"  https://stat.ethz.ch/mailman/listinfo/r-sig-robust )
+
+    MM> There is one drawback with this approach, and that's the reason
+    MM> of my posting:
+    MM> You cannot send an URL ("link") of the list archives or a specific
+    MM> message to outsiders; something which can be useful and happens
+    MM> quite frequently with the R-help list archives, e.g.
+    >>> please look at this interesting posting on R-help :
+    >>> https://stat.ethz.ch/pipermail/r-help/2005-December/082432.html
+
+    MM> or any other list archives of public R (or other) mailing lists
+    MM> on our server: All of these are open to the public.
+
+    MM> Of course, there is one single advantage of non-public mailing list
+    MM> archives: They cannot be misused by "address harvesters".
+    MM> Though E-mail addresses are automatically changed by replacing
+    MM> the single character @-sign by the four letters " at " every
+    MM> where, this may not be enough protection for some people...
+    MM> Of course, this applies only to those *posting* to the list, not
+    MM> to everyone subscribed.
+
+    MM> Now I'm proposing to *open* the archives of R-SIG-robust to
+    MM> public reading, and am interested in getting feedback on this,
+    MM> particularly if you oppose it.  {non-feedback would mean
+    MM> implicitly be taken as "yes, of course, that's fine, go ahead!"}
+
+    MM> Martin
+
+    MM> _______________________________________________
+    MM> R-SIG-Robust at r-project.org mailing list
+    MM> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+
+
+
+From v@|ent|n@todorov @end|ng |rom che||o@@t  Fri Dec 30 11:48:25 2005
+From: v@|ent|n@todorov @end|ng |rom che||o@@t (Valentin Todorov)
+Date: Fri, 30 Dec 2005 11:48:25 +0100
+Subject: [RsR] Traditional vs. lattice graphics
+References: <43A93E9C.2060708@tuwien.ac.at><43A9D23B.2030207@stat.ubc.ca>
+	<17322.35378.533261.42930@stat.math.ethz.ch>
+Message-ID: <005501c60d2e$8fd22b10$1b01a8c0@KILER>
+
+Dear RSR-List,
+
+I wish you all the best in the new 2006.
+
+May be all of you are enjoying the holidays, but I want to ask (a stupid?)
+question about graphics - what type of graphics shall we prefer for
+implementing the plot functions of a package, the traditional graphics or
+the lattice package:
+
+a) only traditional
+b) only lattice
+c) mixed (some of the plots are implemented using traditional graphics and
+others - the lattice package)
+d) both - all plots in the package are implemented as traditional as well as
+lattice plots and the user has an option to choose one of them.
+
+Best regards,
+Valentin
+
+
+
+From Ach|m@Ze||e|@ @end|ng |rom wu-w|en@@c@@t  Fri Dec 30 13:03:06 2005
+From: Ach|m@Ze||e|@ @end|ng |rom wu-w|en@@c@@t (Achim Zeileis)
+Date: Fri, 30 Dec 2005 13:03:06 +0100 (CET)
+Subject: [RsR] Traditional vs. lattice graphics
+In-Reply-To: <005501c60d2e$8fd22b10$1b01a8c0@KILER>
+References: <43A93E9C.2060708@tuwien.ac.at><43A9D23B.2030207@stat.ubc.ca>
+	<17322.35378.533261.42930@stat.math.ethz.ch>
+	<005501c60d2e$8fd22b10$1b01a8c0@KILER>
+Message-ID: <Pine.LNX.4.58.0512301257350.23140@thorin.ci.tuwien.ac.at>
+
+On Fri, 30 Dec 2005, Valentin Todorov wrote:
+
+> Dear RSR-List,
+>
+> I wish you all the best in the new 2006.
+>
+> May be all of you are enjoying the holidays, but I want to ask (a stupid?)
+> question about graphics - what type of graphics shall we prefer for
+> implementing the plot functions of a package, the traditional graphics or
+> the lattice package:
+>
+> a) only traditional
+> b) only lattice
+> c) mixed (some of the plots are implemented using traditional graphics and
+> others - the lattice package)
+> d) both - all plots in the package are implemented as traditional as well as
+> lattice plots and the user has an option to choose one of them.
+
+Let me say two things about this:
+  1. base vs. lattice graphics is not the only choice. You can also write
+     graphics using grid directly and not via the lattice package. This
+     is particularly useful if you want to create plots that do not fit
+     directly in the lattice framework. We have done this for the vcd
+     package which contains some vignettes describing the ideas that went
+     into the creation of the package.
+  2. My experience from writing vcd is that - as long as you don't do very
+     sophisticated graphics that reach very deep into the base graphics or
+     grid routines - it is not very much work to write a core computation
+     engine and then render the plot either in base or grid. For example,
+     I've written spineplot() first in base graphics and then easily
+     transferred it to a grid implementation in spine() in vcd.
+Just my EUR 0.02 and my experience...
+Z
+
+
+> Best regards,
+> Valentin
+>
+> _______________________________________________
+> R-SIG-Robust at r-project.org mailing list
+> https://stat.ethz.ch/mailman/listinfo/r-sig-robust
+>
+
+
+
+From m@ech|er @end|ng |rom @t@t@m@th@ethz@ch  Fri Dec 30 21:56:27 2005
+From: m@ech|er @end|ng |rom @t@t@m@th@ethz@ch (Martin Maechler)
+Date: Fri, 30 Dec 2005 21:56:27 +0100
+Subject: [RsR] Traditional vs. lattice graphics
+In-Reply-To: <005501c60d2e$8fd22b10$1b01a8c0@KILER>
+References: <005501c60d2e$8fd22b10$1b01a8c0@KILER>
+Message-ID: <17333.40699.343111.247017@stat.math.ethz.ch>
+
+>>>>> "Valentin" == Valentin Todorov <valentin.todorov at chello.at>
+>>>>>     on Fri, 30 Dec 2005 11:48:25 +0100 writes:
+
+    Valentin> Dear RSR-List,
+    Valentin> I wish you all the best in the new 2006.
+
+and so do I.
+
+    Valentin> May be all of you are enjoying the holidays, but I want to ask (a stupid?)
+
+not at all stupid; rather very interesting, and very good to ask early..
+
+    Valentin> question about graphics - what type of graphics shall we prefer for
+    Valentin> implementing the plot functions of a package, the traditional graphics or
+    Valentin> the lattice package:
+
+    Valentin> a) only traditional
+
+I'm slightly modifying  -- as Achim "kind of mentioned" -- your
+subsequent points to include "grid".
+Note that lattice is written, using grid graphics, so the two
+belong together.
+
+            b) only grid & lattice
+
+            c) mixed (some of the plots are implemented using traditional graphics and
+	              others using the grid and/or lattice package)
+            d) both - all plots in the package are implemented as traditional as well as
+	              grid or lattice plots and the user has an option to choose one of them.
+
+I'd be pragmatic and go for "c)" , at least for now,
+with the following reasoning / arguments:
+
+grid and lattice (which is based on grid) are clearly superior
+to traditional graphics in their design and possibilities {for 'grid'}.
+However, for some S / R programmers, the effort to work with
+lattice or grid may be considerably higher than traditional
+graphics.  Now since 'robustbase' is really first about
+computation (and inference) with graphics only an important
+tool, I would hesitate to *require* that people provide plot()
+methods via grid/lattice.
+If novel plots are invented, they really ``should'' be done via
+grid graphics {or maybe via lattice panel functions using grid
+graphics};  but I'm not sure we will see such novel plots...
+OTOH, for really simple plots {lines, points,.. in only one
+'panel'}, the use of lattice/grid does not add much value (I
+think) and actually may make it even make it considerably harder
+for "traditionalists" to add to such a graphic.
+
+It could be interesting to hear many more opinions...
+
+Martin
+
+
+
+From Ach|m@Ze||e|@ @end|ng |rom wu-w|en@@c@@t  Sat Dec 31 01:15:44 2005
+From: Ach|m@Ze||e|@ @end|ng |rom wu-w|en@@c@@t (Achim Zeileis)
+Date: Sat, 31 Dec 2005 01:15:44 +0100 (CET)
+Subject: [RsR] Traditional vs. lattice graphics
+In-Reply-To: <17333.40699.343111.247017@stat.math.ethz.ch>
+References: <005501c60d2e$8fd22b10$1b01a8c0@KILER>
+	<17333.40699.343111.247017@stat.math.ethz.ch>
+Message-ID: <Pine.LNX.4.58.0512310106510.23979@thorin.ci.tuwien.ac.at>
+
+On Fri, 30 Dec 2005, Martin Maechler wrote:
+
+> If novel plots are invented, they really ``should'' be done via
+> grid graphics {or maybe via lattice panel functions using grid
+> graphics};  but I'm not sure we will see such novel plots...
+> OTOH, for really simple plots {lines, points,.. in only one
+> 'panel'}, the use of lattice/grid does not add much value (I
+> think) and actually may make it even make it considerably harder
+> for "traditionalists" to add to such a graphic.
+
+Yes, good point. To expand a little: Single panel plots that are
+essentially of a scatter plot type, the base framework is usually
+sufficient and easier to use. If, in addition, a grid implementation is
+needed, it's usually easy to add. For multiple panel plots, grid/lattice
+will probably provide better tools.
+The advantage of having the single panel plots available in grid and not
+only in base graphics, is that they can be easily re-used in multi-panel
+plots. So personally, I usually start to write the single panel prototype
+in base graphics, then transform it to grid and possibly re-use it in
+other functions.
+Z
+
+
+
+From n|kko @end|ng |rom h@||m@||@net  Sat Dec 31 17:53:43 2005
+From: n|kko @end|ng |rom h@||m@||@net (Nicholas Lewin-Koh)
+Date: Sat, 31 Dec 2005 11:53:43 -0500
+Subject: [RsR] Traditional vs. lattice graphics
+In-Reply-To: <mailman.9.1136026801.16787.r-sig-robust@r-project.org>
+References: <mailman.9.1136026801.16787.r-sig-robust@r-project.org>
+Message-ID: <1136048023.20398.250836441@webmail.messagingengine.com>
+
+Hi,
+In general I agree with Martin and Achim except for one small point. 
+If you construct your basic plots using grid, it is very easy to
+incorporate 
+them into a lattice framework later, since each plot can sit in a
+viewport.
+Even better would be to use a framework so the plot is constructed as a
+layout
+and a series of additions to the plot area, then it is very easy to
+write panel functions
+for lattice, if conditioning is desired later. 
+
+My experience with base graphics has been that I can only go so far, and
+I have 
+had to switch to grid in the end. Also, grid seems to integrate pretty
+well with s4
+classes, even though Paul used s3 classes for grid. It is very natural
+to
+construct s4 graphics classes with a slot for a vieport tree, and
+various grobs.
+
+That's my 2c
+
+Cheers and happy new year
+
+Nicholas
+
+
+

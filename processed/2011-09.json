@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2011-09",
+  "messages": [
+    {
+      "id": "msg-6a4ad1966514",
+      "message_id": "<CAG2PC+eO_fGUxL-DuNGs+H_qU-2DfTo9oyiyRtHHedP20984nQ@mail.gmail.com>",
+      "from_name": "Ben qant",
+      "from_email_hash": "dc7961c16b40715d33fabb63cd5bbb28527ea72b1f63229ea1573e1e72b20a66",
+      "date": "2011-09-28T17:12:19-06:00",
+      "subject": "[RsR] get outlier list without plot",
+      "subject_clean": "[RsR] get outlier list without plot",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nFirst time posting on the robust list. New to R.\n\nHow do I get the outliers list generated via uni.plot without opening a\ngraphics device?\n\nRegards,\n\nBen\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\n\nFirst time posting on the robust list. New to R.\n\nHow do I get the outliers list generated via uni.plot without opening a\ngraphics device?\n\nRegards,\n\nBen\n\n\t[[alternative HTML version deleted]]",
+      "thread_id": "thread-6a4ad1966514",
+      "thread_depth": 0,
+      "month": "2011-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-6a4ad1966514",
+      "subject": "[RsR] get outlier list without plot",
+      "message_count": 1,
+      "participants": [
+        "Ben qant"
+      ],
+      "started": "2011-09-28T17:12:19-06:00",
+      "last_reply": "2011-09-28T17:12:19-06:00",
+      "root_message_id": "msg-6a4ad1966514"
+    }
+  ]
+}

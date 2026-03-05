@@ -1,0 +1,135 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2020-03",
+  "messages": [
+    {
+      "id": "msg-c8172ff24046",
+      "message_id": "<24161.9959.584045.830876@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2020-03-05T17:20:55+01:00",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "subject_clean": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "in_reply_to": "<CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>",
+      "references": [
+        "<CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> Valentin Todorov \n>>>>>     on Fri, 28 Feb 2020 22:31:21 +0100 writes:\n\n    > Dear Martin,\n    > I was thinking of this since Kjell\n    > abandoned the package, but I was not sure to what extent would this be\n    > necessary - most of the functionality of 'robust' we already moved to\n    > 'robustbase' and/or 'rrcov', therefore it suggests/imports these packages.\n    > Let us see in the next days what still remains there and is valuable and\n    > decide what to do.\n\n    > Best regards,\n    > Valentin\n\nThank you, Valentin.\n\nI had similar thoughts a long time ago, I think prompted\nindepedently by  Kjell  and Doug Martin ...\n\nI vaguely remember I found that there have been things in\n'Robust' which looked valuable and notably good to have for\ncomparison reasons,\n*but* that were a lot work to \"tear out\" of the robust package\n(including the necessary underlying Fortran code, but *not*\n taking all the Fortran code that would *not* be needed ...).\n\nIn the mean time the CRAN team has archived the package\n'robust', and  I must adapt the 'Robustness' CRAN task view\nconsiderably (and remove the 'Suggests: robust'  from my\nrobustbase package.\n\nI'd be grateful for help and suggestions in still trying\n'salvage' valuable resources out of 'robust'.\n\nBTW:  Why has  rrcovNA  be archived?\n\nBest,\nMartin\n\n\n    > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <maechler at stat.math.ethz.ch>\n    > wrote:\n\n    >> Dear R Robustniks,\n    >> \n    >> as I am the maintainer of package 'robustbase' and am submitting\n    >> a new version of it to CRAN,\n    >> it came to my knowledge that package 'robust' (= the original\n    >> S-plus \"Library 'robust', then released to CRAN, maintained by\n    >> Kjell Konis for time) has been orphaned on CRAN relatively\n    >> recently.\n    >> As I have 'robust' among the 'Suggests: ' entries of \"my\"\n    >> package 'robustbase' I now get a  NOTE   about suggesting an\n    >> orphaned package.\n    >> I've been formally a co-author of that package (togeth\n    >> \n    >> I personally would think it to be a loss for the \"robustnik\n    >> community\" if this package would not remain easily available\n    >> (notably on Windows, also the Mac where most people cannot\n    >> install package from the source but are used to install the\n    >> binary built package from CRAN).\n    >> \n    >> Are some you willing and capable to become the maintainer of\n    >> 'robust' (with the perspective to do this for a couple of years)?\n    >> \n    >> Best,\n    >> Martin",
+      "body_snippet": ">>>>> Valentin Todorov \n>>>>>     on Fri, 28 Feb 2020 22:31:21 +0100 writes:\n\n    > Dear Martin,\n    > I was thinking of this since Kjell\n    > abandoned the package, but I was not sure to what extent",
+      "thread_id": "thread-c8172ff24046",
+      "thread_depth": 0,
+      "month": "2020-03"
+    },
+    {
+      "id": "msg-da8758a12a52",
+      "message_id": "<92da4d16-63f2-35b3-1e8c-9c35ac71fc1d@unige.ch>",
+      "from_name": "Olivier Renaud",
+      "from_email_hash": "8cdf6339bcdf497adeb8d9777de02150a4b7f883ca5bebcb75ce65a120150511",
+      "date": "2020-03-05T17:55:26Z",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "subject_clean": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "in_reply_to": "<24161.9959.584045.830876@stat.math.ethz.ch>",
+      "references": [
+        "<CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>",
+        "<24161.9959.584045.830876@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear Martin,\n\nFirst of all, thank you to you, to Kjell and to all contributors for \nthese two great packages. If I can add my two cents, mostly as a teacher \nto non statistically inclined students. It is confusing for the basic \nuser to have robustbase and robust, to have lmrob and lmRob, covrob, \ncovRob, etc.\n\nEven if the 'Robustness' CRAN task view gives some explanations, for \nsomebody who did not study robustness, it is still not clear which one \nto chose. So whatever the decision on these packages, it should be \nclearer (in the task view and in the help files) what a basic user \nshould do.\n\nI do not know enough to advise whether to merge them, or to include only \na few functions or to let robust RIP, but here are two points:\n\n- Concerning lmrob and lmRob I have found differences, especially in the \ninitial estimator that may make a difference especially with a lot of \nfactors in the x.? Liked to that the aovRob was useful\n\n- I liked the possibility to compare 2 outputs with? fit.models (I \nbelieve I add to add fmclass.add.class( \"lmfm\", \"lmrob\") to make it work \nwith lmrob)\n\nOlivier\n\n\n\n\n\nOn 05/03/2020 16:20, Martin Maechler wrote:\n>>>>>> Valentin Todorov\n>>>>>>      on Fri, 28 Feb 2020 22:31:21 +0100 writes:\n>      > Dear Martin,\n>      > I was thinking of this since Kjell\n>      > abandoned the package, but I was not sure to what extent would this be\n>      > necessary - most of the functionality of 'robust' we already moved to\n>      > 'robustbase' and/or 'rrcov', therefore it suggests/imports these packages.\n>      > Let us see in the next days what still remains there and is valuable and\n>      > decide what to do.\n>\n>      > Best regards,\n>      > Valentin\n>\n> Thank you, Valentin.\n>\n> I had similar thoughts a long time ago, I think prompted\n> indepedently by  Kjell  and Doug Martin ...\n>\n> I vaguely remember I found that there have been things in\n> 'Robust' which looked valuable and notably good to have for\n> comparison reasons,\n> *but* that were a lot work to \"tear out\" of the robust package\n> (including the necessary underlying Fortran code, but *not*\n>   taking all the Fortran code that would *not* be needed ...).\n>\n> In the mean time the CRAN team has archived the package\n> 'robust', and  I must adapt the 'Robustness' CRAN task view\n> considerably (and remove the 'Suggests: robust'  from my\n> robustbase package.\n>\n> I'd be grateful for help and suggestions in still trying\n> 'salvage' valuable resources out of 'robust'.\n>\n> BTW:  Why has  rrcovNA  be archived?\n>\n> Best,\n> Martin\n>\n>\n>      > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <maechler at stat.math.ethz.ch>\n>      > wrote:\n>\n>      >> Dear R Robustniks,\n>      >>\n>      >> as I am the maintainer of package 'robustbase' and am submitting\n>      >> a new version of it to CRAN,\n>      >> it came to my knowledge that package 'robust' (= the original\n>      >> S-plus \"Library 'robust', then released to CRAN, maintained by\n>      >> Kjell Konis for time) has been orphaned on CRAN relatively\n>      >> recently.\n>      >> As I have 'robust' among the 'Suggests: ' entries of \"my\"\n>      >> package 'robustbase' I now get a  NOTE   about suggesting an\n>      >> orphaned package.\n>      >> I've been formally a co-author of that package (togeth\n>      >>\n>      >> I personally would think it to be a loss for the \"robustnik\n>      >> community\" if this package would not remain easily available\n>      >> (notably on Windows, also the Mac where most people cannot\n>      >> install package from the source but are used to install the\n>      >> binary built package from CRAN).\n>      >>\n>      >> Are some you willing and capable to become the maintainer of\n>      >> 'robust' (with the perspective to do this for a couple of years)?\n>      >>\n>      >> Best,\n>      >> Martin\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \nProf. Olivier Renaud          https://www.unige.ch/fapse/mad/renaud/\nMethodology & Data Analysis - Psychology Dept - University of Geneva\nUniMail, Office 4138  -  40, Bd du Pont d'Arve   -  CH-1211 Geneva 4",
+      "body_snippet": "Dear Martin,\n\nFirst of all, thank you to you, to Kjell and to all contributors for \nthese two great packages. If I can add my two cents, mostly as a teacher \nto non statistically inclined students. It",
+      "thread_id": "thread-c8172ff24046",
+      "thread_depth": 1,
+      "month": "2020-03"
+    },
+    {
+      "id": "msg-32990e4ed1b0",
+      "message_id": "<CAOmnhGd0qWAkNRLX4GYnLzCSv0Ubtx61o4O5esSu6SHVhO06VA@mail.gmail.com>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2020-03-05T19:07:19+01:00",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "subject_clean": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "in_reply_to": "<24161.9959.584045.830876@stat.math.ethz.ch>",
+      "references": [
+        "<CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>",
+        "<24161.9959.584045.830876@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Dear Martin,\n\nThe most interesting functionality in 'robust', that I see, is the\npossibility to compare  visually two or more different models.\nAnd maybe some people are used to and prefer the interface of 'robust'. Or\nsome data sets.\n\nI rebuilt it and can take over the maintenance for the next \"couple of\nyears\" as you said.\n\nAnd no, rrcovNA is not archived, see\nhttps://cran.r-project.org/web/packages/rrcovNA/index.html\n\nBest regards,\nValentin\n\n\nOn Thu, 5 Mar 2020 at 17:20, Martin Maechler <maechler at stat.math.ethz.ch>\nwrote:\n\n> >>>>> Valentin Todorov\n> >>>>>     on Fri, 28 Feb 2020 22:31:21 +0100 writes:\n>\n>     > Dear Martin,\n>     > I was thinking of this since Kjell\n>     > abandoned the package, but I was not sure to what extent would this\n> be\n>     > necessary - most of the functionality of 'robust' we already moved to\n>     > 'robustbase' and/or 'rrcov', therefore it suggests/imports these\n> packages.\n>     > Let us see in the next days what still remains there and is valuable\n> and\n>     > decide what to do.\n>\n>     > Best regards,\n>     > Valentin\n>\n> Thank you, Valentin.\n>\n> I had similar thoughts a long time ago, I think prompted\n> indepedently by  Kjell  and Doug Martin ...\n>\n> I vaguely remember I found that there have been things in\n> 'Robust' which looked valuable and notably good to have for\n> comparison reasons,\n> *but* that were a lot work to \"tear out\" of the robust package\n> (including the necessary underlying Fortran code, but *not*\n>  taking all the Fortran code that would *not* be needed ...).\n>\n> In the mean time the CRAN team has archived the package\n> 'robust', and  I must adapt the 'Robustness' CRAN task view\n> considerably (and remove the 'Suggests: robust'  from my\n> robustbase package.\n>\n> I'd be grateful for help and suggestions in still trying\n> 'salvage' valuable resources out of 'robust'.\n>\n> BTW:  Why has  rrcovNA  be archived?\n>\n> Best,\n> Martin\n>\n>\n>     > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <\n> maechler at stat.math.ethz.ch>\n>     > wrote:\n>\n>     >> Dear R Robustniks,\n>     >>\n>     >> as I am the maintainer of package 'robustbase' and am submitting\n>     >> a new version of it to CRAN,\n>     >> it came to my knowledge that package 'robust' (= the original\n>     >> S-plus \"Library 'robust', then released to CRAN, maintained by\n>     >> Kjell Konis for time) has been orphaned on CRAN relatively\n>     >> recently.\n>     >> As I have 'robust' among the 'Suggests: ' entries of \"my\"\n>     >> package 'robustbase' I now get a  NOTE   about suggesting an\n>     >> orphaned package.\n>     >> I've been formally a co-author of that package (togeth\n>     >>\n>     >> I personally would think it to be a loss for the \"robustnik\n>     >> community\" if this package would not remain easily available\n>     >> (notably on Windows, also the Mac where most people cannot\n>     >> install package from the source but are used to install the\n>     >> binary built package from CRAN).\n>     >>\n>     >> Are some you willing and capable to become the maintainer of\n>     >> 'robust' (with the perspective to do this for a couple of years)?\n>     >>\n>     >> Best,\n>     >> Martin\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear Martin,\n\nThe most interesting functionality in 'robust', that I see, is the\npossibility to compare  visually two or more different models.\nAnd maybe some people are used to and prefer the interfa",
+      "thread_id": "thread-c8172ff24046",
+      "thread_depth": 1,
+      "month": "2020-03"
+    },
+    {
+      "id": "msg-6edde9e42efa",
+      "message_id": "<de3786f7-038b-467d-b197-7a6da643f7fa@email.android.com>",
+      "from_name": "m@ti@s m@iii@g oii st@t@ubc@c@",
+      "from_email_hash": "678a2d333dcf11dea465c87bd851ba0351ab15d4b8496b84467926d01af46fea",
+      "date": "2020-03-05T11:28:07-08:00",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "subject_clean": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "in_reply_to": "<24161.9959.584045.830876@stat.math.ethz.ch>",
+      "references": [],
+      "body_plain": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20200305/48551787/attachment.html>",
+      "body_snippet": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20200305/48551787/attachment.html>",
+      "thread_id": "thread-c8172ff24046",
+      "thread_depth": 1,
+      "month": "2020-03"
+    },
+    {
+      "id": "msg-ebde4513120e",
+      "message_id": "<CANx-k+UBD3=MXGcJU41YkEowvgAR=VfWXJgoKYOrfCwTZ-whWA@mail.gmail.com>",
+      "from_name": "Emily Klein",
+      "from_email_hash": "922c2afe5d3d073e6149a50bed20da4c50736910d5edf95ed68b695df3b546b2",
+      "date": "2020-03-06T10:05:21-05:00",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "subject_clean": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "in_reply_to": "<de3786f7-038b-467d-b197-7a6da643f7fa@email.android.com>",
+      "references": [
+        "<24161.9959.584045.830876@stat.math.ethz.ch>",
+        "<de3786f7-038b-467d-b197-7a6da643f7fa@email.android.com>"
+      ],
+      "body_plain": "Good morning all,\n\nA quick note just to mention that I am watching this conversation with\ninterest - in large part because I am in the process of using it for\nanalysis of ecological data. Previous papers have used lmRob(), but of\ncourse we only have lmrob() currently, so that's what we've applied. If\nboth are available, I would try both and compare results, and would be very\ninterested in any thoughts on how they differ. I had not previously found\nany documentation comparing the methods or package - could be very useful\nto have that written up somewhere, but as others have said, this is a\nthankless job, and I am sure you are all very busy.\n\nHappy Friday,\n\nEmily\n\n\nOn Thu, Mar 5, 2020 at 2:28 PM <matias at stat.ubc.ca> wrote:\n\n> Martin,\n>\n> First I'd like to thank you again for your work on these \"robustnik\"\n> packages, and also on many other aspects of R. It's a thankless role, but\n> not an unnoticed one.\n>\n> IMHO an under-appreciated feature that is in \"robust\" and not in\n> robustbase is the visual comparison of different fits for the same model\n> (typically used to compare robust and non robust fits, but can in principle\n> be used to compare other fits).\n>\n> I believe that, fortunately, this functionality has already been extracted\n> to a stand alone package \"fit.models\". I haven't tried it with robustbase\n> yet, but I believe it'd be useful to have them work well with each other,\n> if they don't already.\n>\n> Matias\n>\n> PS: fit.models, particularly within robust, used lattice plots, which look\n> a bit dated now. I don't know how difficult it will be to update them, or\n> whether it's worth the effort.\n>\n>\n>\n> Sent from a phone\n>\n> On Mar. 5, 2020 8:20 a.m., Martin Maechler <maechler at stat.math.ethz.ch>\n> wrote:\n>\n> >>>>> Valentin Todorov\n> >>>>>     on Fri, 28 Feb 2020 22:31:21 +0100 writes:\n>\n>     > Dear Martin,\n>     > I was thinking of this since Kjell\n>     > abandoned the package, but I was not sure to what extent would this\n> be\n>     > necessary - most of the functionality of 'robust' we already moved\n> to\n>     > 'robustbase' and/or 'rrcov', therefore it suggests/imports these\n> packages.\n>     > Let us see in the next days what still remains there and is valuable\n> and\n>     > decide what to do.\n>\n>     > Best regards,\n>     > Valentin\n>\n> Thank you, Valentin.\n>\n> I had similar thoughts a long time ago, I think prompted\n> indepedently by  Kjell  and Doug Martin ...\n>\n> I vaguely remember I found that there have been things in\n> 'Robust' which looked valuable and notably good to have for\n> comparison reasons,\n> *but* that were a lot work to \"tear out\" of the robust package\n> (including the necessary underlying Fortran code, but *not*\n> taking all the Fortran code that would *not* be needed ...).\n>\n> In the mean time the CRAN team has archived the package\n> 'robust', and  I must adapt the 'Robustness' CRAN task view\n> considerably (and remove the 'Suggests: robust'  from my\n> robustbase package.\n>\n> I'd be grateful for help and suggestions in still trying\n> 'salvage' valuable resources out of 'robust'.\n>\n> BTW:  Why has  rrcovNA  be archived?\n>\n> Best,\n> Martin\n>\n>\n>     > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <\n> maechler at stat.math.ethz.ch>\n>     > wrote:\n>\n>     >> Dear R Robustniks,\n>     >>\n>     >> as I am the maintainer of package 'robustbase' and am submitting\n>     >> a new version of it to CRAN,\n>     >> it came to my knowledge that package 'robust' (= the original\n>     >> S-plus \"Library 'robust', then released to CRAN, maintained by\n>     >> Kjell Konis for time) has been orphaned on CRAN relatively\n>     >> recently.\n>     >> As I have 'robust' among the 'Suggests: ' entries of \"my\"\n>     >> package 'robustbase' I now get a  NOTE   about suggesting an\n>     >> orphaned package.\n>     >> I've been formally a co-author of that package (togeth\n>     >>\n>     >> I personally would think it to be a loss for the \"robustnik\n>     >> community\" if this package would not remain easily available\n>     >> (notably on Windows, also the Mac where most people cannot\n>     >> install package from the source but are used to install the\n>     >> binary built package from CRAN).\n>     >>\n>     >> Are some you willing and capable to become the maintainer of\n>     >> 'robust' (with the perspective to do this for a couple of years)?\n>     >>\n>     >> Best,\n>     >> Martin\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\n-- \n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nEmily S. Klein, Senior Postdoctoral Associate (she / her / hers)\nThe Frederick S. Pardee Center for the Study of the Longer-Range Future |\nBoston University\n*Co-Chair*, ICES Working Group on the History of Fish & Fisheries (WGHIST)\nemily.klein04 at gmail.com\n\nhttp://www.bu.edu/pardee/\nhttp://www.ices.dk/community/groups/Pages/WGHIST.aspx\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Good morning all,\n\nA quick note just to mention that I am watching this conversation with\ninterest - in large part because I am in the process of using it for\nanalysis of ecological data. Previous pap",
+      "thread_id": "thread-c8172ff24046",
+      "thread_depth": 2,
+      "month": "2020-03"
+    },
+    {
+      "id": "msg-28721236c8b9",
+      "message_id": "<24166.2210.503166.606019@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2020-03-09T10:13:06+01:00",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "subject_clean": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "in_reply_to": "<CAOmnhGd0qWAkNRLX4GYnLzCSv0Ubtx61o4O5esSu6SHVhO06VA@mail.gmail.com>",
+      "references": [
+        "<CAOmnhGeVfZ22mb5mzLYbjrpLkWAp8-H9tqMfyy07casOWrxS0w@mail.gmail.com>",
+        "<24161.9959.584045.830876@stat.math.ethz.ch>",
+        "<CAOmnhGd0qWAkNRLX4GYnLzCSv0Ubtx61o4O5esSu6SHVhO06VA@mail.gmail.com>"
+      ],
+      "body_plain": ">>>>> Valentin Todorov \n>>>>>     on Thu, 5 Mar 2020 19:07:19 +0100 writes:\n\n    > Dear Martin, The most interesting functionality in\n    > 'robust', that I see, is the possibility to compare\n    > visually two or more different models.  And maybe some\n    > people are used to and prefer the interface of\n    > 'robust'. Or some data sets.\n\n    > I rebuilt it and can take over the maintenance for the\n    > next \"couple of years\" as you said.\n\nTo close this thread:\n\nIn the mean time, Valentin Todorov, has already become the new\nmaintainer of 'robust'.\n\nWith many thanks to him -- and to everyone else who mentioned\nwhat they found important in package 'robust' and not easily\navailable in other places:\n\nBest,\nMartin \n\n\n    > And no, rrcovNA is not archived, see\n    > https://cran.r-project.org/web/packages/rrcovNA/index.html\n\n    > Best regards, Valentin\n\n\n    > On Thu, 5 Mar 2020 at 17:20, Martin Maechler\n    > <maechler at stat.math.ethz.ch> wrote:\n\n    >> >>>>> Valentin Todorov >>>>> on Fri, 28 Feb 2020 22:31:21\n    >> +0100 writes:\n    >> \n    >> > Dear Martin, > I was thinking of this since Kjell >\n    >> abandoned the package, but I was not sure to what extent\n    >> would this be > necessary - most of the functionality of\n    >> 'robust' we already moved to > 'robustbase' and/or\n    >> 'rrcov', therefore it suggests/imports these packages.  >\n    >> Let us see in the next days what still remains there and\n    >> is valuable and > decide what to do.\n    >> \n    >> > Best regards, > Valentin\n    >> \n    >> Thank you, Valentin.\n    >> \n    >> I had similar thoughts a long time ago, I think prompted\n    >> indepedently by Kjell and Doug Martin ...\n    >> \n    >> I vaguely remember I found that there have been things in\n    >> 'Robust' which looked valuable and notably good to have\n    >> for comparison reasons, *but* that were a lot work to\n    >> \"tear out\" of the robust package (including the necessary\n    >> underlying Fortran code, but *not* taking all the Fortran\n    >> code that would *not* be needed ...).\n    >> \n    >> In the mean time the CRAN team has archived the package\n    >> 'robust', and I must adapt the 'Robustness' CRAN task\n    >> view considerably (and remove the 'Suggests: robust' from\n    >> my robustbase package.\n    >> \n    >> I'd be grateful for help and suggestions in still trying\n    >> 'salvage' valuable resources out of 'robust'.\n    >> \n    >> BTW: Why has rrcovNA be archived?\n    >> \n    >> Best, Martin\n    >> \n    >> \n    >> > On Fri, 28 Feb 2020, 11:03 am Martin Maechler, <\n    >> maechler at stat.math.ethz.ch> > wrote:\n    >> \n    >> >> Dear R Robustniks,\n    >> >>\n    >> >> as I am the maintainer of package 'robustbase' and am\n    >> submitting >> a new version of it to CRAN, >> it came to\n    >> my knowledge that package 'robust' (= the original >>\n    >> S-plus \"Library 'robust', then released to CRAN,\n    >> maintained by >> Kjell Konis for time) has been orphaned\n    >> on CRAN relatively >> recently.  >> As I have 'robust'\n    >> among the 'Suggests: ' entries of \"my\" >> package\n    >> 'robustbase' I now get a NOTE about suggesting an >>\n    >> orphaned package.  >> I've been formally a co-author of\n    >> that package (togeth\n    >> >>\n    >> >> I personally would think it to be a loss for the\n    >> \"robustnik >> community\" if this package would not remain\n    >> easily available >> (notably on Windows, also the Mac\n    >> where most people cannot >> install package from the\n    >> source but are used to install the >> binary built\n    >> package from CRAN).\n    >> >>\n    >> >> Are some you willing and capable to become the\n    >> maintainer of >> 'robust' (with the perspective to do\n    >> this for a couple of years)?\n    >> >>\n    >> >> Best, >> Martin\n    >>",
+      "body_snippet": ">>>>> Valentin Todorov \n>>>>>     on Thu, 5 Mar 2020 19:07:19 +0100 writes:\n\n    > Dear Martin, The most interesting functionality in\n    > 'robust', that I see, is the possibility to compare\n    > vi",
+      "thread_id": "thread-c8172ff24046",
+      "thread_depth": 2,
+      "month": "2020-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-c8172ff24046",
+      "subject": "[RsR] New maintainer? Package 'robust' (original S+ \"Library 'robust') orphaned on CRAN",
+      "message_count": 6,
+      "participants": [
+        "Emily Klein",
+        "Martin Maechler",
+        "Olivier Renaud",
+        "Valentin Todorov",
+        "m@ti@s m@iii@g oii st@t@ubc@c@"
+      ],
+      "started": "2020-03-05T17:20:55+01:00",
+      "last_reply": "2020-03-09T10:13:06+01:00",
+      "root_message_id": "msg-c8172ff24046"
+    }
+  ]
+}

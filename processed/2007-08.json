@@ -1,0 +1,246 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2007-08",
+  "messages": [
+    {
+      "id": "msg-68667b2cd751",
+      "message_id": "<OFD7ACDAD7.1F897A45-ON8525733A.00704153-8525733A.0073504F@epamail.epa.gov>",
+      "from_name": "F@rr@r@D@vid m@iii@g oii ep@m@ii@ep@@gov",
+      "from_email_hash": "3acbcb5c56c7b955ccecc2da320f7edbf9c0e48458cf825d4ca167e494503d45",
+      "date": "2007-08-17T16:59:32-04:00",
+      "subject": "[RsR] need functions for robust data depth",
+      "subject_clean": "[RsR] need functions for robust data depth",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "All,\n\nI am looking for functions for rank data depth in more than 2 dimensions. \nSome options and analogues are \n\n(1) Lowest rank are data with highest Mahalanobis D^2.  (Just by analogy \n-- Not what I want.)\n(2) Lowest rank are data with highest robustified Mahal...  D^2. \n(3) Lowest rank is convex hull (but function chull is 2D).\n(4) Lowest rank is Tukey data depth. \n(5) simplical depth\n\nI tricked cov.mve to giving me depths, but if I rember right variables \nwith IQR = 0 have to be\nscreened out. \n\nregards,\nFarrar\n\n\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "All,\n\nI am looking for functions for rank data depth in more than 2 dimensions. \nSome options and analogues are \n\n(1) Lowest rank are data with highest Mahalanobis D^2.  (Just by analogy \n-- Not what ",
+      "thread_id": "thread-68667b2cd751",
+      "thread_depth": 0,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-7d9735726731",
+      "message_id": "<1F932F831DD75448B29D327DC5FD866801655D1B@EXCHS3.lse.ac.uk>",
+      "from_name": "A@Teyteiboym m@iii@g oii ise@@c@uk",
+      "from_email_hash": "63ebbe49d0fb6d45eba5de4ffd9341509d53cc7640575876edf128cc50543a76",
+      "date": "2007-08-24T12:44:44+01:00",
+      "subject": "[RsR] Non-linear robust method",
+      "subject_clean": "[RsR] Non-linear robust method",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI am based at STICERD at the London School of Economics and have been\nusing R for about a year. At the moment I am working on programming an R\nalgorithm for fitting a Pareto distribution robustly (this is a part of\npackage to supplement a research paper on income distribution). It isn't\ngoing too well. I am aware that there are routines in R to fit GLM using\nrobust methods, but I am not sure whether any work has been done in the\ndirection of non-linear parametric distributions (such as gamma or\nPareto). \n\nI hope you hear from any of you soon and sorry for the trouble, \n\nAlex\n\nPS Some of you may be aware that there is some excellent work by A\nMarazzi, who programmed many such routines in FORTRAN about 15 years\nago, which run on older R interfaces.\n\n\nPlease access the attached hyperlink for an important electronic communications disclaimer: http://www.lse.ac.uk/collections/secretariat/legal/disclaimer.htm\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Hello,\n\nI am based at STICERD at the London School of Economics and have been\nusing R for about a year. At the moment I am working on programming an R\nalgorithm for fitting a Pareto distribution robus",
+      "thread_id": "thread-7d9735726731",
+      "thread_depth": 0,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-7358382e11e1",
+      "message_id": "<02D49A492B2D2F46BF3FD743A8255A52EC18B93B@EX7FM02.ad.uky.edu>",
+      "from_name": "Stromberg, Arnold",
+      "from_email_hash": "c1889a124ea347429fcf3fedb737da64742f435373da47d1feb8cbe5a7ce9b23",
+      "date": "2007-08-24T11:35:09-04:00",
+      "subject": "[RsR] Non-linear robust method",
+      "subject_clean": "[RsR] Non-linear robust method",
+      "in_reply_to": "<1F932F831DD75448B29D327DC5FD866801655D1B@EXCHS3.lse.ac.uk>",
+      "references": [],
+      "body_plain": "I did work on robust nonlinear methods in the early nineties. To the best of my knowledge, none of my algorithms have been redone (and hopefully upgraded) in R. I may put a Ph.D. student on it, but that'll take a few years. In anyone knows of robust nonlinear code in R, let us know.\n\nThanks,\nArny\n\n\nArnold J. Stromberg, Ph.D.\nProfessor and Chair, Department of Statistics\n817 Patterson Office Tower\nLexington, KY 40506-0027\nph: 859-257-8859\nfax: 859-323-1973\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of A.Teytelboym at lse.ac.uk\nSent: Friday, August 24, 2007 7:45 AM\nTo: r-sig-robust at r-project.org\nSubject: [RsR] Non-linear robust method\n\nHello,\n\nI am based at STICERD at the London School of Economics and have been\nusing R for about a year. At the moment I am working on programming an R\nalgorithm for fitting a Pareto distribution robustly (this is a part of\npackage to supplement a research paper on income distribution). It isn't\ngoing too well. I am aware that there are routines in R to fit GLM using\nrobust methods, but I am not sure whether any work has been done in the\ndirection of non-linear parametric distributions (such as gamma or\nPareto).\n\nI hope you hear from any of you soon and sorry for the trouble,\n\nAlex\n\nPS Some of you may be aware that there is some excellent work by A\nMarazzi, who programmed many such routines in FORTRAN about 15 years\nago, which run on older R interfaces.\n\n\nPlease access the attached hyperlink for an important electr...{{dropped}}",
+      "body_snippet": "I did work on robust nonlinear methods in the early nineties. To the best of my knowledge, none of my algorithms have been redone (and hopefully upgraded) in R. I may put a Ph.D. student on it, but th",
+      "thread_id": "thread-7d9735726731",
+      "thread_depth": 1,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-d089d7f59556",
+      "message_id": "<46CF0869.8020502@music.mcgill.ca>",
+      "from_name": "Bruno L. Giordano",
+      "from_email_hash": "04bb1c50f6d6558a75684e046bf02943490c6262cf434a74710b6783b6e6ac66",
+      "date": "2007-08-24T12:33:45-04:00",
+      "subject": "[RsR] Non-linear robust method",
+      "subject_clean": "[RsR] Non-linear robust method",
+      "in_reply_to": "<02D49A492B2D2F46BF3FD743A8255A52EC18B93B@EX7FM02.ad.uky.edu>",
+      "references": [
+        "<02D49A492B2D2F46BF3FD743A8255A52EC18B93B@EX7FM02.ad.uky.edu>"
+      ],
+      "body_plain": "Hello,\n\nas a side note, the Matlab function nlinfit (Statistics toolbox) for \nnonlinear fitting has a robust option.\n\nIt shouldn't be incredibly hard to translate it in R code.\n\nHowever, I have to say that the routine itself does not perform \nincredibly well in case of outliers.\n\n\tBruno\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nBruno L. Giordano, Ph.D.\nMusic Perception and Cognition Laboratory\nCIRMMT http://www.cirmmt.mcgill.ca/\nSchulich School of Music, McGill University\n555 Sherbrooke Street West\nMontr?al, QC H3A 1E3\nCanada\nOffice: +1 514 398 4535 ext. 00900\nhttp://www.music.mcgill.ca/~bruno/\n\n\n\nStromberg, Arnold wrote:\n> I did work on robust nonlinear methods in the early nineties. To the best of my knowledge, none of my algorithms have been redone (and hopefully upgraded) in R. I may put a Ph.D. student on it, but that'll take a few years. In anyone knows of robust nonlinear code in R, let us know.\n> \n> Thanks,\n> Arny\n> \n> \n> Arnold J. Stromberg, Ph.D.\n> Professor and Chair, Department of Statistics\n> 817 Patterson Office Tower\n> Lexington, KY 40506-0027\n> ph: 859-257-8859\n> fax: 859-323-1973\n> \n> -----Original Message-----\n> From: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of A.Teytelboym at lse.ac.uk\n> Sent: Friday, August 24, 2007 7:45 AM\n> To: r-sig-robust at r-project.org\n> Subject: [RsR] Non-linear robust method\n> \n> Hello,\n> \n> I am based at STICERD at the London School of Economics and have been\n> using R for about a year. At the moment I am working on programming an R\n> algorithm for fitting a Pareto distribution robustly (this is a part of\n> package to supplement a research paper on income distribution). It isn't\n> going too well. I am aware that there are routines in R to fit GLM using\n> robust methods, but I am not sure whether any work has been done in the\n> direction of non-linear parametric distributions (such as gamma or\n> Pareto).\n> \n> I hope you hear from any of you soon and sorry for the trouble,\n> \n> Alex\n> \n> PS Some of you may be aware that there is some excellent work by A\n> Marazzi, who programmed many such routines in FORTRAN about 15 years\n> ago, which run on older R interfaces.\n> \n> \n> Please access the attached hyperlink for an important electr...{{dropped}}\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> \n> __________ NOD32 2479 (20070823) Information __________\n> \n> This message was checked by NOD32 antivirus system.\n> http://www.eset.com\n> \n> \n>",
+      "body_snippet": "Hello,\n\nas a side note, the Matlab function nlinfit (Statistics toolbox) for \nnonlinear fitting has a robust option.\n\nIt shouldn't be incredibly hard to translate it in R code.\n\nHowever, I have to say",
+      "thread_id": "thread-7d9735726731",
+      "thread_depth": 2,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-dbeb337b9fe8",
+      "message_id": "<18127.4828.212638.107791@stat.math.ethz.ch>",
+      "from_name": "Martin Maechler",
+      "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
+      "date": "2007-08-24T19:18:20+02:00",
+      "subject": "[RsR] Non-linear robust method",
+      "subject_clean": "[RsR] Non-linear robust method",
+      "in_reply_to": "<46CF0869.8020502@music.mcgill.ca>",
+      "references": [
+        "<02D49A492B2D2F46BF3FD743A8255A52EC18B93B@EX7FM02.ad.uky.edu>",
+        "<46CF0869.8020502@music.mcgill.ca>"
+      ],
+      "body_plain": ">>>>> \"BLG\" == Bruno L Giordano <bruno.giordano at music.mcgill.ca>\n>>>>>     on Fri, 24 Aug 2007 12:33:45 -0400 writes:\n\n    BLG> Hello,\n    BLG> as a side note, the Matlab function nlinfit (Statistics toolbox) for \n    BLG> nonlinear fitting has a robust option.\n\n    BLG> It shouldn't be incredibly hard to translate it in R code.\n\n    BLG> However, I have to say that the routine itself does not perform \n    BLG> incredibly well in case of outliers.\n\nBut the  robustbase package *has* had robust nonlinear\nregression, almost since its beginning,\n nlrob() !\n\nProbably because Alex used a somewhat misleading subject line in\nhis posting, I think you (Arnold and Bruno) have both been answering\nthe wrong question.\n\nIf I understand correctly, Alex was rather looking for help on\ndoing robust modelling for a specified non-*normal* distribution \n``for the good data'', whereas most available robust functions\nassume that the \"good data\" is normally distributed and then\nthere's a fraction of \"arbitrarily distributed\" data points\n(sometimes called \"outliers\" ...).\n\nIIUC, Alex wants the \"good data\" to be Pareto ...\nand he mentioned Marazzi's code and papers which did this for\nthe Gamma (and 'Weibull', BTW).\n\nMartin Maechler,\nETH ZUrich",
+      "body_snippet": ">>>>> \"BLG\" == Bruno L Giordano <bruno.giordano at music.mcgill.ca>\n>>>>>     on Fri, 24 Aug 2007 12:33:45 -0400 writes:\n\n    BLG> Hello,\n    BLG> as a side note, the Matlab function nlinfit (Statisti",
+      "thread_id": "thread-7d9735726731",
+      "thread_depth": 3,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-757b53ebdc3e",
+      "message_id": "<20070824211425.iqlozbcltwkosgc4@webmail.metri.unige.ch>",
+      "from_name": "Eva Cantoni",
+      "from_email_hash": "2966a7fa6e727e8ff02811a0bd0605f638f54ded9c824143effbf9ad04b1f8cb",
+      "date": "2007-08-24T21:14:25+02:00",
+      "subject": "[RsR] Non-linear robust method",
+      "subject_clean": "[RsR] Non-linear robust method",
+      "in_reply_to": "<18127.4828.212638.107791@stat.math.ethz.ch>",
+      "references": [
+        "<02D49A492B2D2F46BF3FD743A8255A52EC18B93B@EX7FM02.ad.uky.edu>",
+        "<46CF0869.8020502@music.mcgill.ca>",
+        "<18127.4828.212638.107791@stat.math.ethz.ch>"
+      ],
+      "body_plain": "Quoting Martin Maechler <maechler at stat.math.ethz.ch>:\n> Probably because Alex used a somewhat misleading subject line in\n> his posting, I think you (Arnold and Bruno) have both been answering\n> the wrong question.\n>\n> If I understand correctly, Alex was rather looking for help on\n> doing robust modelling for a specified non-*normal* distribution\n> ``for the good data'', whereas most available robust functions\n> assume that the \"good data\" is normally distributed and then\n> there's a fraction of \"arbitrarily distributed\" data points\n> (sometimes called \"outliers\" ...).\n>\n> IIUC, Alex wants the \"good data\" to be Pareto ...\n> and he mentioned Marazzi's code and papers which did this for\n> the Gamma (and 'Weibull', BTW).\n\n\nIt is maybe worth looking at what kind of code has been used in:\n\nVictoria-Feser, M.-P. and E. Ronchetti (1994). \"Robust methods for  \npersonal income distribution models\". The Canadian Journal of  \nStatistics 22, 247--258.\n\nCertainly not R, but maybe Splus (I have no idea, and I haven't checked).\n\nBest,\nEva Cantoni",
+      "body_snippet": "Quoting Martin Maechler <maechler at stat.math.ethz.ch>:\n> Probably because Alex used a somewhat misleading subject line in\n> his posting, I think you (Arnold and Bruno) have both been answering\n> the",
+      "thread_id": "thread-7d9735726731",
+      "thread_depth": 4,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-30fe966ba1d2",
+      "message_id": "<3714572CC7D0A74BB00AD2B95E307ED239E3C1@langouste.zhaw.ch>",
+      "from_name": "Ruckstuhl Andreas (rkst)",
+      "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
+      "date": "2007-08-25T14:31:49+02:00",
+      "subject": "[RsR] Non-linear robust method",
+      "subject_clean": "[RsR] Non-linear robust method",
+      "in_reply_to": "<18127.4828.212638.107791@stat.math.ethz.ch>",
+      "references": [],
+      "body_plain": "Some additional remarks to Martin's and Eva's answer:\nSee Alfio Marazzi's page on Software: \n\t http://www.iumsp.ch/Unites/us/Alfio/msp_programmes.htm\n\nSee also the Maria-pia Victora-Feser's page\n\thttp://www.hec.unige.ch/www/index.php?&pid=189\n\nand there the papers \n\tDupuis, D. and M.-P. Victoria-Feser (2007). \"A Robust Prediction Error Criterion for Pareto Modeling of Upper Tails\". The Canadian Journal of Statistics. To appear. (proof's version)\n\n\tMaria-Pia Victoria-Feser, Elvezio Ronchetti (1997). \"Robust Estimation for Grouped Data\"\n\t  Journal of the American Statistical Association, Vol. 92, No. 437 (Mar., 1997), pp. 333-340\n\n\nAll the best\nAndreas Ruckstuhl\n\n\n\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von \n>> Martin Maechler\n>> Gesendet: Freitag, 24. August 2007 19:18\n>> An: Bruno L. Giordano\n>> Cc: Stromberg, Arnold; r-sig-robust at r-project.org; \n>> A.Teytelboym at lse.ac.uk\n>> Betreff: Re: [RsR] Non-linear robust method\n>> \n>> \n>> >>>>> \"BLG\" == Bruno L Giordano <bruno.giordano at music.mcgill.ca>\n>> >>>>>     on Fri, 24 Aug 2007 12:33:45 -0400 writes:\n>> \n>>     BLG> Hello,\n>>     BLG> as a side note, the Matlab function nlinfit \n>> (Statistics toolbox) for \n>>     BLG> nonlinear fitting has a robust option.\n>> \n>>     BLG> It shouldn't be incredibly hard to translate it in R code.\n>> \n>>     BLG> However, I have to say that the routine itself does \n>> not perform \n>>     BLG> incredibly well in case of outliers.\n>> \n>> But the  robustbase package *has* had robust nonlinear\n>> regression, almost since its beginning,\n>>  nlrob() !\n>> \n>> Probably because Alex used a somewhat misleading subject line in\n>> his posting, I think you (Arnold and Bruno) have both been answering\n>> the wrong question.\n>> \n>> If I understand correctly, Alex was rather looking for help on\n>> doing robust modelling for a specified non-*normal* distribution \n>> ``for the good data'', whereas most available robust functions\n>> assume that the \"good data\" is normally distributed and then\n>> there's a fraction of \"arbitrarily distributed\" data points\n>> (sometimes called \"outliers\" ...).\n>> \n>> IIUC, Alex wants the \"good data\" to be Pareto ...\n>> and he mentioned Marazzi's code and papers which did this for\n>> the Gamma (and 'Weibull', BTW).\n>> \n>> Martin Maechler,\n>> ETH ZUrich\n>> \n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>",
+      "body_snippet": "Some additional remarks to Martin's and Eva's answer:\nSee Alfio Marazzi's page on Software: \n\t http://www.iumsp.ch/Unites/us/Alfio/msp_programmes.htm\n\nSee also the Maria-pia Victora-Feser's page\n\thttp",
+      "thread_id": "thread-7d9735726731",
+      "thread_depth": 4,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-518c0215e91b",
+      "message_id": "<5FEC4F8459B55448AB1D8E8D37D2B238011DDF93@ukaprdembx02.rd.astrazeneca.net>",
+      "from_name": "Southworth, Harry",
+      "from_email_hash": "bd043877f3d4c0b4d052c717ae5c669eadc4365d7f3f08f4b69a5934dd78a67f",
+      "date": "2007-08-28T15:21:59+01:00",
+      "subject": "[RsR] Distribution of robust distances",
+      "subject_clean": "[RsR] Distribution of robust distances",
+      "in_reply_to": "<001501c68da4$f9c55550$0132a8c0@KILER>",
+      "references": [],
+      "body_plain": "Hello.\n\nHas anyone implemented anything to compute quantiles of the distribution\nof robust distances following Hardin & Rocke\n(http://dmrocke.ucdavis.edu/papers/HardinRocke2005.pdf)?\n\nI've got a function to do it, but I can't reproduce the results of\nHardin & Rock because my function is returning values that are too high.\nSearching the R help archive, I found a message from 2004 describing the\nsame problem(http://tolstoy.newcastle.edu.au/R/help/04/05/1296.html).\nThe code in that message is essentially similar to mine (except that he\nuses a 1 - h/n that I think should be h/n).\n\nI'd be grateful of any pointers.\n\nThanks,\nHarry",
+      "body_snippet": "Hello.\n\nHas anyone implemented anything to compute quantiles of the distribution\nof robust distances following Hardin & Rocke\n(http://dmrocke.ucdavis.edu/papers/HardinRocke2005.pdf)?\n\nI've got a funct",
+      "thread_id": "thread-518c0215e91b",
+      "thread_depth": 0,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-2889ab1c48ba",
+      "message_id": "<OF67BE6039.95971F9B-ON85257345.007165C6-85257345.0071C036@epamail.epa.gov>",
+      "from_name": "F@rr@r@D@vid m@iii@g oii ep@m@ii@ep@@gov",
+      "from_email_hash": "3acbcb5c56c7b955ccecc2da320f7edbf9c0e48458cf825d4ca167e494503d45",
+      "date": "2007-08-28T16:42:27-04:00",
+      "subject": "[RsR] needs programs or ideas on nonparametric regression prediction bounds",
+      "subject_clean": "[RsR] needs programs or ideas on nonparametric regression prediction bounds",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "All, \n\nI am interested in general nonparametric procedures that can be \nused for prediction bounds, for relatively non-standard regression \nprocedures.  My immediate problem relates to partial least squares\nbut I am interested in general strategies.  Bounds might be based \non use of bootstrap or  cross-validation to adjust some relatively \ncrude approximation. \n\nregards,\nFarrar\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "All, \n\nI am interested in general nonparametric procedures that can be \nused for prediction bounds, for relatively non-standard regression \nprocedures.  My immediate problem relates to partial least s",
+      "thread_id": "thread-2889ab1c48ba",
+      "thread_depth": 0,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-19f12e501c68",
+      "message_id": "<007c01c7e9bd$be0fdd70$0132a8c0@KILER>",
+      "from_name": "Valentin Todorov",
+      "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
+      "date": "2007-08-28T23:52:34+02:00",
+      "subject": "[RsR] Distribution of robust distances",
+      "subject_clean": "[RsR] Distribution of robust distances",
+      "in_reply_to": null,
+      "references": [
+        "<5FEC4F8459B55448AB1D8E8D37D2B238011DDF93@ukaprdembx02.rd.astrazeneca.net>"
+      ],
+      "body_plain": "Dear Harry,\n\nThank you very much for this question , which is an important issue arising \nnow and then in different forms but almost allways meaning \"Why are \ndifferent the results of the different MCD implementations?\". And the answer \nis almost always \"Because of the different consistency and small sample \ncorrections factors used\".\n\nThere are several problems in your case (and Kevin Wright's):\n\n1. I assume you are using cov.rob() or cov.mcd() from MASS for computing the \nMCD estimator (as seen in the code of Kevin). These functions return the \nreweighted MCD covariance matrix, while the results in the paper of Hardin \nand Rocke are for the raw MCD. There is an MCD program at the Jo Hardin's \nweb page for computing the MCD, which is a straightforward implementation of \nFAST-MCD in R without partitioning, nesting, reweighting and correcting, \nwhich they used for performing the computation. With this program you could \nreproduce the results but unfortunately it is very slow compared to the \nimplementations in native Fortran or C code (like these in MASS, \nrrcov/robustbase). Here is the link:\n\nhttp://pages.pomona.edu/~jsh04747/Research/mcd.est.r\n\n2. If you use covMcd{robustbase} or CovMcd{rrcov} instead, you can: (i) \nswitch off the correction factors and (ii) take the raw estimates.\n\n3. Youd do not need to estimate c (page 19) since it is already applied in \ncovMcd() - the covariance matrix was devided by c, i.e. you are multiplyung \ntwise the distances by this factor.\n\nIn summary: using the raw estimates from covMcd() called with \nuse.correction=FALSE and setting c=1 in the code of Kevin will reproduce the \nresults.\n\n\n\ncovResult <- covMcd(x, use.correction=FALSE)\n\nT <- covResult$raw.center\n\nC <- covResult$raw.cov\n\n\n\nc <- 1\n\n.\n\nm <- .\n\n.\n\nI'll try to find the code of the simulations I did some time ago and will \npost it in the next days.\n\nHope this helps,\nBest regards,\nValentin\n\n----- Original Message ----- \nFrom: \"Southworth, Harry\" <Harry.Southworth at astrazeneca.com>\nTo: <R-SIG-robust at stat.math.ethz.ch>\nSent: Tuesday, August 28, 2007 4:21 PM\nSubject: [RsR] Distribution of robust distances\n\n\n> Hello.\n>\n> Has anyone implemented anything to compute quantiles of the distribution\n> of robust distances following Hardin & Rocke\n> (http://dmrocke.ucdavis.edu/papers/HardinRocke2005.pdf)?\n>\n> I've got a function to do it, but I can't reproduce the results of\n> Hardin & Rock because my function is returning values that are too high.\n> Searching the R help archive, I found a message from 2004 describing the\n> same problem(http://tolstoy.newcastle.edu.au/R/help/04/05/1296.html).\n> The code in that message is essentially similar to mine (except that he\n> uses a 1 - h/n that I think should be h/n).\n>\n> I'd be grateful of any pointers.\n>\n> Thanks,\n> Harry\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>",
+      "body_snippet": "Dear Harry,\n\nThank you very much for this question , which is an important issue arising \nnow and then in different forms but almost allways meaning \"Why are \ndifferent the results of the different MC",
+      "thread_id": "thread-518c0215e91b",
+      "thread_depth": 1,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-759e0ec11a7e",
+      "message_id": "<5FEC4F8459B55448AB1D8E8D37D2B238011DDF97@ukaprdembx02.rd.astrazeneca.net>",
+      "from_name": "Southworth, Harry",
+      "from_email_hash": "bd043877f3d4c0b4d052c717ae5c669eadc4365d7f3f08f4b69a5934dd78a67f",
+      "date": "2007-08-29T11:35:47+01:00",
+      "subject": "[RsR] Distribution of robust distances",
+      "subject_clean": "[RsR] Distribution of robust distances",
+      "in_reply_to": "<007c01c7e9bd$be0fdd70$0132a8c0@KILER>",
+      "references": [],
+      "body_plain": "That's a wonderfully informative response. Thank you!\n\nI had been doing some testing with cov.rob from MASS as you guessed. I'm intending to move to covRob with estim=\"mcd\" in the S+Robust library. According to the documentation for that function, it gives the FAST MCD estimate. I now appear to be reproducing the results of Hardin & Rocke.\n\nAgain, many thanks.\nHarry\n\n____________________________________________\n\nHarry Southworth,\nFE2 A/2 Parklands,\nAlderley Park,\nCheshire, SK10 4TG, UK\nTel.: +44 1625 518327\nMobile: 07867 676073\n____________________________________________\n\n\n\n> -----Original Message-----\n> From: Valentin Todorov [mailto:valentin.todorov at chello.at]\n> Sent: 28 August 2007 22:53\n> To: Southworth, Harry; R-SIG-robust at stat.math.ethz.ch\n> Cc: kwright at eskimo.com; jo.hardin at pomona.edu; dmrocke at ucdavis.edu\n> Subject: Re: [RsR] Distribution of robust distances\n> \n> \n> Dear Harry,\n> \n> Thank you very much for this question , which is an important \n> issue arising \n> now and then in different forms but almost allways meaning \"Why are \n> different the results of the different MCD implementations?\". \n> And the answer \n> is almost always \"Because of the different consistency and \n> small sample \n> corrections factors used\".\n> \n> There are several problems in your case (and Kevin Wright's):\n> \n> 1. I assume you are using cov.rob() or cov.mcd() from MASS \n> for computing the \n> MCD estimator (as seen in the code of Kevin). These functions \n> return the \n> reweighted MCD covariance matrix, while the results in the \n> paper of Hardin \n> and Rocke are for the raw MCD. There is an MCD program at the \n> Jo Hardin's \n> web page for computing the MCD, which is a straightforward \n> implementation of \n> FAST-MCD in R without partitioning, nesting, reweighting and \n> correcting, \n> which they used for performing the computation. With this \n> program you could \n> reproduce the results but unfortunately it is very slow \n> compared to the \n> implementations in native Fortran or C code (like these in MASS, \n> rrcov/robustbase). Here is the link:\n> \n> http://pages.pomona.edu/~jsh04747/Research/mcd.est.r\n> \n> 2. If you use covMcd{robustbase} or CovMcd{rrcov} instead, \n> you can: (i) \n> switch off the correction factors and (ii) take the raw estimates.\n> \n> 3. Youd do not need to estimate c (page 19) since it is \n> already applied in \n> covMcd() - the covariance matrix was devided by c, i.e. you \n> are multiplyung \n> twise the distances by this factor.\n> \n> In summary: using the raw estimates from covMcd() called with \n> use.correction=FALSE and setting c=1 in the code of Kevin \n> will reproduce the \n> results.\n> \n> \n> \n> covResult <- covMcd(x, use.correction=FALSE)\n> \n> T <- covResult$raw.center\n> \n> C <- covResult$raw.cov\n> \n> \n> \n> c <- 1\n> \n> .\n> \n> m <- .\n> \n> .\n> \n> I'll try to find the code of the simulations I did some time \n> ago and will \n> post it in the next days.\n> \n> Hope this helps,\n> Best regards,\n> Valentin\n> \n> ----- Original Message ----- \n> From: \"Southworth, Harry\" <Harry.Southworth at astrazeneca.com>\n> To: <R-SIG-robust at stat.math.ethz.ch>\n> Sent: Tuesday, August 28, 2007 4:21 PM\n> Subject: [RsR] Distribution of robust distances\n> \n> \n> > Hello.\n> >\n> > Has anyone implemented anything to compute quantiles of the \n> distribution\n> > of robust distances following Hardin & Rocke\n> > (http://dmrocke.ucdavis.edu/papers/HardinRocke2005.pdf)?\n> >\n> > I've got a function to do it, but I can't reproduce the results of\n> > Hardin & Rock because my function is returning values that \n> are too high.\n> > Searching the R help archive, I found a message from 2004 \n> describing the\n> > same \n> problem(http://tolstoy.newcastle.edu.au/R/help/04/05/1296.html).\n> > The code in that message is essentially similar to mine \n> (except that he\n> > uses a 1 - h/n that I think should be h/n).\n> >\n> > I'd be grateful of any pointers.\n> >\n> > Thanks,\n> > Harry\n> >\n> > _______________________________________________\n> > R-SIG-Robust at r-project.org mailing list\n> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n> > \n> \n>",
+      "body_snippet": "That's a wonderfully informative response. Thank you!\n\nI had been doing some testing with cov.rob from MASS as you guessed. I'm intending to move to covRob with estim=\"mcd\" in the S+Robust library. Ac",
+      "thread_id": "thread-518c0215e91b",
+      "thread_depth": 2,
+      "month": "2007-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-68667b2cd751",
+      "subject": "[RsR] need functions for robust data depth",
+      "message_count": 1,
+      "participants": [
+        "F@rr@r@D@vid m@iii@g oii ep@m@ii@ep@@gov"
+      ],
+      "started": "2007-08-17T16:59:32-04:00",
+      "last_reply": "2007-08-17T16:59:32-04:00",
+      "root_message_id": "msg-68667b2cd751"
+    },
+    {
+      "id": "thread-7d9735726731",
+      "subject": "[RsR] Non-linear robust method",
+      "message_count": 6,
+      "participants": [
+        "A@Teyteiboym m@iii@g oii ise@@c@uk",
+        "Bruno L. Giordano",
+        "Eva Cantoni",
+        "Martin Maechler",
+        "Ruckstuhl Andreas (rkst)",
+        "Stromberg, Arnold"
+      ],
+      "started": "2007-08-24T12:44:44+01:00",
+      "last_reply": "2007-08-25T14:31:49+02:00",
+      "root_message_id": "msg-7d9735726731"
+    },
+    {
+      "id": "thread-518c0215e91b",
+      "subject": "[RsR] Distribution of robust distances",
+      "message_count": 3,
+      "participants": [
+        "Southworth, Harry",
+        "Valentin Todorov"
+      ],
+      "started": "2007-08-28T15:21:59+01:00",
+      "last_reply": "2007-08-29T11:35:47+01:00",
+      "root_message_id": "msg-518c0215e91b"
+    },
+    {
+      "id": "thread-2889ab1c48ba",
+      "subject": "[RsR] needs programs or ideas on nonparametric regression prediction bounds",
+      "message_count": 1,
+      "participants": [
+        "F@rr@r@D@vid m@iii@g oii ep@m@ii@ep@@gov"
+      ],
+      "started": "2007-08-28T16:42:27-04:00",
+      "last_reply": "2007-08-28T16:42:27-04:00",
+      "root_message_id": "msg-2889ab1c48ba"
+    }
+  ]
+}
