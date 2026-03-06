@@ -63,17 +63,6 @@
     {
       "id": "thread-a6ea3cdcbb67",
       "subject": "[RsR] [R] p-values for robust regression",
-      "message_count": 1,
-      "participants": [
-        "Martin Maechler"
-      ],
-      "started": "2006-07-05T14:51:02+02:00",
-      "last_reply": "2006-07-05T14:51:02+02:00",
-      "root_message_id": "msg-a6ea3cdcbb67"
-    },
-    {
-      "id": "thread-a6ea3cdcbb67",
-      "subject": "[RsR] [R] p-values for robust regression",
       "message_count": 2,
       "participants": [
         "Martin Maechler",
@@ -81,6 +70,17 @@
       ],
       "started": "2006-07-05T14:51:02+02:00",
       "last_reply": "2006-07-05T10:19:10-07:00",
+      "root_message_id": "msg-a6ea3cdcbb67"
+    },
+    {
+      "id": "thread-a6ea3cdcbb67",
+      "subject": "[RsR] [R] p-values for robust regression",
+      "message_count": 1,
+      "participants": [
+        "Martin Maechler"
+      ],
+      "started": "2006-07-05T14:51:02+02:00",
+      "last_reply": "2006-07-05T14:51:02+02:00",
       "root_message_id": "msg-a6ea3cdcbb67"
     }
   ]
