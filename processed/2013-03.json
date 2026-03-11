@@ -8,7 +8,7 @@
       "message_id": "<1362356743.16501.YahooMailNeo@web163806.mail.gq1.yahoo.com>",
       "from_name": "Wei-han Liu",
       "from_email_hash": "66506e08d776c7f9ac44d47b599e85a0a841c8c3cfcb849d396ff51f85432d2d",
-      "date": "2013-03-03T16:25:43-08:00",
+      "date": "2013-03-04T00:25:43Z",
       "subject": "[RsR] Kolmogrov-Smirov test and Wilcoxon test",
       "subject_clean": "[RsR] Kolmogrov-Smirov test and Wilcoxon test",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CAC6XSHiTu_XoLJ4Ff2Rjxg04YemyGHjsKenW3YgtbwwQ7OS=PQ@mail.gmail.com>",
       "from_name": "Ivan Li",
       "from_email_hash": "33bce253cb259851ac6daaa4a9d2d87dea62a6cdafa224984af1d2cebe4a63f7",
-      "date": "2013-03-05T13:36:27-08:00",
+      "date": "2013-03-05T21:36:27Z",
       "subject": "[RsR] Questions on implementing logistic regression",
       "subject_clean": "[RsR] Questions on implementing logistic regression",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<CACk-te1C1TRVw041fnCPEBh1F56_seTQZ-DKLp5WwzAb70kjgA@mail.gmail.com>",
       "from_name": "Bert Gunter",
       "from_email_hash": "fff944709cd4e01c43b94b925a795dc8ebb00f65da76c888c1d3901ec68b6b6b",
-      "date": "2013-03-05T14:58:00-08:00",
+      "date": "2013-03-05T22:58:00Z",
       "subject": "[RsR] [R] Questions on implementing logistic regression",
       "subject_clean": "[RsR] [R] Questions on implementing logistic regression",
       "in_reply_to": "<CAC6XSHiTu_XoLJ4Ff2Rjxg04YemyGHjsKenW3YgtbwwQ7OS=PQ@mail.gmail.com>",
@@ -58,7 +58,7 @@
       "message_id": "<CACk-te0++hu84cdUc+QDeZTSeaB_zbE5RMe4Vs=Gc2hRAUe9ig@mail.gmail.com>",
       "from_name": "Bert Gunter",
       "from_email_hash": "fff944709cd4e01c43b94b925a795dc8ebb00f65da76c888c1d3901ec68b6b6b",
-      "date": "2013-03-05T15:01:48-08:00",
+      "date": "2013-03-05T23:01:48Z",
       "subject": "[RsR] [R] Questions on implementing logistic regression",
       "subject_clean": "[RsR] [R] Questions on implementing logistic regression",
       "in_reply_to": "<CAC6XSHiTu_XoLJ4Ff2Rjxg04YemyGHjsKenW3YgtbwwQ7OS=PQ@mail.gmail.com>",
@@ -80,8 +80,8 @@
       "participants": [
         "Wei-han Liu"
       ],
-      "started": "2013-03-03T16:25:43-08:00",
-      "last_reply": "2013-03-03T16:25:43-08:00",
+      "started": "2013-03-04T00:25:43Z",
+      "last_reply": "2013-03-04T00:25:43Z",
       "root_message_id": "msg-2b7288fb1fab"
     },
     {
@@ -92,8 +92,8 @@
         "Bert Gunter",
         "Ivan Li"
       ],
-      "started": "2013-03-05T13:36:27-08:00",
-      "last_reply": "2013-03-05T15:01:48-08:00",
+      "started": "2013-03-05T21:36:27Z",
+      "last_reply": "2013-03-05T23:01:48Z",
       "root_message_id": "msg-dcf27a01dfe6"
     }
   ]

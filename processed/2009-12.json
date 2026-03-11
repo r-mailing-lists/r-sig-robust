@@ -8,7 +8,7 @@
       "message_id": "<4B1E4D1A.4030500@unige.ch>",
       "from_name": "Olivier Renaud",
       "from_email_hash": "6d71b22d0e62134f96165c0875cd64df6e65b064c8150892f2d49dcb83e43c33",
-      "date": "2009-12-08T13:56:58+01:00",
+      "date": "2009-12-08T12:56:58Z",
       "subject": "[RsR] Several bugs for th lmRob function",
       "subject_clean": "[RsR] Several bugs for th lmRob function",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4B1E4D43.3020101@unige.ch>",
       "from_name": "Olivier Renaud",
       "from_email_hash": "6d71b22d0e62134f96165c0875cd64df6e65b064c8150892f2d49dcb83e43c33",
-      "date": "2009-12-08T13:57:39+01:00",
+      "date": "2009-12-08T12:57:39Z",
       "subject": "[RsR] praise for taking good care of ANOVA in the robust libraries in R",
       "subject_clean": "[RsR] praise for taking good care of ANOVA in the robust libraries in R",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<596FCCCB-E25C-4B7C-A594-3040E1E0C2F3@epfl.ch>",
       "from_name": "Konis Kjell",
       "from_email_hash": "dbde64352289953147e639af58ad94d54fbe314dd3ce76fa6c738d1b3f3626ca",
-      "date": "2009-12-14T16:27:18+01:00",
+      "date": "2009-12-14T15:27:18Z",
       "subject": "[RsR] Several bugs for th lmRob function",
       "subject_clean": "[RsR] Several bugs for th lmRob function",
       "in_reply_to": "<4B1E4D1A.4030500@unige.ch>",
@@ -58,7 +58,7 @@
       "message_id": "<679192.49989.qm@web58902.mail.re1.yahoo.com>",
       "from_name": "Iasonas Lamprianou",
       "from_email_hash": "e101de2010438288aee1c1d0184ca84072b1638693e9dede9dfdc151a3adcae3",
-      "date": "2009-12-28T03:04:01-08:00",
+      "date": "2009-12-28T11:04:01Z",
       "subject": "[RsR] anova",
       "subject_clean": "[RsR] anova",
       "in_reply_to": "<mailman.7.1260874805.26066.r-sig-robust@r-project.org>",
@@ -79,8 +79,8 @@
         "Konis Kjell",
         "Olivier Renaud"
       ],
-      "started": "2009-12-08T13:56:58+01:00",
-      "last_reply": "2009-12-14T16:27:18+01:00",
+      "started": "2009-12-08T12:56:58Z",
+      "last_reply": "2009-12-14T15:27:18Z",
       "root_message_id": "msg-63a3c8b424f0"
     },
     {
@@ -90,8 +90,8 @@
       "participants": [
         "Olivier Renaud"
       ],
-      "started": "2009-12-08T13:57:39+01:00",
-      "last_reply": "2009-12-08T13:57:39+01:00",
+      "started": "2009-12-08T12:57:39Z",
+      "last_reply": "2009-12-08T12:57:39Z",
       "root_message_id": "msg-d4857f8b5097"
     },
     {
@@ -101,8 +101,8 @@
       "participants": [
         "Iasonas Lamprianou"
       ],
-      "started": "2009-12-28T03:04:01-08:00",
-      "last_reply": "2009-12-28T03:04:01-08:00",
+      "started": "2009-12-28T11:04:01Z",
+      "last_reply": "2009-12-28T11:04:01Z",
       "root_message_id": "msg-bf81f2d5610a"
     }
   ]

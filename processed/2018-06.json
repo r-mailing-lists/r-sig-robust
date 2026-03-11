@@ -8,7 +8,7 @@
       "message_id": "<c0814fe6-434d-cd14-c2a1-261e1cc383c3@unige.ch>",
       "from_name": "Eva Cantoni",
       "from_email_hash": "c20436cc2133f3eaff2df4dd17c85c0eb749a001eaa6c3f3120dd9a31962497d",
-      "date": "2018-06-14T14:56:14+02:00",
+      "date": "2018-06-14T12:56:14Z",
       "subject": "[RsR] Huber rho function evaluation",
       "subject_clean": "[RsR] Huber rho function evaluation",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<23331.30168.842753.371874@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2018-06-15T10:16:24+02:00",
+      "date": "2018-06-15T08:16:24Z",
       "subject": "[RsR] Huber rho function evaluation",
       "subject_clean": "[RsR] Huber rho function evaluation",
       "in_reply_to": "<c0814fe6-434d-cd14-c2a1-261e1cc383c3@unige.ch>",
@@ -42,7 +42,7 @@
       "message_id": "<23331.30383.646510.777343@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2018-06-15T10:19:59+02:00",
+      "date": "2018-06-15T08:19:59Z",
       "subject": "[RsR] Huber rho function evaluation (plus plot)",
       "subject_clean": "[RsR] Huber rho function evaluation (plus plot)",
       "in_reply_to": "<23331.30168.842753.371874@stat.math.ethz.ch>",
@@ -66,8 +66,8 @@
         "Eva Cantoni",
         "Martin Maechler"
       ],
-      "started": "2018-06-14T14:56:14+02:00",
-      "last_reply": "2018-06-15T10:19:59+02:00",
+      "started": "2018-06-14T12:56:14Z",
+      "last_reply": "2018-06-15T08:19:59Z",
       "root_message_id": "msg-1c37224fd403"
     }
   ]

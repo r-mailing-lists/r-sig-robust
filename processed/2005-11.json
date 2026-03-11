@@ -8,7 +8,7 @@
       "message_id": "<17261.737.183423.52210@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2005-11-05T20:07:13+01:00",
+      "date": "2005-11-05T19:07:13Z",
       "subject": "[RsR] \"Robust Statistics in R\" - Mailing List",
       "subject_clean": "[RsR] \"Robust Statistics in R\" - Mailing List",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<17272.30684.543345.857234@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2005-11-14T12:41:16+01:00",
+      "date": "2005-11-14T11:41:16Z",
       "subject": "[RsR] [R] Robust Non-linear Regression",
       "subject_clean": "[RsR] [R] Robust Non-linear Regression",
       "in_reply_to": "<9AC105024CEA64458BF66D1DE13CA50D070FB3B2@tibbemeexs1.eu.jnj.com>",
@@ -42,7 +42,7 @@
       "message_id": "<17292.3784.195519.15503@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2005-11-29T09:18:16+01:00",
+      "date": "2005-11-29T08:18:16Z",
       "subject": "[RsR] [R] Robust smoothing",
       "subject_clean": "[RsR] [R] Robust smoothing",
       "in_reply_to": "<200511281942.jASJgjEo004369@ohm.gene.com>",
@@ -65,8 +65,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2005-11-05T20:07:13+01:00",
-      "last_reply": "2005-11-05T20:07:13+01:00",
+      "started": "2005-11-05T19:07:13Z",
+      "last_reply": "2005-11-05T19:07:13Z",
       "root_message_id": "msg-0fa952b51068"
     },
     {
@@ -76,8 +76,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2005-11-14T12:41:16+01:00",
-      "last_reply": "2005-11-14T12:41:16+01:00",
+      "started": "2005-11-14T11:41:16Z",
+      "last_reply": "2005-11-14T11:41:16Z",
       "root_message_id": "msg-770f14211d0c"
     },
     {
@@ -87,8 +87,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2005-11-29T09:18:16+01:00",
-      "last_reply": "2005-11-29T09:18:16+01:00",
+      "started": "2005-11-29T08:18:16Z",
+      "last_reply": "2005-11-29T08:18:16Z",
       "root_message_id": "msg-b0ad3e9151c8"
     }
   ]

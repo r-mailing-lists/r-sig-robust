@@ -44,7 +44,7 @@
       "message_id": "<23907.37249.829497.824928@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2019-08-26T10:00:01+02:00",
+      "date": "2019-08-26T08:00:01Z",
       "subject": "[RsR] error/warning messages with lmrob()",
       "subject_clean": "[RsR] error/warning messages with lmrob()",
       "in_reply_to": "<96422a64b1ac450ab488d06faaf9ebbc@stat.math.ethz.ch>",
@@ -63,7 +63,7 @@
       "message_id": "<23907.38316.115412.485306@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2019-08-26T10:17:48+02:00",
+      "date": "2019-08-26T08:17:48Z",
       "subject": "[RsR] use of lmrob() on ecological time series",
       "subject_clean": "[RsR] use of lmrob() on ecological time series",
       "in_reply_to": "<06240b787ab344ef93f297682673dd5c@stat.math.ethz.ch>",
@@ -102,7 +102,7 @@
       "message_id": "<CANx-k+WZEdOedHgPppf9HTO9BR-BFXzzxFBh3V=S3tAqja+GZA@mail.gmail.com>",
       "from_name": "Emily Klein",
       "from_email_hash": "922c2afe5d3d073e6149a50bed20da4c50736910d5edf95ed68b695df3b546b2",
-      "date": "2019-08-27T12:01:24-04:00",
+      "date": "2019-08-27T16:01:24Z",
       "subject": "[RsR] use of lmrob() on ecological time series",
       "subject_clean": "[RsR] use of lmrob() on ecological time series",
       "in_reply_to": "<23907.38316.115412.485306@stat.math.ethz.ch>",
@@ -143,7 +143,7 @@
       "message_id": "<CANx-k+VEN9ssXZG4W9-99Yxt6sehqypiZgV2V8ydmyfnA9SstQ@mail.gmail.com>",
       "from_name": "Emily Klein",
       "from_email_hash": "922c2afe5d3d073e6149a50bed20da4c50736910d5edf95ed68b695df3b546b2",
-      "date": "2019-08-29T12:19:01-04:00",
+      "date": "2019-08-29T16:19:01Z",
       "subject": "[RsR] error/warning messages with lmrob()",
       "subject_clean": "[RsR] error/warning messages with lmrob()",
       "in_reply_to": "<7af6a936f9cb40739a0dba4bc7233629@stat.math.ethz.ch>",
@@ -170,8 +170,8 @@
         "Martin Maechler",
         "Stahel  Werner A."
       ],
-      "started": "2019-08-24T20:53:22+00:00",
-      "last_reply": "2019-08-27T17:54:42+00:00",
+      "started": "2019-08-24T20:53:22Z",
+      "last_reply": "2019-08-27T17:54:42Z",
       "root_message_id": "msg-c888262e5391"
     },
     {
@@ -183,8 +183,8 @@
         "Martin Maechler",
         "Stahel  Werner A."
       ],
-      "started": "2019-08-24T21:04:04+00:00",
-      "last_reply": "2019-08-29T12:19:01-04:00",
+      "started": "2019-08-24T21:04:04Z",
+      "last_reply": "2019-08-29T16:19:01Z",
       "root_message_id": "msg-5e5a072541a5"
     }
   ]

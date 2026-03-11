@@ -8,7 +8,7 @@
       "message_id": "<Prayer.1.0.16.0806050145130.22830@wm1.tc.umn.edu>",
       "from_name": "kh@@x131 m@iii@g oii um@@edu",
       "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
-      "date": "2008-06-05T01:45:13-05:00",
+      "date": "2008-06-05T06:45:13Z",
       "subject": "[RsR] simulating regression data",
       "subject_clean": "[RsR] simulating regression data",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<004e01c8c81f$3e996200$6f01a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2008-06-06T23:49:49+02:00",
+      "date": "2008-06-06T21:49:49Z",
       "subject": "[RsR] Tutorial: Introduction to Robust Statistics with R",
       "subject_clean": "[RsR] Tutorial: Introduction to Robust Statistics with R",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<18506.62655.949770.282648@cmath-5.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2008-06-07T22:51:11+02:00",
+      "date": "2008-06-07T20:51:11Z",
       "subject": "[RsR] Tutorial: Introduction to Robust Statistics with R",
       "subject_clean": "[RsR] Tutorial: Introduction to Robust Statistics with R",
       "in_reply_to": "<004e01c8c81f$3e996200$6f01a8c0@KILER>",
@@ -61,7 +61,7 @@
       "message_id": "<003601c8c8e9$773eaaf0$6f01a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2008-06-07T23:57:22+02:00",
+      "date": "2008-06-07T21:57:22Z",
       "subject": "[RsR] Tutorial: Introduction to Robust Statistics with R",
       "subject_clean": "[RsR] Tutorial: Introduction to Robust Statistics with R",
       "in_reply_to": null,
@@ -81,7 +81,7 @@
       "message_id": "<20080608141944.GR276@lubyanka.local>",
       "from_name": "Ajay Shah",
       "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
-      "date": "2008-06-08T19:49:44+05:30",
+      "date": "2008-06-08T14:19:44Z",
       "subject": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
       "subject_clean": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
       "in_reply_to": null,
@@ -97,7 +97,7 @@
       "message_id": "<971536df0806080814t3ee23e4avb198ddf28ff7b99a@mail.gmail.com>",
       "from_name": "Gabor Grothendieck",
       "from_email_hash": "2470cc61688c301322ff3a85f3fd51ddba9f1112f88f535ec93c41ab610332d1",
-      "date": "2008-06-08T11:14:27-04:00",
+      "date": "2008-06-08T15:14:27Z",
       "subject": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
       "subject_clean": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
       "in_reply_to": "<20080608141944.GR276@lubyanka.local>",
@@ -115,7 +115,7 @@
       "message_id": "<4c0e456b0806091312u58f675bfy244636f594cbd9cf@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
-      "date": "2008-06-09T22:12:25+02:00",
+      "date": "2008-06-09T20:12:25Z",
       "subject": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
       "subject_clean": "[RsR] Seasonal adjustment; What's a good `blackbox' robust lm() function?",
       "in_reply_to": "<971536df0806080814t3ee23e4avb198ddf28ff7b99a@mail.gmail.com>",
@@ -156,8 +156,8 @@
       "participants": [
         "kh@@x131 m@iii@g oii um@@edu"
       ],
-      "started": "2008-06-05T01:45:13-05:00",
-      "last_reply": "2008-06-05T01:45:13-05:00",
+      "started": "2008-06-05T06:45:13Z",
+      "last_reply": "2008-06-05T06:45:13Z",
       "root_message_id": "msg-9ed2b4e031b3"
     },
     {
@@ -168,8 +168,8 @@
         "Martin Maechler",
         "Valentin Todorov"
       ],
-      "started": "2008-06-06T23:49:49+02:00",
-      "last_reply": "2008-06-07T23:57:22+02:00",
+      "started": "2008-06-06T21:49:49Z",
+      "last_reply": "2008-06-07T21:57:22Z",
       "root_message_id": "msg-35d8c520b090"
     },
     {
@@ -181,8 +181,8 @@
         "Gabor Grothendieck",
         "Valentin Todorov"
       ],
-      "started": "2008-06-08T19:49:44+05:30",
-      "last_reply": "2008-06-09T22:12:25+02:00",
+      "started": "2008-06-08T14:19:44Z",
+      "last_reply": "2008-06-09T20:12:25Z",
       "root_message_id": "msg-e283ea091fbc"
     },
     {
@@ -192,8 +192,8 @@
       "participants": [
         "PUJAN RAJ REGMI"
       ],
-      "started": "2008-06-21T11:15:06+00:00",
-      "last_reply": "2008-06-21T11:15:06+00:00",
+      "started": "2008-06-21T11:15:06Z",
+      "last_reply": "2008-06-21T11:15:06Z",
       "root_message_id": "msg-402d6fa3b1ee"
     }
   ]

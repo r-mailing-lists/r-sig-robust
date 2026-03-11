@@ -42,7 +42,7 @@
       "message_id": "<21735.23655.276348.8527@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "de042c0549efc3fc1a7b5b568c4238c6bf6d2d8df2d40c5d9057bb21de74e2c2",
-      "date": "2015-02-20T17:10:15+01:00",
+      "date": "2015-02-20T16:10:15Z",
       "subject": "[RsR] Prediction Intervals for Robust Regression",
       "subject_clean": "[RsR] Prediction Intervals for Robust Regression",
       "in_reply_to": "<8004D1B4C0A8DA4286D3C1C76B5CB1E87DCF9295@ex10mb02.ad.uky.edu>",
@@ -109,8 +109,8 @@
         "Stahel  Werner A.",
         "Stromberg, Arnold"
       ],
-      "started": "2015-02-11T17:41:39+00:00",
-      "last_reply": "2015-02-23T07:19:58+00:00",
+      "started": "2015-02-11T17:41:39Z",
+      "last_reply": "2015-02-23T07:19:58Z",
       "root_message_id": "msg-2416346315cd"
     }
   ]

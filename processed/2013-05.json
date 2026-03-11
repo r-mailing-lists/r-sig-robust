@@ -24,7 +24,7 @@
       "message_id": "<C49D0333-BE9F-4463-97A9-123057236D26@gmail.com>",
       "from_name": "Manuel Koller",
       "from_email_hash": "2a2bc532df5431edcf7eb21908cc6024199c4e954cfbc1a71ca9144a25f3748f",
-      "date": "2013-05-01T17:32:52+02:00",
+      "date": "2013-05-01T15:32:52Z",
       "subject": "[RsR] number of subsamples in robustbase::lmrob.S()",
       "subject_clean": "[RsR] number of subsamples in robustbase::lmrob.S()",
       "in_reply_to": "<loom.20130501T130227-699@post.gmane.org>",
@@ -42,7 +42,7 @@
       "message_id": "<51816B19.7020700@wis.kuleuven.be>",
       "from_name": "Kaveh Vakili",
       "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
-      "date": "2013-05-01T21:20:57+02:00",
+      "date": "2013-05-01T19:20:57Z",
       "subject": "[RsR] number of subsamples in robustbase::lmrob.S()",
       "subject_clean": "[RsR] number of subsamples in robustbase::lmrob.S()",
       "in_reply_to": "<C49D0333-BE9F-4463-97A9-123057236D26@gmail.com>",
@@ -61,7 +61,7 @@
       "message_id": "<DUB108-W544A83DF6925A5215A3859D6BB0@phx.gbl>",
       "from_name": "Anton Kochepasov",
       "from_email_hash": "192540bab9102e5bcdf12a2176ed7e8bfbd43929571d19d33a14e56d45a209cf",
-      "date": "2013-05-08T08:51:28-07:00",
+      "date": "2013-05-08T15:51:28Z",
       "subject": "[RsR] The robust regression confidence interval‏",
       "subject_clean": "[RsR] The robust regression confidence interval‏",
       "in_reply_to": null,
@@ -77,7 +77,7 @@
       "message_id": "<609D7868-112C-47D3-86AE-0E0F3B01D904@illinois.edu>",
       "from_name": "Roger Koenker",
       "from_email_hash": "caab05852b46798f8964879e7f95b188ba67e229ddef91199fd7a33a6219a018",
-      "date": "2013-05-08T11:07:31-05:00",
+      "date": "2013-05-08T16:07:31Z",
       "subject": "[RsR] The robust regression confidence interval‏",
       "subject_clean": "[RsR] The robust regression confidence interval‏",
       "in_reply_to": "<410efbdbc0b24d5e9eaafcda38b6c739@CHIHT3.ad.uillinois.edu>",
@@ -95,7 +95,7 @@
       "message_id": "<72e0f22813b7e5.518a2038@usc.edu>",
       "from_name": "Rand Wilcox",
       "from_email_hash": "85f7f34e1da9f5fb0186588d4ebbb4323445939c30b2ae8fa3e0056a0a50694f",
-      "date": "2013-05-08T09:51:52-07:00",
+      "date": "2013-05-08T16:51:52Z",
       "subject": "[RsR] The robust regression confidence interval‏",
       "subject_clean": "[RsR] The robust regression confidence interval‏",
       "in_reply_to": "<609D7868-112C-47D3-86AE-0E0F3B01D904@illinois.edu>",
@@ -119,8 +119,8 @@
         "Kaveh Vakili",
         "Manuel Koller"
       ],
-      "started": "2013-05-01T11:11:20+00:00",
-      "last_reply": "2013-05-01T21:20:57+02:00",
+      "started": "2013-05-01T11:11:20Z",
+      "last_reply": "2013-05-01T19:20:57Z",
       "root_message_id": "msg-53fd70f46cc6"
     },
     {
@@ -130,8 +130,8 @@
       "participants": [
         "Anton Kochepasov"
       ],
-      "started": "2013-05-08T08:51:28-07:00",
-      "last_reply": "2013-05-08T08:51:28-07:00",
+      "started": "2013-05-08T15:51:28Z",
+      "last_reply": "2013-05-08T15:51:28Z",
       "root_message_id": "msg-ae2c2dabb643"
     },
     {
@@ -142,8 +142,8 @@
         "Rand Wilcox",
         "Roger Koenker"
       ],
-      "started": "2013-05-08T11:07:31-05:00",
-      "last_reply": "2013-05-08T09:51:52-07:00",
+      "started": "2013-05-08T16:07:31Z",
+      "last_reply": "2013-05-08T16:51:52Z",
       "root_message_id": "msg-d5718b0988c2"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<200812011710.43491.johannes_graumann@web.de>",
       "from_name": "Johannes Graumann",
       "from_email_hash": "34fc1a90575c3e9cdf27c90137b8e84bb11bdeac10c00f3b30f894ed5df2891b",
-      "date": "2008-12-01T17:10:43+01:00",
+      "date": "2008-12-01T16:10:43Z",
       "subject": "[RsR] 'ROptRegTS' load error",
       "subject_clean": "[RsR] 'ROptRegTS' load error",
       "in_reply_to": "<493184A9.3030002@stamats.de>",
@@ -28,7 +28,7 @@
       "message_id": "<49342FAC.9030001@stamats.de>",
       "from_name": "Matthias Kohl",
       "from_email_hash": "e144ddb675681f3124c6e887dd63c8aec6f6b4e9911a8cda00f94c453a4cb173",
-      "date": "2008-12-01T19:40:44+01:00",
+      "date": "2008-12-01T18:40:44Z",
       "subject": "[RsR] 'ROptRegTS' load error",
       "subject_clean": "[RsR] 'ROptRegTS' load error",
       "in_reply_to": "<200812011710.43491.johannes_graumann@web.de>",
@@ -49,7 +49,7 @@
       "message_id": "<4c0e456b0812030527r5c66d795x7d97227f04664ba4@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
-      "date": "2008-12-03T14:27:38+01:00",
+      "date": "2008-12-03T13:27:38Z",
       "subject": "[RsR] Singular covariance in plot.lmrob",
       "subject_clean": "[RsR] Singular covariance in plot.lmrob",
       "in_reply_to": "<49305524.3000608@stat.ubc.ca>",
@@ -70,7 +70,7 @@
       "message_id": "<18744.60047.428225.589408@stat.math.ethz.ch>",
       "from_name": "Werner Stahel",
       "from_email_hash": "101ca612b9f2346f74dcc9ac2f117318c822c9dbf0fb189a26e0662e2f574bdb",
-      "date": "2008-12-05T09:47:11+01:00",
+      "date": "2008-12-05T08:47:11Z",
       "subject": "[RsR] Singular covariance in plot.lmrob",
       "subject_clean": "[RsR] Singular covariance in plot.lmrob",
       "in_reply_to": null,
@@ -86,7 +86,7 @@
       "message_id": "<ea7d6a710812181813y5244aa8bw50c473f9cf522b07@mail.gmail.com>",
       "from_name": "Bradford Cross",
       "from_email_hash": "1a7ddbb6a3f6087520c45e4631f9c5158abf62baab0b58cdc04c5003642684bd",
-      "date": "2008-12-18T18:13:14-08:00",
+      "date": "2008-12-19T02:13:14Z",
       "subject": "[RsR] the list might be interested in this new project",
       "subject_clean": "[RsR] the list might be interested in this new project",
       "in_reply_to": null,
@@ -107,8 +107,8 @@
         "Johannes Graumann",
         "Matthias Kohl"
       ],
-      "started": "2008-12-01T17:10:43+01:00",
-      "last_reply": "2008-12-01T19:40:44+01:00",
+      "started": "2008-12-01T16:10:43Z",
+      "last_reply": "2008-12-01T18:40:44Z",
       "root_message_id": "msg-5e404ae7d826"
     },
     {
@@ -118,8 +118,8 @@
       "participants": [
         "Valentin Todorov"
       ],
-      "started": "2008-12-03T14:27:38+01:00",
-      "last_reply": "2008-12-03T14:27:38+01:00",
+      "started": "2008-12-03T13:27:38Z",
+      "last_reply": "2008-12-03T13:27:38Z",
       "root_message_id": "msg-c954daa595ee"
     },
     {
@@ -129,8 +129,8 @@
       "participants": [
         "Werner Stahel"
       ],
-      "started": "2008-12-05T09:47:11+01:00",
-      "last_reply": "2008-12-05T09:47:11+01:00",
+      "started": "2008-12-05T08:47:11Z",
+      "last_reply": "2008-12-05T08:47:11Z",
       "root_message_id": "msg-131704000760"
     },
     {
@@ -140,8 +140,8 @@
       "participants": [
         "Bradford Cross"
       ],
-      "started": "2008-12-18T18:13:14-08:00",
-      "last_reply": "2008-12-18T18:13:14-08:00",
+      "started": "2008-12-19T02:13:14Z",
+      "last_reply": "2008-12-19T02:13:14Z",
       "root_message_id": "msg-47a2f9e065e5"
     }
   ]

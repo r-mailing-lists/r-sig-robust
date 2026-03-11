@@ -8,7 +8,7 @@
       "message_id": "<20081002052210.GA422@lubyanka.local>",
       "from_name": "Ajay Shah",
       "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
-      "date": "2008-10-02T10:52:10+05:30",
+      "date": "2008-10-02T05:22:10Z",
       "subject": "[RsR] Citation of robust::lmRob?",
       "subject_clean": "[RsR] Citation of robust::lmRob?",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<0EF4E838-FCA1-476E-BE07-AE763BB1668A@epfl.ch>",
       "from_name": "Kjell Konis",
       "from_email_hash": "dbde64352289953147e639af58ad94d54fbe314dd3ce76fa6c738d1b3f3626ca",
-      "date": "2008-10-02T12:04:07+02:00",
+      "date": "2008-10-02T10:04:07Z",
       "subject": "[RsR] Citation of robust::lmRob?",
       "subject_clean": "[RsR] Citation of robust::lmRob?",
       "in_reply_to": "<20081002052210.GA422@lubyanka.local>",
@@ -42,7 +42,7 @@
       "message_id": "<Prayer.1.0.16.0810191320580.28589@vs-a.tc.umn.edu>",
       "from_name": "kh@@x131 m@iii@g oii um@@edu",
       "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
-      "date": "2008-10-19T13:20:58-05:00",
+      "date": "2008-10-19T18:20:58Z",
       "subject": "[RsR] Robust nonlinear regression in R",
       "subject_clean": "[RsR] Robust nonlinear regression in R",
       "in_reply_to": "<41639.148.177.129.210.1222414198.squirrel@webmail.businessdecision.com>",
@@ -61,7 +61,7 @@
       "message_id": "<3714572CC7D0A74BB00AD2B95E307ED29000B9@langouste.zhaw.ch>",
       "from_name": "Ruckstuhl Andreas (rkst)",
       "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
-      "date": "2008-10-20T08:00:01+02:00",
+      "date": "2008-10-20T06:00:01Z",
       "subject": "[RsR] Robust nonlinear regression in R",
       "subject_clean": "[RsR] Robust nonlinear regression in R",
       "in_reply_to": "<Prayer.1.0.16.0810191320580.28589@vs-a.tc.umn.edu>",
@@ -82,8 +82,8 @@
         "Ajay Shah",
         "Kjell Konis"
       ],
-      "started": "2008-10-02T10:52:10+05:30",
-      "last_reply": "2008-10-02T12:04:07+02:00",
+      "started": "2008-10-02T05:22:10Z",
+      "last_reply": "2008-10-02T10:04:07Z",
       "root_message_id": "msg-82d0aa7a64d9"
     },
     {
@@ -94,8 +94,8 @@
         "Ruckstuhl Andreas (rkst)",
         "kh@@x131 m@iii@g oii um@@edu"
       ],
-      "started": "2008-10-19T13:20:58-05:00",
-      "last_reply": "2008-10-20T08:00:01+02:00",
+      "started": "2008-10-19T18:20:58Z",
+      "last_reply": "2008-10-20T06:00:01Z",
       "root_message_id": "msg-269cde53b651"
     }
   ]

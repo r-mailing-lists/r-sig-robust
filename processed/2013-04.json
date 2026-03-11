@@ -8,7 +8,7 @@
       "message_id": "<CAF7OBP8KwXo6qiWu=jJqdEz-4Zfqb7VfczEE-ObR4p0R6xhaPQ@mail.gmail.com>",
       "from_name": "Xavier Prudent",
       "from_email_hash": "1afa6fbea17eb95dc37b8bcfa2565269ac4ee04d9fd1dce6ea19f581db1fba67",
-      "date": "2013-04-09T10:09:57+02:00",
+      "date": "2013-04-09T08:09:57Z",
       "subject": "[RsR] Question about regression with R with CAPER",
       "subject_clean": "[RsR] Question about regression with R with CAPER",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<3776C9A9-48A1-46FC-AE2F-5E71C2C72FBF@me.com>",
       "from_name": "Kjell Konis",
       "from_email_hash": "d11b96eadf9647b25d2ef1f752a1ffb8baeea985b521d03e4e555bf58b0857db",
-      "date": "2013-04-09T09:16:32-07:00",
+      "date": "2013-04-09T16:16:32Z",
       "subject": "[RsR] Question about regression with R with CAPER",
       "subject_clean": "[RsR] Question about regression with R with CAPER",
       "in_reply_to": "<CAF7OBP8KwXo6qiWu=jJqdEz-4Zfqb7VfczEE-ObR4p0R6xhaPQ@mail.gmail.com>",
@@ -47,8 +47,8 @@
         "Kjell Konis",
         "Xavier Prudent"
       ],
-      "started": "2013-04-09T10:09:57+02:00",
-      "last_reply": "2013-04-09T09:16:32-07:00",
+      "started": "2013-04-09T08:09:57Z",
+      "last_reply": "2013-04-09T16:16:32Z",
       "root_message_id": "msg-6c143b847af0"
     }
   ]

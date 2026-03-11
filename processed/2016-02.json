@@ -8,7 +8,7 @@
       "message_id": "<56AFBDFA.90501@zhaw.ch>",
       "from_name": "Andreas Ruckstuhl",
       "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
-      "date": "2016-02-01T21:20:10+01:00",
+      "date": "2016-02-01T20:20:10Z",
       "subject": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
       "subject_clean": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
       "in_reply_to": "<F35566C3BE44C946999C7AA38965FA7B6147E541@biommmbx03.resource.corp.biogen.com>",
@@ -45,7 +45,7 @@
       "message_id": "<56B1A131.1000300@zhaw.ch>",
       "from_name": "Andreas Ruckstuhl",
       "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
-      "date": "2016-02-03T07:41:53+01:00",
+      "date": "2016-02-03T06:41:53Z",
       "subject": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
       "subject_clean": "[RsR] robustbase: precision of nlrob with plinear algorithm.",
       "in_reply_to": "<F35566C3BE44C946999C7AA38965FA7B6147F221@biommmbx03.resource.corp.biogen.com>",
@@ -70,8 +70,8 @@
         "Andreas Ruckstuhl",
         "Jerry Lewis"
       ],
-      "started": "2016-02-01T21:20:10+01:00",
-      "last_reply": "2016-02-03T07:41:53+01:00",
+      "started": "2016-02-01T20:20:10Z",
+      "last_reply": "2016-02-03T06:41:53Z",
       "root_message_id": "msg-84ce1b6611c5"
     }
   ]

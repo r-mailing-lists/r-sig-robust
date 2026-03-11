@@ -8,7 +8,7 @@
       "message_id": "<CAJrFtqLc+KY6ETWjo4iwqhTFNA=J2bN0V34zHOc9zKNwMk-z3Q@mail.gmail.com>",
       "from_name": "Andrew Halford",
       "from_email_hash": "cbc529866ec3f025b03db08d36d1700fa71bc1f13abeebea6ac7adf76767c394",
-      "date": "2012-11-20T16:05:39+08:00",
+      "date": "2012-11-20T08:05:39Z",
       "subject": "[RsR] extracting weights from nlrob",
       "subject_clean": "[RsR] extracting weights from nlrob",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<50AB5021.5030708@zhaw.ch>",
       "from_name": "Andreas Ruckstuhl",
       "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
-      "date": "2012-11-20T10:40:49+01:00",
+      "date": "2012-11-20T09:40:49Z",
       "subject": "[RsR] extracting weights from nlrob",
       "subject_clean": "[RsR] extracting weights from nlrob",
       "in_reply_to": "<CAJrFtqLc+KY6ETWjo4iwqhTFNA=J2bN0V34zHOc9zKNwMk-z3Q@mail.gmail.com>",
@@ -47,8 +47,8 @@
         "Andreas Ruckstuhl",
         "Andrew Halford"
       ],
-      "started": "2012-11-20T16:05:39+08:00",
-      "last_reply": "2012-11-20T10:40:49+01:00",
+      "started": "2012-11-20T08:05:39Z",
+      "last_reply": "2012-11-20T09:40:49Z",
       "root_message_id": "msg-30ac90dca017"
     }
   ]

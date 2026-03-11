@@ -8,7 +8,7 @@
       "message_id": "<3747C121-6357-4DFB-A561-B606F2B8A936@unibas.ch>",
       "from_name": "Stefan Herzog",
       "from_email_hash": "127583f7f2cd300a2309a679d6bf66d543f47ae162729e0f94b3db7fbe3e2edc",
-      "date": "2009-09-15T18:34:55+02:00",
+      "date": "2009-09-15T16:34:55Z",
       "subject": "[RsR] Robust (approximated) Bayesian statistics: BIC of robust methods?",
       "subject_clean": "[RsR] Robust (approximated) Bayesian statistics: BIC of robust methods?",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4AB0BE85.6000500@unige.ch>",
       "from_name": "Elvezio Ronchetti",
       "from_email_hash": "d6cdfb6ab3c49df4864f274ff9009bbc212017d6b97964d75740ebaf92a7eefc",
-      "date": "2009-09-16T12:31:33+02:00",
+      "date": "2009-09-16T10:31:33Z",
       "subject": "[RsR] Robust (approximated) Bayesian statistics: BIC of robust methods?",
       "subject_clean": "[RsR] Robust (approximated) Bayesian statistics: BIC of robust methods?",
       "in_reply_to": "<3747C121-6357-4DFB-A561-B606F2B8A936@unibas.ch>",
@@ -42,7 +42,7 @@
       "message_id": "<20090924195721.GQ188@ajay-shahs-macbook-pro.local>",
       "from_name": "Ajay Shah",
       "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
-      "date": "2009-09-25T01:27:21+05:30",
+      "date": "2009-09-24T19:57:21Z",
       "subject": "[RsR] Robust location estimator - an interesting application in finance",
       "subject_clean": "[RsR] Robust location estimator - an interesting application in finance",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<4ABBE53E.7030900@stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2009-09-24T14:31:42-07:00",
+      "date": "2009-09-24T21:31:42Z",
       "subject": "[RsR] Robust location estimator - an interesting application in\tfinance",
       "subject_clean": "[RsR] Robust location estimator - an interesting application in\tfinance",
       "in_reply_to": "<20090924195721.GQ188@ajay-shahs-macbook-pro.local>",
@@ -76,7 +76,7 @@
       "message_id": "<4AC0648C.6050706@zhaw.ch>",
       "from_name": "Andreas Ruckstuhl",
       "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
-      "date": "2009-09-28T09:23:56+02:00",
+      "date": "2009-09-28T07:23:56Z",
       "subject": "[RsR] Robust location estimator - an interesting application in\tfinance",
       "subject_clean": "[RsR] Robust location estimator - an interesting application in\tfinance",
       "in_reply_to": "<20090924195721.GQ188@ajay-shahs-macbook-pro.local>",
@@ -94,7 +94,7 @@
       "message_id": "<19136.39209.87524.356065@lynne.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2009-09-28T13:08:25+02:00",
+      "date": "2009-09-28T11:08:25Z",
       "subject": "[RsR] Robust location estimator - an interesting application in finance",
       "subject_clean": "[RsR] Robust location estimator - an interesting application in finance",
       "in_reply_to": "<4AC0648C.6050706@zhaw.ch>",
@@ -118,8 +118,8 @@
         "Elvezio Ronchetti",
         "Stefan Herzog"
       ],
-      "started": "2009-09-15T18:34:55+02:00",
-      "last_reply": "2009-09-16T12:31:33+02:00",
+      "started": "2009-09-15T16:34:55Z",
+      "last_reply": "2009-09-16T10:31:33Z",
       "root_message_id": "msg-41e42b31939f"
     },
     {
@@ -132,8 +132,8 @@
         "Martin Maechler",
         "Matias Salibian-Barrera"
       ],
-      "started": "2009-09-25T01:27:21+05:30",
-      "last_reply": "2009-09-28T13:08:25+02:00",
+      "started": "2009-09-24T19:57:21Z",
+      "last_reply": "2009-09-28T11:08:25Z",
       "root_message_id": "msg-28d36feade1a"
     }
   ]

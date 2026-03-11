@@ -8,7 +8,7 @@
       "message_id": "<464DC766.10704@duke.edu>",
       "from_name": "Ibrahim Alameddine",
       "from_email_hash": "a35b6485e98a734e38cc0450c0be4ec8449db263f87b459410926ee68b25065f",
-      "date": "2007-05-18T11:33:58-04:00",
+      "date": "2007-05-18T15:33:58Z",
       "subject": "[RsR] rrcov CovMest",
       "subject_clean": "[RsR] rrcov CovMest",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4c0e456b0705210228q7f992525r112b726c57553eea@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
-      "date": "2007-05-21T11:28:43+02:00",
+      "date": "2007-05-21T09:28:43Z",
       "subject": "[RsR] rrcov CovMest",
       "subject_clean": "[RsR] rrcov CovMest",
       "in_reply_to": "<464DC766.10704@duke.edu>",
@@ -47,8 +47,8 @@
         "Ibrahim Alameddine",
         "Valentin Todorov"
       ],
-      "started": "2007-05-18T11:33:58-04:00",
-      "last_reply": "2007-05-21T11:28:43+02:00",
+      "started": "2007-05-18T15:33:58Z",
+      "last_reply": "2007-05-21T09:28:43Z",
       "root_message_id": "msg-2121434415f3"
     }
   ]

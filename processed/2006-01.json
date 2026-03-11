@@ -8,7 +8,7 @@
       "message_id": "<013501c6163d$edb62070$1b01a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2006-01-11T00:31:06+01:00",
+      "date": "2006-01-10T23:31:06Z",
       "subject": "[RsR] Traditional vs. lattice graphics",
       "subject_clean": "[RsR] Traditional vs. lattice graphics",
       "in_reply_to": null,
@@ -27,7 +27,7 @@
       "message_id": "<17348.52680.803195.381731@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-01-11T10:20:08+01:00",
+      "date": "2006-01-11T09:20:08Z",
       "subject": "[RsR] Traditional vs. lattice graphics",
       "subject_clean": "[RsR] Traditional vs. lattice graphics",
       "in_reply_to": "<013501c6163d$edb62070$1b01a8c0@KILER>",
@@ -47,7 +47,7 @@
       "message_id": "<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>",
       "from_name": "claudio",
       "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
-      "date": "2006-01-11T12:29:15+01:00",
+      "date": "2006-01-11T11:29:15Z",
       "subject": "[RsR] Gamma shape and scale",
       "subject_clean": "[RsR] Gamma shape and scale",
       "in_reply_to": "<17300.9156.266887.251826@stat.math.ethz.ch>",
@@ -69,7 +69,7 @@
       "message_id": "<43C523EB.2050406@stamats.de>",
       "from_name": "Matthias Kohl",
       "from_email_hash": "e144ddb675681f3124c6e887dd63c8aec6f6b4e9911a8cda00f94c453a4cb173",
-      "date": "2006-01-11T16:27:39+01:00",
+      "date": "2006-01-11T15:27:39Z",
       "subject": "[RsR] Gamma shape and scale",
       "subject_clean": "[RsR] Gamma shape and scale",
       "in_reply_to": "<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>",
@@ -92,7 +92,7 @@
       "message_id": "<Pine.LNX.4.61.0601110738140.7213@cedar.stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2006-01-11T07:42:45-08:00",
+      "date": "2006-01-11T15:42:45Z",
       "subject": "[RsR] Gamma shape and scale",
       "subject_clean": "[RsR] Gamma shape and scale",
       "in_reply_to": "<Pine.LNX.4.64.0601111222060.19268@localhost.localdomain>",
@@ -115,7 +115,7 @@
       "message_id": "<17359.52410.239037.391030@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-01-19T18:30:34+01:00",
+      "date": "2006-01-19T17:30:34Z",
       "subject": "[RsR] function naming for \"robust ...\"",
       "subject_clean": "[RsR] function naming for \"robust ...\"",
       "in_reply_to": "<17322.35378.533261.42930@stat.math.ethz.ch>",
@@ -135,7 +135,7 @@
       "message_id": "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>",
       "from_name": "claudio",
       "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
-      "date": "2006-01-20T12:50:43+01:00",
+      "date": "2006-01-20T11:50:43Z",
       "subject": "[RsR] function naming for \"robust ...\"",
       "subject_clean": "[RsR] function naming for \"robust ...\"",
       "in_reply_to": null,
@@ -151,7 +151,7 @@
       "message_id": "<17360.60355.748034.739093@stat.math.ethz.ch>",
       "from_name": "Werner Stahel",
       "from_email_hash": "101ca612b9f2346f74dcc9ac2f117318c822c9dbf0fb189a26e0662e2f574bdb",
-      "date": "2006-01-20T14:55:15+01:00",
+      "date": "2006-01-20T13:55:15Z",
       "subject": "[RsR] names for robust fitting functions",
       "subject_clean": "[RsR] names for robust fitting functions",
       "in_reply_to": null,
@@ -167,7 +167,7 @@
       "message_id": "<17361.22635.911892.563447@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-01-20T22:38:51+01:00",
+      "date": "2006-01-20T21:38:51Z",
       "subject": "[RsR] function naming for \"robust ...\"",
       "subject_clean": "[RsR] function naming for \"robust ...\"",
       "in_reply_to": "<Pine.LNX.4.64.0601201249560.4666@vivaldi.dst.unive.it>",
@@ -185,7 +185,7 @@
       "message_id": "<025d01c625f4$903295c0$1b01a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2006-01-31T00:26:14+01:00",
+      "date": "2006-01-30T23:26:14Z",
       "subject": "[RsR]  synchronization with contributing packages",
       "subject_clean": "[RsR]  synchronization with contributing packages",
       "in_reply_to": null,
@@ -204,7 +204,7 @@
       "message_id": "<17375.39572.244559.449913@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-01-31T18:12:52+01:00",
+      "date": "2006-01-31T17:12:52Z",
       "subject": "[RsR] synchronization with contributing packages",
       "subject_clean": "[RsR] synchronization with contributing packages",
       "in_reply_to": "<025d01c625f4$903295c0$1b01a8c0@KILER>",
@@ -227,8 +227,8 @@
         "Martin Maechler",
         "Valentin Todorov"
       ],
-      "started": "2006-01-11T00:31:06+01:00",
-      "last_reply": "2006-01-11T10:20:08+01:00",
+      "started": "2006-01-10T23:31:06Z",
+      "last_reply": "2006-01-11T09:20:08Z",
       "root_message_id": "msg-0061a808de98"
     },
     {
@@ -240,8 +240,8 @@
         "Matthias Kohl",
         "claudio"
       ],
-      "started": "2006-01-11T12:29:15+01:00",
-      "last_reply": "2006-01-11T07:42:45-08:00",
+      "started": "2006-01-11T11:29:15Z",
+      "last_reply": "2006-01-11T15:42:45Z",
       "root_message_id": "msg-cef8979d0f95"
     },
     {
@@ -251,8 +251,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2006-01-19T18:30:34+01:00",
-      "last_reply": "2006-01-19T18:30:34+01:00",
+      "started": "2006-01-19T17:30:34Z",
+      "last_reply": "2006-01-19T17:30:34Z",
       "root_message_id": "msg-9c2f16455864"
     },
     {
@@ -264,8 +264,8 @@
         "Valentin Todorov",
         "claudio"
       ],
-      "started": "2006-01-20T12:50:43+01:00",
-      "last_reply": "2006-01-31T18:12:52+01:00",
+      "started": "2006-01-20T11:50:43Z",
+      "last_reply": "2006-01-31T17:12:52Z",
       "root_message_id": "msg-dd6f09971a7b"
     },
     {
@@ -275,8 +275,8 @@
       "participants": [
         "Werner Stahel"
       ],
-      "started": "2006-01-20T14:55:15+01:00",
-      "last_reply": "2006-01-20T14:55:15+01:00",
+      "started": "2006-01-20T13:55:15Z",
+      "last_reply": "2006-01-20T13:55:15Z",
       "root_message_id": "msg-9930fe212698"
     }
   ]

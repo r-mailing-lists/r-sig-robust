@@ -8,7 +8,7 @@
       "message_id": "<AABCCBEC-169C-419A-829A-80C3AC889AB6@idsia.ch>",
       "from_name": "Marco Zaffalon",
       "from_email_hash": "130f9b955798026c5bcbc915f52f1fd9aae0ea5297a1e3bd0433f2e3dda803fc",
-      "date": "2009-03-04T14:46:22+01:00",
+      "date": "2009-03-04T13:46:22Z",
       "subject": "[RsR] PhD position at IDSIA: credal networks",
       "subject_clean": "[RsR] PhD position at IDSIA: credal networks",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<hMRtlAV8.1236917404.5140250.takada@bus.osaka-cu.ac.jp>",
       "from_name": "Teruko Takada",
       "from_email_hash": "ad8f58a11e834c569f70d91b1e34dc9d830a1055ae5995f62aaa5b090cceb7f5",
-      "date": "2009-03-13T13:10:04+09:00",
+      "date": "2009-03-13T04:10:04Z",
       "subject": "[RsR] Where can I find the source code for cov.rob?",
       "subject_clean": "[RsR] Where can I find the source code for cov.rob?",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<bWMdHZFi.1236924102.2733540.takada@bus.osaka-cu.ac.jp>",
       "from_name": "Teruko Takada",
       "from_email_hash": "ad8f58a11e834c569f70d91b1e34dc9d830a1055ae5995f62aaa5b090cceb7f5",
-      "date": "2009-03-13T15:01:42+09:00",
+      "date": "2009-03-13T06:01:42Z",
       "subject": "[RsR] It is found!",
       "subject_clean": "[RsR] It is found!",
       "in_reply_to": null,
@@ -56,7 +56,7 @@
       "message_id": "<4c0e456b0903130232g7dcb3c1bsaabe6778bc6c5e85@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
-      "date": "2009-03-13T10:32:29+01:00",
+      "date": "2009-03-13T09:32:29Z",
       "subject": "[RsR] It is found!",
       "subject_clean": "[RsR] It is found!",
       "in_reply_to": "<bWMdHZFi.1236924102.2733540.takada@bus.osaka-cu.ac.jp>",
@@ -74,7 +74,7 @@
       "message_id": "<18874.53702.562974.926023@cmath-5.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2009-03-13T22:36:06+01:00",
+      "date": "2009-03-13T21:36:06Z",
       "subject": "[RsR] Where can I find the source code for cov.rob?",
       "subject_clean": "[RsR] Where can I find the source code for cov.rob?",
       "in_reply_to": "<hMRtlAV8.1236917404.5140250.takada@bus.osaka-cu.ac.jp>",
@@ -92,7 +92,7 @@
       "message_id": "<OFE643ED0C.AE74A567-ON8525758A.00834A94-8525758A.00834A97@fordham.edu>",
       "from_name": "HRISHIKESH D. VINOD",
       "from_email_hash": "eb26ac0492bba356478866ed258419ebcb1651beef55697ed7bdf11a550f5e9d",
-      "date": "2009-03-31T19:54:03-04:00",
+      "date": "2009-03-31T23:54:03Z",
       "subject": "[RsR] R-conf. New York City, June 18-19, 2009, contribute your robust model R functions",
       "subject_clean": "[RsR] R-conf. New York City, June 18-19, 2009, contribute your robust model R functions",
       "in_reply_to": null,
@@ -112,8 +112,8 @@
       "participants": [
         "Marco Zaffalon"
       ],
-      "started": "2009-03-04T14:46:22+01:00",
-      "last_reply": "2009-03-04T14:46:22+01:00",
+      "started": "2009-03-04T13:46:22Z",
+      "last_reply": "2009-03-04T13:46:22Z",
       "root_message_id": "msg-82bbc273f60a"
     },
     {
@@ -124,8 +124,8 @@
         "Martin Maechler",
         "Teruko Takada"
       ],
-      "started": "2009-03-13T13:10:04+09:00",
-      "last_reply": "2009-03-13T22:36:06+01:00",
+      "started": "2009-03-13T04:10:04Z",
+      "last_reply": "2009-03-13T21:36:06Z",
       "root_message_id": "msg-7fcc416704be"
     },
     {
@@ -136,8 +136,8 @@
         "Teruko Takada",
         "Valentin Todorov"
       ],
-      "started": "2009-03-13T15:01:42+09:00",
-      "last_reply": "2009-03-13T10:32:29+01:00",
+      "started": "2009-03-13T06:01:42Z",
+      "last_reply": "2009-03-13T09:32:29Z",
       "root_message_id": "msg-05a88e9727b1"
     },
     {
@@ -147,8 +147,8 @@
       "participants": [
         "HRISHIKESH D. VINOD"
       ],
-      "started": "2009-03-31T19:54:03-04:00",
-      "last_reply": "2009-03-31T19:54:03-04:00",
+      "started": "2009-03-31T23:54:03Z",
+      "last_reply": "2009-03-31T23:54:03Z",
       "root_message_id": "msg-d51e618289aa"
     }
   ]

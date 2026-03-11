@@ -8,7 +8,7 @@
       "message_id": "<AANLkTim8AvhA3onqfqTE8LweE1KWvsqUD0WnHKoHV9jM@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
-      "date": "2010-07-08T08:58:01+02:00",
+      "date": "2010-07-08T06:58:01Z",
       "subject": "[RsR] S-estimates",
       "subject_clean": "[RsR] S-estimates",
       "in_reply_to": "<SNT141-w1C669474171FA03D0E8CDA3CB0@phx.gbl>",
@@ -26,7 +26,7 @@
       "message_id": "<201007130345.o6D3j1Hb005177@wallabie.isp.ip.pt>",
       "from_name": "Eduardo Conceição",
       "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
-      "date": "2010-07-13T04:45:01+01:00",
+      "date": "2010-07-13T03:45:01Z",
       "subject": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
       "subject_clean": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<4C3DF7B7.20904@stamats.de>",
       "from_name": "Dr. Matthias Kohl",
       "from_email_hash": "e144ddb675681f3124c6e887dd63c8aec6f6b4e9911a8cda00f94c453a4cb173",
-      "date": "2010-07-14T19:45:27+02:00",
+      "date": "2010-07-14T17:45:27Z",
       "subject": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
       "subject_clean": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
       "in_reply_to": "<201007130345.o6D3j1Hb005177@wallabie.isp.ip.pt>",
@@ -60,7 +60,7 @@
       "message_id": "<201007161240.o6GCefFw025565@wallabie.isp.ip.pt>",
       "from_name": "Eduardo Conceição",
       "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
-      "date": "2010-07-16T13:40:41+01:00",
+      "date": "2010-07-16T12:40:41Z",
       "subject": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
       "subject_clean": "[RsR] Can robust estimators outperform least squares in nonlinear regression for pure Gaussian noise?",
       "in_reply_to": null,
@@ -80,8 +80,8 @@
       "participants": [
         "Valentin Todorov"
       ],
-      "started": "2010-07-08T08:58:01+02:00",
-      "last_reply": "2010-07-08T08:58:01+02:00",
+      "started": "2010-07-08T06:58:01Z",
+      "last_reply": "2010-07-08T06:58:01Z",
       "root_message_id": "msg-07c066ffb313"
     },
     {
@@ -92,8 +92,8 @@
         "Dr. Matthias Kohl",
         "Eduardo Conceição"
       ],
-      "started": "2010-07-13T04:45:01+01:00",
-      "last_reply": "2010-07-14T19:45:27+02:00",
+      "started": "2010-07-13T03:45:01Z",
+      "last_reply": "2010-07-14T17:45:27Z",
       "root_message_id": "msg-c12f7b6a239d"
     },
     {
@@ -103,8 +103,8 @@
       "participants": [
         "Eduardo Conceição"
       ],
-      "started": "2010-07-16T13:40:41+01:00",
-      "last_reply": "2010-07-16T13:40:41+01:00",
+      "started": "2010-07-16T12:40:41Z",
+      "last_reply": "2010-07-16T12:40:41Z",
       "root_message_id": "msg-bd0edf42f6f2"
     }
   ]

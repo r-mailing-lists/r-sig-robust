@@ -8,7 +8,7 @@
       "message_id": "<AANLkTindyW+MFEc5bN91=NbtoLKgv8QgcS6Tv4K=vLCZ@mail.gmail.com>",
       "from_name": "James Shaw",
       "from_email_hash": "d4dd5f4ef2329ee99732572a1c0555179aa3a6c623879d66e8895a803e7611c6",
-      "date": "2011-04-01T16:47:16-05:00",
+      "date": "2011-04-01T21:47:16Z",
       "subject": "[RsR] Estimating robust distances in R (MVE vs. MCD)",
       "subject_clean": "[RsR] Estimating robust distances in R (MVE vs. MCD)",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4D9C3370.3010007@unige.ch>",
       "from_name": "Olivier Renaud",
       "from_email_hash": "6d71b22d0e62134f96165c0875cd64df6e65b064c8150892f2d49dcb83e43c33",
-      "date": "2011-04-06T11:33:36+02:00",
+      "date": "2011-04-06T09:33:36Z",
       "subject": "[RsR] VIF for robust regression?",
       "subject_clean": "[RsR] VIF for robust regression?",
       "in_reply_to": "<1301585710.32085.1435988005@webmail.messagingengine.com>",
@@ -46,8 +46,8 @@
       "participants": [
         "James Shaw"
       ],
-      "started": "2011-04-01T16:47:16-05:00",
-      "last_reply": "2011-04-01T16:47:16-05:00",
+      "started": "2011-04-01T21:47:16Z",
+      "last_reply": "2011-04-01T21:47:16Z",
       "root_message_id": "msg-47cb0a87ff15"
     },
     {
@@ -57,8 +57,8 @@
       "participants": [
         "Olivier Renaud"
       ],
-      "started": "2011-04-06T11:33:36+02:00",
-      "last_reply": "2011-04-06T11:33:36+02:00",
+      "started": "2011-04-06T09:33:36Z",
+      "last_reply": "2011-04-06T09:33:36Z",
       "root_message_id": "msg-3151552ac2b7"
     }
   ]

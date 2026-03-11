@@ -8,7 +8,7 @@
       "message_id": "<632149301.77108480.1504746816659.JavaMail.zimbra@sfu.ca>",
       "from_name": "Alice Domalik",
       "from_email_hash": "371a51dcac03294dbb3e58690e75595faf52aa22a9067cdaba23a2ad952c4431",
-      "date": "2017-09-06T18:13:36-07:00",
+      "date": "2017-09-07T01:13:36Z",
       "subject": "[RsR] robust PCA in robComposition",
       "subject_clean": "[RsR] robust PCA in robComposition",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<2124604615.78038283.1504790465732.JavaMail.zimbra@sfu.ca>",
       "from_name": "Alice Domalik",
       "from_email_hash": "371a51dcac03294dbb3e58690e75595faf52aa22a9067cdaba23a2ad952c4431",
-      "date": "2017-09-07T06:21:05-07:00",
+      "date": "2017-09-07T13:21:05Z",
       "subject": "[RsR] robust PCA in robComposition",
       "subject_clean": "[RsR] robust PCA in robComposition",
       "in_reply_to": "<1504758400160.23094@tuwien.ac.at>",
@@ -81,7 +81,7 @@
       "message_id": "<CAE8NEzsYZYtW3-G=pR62yo_spgT+74Av2D7hxJAuTe+kzuAHFw@mail.gmail.com>",
       "from_name": "Shu Yu Fan",
       "from_email_hash": "8d82af0d76b1d1f16ff4ba4ecb5ceece13b93d0b91e5a6140675b2ff82bb3d80",
-      "date": "2017-09-08T12:20:43-07:00",
+      "date": "2017-09-08T19:20:43Z",
       "subject": "[RsR] R-SIG-Robust Digest, Vol 87, Issue 2",
       "subject_clean": "[RsR] R-SIG-Robust Digest, Vol 87, Issue 2",
       "in_reply_to": "<mailman.19.1504864802.16185.r-sig-robust@r-project.org>",
@@ -105,8 +105,8 @@
         "Diman Todorov",
         "Filzmoser Peter"
       ],
-      "started": "2017-09-06T18:13:36-07:00",
-      "last_reply": "2017-09-07T18:29:16+00:00",
+      "started": "2017-09-07T01:13:36Z",
+      "last_reply": "2017-09-07T18:29:16Z",
       "root_message_id": "msg-bf02c1908b2a"
     },
     {
@@ -116,8 +116,8 @@
       "participants": [
         "Shu Yu Fan"
       ],
-      "started": "2017-09-08T12:20:43-07:00",
-      "last_reply": "2017-09-08T12:20:43-07:00",
+      "started": "2017-09-08T19:20:43Z",
+      "last_reply": "2017-09-08T19:20:43Z",
       "root_message_id": "msg-97e4b5a0b2b5"
     }
   ]

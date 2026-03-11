@@ -8,7 +8,7 @@
       "message_id": "<4CF6602E.7020004@uab.cat>",
       "from_name": "Pep Serra",
       "from_email_hash": "217ccf4a34d2d0fb6d09944b3afc934cf006b079672c836e42588685ca021375",
-      "date": "2010-12-01T15:48:14+01:00",
+      "date": "2010-12-01T14:48:14Z",
       "subject": "[RsR] best robust fit",
       "subject_clean": "[RsR] best robust fit",
       "in_reply_to": null,
@@ -42,7 +42,7 @@
       "message_id": "<4CF69F44.90703@uab.cat>",
       "from_name": "Pep Serra",
       "from_email_hash": "217ccf4a34d2d0fb6d09944b3afc934cf006b079672c836e42588685ca021375",
-      "date": "2010-12-01T20:17:24+01:00",
+      "date": "2010-12-01T19:17:24Z",
       "subject": "[RsR] best robust fit",
       "subject_clean": "[RsR] best robust fit",
       "in_reply_to": "<ECBDD2620D45F74C9B4AA3DBA750C5800C76D371@Exchange>",
@@ -66,8 +66,8 @@
         "Pep Serra",
         "Samuel Le"
       ],
-      "started": "2010-12-01T15:48:14+01:00",
-      "last_reply": "2010-12-01T20:17:24+01:00",
+      "started": "2010-12-01T14:48:14Z",
+      "last_reply": "2010-12-01T19:17:24Z",
       "root_message_id": "msg-c1495215dc9f"
     }
   ]

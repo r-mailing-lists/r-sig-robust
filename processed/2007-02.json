@@ -8,7 +8,7 @@
       "message_id": "<17857.52288.516579.285904@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2007-02-01T12:17:20+01:00",
+      "date": "2007-02-01T11:17:20Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": "<45B4647F.6010007@tuwien.ac.at>",
@@ -27,7 +27,7 @@
       "message_id": "<200702011822.l11IMSuk026054@lynne.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2007-02-01T19:22:28+01:00",
+      "date": "2007-02-01T18:22:28Z",
       "subject": "[RsR] robust cov for   n/2 < p < n ~ 1000?",
       "subject_clean": "[RsR] robust cov for   n/2 < p < n ~ 1000?",
       "in_reply_to": "<45B4647F.6010007@tuwien.ac.at>",
@@ -46,7 +46,7 @@
       "message_id": "<45C2510E.2020001@businessdecision.com>",
       "from_name": "Tobias Verbeke",
       "from_email_hash": "916a630bfa59b369c1fd441dc1cce26e2919eb7708bce49aa4208cf3e523a9f0",
-      "date": "2007-02-01T21:43:58+01:00",
+      "date": "2007-02-01T20:43:58Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": "<17857.52288.516579.285904@stat.math.ethz.ch>",
@@ -66,7 +66,7 @@
       "message_id": "<1170421612.25755.1172565537@webmail.messagingengine.com>",
       "from_name": "Nicholas Lewin-Koh",
       "from_email_hash": "db1e00ab5510a3449e0b3ccb12bc5842ab0ff9dc92e677241ea74ffd424c0ac9",
-      "date": "2007-02-02T08:06:52-05:00",
+      "date": "2007-02-02T13:06:52Z",
       "subject": "[RsR]  robust cov for   n/2 < p < n ~ 1000?",
       "subject_clean": "[RsR]  robust cov for   n/2 < p < n ~ 1000?",
       "in_reply_to": "<mailman.17.1170414007.7667.r-sig-robust@r-project.org>",
@@ -84,7 +84,7 @@
       "message_id": "<17862.14121.374245.100485@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2007-02-04T20:42:33+01:00",
+      "date": "2007-02-04T19:42:33Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": "<45C2510E.2020001@businessdecision.com>",
@@ -105,7 +105,7 @@
       "message_id": "<4c0e456b0702050949i4b9b617ave8d406edc06e6588@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
-      "date": "2007-02-05T18:49:14+01:00",
+      "date": "2007-02-05T17:49:14Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": "<17862.14121.374245.100485@stat.math.ethz.ch>",
@@ -127,7 +127,7 @@
       "message_id": "<17864.18674.833219.963724@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2007-02-06T10:22:58+01:00",
+      "date": "2007-02-06T09:22:58Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": "<4c0e456b0702050949i4b9b617ave8d406edc06e6588@mail.gmail.com>",
@@ -150,7 +150,7 @@
       "message_id": "<1AE2170383153B4F8931C6004701F92E038B2C98@Hermes.so.fhnw.ch>",
       "from_name": "Hulliger Beat",
       "from_email_hash": "7db10debfad62cee4854c0fe4b734c69749bade33abe02443546eaa6df42923b",
-      "date": "2007-02-06T14:28:11+01:00",
+      "date": "2007-02-06T13:28:11Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": "<17864.18674.833219.963724@stat.math.ethz.ch>",
@@ -166,7 +166,7 @@
       "message_id": "<000d01c74a46$47e69b50$1b01a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2007-02-07T00:26:51+01:00",
+      "date": "2007-02-06T23:26:51Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": null,
@@ -190,7 +190,7 @@
       "message_id": "<83536658864BC243BE3C06D7E936ABD505086D75@xchg1.statistik.local>",
       "from_name": "TEMPL Matthias",
       "from_email_hash": "907bdfd84eeb0076e3cc4ed5186109c68f7bb7a5c8d6f1a8bec17c537fcfed89",
-      "date": "2007-02-08T08:58:02+01:00",
+      "date": "2007-02-08T07:58:02Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": null,
@@ -213,8 +213,8 @@
         "Tobias Verbeke",
         "Valentin Todorov"
       ],
-      "started": "2007-02-01T12:17:20+01:00",
-      "last_reply": "2007-02-07T00:26:51+01:00",
+      "started": "2007-02-01T11:17:20Z",
+      "last_reply": "2007-02-06T23:26:51Z",
       "root_message_id": "msg-92000b60d2ed"
     },
     {
@@ -224,8 +224,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2007-02-01T19:22:28+01:00",
-      "last_reply": "2007-02-01T19:22:28+01:00",
+      "started": "2007-02-01T18:22:28Z",
+      "last_reply": "2007-02-01T18:22:28Z",
       "root_message_id": "msg-43dbca97a635"
     },
     {
@@ -235,8 +235,8 @@
       "participants": [
         "Nicholas Lewin-Koh"
       ],
-      "started": "2007-02-02T08:06:52-05:00",
-      "last_reply": "2007-02-02T08:06:52-05:00",
+      "started": "2007-02-02T13:06:52Z",
+      "last_reply": "2007-02-02T13:06:52Z",
       "root_message_id": "msg-667bd9edc0ec"
     },
     {
@@ -246,8 +246,8 @@
       "participants": [
         "TEMPL Matthias"
       ],
-      "started": "2007-02-08T08:58:02+01:00",
-      "last_reply": "2007-02-08T08:58:02+01:00",
+      "started": "2007-02-08T07:58:02Z",
+      "last_reply": "2007-02-08T07:58:02Z",
       "root_message_id": "msg-b92ad41ab47f"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<21124.59223.496612.628512@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2013-11-14T16:08:07+01:00",
+      "date": "2013-11-14T15:08:07Z",
       "subject": "[RsR] [R] MM estimator",
       "subject_clean": "[RsR] [R] MM estimator",
       "in_reply_to": "<8B2389BC-48CA-45D5-A834-C8C1C845C6B5@uni-bonn.de>",
@@ -27,7 +27,7 @@
       "message_id": "<2F7E7DC4-C4F3-459F-BBCE-FAA0DBFC6A03@uni-bonn.de>",
       "from_name": "Simon Zehnder",
       "from_email_hash": "da5b76725f1013c56060a39b28d0240b738b9d4478ececb0beb6e8f5d7370897",
-      "date": "2013-11-14T17:03:39+01:00",
+      "date": "2013-11-14T16:03:39Z",
       "subject": "[RsR] [R] MM estimator",
       "subject_clean": "[RsR] [R] MM estimator",
       "in_reply_to": "<21124.59223.496612.628512@stat.math.ethz.ch>",
@@ -47,7 +47,7 @@
       "message_id": "<CAAGWNjrusPks1R9+TCYw54DDNY2uvTwZyNAN9MgWE6g2hCxjVQ@mail.gmail.com>",
       "from_name": "Fadong Chen",
       "from_email_hash": "6f25084e203c2b9d7b7ba1e10421305ce31ef80c8b4d7d540b296bc08566b843",
-      "date": "2013-11-26T09:46:12+01:00",
+      "date": "2013-11-26T08:46:12Z",
       "subject": "[RsR] Pseudo-R2 and AIC of robust regression",
       "subject_clean": "[RsR] Pseudo-R2 and AIC of robust regression",
       "in_reply_to": null,
@@ -63,7 +63,7 @@
       "message_id": "<CAPUobv0n+DxRGcOEoa1kXBtUJQpufFas3uEgdL6NyRxfe8rcXA@mail.gmail.com>",
       "from_name": "Manuel Koller",
       "from_email_hash": "2a2bc532df5431edcf7eb21908cc6024199c4e954cfbc1a71ca9144a25f3748f",
-      "date": "2013-11-26T12:17:22+01:00",
+      "date": "2013-11-26T11:17:22Z",
       "subject": "[RsR] Pseudo-R2 and AIC of robust regression",
       "subject_clean": "[RsR] Pseudo-R2 and AIC of robust regression",
       "in_reply_to": "<CAAGWNjrusPks1R9+TCYw54DDNY2uvTwZyNAN9MgWE6g2hCxjVQ@mail.gmail.com>",
@@ -86,8 +86,8 @@
         "Martin Maechler",
         "Simon Zehnder"
       ],
-      "started": "2013-11-14T16:08:07+01:00",
-      "last_reply": "2013-11-14T17:03:39+01:00",
+      "started": "2013-11-14T15:08:07Z",
+      "last_reply": "2013-11-14T16:03:39Z",
       "root_message_id": "msg-b01ec2bcf7e8"
     },
     {
@@ -98,8 +98,8 @@
         "Fadong Chen",
         "Manuel Koller"
       ],
-      "started": "2013-11-26T09:46:12+01:00",
-      "last_reply": "2013-11-26T12:17:22+01:00",
+      "started": "2013-11-26T08:46:12Z",
+      "last_reply": "2013-11-26T11:17:22Z",
       "root_message_id": "msg-e2a249f0e3d1"
     }
   ]

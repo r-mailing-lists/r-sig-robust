@@ -24,7 +24,7 @@
       "message_id": "<20913.64868.57300.869002@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2013-06-07T17:33:56+02:00",
+      "date": "2013-06-07T15:33:56Z",
       "subject": "[RsR] estimation of covariance matrix of a bivariate normal distribution using maximization of the log-likelihood",
       "subject_clean": "[RsR] estimation of covariance matrix of a bivariate normal distribution using maximization of the log-likelihood",
       "in_reply_to": "<E71E7032F00FCA4AA40DC7943D3DB10E24D0C03B@MBX12.d.ethz.ch>",
@@ -42,7 +42,7 @@
       "message_id": "<1370946821.8874.YahooMailClassic@web28905.mail.ir2.yahoo.com>",
       "from_name": "abdelhamid hebbouche",
       "from_email_hash": "73a01b0d6ffdb686fcca3f99a24aeb6fce5984949a6a0102fcb11bc319f6a721",
-      "date": "2013-06-11T11:33:41+01:00",
+      "date": "2013-06-11T10:33:41Z",
       "subject": "[RsR] Need Help for Sensitivity Analysis",
       "subject_clean": "[RsR] Need Help for Sensitivity Analysis",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<201306252223.r5PMNjjl031589@wallabie.isp.ip.pt>",
       "from_name": "Eduardo Conceicao",
       "from_email_hash": "7a843f4e0b769443aad4902d519de15b911c629868b79f1d685f57482ace6275",
-      "date": "2013-06-25T23:23:45+01:00",
+      "date": "2013-06-25T22:23:45Z",
       "subject": "[RsR] Preliminary release of functions for robust nonlinear regression",
       "subject_clean": "[RsR] Preliminary release of functions for robust nonlinear regression",
       "in_reply_to": null,
@@ -74,7 +74,7 @@
       "message_id": "<20938.51873.869504.435938@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2013-06-26T13:04:01+02:00",
+      "date": "2013-06-26T11:04:01Z",
       "subject": "[RsR] Preliminary release of functions for robust nonlinear\tregression",
       "subject_clean": "[RsR] Preliminary release of functions for robust nonlinear\tregression",
       "in_reply_to": "<201306252223.r5PMNjjl031589@wallabie.isp.ip.pt>",
@@ -97,8 +97,8 @@
         "Hertzog  Gladys",
         "Martin Maechler"
       ],
-      "started": "2013-06-07T12:04:06+00:00",
-      "last_reply": "2013-06-07T17:33:56+02:00",
+      "started": "2013-06-07T12:04:06Z",
+      "last_reply": "2013-06-07T15:33:56Z",
       "root_message_id": "msg-b9fc3f4c3cca"
     },
     {
@@ -108,8 +108,8 @@
       "participants": [
         "abdelhamid hebbouche"
       ],
-      "started": "2013-06-11T11:33:41+01:00",
-      "last_reply": "2013-06-11T11:33:41+01:00",
+      "started": "2013-06-11T10:33:41Z",
+      "last_reply": "2013-06-11T10:33:41Z",
       "root_message_id": "msg-4a21922162ba"
     },
     {
@@ -120,8 +120,8 @@
         "Eduardo Conceicao",
         "Martin Maechler"
       ],
-      "started": "2013-06-25T23:23:45+01:00",
-      "last_reply": "2013-06-26T13:04:01+02:00",
+      "started": "2013-06-25T22:23:45Z",
+      "last_reply": "2013-06-26T11:04:01Z",
       "root_message_id": "msg-f76e505a74df"
     }
   ]

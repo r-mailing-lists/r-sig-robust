@@ -8,7 +8,7 @@
       "message_id": "<tencent_117207961428FC115695B7F7@qq.com>",
       "from_name": "天源--",
       "from_email_hash": "9b86e8f5bba6e0c252a4295487610f618c0d4aef6c65b33b66e8a34bb13eebf7",
-      "date": "2016-03-19T20:25:31+08:00",
+      "date": "2016-03-19T12:25:31Z",
       "subject": "[RsR] cancer-pred",
       "subject_clean": "[RsR] cancer-pred",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CAOmnhGftdxLRyMVPVjggA3v9gB+81R8UKoKuzqpqQdxrQe5bGA@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2016-03-21T00:09:38+01:00",
+      "date": "2016-03-20T23:09:38Z",
       "subject": "[RsR] cancer-pred",
       "subject_clean": "[RsR] cancer-pred",
       "in_reply_to": "<tencent_117207961428FC115695B7F7@qq.com>",
@@ -42,7 +42,7 @@
       "message_id": "<D5987341-9B6F-444C-850C-2A1133D4FB27@alumni.rice.edu>",
       "from_name": "Robert Chatfield",
       "from_email_hash": "b035518d612b9c6e8320b5fcb236cee33147c1839ed94344f00355c9eb5a99fb",
-      "date": "2016-03-24T17:30:10-07:00",
+      "date": "2016-03-25T00:30:10Z",
       "subject": "[RsR] \"standard deviation\" for slope in rlm rather than standard error",
       "subject_clean": "[RsR] \"standard deviation\" for slope in rlm rather than standard error",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<22264.59954.919241.878977@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2016-03-28T10:24:18+02:00",
+      "date": "2016-03-28T08:24:18Z",
       "subject": "[RsR] [R] Robust ANCOVA",
       "subject_clean": "[RsR] [R] Robust ANCOVA",
       "in_reply_to": "<3089FB6F-BDC4-4083-8D5F-C75B4CBBFFAC@comcast.net>",
@@ -83,8 +83,8 @@
         "Valentin Todorov",
         "天源--"
       ],
-      "started": "2016-03-19T20:25:31+08:00",
-      "last_reply": "2016-03-21T00:09:38+01:00",
+      "started": "2016-03-19T12:25:31Z",
+      "last_reply": "2016-03-20T23:09:38Z",
       "root_message_id": "msg-1f602a20e1f2"
     },
     {
@@ -94,8 +94,8 @@
       "participants": [
         "Robert Chatfield"
       ],
-      "started": "2016-03-24T17:30:10-07:00",
-      "last_reply": "2016-03-24T17:30:10-07:00",
+      "started": "2016-03-25T00:30:10Z",
+      "last_reply": "2016-03-25T00:30:10Z",
       "root_message_id": "msg-ea2c08460eed"
     },
     {
@@ -105,8 +105,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2016-03-28T10:24:18+02:00",
-      "last_reply": "2016-03-28T10:24:18+02:00",
+      "started": "2016-03-28T08:24:18Z",
+      "last_reply": "2016-03-28T08:24:18Z",
       "root_message_id": "msg-6ca1a186c72e"
     }
   ]

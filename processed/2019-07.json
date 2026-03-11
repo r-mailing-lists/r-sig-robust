@@ -8,7 +8,7 @@
       "message_id": "<CANx-k+XhAmadcXc0BiNmT4x2PAjxkR=X3fdhb31o+me6rLcD1A@mail.gmail.com>",
       "from_name": "Emily Klein",
       "from_email_hash": "922c2afe5d3d073e6149a50bed20da4c50736910d5edf95ed68b695df3b546b2",
-      "date": "2019-07-15T15:34:45-04:00",
+      "date": "2019-07-15T19:34:45Z",
       "subject": "[RsR] use of lmrob() on ecological time series",
       "subject_clean": "[RsR] use of lmrob() on ecological time series",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CANx-k+UEHw=7o-XLZoo0ggqyi=zi9c-9TyHtF4_rcEw1f4D2YQ@mail.gmail.com>",
       "from_name": "Emily Klein",
       "from_email_hash": "922c2afe5d3d073e6149a50bed20da4c50736910d5edf95ed68b695df3b546b2",
-      "date": "2019-07-15T15:45:00-04:00",
+      "date": "2019-07-15T19:45:00Z",
       "subject": "[RsR] error/warning messages with lmrob()",
       "subject_clean": "[RsR] error/warning messages with lmrob()",
       "in_reply_to": null,
@@ -44,8 +44,8 @@
       "participants": [
         "Emily Klein"
       ],
-      "started": "2019-07-15T15:34:45-04:00",
-      "last_reply": "2019-07-15T15:34:45-04:00",
+      "started": "2019-07-15T19:34:45Z",
+      "last_reply": "2019-07-15T19:34:45Z",
       "root_message_id": "msg-f318b878fbf6"
     },
     {
@@ -55,8 +55,8 @@
       "participants": [
         "Emily Klein"
       ],
-      "started": "2019-07-15T15:45:00-04:00",
-      "last_reply": "2019-07-15T15:45:00-04:00",
+      "started": "2019-07-15T19:45:00Z",
+      "last_reply": "2019-07-15T19:45:00Z",
       "root_message_id": "msg-16497c548e9e"
     }
   ]

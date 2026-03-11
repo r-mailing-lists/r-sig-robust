@@ -8,7 +8,7 @@
       "message_id": "<4c0e456b0802291603y53353cafw902212b4a3dd0c1b@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
-      "date": "2008-03-01T01:03:22+01:00",
+      "date": "2008-03-01T00:03:22Z",
       "subject": "[RsR] Pictures from Banff",
       "subject_clean": "[RsR] Pictures from Banff",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<47CED6C6.8030409@stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2008-03-05T09:22:14-08:00",
+      "date": "2008-03-05T17:22:14Z",
       "subject": "[RsR] Pictures from Banff",
       "subject_clean": "[RsR] Pictures from Banff",
       "in_reply_to": "<4c0e456b0802291603y53353cafw902212b4a3dd0c1b@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<18400.62589.136698.499233@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2008-03-19T12:09:49+01:00",
+      "date": "2008-03-19T11:09:49Z",
       "subject": "[RsR] useR! 2008 submission deadline - robustness talks!",
       "subject_clean": "[RsR] useR! 2008 submission deadline - robustness talks!",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<Prayer.1.0.16.0803210351560.3594@wm1.tc.umn.edu>",
       "from_name": "kh@@x131 m@iii@g oii um@@edu",
       "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
-      "date": "2008-03-21T03:51:56-05:00",
+      "date": "2008-03-21T08:51:56Z",
       "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
       "subject_clean": "[RsR] Least Trimmed Square(LTS) estimation in R",
       "in_reply_to": null,
@@ -74,7 +74,7 @@
       "message_id": "<000901c88b54$174fd240$6f01a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2008-03-21T14:04:24+01:00",
+      "date": "2008-03-21T13:04:24Z",
       "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
       "subject_clean": "[RsR] Least Trimmed Square(LTS) estimation in R",
       "in_reply_to": null,
@@ -92,7 +92,7 @@
       "message_id": "<8070D7AB-EBC2-4D56-A9C8-EC225776182C@udo.edu>",
       "from_name": "Robin Nunkesser",
       "from_email_hash": "811416f0121421c612ed89d800f0cdcf0528746afb8720d4db5abd4f691cff50",
-      "date": "2008-03-21T18:30:02+01:00",
+      "date": "2008-03-21T17:30:02Z",
       "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
       "subject_clean": "[RsR] Least Trimmed Square(LTS) estimation in R",
       "in_reply_to": "<mailman.3.1206097201.31257.r-sig-robust@r-project.org>",
@@ -110,7 +110,7 @@
       "message_id": "<1206373633.47e7cd01810eb@newton.stat.ubc.ca>",
       "from_name": "m@ti@s m@iii@g oii st@t@ubc@c@",
       "from_email_hash": "678a2d333dcf11dea465c87bd851ba0351ab15d4b8496b84467926d01af46fea",
-      "date": "2008-03-24T08:47:13-07:00",
+      "date": "2008-03-24T15:47:13Z",
       "subject": "[RsR] Least Trimmed Square(LTS) estimation in R",
       "subject_clean": "[RsR] Least Trimmed Square(LTS) estimation in R",
       "in_reply_to": "<Prayer.1.0.16.0803210351560.3594@wm1.tc.umn.edu>",
@@ -133,8 +133,8 @@
         "Matias Salibian-Barrera",
         "Valentin Todorov"
       ],
-      "started": "2008-03-01T01:03:22+01:00",
-      "last_reply": "2008-03-05T09:22:14-08:00",
+      "started": "2008-03-01T00:03:22Z",
+      "last_reply": "2008-03-05T17:22:14Z",
       "root_message_id": "msg-aad46581d28f"
     },
     {
@@ -144,8 +144,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2008-03-19T12:09:49+01:00",
-      "last_reply": "2008-03-19T12:09:49+01:00",
+      "started": "2008-03-19T11:09:49Z",
+      "last_reply": "2008-03-19T11:09:49Z",
       "root_message_id": "msg-5a65ba61e18c"
     },
     {
@@ -157,8 +157,8 @@
         "kh@@x131 m@iii@g oii um@@edu",
         "m@ti@s m@iii@g oii st@t@ubc@c@"
       ],
-      "started": "2008-03-21T03:51:56-05:00",
-      "last_reply": "2008-03-24T08:47:13-07:00",
+      "started": "2008-03-21T08:51:56Z",
+      "last_reply": "2008-03-24T15:47:13Z",
       "root_message_id": "msg-769036d8acdc"
     },
     {
@@ -168,8 +168,8 @@
       "participants": [
         "Robin Nunkesser"
       ],
-      "started": "2008-03-21T18:30:02+01:00",
-      "last_reply": "2008-03-21T18:30:02+01:00",
+      "started": "2008-03-21T17:30:02Z",
+      "last_reply": "2008-03-21T17:30:02Z",
       "root_message_id": "msg-f64c0905819e"
     }
   ]

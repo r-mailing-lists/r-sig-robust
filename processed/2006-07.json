@@ -8,7 +8,7 @@
       "message_id": "<17579.46518.812020.585297@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-07-05T14:51:02+02:00",
+      "date": "2006-07-05T12:51:02Z",
       "subject": "[RsR] [R] p-values for robust regression",
       "subject_clean": "[RsR] [R] p-values for robust regression",
       "in_reply_to": "<f6b7dfdc0607050009y7e4992bese565972d21d0a501@mail.gmail.com>",
@@ -26,7 +26,7 @@
       "message_id": "<44ABF48E.4090307@stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2006-07-05T10:19:10-07:00",
+      "date": "2006-07-05T17:19:10Z",
       "subject": "[RsR] [R] p-values for robust regression",
       "subject_clean": "[RsR] [R] p-values for robust regression",
       "in_reply_to": "<17579.46518.812020.585297@stat.math.ethz.ch>",
@@ -50,8 +50,8 @@
         "Martin Maechler",
         "Matias Salibian-Barrera"
       ],
-      "started": "2006-07-05T14:51:02+02:00",
-      "last_reply": "2006-07-05T10:19:10-07:00",
+      "started": "2006-07-05T12:51:02Z",
+      "last_reply": "2006-07-05T17:19:10Z",
       "root_message_id": "msg-a6ea3cdcbb67"
     }
   ]

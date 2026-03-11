@@ -8,7 +8,7 @@
       "message_id": "<19787.49490.51970.107661@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2011-02-04T10:05:22+01:00",
+      "date": "2011-02-04T09:05:22Z",
       "subject": "[RsR] [R] \"hubers\" function in R MASS library : problem and solution",
       "subject_clean": "[RsR] [R] \"hubers\" function in R MASS library : problem and solution",
       "in_reply_to": "<997923.69604.qm@web81701.mail.mud.yahoo.com>",
@@ -26,7 +26,7 @@
       "message_id": "<F38F24C992883A40BFDE79ACF59E2C5401A7A6AA@WGNHOEVS1.depcon.internal>",
       "from_name": "Maheswaran Rohan",
       "from_email_hash": "6e6c1d47208ee44cb4d97a1541147732a8c8cb6be7988af89dcbc5cb22dd5954",
-      "date": "2011-02-07T10:23:30+13:00",
+      "date": "2011-02-06T21:23:30Z",
       "subject": "[RsR] [R] \"hubers\" function in R MASS library : problem andsolution",
       "subject_clean": "[RsR] [R] \"hubers\" function in R MASS library : problem andsolution",
       "in_reply_to": "<19787.49490.51970.107661@stat.math.ethz.ch>",
@@ -45,7 +45,7 @@
       "message_id": "<274775.32561.qm@web81702.mail.mud.yahoo.com>",
       "from_name": "Feiming Chen",
       "from_email_hash": "95e44da1ce6b8368e1a0ca4722299348529c7296eea8f3c824376c0f27f456af",
-      "date": "2011-02-07T07:58:20-08:00",
+      "date": "2011-02-07T15:58:20Z",
       "subject": "[RsR] [R] \"hubers\" function in R MASS library : problem andsolution",
       "subject_clean": "[RsR] [R] \"hubers\" function in R MASS library : problem andsolution",
       "in_reply_to": "<F38F24C992883A40BFDE79ACF59E2C5401A7A6AA@WGNHOEVS1.depcon.internal>",
@@ -61,7 +61,7 @@
       "message_id": "<4D5F2B35.5050603@edu.uni-graz.at>",
       "from_name": "Manfred Hammerl",
       "from_email_hash": "7ecd7f6c1fc2a1dd1f3b30a22af7d341e279e7482451b90aba9a60ef4ff78aca",
-      "date": "2011-02-19T03:30:13+01:00",
+      "date": "2011-02-19T02:30:13Z",
       "subject": "[RsR] hubers m-estimator in R / SPSS",
       "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
       "in_reply_to": null,
@@ -77,7 +77,7 @@
       "message_id": "<4D5F2C8D.9060603@edu.uni-graz.at>",
       "from_name": "Manfred Hammerl",
       "from_email_hash": "7ecd7f6c1fc2a1dd1f3b30a22af7d341e279e7482451b90aba9a60ef4ff78aca",
-      "date": "2011-02-19T03:35:57+01:00",
+      "date": "2011-02-19T02:35:57Z",
       "subject": "[RsR] hubers m-estimator in R / SPSS",
       "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
       "in_reply_to": "<4D5F2B35.5050603@edu.uni-graz.at>",
@@ -95,7 +95,7 @@
       "message_id": "<4D65327B.3000402@edu.uni-graz.at>",
       "from_name": "Manfred Hammerl",
       "from_email_hash": "7ecd7f6c1fc2a1dd1f3b30a22af7d341e279e7482451b90aba9a60ef4ff78aca",
-      "date": "2011-02-23T17:14:51+01:00",
+      "date": "2011-02-23T16:14:51Z",
       "subject": "[RsR] hubers m-estimator in R / SPSS",
       "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
       "in_reply_to": "<4D62F84B.6010701@stat.ubc.ca>",
@@ -115,7 +115,7 @@
       "message_id": "<19813.27961.914261.799586@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2011-02-23T21:25:29+01:00",
+      "date": "2011-02-23T20:25:29Z",
       "subject": "[RsR] hubers m-estimator in R / SPSS",
       "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
       "in_reply_to": "<4D65327B.3000402@edu.uni-graz.at>",
@@ -136,7 +136,7 @@
       "message_id": "<4D6573D5.8080402@tuwien.ac.at>",
       "from_name": "Rudolf Dutter",
       "from_email_hash": "e60b984b9d28bf05c74cc3b85f84d6012cdb3d8cbec6b3cbbb69d154270b139c",
-      "date": "2011-02-23T21:53:41+01:00",
+      "date": "2011-02-23T20:53:41Z",
       "subject": "[RsR] hubers m-estimator in R / SPSS",
       "subject_clean": "[RsR] hubers m-estimator in R / SPSS",
       "in_reply_to": "<19813.27961.914261.799586@stat.math.ethz.ch>",
@@ -164,8 +164,8 @@
         "Maheswaran Rohan",
         "Martin Maechler"
       ],
-      "started": "2011-02-04T10:05:22+01:00",
-      "last_reply": "2011-02-07T07:58:20-08:00",
+      "started": "2011-02-04T09:05:22Z",
+      "last_reply": "2011-02-07T15:58:20Z",
       "root_message_id": "msg-31ed4789ef26"
     },
     {
@@ -175,8 +175,8 @@
       "participants": [
         "Manfred Hammerl"
       ],
-      "started": "2011-02-19T03:30:13+01:00",
-      "last_reply": "2011-02-19T03:35:57+01:00",
+      "started": "2011-02-19T02:30:13Z",
+      "last_reply": "2011-02-19T02:35:57Z",
       "root_message_id": "msg-36d0a6ef8e09"
     },
     {
@@ -188,8 +188,8 @@
         "Martin Maechler",
         "Rudolf Dutter"
       ],
-      "started": "2011-02-23T17:14:51+01:00",
-      "last_reply": "2011-02-23T21:53:41+01:00",
+      "started": "2011-02-23T16:14:51Z",
+      "last_reply": "2011-02-23T20:53:41Z",
       "root_message_id": "msg-4388bf26ed62"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<001501c68da4$f9c55550$0132a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2006-06-12T00:18:09+02:00",
+      "date": "2006-06-11T22:18:09Z",
       "subject": "[RsR] covRob with M-estimates in S-Plus",
       "subject_clean": "[RsR] covRob with M-estimates in S-Plus",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<17563.43410.601845.498856@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-06-23T10:42:58+02:00",
+      "date": "2006-06-23T08:42:58Z",
       "subject": "[RsR] High breakdown/efficiency statistics -- was RE: [R] Rosner's test",
       "subject_clean": "[RsR] High breakdown/efficiency statistics -- was RE: [R] Rosner's test",
       "in_reply_to": "<001701c6961b$2452fe20$0e7e11ac@gne.windows.gene.com>",
@@ -47,8 +47,8 @@
       "participants": [
         "Valentin Todorov"
       ],
-      "started": "2006-06-12T00:18:09+02:00",
-      "last_reply": "2006-06-12T00:18:09+02:00",
+      "started": "2006-06-11T22:18:09Z",
+      "last_reply": "2006-06-11T22:18:09Z",
       "root_message_id": "msg-d5e3e7764a38"
     },
     {
@@ -58,8 +58,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2006-06-23T10:42:58+02:00",
-      "last_reply": "2006-06-23T10:42:58+02:00",
+      "started": "2006-06-23T08:42:58Z",
+      "last_reply": "2006-06-23T08:42:58Z",
       "root_message_id": "msg-978c467883bb"
     }
   ]

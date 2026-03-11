@@ -8,7 +8,7 @@
       "message_id": "<CAPRP4-eyoLcuB-voqDVAemBf5ofWCnXzO=z3cKNu_-zwDh2UrA@mail.gmail.com>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2013-10-01T09:07:40+02:00",
+      "date": "2013-10-01T07:07:40Z",
       "subject": "[RsR] Is it acceptable to develope a model using a fitting procedure and then use a different fitting procedure to predict from it?",
       "subject_clean": "[RsR] Is it acceptable to develope a model using a fitting procedure and then use a different fitting procedure to predict from it?",
       "in_reply_to": "<CALsJ7pSEipJVNn3o5vB=SkpPuT0ddi7hBT0o00wEvO_WFnn2QA@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<A4839583-C380-4122-916E-87FA930080E4@gmail.com>",
       "from_name": "Manuel Koller",
       "from_email_hash": "2a2bc532df5431edcf7eb21908cc6024199c4e954cfbc1a71ca9144a25f3748f",
-      "date": "2013-10-11T17:30:54+03:00",
+      "date": "2013-10-11T14:30:54Z",
       "subject": "[RsR] Robust Anova with missing values",
       "subject_clean": "[RsR] Robust Anova with missing values",
       "in_reply_to": "<C1A5238848713043B7C18ED38FFEF1F8122BCC3D@STWMB03.ad.okstate.edu>",
@@ -60,7 +60,7 @@
       "message_id": "<CA++P4r2KBxWauH=McfXfVqSTPzOP-n0fTVp6hgam63Ed9MAGKw@mail.gmail.com>",
       "from_name": "Ajay Shah",
       "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
-      "date": "2013-10-29T13:56:36+05:30",
+      "date": "2013-10-29T08:26:36Z",
       "subject": "[RsR] Outliers and ARMA?",
       "subject_clean": "[RsR] Outliers and ARMA?",
       "in_reply_to": null,
@@ -76,7 +76,7 @@
       "message_id": "<CAEucKOHu-n9FUZCmnX_L+SUX0jB7bs0HTpxTTv00a8O8KPd7iQ@mail.gmail.com>",
       "from_name": "Dayashka Khan",
       "from_email_hash": "b6b272ba6a443c2f78497a002c43a79c2ffeba4ad9d4071f348b8117434151ec",
-      "date": "2013-10-30T15:59:06+05:00",
+      "date": "2013-10-30T10:59:06Z",
       "subject": "[RsR] Outliers and ARMA?",
       "subject_clean": "[RsR] Outliers and ARMA?",
       "in_reply_to": "<CA++P4r2KBxWauH=McfXfVqSTPzOP-n0fTVp6hgam63Ed9MAGKw@mail.gmail.com>",
@@ -98,8 +98,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2013-10-01T09:07:40+02:00",
-      "last_reply": "2013-10-01T09:07:40+02:00",
+      "started": "2013-10-01T07:07:40Z",
+      "last_reply": "2013-10-01T07:07:40Z",
       "root_message_id": "msg-c08fe645c1d2"
     },
     {
@@ -110,8 +110,8 @@
         "Manuel Koller",
         "Worthington, Thomas A"
       ],
-      "started": "2013-10-09T20:17:14+00:00",
-      "last_reply": "2013-10-11T17:30:54+03:00",
+      "started": "2013-10-09T20:17:14Z",
+      "last_reply": "2013-10-11T14:30:54Z",
       "root_message_id": "msg-3084717e06bb"
     },
     {
@@ -122,8 +122,8 @@
         "Ajay Shah",
         "Dayashka Khan"
       ],
-      "started": "2013-10-29T13:56:36+05:30",
-      "last_reply": "2013-10-30T15:59:06+05:00",
+      "started": "2013-10-29T08:26:36Z",
+      "last_reply": "2013-10-30T10:59:06Z",
       "root_message_id": "msg-659be474ef4d"
     }
   ]

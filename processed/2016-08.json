@@ -8,7 +8,7 @@
       "message_id": "<CAMmS1WhvoWOm2r1Z39xUk4jkCjvciPzYWo5F__U9rehoUJax-Q@mail.gmail.com>",
       "from_name": "Nika Sušac",
       "from_email_hash": "3731fda14917926f5394b1bffaa4698b9803dc8db42049076f6838a7639eecaa",
-      "date": "2016-08-02T23:34:35+02:00",
+      "date": "2016-08-02T21:34:35Z",
       "subject": "[RsR] Estimators for non-normal data in lavaan",
       "subject_clean": "[RsR] Estimators for non-normal data in lavaan",
       "in_reply_to": null,
@@ -46,8 +46,8 @@
       "participants": [
         "Nika Sušac"
       ],
-      "started": "2016-08-02T23:34:35+02:00",
-      "last_reply": "2016-08-02T23:34:35+02:00",
+      "started": "2016-08-02T21:34:35Z",
+      "last_reply": "2016-08-02T21:34:35Z",
       "root_message_id": "msg-519721aa0e44"
     },
     {
@@ -57,8 +57,8 @@
       "participants": [
         "varin sacha"
       ],
-      "started": "2016-08-07T18:40:22+00:00",
-      "last_reply": "2016-08-07T18:40:22+00:00",
+      "started": "2016-08-07T18:40:22Z",
+      "last_reply": "2016-08-07T18:40:22Z",
       "root_message_id": "msg-dd14d1da4904"
     }
   ]

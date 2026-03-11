@@ -8,7 +8,7 @@
       "message_id": "<17494.10845.6685.883069@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-05-01T17:33:49+02:00",
+      "date": "2006-05-01T15:33:49Z",
       "subject": "[RsR] plugins for lmrob()",
       "subject_clean": "[RsR] plugins for lmrob()",
       "in_reply_to": "<17361.22635.911892.563447@stat.math.ethz.ch>",
@@ -27,7 +27,7 @@
       "message_id": "<17494.12543.521069.761483@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-05-01T18:02:07+02:00",
+      "date": "2006-05-01T16:02:07Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": null,
@@ -43,7 +43,7 @@
       "message_id": "<4456431D.4080500@stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2006-05-01T10:19:25-07:00",
+      "date": "2006-05-01T17:19:25Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": "<17494.12543.521069.761483@stat.math.ethz.ch>",
@@ -61,7 +61,7 @@
       "message_id": "<17496.39826.761987.626296@stat.math.ethz.ch>",
       "from_name": "Werner Stahel",
       "from_email_hash": "101ca612b9f2346f74dcc9ac2f117318c822c9dbf0fb189a26e0662e2f574bdb",
-      "date": "2006-05-03T14:01:22+02:00",
+      "date": "2006-05-03T12:01:22Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": null,
@@ -77,7 +77,7 @@
       "message_id": "<B7C02093A9C6FB47B417FC3FAB0D721420DA91@langouste.zhwin.ch>",
       "from_name": "Ruckstuhl Andreas (rks)",
       "from_email_hash": "37bdf46d2d783a56a681e1b57b7a86bd102ccf080b7a413afac034d7f4b1ad36",
-      "date": "2006-05-03T16:38:28+02:00",
+      "date": "2006-05-03T14:38:28Z",
       "subject": "[RsR] plugins for lmrob()",
       "subject_clean": "[RsR] plugins for lmrob()",
       "in_reply_to": null,
@@ -93,7 +93,7 @@
       "message_id": "<Pine.LNX.4.64.0605081343130.30950@vivaldi.dst.unive.it>",
       "from_name": "claudio",
       "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
-      "date": "2006-05-08T13:50:14+02:00",
+      "date": "2006-05-08T11:50:14Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": "<4456431D.4080500@stat.ubc.ca>",
@@ -112,7 +112,7 @@
       "message_id": "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2006-05-09T00:38:18+02:00",
+      "date": "2006-05-08T22:38:18Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": null,
@@ -132,7 +132,7 @@
       "message_id": "<17504.15362.475325.408837@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-05-09T08:51:46+02:00",
+      "date": "2006-05-09T06:51:46Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": "<005201c672f0$1a97c7b0$0132a8c0@KILER>",
@@ -153,7 +153,7 @@
       "message_id": "<D808EA148335074698927652E8E5182F09CE3350@ukapphdevmsx01.ukap.astrazeneca.net>",
       "from_name": "Southworth, Harry",
       "from_email_hash": "bd043877f3d4c0b4d052c717ae5c669eadc4365d7f3f08f4b69a5934dd78a67f",
-      "date": "2006-05-09T11:17:17+01:00",
+      "date": "2006-05-09T10:17:17Z",
       "subject": "[RsR] Library for regression with t-distributed data",
       "subject_clean": "[RsR] Library for regression with t-distributed data",
       "in_reply_to": null,
@@ -169,7 +169,7 @@
       "message_id": "<17504.29041.635350.876183@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-05-09T12:39:45+02:00",
+      "date": "2006-05-09T10:39:45Z",
       "subject": "[RsR] plugins for lmrob()",
       "subject_clean": "[RsR] plugins for lmrob()",
       "in_reply_to": "<B7C02093A9C6FB47B417FC3FAB0D721420DA91@langouste.zhwin.ch>",
@@ -187,7 +187,7 @@
       "message_id": "<012f01c673bb$2f4530a0$0132a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2006-05-10T00:52:01+02:00",
+      "date": "2006-05-09T22:52:01Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": null,
@@ -209,7 +209,7 @@
       "message_id": "<17505.38342.122548.346570@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-05-10T09:27:02+02:00",
+      "date": "2006-05-10T07:27:02Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": "<012f01c673bb$2f4530a0$0132a8c0@KILER>",
@@ -232,7 +232,7 @@
       "message_id": "<000501c67405$eaaf3fd0$0132a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2006-05-10T09:46:58+02:00",
+      "date": "2006-05-10T07:46:58Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": null,
@@ -256,7 +256,7 @@
       "message_id": "<17505.42626.686762.557334@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-05-10T10:38:26+02:00",
+      "date": "2006-05-10T08:38:26Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": "<000501c67405$eaaf3fd0$0132a8c0@KILER>",
@@ -281,7 +281,7 @@
       "message_id": "<17505.45190.411985.966832@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-05-10T11:21:10+02:00",
+      "date": "2006-05-10T09:21:10Z",
       "subject": "[RsR] estimators based on random samples... - should be random",
       "subject_clean": "[RsR] estimators based on random samples... - should be random",
       "in_reply_to": "<000501c67405$eaaf3fd0$0132a8c0@KILER>",
@@ -306,7 +306,7 @@
       "message_id": "<00da01c67dea$7d186d90$0132a8c0@KILER>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2006-05-22T23:55:49+02:00",
+      "date": "2006-05-22T21:55:49Z",
       "subject": "[RsR] covrob --- some OOP-comments",
       "subject_clean": "[RsR] covrob --- some OOP-comments",
       "in_reply_to": null,
@@ -336,8 +336,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2006-05-01T17:33:49+02:00",
-      "last_reply": "2006-05-01T17:33:49+02:00",
+      "started": "2006-05-01T15:33:49Z",
+      "last_reply": "2006-05-01T15:33:49Z",
       "root_message_id": "msg-4652767026cf"
     },
     {
@@ -350,8 +350,8 @@
         "Valentin Todorov",
         "claudio"
       ],
-      "started": "2006-05-01T18:02:07+02:00",
-      "last_reply": "2006-05-10T11:21:10+02:00",
+      "started": "2006-05-01T16:02:07Z",
+      "last_reply": "2006-05-10T09:21:10Z",
       "root_message_id": "msg-e75243b6bb93"
     },
     {
@@ -361,8 +361,8 @@
       "participants": [
         "Werner Stahel"
       ],
-      "started": "2006-05-03T14:01:22+02:00",
-      "last_reply": "2006-05-03T14:01:22+02:00",
+      "started": "2006-05-03T12:01:22Z",
+      "last_reply": "2006-05-03T12:01:22Z",
       "root_message_id": "msg-9c4563d71554"
     },
     {
@@ -373,8 +373,8 @@
         "Martin Maechler",
         "Ruckstuhl Andreas (rks)"
       ],
-      "started": "2006-05-03T16:38:28+02:00",
-      "last_reply": "2006-05-09T12:39:45+02:00",
+      "started": "2006-05-03T14:38:28Z",
+      "last_reply": "2006-05-09T10:39:45Z",
       "root_message_id": "msg-f59eb7e7a3fd"
     },
     {
@@ -384,8 +384,8 @@
       "participants": [
         "Southworth, Harry"
       ],
-      "started": "2006-05-09T11:17:17+01:00",
-      "last_reply": "2006-05-09T11:17:17+01:00",
+      "started": "2006-05-09T10:17:17Z",
+      "last_reply": "2006-05-09T10:17:17Z",
       "root_message_id": "msg-4a79fdc4f775"
     },
     {
@@ -395,8 +395,8 @@
       "participants": [
         "Valentin Todorov"
       ],
-      "started": "2006-05-22T23:55:49+02:00",
-      "last_reply": "2006-05-22T23:55:49+02:00",
+      "started": "2006-05-22T21:55:49Z",
+      "last_reply": "2006-05-22T21:55:49Z",
       "root_message_id": "msg-247ed3e43f92"
     }
   ]

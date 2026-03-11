@@ -8,7 +8,7 @@
       "message_id": "<EEF12275-F45C-40BC-A6DE-1CC48CC7C884@epfl.ch>",
       "from_name": "Kjell Konis",
       "from_email_hash": "dbde64352289953147e639af58ad94d54fbe314dd3ce76fa6c738d1b3f3626ca",
-      "date": "2008-07-08T17:58:24+02:00",
+      "date": "2008-07-08T15:58:24Z",
       "subject": "[RsR] First step towards integrating robust and robustbase+friends",
       "subject_clean": "[RsR] First step towards integrating robust and robustbase+friends",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<20080723083212.GA18119@lubyanka.local>",
       "from_name": "Ajay Shah",
       "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
-      "date": "2008-07-23T14:02:12+05:30",
+      "date": "2008-07-23T08:32:12Z",
       "subject": "[RsR] Time-series analysis + robust statistics?",
       "subject_clean": "[RsR] Time-series analysis + robust statistics?",
       "in_reply_to": null,
@@ -44,8 +44,8 @@
       "participants": [
         "Kjell Konis"
       ],
-      "started": "2008-07-08T17:58:24+02:00",
-      "last_reply": "2008-07-08T17:58:24+02:00",
+      "started": "2008-07-08T15:58:24Z",
+      "last_reply": "2008-07-08T15:58:24Z",
       "root_message_id": "msg-81690b86b333"
     },
     {
@@ -55,8 +55,8 @@
       "participants": [
         "Ajay Shah"
       ],
-      "started": "2008-07-23T14:02:12+05:30",
-      "last_reply": "2008-07-23T14:02:12+05:30",
+      "started": "2008-07-23T08:32:12Z",
+      "last_reply": "2008-07-23T08:32:12Z",
       "root_message_id": "msg-e5884218923e"
     }
   ]

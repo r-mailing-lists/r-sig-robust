@@ -8,7 +8,7 @@
       "message_id": "<22673.51445.189361.285649@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2017-02-01T12:39:33+01:00",
+      "date": "2017-02-01T11:39:33Z",
       "subject": "[RsR] glmrob - fit statistics: R^2 - r-squared ?",
       "subject_clean": "[RsR] glmrob - fit statistics: R^2 - r-squared ?",
       "in_reply_to": "<CAN072pOvw99ofNUz47Bgw0A1Rz6rzTDBRJxiJqLzZvj9gUZBww@mail.gmail.com>",
@@ -30,8 +30,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2017-02-01T12:39:33+01:00",
-      "last_reply": "2017-02-01T12:39:33+01:00",
+      "started": "2017-02-01T11:39:33Z",
+      "last_reply": "2017-02-01T11:39:33Z",
       "root_message_id": "msg-c4a2f6947c33"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<4CF3BE18.10907@uab.cat>",
       "from_name": "Pep Serra",
       "from_email_hash": "217ccf4a34d2d0fb6d09944b3afc934cf006b079672c836e42588685ca021375",
-      "date": "2010-11-29T15:52:08+01:00",
+      "date": "2010-11-29T14:52:08Z",
       "subject": "[RsR] choosing and plotting a model",
       "subject_clean": "[RsR] choosing and plotting a model",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4CF46D5A.2070908@zhaw.ch>",
       "from_name": "Andreas Ruckstuhl",
       "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
-      "date": "2010-11-30T04:19:54+01:00",
+      "date": "2010-11-30T03:19:54Z",
       "subject": "[RsR] choosing and plotting a model",
       "subject_clean": "[RsR] choosing and plotting a model",
       "in_reply_to": "<4CF3BE18.10907@uab.cat>",
@@ -47,8 +47,8 @@
         "Andreas Ruckstuhl",
         "Pep Serra"
       ],
-      "started": "2010-11-29T15:52:08+01:00",
-      "last_reply": "2010-11-30T04:19:54+01:00",
+      "started": "2010-11-29T14:52:08Z",
+      "last_reply": "2010-11-30T03:19:54Z",
       "root_message_id": "msg-de1e364be1d0"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<e013b3630904150156kcd9dd2di1143d8d0d295977f@mail.gmail.com>",
       "from_name": "Usuario R",
       "from_email_hash": "6c1eed21635e2f078599b515973ca58cd0cf39a113f185b603fcbade87efbf9a",
-      "date": "2009-04-15T10:56:02+02:00",
+      "date": "2009-04-15T08:56:02Z",
       "subject": "[RsR] Mann-Whitney Normal approximation formula in wilcox.test function",
       "subject_clean": "[RsR] Mann-Whitney Normal approximation formula in wilcox.test function",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Usuario R"
       ],
-      "started": "2009-04-15T10:56:02+02:00",
-      "last_reply": "2009-04-15T10:56:02+02:00",
+      "started": "2009-04-15T08:56:02Z",
+      "last_reply": "2009-04-15T08:56:02Z",
       "root_message_id": "msg-f8b5f4ce400a"
     }
   ]

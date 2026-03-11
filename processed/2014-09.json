@@ -8,7 +8,7 @@
       "message_id": "<21538.32250.67575.749398@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2014-09-24T10:16:58+02:00",
+      "date": "2014-09-24T08:16:58Z",
       "subject": "[RsR] [R] Median of streaming data",
       "subject_clean": "[RsR] [R] Median of streaming data",
       "in_reply_to": "<54226816.700@auckland.ac.nz>",
@@ -47,7 +47,7 @@
       "message_id": "<CAOoXFP-0UPR+KWo71khz4bV5u5r5u-AjqmPo8sAwesjc2+-XhQ@mail.gmail.com>",
       "from_name": "Mohan Radhakrishnan",
       "from_email_hash": "cf5d63f481fb70839b2fcfcba12c7054f260bfc8952712bfb7498d173d2acb08",
-      "date": "2014-09-24T20:25:46+05:30",
+      "date": "2014-09-24T14:55:46Z",
       "subject": "[RsR] [R] Median of streaming data",
       "subject_clean": "[RsR] [R] Median of streaming data",
       "in_reply_to": "<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>",
@@ -68,7 +68,7 @@
       "message_id": "<87eac9f6578df1e610b4f79ea8d5f423@statistik.tu-dortmund.de>",
       "from_name": "biostat",
       "from_email_hash": "ca7a122a868f4f533e73b9073f4298c9f386169680573a38a82d351937438dae",
-      "date": "2014-09-24T22:31:28+02:00",
+      "date": "2014-09-24T20:31:28Z",
       "subject": "[RsR] [R] Median of streaming data",
       "subject_clean": "[RsR] [R] Median of streaming data",
       "in_reply_to": "<1f0222b00ed54745a80df5e552ecd524@AM3PR05MB545.eurprd05.prod.outlook.com>",
@@ -89,7 +89,7 @@
       "message_id": "<54233461.9010908@stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2014-09-24T14:15:13-07:00",
+      "date": "2014-09-24T21:15:13Z",
       "subject": "[RsR] [R] Median of streaming data",
       "subject_clean": "[RsR] [R] Median of streaming data",
       "in_reply_to": "<21538.32250.67575.749398@stat.math.ethz.ch>",
@@ -109,7 +109,7 @@
       "message_id": "<542336E5.9060808@auckland.ac.nz>",
       "from_name": "Rolf Turner",
       "from_email_hash": "85365426fbf4496cfac2415de7f8b411ee0133e9a8b2316f8939adcd30c2a157",
-      "date": "2014-09-25T09:25:57+12:00",
+      "date": "2014-09-24T21:25:57Z",
       "subject": "[RsR] [R] Median of streaming data",
       "subject_clean": "[RsR] [R] Median of streaming data",
       "in_reply_to": "<CAOoXFP-0UPR+KWo71khz4bV5u5r5u-AjqmPo8sAwesjc2+-XhQ@mail.gmail.com>",
@@ -131,7 +131,7 @@
       "message_id": "<000601cfd96a$5b545d10$11fd1730$@t-online.de>",
       "from_name": "Bruno Merk",
       "from_email_hash": "89dee8dcf3b93dff6d309b83d4e7ecf99a967367d8148a0153a064673443d2d4",
-      "date": "2014-09-26T11:15:03+02:00",
+      "date": "2014-09-26T09:15:03Z",
       "subject": "[RsR] robust fitting using Lorentzian merit function",
       "subject_clean": "[RsR] robust fitting using Lorentzian merit function",
       "in_reply_to": null,
@@ -147,7 +147,7 @@
       "message_id": "<21541.13953.417228.646860@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2014-09-26T11:48:49+02:00",
+      "date": "2014-09-26T09:48:49Z",
       "subject": "[RsR] [R] Median of streaming data",
       "subject_clean": "[RsR] [R] Median of streaming data",
       "in_reply_to": "<54235766.3070400@auckland.ac.nz>",
@@ -177,8 +177,8 @@
         "Rolf Turner",
         "biostat"
       ],
-      "started": "2014-09-24T10:16:58+02:00",
-      "last_reply": "2014-09-25T09:25:57+12:00",
+      "started": "2014-09-24T08:16:58Z",
+      "last_reply": "2014-09-24T21:25:57Z",
       "root_message_id": "msg-b5486dc23b9b"
     },
     {
@@ -188,8 +188,8 @@
       "participants": [
         "Bruno Merk"
       ],
-      "started": "2014-09-26T11:15:03+02:00",
-      "last_reply": "2014-09-26T11:15:03+02:00",
+      "started": "2014-09-26T09:15:03Z",
+      "last_reply": "2014-09-26T09:15:03Z",
       "root_message_id": "msg-077a77bdb865"
     },
     {
@@ -199,8 +199,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2014-09-26T11:48:49+02:00",
-      "last_reply": "2014-09-26T11:48:49+02:00",
+      "started": "2014-09-26T09:48:49Z",
+      "last_reply": "2014-09-26T09:48:49Z",
       "root_message_id": "msg-5cb11a942797"
     }
   ]

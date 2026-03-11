@@ -8,7 +8,7 @@
       "message_id": "<4CBDAC0A.2040908@uab.cat>",
       "from_name": "Pep Serra",
       "from_email_hash": "217ccf4a34d2d0fb6d09944b3afc934cf006b079672c836e42588685ca021375",
-      "date": "2010-10-19T16:32:42+02:00",
+      "date": "2010-10-19T14:32:42Z",
       "subject": "[RsR] robust scatterplot with fits",
       "subject_clean": "[RsR] robust scatterplot with fits",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4CBDCAFC.6030203@stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2010-10-19T09:44:44-07:00",
+      "date": "2010-10-19T16:44:44Z",
       "subject": "[RsR] robust scatterplot with fits",
       "subject_clean": "[RsR] robust scatterplot with fits",
       "in_reply_to": "<4CBDAC0A.2040908@uab.cat>",
@@ -42,7 +42,7 @@
       "message_id": "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>",
       "from_name": "Alex Holcombe",
       "from_email_hash": "3ed21a7c3c59f46bdec6efcbcaeafde972db4d5d89ef3cde75066ca15265ec73",
-      "date": "2010-10-26T17:57:47+11:00",
+      "date": "2010-10-26T06:57:47Z",
       "subject": "[RsR] calculating deviance for glmrob",
       "subject_clean": "[RsR] calculating deviance for glmrob",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<4CCA4859.40301@zhaw.ch>",
       "from_name": "Andreas Ruckstuhl",
       "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
-      "date": "2010-10-29T06:06:49+02:00",
+      "date": "2010-10-29T04:06:49Z",
       "subject": "[RsR] calculating deviance for glmrob",
       "subject_clean": "[RsR] calculating deviance for glmrob",
       "in_reply_to": "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>",
@@ -81,8 +81,8 @@
         "Matias Salibian-Barrera",
         "Pep Serra"
       ],
-      "started": "2010-10-19T16:32:42+02:00",
-      "last_reply": "2010-10-19T09:44:44-07:00",
+      "started": "2010-10-19T14:32:42Z",
+      "last_reply": "2010-10-19T16:44:44Z",
       "root_message_id": "msg-f250497db542"
     },
     {
@@ -93,8 +93,8 @@
         "Alex Holcombe",
         "Andreas Ruckstuhl"
       ],
-      "started": "2010-10-26T17:57:47+11:00",
-      "last_reply": "2010-10-29T06:06:49+02:00",
+      "started": "2010-10-26T06:57:47Z",
+      "last_reply": "2010-10-29T04:06:49Z",
       "root_message_id": "msg-0e80660d94b8"
     }
   ]

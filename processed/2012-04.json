@@ -8,7 +8,7 @@
       "message_id": "<CAPNjSFYmhNdst+t3-OZtFq71jY70qpXfMkhnndsBp0ZVhrLo=w@mail.gmail.com>",
       "from_name": "Michael",
       "from_email_hash": "bcce04fb171ea2e0e1183d516248ccbe9e816010059627028b091dd2d6255a0b",
-      "date": "2012-04-24T11:03:47-05:00",
+      "date": "2012-04-24T16:03:47Z",
       "subject": "[RsR] In robust PCA methods, how to get variance explained?",
       "subject_clean": "[RsR] In robust PCA methods, how to get variance explained?",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CAPNjSFZA+kzxyEHJJzxOGKYh3jWoQFi1niriaEkffMWtKEbobg@mail.gmail.com>",
       "from_name": "Michael",
       "from_email_hash": "bcce04fb171ea2e0e1183d516248ccbe9e816010059627028b091dd2d6255a0b",
-      "date": "2012-04-24T11:05:27-05:00",
+      "date": "2012-04-24T16:05:27Z",
       "subject": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
       "subject_clean": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<CAOmnhGc21vKG8yRHC5k=O=xkHQJJKXZr9cdCKn+b5tVwVpPMoQ@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "49cbedbaf6262ce7da128429b2b0bc12efa1a11230a9c7460bba9b94ce824c33",
-      "date": "2012-04-24T21:07:21+02:00",
+      "date": "2012-04-24T19:07:21Z",
       "subject": "[RsR] In robust PCA methods, how to get variance explained?",
       "subject_clean": "[RsR] In robust PCA methods, how to get variance explained?",
       "in_reply_to": "<CAPNjSFYmhNdst+t3-OZtFq71jY70qpXfMkhnndsBp0ZVhrLo=w@mail.gmail.com>",
@@ -58,7 +58,7 @@
       "message_id": "<232664f9852185790d@wm-srv.ulb.ac.be>",
       "from_name": "Kaveh Vakili",
       "from_email_hash": "790ec46189bffff51402ab6234a4139fbe2663d524a2cc9fa8c7dde820abfff4",
-      "date": "2012-04-25T21:35:52+02:00",
+      "date": "2012-04-25T19:35:52Z",
       "subject": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
       "subject_clean": "[RsR] Are PcaHubert and PCAproj randomized algorithms?",
       "in_reply_to": null,
@@ -79,8 +79,8 @@
         "Michael",
         "Valentin Todorov"
       ],
-      "started": "2012-04-24T11:03:47-05:00",
-      "last_reply": "2012-04-24T21:07:21+02:00",
+      "started": "2012-04-24T16:03:47Z",
+      "last_reply": "2012-04-24T19:07:21Z",
       "root_message_id": "msg-cbb18f9ae7ff"
     },
     {
@@ -90,8 +90,8 @@
       "participants": [
         "Michael"
       ],
-      "started": "2012-04-24T11:05:27-05:00",
-      "last_reply": "2012-04-24T11:05:27-05:00",
+      "started": "2012-04-24T16:05:27Z",
+      "last_reply": "2012-04-24T16:05:27Z",
       "root_message_id": "msg-debe90a13f8e"
     },
     {
@@ -101,8 +101,8 @@
       "participants": [
         "Kaveh Vakili"
       ],
-      "started": "2012-04-25T21:35:52+02:00",
-      "last_reply": "2012-04-25T21:35:52+02:00",
+      "started": "2012-04-25T19:35:52Z",
+      "last_reply": "2012-04-25T19:35:52Z",
       "root_message_id": "msg-e69fc03f6c19"
     }
   ]

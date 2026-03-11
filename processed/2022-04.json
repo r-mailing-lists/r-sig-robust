@@ -8,7 +8,7 @@
       "message_id": "<CAHfBD2cNZCmt8F6nAZQui3_4Zms_LSmrSGUpxPuStoAoFdrvbg@mail.gmail.com>",
       "from_name": "Kelly Thompson",
       "from_email_hash": "f3b01c3a92c351b0c3a2a5f13f734e2441e6391b35660338b80d08f06b8e4401",
-      "date": "2022-04-24T12:32:08-04:00",
+      "date": "2022-04-24T16:32:08Z",
       "subject": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
       "subject_clean": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<25190.21232.283241.414638@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2022-04-25T09:51:12+02:00",
+      "date": "2022-04-25T07:51:12Z",
       "subject": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
       "subject_clean": "[RsR] Where are the 2022 archives for this list (R-SIG-Robust)",
       "in_reply_to": "<CAHfBD2cNZCmt8F6nAZQui3_4Zms_LSmrSGUpxPuStoAoFdrvbg@mail.gmail.com>",
@@ -47,8 +47,8 @@
         "Kelly Thompson",
         "Martin Maechler"
       ],
-      "started": "2022-04-24T12:32:08-04:00",
-      "last_reply": "2022-04-25T09:51:12+02:00",
+      "started": "2022-04-24T16:32:08Z",
+      "last_reply": "2022-04-25T07:51:12Z",
       "root_message_id": "msg-b8d46f89b733"
     }
   ]

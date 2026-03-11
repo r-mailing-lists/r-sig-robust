@@ -8,7 +8,7 @@
       "message_id": "<CAHfBD2dsED+LFq+2n=r4jUHaqk6uhE4Z2tM21=V_LbhFiKF4Vg@mail.gmail.com>",
       "from_name": "Kelly Thompson",
       "from_email_hash": "f3b01c3a92c351b0c3a2a5f13f734e2441e6391b35660338b80d08f06b8e4401",
-      "date": "2022-05-03T08:57:05-04:00",
+      "date": "2022-05-03T12:57:05Z",
       "subject": "[RsR] What R functions provide least median of squares regression analysis?",
       "subject_clean": "[RsR] What R functions provide least median of squares regression analysis?",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<2c8976b4-e676-4102-e592-336f01d2555c@stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2022-05-03T09:40:09-07:00",
+      "date": "2022-05-03T16:40:09Z",
       "subject": "[RsR]  What R functions provide least median of squares regression analysis?",
       "subject_clean": "[RsR]  What R functions provide least median of squares regression analysis?",
       "in_reply_to": "<CAHfBD2dsED+LFq+2n=r4jUHaqk6uhE4Z2tM21=V_LbhFiKF4Vg@mail.gmail.com>",
@@ -47,8 +47,8 @@
         "Kelly Thompson",
         "Matias Salibian-Barrera"
       ],
-      "started": "2022-05-03T08:57:05-04:00",
-      "last_reply": "2022-05-03T09:40:09-07:00",
+      "started": "2022-05-03T12:57:05Z",
+      "last_reply": "2022-05-03T16:40:09Z",
       "root_message_id": "msg-a468cc005670"
     }
   ]

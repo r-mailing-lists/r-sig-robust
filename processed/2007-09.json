@@ -8,7 +8,7 @@
       "message_id": "<1D150B2864AC7E489275F3C26CCC34BB96D3EB@langouste.zhaw.ch>",
       "from_name": "Locher René (lore)",
       "from_email_hash": "53e0d8835ca85130821376542b8c662f34dab54740009b20d7a233c29e5f084e",
-      "date": "2007-09-13T19:00:18+02:00",
+      "date": "2007-09-13T17:00:18Z",
       "subject": "[RsR] Wanted: predict.lmrob",
       "subject_clean": "[RsR] Wanted: predict.lmrob",
       "in_reply_to": "<466833E2.4@stat.ubc.ca>",
@@ -24,7 +24,7 @@
       "message_id": "<ea7d6a710709291910s64865061v7032f0f5058a76cb@mail.gmail.com>",
       "from_name": "Bradford Cross",
       "from_email_hash": "1a7ddbb6a3f6087520c45e4631f9c5158abf62baab0b58cdc04c5003642684bd",
-      "date": "2007-09-29T19:10:56-07:00",
+      "date": "2007-09-30T02:10:56Z",
       "subject": "[RsR] Fwd: smart updates and rolling windows",
       "subject_clean": "[RsR] Fwd: smart updates and rolling windows",
       "in_reply_to": "<ea7d6a710709291008y60013d7bv7f7ce7abb8fb0c19@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<971536df0709291928m67ab7020tb42755a8aec33e8e@mail.gmail.com>",
       "from_name": "Gabor Grothendieck",
       "from_email_hash": "2470cc61688c301322ff3a85f3fd51ddba9f1112f88f535ec93c41ab610332d1",
-      "date": "2007-09-29T22:28:03-04:00",
+      "date": "2007-09-30T02:28:03Z",
       "subject": "[RsR] Fwd: smart updates and rolling windows",
       "subject_clean": "[RsR] Fwd: smart updates and rolling windows",
       "in_reply_to": "<ea7d6a710709291910s64865061v7032f0f5058a76cb@mail.gmail.com>",
@@ -61,7 +61,7 @@
       "message_id": "<ea7d6a710709292152k352f6198m9aaee74b2b9bd82a@mail.gmail.com>",
       "from_name": "Bradford Cross",
       "from_email_hash": "1a7ddbb6a3f6087520c45e4631f9c5158abf62baab0b58cdc04c5003642684bd",
-      "date": "2007-09-29T21:52:55-07:00",
+      "date": "2007-09-30T04:52:55Z",
       "subject": "[RsR] Fwd: smart updates and rolling windows",
       "subject_clean": "[RsR] Fwd: smart updates and rolling windows",
       "in_reply_to": "<971536df0709291928m67ab7020tb42755a8aec33e8e@mail.gmail.com>",
@@ -81,7 +81,7 @@
       "message_id": "<971536df0709292200y76232879i8e368b628aeeb9aa@mail.gmail.com>",
       "from_name": "Gabor Grothendieck",
       "from_email_hash": "2470cc61688c301322ff3a85f3fd51ddba9f1112f88f535ec93c41ab610332d1",
-      "date": "2007-09-30T01:00:18-04:00",
+      "date": "2007-09-30T05:00:18Z",
       "subject": "[RsR] Fwd: smart updates and rolling windows",
       "subject_clean": "[RsR] Fwd: smart updates and rolling windows",
       "in_reply_to": "<ea7d6a710709292152k352f6198m9aaee74b2b9bd82a@mail.gmail.com>",
@@ -106,8 +106,8 @@
       "participants": [
         "Locher René (lore)"
       ],
-      "started": "2007-09-13T19:00:18+02:00",
-      "last_reply": "2007-09-13T19:00:18+02:00",
+      "started": "2007-09-13T17:00:18Z",
+      "last_reply": "2007-09-13T17:00:18Z",
       "root_message_id": "msg-d578f0d1560b"
     },
     {
@@ -118,8 +118,8 @@
         "Bradford Cross",
         "Gabor Grothendieck"
       ],
-      "started": "2007-09-29T19:10:56-07:00",
-      "last_reply": "2007-09-30T01:00:18-04:00",
+      "started": "2007-09-30T02:10:56Z",
+      "last_reply": "2007-09-30T05:00:18Z",
       "root_message_id": "msg-d58d9ae21ac7"
     }
   ]

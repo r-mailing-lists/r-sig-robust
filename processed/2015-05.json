@@ -24,7 +24,7 @@
       "message_id": "<0C52EDD1A3F3744598A6749A094A80590171753D21E1@QUANTICSSERVER.quantics.local>",
       "from_name": "Francis Bursa",
       "from_email_hash": "2434eab2902d5e79e869d1bccebc25031113c17d4042035f62af104fd4f3a24b",
-      "date": "2015-05-25T11:12:20+01:00",
+      "date": "2015-05-25T10:12:20Z",
       "subject": "[RsR] Possible bug in rlm",
       "subject_clean": "[RsR] Possible bug in rlm",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<55641C3D.2060700@zhaw.ch>",
       "from_name": "Andreas Ruckstuhl",
       "from_email_hash": "d79918704e9592e54d3a455ccacc77c1031511abd1f4435a939b4659d8c35e09",
-      "date": "2015-05-26T09:09:49+02:00",
+      "date": "2015-05-26T07:09:49Z",
       "subject": "[RsR] Comparing OLS and robust regression",
       "subject_clean": "[RsR] Comparing OLS and robust regression",
       "in_reply_to": "<415226696.655238.1432329848667.JavaMail.yahoo@mail.yahoo.com>",
@@ -63,8 +63,8 @@
         "Andreas Ruckstuhl",
         "michael westphal"
       ],
-      "started": "2015-05-22T21:24:08+00:00",
-      "last_reply": "2015-05-26T09:09:49+02:00",
+      "started": "2015-05-22T21:24:08Z",
+      "last_reply": "2015-05-26T07:09:49Z",
       "root_message_id": "msg-1831b54febd4"
     },
     {
@@ -74,8 +74,8 @@
       "participants": [
         "Francis Bursa"
       ],
-      "started": "2015-05-25T11:12:20+01:00",
-      "last_reply": "2015-05-25T11:12:20+01:00",
+      "started": "2015-05-25T10:12:20Z",
+      "last_reply": "2015-05-25T10:12:20Z",
       "root_message_id": "msg-b6cde42ac6f2"
     }
   ]

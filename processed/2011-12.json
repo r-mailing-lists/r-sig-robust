@@ -8,7 +8,7 @@
       "message_id": "<20212.43650.958624.811262@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2011-12-23T17:21:22+01:00",
+      "date": "2011-12-23T16:21:22Z",
       "subject": "[RsR] [R] nlrob problem",
       "subject_clean": "[RsR] [R] nlrob problem",
       "in_reply_to": "<4EEF94B1.8080009@ieu.uzh.ch>",
@@ -30,8 +30,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2011-12-23T17:21:22+01:00",
-      "last_reply": "2011-12-23T17:21:22+01:00",
+      "started": "2011-12-23T16:21:22Z",
+      "last_reply": "2011-12-23T16:21:22Z",
       "root_message_id": "msg-45f7756ec6ac"
     }
   ]

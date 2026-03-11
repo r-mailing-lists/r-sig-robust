@@ -8,7 +8,7 @@
       "message_id": "<Pine.LNX.4.64.0602011032270.6661@vivaldi.dst.unive.it>",
       "from_name": "claudio",
       "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
-      "date": "2006-02-01T11:32:24+01:00",
+      "date": "2006-02-01T10:32:24Z",
       "subject": "[RsR] useR! conference deadline",
       "subject_clean": "[RsR] useR! conference deadline",
       "in_reply_to": "<17375.39572.244559.449913@stat.math.ethz.ch>",
@@ -27,7 +27,7 @@
       "message_id": "<Pine.GSO.4.10.10602010702140.14678-100000@hajek.stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2006-02-01T07:07:42-08:00",
+      "date": "2006-02-01T15:07:42Z",
       "subject": "[RsR] synchronization with contributing packages",
       "subject_clean": "[RsR] synchronization with contributing packages",
       "in_reply_to": "<17375.39572.244559.449913@stat.math.ethz.ch>",
@@ -61,7 +61,7 @@
       "message_id": "<17376.64315.269821.239928@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-02-01T19:17:31+01:00",
+      "date": "2006-02-01T18:17:31Z",
       "subject": "[RsR] function naming for \"robust ...\"",
       "subject_clean": "[RsR] function naming for \"robust ...\"",
       "in_reply_to": "<17361.22635.911892.563447@stat.math.ethz.ch>",
@@ -80,7 +80,7 @@
       "message_id": "<B7C02093A9C6FB47B417FC3FAB0D721403697D@langouste.zhwin.ch>",
       "from_name": "Ruckstuhl Andreas (rks)",
       "from_email_hash": "37bdf46d2d783a56a681e1b57b7a86bd102ccf080b7a413afac034d7f4b1ad36",
-      "date": "2006-02-01T19:23:10+01:00",
+      "date": "2006-02-01T18:23:10Z",
       "subject": "[RsR] synchronization with contributing packages",
       "subject_clean": "[RsR] synchronization with contributing packages",
       "in_reply_to": null,
@@ -96,7 +96,7 @@
       "message_id": "<43E1AEB0.3000700@tuwien.ac.at>",
       "from_name": "Peter Filzmoser",
       "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
-      "date": "2006-02-02T08:03:12+01:00",
+      "date": "2006-02-02T07:03:12Z",
       "subject": "[RsR] robustbase, names",
       "subject_clean": "[RsR] robustbase, names",
       "in_reply_to": null,
@@ -112,7 +112,7 @@
       "message_id": "<Pine.LNX.4.64.0602021107000.10140@vivaldi.dst.unive.it>",
       "from_name": "claudio",
       "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
-      "date": "2006-02-02T11:19:08+01:00",
+      "date": "2006-02-02T10:19:08Z",
       "subject": "[RsR] robustbase, names",
       "subject_clean": "[RsR] robustbase, names",
       "in_reply_to": "<43E1AEB0.3000700@tuwien.ac.at>",
@@ -130,7 +130,7 @@
       "message_id": "<17388.37286.225638.71351@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2006-02-10T14:14:14+01:00",
+      "date": "2006-02-10T13:14:14Z",
       "subject": "[RsR] Package 'robustbase' available from CRAN",
       "subject_clean": "[RsR] Package 'robustbase' available from CRAN",
       "in_reply_to": null,
@@ -146,7 +146,7 @@
       "message_id": "<Pine.LNX.4.64.0602211445150.9059@vivaldi.dst.unive.it>",
       "from_name": "claudio",
       "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
-      "date": "2006-02-21T14:48:34+01:00",
+      "date": "2006-02-21T13:48:34Z",
       "subject": "[RsR] Special Issue on Robust Statistics in SMA journal",
       "subject_clean": "[RsR] Special Issue on Robust Statistics in SMA journal",
       "in_reply_to": null,
@@ -162,7 +162,7 @@
       "message_id": "<Pine.LNX.4.64.0602211513330.9059@vivaldi.dst.unive.it>",
       "from_name": "claudio",
       "from_email_hash": "02992a9dad0936aff3cf93ba925df256c03b34285c16a4821fe93052a592f6d0",
-      "date": "2006-02-21T15:16:00+01:00",
+      "date": "2006-02-21T14:16:00Z",
       "subject": "[RsR] Robust session at useR 2006",
       "subject_clean": "[RsR] Robust session at useR 2006",
       "in_reply_to": "<Pine.LNX.4.64.0602211445150.9059@vivaldi.dst.unive.it>",
@@ -178,26 +178,26 @@
   ],
   "threads": [
     {
-      "id": "thread-8bef38238b8d",
-      "subject": "[RsR] synchronization with contributing packages",
-      "message_count": 1,
-      "participants": [
-        "Matias Salibian-Barrera"
-      ],
-      "started": "2006-02-01T07:07:42-08:00",
-      "last_reply": "2006-02-01T07:07:42-08:00",
-      "root_message_id": "msg-8bef38238b8d"
-    },
-    {
       "id": "thread-fb399e091064",
       "subject": "[RsR] useR! conference deadline",
       "message_count": 1,
       "participants": [
         "claudio"
       ],
-      "started": "2006-02-01T11:32:24+01:00",
-      "last_reply": "2006-02-01T11:32:24+01:00",
+      "started": "2006-02-01T10:32:24Z",
+      "last_reply": "2006-02-01T10:32:24Z",
       "root_message_id": "msg-fb399e091064"
+    },
+    {
+      "id": "thread-8bef38238b8d",
+      "subject": "[RsR] synchronization with contributing packages",
+      "message_count": 1,
+      "participants": [
+        "Matias Salibian-Barrera"
+      ],
+      "started": "2006-02-01T15:07:42Z",
+      "last_reply": "2006-02-01T15:07:42Z",
+      "root_message_id": "msg-8bef38238b8d"
     },
     {
       "id": "thread-b5cc45618b00",
@@ -206,8 +206,8 @@
       "participants": [
         "Kjell Konis"
       ],
-      "started": "2006-02-01T15:51:21+00:00",
-      "last_reply": "2006-02-01T15:51:21+00:00",
+      "started": "2006-02-01T15:51:21Z",
+      "last_reply": "2006-02-01T15:51:21Z",
       "root_message_id": "msg-b5cc45618b00"
     },
     {
@@ -217,8 +217,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2006-02-01T19:17:31+01:00",
-      "last_reply": "2006-02-01T19:17:31+01:00",
+      "started": "2006-02-01T18:17:31Z",
+      "last_reply": "2006-02-01T18:17:31Z",
       "root_message_id": "msg-062a1b9d1a5b"
     },
     {
@@ -228,8 +228,8 @@
       "participants": [
         "Ruckstuhl Andreas (rks)"
       ],
-      "started": "2006-02-01T19:23:10+01:00",
-      "last_reply": "2006-02-01T19:23:10+01:00",
+      "started": "2006-02-01T18:23:10Z",
+      "last_reply": "2006-02-01T18:23:10Z",
       "root_message_id": "msg-48b46e476dc5"
     },
     {
@@ -240,8 +240,8 @@
         "Peter Filzmoser",
         "claudio"
       ],
-      "started": "2006-02-02T08:03:12+01:00",
-      "last_reply": "2006-02-02T11:19:08+01:00",
+      "started": "2006-02-02T07:03:12Z",
+      "last_reply": "2006-02-02T10:19:08Z",
       "root_message_id": "msg-1ec81b6dd037"
     },
     {
@@ -251,8 +251,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2006-02-10T14:14:14+01:00",
-      "last_reply": "2006-02-10T14:14:14+01:00",
+      "started": "2006-02-10T13:14:14Z",
+      "last_reply": "2006-02-10T13:14:14Z",
       "root_message_id": "msg-c86e2a2c352f"
     },
     {
@@ -262,8 +262,8 @@
       "participants": [
         "claudio"
       ],
-      "started": "2006-02-21T14:48:34+01:00",
-      "last_reply": "2006-02-21T15:16:00+01:00",
+      "started": "2006-02-21T13:48:34Z",
+      "last_reply": "2006-02-21T14:16:00Z",
       "root_message_id": "msg-97ed0fd228de"
     }
   ]

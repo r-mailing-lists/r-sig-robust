@@ -8,7 +8,7 @@
       "message_id": "<78064fd8a310652ee@wm-srv.ulb.ac.be>",
       "from_name": "Kaveh Vakili",
       "from_email_hash": "790ec46189bffff51402ab6234a4139fbe2663d524a2cc9fa8c7dde820abfff4",
-      "date": "2012-06-13T16:26:24+02:00",
+      "date": "2012-06-13T14:26:24Z",
       "subject": "[RsR] robustX::rbwheel()",
       "subject_clean": "[RsR] robustX::rbwheel()",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<CA+VS_fbJ5NUso1p9YLJDSHrLrJ4HHD5upraOFDi+01Zkwx+2Nw@mail.gmail.com>",
       "from_name": "Andreas Alfons",
       "from_email_hash": "411f44219352dac0106176b106771f5116dcbbfae9c2b5d346195dca3bd6185b",
-      "date": "2012-06-13T16:15:58-05:00",
+      "date": "2012-06-13T21:15:58Z",
       "subject": "[RsR] robustX::rbwheel()",
       "subject_clean": "[RsR] robustX::rbwheel()",
       "in_reply_to": "<ec06261c60cd48e8ba5ca1484979a833@ICTS-S-HUB3.luna.kuleuven.be>",
@@ -76,7 +76,7 @@
       "message_id": "<CA+VS_fa9i54QjwP6b0Pwu7jsFyr==EyG59B0EBABZp=RSas8nw@mail.gmail.com>",
       "from_name": "Andreas Alfons",
       "from_email_hash": "411f44219352dac0106176b106771f5116dcbbfae9c2b5d346195dca3bd6185b",
-      "date": "2012-06-24T23:05:27+02:00",
+      "date": "2012-06-24T21:05:27Z",
       "subject": "[RsR] Problem re-implementing whimed from package robustbase",
       "subject_clean": "[RsR] Problem re-implementing whimed from package robustbase",
       "in_reply_to": "<f5a7bfb99a5649f99f6cbde2fcf181f0@ICTS-S-HUB3.luna.kuleuven.be>",
@@ -95,7 +95,7 @@
       "message_id": "<4FE80DB9.9040807@wis.kuleuven.be>",
       "from_name": "Kaveh Vakili",
       "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
-      "date": "2012-06-25T09:05:29+02:00",
+      "date": "2012-06-25T07:05:29Z",
       "subject": "[RsR] Problem re-implementing whimed from package robustbase",
       "subject_clean": "[RsR] Problem re-implementing whimed from package robustbase",
       "in_reply_to": "<CA+VS_fa9i54QjwP6b0Pwu7jsFyr==EyG59B0EBABZp=RSas8nw@mail.gmail.com>",
@@ -115,7 +115,7 @@
       "message_id": "<4FEDA5C6.5020109@wis.kuleuven.be>",
       "from_name": "Kaveh Vakili",
       "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
-      "date": "2012-06-29T14:55:34+02:00",
+      "date": "2012-06-29T12:55:34Z",
       "subject": "[RsR] Problem re-implementing whimed from package robustbase",
       "subject_clean": "[RsR] Problem re-implementing whimed from package robustbase",
       "in_reply_to": "<CA+VS_fa9i54QjwP6b0Pwu7jsFyr==EyG59B0EBABZp=RSas8nw@mail.gmail.com>",
@@ -133,26 +133,26 @@
   ],
   "threads": [
     {
-      "id": "thread-dd332527cc3f",
-      "subject": "[RsR] robustX::rbwheel()",
-      "message_count": 1,
-      "participants": [
-        "Andreas Alfons"
-      ],
-      "started": "2012-06-13T16:15:58-05:00",
-      "last_reply": "2012-06-13T16:15:58-05:00",
-      "root_message_id": "msg-dd332527cc3f"
-    },
-    {
       "id": "thread-224e3cf7fbba",
       "subject": "[RsR] robustX::rbwheel()",
       "message_count": 1,
       "participants": [
         "Kaveh Vakili"
       ],
-      "started": "2012-06-13T16:26:24+02:00",
-      "last_reply": "2012-06-13T16:26:24+02:00",
+      "started": "2012-06-13T14:26:24Z",
+      "last_reply": "2012-06-13T14:26:24Z",
       "root_message_id": "msg-224e3cf7fbba"
+    },
+    {
+      "id": "thread-dd332527cc3f",
+      "subject": "[RsR] robustX::rbwheel()",
+      "message_count": 1,
+      "participants": [
+        "Andreas Alfons"
+      ],
+      "started": "2012-06-13T21:15:58Z",
+      "last_reply": "2012-06-13T21:15:58Z",
+      "root_message_id": "msg-dd332527cc3f"
     },
     {
       "id": "thread-c2b739006116",
@@ -161,8 +161,8 @@
       "participants": [
         "Kaveh"
       ],
-      "started": "2012-06-23T13:31:24+00:00",
-      "last_reply": "2012-06-23T19:27:25+00:00",
+      "started": "2012-06-23T13:31:24Z",
+      "last_reply": "2012-06-23T19:27:25Z",
       "root_message_id": "msg-c2b739006116"
     },
     {
@@ -173,8 +173,8 @@
         "Andreas Alfons",
         "Kaveh Vakili"
       ],
-      "started": "2012-06-24T23:05:27+02:00",
-      "last_reply": "2012-06-29T14:55:34+02:00",
+      "started": "2012-06-24T21:05:27Z",
+      "last_reply": "2012-06-29T12:55:34Z",
       "root_message_id": "msg-da5a5849a42f"
     }
   ]

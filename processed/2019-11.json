@@ -24,7 +24,7 @@
       "message_id": "<f21ae2d1-c619-9e58-a990-22578dc6c339@mpi.nl>",
       "from_name": "Phillip Alday",
       "from_email_hash": "fafc857548eb60de9d1a2fb567bdcde580c689bb979d9eb416fd7987558bfed0",
-      "date": "2019-11-18T17:25:51+01:00",
+      "date": "2019-11-18T16:25:51Z",
       "subject": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
       "subject_clean": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
       "in_reply_to": "<44add41256f841679d0bfe2610a2bcc0@cchmc.org>",
@@ -61,7 +61,7 @@
       "message_id": "<270188bb-4979-d251-0030-4d1de8acaf61@mpi.nl>",
       "from_name": "Phillip Alday",
       "from_email_hash": "fafc857548eb60de9d1a2fb567bdcde580c689bb979d9eb416fd7987558bfed0",
-      "date": "2019-11-24T11:05:08-06:00",
+      "date": "2019-11-24T17:05:08Z",
       "subject": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
       "subject_clean": "[RsR]  About the inconsistency p-value of two sample Kolmogorov–Smirnov test in R and Matlab",
       "in_reply_to": "<C5537B8D-BAED-4368-ABA4-BB3533DFEA24@cchmc.org>",
@@ -86,8 +86,8 @@
         "Phillip Alday",
         "Zhou, Xionghui"
       ],
-      "started": "2019-11-11T20:50:41+00:00",
-      "last_reply": "2019-11-24T11:05:08-06:00",
+      "started": "2019-11-11T20:50:41Z",
+      "last_reply": "2019-11-24T17:05:08Z",
       "root_message_id": "msg-7cd240164737"
     }
   ]

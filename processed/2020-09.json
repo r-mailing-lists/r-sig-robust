@@ -8,7 +8,7 @@
       "message_id": "<CACgFjqQU05_q92kYVdV5FbhL7+mx2fO7hbH3kQEHjbg7DT3+bg@mail.gmail.com>",
       "from_name": "Z B",
       "from_email_hash": "07a1fb41ca44f92a9aee3a37ff97b530bf370dd41eabf34da9cef656674cb33c",
-      "date": "2020-09-30T10:18:12+02:00",
+      "date": "2020-09-30T08:18:12Z",
       "subject": "[RsR] shifted t distribution for power analysis",
       "subject_clean": "[RsR] shifted t distribution for power analysis",
       "in_reply_to": null,
@@ -28,8 +28,8 @@
       "participants": [
         "Z B"
       ],
-      "started": "2020-09-30T10:18:12+02:00",
-      "last_reply": "2020-09-30T10:18:12+02:00",
+      "started": "2020-09-30T08:18:12Z",
+      "last_reply": "2020-09-30T08:18:12Z",
       "root_message_id": "msg-3c5ec5e1a5f2"
     }
   ]

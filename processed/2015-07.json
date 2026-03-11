@@ -8,7 +8,7 @@
       "message_id": "<559BC0D3.60000@leeds.ac.uk>",
       "from_name": "Serge Sharoff",
       "from_email_hash": "7201c4348c32ffc0cc144573c8d462dc1e78e3ca28a0781b682539d07f126a4b",
-      "date": "2015-07-07T13:06:43+01:00",
+      "date": "2015-07-07T12:06:43Z",
       "subject": "[RsR] Robust estimation of word frequencies",
       "subject_clean": "[RsR] Robust estimation of word frequencies",
       "in_reply_to": "<DBXPR03MB4319975B09DD4CD1BAA6430EDAA0@DBXPR03MB431.eurprd03.prod.outlook.com>",
@@ -27,7 +27,7 @@
       "message_id": "<559EB723.8050304@stamats.de>",
       "from_name": "Prof. Dr. Matthias Kohl",
       "from_email_hash": "e144ddb675681f3124c6e887dd63c8aec6f6b4e9911a8cda00f94c453a4cb173",
-      "date": "2015-07-09T20:02:11+02:00",
+      "date": "2015-07-09T18:02:11Z",
       "subject": "[RsR] Robust estimation of word frequencies",
       "subject_clean": "[RsR] Robust estimation of word frequencies",
       "in_reply_to": "<559BC0D3.60000@leeds.ac.uk>",
@@ -47,7 +47,7 @@
       "message_id": "<4681868.qdPuHIWpko@t3400>",
       "from_name": "Serge Sharoff",
       "from_email_hash": "7201c4348c32ffc0cc144573c8d462dc1e78e3ca28a0781b682539d07f126a4b",
-      "date": "2015-07-10T12:01:01+01:00",
+      "date": "2015-07-10T11:01:01Z",
       "subject": "[RsR] Robust estimation of word frequencies",
       "subject_clean": "[RsR] Robust estimation of word frequencies",
       "in_reply_to": "<559EB723.8050304@stamats.de>",
@@ -73,8 +73,8 @@
         "Prof. Dr. Matthias Kohl",
         "Serge Sharoff"
       ],
-      "started": "2015-07-07T13:06:43+01:00",
-      "last_reply": "2015-07-10T12:01:01+01:00",
+      "started": "2015-07-07T12:06:43Z",
+      "last_reply": "2015-07-10T11:01:01Z",
       "root_message_id": "msg-673690e0ac88"
     }
   ]

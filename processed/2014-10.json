@@ -8,7 +8,7 @@
       "message_id": "<21567.53907.362435.943098@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2014-10-16T16:13:39+02:00",
+      "date": "2014-10-16T14:13:39Z",
       "subject": "[RsR] robust fitting using Lorentzian merit function",
       "subject_clean": "[RsR] robust fitting using Lorentzian merit function",
       "in_reply_to": "<OF874D92B5.7BB8C372-ONC1257D72.003AC444-C1257D72.0040614F@pcsierteelt.be>",
@@ -32,8 +32,8 @@
       "participants": [
         "Martin Maechler"
       ],
-      "started": "2014-10-16T16:13:39+02:00",
-      "last_reply": "2014-10-16T16:13:39+02:00",
+      "started": "2014-10-16T14:13:39Z",
+      "last_reply": "2014-10-16T14:13:39Z",
       "root_message_id": "msg-4906e233b796"
     }
   ]

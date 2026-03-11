@@ -8,7 +8,7 @@
       "message_id": "<50FAB73E.2080600@unige.ch>",
       "from_name": "Olivier Renaud",
       "from_email_hash": "6d71b22d0e62134f96165c0875cd64df6e65b064c8150892f2d49dcb83e43c33",
-      "date": "2013-01-19T16:09:50+01:00",
+      "date": "2013-01-19T15:09:50Z",
       "subject": "[RsR] How to evaluate psi(t) from a lmrob object",
       "subject_clean": "[RsR] How to evaluate psi(t) from a lmrob object",
       "in_reply_to": "<50FAB35A.6030401@unige.ch>",
@@ -26,7 +26,7 @@
       "message_id": "<50FAE614.70402@wis.kuleuven.be>",
       "from_name": "Kaveh Vakili",
       "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
-      "date": "2013-01-19T19:29:40+01:00",
+      "date": "2013-01-19T18:29:40Z",
       "subject": "[RsR] robustbase::lmrob()",
       "subject_clean": "[RsR] robustbase::lmrob()",
       "in_reply_to": "<CABCkCJUNOnOtVn1ywefLrLa48LYoWWR_1e43nof+nqhO0ZREzw@mail.gmail.com>",
@@ -47,7 +47,7 @@
       "message_id": "<50FBFA65.5010106@wis.kuleuven.be>",
       "from_name": "Kaveh Vakili",
       "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
-      "date": "2013-01-20T15:08:37+01:00",
+      "date": "2013-01-20T14:08:37Z",
       "subject": "[RsR] robustbase::lmrob() [bis]",
       "subject_clean": "[RsR] robustbase::lmrob() [bis]",
       "in_reply_to": "<50FAE614.70402@wis.kuleuven.be>",
@@ -69,7 +69,7 @@
       "message_id": "<50FC1CF8.9030505@wis.kuleuven.be>",
       "from_name": "Kaveh Vakili",
       "from_email_hash": "948891ef9d0a425ef997a30b87838818c0f3fecb5451418e13b85f0f06779724",
-      "date": "2013-01-20T17:36:08+01:00",
+      "date": "2013-01-20T16:36:08Z",
       "subject": "[RsR] robustbase::lmrob() [bis]",
       "subject_clean": "[RsR] robustbase::lmrob() [bis]",
       "in_reply_to": "<50FBFA65.5010106@wis.kuleuven.be>",
@@ -92,7 +92,7 @@
       "message_id": "<CAPUobv0ur2tfYFxPca_46YuZ4nT53a8mfghVHnebnOBe71Jjcg@mail.gmail.com>",
       "from_name": "Manuel Koller",
       "from_email_hash": "2a2bc532df5431edcf7eb21908cc6024199c4e954cfbc1a71ca9144a25f3748f",
-      "date": "2013-01-20T19:03:41+01:00",
+      "date": "2013-01-20T18:03:41Z",
       "subject": "[RsR] Fwd:  How to evaluate psi(t) from a lmrob object",
       "subject_clean": "[RsR] Fwd:  How to evaluate psi(t) from a lmrob object",
       "in_reply_to": "<CAPUobv2n_TOj_XdbHG8GXdift_ro1wmN8joYrhOBai0eW8+FEQ@mail.gmail.com>",
@@ -116,8 +116,8 @@
       "participants": [
         "Olivier Renaud"
       ],
-      "started": "2013-01-19T16:09:50+01:00",
-      "last_reply": "2013-01-19T16:09:50+01:00",
+      "started": "2013-01-19T15:09:50Z",
+      "last_reply": "2013-01-19T15:09:50Z",
       "root_message_id": "msg-e7f2da107959"
     },
     {
@@ -127,8 +127,8 @@
       "participants": [
         "Kaveh Vakili"
       ],
-      "started": "2013-01-19T19:29:40+01:00",
-      "last_reply": "2013-01-20T17:36:08+01:00",
+      "started": "2013-01-19T18:29:40Z",
+      "last_reply": "2013-01-20T16:36:08Z",
       "root_message_id": "msg-df254037bc7b"
     },
     {
@@ -138,8 +138,8 @@
       "participants": [
         "Manuel Koller"
       ],
-      "started": "2013-01-20T19:03:41+01:00",
-      "last_reply": "2013-01-20T19:03:41+01:00",
+      "started": "2013-01-20T18:03:41Z",
+      "last_reply": "2013-01-20T18:03:41Z",
       "root_message_id": "msg-ce3f2a5e956d"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<4c0e456b0604021628v637eb963o503cf66ff6fab7d5@mail.gmail.com>",
       "from_name": "Valentin Todorov",
       "from_email_hash": "b42a38c3a0b42db1bd745c24a3bf8bd86b5535b4d14077ce7ad421b24c772111",
-      "date": "2006-04-03T01:28:15+02:00",
+      "date": "2006-04-02T23:28:15Z",
       "subject": "[RsR] covrob --- some OOP-comments",
       "subject_clean": "[RsR] covrob --- some OOP-comments",
       "in_reply_to": "<17447.56688.238243.568965@stat.math.ethz.ch>",
@@ -34,7 +34,7 @@
       "message_id": "<55CCE5E061CD0C4B97B57166249441FE0B20C4@langouste.zhwin.ch>",
       "from_name": "Locher René (lor)",
       "from_email_hash": "ab8bc319c984dee32802aa9aab1c88d32ac7ee766ee700ed3e7ea11035b2d89c",
-      "date": "2006-04-20T13:19:14+02:00",
+      "date": "2006-04-20T11:19:14Z",
       "subject": "[RsR] robustbase V 0.1-5",
       "subject_clean": "[RsR] robustbase V 0.1-5",
       "in_reply_to": null,
@@ -50,7 +50,7 @@
       "message_id": "<55CCE5E061CD0C4B97B57166249441FE0B20D7@langouste.zhwin.ch>",
       "from_name": "Locher René (lor)",
       "from_email_hash": "ab8bc319c984dee32802aa9aab1c88d32ac7ee766ee700ed3e7ea11035b2d89c",
-      "date": "2006-04-20T18:45:57+02:00",
+      "date": "2006-04-20T16:45:57Z",
       "subject": "[RsR] Addendum to test dataset for robustbase V 0.1-5",
       "subject_clean": "[RsR] Addendum to test dataset for robustbase V 0.1-5",
       "in_reply_to": null,
@@ -70,8 +70,8 @@
       "participants": [
         "Valentin Todorov"
       ],
-      "started": "2006-04-03T01:28:15+02:00",
-      "last_reply": "2006-04-03T01:28:15+02:00",
+      "started": "2006-04-02T23:28:15Z",
+      "last_reply": "2006-04-02T23:28:15Z",
       "root_message_id": "msg-8d691f7b4920"
     },
     {
@@ -81,8 +81,8 @@
       "participants": [
         "Locher René (lor)"
       ],
-      "started": "2006-04-20T13:19:14+02:00",
-      "last_reply": "2006-04-20T13:19:14+02:00",
+      "started": "2006-04-20T11:19:14Z",
+      "last_reply": "2006-04-20T11:19:14Z",
       "root_message_id": "msg-75e392cae284"
     },
     {
@@ -92,8 +92,8 @@
       "participants": [
         "Locher René (lor)"
       ],
-      "started": "2006-04-20T18:45:57+02:00",
-      "last_reply": "2006-04-20T18:45:57+02:00",
+      "started": "2006-04-20T16:45:57Z",
+      "last_reply": "2006-04-20T16:45:57Z",
       "root_message_id": "msg-9f2c4de387e6"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<Prayer.1.0.16.0805082043440.26649@wm1.tc.umn.edu>",
       "from_name": "kh@@x131 m@iii@g oii um@@edu",
       "from_email_hash": "5a6f45c652cfbc6b0f3f58c9a8aef40e6228b8edfb7ae2e050ef91e894ce7214",
-      "date": "2008-05-08T20:43:44-05:00",
+      "date": "2008-05-09T01:43:44Z",
       "subject": "[RsR] Redescenders  in R",
       "subject_clean": "[RsR] Redescenders  in R",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<18469.26051.676379.457533@cmath-5.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2008-05-10T11:07:15+02:00",
+      "date": "2008-05-10T09:07:15Z",
       "subject": "[RsR] [R] function in nls argument -- robust estimation",
       "subject_clean": "[RsR] [R] function in nls argument -- robust estimation",
       "in_reply_to": "<Pine.GSO.4.56.0805091538200.7887@laurel.few.vu.nl>",
@@ -49,7 +49,7 @@
       "message_id": "<18469.28011.126148.460529@cmath-5.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2008-05-10T11:39:55+02:00",
+      "date": "2008-05-10T09:39:55Z",
       "subject": "[RsR] Redescenders  in R",
       "subject_clean": "[RsR] Redescenders  in R",
       "in_reply_to": "<Prayer.1.0.16.0805082043440.26649@wm1.tc.umn.edu>",
@@ -67,7 +67,7 @@
       "message_id": "<Pine.GSO.4.56.0805101532110.12828@laurel.few.vu.nl>",
       "from_name": "Katharine Mullen",
       "from_email_hash": "293f1d8edb774d89132e112808ba6c5ed8752b41a55159968cfc7ea4939c8e1c",
-      "date": "2008-05-10T16:02:08+02:00",
+      "date": "2008-05-10T14:02:08Z",
       "subject": "[RsR] function in nls argument -- robust estimation",
       "subject_clean": "[RsR] function in nls argument -- robust estimation",
       "in_reply_to": null,
@@ -83,7 +83,7 @@
       "message_id": "<02D49A492B2D2F46BF3FD743A8255A52F815BCCC@EX7FM02.ad.uky.edu>",
       "from_name": "Stromberg, Arnold",
       "from_email_hash": "c1889a124ea347429fcf3fedb737da64742f435373da47d1feb8cbe5a7ce9b23",
-      "date": "2008-05-10T20:11:50-04:00",
+      "date": "2008-05-11T00:11:50Z",
       "subject": "[RsR] [R] function in nls argument -- robust estimation",
       "subject_clean": "[RsR] [R] function in nls argument -- robust estimation",
       "in_reply_to": "<18469.26051.676379.457533@cmath-5.math.ethz.ch>",
@@ -114,8 +114,8 @@
         "Martin Maechler",
         "kh@@x131 m@iii@g oii um@@edu"
       ],
-      "started": "2008-05-08T20:43:44-05:00",
-      "last_reply": "2008-05-10T11:39:55+02:00",
+      "started": "2008-05-09T01:43:44Z",
+      "last_reply": "2008-05-10T09:39:55Z",
       "root_message_id": "msg-ef8932d9e7ee"
     },
     {
@@ -126,8 +126,8 @@
         "Martin Maechler",
         "Stromberg, Arnold"
       ],
-      "started": "2008-05-10T11:07:15+02:00",
-      "last_reply": "2008-05-10T20:11:50-04:00",
+      "started": "2008-05-10T09:07:15Z",
+      "last_reply": "2008-05-11T00:11:50Z",
       "root_message_id": "msg-a542fba95637"
     },
     {
@@ -137,8 +137,8 @@
       "participants": [
         "Katharine Mullen"
       ],
-      "started": "2008-05-10T16:02:08+02:00",
-      "last_reply": "2008-05-10T16:02:08+02:00",
+      "started": "2008-05-10T14:02:08Z",
+      "last_reply": "2008-05-10T14:02:08Z",
       "root_message_id": "msg-207bdc9d1383"
     }
   ]

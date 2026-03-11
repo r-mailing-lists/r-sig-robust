@@ -8,7 +8,7 @@
       "message_id": "<789770.83253.qm@web112311.mail.gq1.yahoo.com>",
       "from_name": "Alamgir Gir",
       "from_email_hash": "d0951fbb296437b857731b22df239d93774889cdd520a14a32b468a64021b2e0",
-      "date": "2010-04-04T23:35:30-07:00",
+      "date": "2010-04-05T06:35:30Z",
       "subject": "[RsR] ridge regressio",
       "subject_clean": "[RsR] ridge regressio",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4BBAEB4A.1020508@unige.ch>",
       "from_name": "Olivier Renaud",
       "from_email_hash": "6d71b22d0e62134f96165c0875cd64df6e65b064c8150892f2d49dcb83e43c33",
-      "date": "2010-04-06T10:05:30+02:00",
+      "date": "2010-04-06T08:05:30Z",
       "subject": "[RsR] Can I calculate the p-value of the robust regression at this\tway?",
       "subject_clean": "[RsR] Can I calculate the p-value of the robust regression at this\tway?",
       "in_reply_to": "<loom.20100324T044117-751@post.gmane.org>",
@@ -42,7 +42,7 @@
       "message_id": "<364122.98465.qm@web112301.mail.gq1.yahoo.com>",
       "from_name": "Alamgir Gir",
       "from_email_hash": "d0951fbb296437b857731b22df239d93774889cdd520a14a32b468a64021b2e0",
-      "date": "2010-04-09T23:43:55-07:00",
+      "date": "2010-04-10T06:43:55Z",
       "subject": "[RsR] robust ridge",
       "subject_clean": "[RsR] robust ridge",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<u2q4358fd1a1004222124p2171450fwd62fa325531ab18@mail.gmail.com>",
       "from_name": "Daniel",
       "from_email_hash": "e75e57f43599ba5e48d01f1d535f200935c93d65e50cefa56b0c382d1c1f0c97",
-      "date": "2010-04-23T01:24:05-03:00",
+      "date": "2010-04-23T04:24:05Z",
       "subject": "[RsR] Vote Concentration Equation",
       "subject_clean": "[RsR] Vote Concentration Equation",
       "in_reply_to": null,
@@ -78,8 +78,8 @@
       "participants": [
         "Alamgir Gir"
       ],
-      "started": "2010-04-04T23:35:30-07:00",
-      "last_reply": "2010-04-04T23:35:30-07:00",
+      "started": "2010-04-05T06:35:30Z",
+      "last_reply": "2010-04-05T06:35:30Z",
       "root_message_id": "msg-99108aa8eb4b"
     },
     {
@@ -89,8 +89,8 @@
       "participants": [
         "Olivier Renaud"
       ],
-      "started": "2010-04-06T10:05:30+02:00",
-      "last_reply": "2010-04-06T10:05:30+02:00",
+      "started": "2010-04-06T08:05:30Z",
+      "last_reply": "2010-04-06T08:05:30Z",
       "root_message_id": "msg-bbc993c8fef8"
     },
     {
@@ -100,8 +100,8 @@
       "participants": [
         "Alamgir Gir"
       ],
-      "started": "2010-04-09T23:43:55-07:00",
-      "last_reply": "2010-04-09T23:43:55-07:00",
+      "started": "2010-04-10T06:43:55Z",
+      "last_reply": "2010-04-10T06:43:55Z",
       "root_message_id": "msg-82a6f649c8e3"
     },
     {
@@ -111,8 +111,8 @@
       "participants": [
         "Daniel"
       ],
-      "started": "2010-04-23T01:24:05-03:00",
-      "last_reply": "2010-04-23T01:24:05-03:00",
+      "started": "2010-04-23T04:24:05Z",
+      "last_reply": "2010-04-23T04:24:05Z",
       "root_message_id": "msg-068eb5c639ae"
     }
   ]

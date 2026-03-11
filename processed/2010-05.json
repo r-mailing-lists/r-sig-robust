@@ -8,7 +8,7 @@
       "message_id": "<8226D945-9F63-49AA-8F67-A6B3016DA8A6@sfbr.org>",
       "from_name": "Mark Sharp",
       "from_email_hash": "0178160bf5e554de26f1b394bac781cb142b97768ef5af6cbda36bc14b81c90d",
-      "date": "2010-05-13T15:36:54-05:00",
+      "date": "2010-05-13T20:36:54Z",
       "subject": "[RsR] Box-Cox transformation and reverse Box-Cox transformation",
       "subject_clean": "[RsR] Box-Cox transformation and reverse Box-Cox transformation",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<19455.47535.821084.942730@patty.math.ethz.ch>",
       "from_name": "Markus Kalisch",
       "from_email_hash": "08ab0464ecaab73c35bfb83a24fdd1219200fce40233546f5fc9c54377a3f48f",
-      "date": "2010-05-28T14:40:15+02:00",
+      "date": "2010-05-28T12:40:15Z",
       "subject": "[RsR] Robust Parameter Estimation: Negative Binomial",
       "subject_clean": "[RsR] Robust Parameter Estimation: Negative Binomial",
       "in_reply_to": null,
@@ -40,7 +40,7 @@
       "message_id": "<4C001BD1.2030806@web.de>",
       "from_name": "Peter Ruckdeschel",
       "from_email_hash": "5e442341d3d22c7ef4e2947082ea7ce8a4fb66eadbdb9f3e929480ce81250959",
-      "date": "2010-05-28T21:38:57+02:00",
+      "date": "2010-05-28T19:38:57Z",
       "subject": "[RsR] Robust Parameter Estimation: Negative Binomial",
       "subject_clean": "[RsR] Robust Parameter Estimation: Negative Binomial",
       "in_reply_to": "<19455.47535.821084.942730@patty.math.ethz.ch>",
@@ -62,8 +62,8 @@
       "participants": [
         "Mark Sharp"
       ],
-      "started": "2010-05-13T15:36:54-05:00",
-      "last_reply": "2010-05-13T15:36:54-05:00",
+      "started": "2010-05-13T20:36:54Z",
+      "last_reply": "2010-05-13T20:36:54Z",
       "root_message_id": "msg-9774e2e3163d"
     },
     {
@@ -74,8 +74,8 @@
         "Markus Kalisch",
         "Peter Ruckdeschel"
       ],
-      "started": "2010-05-28T14:40:15+02:00",
-      "last_reply": "2010-05-28T21:38:57+02:00",
+      "started": "2010-05-28T12:40:15Z",
+      "last_reply": "2010-05-28T19:38:57Z",
       "root_message_id": "msg-68dd8336082c"
     }
   ]

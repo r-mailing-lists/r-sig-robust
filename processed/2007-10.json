@@ -8,7 +8,7 @@
       "message_id": "<30D2BAC93FE38D49A3D7DDA9A218340C03ADFBC3@postman.org.phzh.int>",
       "from_name": "Daniel Steiner",
       "from_email_hash": "630e398e2ffb42973eddb55b2f6d329915f9d56e6be9c104bca448588c39b121",
-      "date": "2007-10-18T17:37:50+02:00",
+      "date": "2007-10-18T15:37:50Z",
       "subject": "[RsR] boxplot: whiskers",
       "subject_clean": "[RsR] boxplot: whiskers",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<47178A6F.6030002@stat.ubc.ca>",
       "from_name": "Matias Salibian-Barrera",
       "from_email_hash": "6d5404fc058ed1e050fc4612b293d0e28c7ee0f5e19c1234c97213b1133f5ef9",
-      "date": "2007-10-18T09:31:43-07:00",
+      "date": "2007-10-18T16:31:43Z",
       "subject": "[RsR] boxplot: whiskers",
       "subject_clean": "[RsR] boxplot: whiskers",
       "in_reply_to": "<30D2BAC93FE38D49A3D7DDA9A218340C03ADFBC3@postman.org.phzh.int>",
@@ -47,8 +47,8 @@
         "Daniel Steiner",
         "Matias Salibian-Barrera"
       ],
-      "started": "2007-10-18T17:37:50+02:00",
-      "last_reply": "2007-10-18T09:31:43-07:00",
+      "started": "2007-10-18T15:37:50Z",
+      "last_reply": "2007-10-18T16:31:43Z",
       "root_message_id": "msg-7baabf0c4c8d"
     }
   ]

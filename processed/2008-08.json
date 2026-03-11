@@ -8,7 +8,7 @@
       "message_id": "<18582.54260.42897.424201@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2008-08-04T12:03:32+02:00",
+      "date": "2008-08-04T10:03:32Z",
       "subject": "[RsR] CRAN task view \"robust\"",
       "subject_clean": "[RsR] CRAN task view \"robust\"",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4631330b0808040348t7e64fcebt25136cca998aab8a@mail.gmail.com>",
       "from_name": "Diman Todorov",
       "from_email_hash": "f624676c88e06ab185d97e71f8483b69a45356cc5ddf877718d5f40e25eccb72",
-      "date": "2008-08-04T12:48:28+02:00",
+      "date": "2008-08-04T10:48:28Z",
       "subject": "[RsR] CRAN task view \"robust\"",
       "subject_clean": "[RsR] CRAN task view \"robust\"",
       "in_reply_to": "<18582.54260.42897.424201@stat.math.ethz.ch>",
@@ -42,7 +42,7 @@
       "message_id": "<18582.64581.963601.730386@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2008-08-04T14:55:33+02:00",
+      "date": "2008-08-04T12:55:33Z",
       "subject": "[RsR] CRAN task view \"robust\"",
       "subject_clean": "[RsR] CRAN task view \"robust\"",
       "in_reply_to": "<4631330b0808040348t7e64fcebt25136cca998aab8a@mail.gmail.com>",
@@ -61,7 +61,7 @@
       "message_id": "<B46595D426846345AD00664F29B8B2A801625183@MAIL2.ad.uams.edu>",
       "from_name": "Thaden, John J",
       "from_email_hash": "e2de3beecc37a384ca98ea3d40b22d23d0998911d1d996b49f14813119a89d04",
-      "date": "2008-08-05T11:05:37-05:00",
+      "date": "2008-08-05T16:05:37Z",
       "subject": "[RsR] CRAN task view \"robust\"",
       "subject_clean": "[RsR] CRAN task view \"robust\"",
       "in_reply_to": "<4631330b0808040348t7e64fcebt25136cca998aab8a@mail.gmail.com>",
@@ -86,8 +86,8 @@
         "Martin Maechler",
         "Thaden, John J"
       ],
-      "started": "2008-08-04T12:03:32+02:00",
-      "last_reply": "2008-08-05T11:05:37-05:00",
+      "started": "2008-08-04T10:03:32Z",
+      "last_reply": "2008-08-05T16:05:37Z",
       "root_message_id": "msg-54e2e99cac69"
     }
   ]

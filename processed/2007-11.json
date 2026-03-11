@@ -8,7 +8,7 @@
       "message_id": "<473312B2.9060206@uni-bayreuth.de>",
       "from_name": "Peter Ruckdeschel",
       "from_email_hash": "3c45aa7ca289f67744e76b08be94dc9ddb1b3eaad8e4e4fe77d2a9c08c190ed1",
-      "date": "2007-11-08T14:44:18+01:00",
+      "date": "2007-11-08T13:44:18Z",
       "subject": "[RsR] R-forge project \"robust-ts\" (the time series counter-part to \"robustbase\") is set up",
       "subject_clean": "[RsR] R-forge project \"robust-ts\" (the time series counter-part to \"robustbase\") is set up",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<4739BBC9020000BB0002019F@GWIA.unt.edu>",
       "from_name": "Jenifer Larson-Hall",
       "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
-      "date": "2007-11-13T14:59:21-06:00",
+      "date": "2007-11-13T20:59:21Z",
       "subject": "[RsR] Questions about interpreting lmRob output",
       "subject_clean": "[RsR] Questions about interpreting lmRob output",
       "in_reply_to": null,
@@ -58,7 +58,7 @@
       "message_id": "<473ABEE5020000BB0002021F@GWIA.unt.edu>",
       "from_name": "Jenifer Larson-Hall",
       "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
-      "date": "2007-11-14T09:24:52-06:00",
+      "date": "2007-11-14T15:24:52Z",
       "subject": "[RsR] Questions about interpreting lmRob output",
       "subject_clean": "[RsR] Questions about interpreting lmRob output",
       "in_reply_to": null,
@@ -92,7 +92,7 @@
       "message_id": "<473AD79D020000BB00020236@GWIA.unt.edu>",
       "from_name": "Jenifer Larson-Hall",
       "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
-      "date": "2007-11-14T11:10:21-06:00",
+      "date": "2007-11-14T17:10:21Z",
       "subject": "[RsR] Questions about interpreting lmRob output",
       "subject_clean": "[RsR] Questions about interpreting lmRob output",
       "in_reply_to": null,
@@ -126,7 +126,7 @@
       "message_id": "<473C495B020000BB0002034B@GWIA.unt.edu>",
       "from_name": "Jenifer Larson-Hall",
       "from_email_hash": "348ace447aa8e0ce97eef2c123b046f4a9f431f210d8184d6c48aa44cf2e4eab",
-      "date": "2007-11-15T13:27:55-06:00",
+      "date": "2007-11-15T19:27:55Z",
       "subject": "[RsR] Questions about interpreting lmRob output",
       "subject_clean": "[RsR] Questions about interpreting lmRob output",
       "in_reply_to": null,
@@ -142,7 +142,7 @@
       "message_id": "<20071117182620.GK298@lubyanka.local>",
       "from_name": "Ajay Shah",
       "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
-      "date": "2007-11-17T23:56:20+05:30",
+      "date": "2007-11-17T18:26:20Z",
       "subject": "[RsR] R-SIG-Robust Digest, Vol 20, Issue 2",
       "subject_clean": "[RsR] R-SIG-Robust Digest, Vol 20, Issue 2",
       "in_reply_to": "<mailman.5.1195038002.3734.r-sig-robust@r-project.org>",
@@ -197,7 +197,7 @@
       "message_id": "<18241.26357.377177.769507@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2007-11-19T11:35:33+01:00",
+      "date": "2007-11-19T10:35:33Z",
       "subject": "[RsR] lmRob() vs rlm() etc",
       "subject_clean": "[RsR] lmRob() vs rlm() etc",
       "in_reply_to": "<EDBCA09F-AEF2-4504-A85C-CF3B1CCBA8CD@stats.ox.ac.uk>",
@@ -221,8 +221,8 @@
       "participants": [
         "Peter Ruckdeschel"
       ],
-      "started": "2007-11-08T14:44:18+01:00",
-      "last_reply": "2007-11-08T14:44:18+01:00",
+      "started": "2007-11-08T13:44:18Z",
+      "last_reply": "2007-11-08T13:44:18Z",
       "root_message_id": "msg-4370f9b3dcf3"
     },
     {
@@ -233,8 +233,8 @@
         "Jenifer Larson-Hall",
         "Kjell Konis"
       ],
-      "started": "2007-11-13T14:59:21-06:00",
-      "last_reply": "2007-11-14T11:03:19+00:00",
+      "started": "2007-11-13T20:59:21Z",
+      "last_reply": "2007-11-14T11:03:19Z",
       "root_message_id": "msg-22984e4bca3c"
     },
     {
@@ -245,8 +245,8 @@
         "Jenifer Larson-Hall",
         "Kjell Konis"
       ],
-      "started": "2007-11-14T09:24:52-06:00",
-      "last_reply": "2007-11-14T16:08:46+00:00",
+      "started": "2007-11-14T15:24:52Z",
+      "last_reply": "2007-11-14T16:08:46Z",
       "root_message_id": "msg-d458e09b100c"
     },
     {
@@ -257,8 +257,8 @@
         "Jenifer Larson-Hall",
         "Kjell Konis"
       ],
-      "started": "2007-11-14T11:10:21-06:00",
-      "last_reply": "2007-11-14T17:32:05+00:00",
+      "started": "2007-11-14T17:10:21Z",
+      "last_reply": "2007-11-14T17:32:05Z",
       "root_message_id": "msg-9204f9ee2a04"
     },
     {
@@ -269,8 +269,8 @@
         "Jenifer Larson-Hall",
         "Kjell Konis"
       ],
-      "started": "2007-11-15T13:27:55-06:00",
-      "last_reply": "2007-11-18T15:10:31+00:00",
+      "started": "2007-11-15T19:27:55Z",
+      "last_reply": "2007-11-18T15:10:31Z",
       "root_message_id": "msg-9aee07cba563"
     },
     {
@@ -282,8 +282,8 @@
         "Kjell Konis",
         "Martin Maechler"
       ],
-      "started": "2007-11-17T23:56:20+05:30",
-      "last_reply": "2007-11-19T11:35:33+01:00",
+      "started": "2007-11-17T18:26:20Z",
+      "last_reply": "2007-11-19T10:35:33Z",
       "root_message_id": "msg-75628a4dc603"
     }
   ]

@@ -8,7 +8,7 @@
       "message_id": "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>",
       "from_name": "Ajay Shah",
       "from_email_hash": "36cd7a5a88e8c25cbca072b66bfdec914f0010d740a868683c79af24026dee48",
-      "date": "2020-07-10T16:37:47+05:30",
+      "date": "2020-07-10T11:07:47Z",
       "subject": "[RsR] A question about robust estimation of a mean from multiple instruments",
       "subject_clean": "[RsR] A question about robust estimation of a mean from multiple instruments",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<31b71e77-76b4-9f92-56fb-24399d96cc2f@zhaw.ch>",
       "from_name": "Rene Locher",
       "from_email_hash": "53e0d8835ca85130821376542b8c662f34dab54740009b20d7a233c29e5f084e",
-      "date": "2020-07-10T14:36:39+02:00",
+      "date": "2020-07-10T12:36:39Z",
       "subject": "[RsR]  A question about robust estimation of a mean from multiple instruments",
       "subject_clean": "[RsR]  A question about robust estimation of a mean from multiple instruments",
       "in_reply_to": "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>",
@@ -42,7 +42,7 @@
       "message_id": "<24328.24844.630465.11132@stat.math.ethz.ch>",
       "from_name": "Martin Maechler",
       "from_email_hash": "a92f4a07d4e3cad5fba985e30db2b0fff598d5ddfbadbb2e91ffe91636400c62",
-      "date": "2020-07-10T14:37:32+02:00",
+      "date": "2020-07-10T12:37:32Z",
       "subject": "[RsR]  A question about robust estimation of a mean from multiple instruments",
       "subject_clean": "[RsR]  A question about robust estimation of a mean from multiple instruments",
       "in_reply_to": "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>",
@@ -66,8 +66,8 @@
         "Martin Maechler",
         "Rene Locher"
       ],
-      "started": "2020-07-10T16:37:47+05:30",
-      "last_reply": "2020-07-10T14:37:32+02:00",
+      "started": "2020-07-10T11:07:47Z",
+      "last_reply": "2020-07-10T12:37:32Z",
       "root_message_id": "msg-51a567173532"
     }
   ]

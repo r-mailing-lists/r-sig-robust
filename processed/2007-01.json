@@ -8,7 +8,7 @@
       "message_id": "<45B3E804.9010907@businessdecision.com>",
       "from_name": "Tobias Verbeke",
       "from_email_hash": "a3faa1911a4aa0fc299e44e1921cb3b0e83de091a37697d6c3d3f61069b7def1",
-      "date": "2007-01-21T23:24:04+01:00",
+      "date": "2007-01-21T22:24:04Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": null,
@@ -24,7 +24,7 @@
       "message_id": "<45B4647F.6010007@tuwien.ac.at>",
       "from_name": "Peter Filzmoser",
       "from_email_hash": "8f979387084cd1251a65216157a53ab1275c24e393eb255f2174e09a7e685dc2",
-      "date": "2007-01-22T08:15:11+01:00",
+      "date": "2007-01-22T07:15:11Z",
       "subject": "[RsR] port of LIBRA toolbox to R",
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": "<45B3E804.9010907@businessdecision.com>",
@@ -47,8 +47,8 @@
         "Peter Filzmoser",
         "Tobias Verbeke"
       ],
-      "started": "2007-01-21T23:24:04+01:00",
-      "last_reply": "2007-01-22T08:15:11+01:00",
+      "started": "2007-01-21T22:24:04Z",
+      "last_reply": "2007-01-22T07:15:11Z",
       "root_message_id": "msg-489f01ff6638"
     }
   ]
