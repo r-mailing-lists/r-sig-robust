@@ -1,0 +1,47 @@
+From g@@@en @end|ng |rom w|w|@hu-ber||n@de  Fri Apr 10 15:17:00 2026
+From: g@@@en @end|ng |rom w|w|@hu-ber||n@de (Joachim Gassen)
+Date: Fri, 10 Apr 2026 15:17:00 +0200
+Subject: [RsR] ferols - An early stage package for robust Huber Loss M
+ regression with high-dimensional fixed effects
+Message-ID: <38088B5F-6BBA-4BE9-8671-93CA225CA4AC@wiwi.hu-berlin.de>
+
+Dear R-sig-robust community:
+
+I would like to let you know that I have just published the early stage R package 'ferols'? <https://github.com/joachim-gassen/ferols>implementing a robust Huber Loss M-Estimator for linear models with high-dimensional fixed effectsI The package is co-developed with the Stata package 'robhdfe' by David Veenman. It leverages the fixest? <https://lrberge.github.io/fixest/>package for demeaning, standard error clustering and actual estimation. Its interface is also designed to integrate tightly with the fixest ecosystem.
+
+Both projects builds on our paper
+
+Joachim Gassen and David Veenman (2026): Estimation Precision and Robust Inference in Archival Research, SSRN Working Paper, http://dx.doi.org/10.2139/ssrn.4975569.
+
+For the first-step quantile regression that is used to obtain the scale estimate, 'ferols' implements the MM-QR estimation from Machado and Santos Silva (2019) to combine quantile estimation with fixed effects, which Rios-Avila, Siles, and Canavire-Bacarreza (2024) show can be extended to the multidimensional fixed effects setting. It also implements sandwich-type standard error clustering across multiple dimensions.
+
+Obviously. 'ferols' is not meant to replace established R packages for robust regression as these provide much more flexible and thoroughly tested implementations. Rather it aims to fill a narrow gap as these packages currently do not allow to absorb fixed effects during estimation and might thus run in performance/memory problems in settings with many fixed effects.
+
+This package is under active development. The API, implementation details, and numerical behavior may and probably will change. Use with care. Please consider using the GitHub Issue system or this mailing list if you happen to have any remarks or feedback about this package.
+
+Thank you and best wishes,
+
+Joachim
+-- 
+Prof. Dr. Joachim Gassen
+Chair of Financial Accounting and Auditing
+School of Business and Economics
+Humboldt University Berlin
+10099 Berlin - Germany
+phone: +49-30-2093 99440
+code at: https://github.com/joachim-gassen
+papers at: https://www.ssrn.com/author=78615
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20260410/01553ca8/attachment.html>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4502 bytes
+Desc: not available
+URL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20260410/01553ca8/attachment.p7s>
+

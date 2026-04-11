@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2026-04",
+  "messages": [
+    {
+      "id": "msg-160f642c16c0",
+      "message_id": "<38088B5F-6BBA-4BE9-8671-93CA225CA4AC@wiwi.hu-berlin.de>",
+      "from_name": "Joachim Gassen",
+      "from_email_hash": "07a793a0dca86e2292160cd94eb60957a373c7609120ceaa2e7fe0caa7ca6037",
+      "date": "2026-04-10T13:17:00Z",
+      "subject": "[RsR] ferols - An early stage package for robust Huber Loss M regression with high-dimensional fixed effects",
+      "subject_clean": "[RsR] ferols - An early stage package for robust Huber Loss M regression with high-dimensional fixed effects",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear R-sig-robust community:\n\nI would like to let you know that I have just published the early stage R package 'ferols'? <https://github.com/joachim-gassen/ferols>implementing a robust Huber Loss M-Estimator for linear models with high-dimensional fixed effectsI The package is co-developed with the Stata package 'robhdfe' by David Veenman. It leverages the fixest? <https://lrberge.github.io/fixest/>package for demeaning, standard error clustering and actual estimation. Its interface is also designed to integrate tightly with the fixest ecosystem.\n\nBoth projects builds on our paper\n\nJoachim Gassen and David Veenman (2026): Estimation Precision and Robust Inference in Archival Research, SSRN Working Paper, http://dx.doi.org/10.2139/ssrn.4975569.\n\nFor the first-step quantile regression that is used to obtain the scale estimate, 'ferols' implements the MM-QR estimation from Machado and Santos Silva (2019) to combine quantile estimation with fixed effects, which Rios-Avila, Siles, and Canavire-Bacarreza (2024) show can be extended to the multidimensional fixed effects setting. It also implements sandwich-type standard error clustering across multiple dimensions.\n\nObviously. 'ferols' is not meant to replace established R packages for robust regression as these provide much more flexible and thoroughly tested implementations. Rather it aims to fill a narrow gap as these packages currently do not allow to absorb fixed effects during estimation and might thus run in performance/memory problems in settings with many fixed effects.\n\nThis package is under active development. The API, implementation details, and numerical behavior may and probably will change. Use with care. Please consider using the GitHub Issue system or this mailing list if you happen to have any remarks or feedback about this package.\n\nThank you and best wishes,\n\nJoachim\n-- \nProf. Dr. Joachim Gassen\nChair of Financial Accounting and Auditing\nSchool of Business and Economics\nHumboldt University Berlin\n10099 Berlin - Germany\nphone: +49-30-2093 99440\ncode at: https://github.com/joachim-gassen\npapers at: https://www.ssrn.com/author=78615\n\n\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20260410/01553ca8/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: smime.p7s\nType: application/pkcs7-signature\nSize: 4502 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20260410/01553ca8/attachment.p7s>",
+      "body_snippet": "Dear R-sig-robust community:\n\nI would like to let you know that I have just published the early stage R package 'ferols'? <https://github.com/joachim-gassen/ferols>implementing a robust Huber Loss M-E",
+      "thread_id": "thread-160f642c16c0",
+      "thread_depth": 0,
+      "month": "2026-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-160f642c16c0",
+      "subject": "[RsR] ferols - An early stage package for robust Huber Loss M regression with high-dimensional fixed effects",
+      "message_count": 1,
+      "participants": [
+        "Joachim Gassen"
+      ],
+      "started": "2026-04-10T13:17:00Z",
+      "last_reply": "2026-04-10T13:17:00Z",
+      "root_message_id": "msg-160f642c16c0"
+    }
+  ]
+}
