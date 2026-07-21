@@ -1,0 +1,36 @@
+{
+  "list": "r-sig-robust",
+  "description": "",
+  "month": "2026-07",
+  "messages": [
+    {
+      "id": "msg-f0920a982126",
+      "message_id": "<1784381506.995931506@webmail.jimdo.com>",
+      "from_name": "i@io m@iii@g oii phys@ii@-courses@org",
+      "from_email_hash": "ca8ae7fca04226cbf7116003b962efbd86b9ffdf6a68e1a8cee80f656f89cb9c",
+      "date": "2026-07-18T13:31:46Z",
+      "subject": "[RsR] Online Course: Markov & Hidden Markov Models in R | 1–4 September",
+      "subject_clean": "[RsR] Online Course: Markov & Hidden Markov Models in R | 1–4 September",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n \nJoin our live online course Markov and Hidden Markov Models with Applications in R, taking place 1?4 September, and learn how to apply one of the most powerful modeling frameworks for longitudinal data.\n \n \nCourse website: [ https://www.physalia-courses.org/courses-workshops/markov-and-hidden-markov-models-with-applications-in-r/ ]( https://www.physalia-courses.org/courses-workshops/markov-and-hidden-markov-models-with-applications-in-r/ ) \n \n \nOver four interactive sessions, you'll combine theory with hands-on practice using the LMest R package. You'll learn how to build, estimate, interpret, and select Markov and Hidden Markov Models for continuous, categorical, and incomplete longitudinal data.\n \nParticipants will:\nLearn the fundamentals of Markov and Hidden Markov Models\nGain practical experience with R and the LMest package\nWork through real data examples and interactive exercises\nDiscover best practices for model selection, interpretation, and reporting\n \nWhether you're a researcher, graduate student, or data analyst working in academia, industry, or consultancy, this course will provide practical skills you can immediately apply to your own data.\n \n \nBest regards,\n \nCarlo\n \n \n\n--------------------\n\nCarlo Pecoraro, Ph.D\n\n\nPhysalia-courses DIRECTOR\n\ninfo at physalia-courses.org\n\nmobile: +49 17645230846\n\n[ Bluesky ]( https://bsky.app/profile/physaliacourses.bsky.social ) [ Linkedin ]( https://www.linkedin.com/in/physalia-courses-a64418127/ )\n\n\n\n\t[[alternative HTML version deleted]]",
+      "body_snippet": "Dear all,\n \nJoin our live online course Markov and Hidden Markov Models with Applications in R, taking place 1?4 September, and learn how to apply one of the most powerful modeling frameworks for long",
+      "thread_id": "thread-f0920a982126",
+      "thread_depth": 0,
+      "month": "2026-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f0920a982126",
+      "subject": "[RsR] Online Course: Markov & Hidden Markov Models in R | 1–4 September",
+      "message_count": 1,
+      "participants": [
+        "i@io m@iii@g oii phys@ii@-courses@org"
+      ],
+      "started": "2026-07-18T13:31:46Z",
+      "last_reply": "2026-07-18T13:31:46Z",
+      "root_message_id": "msg-f0920a982126"
+    }
+  ]
+}
