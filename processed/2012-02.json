@@ -17,7 +17,8 @@
       "body_snippet": "I'm a italian student and I use R for my final degree thesis ... I want\nstudy a Robustly Proportional Hazards (Bednarski's teory) for a dataset\nof medical result. \nI have exstimate with library coxrob",
       "thread_id": "thread-aa50aa856e90",
       "thread_depth": 0,
-      "month": "2012-02"
+      "month": "2012-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000338.html"
     }
   ],
   "threads": [

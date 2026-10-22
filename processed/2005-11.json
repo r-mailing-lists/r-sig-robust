@@ -17,7 +17,8 @@
       "body_snippet": "Dear participants of the Treviso workshop on\n\"Robust Statistics and R\",\n\nlet me first thank once more, in the name of us all, the\norganizing committee, notably Claudio Agostinelli as local\norganizer, ",
       "thread_id": "thread-0fa952b51068",
       "thread_depth": 0,
-      "month": "2005-11"
+      "month": "2005-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2005/000000.html"
     },
     {
       "id": "msg-770f14211d0c",
@@ -35,7 +36,8 @@
       "body_snippet": "Package 'sfsmisc' has had a function  'rnls()' for a while \nwhich does robust non-linear regression via M-estimation.\n\n[The name of the function is probably *really* a misnomer,\n since the 'ls' part s",
       "thread_id": "thread-770f14211d0c",
       "thread_depth": 0,
-      "month": "2005-11"
+      "month": "2005-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2005/000001.html"
     },
     {
       "id": "msg-b0ad3e9151c8",
@@ -54,7 +56,8 @@
       "body_snippet": "[Cross-posted to R-SIG-robust,\n   the Special Interest Group (mailing list) on \"Robustness and R\"]\n\n>>>>> \"BertG\" == Berton Gunter <gunter.berton at gene.com>\n>>>>>     on Mon, 28 Nov 2005 11:42:45 -0",
       "thread_id": "thread-b0ad3e9151c8",
       "thread_depth": 0,
-      "month": "2005-11"
+      "month": "2005-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2005/000002.html"
     }
   ],
   "threads": [

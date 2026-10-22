@@ -17,7 +17,8 @@
       "body_snippet": "Dear Robustnik Community,\n\nThe original fastmcd code in the Robust Library has been problematic  \nwith newer versions of R and on 64-bit platforms. Instead of trying to  \nfix it, I decided to remove t",
       "thread_id": "thread-81690b86b333",
       "thread_depth": 0,
-      "month": "2008-07"
+      "month": "2008-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000201.html"
     },
     {
       "id": "msg-e5884218923e",
@@ -33,7 +34,8 @@
       "body_snippet": "I have a situation where there are influential observations in a\ntime-series. I'd like to identify and estimate ARMA models, and use\nthese for forecasting.\n\nFor simplicity, suppose we only try to do A",
       "thread_id": "thread-e5884218923e",
       "thread_depth": 0,
-      "month": "2008-07"
+      "month": "2008-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000202.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "Dear list, I have the following problem.\n\nI want to predict the value of a variable in nature, call it \"ecological\nsuccess(ES)\".\n\nFor doing that, I made some virtual simulations with which I reached a",
       "thread_id": "thread-8dd7360b30aa",
       "thread_depth": 0,
-      "month": "2013-09"
+      "month": "2013-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000408.html"
     }
   ],
   "threads": [

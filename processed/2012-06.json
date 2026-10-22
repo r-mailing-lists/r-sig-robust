@@ -17,7 +17,8 @@
       "body_snippet": "Dear All,\n\nlooking at the documentation of rbwheel() \nin package robustX, it appears one can \nchange the distribution of the good part\n of the data by changing the \"rGood\" argument\n in the function ca",
       "thread_id": "thread-224e3cf7fbba",
       "thread_depth": 0,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000349.html"
     },
     {
       "id": "msg-dd332527cc3f",
@@ -35,7 +36,8 @@
       "body_snippet": "> looking at the documentation of rbwheel()\n> in package robustX, it appears one can\n> change the distribution of the good part\n> ?of the data by changing the \"rGood\" argument\n> ?in the function call.",
       "thread_id": "thread-dd332527cc3f",
       "thread_depth": 0,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000350.html"
     },
     {
       "id": "msg-c2b739006116",
@@ -51,7 +53,8 @@
       "body_snippet": "Dear All,\n\nI'm trying to re-implement the Qn estimator in cpp \n(using the c code from Prof. Maechler as a canvas). \n\nAs part of the Qn estimation algorithm we need to \nperform repeated calls to the wh",
       "thread_id": "thread-c2b739006116",
       "thread_depth": 0,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000351.html"
     },
     {
       "id": "msg-b19054ef9bfc",
@@ -69,7 +72,8 @@
       "body_snippet": "Ok, \"for make benefit\" of future generations, i've attached to this \nmail the ,stand alone' version of qn_sn.c (i've removed sn and 200 \nloc of bell and whistles to make it shorter). \n\nI guess now i w",
       "thread_id": "thread-c2b739006116",
       "thread_depth": 1,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000352.html"
     },
     {
       "id": "msg-da5a5849a42f",
@@ -88,7 +92,8 @@
       "body_snippet": "I only had a quick look at the code and did not have time to try it\nmyself, but you made many more changes to the code besides swapping\nthe C arrays to C++ Eigen data types.\n\nI would suggest one of th",
       "thread_id": "thread-da5a5849a42f",
       "thread_depth": 0,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000353.html"
     },
     {
       "id": "msg-974d9947885c",
@@ -108,7 +113,8 @@
       "body_snippet": "Dear Andreas,\n\nSuggestion (1) is a very good solution for my problem:\n  the part of my implementation causing the divergence\n  (whimed) is a function i'm not interested in modifying\nanyway.\n\nStill, i'",
       "thread_id": "thread-da5a5849a42f",
       "thread_depth": 1,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000354.html"
     },
     {
       "id": "msg-7071810cbc7b",
@@ -128,7 +134,8 @@
       "body_snippet": "Replacing\n\n     w_tot=w.sum();\n\nby\n\n     w_tot=w.head(n).sum();\n\nin the whimed function did the trick.\n(~a classic)\n\n\nOn 06/24/2012 11:05 PM, Andreas Alfons wrote:\n> I only had a quick look at the cod",
       "thread_id": "thread-da5a5849a42f",
       "thread_depth": 1,
-      "month": "2012-06"
+      "month": "2012-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000355.html"
     }
   ],
   "threads": [

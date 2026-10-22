@@ -17,7 +17,8 @@
       "body_snippet": "Hi dear listers,\n\nI wonder if somebody can be kind enough to share some information about \nsimulation. I want to simulate regression data in R like 1000 times so that \nevery time i can run my robust L",
       "thread_id": "thread-9ed2b4e031b3",
       "thread_depth": 0,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000193.html"
     },
     {
       "id": "msg-35d8c520b090",
@@ -35,7 +36,8 @@
       "body_snippet": "Today I came across the announcement of the tutorial at the UseR! Conference \nin Dortmund \"Introduction to Robust Statistics with R\" and was surprised to \nsee that it will \"... use R functions mainly ",
       "thread_id": "thread-35d8c520b090",
       "thread_depth": 0,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000194.html"
     },
     {
       "id": "msg-7d12a903fd0d",
@@ -54,7 +56,8 @@
       "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Fri, 6 Jun 2008 23:49:49 +0200 writes:\n\n    ValenT> Today I came across the announcement of the tutorial at the UseR! Co",
       "thread_id": "thread-35d8c520b090",
       "thread_depth": 1,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000195.html"
     },
     {
       "id": "msg-d8449a02a36b",
@@ -74,7 +77,8 @@
       "body_snippet": "Hey Martin, why do you read/write mails instead of watching the EM matches \n(sorry)?! I do not care much about soccer too but just opened a bottle of \nPortuguese wine to celebrate and would like to us",
       "thread_id": "thread-35d8c520b090",
       "thread_depth": 2,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000196.html"
     },
     {
       "id": "msg-e283ea091fbc",
@@ -90,7 +94,8 @@
       "body_snippet": "There is no support for x12arima or Tramo/Seats in R. I am doing a\npoor man's seasonal adjustment procedure: For monthly data, I do a\nregression with no intercept and 12 dummy variables (i.e. a month\n",
       "thread_id": "thread-e283ea091fbc",
       "thread_depth": 0,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000197.html"
     },
     {
       "id": "msg-9aca29be1358",
@@ -108,7 +113,8 @@
       "body_snippet": "On Sun, Jun 8, 2008 at 10:19 AM, Ajay Shah <ajayshah at mayin.org> wrote:\n> There is no support for x12arima or Tramo/Seats in R. I am doing a\n\nCheck out:\n\nhttp://finzi.psych.upenn.edu/R/Rhelp02a/arch",
       "thread_id": "thread-e283ea091fbc",
       "thread_depth": 1,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000198.html"
     },
     {
       "id": "msg-e7da4bea53ed",
@@ -127,7 +133,8 @@
       "body_snippet": ">\n>\n> > There is no support for x12arima or Tramo/Seats in R. I am doing a\n>\n> Check out:\n>\n> http://finzi.psych.upenn.edu/R/Rhelp02a/archive/40254.html\n>\n>\nHi Gabor,\nI see often this posting cited, w",
       "thread_id": "thread-e283ea091fbc",
       "thread_depth": 2,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000199.html"
     },
     {
       "id": "msg-402d6fa3b1ee",
@@ -145,7 +152,8 @@
       "body_snippet": "Dear list,I am trying to perform normality test for my data set. my data set is quite large N>13000 with 4 valriables under study , so When I tried to do normality test for each variable using lillie.",
       "thread_id": "thread-402d6fa3b1ee",
       "thread_depth": 0,
-      "month": "2008-06"
+      "month": "2008-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000200.html"
     }
   ],
   "threads": [

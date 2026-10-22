@@ -17,7 +17,8 @@
       "body_snippet": "Hello,\n\nHas there been a package contributed to CRAN that implements Robust\nRidge regression (e.g. the method proposed by Maronna in 2011) or other\nmethods designed specifically for multicollinear dat",
       "thread_id": "thread-9d73964535b5",
       "thread_depth": 0,
-      "month": "2014-03"
+      "month": "2014-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000418.html"
     }
   ],
   "threads": [

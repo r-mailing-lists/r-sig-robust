@@ -13,11 +13,12 @@
       "subject_clean": "[RsR] cancer-pred",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "hello?I have cancer-pred data.I want to read the data into R and output the first list variable y with below  statement,\nbut I always get the wrong result.which I need to amend?\n       mydata<-read.table(\"C:/Users/Desktop/cancer-pred.txt\",na.string=\".\",header=T)\n       mydata<-as.data.frame(mydata)\n        y\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20160319/1d927bce/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: cancer-pred.txt\nType: application/octet-stream\nSize: 6554 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20160319/1d927bce/attachment.obj>",
-      "body_snippet": "hello?I have cancer-pred data.I want to read the data into R and output the first list variable y with below  statement,\nbut I always get the wrong result.which I need to amend?\n       mydata<-read.ta",
+      "body_plain": "hello，I have cancer-pred data.I want to read the data into R and output the first list variable y with below  statement,\nbut I always get the wrong result.which I need to amend?\n       mydata<-read.table(\"C:/Users/Desktop/cancer-pred.txt\",na.string=\".\",header=T)\n       mydata<-as.data.frame(mydata)\n        y\n-------------- next part --------------\nAn HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20160319/1d927bce/attachment.html>\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: cancer-pred.txt\nType: application/octet-stream\nSize: 6554 bytes\nDesc: not available\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20160319/1d927bce/attachment.obj>",
+      "body_snippet": "hello，I have cancer-pred data.I want to read the data into R and output the first list variable y with below  statement,\nbut I always get the wrong result.which I need to amend?\n       mydata<-read.ta",
       "thread_id": "thread-1f602a20e1f2",
       "thread_depth": 0,
-      "month": "2016-03"
+      "month": "2016-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2016/000451.html"
     },
     {
       "id": "msg-cb39b27359fa",
@@ -31,11 +32,12 @@
       "references": [
         "<tencent_117207961428FC115695B7F7@qq.com>"
       ],
-      "body_plain": "Dear Tianyuan,\n\nI do not think this is the right place to ask this question.\n\nHowever, if your data frame has a variable y - to see this try head(mydata)\n-\n\nyou can see the variable y with the command\n\nmydata$y\n\nBest regards,\nValentin\n\n\n\nOn Sat, Mar 19, 2016 at 1:25 PM, ??-- <1456861180 at qq.com> wrote:\n\n> hello?I have cancer-pred data.I want to read the data into R and output\n> the first list variable y with below  statement,\n> but I always get the wrong result.which I need to amend?\n>\n>  mydata<-read.table(\"C:/Users/Desktop/cancer-pred.txt\",na.string=\".\",header=T)\n>        mydata<-as.data.frame(mydata)\n>         y\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
+      "body_plain": "Dear Tianyuan,\n\nI do not think this is the right place to ask this question.\n\nHowever, if your data frame has a variable y - to see this try head(mydata)\n-\n\nyou can see the variable y with the command\n\nmydata$y\n\nBest regards,\nValentin\n\n\n\nOn Sat, Mar 19, 2016 at 1:25 PM, 天源-- <1456861180 at qq.com> wrote:\n\n> hello，I have cancer-pred data.I want to read the data into R and output\n> the first list variable y with below  statement,\n> but I always get the wrong result.which I need to amend?\n>\n>  mydata<-read.table(\"C:/Users/Desktop/cancer-pred.txt\",na.string=\".\",header=T)\n>        mydata<-as.data.frame(mydata)\n>         y\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n\n\t[[alternative HTML version deleted]]",
       "body_snippet": "Dear Tianyuan,\n\nI do not think this is the right place to ask this question.\n\nHowever, if your data frame has a variable y - to see this try head(mydata)\n-\n\nyou can see the variable y with the command",
       "thread_id": "thread-1f602a20e1f2",
       "thread_depth": 1,
-      "month": "2016-03"
+      "month": "2016-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2016/000452.html"
     },
     {
       "id": "msg-ea2c08460eed",
@@ -51,7 +53,8 @@
       "body_snippet": "I wish to give general information about confidence in estimates of the\nslope in single-variate rlm         where I try to estimate ?emissions factors? which scale\npollutant fire-tracer amounts with a",
       "thread_id": "thread-ea2c08460eed",
       "thread_depth": 0,
-      "month": "2016-03"
+      "month": "2016-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2016/000453.html"
     },
     {
       "id": "msg-6ca1a186c72e",
@@ -71,7 +74,8 @@
       "body_snippet": ">>>>> David Winsemius <dwinsemius at comcast.net>\n>>>>>     on Sun, 27 Mar 2016 19:30:31 -0700 writes:\n\n    >> On Mar 27, 2016, at 9:52 AM, HAMID REZA ASHRAFI via\n    >> R-help <r-help at r-project.or",
       "thread_id": "thread-6ca1a186c72e",
       "thread_depth": 0,
-      "month": "2016-03"
+      "month": "2016-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2016/000454.html"
     }
   ],
   "threads": [

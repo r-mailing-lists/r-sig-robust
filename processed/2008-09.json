@@ -17,7 +17,8 @@
       "body_snippet": "This message was sent to me privately. I'm replying to the full\nR-SIG-robust audience\n\n------- start of forwarded message -------\nFrom: Luis Orlindo Tedeschi <luis.tedeschi at gmail.com>\nTo: Martin Ma",
       "thread_id": "thread-f061df1b72b3",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000207.html"
     },
     {
       "id": "msg-1b8951170d58",
@@ -33,7 +34,8 @@
       "body_snippet": "I have a regression where the lm() goes through fine. This mailing\nlist has always encouraged me to worry about how a robust regression\nmight do things differently. I tried two approaches and both don",
       "thread_id": "thread-1b8951170d58",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000208.html"
     },
     {
       "id": "msg-1cafafa64ec5",
@@ -51,7 +53,8 @@
       "body_snippet": "Try quantreg (using the interior point method):\n\nfo <- da.g1 ~ -1 + f.year + major.industry + i.x + lta.l1 + I(lta.l1^2)\nlibrary(quantreg)\nrq(fo, data = long, method = \"fn\")\n\n\nOn Sun, Sep 7, 2008 at 1",
       "thread_id": "thread-1b8951170d58",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000209.html"
     },
     {
       "id": "msg-d28dff4f5851",
@@ -70,7 +73,8 @@
       "body_snippet": ">>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>     on Sun, 7 Sep 2008 11:06:33 -0400 writes:\n\n    GaGr> Try quantreg (using the interior point method):\n\n    GaGr> fo <- da.g1 ~ ",
       "thread_id": "thread-1b8951170d58",
       "thread_depth": 2,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000210.html"
     },
     {
       "id": "msg-e13c6582756b",
@@ -90,7 +94,8 @@
       "body_snippet": "Did you actually try it?\n\n> library(MASS)\n> rlm(fo, data = long)\nError in rlm.default(x, y, weights, method = method, wt.method = wt.method,  :\n  'x' is singular: singular fits are not implemented in ",
       "thread_id": "thread-1b8951170d58",
       "thread_depth": 3,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000211.html"
     },
     {
       "id": "msg-35915fcd0e45",
@@ -111,7 +116,8 @@
       "body_snippet": ">>>>> \"GaGr\" == Gabor Grothendieck <ggrothendieck at gmail.com>\n>>>>>     on Mon, 8 Sep 2008 06:55:12 -0400 writes:\n\n    GaGr> Did you actually try it?\n\nyes,\nhowever  with a slightly cleaned version o",
       "thread_id": "thread-1b8951170d58",
       "thread_depth": 4,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000212.html"
     },
     {
       "id": "msg-ea8a3b184599",
@@ -131,7 +137,8 @@
       "body_snippet": "[.................]\n\n    MM> Yes; the reason for robustbase::lmrob's failure is basically the\n    MM> same as for  MASS::rlm(., method=\"MM\")'s one:\n\n    MM> The MM-method of both require a high-breakd",
       "thread_id": "thread-1b8951170d58",
       "thread_depth": 3,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000213.html"
     },
     {
       "id": "msg-91e76e22d399",
@@ -153,7 +160,8 @@
       "body_snippet": "To add noise on the discussion I had tried to run wle.lm function in  \npackage wle on the dataset (You can download the code and the Rimage  \nfrom www.dst.unive.it/~claudio/shah.[R,Rimage]. The method",
       "thread_id": "thread-1b8951170d58",
       "thread_depth": 5,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000214.html"
     },
     {
       "id": "msg-3fcfd37760e4",
@@ -174,7 +182,8 @@
       "body_snippet": "Yup. That's me. Consider me embarrassed.\n\nHere is splus.assign with Martin's fix:\n\nsplus.assign <- function(asgn, term.labels)\n{\n   if(min(asgn) == 0) {\n     term.labels <- c(\"(Intercept)\", term.label",
       "thread_id": "thread-1b8951170d58",
       "thread_depth": 4,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000215.html"
     },
     {
       "id": "msg-3628b923cd01",
@@ -190,7 +199,8 @@
       "body_snippet": "Hi,\n\n\nI looked around, but couldn't find anything (and that's why I hope  \nthis is not an unnecessary, lazy newbie question):\n\n1) How do I compute confidence intervals for lmRob regression  \n(package ",
       "thread_id": "thread-3628b923cd01",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000216.html"
     },
     {
       "id": "msg-d27766be93a4",
@@ -208,7 +218,8 @@
       "body_snippet": "Hello Stefan,\n\nThe summary() method for lmRob objects in package robust returns \nestimated standard errors that are valid when the error distribution is \nsymmetric. If you either (a) don't have outlie",
       "thread_id": "thread-3628b923cd01",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000217.html"
     },
     {
       "id": "msg-c474f88c34fc",
@@ -224,7 +235,8 @@
       "body_snippet": "Folks,\n\nA few days ago I had asked a question\nhttps://stat.ethz.ch/pipermail/r-sig-robust/2008/000208.html and got a\ntonne of help. One issue that was pointed out was recoding a factor so\nas to not ha",
       "thread_id": "thread-c474f88c34fc",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000218.html"
     },
     {
       "id": "msg-56aac4cd57cb",
@@ -240,7 +252,8 @@
       "body_snippet": "-----------------------------------------------------------------------------------------\nPackages for the computation of optimally robust estimators\n--------------------------------------------------",
       "thread_id": "thread-56aac4cd57cb",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000219.html"
     },
     {
       "id": "msg-ee3e5a1e4bbc",
@@ -256,7 +269,8 @@
       "body_snippet": "Hi there,\n\nI have finally decided to include the MM-estimator in my Data Analysis \ncourse and so I again had to think about it and its implementation a bit.\n\nApparently the scale estimator given out b",
       "thread_id": "thread-ee3e5a1e4bbc",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000220.html"
     },
     {
       "id": "msg-3c4d49b772bd",
@@ -274,7 +288,8 @@
       "body_snippet": ">>>>>   <Rahul-A.Agarwal at ubs.com>\n>>>>>     on Thu, 18 Sep 2008 05:20:56 -0400 writes:\n\n    > Hi,\n \n    > Can we get the code for calculating Oja median for\n    > multivariate data\n\nExcuse me, but ",
       "thread_id": "thread-3c4d49b772bd",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000221.html"
     },
     {
       "id": "msg-f820115cb366",
@@ -293,7 +308,8 @@
       "body_snippet": "Thanks a lot Martin.\nI would definitely like to know more about calculating multivariate\nmedian.\nIt would be better if I can get some method where I can calculate the\nmedian using functions in R.\nWill",
       "thread_id": "thread-3c4d49b772bd",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000222.html"
     },
     {
       "id": "msg-8feeaf79bab6",
@@ -313,7 +329,8 @@
       "body_snippet": ">>>>>   <Rahul-A.Agarwal at ubs.com>\n>>>>>     on Thu, 18 Sep 2008 08:25:47 -0400 writes:\n\n    > Thanks a lot Martin.  I would definitely like to know more\n    > about calculating multivariate median.",
       "thread_id": "thread-3c4d49b772bd",
       "thread_depth": 2,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000223.html"
     },
     {
       "id": "msg-8a62bff7a86e",
@@ -334,7 +351,8 @@
       "body_snippet": "I also do not understand why do you need it, but since you insist, I assume\nyou have a good reason.\n\nAn S-Plus code (wrapper of a C++ algorithm) was to be found on the Tommi\nRonkainen's page, but now ",
       "thread_id": "thread-3c4d49b772bd",
       "thread_depth": 3,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000224.html"
     },
     {
       "id": "msg-fc257542431a",
@@ -350,7 +368,8 @@
       "body_snippet": "In continuation of the discussion on `Winsorisation' that has taken\nplace on r-sig-finance today, I thought I'd present all of you with an\ninteresting dataset and a question.\n\nThis data is the daily s",
       "thread_id": "thread-fc257542431a",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000225.html"
     },
     {
       "id": "msg-58ccaf3866da",
@@ -366,7 +385,8 @@
       "body_snippet": "Hi: i don't know if you read \"fooled by randomness\" by Nassim Taleb ( \nspelling )  but he essentially says using very non statistical arguments \nbut\nstrong nevertheless. ( it's not a stat or a quant f",
       "thread_id": "thread-58ccaf3866da",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000226.html"
     },
     {
       "id": "msg-6d645949ac2f",
@@ -384,7 +404,8 @@
       "body_snippet": "Haven't read \"Fooled by randomness\", but did start reading Black Swan, \nand although in general I like provocative books that challenge my \npoints of view, I found his main thesis to be too short to w",
       "thread_id": "thread-58ccaf3866da",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000227.html"
     },
     {
       "id": "msg-d9d8fea808c4",
@@ -400,7 +421,8 @@
       "body_snippet": "Hi Matias: yes, he wasn't dissing statistics for the most part. He was \ndefinitely talking about the miuses also but I think he was claiming\nthat models , be it statistics, physics and even non quant ",
       "thread_id": "thread-d9d8fea808c4",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000228.html"
     },
     {
       "id": "msg-9ab56a9e57d4",
@@ -418,7 +440,8 @@
       "body_snippet": "As a complement of this discussion, I would like to bring to your \nattention a paper by Marc Genton and Elvezio Ronchetti entitled \"Robust \nPrediction of Beta\", available from the webpage of M. Genton",
       "thread_id": "thread-fc257542431a",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000229.html"
     },
     {
       "id": "msg-4fc46210471d",
@@ -436,7 +459,8 @@
       "body_snippet": "just two small remarks,\n\n1. the point \n>     x[weird.rM,]\n                  rj        rM\n2004-05-17 -11.89823 -13.05386\n\nis actually not a distorting outlier since it lies pretty much on the regressio",
       "thread_id": "thread-fc257542431a",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000230.html"
     },
     {
       "id": "msg-ff670e0d36ff",
@@ -452,7 +476,8 @@
       "body_snippet": "Hi dear linsters,\n\nI am starting work on a robust nonlinear regression project. Is there any \ncode, stuff in R for robust estimation of nonlinear regression functions. \nany comments,material help, sug",
       "thread_id": "thread-ff670e0d36ff",
       "thread_depth": 0,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000231.html"
     },
     {
       "id": "msg-7723c57f3039",
@@ -470,7 +495,8 @@
       "body_snippet": "I would like to know about robust nonlinear regression R code as well.\n\nArny\n\n\nArnold J. Stromberg\nProfessor and Chair\nDepartment of Statistics\nUniversity of Kentucky\n817 Patterson Office Tower\nLexing",
       "thread_id": "thread-ff670e0d36ff",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000232.html"
     },
     {
       "id": "msg-2c089471f530",
@@ -489,7 +515,8 @@
       "body_snippet": ">From the Robust Statistical Methods Task View on CRAN\nat\n\nhttp://cran.r-project.org/web/views/Robust.html\n\n\n\" Robust Nonlinear model fitting is available through robustbase  's nlrob().\"\n\ninstall.pac",
       "thread_id": "thread-ff670e0d36ff",
       "thread_depth": 2,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000233.html"
     },
     {
       "id": "msg-774ed54afc69",
@@ -507,7 +534,8 @@
       "body_snippet": ">>>>> \"k\" == khanx131  <khanx131 at umn.edu>\n>>>>>     on 25 Sep 2008 17:50:20 -0500 writes:\n\n    k> Hi dear linsters,\n    k> I am starting work on a robust nonlinear regression project. Is there any ",
       "thread_id": "thread-ff670e0d36ff",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000234.html"
     },
     {
       "id": "msg-33420f9eb116",
@@ -525,7 +553,8 @@
       "body_snippet": "Dost,\n\nThere is  R code for a variety of nonlinear methods (smoothers) available from my web cite.\nhttp://www-rcf.usc.edu/~rwilcox/\n\nMost of these functions are described in my 2005 book. Any new func",
       "thread_id": "thread-ff670e0d36ff",
       "thread_depth": 1,
-      "month": "2008-09"
+      "month": "2008-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000235.html"
     }
   ],
   "threads": [

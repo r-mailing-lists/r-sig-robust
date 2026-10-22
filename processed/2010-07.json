@@ -15,11 +15,12 @@
       "references": [
         "<SNT141-w1C669474171FA03D0E8CDA3CB0@phx.gbl>"
       ],
-      "body_plain": "library(robustbase)\n?lmrob.S\n\n\nBut have a look also at:\n\n?lmrob\n?lmrob.fit.MM\n\nBest regards,\nValentin\n\n\n\n\nOn Tue, Jun 29, 2010 at 9:35 PM, Nanda Mendez <nandixx at hotmail.com> wrote:\n>\n> I'd like to S-estimates of regression, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\n> Thanks!!!Nanda\n> _________________________________________________________________\n> Los cochazos de los famosos Patrick Dempsey, Tom Cruise o Michael Douglas presumen de autom?vil\n>\n> ? ? ? ?[[alternative HTML version deleted]]\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>",
+      "body_plain": "library(robustbase)\n?lmrob.S\n\n\nBut have a look also at:\n\n?lmrob\n?lmrob.fit.MM\n\nBest regards,\nValentin\n\n\n\n\nOn Tue, Jun 29, 2010 at 9:35 PM, Nanda Mendez <nandixx at hotmail.com> wrote:\n>\n> I'd like to S-estimates of regression, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\n> Thanks!!!Nanda\n> _________________________________________________________________\n> Los cochazos de los famosos Patrick Dempsey, Tom Cruise o Michael Douglas presumen de automóvil\n>\n> ?      [[alternative HTML version deleted]]\n>\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>\n>",
       "body_snippet": "library(robustbase)\n?lmrob.S\n\n\nBut have a look also at:\n\n?lmrob\n?lmrob.fit.MM\n\nBest regards,\nValentin\n\n\n\n\nOn Tue, Jun 29, 2010 at 9:35 PM, Nanda Mendez <nandixx at hotmail.com> wrote:\n>\n> I'd like to ",
       "thread_id": "thread-07c066ffb313",
       "thread_depth": 0,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000301.html"
     },
     {
       "id": "msg-c12f7b6a239d",
@@ -35,7 +36,8 @@
       "body_snippet": "Hi,\n\nI have recently conducted a Monte Carlo simulation study for robust univariate *nonlinear* regression estimators using small sample data taken from case studies in the chemical engineering field.",
       "thread_id": "thread-c12f7b6a239d",
       "thread_depth": 0,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000302.html"
     },
     {
       "id": "msg-f706b94a3e97",
@@ -53,7 +55,8 @@
       "body_snippet": "Dear Eduardo,\n\nI think a key point is the median-based efficiency criterion which you \nuse to compare the estimators. In particular, do you know of a result \nwhich states that the least squares estima",
       "thread_id": "thread-c12f7b6a239d",
       "thread_depth": 1,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000303.html"
     },
     {
       "id": "msg-bd0edf42f6f2",
@@ -69,7 +72,8 @@
       "body_snippet": "Dear Matthias,\n\nI'm not aware of any proof for the optimality of least squares with respect to median(|LS estimator - true parameter|). I just assumed it was since You (1999) used it in his simulation",
       "thread_id": "thread-bd0edf42f6f2",
       "thread_depth": 0,
-      "month": "2010-07"
+      "month": "2010-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000304.html"
     }
   ],
   "threads": [

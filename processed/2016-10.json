@@ -20,7 +20,8 @@
       "body_snippet": "Dear to members,I want to ask syntax in R to investigate the efficiency of the OLS (ordinary least square) method in multivariate regression and robust multivariate regression. \nhow to calculate effic",
       "thread_id": "thread-259dbfbdb1f3",
       "thread_depth": 0,
-      "month": "2016-10"
+      "month": "2016-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2016/000457.html"
     }
   ],
   "threads": [

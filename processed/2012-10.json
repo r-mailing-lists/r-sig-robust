@@ -17,7 +17,8 @@
       "body_snippet": "Folks,\n\nI recently came across a robust MM-estimator for panel data with fixed\neffects by Bramati & Croux, Econometrics journal, 2007. The article\nis: http://onlinelibrary.wiley.com/doi/10.1111/j.1368",
       "thread_id": "thread-cfe5f30b4594",
       "thread_depth": 0,
-      "month": "2012-10"
+      "month": "2012-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000379.html"
     }
   ],
   "threads": [

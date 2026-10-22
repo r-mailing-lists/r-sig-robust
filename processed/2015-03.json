@@ -17,7 +17,8 @@
       "body_snippet": "Dear All\n \nWe are trying to use the WRS2 package to run a robust ANOVA but am having some issues with model specification \n\nThe dependent variable is velocity and the predictors are temperature (Temp)",
       "thread_id": "thread-bcbaecee7d61",
       "thread_depth": 0,
-      "month": "2015-03"
+      "month": "2015-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000434.html"
     },
     {
       "id": "msg-b1686c2d7ffb",
@@ -35,7 +36,8 @@
       "body_snippet": "There is a paper regarding the strategy of testing for no interaction and using an additive model if the hypothesis of no interaction is not rejected:\n\nFabian, V. (1991). On the problem of interaction",
       "thread_id": "thread-bcbaecee7d61",
       "thread_depth": 1,
-      "month": "2015-03"
+      "month": "2015-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000435.html"
     }
   ],
   "threads": [

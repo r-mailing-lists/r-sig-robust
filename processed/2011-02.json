@@ -19,7 +19,8 @@
       "body_snippet": ">>>>> Feiming Chen <feimingchen at yahoo.com>\n>>>>>     on Thu, 3 Feb 2011 12:03:05 -0800 (PST) writes:\n\n    > Hello:\n    > I found the \"hubers\" function in MASS library is NOT working on the followin",
       "thread_id": "thread-31ed4789ef26",
       "thread_depth": 0,
-      "month": "2011-02"
+      "month": "2011-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000317.html"
     },
     {
       "id": "msg-6407153d9889",
@@ -38,7 +39,8 @@
       "body_snippet": "Hi Chen\n\n>  With this change,  the result is more sensible:\n    >> hubers(a)\n    > $mu\n    > [1] 5.88\n    > $s\n    > [1] 2.937\n\n\nThis mu = 5.88 is very similar to the mean(a) = 5.877417. That means, n",
       "thread_id": "thread-31ed4789ef26",
       "thread_depth": 1,
-      "month": "2011-02"
+      "month": "2011-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000318.html"
     },
     {
       "id": "msg-4ff5a7c4a70a",
@@ -54,7 +56,8 @@
       "body_snippet": "Hi Marting,? Maheswaran:\n\nThank you very much for your input!? \n\nI am applying M-estimation in an automatic data processing procedure (that requires both robust mean and robust SD).? The \"mad=0\" probl",
       "thread_id": "thread-31ed4789ef26",
       "thread_depth": 2,
-      "month": "2011-02"
+      "month": "2011-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000319.html"
     },
     {
       "id": "msg-36d0a6ef8e09",
@@ -70,7 +73,8 @@
       "body_snippet": "hello, i'm new to robust statistics but found out very quick that R \n(used huber, hubers and huberM) and SPSS (huber m-estimator) calculate \ndifferent location estimates, given the same tuning constan",
       "thread_id": "thread-36d0a6ef8e09",
       "thread_depth": 0,
-      "month": "2011-02"
+      "month": "2011-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000322.html"
     },
     {
       "id": "msg-dc8fbcde2f66",
@@ -88,7 +92,8 @@
       "body_snippet": "hello, i'm new to robust statistics but found out very quick that R\n(used huber, hubers and huberM) and SPSS (huber m-estimator) calculate\ndifferent location estimates, given the same tuning constant ",
       "thread_id": "thread-36d0a6ef8e09",
       "thread_depth": 1,
-      "month": "2011-02"
+      "month": "2011-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000320.html"
     },
     {
       "id": "msg-4388bf26ed62",
@@ -108,7 +113,8 @@
       "body_snippet": "thanks. of course, that was my idea too, but i couldn't find out which \nscale estimator spss uses. no manual, book, paper or whatever contains \ninformation about that. i tried other programs (like R o",
       "thread_id": "thread-4388bf26ed62",
       "thread_depth": 0,
-      "month": "2011-02"
+      "month": "2011-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000321.html"
     },
     {
       "id": "msg-f6228a584106",
@@ -129,7 +135,8 @@
       "body_snippet": ">>>>> \"MH\" == Manfred Hammerl <manfred.hammerl at edu.uni-graz.at>\n>>>>>     on Wed, 23 Feb 2011 17:14:51 +0100 writes:\n\n    MH> thanks. of course, that was my idea too, but i couldn't find out which ",
       "thread_id": "thread-4388bf26ed62",
       "thread_depth": 1,
-      "month": "2011-02"
+      "month": "2011-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000323.html"
     },
     {
       "id": "msg-c773c2b2e960",
@@ -151,7 +158,8 @@
       "body_snippet": "Martin,\n\nI agree fully with you. It reminds me that some 30 years ago I puzzled\naround why SPSS produces negative variances. It was not too difficult to\nfind out the reason by trial and error. Conclus",
       "thread_id": "thread-4388bf26ed62",
       "thread_depth": 2,
-      "month": "2011-02"
+      "month": "2011-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000324.html"
     }
   ],
   "threads": [

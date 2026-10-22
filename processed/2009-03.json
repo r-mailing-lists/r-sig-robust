@@ -17,7 +17,8 @@
       "body_snippet": "A PhD position at IDSIA (Lugano, Switzerland) is open for applications.\n\nThe position is concerned with developing theory and algorithms for  \ncredal networks. Credal networks extend Bayesian nets to ",
       "thread_id": "thread-82bbc273f60a",
       "thread_depth": 0,
-      "month": "2009-03"
+      "month": "2009-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000262.html"
     },
     {
       "id": "msg-7fcc416704be",
@@ -33,7 +34,8 @@
       "body_snippet": "Dear all,\n\nPlease let me know where I can find all the related\nsource codes (possibly R and C) for cov.rob()\nwhich is the function for minimum volume ellipsoid\nestimation.\n\nI found that the R function",
       "thread_id": "thread-7fcc416704be",
       "thread_depth": 0,
-      "month": "2009-03"
+      "month": "2009-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000263.html"
     },
     {
       "id": "msg-05a88e9727b1",
@@ -49,7 +51,8 @@
       "body_snippet": "Dear all,\n\nR definition of cov.rob is found in lqs.R in VR package.\nThank you!",
       "thread_id": "thread-05a88e9727b1",
       "thread_depth": 0,
-      "month": "2009-03"
+      "month": "2009-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000264.html"
     },
     {
       "id": "msg-4482b04c7841",
@@ -67,7 +70,8 @@
       "body_snippet": "Dear Teruko,\n\nyes, the R source code of cov.rob() is found in lqs.R in the package\nMASS which in turn is to be found in the package bundle VR, but the\nactual computations are performed by the C functi",
       "thread_id": "thread-05a88e9727b1",
       "thread_depth": 1,
-      "month": "2009-03"
+      "month": "2009-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000265.html"
     },
     {
       "id": "msg-fba7db3c5327",
@@ -85,7 +89,8 @@
       "body_snippet": ">>>>> \"TT\" == Teruko Takada <takada at bus.osaka-cu.ac.jp>\n>>>>>     on Fri, 13 Mar 2009 13:10:04 +0900 (JST) writes:\n\n    TT> Dear all,\n\n    TT> Please let me know where I can find all the related\n  ",
       "thread_id": "thread-7fcc416704be",
       "thread_depth": 1,
-      "month": "2009-03"
+      "month": "2009-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000266.html"
     },
     {
       "id": "msg-d51e618289aa",
@@ -101,7 +106,8 @@
       "body_snippet": "Hi\nI believe that following info is of interest to your special interest group\nsince we welcome presentation of ideas (R-functions) dealing with\nrobust methods.  Roger Koenker is keynote speaker.\n\nCon",
       "thread_id": "thread-d51e618289aa",
       "thread_depth": 0,
-      "month": "2009-03"
+      "month": "2009-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000267.html"
     }
   ],
   "threads": [

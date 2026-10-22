@@ -17,7 +17,8 @@
       "body_snippet": "As advised by the gurus of this mailing list, I have been using\nlmRob() in many situations. When writing a paper which reports results\nusing lmRob, I have two problems. First, I need to concretely des",
       "thread_id": "thread-82d0aa7a64d9",
       "thread_depth": 0,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000236.html"
     },
     {
       "id": "msg-3999561e495d",
@@ -35,7 +36,8 @@
       "body_snippet": "You can use citation(\"robust\") to cite the package ?robust? in  \npublications.\n\nAs for the description, you can probably find what you need in the  \n'Overview of the Method' and 'Theoretical Details' ",
       "thread_id": "thread-82d0aa7a64d9",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000237.html"
     },
     {
       "id": "msg-269cde53b651",
@@ -54,7 +56,8 @@
       "body_snippet": "Thanks to all, I looked into the nonlinear regression fitting function \n\"nlrob()\" available in R. the problem with it is that unless i don't get \nstart with good starting values close to the actual on",
       "thread_id": "thread-269cde53b651",
       "thread_depth": 0,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000238.html"
     },
     {
       "id": "msg-12f8b6a578ea",
@@ -66,11 +69,12 @@
       "subject_clean": "[RsR] Robust nonlinear regression in R",
       "in_reply_to": "<Prayer.1.0.16.0810191320580.28589@vs-a.tc.umn.edu>",
       "references": [],
-      "body_plain": "Dear Dorst\n\nThere are some good advices on how to generate good starting values in the book of Bates and Watts (\"Nonlinear Regression Analysis & Its Applications\", Wiley 1988).\n\nHint:\nIn partial linear problems, a linear regression model can be fitted to generate stating values. Make sure you use robust fitting procedures because they produce more reliable stating values usually (just my experience).\n\nAll the best\nAndreas\n\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von \n>> khanx131 at umn.edu\n>> Gesendet: Sonntag, 19. Oktober 2008 20:21\n>> An: r-sig-robust at r-project.org\n>> Betreff: Re: [RsR] Robust nonlinear regression in R\n>> \n>> \n>> Thanks to all, I looked into the nonlinear regression \n>> fitting function \n>> \"nlrob()\" available in R. the problem with it is that unless \n>> i don't get \n>> start with good starting values close to the actual one's it \n>> does not work. \n>> Is there any pointers how to choose good starting values-?\n>> \n>> Thanks,\n>> Dost.\n>> \n>> \n>> On Sep 26 2008, Tobias Verbeke wrote:\n>> \n>> >From the Robust Statistical Methods Task View on CRAN\n>> >at\n>> >\n>> >http://cran.r-project.org/web/views/Robust.html\n>> >\n>> >\n>> > \" Robust Nonlinear model fitting is available through \n>> robustbase 's \n>> > nlrob().\"\n>> >\n>> >install.packages(\"robustbase\")\n>> >library(robustbase)\n>> >?nlrob\n>> >\n>> >HTH,\n>> >Tobias\n>> >\n>> >> I would like to know about robust nonlinear regression R \n>> code as well.\n>> >>\n>> >> Arny\n>> >>\n>> >>\n>> >> Arnold J. Stromberg\n>> >> Professor and Chair\n>> >> Department of Statistics\n>> >> University of Kentucky\n>> >> 817 Patterson Office Tower\n>> >> Lexington, KY 40506-0027\n>> >> Phone: 859-257-6115\n>> >> Fax: 859-323-1973\n>> >>\n>> >>\n>> >> -----Original Message----- From: \n>> r-sig-robust-bounces at r-project.org \n>> >> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of \n>> >> khanx131 at umn.edu Sent: Thursday, September 25, 2008 6:50 PM To: \n>> >> r-sig-robust at r-project.org Subject: [RsR] Robust \n>> nonlinear regression in \n>> >> R\n>> >>\n>> >> Hi dear linsters,\n>> >>\n>> >> I am starting work on a robust nonlinear regression \n>> project. Is there any\n>> >> code, stuff in R for robust estimation of nonlinear \n>> regression functions.\n>> >> any comments,material help, suggestions would be greatly \n>> appreciated.\n>> >> thanks in advance,\n>> >>\n>> >> Dost.\n>> >>\n>> >> _______________________________________________\n>> >> R-SIG-Robust at r-project.org mailing list\n>> >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >>\n>> >> _______________________________________________\n>> >> R-SIG-Robust at r-project.org mailing list\n>> >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >>\n>> >>\n>> >\n>> >\n>> >\n>> \n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>",
+      "body_plain": "Dear Dorst\n\nThere are some good advices on how to generate good starting values in the book of Bates and Watts (\"Nonlinear Regression Analysis & Its Applications\", Wiley 1988).\n\nHint:\nIn partial linear problems, a linear regression model can be fitted to generate stating values. Make sure you use robust fitting procedures because they produce more reliable stating values usually (just my experience).\n\nAll the best\nAndreas\n\n\n>> -----Ursprüngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von \n>> khanx131 at umn.edu\n>> Gesendet: Sonntag, 19. Oktober 2008 20:21\n>> An: r-sig-robust at r-project.org\n>> Betreff: Re: [RsR] Robust nonlinear regression in R\n>> \n>> \n>> Thanks to all, I looked into the nonlinear regression \n>> fitting function \n>> \"nlrob()\" available in R. the problem with it is that unless \n>> i don't get \n>> start with good starting values close to the actual one's it \n>> does not work. \n>> Is there any pointers how to choose good starting values-?\n>> \n>> Thanks,\n>> Dost.\n>> \n>> \n>> On Sep 26 2008, Tobias Verbeke wrote:\n>> \n>> >From the Robust Statistical Methods Task View on CRAN\n>> >at\n>> >\n>> >http://cran.r-project.org/web/views/Robust.html\n>> >\n>> >\n>> > \" Robust Nonlinear model fitting is available through \n>> robustbase 's \n>> > nlrob().\"\n>> >\n>> >install.packages(\"robustbase\")\n>> >library(robustbase)\n>> >?nlrob\n>> >\n>> >HTH,\n>> >Tobias\n>> >\n>> >> I would like to know about robust nonlinear regression R \n>> code as well.\n>> >>\n>> >> Arny\n>> >>\n>> >>\n>> >> Arnold J. Stromberg\n>> >> Professor and Chair\n>> >> Department of Statistics\n>> >> University of Kentucky\n>> >> 817 Patterson Office Tower\n>> >> Lexington, KY 40506-0027\n>> >> Phone: 859-257-6115\n>> >> Fax: 859-323-1973\n>> >>\n>> >>\n>> >> -----Original Message----- From: \n>> r-sig-robust-bounces at r-project.org \n>> >> [mailto:r-sig-robust-bounces at r-project.org] On Behalf Of \n>> >> khanx131 at umn.edu Sent: Thursday, September 25, 2008 6:50 PM To: \n>> >> r-sig-robust at r-project.org Subject: [RsR] Robust \n>> nonlinear regression in \n>> >> R\n>> >>\n>> >> Hi dear linsters,\n>> >>\n>> >> I am starting work on a robust nonlinear regression \n>> project. Is there any\n>> >> code, stuff in R for robust estimation of nonlinear \n>> regression functions.\n>> >> any comments,material help, suggestions would be greatly \n>> appreciated.\n>> >> thanks in advance,\n>> >>\n>> >> Dost.\n>> >>\n>> >> _______________________________________________\n>> >> R-SIG-Robust at r-project.org mailing list\n>> >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >>\n>> >> _______________________________________________\n>> >> R-SIG-Robust at r-project.org mailing list\n>> >> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >>\n>> >>\n>> >\n>> >\n>> >\n>> \n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>",
       "body_snippet": "Dear Dorst\n\nThere are some good advices on how to generate good starting values in the book of Bates and Watts (\"Nonlinear Regression Analysis & Its Applications\", Wiley 1988).\n\nHint:\nIn partial linea",
       "thread_id": "thread-269cde53b651",
       "thread_depth": 1,
-      "month": "2008-10"
+      "month": "2008-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000239.html"
     }
   ],
   "threads": [

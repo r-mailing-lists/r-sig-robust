@@ -17,7 +17,8 @@
       "body_snippet": "The output for the rlm(),lmRob(),lmrob() didn't give the R-squared and the\np-value of the equation. There seems to be no function that can do these\nthings.Can we calculate it as in the OLS(ordinary le",
       "thread_id": "thread-347e863c79f0",
       "thread_depth": 0,
-      "month": "2010-03"
+      "month": "2010-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000289.html"
     }
   ],
   "threads": [

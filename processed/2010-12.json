@@ -17,7 +17,8 @@
       "body_snippet": "dear all,\n\nI want to choose between different polynomial robust  regressions, \nhowever R2 may be misleading since the highest de degree is, the \"better \nfit\" to data. Is there any function implemented",
       "thread_id": "thread-c1495215dc9f",
       "thread_depth": 0,
-      "month": "2010-12"
+      "month": "2010-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000311.html"
     },
     {
       "id": "msg-f8a345de8628",
@@ -35,7 +36,8 @@
       "body_snippet": "Have you thought of the Akaike Information Criterion? It is the R squared penalized by the number of regressors. You can access to it using reg$AIC if reg is your regression object.\n\nSamuel\n\n-----Orig",
       "thread_id": "thread-c1495215dc9f",
       "thread_depth": 1,
-      "month": "2010-12"
+      "month": "2010-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000312.html"
     },
     {
       "id": "msg-72ec155a3b53",
@@ -54,7 +56,8 @@
       "body_snippet": "I am not an expert, but I think AIC is not suitable when using robust \nstatistics, maybe someone smarter may give a hint on this\nI checked\n\nhttp://www.mail-archive.com/r-help at stat.math.ethz.ch/msg3",
       "thread_id": "thread-c1495215dc9f",
       "thread_depth": 2,
-      "month": "2010-12"
+      "month": "2010-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000313.html"
     }
   ],
   "threads": [

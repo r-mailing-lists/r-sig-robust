@@ -17,7 +17,8 @@
       "body_snippet": "Dears,\n\nI am trying to generate 10 random numbers from  shifted to the right t\ndistribution with 3 degrees of freedom. I mean the following :\nx<-rt(10,3)\n y<-rt(10,3)+2\n\n\n I need these two variable to",
       "thread_id": "thread-3c5ec5e1a5f2",
       "thread_depth": 0,
-      "month": "2020-09"
+      "month": "2020-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000500.html"
     }
   ],
   "threads": [

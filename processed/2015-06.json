@@ -17,7 +17,8 @@
       "body_snippet": "Hello:?\nI am using R 3.0.2. ??\n\nI have panel data on countries' renewable energy net generation (and installed capacity) over time. ?I am regressing these dependent variables on various socioeconomic ",
       "thread_id": "thread-feb3528f389d",
       "thread_depth": 0,
-      "month": "2015-06"
+      "month": "2015-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000439.html"
     },
     {
       "id": "msg-3801e23c11d4",
@@ -35,7 +36,8 @@
       "body_snippet": ">>>>> michael westphal via R-SIG-Robust <r-sig-robust at r-project.org>\n>>>>>     on Wed, 10 Jun 2015 14:17:57 +0000 writes:\n\n    > Hello:?\n    > I am using R 3.0.2. ??\n\nso you really should upgrade {",
       "thread_id": "thread-feb3528f389d",
       "thread_depth": 1,
-      "month": "2015-06"
+      "month": "2015-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000440.html"
     },
     {
       "id": "msg-7b0475ce64d2",
@@ -54,7 +56,8 @@
       "body_snippet": "You might also look at the Elsevier book  Robust Estimation and Hypothesis Testing. It provides some additional options that might help. \nA couple of quick suggestions. Even when using a robust estima",
       "thread_id": "thread-feb3528f389d",
       "thread_depth": 2,
-      "month": "2015-06"
+      "month": "2015-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000441.html"
     },
     {
       "id": "msg-06e0832dd5e3",
@@ -73,7 +76,8 @@
       "body_snippet": "(Putting this back to the R-SIG mailing list, where it\n originates and belongs)\n>>>>> michael westphal <mi_westphal at yahoo.com>\n>>>>>     on Wed, 17 Jun 2015 21:25:32 +0000 writes:\n\n    > Thanks for",
       "thread_id": "thread-06e0832dd5e3",
       "thread_depth": 0,
-      "month": "2015-06"
+      "month": "2015-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000442.html"
     }
   ],
   "threads": [

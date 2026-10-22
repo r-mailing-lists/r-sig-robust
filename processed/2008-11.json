@@ -17,7 +17,8 @@
       "body_snippet": "Hi, Everyone,\n\nI have problem in data generation using Laplace distribution. i tried \n\"rlaplace()\" in VGAM package but when i install this package then \npredict(lm(...)) and resid(lm(...)) etc does no",
       "thread_id": "thread-a3d5ce8fa533",
       "thread_depth": 0,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000240.html"
     },
     {
       "id": "msg-3a4b1141e03b",
@@ -35,7 +36,8 @@
       "body_snippet": "It seems to me that in the zero mean case you should generate exponential\ndata and attach a random +/- sign. You can translate the resulting data to\ncentre on the desired mean for the general case.\n\nM",
       "thread_id": "thread-a3d5ce8fa533",
       "thread_depth": 1,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000241.html"
     },
     {
       "id": "msg-4eba51cd4fcc",
@@ -53,7 +55,8 @@
       "body_snippet": ">>>>> \"DK\" == khanx131  <khanx131 at umn.edu>\n>>>>>     on 15 Nov 2008 20:45:52 -0600 writes:\n\n    DK> Hi, Everyone, I have problem in data generation using\n    DK> Laplace distribution. i tried \"rlap",
       "thread_id": "thread-a3d5ce8fa533",
       "thread_depth": 1,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000242.html"
     },
     {
       "id": "msg-b95398fcd830",
@@ -69,7 +72,8 @@
       "body_snippet": "Hello,\n\nTrying to say \"library(ROptRegTS)\", I get the error below. Can anyone help me pinpoint what's wrong?\n\nThanks, Joh\n\nError in loadNamespace(package, c(which.lib.loc, lib.loc), keep.source = keep",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 0,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000243.html"
     },
     {
       "id": "msg-13c770d5db13",
@@ -87,7 +91,8 @@
       "body_snippet": "Dear Joh,\n\nwe are currently restructuring and extending our packages.\n\nSome parts of the package ROptEst (version 0.5) are now included in the \nnew packages distrMod and RobAStBase. Unfortunatelly, th",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 1,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000244.html"
     },
     {
       "id": "msg-0c3c5c44d463",
@@ -106,7 +111,8 @@
       "body_snippet": "Hello Matthias,\n\nROptRegTS 0.5 installs fine on top of the most recent rest of the bundle from R-Forge. When loading it I get the warnings below. Whether the functionality is impeded will be figured o",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 2,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000245.html"
     },
     {
       "id": "msg-6719a885bd9d",
@@ -126,7 +132,8 @@
       "body_snippet": "ROptEst 0.5! Not ROptRegTS! Sorry.\n\nJoh\n\nJohannes Graumann wrote:\n\n> Hello Matthias,\n> \n> ROptRegTS 0.5 installs fine on top of the most recent rest of the bundle\n> from R-Forge. When loading it I get",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 3,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000246.html"
     },
     {
       "id": "msg-5bb9efdc1af7",
@@ -147,7 +154,8 @@
       "body_snippet": "Dear Joh,\n\nwas this a fresh R session?\n\nI just removed version 0.6 of package ROptEst and let the rest of the \npackages unchanged. Then, installed version 0.5 of ROptEst and after \nthat installed vers",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 4,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000247.html"
     },
     {
       "id": "msg-851e93d9b73c",
@@ -167,7 +175,8 @@
       "body_snippet": "Yes, fresh R session (see below). Whether it's working? I was looking for a \nfunction straight forward to use - along the lines of \"roblox\" - but failed. \nCan you give a hint on how to actually set up",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 5,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000248.html"
     },
     {
       "id": "msg-f4e6b265a93b",
@@ -188,7 +197,8 @@
       "body_snippet": "Dear Joh,\n\nin case of our packages ROptEst and RobLox we recently implemented the \nfunctions roptest and roblox, which enable the computation of (in our \nsense) optimally robust estimators via one sin",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 6,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000249.html"
     },
     {
       "id": "msg-6bfb84dad398",
@@ -204,7 +214,8 @@
       "body_snippet": "Dear list,\n\nI have come across several situations in which the robust Mahalanobis distance \nvs. residuals plot, the first default plot in plot.lmrob, gave an error like \nthis:\n\n# recomputing robust Ma",
       "thread_id": "thread-6bfb84dad398",
       "thread_depth": 0,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000250.html"
     },
     {
       "id": "msg-9a9c4ffd05ae",
@@ -226,7 +237,8 @@
       "body_snippet": "Thanks for your help. It will take until next week to look into this\nand get back.\n\nJoh\n\nOn Fri, Nov 28, 2008 at 11:34 AM, Matthias Kohl\n<Matthias.Kohl at stamats.de> wrote:\n> Dear Joh,\n>\n> in case of",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 7,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000254.html"
     },
     {
       "id": "msg-f4fac304198e",
@@ -244,7 +256,8 @@
       "body_snippet": "Thanks Christian for reminding me of this issue. It was discussed in \nBanff last year, and it may in principle happen any time you have a \ncategorical explanatory variable in your model, as the design",
       "thread_id": "thread-6bfb84dad398",
       "thread_depth": 1,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000251.html"
     },
     {
       "id": "msg-60ca9111d971",
@@ -263,7 +276,8 @@
       "body_snippet": "Hi Matias,\n\nyes, I remember that something like this was discussed in Banff.\nActually I think that there are two different issues. One is with dummy/binary \nvariables, which doesn't work well with a 5",
       "thread_id": "thread-6bfb84dad398",
       "thread_depth": 2,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000252.html"
     },
     {
       "id": "msg-1b01e39c010a",
@@ -283,7 +297,8 @@
       "body_snippet": "Good evening Christian,\n\n> yes, I remember that something like this was discussed in Banff.\n> Actually I think that there are two different issues. \n> (snip)\n\nYes, I agree.\n\n> there is a binary variab",
       "thread_id": "thread-6bfb84dad398",
       "thread_depth": 3,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000253.html"
     },
     {
       "id": "msg-b6a99589a05b",
@@ -306,7 +321,8 @@
       "body_snippet": "to make the use of ROptRegTS and RobRex a little bit simpler at least \nwith respect to installation, I introduced the package ROptEstOld on \nR-Forge. So, for the moment one should install ROptEstOld, ",
       "thread_id": "thread-b95398fcd830",
       "thread_depth": 8,
-      "month": "2008-11"
+      "month": "2008-11",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000255.html"
     }
   ],
   "threads": [

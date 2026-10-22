@@ -20,7 +20,8 @@
       "body_snippet": ">>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>     on Wed, 24 Sep 2014 18:43:34 +1200 writes:\n\n    > On 24/09/14 17:31, Mohan Radhakrishnan wrote:\n    >> Hi,\n    >> \n    >> I have streaming data",
       "thread_id": "thread-b5486dc23b9b",
       "thread_depth": 0,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000420.html"
     },
     {
       "id": "msg-0ff21c1903d5",
@@ -40,7 +41,8 @@
       "body_snippet": "Something else that might be of interest ...\n\nZhang Q and Wang W (2007) A fast algorithm for approximate quantiles in high speed data streams Proceedings of the 19th International Conference on Scient",
       "thread_id": "thread-b5486dc23b9b",
       "thread_depth": 1,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000421.html"
     },
     {
       "id": "msg-dc5854fa8244",
@@ -61,7 +63,8 @@
       "body_snippet": "I meant the papers. I hit a paywall. Can we reconstruct the code from the\npapers ?\n\nThanks,\nMohan\n\nOn Wed, Sep 24, 2014 at 3:59 PM, Martyn Byng <martyn.byng at nag.co.uk> wrote:\n\n> Something else that",
       "thread_id": "thread-b5486dc23b9b",
       "thread_depth": 2,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000423.html"
     },
     {
       "id": "msg-6f0db7583daf",
@@ -82,7 +85,8 @@
       "body_snippet": "Two further interesting references might be\nhttp://www.stat.cmu.edu/~ryantibs/papers/median.pdf\nand\nhttp://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6691602\n\nBest\nRoland\n\nAm 24.09.2014 12:29, s",
       "thread_id": "thread-b5486dc23b9b",
       "thread_depth": 2,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000424.html"
     },
     {
       "id": "msg-858ace35e54f",
@@ -102,7 +106,8 @@
       "body_snippet": "Martin,\n\nThere's also the work of a former PhD student in our Dept:\n\nhttp://arxiv.org/pdf/1007.1032.pdf\n\nMatias\n\n\n\n\nOn 24/09/2014 1:16 AM, Martin Maechler wrote:\n>>>>>> Rolf Turner <r.turner at auckla",
       "thread_id": "thread-b5486dc23b9b",
       "thread_depth": 1,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000422.html"
     },
     {
       "id": "msg-6381b5d28ee6",
@@ -124,7 +129,8 @@
       "body_snippet": "On 25/09/14 02:55, Mohan Radhakrishnan wrote:\n>\n> I meant the papers. I hit a paywall. Can we reconstruct the code from\n> the papers ?\n\nShouldn't be too tough; the algorithm (in the Cameron and Turner",
       "thread_id": "thread-b5486dc23b9b",
       "thread_depth": 3,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000425.html"
     },
     {
       "id": "msg-077a77bdb865",
@@ -140,7 +146,8 @@
       "body_snippet": "Hello,\n\nI'm currently doing non-linear curve fitting with nls and robust fitting\n(for subsequent outlier detection) using nlrob.\n\nDoes anyone know if there are any functions/packages available in R fo",
       "thread_id": "thread-077a77bdb865",
       "thread_depth": 0,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000426.html"
     },
     {
       "id": "msg-5cb11a942797",
@@ -161,7 +168,8 @@
       "body_snippet": ">>>>> Rolf Turner <r.turner at auckland.ac.nz>\n>>>>>     on Thu, 25 Sep 2014 11:44:38 +1200 writes:\n\n    > On 24/09/14 20:16, Martin Maechler wrote: <SNIP>\n\n    >> 1) has your proposal ever been provi",
       "thread_id": "thread-5cb11a942797",
       "thread_depth": 0,
-      "month": "2014-09"
+      "month": "2014-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2014/000427.html"
     }
   ],
   "threads": [

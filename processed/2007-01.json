@@ -13,11 +13,12 @@
       "subject_clean": "[RsR] port of LIBRA toolbox to R",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "Dear R-SIG-Robust,\n\nI am happy to announce that Mia Hubert and Sabine Verboven\ndecided to let me port all of the LIBRA functionality\n(cf.\n      http://wis.kuleuven.be/stat/robust/LIBRA.html\n)\nto R and release the resulting work under GPL.\n\nI will discuss progress on the list not only to\nkeep you posted but also to make the best decisions\ntogether in order to seamlessly integrate the functions\nwith the current framework.\n\nEverything should be available by October 2007.\n\nBest wishes,\nTobias\n\n-- \n\nTobias Verbeke - Consultant\nBusiness & Decision Benelux\nRue de la r?volution 8\n1000 Brussels - BELGIUM\n\n+32 499 36 33 15\ntobias.verbeke at businessdecision.com",
+      "body_plain": "Dear R-SIG-Robust,\n\nI am happy to announce that Mia Hubert and Sabine Verboven\ndecided to let me port all of the LIBRA functionality\n(cf.\n      http://wis.kuleuven.be/stat/robust/LIBRA.html\n)\nto R and release the resulting work under GPL.\n\nI will discuss progress on the list not only to\nkeep you posted but also to make the best decisions\ntogether in order to seamlessly integrate the functions\nwith the current framework.\n\nEverything should be available by October 2007.\n\nBest wishes,\nTobias\n\n-- \n\nTobias Verbeke - Consultant\nBusiness & Decision Benelux\nRue de la révolution 8\n1000 Brussels - BELGIUM\n\n+32 499 36 33 15\ntobias.verbeke at businessdecision.com",
       "body_snippet": "Dear R-SIG-Robust,\n\nI am happy to announce that Mia Hubert and Sabine Verboven\ndecided to let me port all of the LIBRA functionality\n(cf.\n      http://wis.kuleuven.be/stat/robust/LIBRA.html\n)\nto R and",
       "thread_id": "thread-489f01ff6638",
       "thread_depth": 0,
-      "month": "2007-01"
+      "month": "2007-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000118.html"
     },
     {
       "id": "msg-7abfece6af04",
@@ -35,7 +36,8 @@
       "body_snippet": "Dear Tobias,\n\nThis is very good news. Your work will be an important\ncontribution to the project.\n\nBest regards,\nPeter\n\nTobias Verbeke wrote:\n> Dear R-SIG-Robust,\n> \n> I am happy to announce that Mia ",
       "thread_id": "thread-489f01ff6638",
       "thread_depth": 1,
-      "month": "2007-01"
+      "month": "2007-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000119.html"
     }
   ],
   "threads": [

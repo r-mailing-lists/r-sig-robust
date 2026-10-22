@@ -17,7 +17,8 @@
       "body_snippet": "I have been trying to estimate robust Mahalanobis distances in R for a\nset of three regressors that includes one dummy variable.  Initially,\nI tried generating robust MCD estimates and their associate",
       "thread_id": "thread-47cb0a87ff15",
       "thread_depth": 0,
-      "month": "2011-04"
+      "month": "2011-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000326.html"
     },
     {
       "id": "msg-3151552ac2b7",
@@ -35,7 +36,8 @@
       "body_snippet": "I don't know if there is work on a robust VIF. Here are my two cents:\n- What type of variable do you have ? If some of them are discrete with \nvery few different values, this may cause problem to robu",
       "thread_id": "thread-3151552ac2b7",
       "thread_depth": 0,
-      "month": "2011-04"
+      "month": "2011-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000327.html"
     }
   ],
   "threads": [

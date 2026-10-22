@@ -19,7 +19,8 @@
       "body_snippet": ">>>>> Valentin Todorov \n>>>>>     on Fri, 28 Feb 2020 22:31:21 +0100 writes:\n\n    > Dear Martin,\n    > I was thinking of this since Kjell\n    > abandoned the package, but I was not sure to what extent",
       "thread_id": "thread-c8172ff24046",
       "thread_depth": 0,
-      "month": "2020-03"
+      "month": "2020-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000491.html"
     },
     {
       "id": "msg-da8758a12a52",
@@ -38,7 +39,8 @@
       "body_snippet": "Dear Martin,\n\nFirst of all, thank you to you, to Kjell and to all contributors for \nthese two great packages. If I can add my two cents, mostly as a teacher \nto non statistically inclined students. It",
       "thread_id": "thread-c8172ff24046",
       "thread_depth": 1,
-      "month": "2020-03"
+      "month": "2020-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000492.html"
     },
     {
       "id": "msg-32990e4ed1b0",
@@ -57,7 +59,8 @@
       "body_snippet": "Dear Martin,\n\nThe most interesting functionality in 'robust', that I see, is the\npossibility to compare  visually two or more different models.\nAnd maybe some people are used to and prefer the interfa",
       "thread_id": "thread-c8172ff24046",
       "thread_depth": 1,
-      "month": "2020-03"
+      "month": "2020-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000493.html"
     },
     {
       "id": "msg-6edde9e42efa",
@@ -73,7 +76,8 @@
       "body_snippet": "An HTML attachment was scrubbed...\nURL: <https://stat.ethz.ch/pipermail/r-sig-robust/attachments/20200305/48551787/attachment.html>",
       "thread_id": "thread-c8172ff24046",
       "thread_depth": 1,
-      "month": "2020-03"
+      "month": "2020-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000494.html"
     },
     {
       "id": "msg-ebde4513120e",
@@ -92,7 +96,8 @@
       "body_snippet": "Good morning all,\n\nA quick note just to mention that I am watching this conversation with\ninterest - in large part because I am in the process of using it for\nanalysis of ecological data. Previous pap",
       "thread_id": "thread-c8172ff24046",
       "thread_depth": 2,
-      "month": "2020-03"
+      "month": "2020-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000495.html"
     },
     {
       "id": "msg-28721236c8b9",
@@ -112,7 +117,8 @@
       "body_snippet": ">>>>> Valentin Todorov \n>>>>>     on Thu, 5 Mar 2020 19:07:19 +0100 writes:\n\n    > Dear Martin, The most interesting functionality in\n    > 'robust', that I see, is the possibility to compare\n    > vi",
       "thread_id": "thread-c8172ff24046",
       "thread_depth": 2,
-      "month": "2020-03"
+      "month": "2020-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000496.html"
     }
   ],
   "threads": [

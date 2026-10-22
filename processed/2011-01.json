@@ -20,7 +20,8 @@
       "body_snippet": "Dear all,\n\nThe book by Maronna, Martin and Yohai recommends use of a function,\ncov.SRocke, for computing an S-estimate of covariance in high\ndimensional problems.\n\nThe software was located at an old I",
       "thread_id": "thread-b6edae8fbc19",
       "thread_depth": 0,
-      "month": "2011-01"
+      "month": "2011-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000314.html"
     },
     {
       "id": "msg-60994001960d",
@@ -40,7 +41,8 @@
       "body_snippet": "Dear Harry,\n\nHave a look at the function CovSest() in package rrcov, for example:\n\nlibrary(rrcov)\ndata(hbk)\nCovSest(hbk, method=\"rocke\")\n\nWith method=\"rocke\" the function uses exactly the same algorit",
       "thread_id": "thread-b6edae8fbc19",
       "thread_depth": 1,
-      "month": "2011-01"
+      "month": "2011-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000315.html"
     },
     {
       "id": "msg-133a99679a16",
@@ -61,7 +63,8 @@
       "body_snippet": "Thank you! Much appreciated.\n\nHarry\n\n\n\nFrom: Valentin Todorov [mailto:valentin.to at gmail.com]\nSent: 27 January 2011 14:18\nTo: Southworth, Harry\nCc: r-sig-robust at r-project.org\nSubject: Re: [RsR] c",
       "thread_id": "thread-b6edae8fbc19",
       "thread_depth": 2,
-      "month": "2011-01"
+      "month": "2011-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000316.html"
     }
   ],
   "threads": [

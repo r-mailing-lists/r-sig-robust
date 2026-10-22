@@ -19,7 +19,8 @@
       "body_snippet": "Dear list members,\n\nThis might be an easy question... or not.\nSuppose I have a lmrob object (resulting from a call to lmrob() ), say \nmy.lrob, for which the last step is an M-estimator, e.g.\n\nmy.lrob ",
       "thread_id": "thread-e7f2da107959",
       "thread_depth": 0,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000382.html"
     },
     {
       "id": "msg-df254037bc7b",
@@ -40,7 +41,8 @@
       "body_snippet": "Dear all,\n\nI'm trying to estimate a model\nusing robustbase::lmrob. I get:\n\n\nWarning message:\nIn lmrob.fit(x, y, control, init = init) :\n   M-step did NOT converge. Returning unconverged M-SM-estimate.",
       "thread_id": "thread-df254037bc7b",
       "thread_depth": 0,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000383.html"
     },
     {
       "id": "msg-ac95b1dc9777",
@@ -62,7 +64,8 @@
       "body_snippet": "Dear all,\n\nI'm trying to estimate a model\nusing robustbase::lmrobn using\nthe non-singular sub-sampling\nscheme. I get:\n\nError in lmrob.S(x, y, control = control) :\n   C function R_lmrob_S() exited prem",
       "thread_id": "thread-df254037bc7b",
       "thread_depth": 1,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000384.html"
     },
     {
       "id": "msg-bd61e59e8c4a",
@@ -85,7 +88,8 @@
       "body_snippet": "ok: problem solved. The design\nmatrix already included a constant.\n\n\nOn 01/20/2013 03:08 PM, Kaveh Vakili wrote:\n> Dear all,\n>\n> I'm trying to estimate a model\n> using robustbase::lmrobn using\n> the n",
       "thread_id": "thread-df254037bc7b",
       "thread_depth": 2,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000385.html"
     },
     {
       "id": "msg-ce3f2a5e956d",
@@ -105,7 +109,8 @@
       "body_snippet": "forgot to cc the list...\n\n---------- Forwarded message ----------\nFrom: Manuel Koller <koller.manuel at gmail.com>\nDate: Sun, Jan 20, 2013 at 5:40 PM\nSubject: Re: [RsR] How to evaluate psi(t) from a l",
       "thread_id": "thread-ce3f2a5e956d",
       "thread_depth": 0,
-      "month": "2013-01"
+      "month": "2013-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000386.html"
     }
   ],
   "threads": [

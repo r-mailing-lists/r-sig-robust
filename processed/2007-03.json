@@ -17,7 +17,8 @@
       "body_snippet": "Hi,\n\nI have one non-robustness related question - does somebody know about\nan R package implementing the examples from the book:\n\nLudwig Fahrmeir and Gerhard Tutz (1994) \"Multivariate Statistical\nMode",
       "thread_id": "thread-6c0c433bd9ff",
       "thread_depth": 0,
-      "month": "2007-03"
+      "month": "2007-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000130.html"
     }
   ],
   "threads": [

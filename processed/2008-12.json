@@ -21,7 +21,8 @@
       "body_snippet": "Thank you very much for your help. Everything installs fine and your examples \nare running fine and very educational. I realized, however, that the showcased \nway of RobRex is not particularly suited ",
       "thread_id": "thread-5e404ae7d826",
       "thread_depth": 0,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000256.html"
     },
     {
       "id": "msg-db0ee938e9ac",
@@ -42,7 +43,8 @@
       "body_snippet": "Dear Joh,\n\nyour are talking about the computation time for the functions in RobRex, \nnot about DiscreteMVDistribution, aren't you?\n\nAt the moment you should go for M, MM or LTS estimators. But, I'm \nc",
       "thread_id": "thread-5e404ae7d826",
       "thread_depth": 1,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000257.html"
     },
     {
       "id": "msg-c954daa595ee",
@@ -63,7 +65,8 @@
       "body_snippet": "Hi Christian, Matias,\n\nWith this example covMcd() fails before starting the actual algorithm - the\nfirst to do is to standardize the data by (for each variable) subtracting\nmed and dividing by mad (ac",
       "thread_id": "thread-c954daa595ee",
       "thread_depth": 0,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000258.html"
     },
     {
       "id": "msg-131704000760",
@@ -79,7 +82,8 @@
       "body_snippet": "Dear all,\n\nThanks to a computational problem we stumble into a discussion\nthat is more fundamental:\n\nWhat should leverage be in a model with both categorical and\ncontinuous explanatory variables?\n\nA. ",
       "thread_id": "thread-131704000760",
       "thread_depth": 0,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000259.html"
     },
     {
       "id": "msg-47a2f9e065e5",
@@ -95,7 +99,8 @@
       "body_snippet": "http://code.google.com/p/incremental-statistics/\n\n\t[[alternative HTML version deleted]]",
       "thread_id": "thread-47a2f9e065e5",
       "thread_depth": 0,
-      "month": "2008-12"
+      "month": "2008-12",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000260.html"
     }
   ],
   "threads": [

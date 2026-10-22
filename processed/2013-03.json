@@ -17,7 +17,8 @@
       "body_snippet": "Hi R users:\n\nInitially both Kolmogrov-Smirov dominance\ntest and Wilcoxon rank sum and signed rank test are designed for independent\nsamples but now there are algorithm developed for related samples.\n?",
       "thread_id": "thread-2b7288fb1fab",
       "thread_depth": 0,
-      "month": "2013-03"
+      "month": "2013-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000387.html"
     },
     {
       "id": "msg-dcf27a01dfe6",
@@ -33,7 +34,8 @@
       "body_snippet": "Hi there,\n\nI am trying to write a tool which involves implementing logistic\nregression. With the batch gradient descent method, the convergence is\nguaranteed as it is a convex problem. However, I find",
       "thread_id": "thread-dcf27a01dfe6",
       "thread_depth": 0,
-      "month": "2013-03"
+      "month": "2013-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000388.html"
     },
     {
       "id": "msg-67eeb5c27d66",
@@ -51,7 +53,8 @@
       "body_snippet": "I may be missing something, but what does this have to do specifically\nwith R? I believe this is OT here and you need to post elsewhere, e.g.\nperhaps on stats.stackexchange.com.\n\n-- Bert\n\nOn Tue, Mar ",
       "thread_id": "thread-dcf27a01dfe6",
       "thread_depth": 1,
-      "month": "2013-03"
+      "month": "2013-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000389.html"
     },
     {
       "id": "msg-4058a5f80321",
@@ -69,7 +72,8 @@
       "body_snippet": "Perhaps I should have added and FWIW, R, like essentially all\nstatistical software, has \"logistic regression\" already built in, if I\nunderstand what you mean by the term (which I may not), via glm's.\n",
       "thread_id": "thread-dcf27a01dfe6",
       "thread_depth": 1,
-      "month": "2013-03"
+      "month": "2013-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000390.html"
     }
   ],
   "threads": [

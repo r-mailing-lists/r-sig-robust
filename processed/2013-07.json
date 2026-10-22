@@ -17,7 +17,8 @@
       "body_snippet": "Dear R-List, \n\ndue to outliers in my data I wanted to carry out a robust regression. \nAccording to APA standards, reporting (usually OLS) regression results should include\n?\n1. unstandardized beta coe",
       "thread_id": "thread-bba5efd3ec71",
       "thread_depth": 0,
-      "month": "2013-07"
+      "month": "2013-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000404.html"
     },
     {
       "id": "msg-101b1232a3d6",
@@ -33,7 +34,8 @@
       "body_snippet": "Hi all,\n\nYou can download the 0.0.2 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/yp1nza8twalf9r6/nonlinrobreg_0.0.2.zip\n\nRequires packages: PolinomF, robustbase (>= 0.9-8), ggplot",
       "thread_id": "thread-101b1232a3d6",
       "thread_depth": 0,
-      "month": "2013-07"
+      "month": "2013-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000405.html"
     },
     {
       "id": "msg-32047b998959",
@@ -49,7 +51,8 @@
       "body_snippet": "Hi all,\n\nYou can download the 0.0.3 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/4c49qbbpyglelun/nonlinrobreg_0.0.3.zip\n\nRequires packages: PolinomF, robustbase (>= 0.9-8), ggplot",
       "thread_id": "thread-32047b998959",
       "thread_depth": 0,
-      "month": "2013-07"
+      "month": "2013-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000406.html"
     },
     {
       "id": "msg-33a2aab599ad",
@@ -65,7 +68,8 @@
       "body_snippet": "Hi all,\n\nYou can download the 0.0.4 update of the nlrob.*() functions from:\nhttps://www.dropbox.com/s/16ac9q1i50bp07j/nonlinrobreg_0.0.4.zip\n\nRequires packages: PolynomF, robustbase (>= 0.9-8), ggplot",
       "thread_id": "thread-33a2aab599ad",
       "thread_depth": 0,
-      "month": "2013-07"
+      "month": "2013-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000407.html"
     }
   ],
   "threads": [

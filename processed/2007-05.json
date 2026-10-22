@@ -17,7 +17,8 @@
       "body_snippet": "I am a PhD student at Duke University working on water quality. I am \ntrying to use CovMest to identify outliers in my dataset. The function \nworks well, but I am confused about the difference between",
       "thread_id": "thread-2121434415f3",
       "thread_depth": 0,
-      "month": "2007-05"
+      "month": "2007-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000131.html"
     },
     {
       "id": "msg-1daafa87e805",
@@ -35,7 +36,8 @@
       "body_snippet": "Dear Ibrahim,\n\nAs I wrote you on Friday (write me if you did not receive my mail),\nfor outlier detection you do not need to bother about these weights,\nbut rather take the distances returned by the me",
       "thread_id": "thread-2121434415f3",
       "thread_depth": 1,
-      "month": "2007-05"
+      "month": "2007-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000132.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "Hi all,\n\nDuring the last weeks we worked on a flexible wrapper\nfor combining functions for robust estimation of\nlocation and covariance. This was seen as one of the\nmain tasks of the working group on ",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 0,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000081.html"
     },
     {
       "id": "msg-87676428f0fc",
@@ -35,7 +36,8 @@
       "body_snippet": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA1\n \nHi Peter and Heinrich,\n\n> During the last weeks we worked on a flexible wrapper\n> for combining functions for robust estimation of\n> location and covari",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 1,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000082.html"
     },
     {
       "id": "msg-bd220b260fba",
@@ -54,7 +56,8 @@
       "body_snippet": "Dear all,\n\nI was waiting with my comments on Peter&Heinrich's contribution until I have\na working example (in rrcov/robustbase) but following Peter I'll add now my\n2 cent.\n\nI agree completely with Pet",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 2,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000083.html"
     },
     {
       "id": "msg-8af555ba086e",
@@ -74,7 +77,8 @@
       "body_snippet": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA1\n \nOn Thu, 23 Mar 2006, Valentin Todorov wrote:\n\n[snip]\n\n> - using of access or methods. For example an access or getDistance() can\n> either return the dis",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 3,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000084.html"
     },
     {
       "id": "msg-1c477adce19d",
@@ -95,7 +99,8 @@
       "body_snippet": ">> - using of accessor methods. ...\n\n> This /is/ possible:\n> *define a class vectororNULL (as in the \"Green Book\")\n> *declare slot 'md' (or perhaps better 'distance') to be of class\n> vectororNULL\n>  ",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 4,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000085.html"
     },
     {
       "id": "msg-f2f5a81249e6",
@@ -117,7 +122,8 @@
       "body_snippet": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA1\n \nHi\n\nOn Thu, 23 Mar 2006, Valentin Todorov wrote:\n>On Thu, 23 Mar 2006, Peter Ruckdeschel wrote:\n>>On Thu, 23 Mar 2006, Valentin Todorov wrote:\n\n>>>- usi",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 5,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000086.html"
     },
     {
       "id": "msg-7d362887e945",
@@ -140,7 +146,8 @@
       "body_snippet": ">>>>> \"PetRd\" == Peter Ruckdeschel <Peter.Ruckdeschel at uni-bayreuth.de>\n>>>>>     on Fri, 24 Mar 2006 14:51:37 +0100 writes:\n\n\n    PetRd> On Thu, 23 Mar 2006, Valentin Todorov wrote:\n    >> On Thu, ",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 6,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000087.html"
     },
     {
       "id": "msg-9a59f936b61a",
@@ -164,7 +171,8 @@
       "body_snippet": "----- Original Message ----- \nFrom: \"Martin Maechler\" <maechler at stat.math.ethz.ch>\n...\n\n>I assume that at least the base class(es) ('Cov', 'CovR' in\n>Valentin's naming scheme) should be put into 'r",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 7,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000088.html"
     },
     {
       "id": "msg-a797fac1470b",
@@ -188,7 +196,8 @@
       "body_snippet": ">> I had S4 classes in mind, but it is not that easy to express this in \nUML:\n    >> particularly, the classes Cov, Mcd, Ogk and Mest are S4 classes \nreturned by\n    >> the functions cov, covMcd, covO",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 7,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000089.html"
     },
     {
       "id": "msg-61352a842941",
@@ -204,7 +213,8 @@
       "body_snippet": "Dear Peter, Valentin and Martin,\n\nThanks for your comments on the package covrob!!\n\nYour suggestions are very constructive, we already updated the \nimplementation according to your remarks. The new ve",
       "thread_id": "thread-61352a842941",
       "thread_depth": 0,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000090.html"
     },
     {
       "id": "msg-9c63d257562b",
@@ -229,7 +239,8 @@
       "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Sat, 25 Mar 2006 11:18:49 +0100 writes:\n\n    ValenT> ----- Original Message ----- \n    ValenT> From: \"Martin Maechler\" <",
       "thread_id": "thread-e2e109d99a25",
       "thread_depth": 8,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000091.html"
     },
     {
       "id": "msg-97b486cc7549",
@@ -247,7 +258,8 @@
       "body_snippet": "Hi Heinrich,\n\nI thought you might be interested in taking a look at the cov and  \ncovRob functions in the (Insightful*) Robust Library.  I am in the  \nprocess of updating these so that they work under",
       "thread_id": "thread-61352a842941",
       "thread_depth": 1,
-      "month": "2006-03"
+      "month": "2006-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000092.html"
     }
   ],
   "threads": [

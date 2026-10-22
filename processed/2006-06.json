@@ -17,7 +17,8 @@
       "body_snippet": "In their talk at ICORS'2005 in Finland, \"Choosing a Multivariate Estimate for High Dimensional Data\", Maronna, Yohai and Villar say (about the problem of the S estimates with high dimensional data):\n\"",
       "thread_id": "thread-d5e3e7764a38",
       "thread_depth": 0,
-      "month": "2006-06"
+      "month": "2006-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000112.html"
     },
     {
       "id": "msg-978c467883bb",
@@ -36,7 +37,8 @@
       "body_snippet": "I'm CC'ing this to the R-SIG-robust mailing list\n [R Special Interest Group on robust statistics]\nso it's properly archived there as well.\nFollow up ideally should only go there.\n\n{BTW: Did you know t",
       "thread_id": "thread-978c467883bb",
       "thread_depth": 0,
-      "month": "2006-06"
+      "month": "2006-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000113.html"
     }
   ],
   "threads": [

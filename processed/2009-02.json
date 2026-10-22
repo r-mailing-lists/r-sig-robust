@@ -17,7 +17,8 @@
       "body_snippet": "Hi all,\n\nLooking for a little advice on which robust estimator to use. Gist: I\nneed a univariate estimator of location that performs well when the\ntrue distribution is positively skewed.\n\nContext: I s",
       "thread_id": "thread-08ffcd39bc32",
       "thread_depth": 0,
-      "month": "2009-02"
+      "month": "2009-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000261.html"
     }
   ],
   "threads": [

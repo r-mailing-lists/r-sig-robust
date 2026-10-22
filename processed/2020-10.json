@@ -19,7 +19,8 @@
       "body_snippet": "Hi,\nThe distribution of the t statistic under the alternative hypothesis is \nnot a shifted t but a t with a non-zero non-centrality parameter. rt() \nhas a third argument \"ncp\" that precisely provides ",
       "thread_id": "thread-899484924b5c",
       "thread_depth": 0,
-      "month": "2020-10"
+      "month": "2020-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000501.html"
     }
   ],
   "threads": [

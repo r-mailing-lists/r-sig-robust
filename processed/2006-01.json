@@ -20,7 +20,8 @@
       "body_snippet": "Thanks a lot. Actually my pragmatic question concerned the plots in rrcov,\nwhich I have implemented as base graphics. Since some of them are quite ugly\n(these that are multipanel, comparing classic an",
       "thread_id": "thread-0061a808de98",
       "thread_depth": 0,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000060.html"
     },
     {
       "id": "msg-ca8d33f1f5da",
@@ -40,7 +41,8 @@
       "body_snippet": ">>>>> \"Valentin\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Wed, 11 Jan 2006 00:31:06 +0100 writes:\n\n    Valentin> Thanks a lot. Actually my pragmatic question\n    Valentin> conc",
       "thread_id": "thread-0061a808de98",
       "thread_depth": 1,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000061.html"
     },
     {
       "id": "msg-cef8979d0f95",
@@ -62,7 +64,8 @@
       "body_snippet": "Dear All,\nsorry for the silly question.\nDoes anyone have R code for the (plain) shape and scale Gamma \nmodel using M type estimators?\n\nThanks,\nClaudio\n\n------------------------------------------------",
       "thread_id": "thread-cef8979d0f95",
       "thread_depth": 0,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000062.html"
     },
     {
       "id": "msg-07a383440c25",
@@ -85,7 +88,8 @@
       "body_snippet": "Hello Claudio,\n\nmy R package ROptEst can be used to compute optimally robust estimators \nfor all L2-differentiable (differentiable in quadratic mean) parametric \nfamilies which are based on a univaria",
       "thread_id": "thread-cef8979d0f95",
       "thread_depth": 1,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000063.html"
     },
     {
       "id": "msg-03197d11ea5d",
@@ -108,7 +112,8 @@
       "body_snippet": "Hi Claudio,\n\nM-estimators in Hampel et al. (1986, pp 238-257) have been implemented by \nAlfio Marazzi. Look in:\n\nhttp://www.iumsp.ch/Unites/us/Alfio/msp_programmes.htm\n\nFull disclosure: these estimato",
       "thread_id": "thread-cef8979d0f95",
       "thread_depth": 1,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000064.html"
     },
     {
       "id": "msg-9c2f16455864",
@@ -124,11 +129,12 @@
         "<43A9D23B.2030207@stat.ubc.ca>",
         "<17322.35378.533261.42930@stat.math.ethz.ch>"
       ],
-      "body_plain": "I'm finally taking up this thread from before Christmas:\n\n>>>>> \"MMa\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Thu, 22 Dec 2005 12:12:50 +0100 writes:\n\n>>>>> \"Matias\" == Matias Salibian-Barrera <matias at stat.ubc.ca>\n>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:\n\n    MMa> .........\n\n    Matias> A few days ago I uploaded the package \"roblm\" to CRAN.\n    Matias> ........\n\n    Matias> Note that the name of the package (and the\n    Matias> corresponding class) is \"roblm\", but this does not\n    Matias> mean that I necessarily prefer this name over\n    Matias> others. I've been working on this for some time now,\n    Matias> and for the reasons that I mentioned in Treviso\n    Matias> (\"rlm\" and \"lmRob\" are already taken) I settled for\n    Matias> roblm.\n\n    MMa> yes. In Treviso, we had talked about trying to go for \"rlm\" and\n    MMa> I had offered to try to resolve the name clash with MASS::rlm().\n    MMa> I now think that this may not be a good idea:  rlm()\n    MMa> in MASS is really relatively prominent in the MASS book with\n    MMa> years of tradition, and usage in many places.  Also its default\n    MMa> method is \"M\", not \"MM\" { for a good reason: back compatibility\n    MMa> with older versions of rlm()}.\n    MMa> Hence our new  (robust|rob|rf|r)lm(Rob) function would never be\n    MMa> 'call-compatible' to MASS::rlm() and for that reason I think we\n    MMa> should strive for a different naming scheme.\n\n    MMa> Andreas Ruckstuhl had raised the point already at Treviso, and\n    MMa> on this list (Dec 7, \"Re: [RsR] OGK covariance estimator\") where\n    MMa> he'd proposed\n    MMa> r*   [as 'rlm' in MASS]\n    MMa> rob* [as 'roblm' above]\n    MMa> rf*  [\"[R]obust [F]itting of ..\", used in Andreas' package]\n\n    MMa> The last one may be a bit more logical than all the others,\n    MMa> since in one sense there's just one linear model with different\n    MMa> fitting methodologies, since in fact,\n    MMa> the error distribution hasn't been part of the\n    MMa> model specification __for most statistical software__\n\n    MMa> OTOH, \"rob\" is easy to pronounce/spell\n    MMa> [OTOH, there's all the people called 'Rob' ...]\n\n    MMa> As you can guess, from Andreas' list, I'd either take\n    MMa> 'rob*' or 'rf*' and don't have strong preference.\n\nIn the mean time, I have talked with Andreas, and he has agreed\nto go for 'rob*' rather than 'rf*' which he preferred for good\nreasons.\n\nSince there were no further comments or suggestions,\nI think we've settled to adopt the \n   prefix  'rob'\n\nfor 'robustifying' functions like  'lm', 'glm'  etc, hence will\nhave roblm(), robglm() ..\n\n==> We (well, Andreas, Mat?as and I, to a large extent) can now\ncollaborate on moving parts of Matias' \"roblm\" and Andreas'\nunpublished \"RobFit\" package to  robustbase,\nusing function names roblm() and robglm() returning objects of\nclass 'roblm' or 'robglm'. \n\nIdeas and suggestions on this topic are very welcome!\n\nThe question how to adopt good function names for a\nrobustified cov() is a bit less trivial, \nsince\n\n  1) there are even more methods around\n\n  2) in S and R, there have been diverging traditions to call these:\n    MASS has  cov.rob() but also cov.trob() cov.mcd(), cov.mve()\n    where only the latter two are called from cov.rob()\n\n  3) Of course, the \".\" convention is somewhat deprecated currently\n     {since it leads to confusion with S3 method definitions}.\n\nI think our aim should be to go for\nrobcov() eventually with many possible 'method = \"....\"'\n-------- arguments \nand also   probably have it return an S4 class object, along the\nline the working group \"Multivariate\" in Treviso has proposed\nit.\nOTOH, I'd also like to add Valentin's good  covMcd() {and also ltsReg()}\nfunction to the  \"robustbase\" package as soon as possible,\nand currently I'd propose to just keep covMcd() \"as is\"\nand later have\t  \n    robcov(*, method = \"MCD\")\t\tor rather\n    robcov(*, method = \"fastMCD1999\") \ncall Valentin's  covMcd()  \nApropos the method name: Now that I've seen the algorithm again,\nI'm pretty much convinced that we'd see new (at least slightly\nnew)  fast MCDs in the future...\n\nBTW, there is draft version 0.0-1 of \"robustbase\"\naround (and inspectable from https://svn.r-project.org/R-packages/)\nwhich in particular has many data sets to be used as examples;\nmost of them from Valentin Todorov, but also Rousseeuw/Croux'\nSn() and Qn() and the OGK cov.estimator, basically the code from\nKjell Konis. \n\nI plan to make the package also available \n>>> as source package only <<<  (i.e. *.tar.gz) \nfor those who know how to install packages from the source\nin order to get comment;\nSince there are too many ``TO DO'' in there, I think it should\ninitially not go to CRAN, because once it is widely used, we\ncannot easily modify the API (function arguments and result values/classes)\nany more. OTOH, there are good reasons to aim for a CRAN version of the\npackage for spring, where even then it will probably still be \nversion 0.x-y.\n\nMartin Maechler,\nETH Zurich",
+      "body_plain": "I'm finally taking up this thread from before Christmas:\n\n>>>>> \"MMa\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Thu, 22 Dec 2005 12:12:50 +0100 writes:\n\n>>>>> \"Matias\" == Matias Salibian-Barrera <matias at stat.ubc.ca>\n>>>>>     on Wed, 21 Dec 2005 14:07:55 -0800 writes:\n\n    MMa> .........\n\n    Matias> A few days ago I uploaded the package \"roblm\" to CRAN.\n    Matias> ........\n\n    Matias> Note that the name of the package (and the\n    Matias> corresponding class) is \"roblm\", but this does not\n    Matias> mean that I necessarily prefer this name over\n    Matias> others. I've been working on this for some time now,\n    Matias> and for the reasons that I mentioned in Treviso\n    Matias> (\"rlm\" and \"lmRob\" are already taken) I settled for\n    Matias> roblm.\n\n    MMa> yes. In Treviso, we had talked about trying to go for \"rlm\" and\n    MMa> I had offered to try to resolve the name clash with MASS::rlm().\n    MMa> I now think that this may not be a good idea:  rlm()\n    MMa> in MASS is really relatively prominent in the MASS book with\n    MMa> years of tradition, and usage in many places.  Also its default\n    MMa> method is \"M\", not \"MM\" { for a good reason: back compatibility\n    MMa> with older versions of rlm()}.\n    MMa> Hence our new  (robust|rob|rf|r)lm(Rob) function would never be\n    MMa> 'call-compatible' to MASS::rlm() and for that reason I think we\n    MMa> should strive for a different naming scheme.\n\n    MMa> Andreas Ruckstuhl had raised the point already at Treviso, and\n    MMa> on this list (Dec 7, \"Re: [RsR] OGK covariance estimator\") where\n    MMa> he'd proposed\n    MMa> r*   [as 'rlm' in MASS]\n    MMa> rob* [as 'roblm' above]\n    MMa> rf*  [\"[R]obust [F]itting of ..\", used in Andreas' package]\n\n    MMa> The last one may be a bit more logical than all the others,\n    MMa> since in one sense there's just one linear model with different\n    MMa> fitting methodologies, since in fact,\n    MMa> the error distribution hasn't been part of the\n    MMa> model specification __for most statistical software__\n\n    MMa> OTOH, \"rob\" is easy to pronounce/spell\n    MMa> [OTOH, there's all the people called 'Rob' ...]\n\n    MMa> As you can guess, from Andreas' list, I'd either take\n    MMa> 'rob*' or 'rf*' and don't have strong preference.\n\nIn the mean time, I have talked with Andreas, and he has agreed\nto go for 'rob*' rather than 'rf*' which he preferred for good\nreasons.\n\nSince there were no further comments or suggestions,\nI think we've settled to adopt the \n   prefix  'rob'\n\nfor 'robustifying' functions like  'lm', 'glm'  etc, hence will\nhave roblm(), robglm() ..\n\n==> We (well, Andreas, Matías and I, to a large extent) can now\ncollaborate on moving parts of Matias' \"roblm\" and Andreas'\nunpublished \"RobFit\" package to  robustbase,\nusing function names roblm() and robglm() returning objects of\nclass 'roblm' or 'robglm'. \n\nIdeas and suggestions on this topic are very welcome!\n\nThe question how to adopt good function names for a\nrobustified cov() is a bit less trivial, \nsince\n\n  1) there are even more methods around\n\n  2) in S and R, there have been diverging traditions to call these:\n    MASS has  cov.rob() but also cov.trob() cov.mcd(), cov.mve()\n    where only the latter two are called from cov.rob()\n\n  3) Of course, the \".\" convention is somewhat deprecated currently\n     {since it leads to confusion with S3 method definitions}.\n\nI think our aim should be to go for\nrobcov() eventually with many possible 'method = \"....\"'\n-------- arguments \nand also   probably have it return an S4 class object, along the\nline the working group \"Multivariate\" in Treviso has proposed\nit.\nOTOH, I'd also like to add Valentin's good  covMcd() {and also ltsReg()}\nfunction to the  \"robustbase\" package as soon as possible,\nand currently I'd propose to just keep covMcd() \"as is\"\nand later have\t  \n    robcov(*, method = \"MCD\")\t\tor rather\n    robcov(*, method = \"fastMCD1999\") \ncall Valentin's  covMcd()  \nApropos the method name: Now that I've seen the algorithm again,\nI'm pretty much convinced that we'd see new (at least slightly\nnew)  fast MCDs in the future...\n\nBTW, there is draft version 0.0-1 of \"robustbase\"\naround (and inspectable from https://svn.r-project.org/R-packages/)\nwhich in particular has many data sets to be used as examples;\nmost of them from Valentin Todorov, but also Rousseeuw/Croux'\nSn() and Qn() and the OGK cov.estimator, basically the code from\nKjell Konis. \n\nI plan to make the package also available \n>>> as source package only <<<  (i.e. *.tar.gz) \nfor those who know how to install packages from the source\nin order to get comment;\nSince there are too many ``TO DO'' in there, I think it should\ninitially not go to CRAN, because once it is widely used, we\ncannot easily modify the API (function arguments and result values/classes)\nany more. OTOH, there are good reasons to aim for a CRAN version of the\npackage for spring, where even then it will probably still be \nversion 0.x-y.\n\nMartin Maechler,\nETH Zurich",
       "body_snippet": "I'm finally taking up this thread from before Christmas:\n\n>>>>> \"MMa\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Thu, 22 Dec 2005 12:12:50 +0100 writes:\n\n>>>>> \"Matias\" == Matias ",
       "thread_id": "thread-9c2f16455864",
       "thread_depth": 0,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000065.html"
     },
     {
       "id": "msg-dd6f09971a7b",
@@ -144,7 +150,8 @@
       "body_snippet": "Ciao Martin,\n\nI would like, progressively, standardize my package 'wle' with the standard of \nrobustbase. If think, for me, the easy way is to start with lm function (since \nyou (you, matias and andre",
       "thread_id": "thread-dd6f09971a7b",
       "thread_depth": 0,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000066.html"
     },
     {
       "id": "msg-9930fe212698",
@@ -160,7 +167,8 @@
       "body_snippet": "Dear all\n\nA late contribution to the discussion about names:\nI personally prefer if the most important characteristic of a\nfunction leads to the frist part of the name. As a nice effect,\nthis leads to",
       "thread_id": "thread-9930fe212698",
       "thread_depth": 0,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000067.html"
     },
     {
       "id": "msg-0899b684261a",
@@ -178,7 +186,8 @@
       "body_snippet": ">>>>> \"Claudio\" == Claudio Agostinelli <claudio at unive.it>\n>>>>>     on Fri, 20 Jan 2006 12:50:43 +0100 (CET) writes:\n\n    Claudio> Ciao Martin, I would like, progressively,\n    Claudio> standardize",
       "thread_id": "thread-dd6f09971a7b",
       "thread_depth": 1,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000068.html"
     },
     {
       "id": "msg-62d9233bee83",
@@ -197,7 +206,8 @@
       "body_snippet": "Dear All,\n\nafter returning home from the Robcla'2006 workshop in Florence (thanks,\nMarko), I would like to continue here a discussion that we started with\nMartin (in German). We think that more opinio",
       "thread_id": "thread-dd6f09971a7b",
       "thread_depth": 2,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000069.html"
     },
     {
       "id": "msg-460e1fade080",
@@ -215,7 +225,8 @@
       "body_snippet": ">>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:\n\n    ValenT> Dear All, after returning home from the Robcla'2006\n    ValenT> wor",
       "thread_id": "thread-dd6f09971a7b",
       "thread_depth": 3,
-      "month": "2006-01"
+      "month": "2006-01",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000070.html"
     }
   ],
   "threads": [

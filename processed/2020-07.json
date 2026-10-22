@@ -17,7 +17,8 @@
       "body_snippet": "I have a question about a robust location estimator when faced with the\nfollowing situation:\n\nThere are n instruments, and each instrument has a different measurement\nstandard error.\n\nI can just treat",
       "thread_id": "thread-51a567173532",
       "thread_depth": 0,
-      "month": "2020-07"
+      "month": "2020-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000497.html"
     },
     {
       "id": "msg-44ab67417abb",
@@ -31,11 +32,12 @@
       "references": [
         "<CA++P4r1tLhQjWJXEBCa3r982VZ3p6za_mfeP5aurmdOfyx1R+Q@mail.gmail.com>"
       ],
-      "body_plain": "Use the argument \"weight\" in lmrob() for this purpose.\n\nAm 10.07.20 um 13:07 schrieb Ajay Shah:\n> I have a question about a robust location estimator when faced with the\n> following situation:\n> \n> There are n instruments, and each instrument has a different measurement\n> standard error.\n> \n> I can just treat the data x as i.i.d and our standard concepts of lmRob()\n> would do a lot.\n> \n> But in truth, in this problem, we know more. We have a standard error\n> estimate of each instrument. We should be able to utilise this, e.g. when\n> we see a weird value from an untrusted instrument we should be more willing\n> to disregard it.\n> \n> How would one go about this? I would greatly appreciate pointers. I am\n> happy to place sample 25-observation datasets here if it's fun.\n> \n\n-- \nDr. Ren? Locher\nZ?rcher Hochschule f?r Angewandte Wissenschaften (ZHAW)\nInstitut f?r Datenanalyse und Prozessdesign (IDP)\nRosenstrasse 3\nCH-8401 Winterthur\nhttp://www.zhaw.ch/idp\nhttps://home.zhaw.ch/~lore/\n\nE-Mail: rene.locher at zhaw.ch\nTel:    +41 58 934 7810\nFax:    +41 58 935 7810",
+      "body_plain": "Use the argument \"weight\" in lmrob() for this purpose.\n\nAm 10.07.20 um 13:07 schrieb Ajay Shah:\n> I have a question about a robust location estimator when faced with the\n> following situation:\n> \n> There are n instruments, and each instrument has a different measurement\n> standard error.\n> \n> I can just treat the data x as i.i.d and our standard concepts of lmRob()\n> would do a lot.\n> \n> But in truth, in this problem, we know more. We have a standard error\n> estimate of each instrument. We should be able to utilise this, e.g. when\n> we see a weird value from an untrusted instrument we should be more willing\n> to disregard it.\n> \n> How would one go about this? I would greatly appreciate pointers. I am\n> happy to place sample 25-observation datasets here if it's fun.\n> \n\n-- \nDr. René Locher\nZürcher Hochschule für Angewandte Wissenschaften (ZHAW)\nInstitut für Datenanalyse und Prozessdesign (IDP)\nRosenstrasse 3\nCH-8401 Winterthur\nhttp://www.zhaw.ch/idp\nhttps://home.zhaw.ch/~lore/\n\nE-Mail: rene.locher at zhaw.ch\nTel:    +41 58 934 7810\nFax:    +41 58 935 7810",
       "body_snippet": "Use the argument \"weight\" in lmrob() for this purpose.\n\nAm 10.07.20 um 13:07 schrieb Ajay Shah:\n> I have a question about a robust location estimator when faced with the\n> following situation:\n> \n> Th",
       "thread_id": "thread-51a567173532",
       "thread_depth": 1,
-      "month": "2020-07"
+      "month": "2020-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000498.html"
     },
     {
       "id": "msg-49952d233bf0",
@@ -53,7 +55,8 @@
       "body_snippet": ">>>>> Ajay Shah \n>>>>>     on Fri, 10 Jul 2020 16:37:47 +0530 writes:\n\n    > I have a question about a robust location estimator when faced with the\n    > following situation:\n\n    > There are n instr",
       "thread_id": "thread-51a567173532",
       "thread_depth": 1,
-      "month": "2020-07"
+      "month": "2020-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2020/000499.html"
     }
   ],
   "threads": [

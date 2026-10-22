@@ -17,7 +17,8 @@
       "body_snippet": "password\n\n\n*******************************************************************\nThis email and any attachments are confidential. Any use...{{dropped:8}}",
       "thread_id": "thread-e06dc3a5f8f0",
       "thread_depth": 0,
-      "month": "2018-10"
+      "month": "2018-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2018/000472.html"
     }
   ],
   "threads": [

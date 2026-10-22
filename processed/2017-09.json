@@ -17,7 +17,8 @@
       "body_snippet": "I am trying to perform a robust PCA analysis on compositional data. My data set includes 400 diet samples from a species of predatory fish. \nFor each sample, I have the percent of the diet that is com",
       "thread_id": "thread-bf02c1908b2a",
       "thread_depth": 0,
-      "month": "2017-09"
+      "month": "2017-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2017/000460.html"
     },
     {
       "id": "msg-e8e1d3abad11",
@@ -35,7 +36,8 @@
       "body_snippet": "Hard to say without no more details about the data frame. Maybe there are zeros included?\nBest regards,\nPeter\n\n------------------------------------------------------------------------------\nProf. Dr. ",
       "thread_id": "thread-bf02c1908b2a",
       "thread_depth": 1,
-      "month": "2017-09"
+      "month": "2017-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2017/000461.html"
     },
     {
       "id": "msg-6cd2ae370741",
@@ -54,7 +56,8 @@
       "body_snippet": "My data set includes lots of zeros and 100's. \nI thought that might be the problem, but I could find anything in the documentation about requirements for the data frame. \n\nAlice \n\n\nFrom: \"Filzmoser Pe",
       "thread_id": "thread-bf02c1908b2a",
       "thread_depth": 2,
-      "month": "2017-09"
+      "month": "2017-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2017/000462.html"
     },
     {
       "id": "msg-aeae2de82bcc",
@@ -74,7 +77,8 @@
       "body_snippet": "I am not sure PCA is the best approach when your data is not normally\ndistributed. There are approaches to discrete PCA but ultimately you may\nwant to consider alternative methods depending on what it",
       "thread_id": "thread-bf02c1908b2a",
       "thread_depth": 3,
-      "month": "2017-09"
+      "month": "2017-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2017/000464.html"
     },
     {
       "id": "msg-97e4b5a0b2b5",
@@ -92,7 +96,8 @@
       "body_snippet": "I am not an expert in the area, but I think 0 and 100 are not allowed in\nthe data frame. I generated a fake dataset, with one row with 0 and 100\n(and each row adds up to 100, 200*6), I got a message t",
       "thread_id": "thread-97e4b5a0b2b5",
       "thread_depth": 0,
-      "month": "2017-09"
+      "month": "2017-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2017/000463.html"
     }
   ],
   "threads": [

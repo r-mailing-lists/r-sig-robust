@@ -17,7 +17,8 @@
       "body_snippet": "Hi Everyone,\n\nI want to pick those observation from the regression data that has smallest \nabsolute residuals . i.e i have run ols on 30 observations of multiple \nregression data and got residuals for",
       "thread_id": "thread-e245f0abaa60",
       "thread_depth": 0,
-      "month": "2008-04"
+      "month": "2008-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000187.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "cov.mcd in MASS and covMcd in robustbase both calculate the Minimum Covariance Determinant (MCD) multivariate location and scale estimator.\n\nFor a 2-variable problem, the two return identical correlat",
       "thread_id": "thread-6ba4b2ebb331",
       "thread_depth": 0,
-      "month": "2015-08"
+      "month": "2015-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000446.html"
     }
   ],
   "threads": [

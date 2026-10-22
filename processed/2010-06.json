@@ -17,7 +17,8 @@
       "body_snippet": "I'd like to compute spherical principal components, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\nFernanda \t\t \t   \t\t  \n__________",
       "thread_id": "thread-e08351a29156",
       "thread_depth": 0,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000297.html"
     },
     {
       "id": "msg-813b47c0110b",
@@ -35,7 +36,8 @@
       "body_snippet": "Dear Fernanda,\n\nyou could try this:\n\n\n?PcaLocantore\n\nlibrary(rrcov)\ndata(bushfire)\nPcaLocantore(bushfire)\n\n\nHope this helps,\n\nBest regards,\nValentin\n\nOn Thu, Jun 17, 2010 at 12:06 AM, Nanda Mendez <na",
       "thread_id": "thread-e08351a29156",
       "thread_depth": 1,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000298.html"
     },
     {
       "id": "msg-35491db6c8e8",
@@ -54,7 +56,8 @@
       "body_snippet": "See: http://bm2.genes.nig.ac.jp/RGM2/R_current/library/rrcov/man/PcaLocantore-class.html\n\n\n\n-----Original Message-----\nFrom: r-sig-robust-bounces at r-project.org [mailto:r-sig-robust-bounces at r-pro",
       "thread_id": "thread-e08351a29156",
       "thread_depth": 2,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000299.html"
     },
     {
       "id": "msg-3a5427afe2a3",
@@ -70,7 +73,8 @@
       "body_snippet": "I'd like to S-estimates of regression, could anyone give me a hint whether a solution of this problem is already implemented or point me to some reference?\nThanks!!!Nanda \t\t \t   \t\t  \n_________________",
       "thread_id": "thread-3a5427afe2a3",
       "thread_depth": 0,
-      "month": "2010-06"
+      "month": "2010-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000300.html"
     }
   ],
   "threads": [

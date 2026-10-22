@@ -20,7 +20,8 @@
       "body_snippet": "Dear All (sorry for possible cross posting),\n\nThe submission deadline for `useR! 2006', the second R user conference to be\nheld in Vienna June 15-17 2006, is only three weeks ahead. Now is the \nperfec",
       "thread_id": "thread-fb399e091064",
       "thread_depth": 0,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000071.html"
     },
     {
       "id": "msg-8bef38238b8d",
@@ -36,7 +37,8 @@
       "body_snippet": "I agree with the more pragmatic approach suggested by Martin: one waits\nfor a reasonably stable robustbase version that includes the code in\nquestion, and then the original package is made to depend o",
       "thread_id": "thread-8bef38238b8d",
       "thread_depth": 0,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000072.html"
     },
     {
       "id": "msg-b5cc45618b00",
@@ -54,7 +56,8 @@
       "body_snippet": "Hi Valentin,\n\nYou can find a copy of the slides from my talk at ROBCLA 2006 here:\n\n   http://www.stats.ox.ac.uk/~konis/robust/ROBCLA2006-konis.pdf\n\n(they are quite similar to the first third of my RSR",
       "thread_id": "thread-b5cc45618b00",
       "thread_depth": 0,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000073.html"
     },
     {
       "id": "msg-062a1b9d1a5b",
@@ -73,7 +76,8 @@
       "body_snippet": ">>>>> \"Martin\" == Martin Maechler <maechler at stat.math.ethz.ch>\n>>>>>     on Fri, 20 Jan 2006 22:38:51 +0100 writes:\n\n>>>>> \"Claudio\" == Claudio Agostinelli <claudio at unive.it>\n>>>>>     on Fri, 2",
       "thread_id": "thread-062a1b9d1a5b",
       "thread_depth": 0,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000074.html"
     },
     {
       "id": "msg-48b46e476dc5",
@@ -85,11 +89,12 @@
       "subject_clean": "[RsR] synchronization with contributing packages",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "I agree with the more pragmatic approach suggested by Martin and supported by Matias as well.\n\nAll the best\nAndreas\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von \n>> Matias Salibian-Barrera\n>> Gesendet: Mittwoch, 1. Februar 2006 16:08\n>> An: r-sig-robust at stat.math.ethz.ch\n>> Betreff: Re: [RsR] synchronization with contributing packages\n>> \n>> \n>> \n>> I agree with the more pragmatic approach suggested by \n>> Martin: one waits\n>> for a reasonably stable robustbase version that includes the code in\n>> question, and then the original package is made to depend on \n>> robustbase\n>> (or cease to exist if it has been included completely).\n>> \n>> Matias\n>> \n>> \n>> On Tue, 31 Jan 2006, Martin Maechler wrote:\n>> \n>> > >>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>> > >>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:\n>> >\n>> [snip] \n>> >     ValenT> When, at what stage of maturity of robustbase,\n>> >     ValenT> should the contributed code be removed from the\n>> >     ValenT> other packages and they have to rely on \n>> >     ValenT> 'Depends: robustbase'?\n>> > \n>> [snip]\n>> >\n>> > In practice, I would aim for a more pragmatic solution;\n>> > e.g., after the appearance of the new version of robustbase, \n>> > wait for several weeks before stripping the functionality from\n>> > your package.  Well actually, as package author, you can do it\n>> > immediately in your sources, but only release a new version of\n>> > your package to CRAN after a certain amount of time.\n>> > \n>> > Martin\n>> > \n>> > And yes, as Valentin, I am very much interested to hear what\n>> > others think...\n>> > \n>> > _______________________________________________\n>> > R-SIG-Robust at r-project.org mailing list\n>> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >\n>> \n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>",
-      "body_snippet": "I agree with the more pragmatic approach suggested by Martin and supported by Matias as well.\n\nAll the best\nAndreas\n\n>> -----Urspr?ngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org ",
+      "body_plain": "I agree with the more pragmatic approach suggested by Martin and supported by Matias as well.\n\nAll the best\nAndreas\n\n>> -----Ursprüngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org \n>> [mailto:r-sig-robust-bounces at r-project.org] Im Auftrag von \n>> Matias Salibian-Barrera\n>> Gesendet: Mittwoch, 1. Februar 2006 16:08\n>> An: r-sig-robust at stat.math.ethz.ch\n>> Betreff: Re: [RsR] synchronization with contributing packages\n>> \n>> \n>> \n>> I agree with the more pragmatic approach suggested by \n>> Martin: one waits\n>> for a reasonably stable robustbase version that includes the code in\n>> question, and then the original package is made to depend on \n>> robustbase\n>> (or cease to exist if it has been included completely).\n>> \n>> Matias\n>> \n>> \n>> On Tue, 31 Jan 2006, Martin Maechler wrote:\n>> \n>> > >>>>> \"ValenT\" == Valentin Todorov <valentin.todorov at chello.at>\n>> > >>>>>     on Tue, 31 Jan 2006 00:26:14 +0100 writes:\n>> >\n>> [snip] \n>> >     ValenT> When, at what stage of maturity of robustbase,\n>> >     ValenT> should the contributed code be removed from the\n>> >     ValenT> other packages and they have to rely on \n>> >     ValenT> 'Depends: robustbase'?\n>> > \n>> [snip]\n>> >\n>> > In practice, I would aim for a more pragmatic solution;\n>> > e.g., after the appearance of the new version of robustbase, \n>> > wait for several weeks before stripping the functionality from\n>> > your package.  Well actually, as package author, you can do it\n>> > immediately in your sources, but only release a new version of\n>> > your package to CRAN after a certain amount of time.\n>> > \n>> > Martin\n>> > \n>> > And yes, as Valentin, I am very much interested to hear what\n>> > others think...\n>> > \n>> > _______________________________________________\n>> > R-SIG-Robust at r-project.org mailing list\n>> > https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>> >\n>> \n>> _______________________________________________\n>> R-SIG-Robust at r-project.org mailing list\n>> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n>>",
+      "body_snippet": "I agree with the more pragmatic approach suggested by Martin and supported by Matias as well.\n\nAll the best\nAndreas\n\n>> -----Ursprüngliche Nachricht-----\n>> Von: r-sig-robust-bounces at r-project.org ",
       "thread_id": "thread-48b46e476dc5",
       "thread_depth": 0,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000075.html"
     },
     {
       "id": "msg-1ec81b6dd037",
@@ -105,7 +110,8 @@
       "body_snippet": "I understand that moving functions to robustbase is only\nmeant for \"basic\" functions, and not for more specialized\nmethods. Eg. I don't think it would make much sense to\nmerge the package mvoutlier in",
       "thread_id": "thread-1ec81b6dd037",
       "thread_depth": 0,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000076.html"
     },
     {
       "id": "msg-7d2229ef8cdf",
@@ -123,7 +129,8 @@
       "body_snippet": "On Thu, 2 Feb 2006, Peter Filzmoser wrote:\n\n> I understand that moving functions to robustbase is only\n> meant for \"basic\" functions, and not for more specialized\n> methods. Eg. I don't think it would",
       "thread_id": "thread-1ec81b6dd037",
       "thread_depth": 1,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000077.html"
     },
     {
       "id": "msg-c86e2a2c352f",
@@ -139,7 +146,8 @@
       "body_snippet": "Dear \"robust R users\",\n\nYesterday, I have uploaded the first public version (0.1-2) of\nthe 'robustbase' package to CRAN.  It has appeared on the CRAN\nmaster (in Vienna) and will propagate to the mirro",
       "thread_id": "thread-c86e2a2c352f",
       "thread_depth": 0,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000078.html"
     },
     {
       "id": "msg-97ed0fd228de",
@@ -151,11 +159,12 @@
       "subject_clean": "[RsR] Special Issue on Robust Statistics in SMA journal",
       "in_reply_to": null,
       "references": [],
-      "body_plain": "Dear All,\n\nMatilde Bini asked me to forward the message below to the list. Sorry for \npossible cross-posting.\n\nClaudio\n_____________________________________________________________\n\nCALL FOR PAPERS\n\nSTATISTICAL METHODS & APPLICATIONS - JISS\n\nThematic Issue on \"Robust multivariate statistical methods\"\n\nhttp://www.springer.com/sgw/cda/frontpage/0,11855,5-10128-70-1169174-0,00.html\n\nThe objective of this thematic issue is to be a forum for new developments\nand applications of robust statistical methods for multivariate data.\n\nThe contributions to theoretical as well as applied statistics dealing with\nROBUST STATISTICS are welcome. The following areas are mentioned, but other\nrelated topics are welcome as well.\n\nConcepts and theory of robust statistics\nNonparametric methods; nonparametric and semiparametric models\nMultivariate analysis\nData depth\nStatistical computing, graphics and data mining\nRegression quantile\nLinear and generalized linear models; mixed models\nBiostatistics\nStatistical methods in signal processing\nStatistical methods in business and finance\nStatistics in bioinformatics\nAsymptotic theory and efficiency\n\nThe first paper will be written by\nStephan Morghentaler\nMathematics Department,\nEcole Polytechnique F?d?rale,\nLausanne, Switzerland\n\nand will deal with the state of the art of robust statistics.\n\nThe DEADLINE for submissions is April 30, 2006.\n\nThe papers must contain original unpublished work that is not being\nsubmitted for publication elsewhere. Manuscripts submitted to this\nspecial issue will be refereed according to standard procedures for\nStatistical Methods and Applications\n\nThe editorial process is expected to proceed rapidly thereafter\n(Expected decision date is August 30, 2006).\nSubmission electronically is encouraged.\nPlease e-mail a postscript or PDF file of your manuscript to\nMaurizio Vichi\nDept. Statistica, Probabilit? e Statistiche Applicate\nP.le A. Moro, 5\nI-00185 Rome\nItaly\n\ne-mail: maurizio.vichi at uniroma1.it\n=====================================\n\nProf. Matilde Bini\nDipartimento di Statistica \"G. Parenti\"\nUniversit? degli Studi di Firenze\nViale Morgagni, 59 - 50134 Firenze - Italy\nTel. +39 055 4237251 Cell. 329 2609898\n\n------------------------------------------------------------------",
+      "body_plain": "Dear All,\n\nMatilde Bini asked me to forward the message below to the list. Sorry for \npossible cross-posting.\n\nClaudio\n_____________________________________________________________\n\nCALL FOR PAPERS\n\nSTATISTICAL METHODS & APPLICATIONS - JISS\n\nThematic Issue on \"Robust multivariate statistical methods\"\n\nhttp://www.springer.com/sgw/cda/frontpage/0,11855,5-10128-70-1169174-0,00.html\n\nThe objective of this thematic issue is to be a forum for new developments\nand applications of robust statistical methods for multivariate data.\n\nThe contributions to theoretical as well as applied statistics dealing with\nROBUST STATISTICS are welcome. The following areas are mentioned, but other\nrelated topics are welcome as well.\n\nConcepts and theory of robust statistics\nNonparametric methods; nonparametric and semiparametric models\nMultivariate analysis\nData depth\nStatistical computing, graphics and data mining\nRegression quantile\nLinear and generalized linear models; mixed models\nBiostatistics\nStatistical methods in signal processing\nStatistical methods in business and finance\nStatistics in bioinformatics\nAsymptotic theory and efficiency\n\nThe first paper will be written by\nStephan Morghentaler\nMathematics Department,\nEcole Polytechnique Fédérale,\nLausanne, Switzerland\n\nand will deal with the state of the art of robust statistics.\n\nThe DEADLINE for submissions is April 30, 2006.\n\nThe papers must contain original unpublished work that is not being\nsubmitted for publication elsewhere. Manuscripts submitted to this\nspecial issue will be refereed according to standard procedures for\nStatistical Methods and Applications\n\nThe editorial process is expected to proceed rapidly thereafter\n(Expected decision date is August 30, 2006).\nSubmission electronically is encouraged.\nPlease e-mail a postscript or PDF file of your manuscript to\nMaurizio Vichi\nDept. Statistica, Probabilità e Statistiche Applicate\nP.le A. Moro, 5\nI-00185 Rome\nItaly\n\ne-mail: maurizio.vichi at uniroma1.it\n=====================================\n\nProf. Matilde Bini\nDipartimento di Statistica \"G. Parenti\"\nUniversità degli Studi di Firenze\nViale Morgagni, 59 - 50134 Firenze - Italy\nTel. +39 055 4237251 Cell. 329 2609898\n\n------------------------------------------------------------------",
       "body_snippet": "Dear All,\n\nMatilde Bini asked me to forward the message below to the list. Sorry for \npossible cross-posting.\n\nClaudio\n_____________________________________________________________\n\nCALL FOR PAPERS\n\nS",
       "thread_id": "thread-97ed0fd228de",
       "thread_depth": 0,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000079.html"
     },
     {
       "id": "msg-54c64966e477",
@@ -173,7 +182,8 @@
       "body_snippet": "Dear All,\n\nAfter the good response from the conference \"Robust Statistics and R\" in\nTreviso last October, we feel that a good opportunity for sharing our work\nand get feedback is the conference \"useR!",
       "thread_id": "thread-97ed0fd228de",
       "thread_depth": 1,
-      "month": "2006-02"
+      "month": "2006-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2006/000080.html"
     }
   ],
   "threads": [

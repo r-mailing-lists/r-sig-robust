@@ -17,7 +17,8 @@
       "body_snippet": "Hi,\n\nI have found the formula for the Mann-Whitney test when a normal\napproximation has to be computed, this is:\n\n\nNTIES <- table(r)\nSIGMA <- sqrt((n.x * n.y/12) * ((n.x + n.y + 1) - sum(NTIES^3 - NTI",
       "thread_id": "thread-f8b5f4ce400a",
       "thread_depth": 0,
-      "month": "2009-04"
+      "month": "2009-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000268.html"
     }
   ],
   "threads": [

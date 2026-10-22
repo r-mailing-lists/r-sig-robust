@@ -17,7 +17,8 @@
       "body_snippet": "Hello:\nI am using R 3.0.2.\nI have built robust regression models with rlm, because regression diagnostic tests (Q-Q plots) indicate there are large outliers. How do I best compare the goodness of fit ",
       "thread_id": "thread-1831b54febd4",
       "thread_depth": 0,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000436.html"
     },
     {
       "id": "msg-b6cde42ac6f2",
@@ -33,7 +34,8 @@
       "body_snippet": "Hello,\n\nI think I have discovered a bug in rlm(). I have asked about this on the r-help mailing list, and also emailed Brian Ripley and Bill Venables about this directly, but have not received any rep",
       "thread_id": "thread-b6cde42ac6f2",
       "thread_depth": 0,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000438.html"
     },
     {
       "id": "msg-b70a9da48898",
@@ -47,11 +49,12 @@
       "references": [
         "<415226696.655238.1432329848667.JavaMail.yahoo@mail.yahoo.com>"
       ],
-      "body_plain": "Dear Michael\n\nI recommend to compare the graphical residual analysis of both fits. \nThis is done best when lmrob() of the package robustbase is used because \nthen you can proceed as follows\n\nlibrary(robustbase)\nD.rlm <- lmrob(y ~ x1 + x2, data=D, setting='KS2011')\npar(mfrow=c(2,3))\nplot(D.rlm)\n\n\nIf the robust fit does not show any outliers or any other strange \nthings, the classical and the robust fit should agree. If there are \noutliers you cannot trust the output of the classical fit (i.e., \nestimated coefficients, standard errors and test results). In this case \nyou must use the results of the robust fit.\n\n\nBest regards\nAndreas\n\n\nAm 22.05.2015 um 23:24 schrieb michael westphal via R-SIG-Robust:\n> Hello:\n> I am using R 3.0.2.\n> I have built robust regression models with rlm, because regression diagnostic tests (Q-Q plots) indicate there are large outliers. How do I best compare the goodness of fit between robust regression and OLS?  Does it make sense to only compare residual standard error?  If not, what do you suggest? Thanks.\n> Michael\n>\n> \t[[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nIDP Institut f?r Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
+      "body_plain": "Dear Michael\n\nI recommend to compare the graphical residual analysis of both fits. \nThis is done best when lmrob() of the package robustbase is used because \nthen you can proceed as follows\n\nlibrary(robustbase)\nD.rlm <- lmrob(y ~ x1 + x2, data=D, setting='KS2011')\npar(mfrow=c(2,3))\nplot(D.rlm)\n\n\nIf the robust fit does not show any outliers or any other strange \nthings, the classical and the robust fit should agree. If there are \noutliers you cannot trust the output of the classical fit (i.e., \nestimated coefficients, standard errors and test results). In this case \nyou must use the results of the robust fit.\n\n\nBest regards\nAndreas\n\n\nAm 22.05.2015 um 23:24 schrieb michael westphal via R-SIG-Robust:\n> Hello:\n> I am using R 3.0.2.\n> I have built robust regression models with rlm, because regression diagnostic tests (Q-Q plots) indicate there are large outliers. How do I best compare the goodness of fit between robust regression and OLS?  Does it make sense to only compare residual standard error?  If not, what do you suggest? Thanks.\n> Michael\n>\n> \t[[alternative HTML version deleted]]\n>\n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Zürcher Hochschule für Angewandte Wissenschaften\nIDP Institut für Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
       "body_snippet": "Dear Michael\n\nI recommend to compare the graphical residual analysis of both fits. \nThis is done best when lmrob() of the package robustbase is used because \nthen you can proceed as follows\n\nlibrary(r",
       "thread_id": "thread-1831b54febd4",
       "thread_depth": 1,
-      "month": "2015-05"
+      "month": "2015-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000437.html"
     }
   ],
   "threads": [

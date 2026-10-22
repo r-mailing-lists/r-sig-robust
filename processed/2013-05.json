@@ -17,7 +17,8 @@
       "body_snippet": "Dear All,\n\nI'm trying to estimate the same model\n twice using the FastS with a varying\n # of ('simple') sub-samples. \n\nThe man page for lmrob.control() defines \nan option 'mts' which seems to be what ",
       "thread_id": "thread-53fd70f46cc6",
       "thread_depth": 0,
-      "month": "2013-05"
+      "month": "2013-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000393.html"
     },
     {
       "id": "msg-98ec5e868872",
@@ -35,7 +36,8 @@
       "body_snippet": "Dear Kaveh,\n\nmts sets just the number of samples the algorithm tries before giving up finding a nonsingular subsample (if simple subsampling is used).\nnResample is the parameter you want.\n\nBest,\n\nManu",
       "thread_id": "thread-53fd70f46cc6",
       "thread_depth": 1,
-      "month": "2013-05"
+      "month": "2013-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000394.html"
     },
     {
       "id": "msg-22bd99147353",
@@ -54,7 +56,8 @@
       "body_snippet": "Oh, Ok, thanks Manuel!\nSorry for having missed that out,\n\nBest,\nKaveh\n\nOn 05/01/2013 05:32 PM, Manuel Koller wrote:\n> Dear Kaveh,\n>\n> mts sets just the number of samples the algorithm tries before giv",
       "thread_id": "thread-53fd70f46cc6",
       "thread_depth": 2,
-      "month": "2013-05"
+      "month": "2013-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000395.html"
     },
     {
       "id": "msg-ae2c2dabb643",
@@ -70,7 +73,8 @@
       "body_snippet": "Hi everyone,\n\nA few years ago there was a discussion about a robust regression confidence interval (https://stat.ethz.ch/pipermail/r-sig-robust/2008/000217.html) and I would like to resort your courte",
       "thread_id": "thread-ae2c2dabb643",
       "thread_depth": 0,
-      "month": "2013-05"
+      "month": "2013-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000396.html"
     },
     {
       "id": "msg-d5718b0988c2",
@@ -88,7 +92,8 @@
       "body_snippet": "For quantile regression you can again just use summary(rq(...)).\n\n\nurl:    www.econ.uiuc.edu/~roger            Roger Koenker\nemail    rkoenker at uiuc.edu            Department of Economics\nvox:     2",
       "thread_id": "thread-d5718b0988c2",
       "thread_depth": 0,
-      "month": "2013-05"
+      "month": "2013-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000397.html"
     },
     {
       "id": "msg-aaafb2b4d021",
@@ -107,7 +112,8 @@
       "body_snippet": "There are a collection of methods summarized in \n\nWilcox, R. R. (2012). Introduction to Robust Estimation and                \nHypothesis Testing 3rd Edition. New York: Elsevier.\n\nHeteroscedasticity is",
       "thread_id": "thread-d5718b0988c2",
       "thread_depth": 1,
-      "month": "2013-05"
+      "month": "2013-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000398.html"
     }
   ],
   "threads": [

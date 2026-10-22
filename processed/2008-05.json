@@ -17,7 +17,8 @@
       "body_snippet": "Hi Every one,\n\nIs there some codes avaiable in R for M-estimators and Redescending \nM-estimators. if any one knows, please let me know. Thanks Dost,",
       "thread_id": "thread-ef8932d9e7ee",
       "thread_depth": 0,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000188.html"
     },
     {
       "id": "msg-a542fba95637",
@@ -42,7 +43,8 @@
       "body_snippet": "Hi Kate and Fernando,\n\nI'm late into this thread,\nbut from reading it I get the impression that Fernando really\nwants to do *robust* (as opposed to least-squares) non-linear\nmodel fitting.  His propos",
       "thread_id": "thread-a542fba95637",
       "thread_depth": 0,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000189.html"
     },
     {
       "id": "msg-4f16b6effc1b",
@@ -60,7 +62,8 @@
       "body_snippet": ">>>>> \"k\" == khanx131  <khanx131 at umn.edu>\n>>>>>     on 08 May 2008 20:43:44 -0500 writes:\n\n    k> Hi Every one,\n    k> Is there some codes avaiable in R for M-estimators and Redescending \n    k> M-",
       "thread_id": "thread-ef8932d9e7ee",
       "thread_depth": 1,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000190.html"
     },
     {
       "id": "msg-207bdc9d1383",
@@ -76,7 +79,8 @@
       "body_snippet": "There has been recent discussion on R-help\n(https://stat.ethz.ch/pipermail/r-help/2008-May/161611.html) regarding a\nnonlinear least squares problem in which residuals above a certain\nquantile are set ",
       "thread_id": "thread-207bdc9d1383",
       "thread_depth": 0,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000192.html"
     },
     {
       "id": "msg-ad5b3ccd0310",
@@ -102,7 +106,8 @@
       "body_snippet": "Martin, Kate, Fernando, et al.\n\nBe careful bootstrapping robust estimators. The trouble is that when resampling is done with replacement, the outliers can be selected too many times which would ruin t",
       "thread_id": "thread-a542fba95637",
       "thread_depth": 1,
-      "month": "2008-05"
+      "month": "2008-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000191.html"
     }
   ],
   "threads": [

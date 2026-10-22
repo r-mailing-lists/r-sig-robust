@@ -20,7 +20,8 @@
       "body_snippet": "Hello,\n\nMy question is about applying robust location and scale estimates to \nword frequencies.  Some words are prone to frequency spikes in a small \nnumber of documents; there was a paper showing tha",
       "thread_id": "thread-673690e0ac88",
       "thread_depth": 0,
-      "month": "2015-07"
+      "month": "2015-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000443.html"
     },
     {
       "id": "msg-9a3bb704008f",
@@ -40,7 +41,8 @@
       "body_snippet": "Dear Serge,\n\nyou could try my package RobLox; e.g.\nlibrary(RobLox)\nx <- rnorm(20)\nest <- roblox(x)\nest\nconfint(est)\n\nBut, the idea behind these robust methods is a normal location and scale \nmodel sur",
       "thread_id": "thread-673690e0ac88",
       "thread_depth": 1,
-      "month": "2015-07"
+      "month": "2015-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000444.html"
     },
     {
       "id": "msg-efea46230687",
@@ -61,7 +63,8 @@
       "body_snippet": "Thanks Matthias.  \n\nSo far I had no time to study the ideas behind your packages.  I just applied \nthem as a black box. RobLox predictively complains about mad=0 and suggests \nthe means and the confid",
       "thread_id": "thread-673690e0ac88",
       "thread_depth": 2,
-      "month": "2015-07"
+      "month": "2015-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2015/000445.html"
     }
   ],
   "threads": [

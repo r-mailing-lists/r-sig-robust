@@ -17,7 +17,8 @@
       "body_snippet": "I know about these:\n\nlqs (with method = \"lms\", and lmsreg, which as I understand it is\nequivalent to lqs with method = \"lms\")\n\nMentions:\nhttps://www.rdocumentation.org/packages/MASS/versions/7.3-56/to",
       "thread_id": "thread-a468cc005670",
       "thread_depth": 0,
-      "month": "2022-05"
+      "month": "2022-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2022/000510.html"
     },
     {
       "id": "msg-172c0b358a4a",
@@ -35,7 +36,8 @@
       "body_snippet": "Hi Kelly,\n\nThat's the only implementation I know, although I haven't used it in \nmany years. It is a notably difficult optimization problem, but I'm not \naware of any new developments in the algorithm",
       "thread_id": "thread-a468cc005670",
       "thread_depth": 1,
-      "month": "2022-05"
+      "month": "2022-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2022/000511.html"
     }
   ],
   "threads": [

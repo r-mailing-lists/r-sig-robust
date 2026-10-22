@@ -13,11 +13,12 @@
       "subject_clean": "[RsR] Wanted: predict.lmrob",
       "in_reply_to": "<466833E2.4@stat.ubc.ca>",
       "references": [],
-      "body_plain": "Dear Matias\n\npredict.lmrob() seems not to exist and predict.lm() gives an incorrect result. Is there another convenient trick to predict other data than the fitted? Below you 'll find a short example.\n\n\nlibrary(robustbase)\nxy <- data.frame(x=1:10, y=(1:10)+rnorm(10))\n\nres <- lmrob(y~x, xy)\n\nfitted(res)\n## correct\n\npredict(res,newdata=data.frame(x=10:20))\n## Error in predict(res, newdata = data.frame(x = 10:20)) : \n##\tno applicable method for \"predict\"\n\npredict.lm(res,newdata=data.frame(x=10:20))\n## does not work properly!\n\nsessionInfo()\n## R version 2.5.1 (2007-06-27) \n## i386-pc-mingw32 \n## \n## locale:\n## LC_COLLATE=German_Switzerland.1252;LC_CTYPE=German_Switzerland.1252;LC_MONETARY=German_Switzerland.1252;LC_NUMERIC=C;LC_TIME=German_Switzerland.1252\n## \n## attached base packages:\n## [1] \"stats\"     \"graphics\"  \"grDevices\" \"utils\"     \"datasets\"  \"methods\"  \n## [7] \"base\"     \n## \n## other attached packages:\n## robustbase \n##    \"0.2-8\" \n\n\nKind regards and thanks in advance\n\nRen?\n\nRen? Locher                                       E-Mail: rene.locher at zhaw.ch\nInstitut f?r Datenanalyse und Prozessdesign       Tel:    +41 58 934 7810\nZ?rcher Hochschule f?r angewandte Wissenschaften  Fax:    +41 58 935 7810\nRosenstrasse 3                   \nPostfach\nCH-8400 Winterthur                                http://www.idp.zhaw.ch",
+      "body_plain": "Dear Matias\n\npredict.lmrob() seems not to exist and predict.lm() gives an incorrect result. Is there another convenient trick to predict other data than the fitted? Below you 'll find a short example.\n\n\nlibrary(robustbase)\nxy <- data.frame(x=1:10, y=(1:10)+rnorm(10))\n\nres <- lmrob(y~x, xy)\n\nfitted(res)\n## correct\n\npredict(res,newdata=data.frame(x=10:20))\n## Error in predict(res, newdata = data.frame(x = 10:20)) : \n##\tno applicable method for \"predict\"\n\npredict.lm(res,newdata=data.frame(x=10:20))\n## does not work properly!\n\nsessionInfo()\n## R version 2.5.1 (2007-06-27) \n## i386-pc-mingw32 \n## \n## locale:\n## LC_COLLATE=German_Switzerland.1252;LC_CTYPE=German_Switzerland.1252;LC_MONETARY=German_Switzerland.1252;LC_NUMERIC=C;LC_TIME=German_Switzerland.1252\n## \n## attached base packages:\n## [1] \"stats\"     \"graphics\"  \"grDevices\" \"utils\"     \"datasets\"  \"methods\"  \n## [7] \"base\"     \n## \n## other attached packages:\n## robustbase \n##    \"0.2-8\" \n\n\nKind regards and thanks in advance\n\nRené\n\nRené Locher                                       E-Mail: rene.locher at zhaw.ch\nInstitut für Datenanalyse und Prozessdesign       Tel:    +41 58 934 7810\nZürcher Hochschule für angewandte Wissenschaften  Fax:    +41 58 935 7810\nRosenstrasse 3                   \nPostfach\nCH-8400 Winterthur                                http://www.idp.zhaw.ch",
       "body_snippet": "Dear Matias\n\npredict.lmrob() seems not to exist and predict.lm() gives an incorrect result. Is there another convenient trick to predict other data than the fitted? Below you 'll find a short example.",
       "thread_id": "thread-d578f0d1560b",
       "thread_depth": 0,
-      "month": "2007-09"
+      "month": "2007-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000161.html"
     },
     {
       "id": "msg-d58d9ae21ac7",
@@ -35,7 +36,8 @@
       "body_snippet": "Greetings R'ers!\n\nI have been looking for mathematics libraries for event stream processing /\ntime series simulation.  Mathematics libraries for event stream processing\nrequire two key features; 1) \"s",
       "thread_id": "thread-d58d9ae21ac7",
       "thread_depth": 0,
-      "month": "2007-09"
+      "month": "2007-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000162.html"
     },
     {
       "id": "msg-84342cf9ba6e",
@@ -54,7 +56,8 @@
       "body_snippet": "On 9/29/07, Bradford Cross <bradford.n.cross at gmail.com> wrote:\n> Greetings R'ers!\n>\n> I have been looking for mathematics libraries for event stream processing /\n> time series simulation.  Mathemat",
       "thread_id": "thread-d58d9ae21ac7",
       "thread_depth": 1,
-      "month": "2007-09"
+      "month": "2007-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000163.html"
     },
     {
       "id": "msg-2ea91bcda29a",
@@ -74,7 +77,8 @@
       "body_snippet": "On 9/29/07, Gabor Grothendieck <ggrothendieck at gmail.com> wrote:\n>\n> On 9/29/07, Bradford Cross <bradford.n.cross at gmail.com> wrote:\n>\n> > I found a couple simple summary statistics implemented li",
       "thread_id": "thread-d58d9ae21ac7",
       "thread_depth": 2,
-      "month": "2007-09"
+      "month": "2007-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000164.html"
     },
     {
       "id": "msg-8b41adebe292",
@@ -95,7 +99,8 @@
       "body_snippet": "Yes,   Jarek Tuszynski, the author of caTools, posted a performance comparison\nof different methods for rolling calculations using R code and zoo used\nthat to provide the fastest method in his list fo",
       "thread_id": "thread-d58d9ae21ac7",
       "thread_depth": 3,
-      "month": "2007-09"
+      "month": "2007-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000165.html"
     }
   ],
   "threads": [

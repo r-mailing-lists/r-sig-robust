@@ -17,7 +17,8 @@
       "body_snippet": "Dear RsR list members,\n\n  I somehow got stuck wth lmRob and I am sure I am missing something and \nI do not know what. It is my first time using robust statistics and I \nhave read all your posts and pd",
       "thread_id": "thread-f250497db542",
       "thread_depth": 0,
-      "month": "2010-10"
+      "month": "2010-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000305.html"
     },
     {
       "id": "msg-d5e71cb4f461",
@@ -35,7 +36,8 @@
       "body_snippet": "Hello Pep,\n\nIf NPP is the response variable (the \"y\" variable) and WPROB is the \nexplanatory variable (the \"x\" variable), then you should have used\n\nlmrob(NPP ~ WPROB, data=a)\n\nAlso, I recommend you u",
       "thread_id": "thread-f250497db542",
       "thread_depth": 1,
-      "month": "2010-10"
+      "month": "2010-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000306.html"
     },
     {
       "id": "msg-0e80660d94b8",
@@ -51,7 +53,8 @@
       "body_snippet": "Standard glm returns a deviance field, which is apparently minus twice the maximized log-likelihood.\nglmrob claims to do the same in its help page, but seems to always return NULL for deviance.\n\nIt se",
       "thread_id": "thread-0e80660d94b8",
       "thread_depth": 0,
-      "month": "2010-10"
+      "month": "2010-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000307.html"
     },
     {
       "id": "msg-c058275d3b6a",
@@ -65,11 +68,12 @@
       "references": [
         "<08543120-EA2B-407D-B15F-B82A5FD11764@me.com>"
       ],
-      "body_plain": "Dear Alex\n\nYes, the deviance is deliberately not implemented. Hence, the statement \nin the help file is incorrect.\n\nIf you want to compare your model with another model, please use anova \n(anova.glmrob). However, you don't find any deviance calculations there \nas well but the differences of robust quasi-likelihoods. The reason is \nthe difficulties with the interpretation of (\"raw\") robust \nquasi-likelihoods. - Do you have any particular applications of (\"raw\") \nrobust quasi-likelihoods in mind?\n\nThank you very much for pointing out the inconsistency in the help file.\n\nAll the best,\nAndreas\n\n\n\n\n------- Urspr?ngliche Nachricht --------\nVon: Alex Holcombe <holcombea at me.com>\nGesendet: Tue, 26 Oct 2010 17:57:47 +1100\nAn: r-sig-robust at r-project.org\nBetreff: [RsR] calculating deviance for glmrob\n\n> Standard glm returns a deviance field, which is apparently minus twice the maximized log-likelihood.\n> glmrob claims to do the same in its help page, but seems to always return NULL for deviance.\n> \n> It seems to be an unimplemented feature.  Does anyone have code or an algorithm that can calculate it?\n> \n> Any pointers appreciated\n> \n> \n> Alex Holcombe\n> www.psych.usyd.edu.au/staff/alexh/\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nIDP Institut f?r Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
+      "body_plain": "Dear Alex\n\nYes, the deviance is deliberately not implemented. Hence, the statement \nin the help file is incorrect.\n\nIf you want to compare your model with another model, please use anova \n(anova.glmrob). However, you don't find any deviance calculations there \nas well but the differences of robust quasi-likelihoods. The reason is \nthe difficulties with the interpretation of (\"raw\") robust \nquasi-likelihoods. - Do you have any particular applications of (\"raw\") \nrobust quasi-likelihoods in mind?\n\nThank you very much for pointing out the inconsistency in the help file.\n\nAll the best,\nAndreas\n\n\n\n\n------- Ursprüngliche Nachricht --------\nVon: Alex Holcombe <holcombea at me.com>\nGesendet: Tue, 26 Oct 2010 17:57:47 +1100\nAn: r-sig-robust at r-project.org\nBetreff: [RsR] calculating deviance for glmrob\n\n> Standard glm returns a deviance field, which is apparently minus twice the maximized log-likelihood.\n> glmrob claims to do the same in its help page, but seems to always return NULL for deviance.\n> \n> It seems to be an unimplemented feature.  Does anyone have code or an algorithm that can calculate it?\n> \n> Any pointers appreciated\n> \n> \n> Alex Holcombe\n> www.psych.usyd.edu.au/staff/alexh/\n> \n> _______________________________________________\n> R-SIG-Robust at r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-sig-robust\n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Zürcher Hochschule für Angewandte Wissenschaften\nIDP Institut für Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
       "body_snippet": "Dear Alex\n\nYes, the deviance is deliberately not implemented. Hence, the statement \nin the help file is incorrect.\n\nIf you want to compare your model with another model, please use anova \n(anova.glmro",
       "thread_id": "thread-0e80660d94b8",
       "thread_depth": 1,
-      "month": "2010-10"
+      "month": "2010-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000308.html"
     }
   ],
   "threads": [

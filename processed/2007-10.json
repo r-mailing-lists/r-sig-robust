@@ -17,7 +17,8 @@
       "body_snippet": "Hello\n\n \n\nHow are the lower/upper whiskers defined in the default version of\nboxplot()?\n\nAre they a possible estimation of a 95 % confidence interval?\n\n \n\nYours\n\n \n\nDaniel Steiner\n\nLangenthal\n\n\n\t[[alt",
       "thread_id": "thread-7baabf0c4c8d",
       "thread_depth": 0,
-      "month": "2007-10"
+      "month": "2007-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000166.html"
     },
     {
       "id": "msg-3bcadb3da0b0",
@@ -35,7 +36,8 @@
       "body_snippet": "Hello,\n\n>From \"help(boxplot)\": the argument \"range\", that equals 1.5 by default,\n\"determines how far the plot whiskers extend out from the box.  If\n'range' is positive, the whiskers extend to the most",
       "thread_id": "thread-7baabf0c4c8d",
       "thread_depth": 1,
-      "month": "2007-10"
+      "month": "2007-10",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2007/000167.html"
     }
   ],
   "threads": [

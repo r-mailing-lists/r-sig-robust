@@ -17,7 +17,8 @@
       "body_snippet": "Dear all,\n\nIn my field (chemical engineering) it is accepted in the literature that\ncomparing regression M-estimators *must* be done for the same value of\nasymptotic efficiency.\n\nHowever let us assume",
       "thread_id": "thread-7c28f89a4a2d",
       "thread_depth": 0,
-      "month": "2021-03"
+      "month": "2021-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2021/000502.html"
     }
   ],
   "threads": [

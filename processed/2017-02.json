@@ -19,7 +19,8 @@
       "body_snippet": ">>>>> F... F... <.... at gmail.com>  on Tue, 31 Jan 2017 20:17:31 -0500 writes:\n\n    > Dear Prof. Maechler:\n    > I am using the glmrob function from your package and am interested in\n    > having fit",
       "thread_id": "thread-c4a2f6947c33",
       "thread_depth": 0,
-      "month": "2017-02"
+      "month": "2017-02",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2017/000458.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "Hi,\n\n\nI'm trying to find ressources on robust (approximated) Bayesian  \nstatistics, but I'm not finding what I'm looking for; maybe you can  \ngive me a hint where to look.\n\nBasically I'm looking for a",
       "thread_id": "thread-41e42b31939f",
       "thread_depth": 0,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000279.html"
     },
     {
       "id": "msg-dafd4e19033f",
@@ -35,7 +36,8 @@
       "body_snippet": "Hi,\n\nCheck Machado(1993) Econometric Theory.\nAll the best.\n\nElvezio Ronchetti\nDept. of Econometrics\nUniversity of Geneva\nBlv. Pont d'Arve 40\nCH-1211 Geneva\nSWITZERLAND\n\ne-mail     Elvezio.Ronchetti at",
       "thread_id": "thread-41e42b31939f",
       "thread_depth": 1,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000280.html"
     },
     {
       "id": "msg-28d36feade1a",
@@ -51,7 +53,8 @@
       "body_snippet": "One interesting application of a robust location estimator is in\ncomputing reference rates on OTC markets. Traders on an OTC market\nknow the ruling price but others do not. So an information agency as",
       "thread_id": "thread-28d36feade1a",
       "thread_depth": 0,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000281.html"
     },
     {
       "id": "msg-ba2701882adb",
@@ -69,7 +72,8 @@
       "body_snippet": "Very interesting post Ajay. I will think about it in more detail in the \ncoming days. Meanwhile, I believe I can offer a possible explanation for \nthe \"failures\" of lmrob(). They may be related to the",
       "thread_id": "thread-28d36feade1a",
       "thread_depth": 1,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000282.html"
     },
     {
       "id": "msg-93c3338a5c4f",
@@ -83,11 +87,12 @@
       "references": [
         "<20090924195721.GQ188@ajay-shahs-macbook-pro.local>"
       ],
-      "body_plain": "Dear Ajay\n\nI agree on what Matias said.\n\nIn addition, I wondered whether you should not better use a \"direct\" \nrobust location estimator instead of the robust location estimator based \non the regression case. For example, there is R function huberM() which \nreturns a robust M-estimation of location based on a safe way of \ncalculating the robust scale estimator. An additional advantage of using \nhuberM() is, that the resulting M-estimator has breakdown-point 0.5 \nwhich is (much) higher than that of a trimmed mean.\n\nTo sell the robust M-estimator, you can talk of \"an estimator which \ndown-weights outliers automatically according to their outlyingness\".\n(The M-estimator can also be modified that it removes very distant \noutliers completely by using a redescending psi-function.)\n\nAll the best\nAndreas\n\n\nSome addtional comments\n\nAjay Shah schrieb:\n> One interesting application of a robust location estimator is in\n> computing reference rates on OTC markets. Traders on an OTC market\n> know the ruling price but others do not. So an information agency asks\n> a bunch of dealers what the price is.\n> \n> Dealers typically have positions on the market and have an incentive\n> to lie. Hence, it's useful to have a robust location estimator. The\n> British Bankers Association has used a `fixed trimmed mean' where the\n> four most extreme observations are thrown away and the average of the\n> remainder is used as the `reference rate' of the market. This is the\n> method underlying LIBOR.\n> \n> A while ago, Donald Lien and John Cita suggested that it would make\n> more sense to experiment with a few different levels of trimming, and\n> pick the one where the standard deviation of the trimmed mean\n> (obtained through the bootstrap) is the lowest. They termed this the\n> `adaptive trimmed mean' or the ATM.\n> \n> One advantage of the above two ideas is that they are simple to\n> explain to regulators and traders.\n> \n> My question is: How far can contemporary knowledge in robust\n> statistics improve upon this scheme? If one uses robustbase::lmrob(x ~\n> 1) and gets a location estimator, would it be much better?\n> \n> Here is some data for experimentation:\n> \n>   load(url(\"http://www.mayin.org/ajayshah/tmp/all.rda\"))\n> \n> This gives you an object \"all\" which has 44 columns of data. Each of\n> these columns is one set of values obtained from a bunch of dealers.\n> \n> I did:\n> \n>   library(refrate)\n>   results <- matrix(NA, nrow=length(fileslist), ncol=4)\n>   colnames(results) <- c(\"lmrob\",\"median\",\"atm\",\"mean\")\n>   for (i in 1:length(fileslist)) {\n>     tmp <- na.omit(all[,i])\n>     a <- try(lmrob(tmp ~ 1)$coefficients)\n>     result <- NA\n>     if (class(a) != \"try-error\") {result <- a}\n>     results[i,] <- c(result,\n>                      median(tmp),\n>                      referencerate(tmp)[\"atm\"],\n>                      mean(tmp))\n>   }\n>   cor(results, use=\"pairwise.complete.obs\")\n> \n> where the function referencerate() implements the Lien/Cita scheme\n> described above. (I can email you this code if there is interest). I\n> have two findings:\n> \n> (a) lmrob() often breaks. It shouldn't. I have sent in one bug report.\n> \n> (b) The correlation matrix shows very high correlations:\n> \n>              lmrob    median       atm      mean\n>   lmrob  1.0000000 \n>   median 0.9998192 1.0000000 \n>   atm    0.9999741 0.9998113 1.0000000 \n>   mean   0.9993983 0.9994536 0.9996133 1.0000000\n> \n> The correlations with the ATM are: lmrob > median > mean. So lmrob()\n> and the ATM seem to agree a lot.\n> \n> Looking deeper, an important feature in this (financial) application\n> is that dealers should not see a location estimator where a small\n> cartel can produce a large distort the price. So their gains from\n> forming a cartel should be low. Would lmrob() be much different from\n> the ATM in this?\n> \n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Z?rcher Hochschule f?r Angewandte Wissenschaften\nIDP Institut f?r Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
+      "body_plain": "Dear Ajay\n\nI agree on what Matias said.\n\nIn addition, I wondered whether you should not better use a \"direct\" \nrobust location estimator instead of the robust location estimator based \non the regression case. For example, there is R function huberM() which \nreturns a robust M-estimation of location based on a safe way of \ncalculating the robust scale estimator. An additional advantage of using \nhuberM() is, that the resulting M-estimator has breakdown-point 0.5 \nwhich is (much) higher than that of a trimmed mean.\n\nTo sell the robust M-estimator, you can talk of \"an estimator which \ndown-weights outliers automatically according to their outlyingness\".\n(The M-estimator can also be modified that it removes very distant \noutliers completely by using a redescending psi-function.)\n\nAll the best\nAndreas\n\n\nSome addtional comments\n\nAjay Shah schrieb:\n> One interesting application of a robust location estimator is in\n> computing reference rates on OTC markets. Traders on an OTC market\n> know the ruling price but others do not. So an information agency asks\n> a bunch of dealers what the price is.\n> \n> Dealers typically have positions on the market and have an incentive\n> to lie. Hence, it's useful to have a robust location estimator. The\n> British Bankers Association has used a `fixed trimmed mean' where the\n> four most extreme observations are thrown away and the average of the\n> remainder is used as the `reference rate' of the market. This is the\n> method underlying LIBOR.\n> \n> A while ago, Donald Lien and John Cita suggested that it would make\n> more sense to experiment with a few different levels of trimming, and\n> pick the one where the standard deviation of the trimmed mean\n> (obtained through the bootstrap) is the lowest. They termed this the\n> `adaptive trimmed mean' or the ATM.\n> \n> One advantage of the above two ideas is that they are simple to\n> explain to regulators and traders.\n> \n> My question is: How far can contemporary knowledge in robust\n> statistics improve upon this scheme? If one uses robustbase::lmrob(x ~\n> 1) and gets a location estimator, would it be much better?\n> \n> Here is some data for experimentation:\n> \n>   load(url(\"http://www.mayin.org/ajayshah/tmp/all.rda\"))\n> \n> This gives you an object \"all\" which has 44 columns of data. Each of\n> these columns is one set of values obtained from a bunch of dealers.\n> \n> I did:\n> \n>   library(refrate)\n>   results <- matrix(NA, nrow=length(fileslist), ncol=4)\n>   colnames(results) <- c(\"lmrob\",\"median\",\"atm\",\"mean\")\n>   for (i in 1:length(fileslist)) {\n>     tmp <- na.omit(all[,i])\n>     a <- try(lmrob(tmp ~ 1)$coefficients)\n>     result <- NA\n>     if (class(a) != \"try-error\") {result <- a}\n>     results[i,] <- c(result,\n>                      median(tmp),\n>                      referencerate(tmp)[\"atm\"],\n>                      mean(tmp))\n>   }\n>   cor(results, use=\"pairwise.complete.obs\")\n> \n> where the function referencerate() implements the Lien/Cita scheme\n> described above. (I can email you this code if there is interest). I\n> have two findings:\n> \n> (a) lmrob() often breaks. It shouldn't. I have sent in one bug report.\n> \n> (b) The correlation matrix shows very high correlations:\n> \n>              lmrob    median       atm      mean\n>   lmrob  1.0000000 \n>   median 0.9998192 1.0000000 \n>   atm    0.9999741 0.9998113 1.0000000 \n>   mean   0.9993983 0.9994536 0.9996133 1.0000000\n> \n> The correlations with the ATM are: lmrob > median > mean. So lmrob()\n> and the ATM seem to agree a lot.\n> \n> Looking deeper, an important feature in this (financial) application\n> is that dealers should not see a location estimator where a small\n> cartel can produce a large distort the price. So their gains from\n> forming a cartel should be low. Would lmrob() be much different from\n> the ATM in this?\n> \n\n-- \n----------------------------------------------------------------------\n\nProf. Dr. Andreas Ruckstuhl\nZHAW Zürcher Hochschule für Angewandte Wissenschaften\nIDP Institut für Datenanalyse und Prozessdesign\nRosenstrasse 3                    Tel.  : +41 (0)58 934 78 12\nPostfach                          Fax   : +41 (0)58 935 78 12\nCH-8401 Winterthur                e-Mail: Andreas.Ruckstuhl at zhaw.ch\n                                   WWW   : http://www.idp.zhaw.ch",
       "body_snippet": "Dear Ajay\n\nI agree on what Matias said.\n\nIn addition, I wondered whether you should not better use a \"direct\" \nrobust location estimator instead of the robust location estimator based \non the regressi",
       "thread_id": "thread-28d36feade1a",
       "thread_depth": 1,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000283.html"
     },
     {
       "id": "msg-d8a11acf83b2",
@@ -106,7 +111,8 @@
       "body_snippet": ">>>>> \"ARu\" == Andreas Ruckstuhl <rkst at zhaw.ch>\n>>>>>     on Mon, 28 Sep 2009 09:23:56 +0200 writes:\n\n    ARu> Dear Ajay\n    ARu> I agree on what Matias said.\n\n    ARu> In addition, I wondered whet",
       "thread_id": "thread-28d36feade1a",
       "thread_depth": 2,
-      "month": "2009-09"
+      "month": "2009-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2009/000284.html"
     }
   ],
   "threads": [

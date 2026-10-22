@@ -17,7 +17,8 @@
       "body_snippet": "Hello,\n\nFirst time posting on the robust list. New to R.\n\nHow do I get the outliers list generated via uni.plot without opening a\ngraphics device?\n\nRegards,\n\nBen\n\n\t[[alternative HTML version deleted]]",
       "thread_id": "thread-6a4ad1966514",
       "thread_depth": 0,
-      "month": "2011-09"
+      "month": "2011-09",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000336.html"
     }
   ],
   "threads": [

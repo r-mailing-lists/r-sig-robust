@@ -17,7 +17,8 @@
       "body_snippet": "Hi,\n\nI am running a multilevel growth curve model to examine predictors of\nsocial anhedonia (SA) trajectory through ages 12, 15 and 18. SA is a\ncontinuous numeric variable. The age variable (Index1) h",
       "thread_id": "thread-b18fae20505a",
       "thread_depth": 0,
-      "month": "2024-05"
+      "month": "2024-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2024/000512.html"
     },
     {
       "id": "msg-339e4fcf9a03",
@@ -33,7 +34,8 @@
       "body_snippet": "[[alternative HTML version deleted]]",
       "thread_id": "thread-339e4fcf9a03",
       "thread_depth": 0,
-      "month": "2024-05"
+      "month": "2024-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2024/000513.html"
     }
   ],
   "threads": [

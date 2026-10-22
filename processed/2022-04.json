@@ -17,7 +17,8 @@
       "body_snippet": "The archives here seem to stop in March 2021.\nhttps://stat.ethz.ch/pipermail/r-sig-robust/",
       "thread_id": "thread-b8d46f89b733",
       "thread_depth": 0,
-      "month": "2022-04"
+      "month": "2022-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2022/000508.html"
     },
     {
       "id": "msg-c01343190c65",
@@ -35,7 +36,8 @@
       "body_snippet": ">>>>> Kelly Thompson \n>>>>>     on Sun, 24 Apr 2022 12:32:08 -0400 writes:\n\n    > The archives here seem to stop in March 2021.\n    > https://stat.ethz.ch/pipermail/r-sig-robust/\n\nWell, they no longer",
       "thread_id": "thread-b8d46f89b733",
       "thread_depth": 1,
-      "month": "2022-04"
+      "month": "2022-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2022/000509.html"
     }
   ],
   "threads": [

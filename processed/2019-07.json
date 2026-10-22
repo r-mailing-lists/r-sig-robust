@@ -17,7 +17,8 @@
       "body_snippet": "Dear all,\n\nI am using the lmrob() function from the robustbase package, and I have a\nfew questions. To keep the threads clear, I have a general inquiry here,\nand will ask more specific Qs in a second ",
       "thread_id": "thread-f318b878fbf6",
       "thread_depth": 0,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2019/000475.html"
     },
     {
       "id": "msg-16497c548e9e",
@@ -33,7 +34,8 @@
       "body_snippet": "Dear all,\n\nI am running lmrob() under the robustbase package, and I have a few\nerror/warning messages I would greatly appreciate help with - I am\nunfamiliar with robust linear models, so my apologies ",
       "thread_id": "thread-16497c548e9e",
       "thread_depth": 0,
-      "month": "2019-07"
+      "month": "2019-07",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2019/000476.html"
     }
   ],
   "threads": [

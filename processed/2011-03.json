@@ -17,7 +17,8 @@
       "body_snippet": "Hi,\nI was looking at the vif function in the car package\nand it it is trivial to modify to make a version for robust\nregression. However, after trying it out I noticed  that what \nwere reasonable valu",
       "thread_id": "thread-5a2af367df05",
       "thread_depth": 0,
-      "month": "2011-03"
+      "month": "2011-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2011/000325.html"
     }
   ],
   "threads": [

@@ -17,7 +17,8 @@
       "body_snippet": "I am wanting to use Box-Cox transformed values to develop a reference intervals for clinical chemistry tests given 25 observations per test. After I have used the transformed values to find the range ",
       "thread_id": "thread-9774e2e3163d",
       "thread_depth": 0,
-      "month": "2010-05"
+      "month": "2010-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000294.html"
     },
     {
       "id": "msg-68dd8336082c",
@@ -33,7 +34,8 @@
       "body_snippet": "Dear R-SIG Robust\n\nI'd like to estimate the parameters of a negative binomial in a\nrobust way. Could anyone give me a hint whether a solution of\nthis problem is already implemented or point me to some",
       "thread_id": "thread-68dd8336082c",
       "thread_depth": 0,
-      "month": "2010-05"
+      "month": "2010-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000295.html"
     },
     {
       "id": "msg-f24d106bf38e",
@@ -51,7 +53,8 @@
       "body_snippet": "Am 28.05.2010 14:40, schrieb Markus Kalisch:\n> Dear R-SIG Robust\n>\n> I'd like to estimate the parameters of a negative binomial in a\n> robust way. Could anyone give me a hint whether a solution of\n> t",
       "thread_id": "thread-68dd8336082c",
       "thread_depth": 1,
-      "month": "2010-05"
+      "month": "2010-05",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000296.html"
     }
   ],
   "threads": [

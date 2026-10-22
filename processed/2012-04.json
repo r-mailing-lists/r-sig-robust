@@ -17,7 +17,8 @@
       "body_snippet": "In robust PCA methods, how to get variance explained?\n\nFor example, PcaHubert,\n\nhow to get the variance explained which are similar to those concepts in\ntraditional PCA?\n\nIn traditional PCA, you have ",
       "thread_id": "thread-cbb18f9ae7ff",
       "thread_depth": 0,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000339.html"
     },
     {
       "id": "msg-debe90a13f8e",
@@ -33,7 +34,8 @@
       "body_snippet": "I am reading about these robust PCA functions in R...\n\nI read words like \"random directions\"...\n\nIt seems that these algos are random algorithms, i.e their results will be\ndifferent each time we run t",
       "thread_id": "thread-debe90a13f8e",
       "thread_depth": 0,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000340.html"
     },
     {
       "id": "msg-0a1d4cd82c61",
@@ -51,7 +53,8 @@
       "body_snippet": "library(rrcov)\ndata(bus)\np <- ncol(bus)\nrpca <- PcaHubert(bus, k=p, kmax=p)\nsummary(rpca)\n\nHope this helps.\nBest regards,\nValentin\n\n\nOn Tue, Apr 24, 2012 at 6:03 PM, Michael <comtech.usa at gmail.com>",
       "thread_id": "thread-cbb18f9ae7ff",
       "thread_depth": 1,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000341.html"
     },
     {
       "id": "msg-e69fc03f6c19",
@@ -67,7 +70,8 @@
       "body_snippet": "yes, the solutions will not be the same but they should be fairly similar. \n\n\n\n>I am reading about these robust PCA functions in R...\n>\n>I read words like \"random directions\"...\n>\n>It seems that these",
       "thread_id": "thread-e69fc03f6c19",
       "thread_depth": 0,
-      "month": "2012-04"
+      "month": "2012-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2012/000342.html"
     }
   ],
   "threads": [

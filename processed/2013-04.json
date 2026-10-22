@@ -17,7 +17,8 @@
       "body_snippet": "Dear R experts,\n\nAs a newcomer in R, I am testing the R CAPER package, applying a simple\nregression on a phylogeny tree with three binary traits: (t1, t2, t3).\n\nMy goal is to test the sensitivity to a",
       "thread_id": "thread-6c143b847af0",
       "thread_depth": 0,
-      "month": "2013-04"
+      "month": "2013-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000391.html"
     },
     {
       "id": "msg-ee45c6ed04da",
@@ -35,7 +36,8 @@
       "body_snippet": "Hi Xavier,\n\nThis list is specifically for questions/discussion about robust statistics. You will have better luck getting an answer to your question if you ask on R-help.\n\nCheers,\nKjell\n\nOn Apr 9, 201",
       "thread_id": "thread-6c143b847af0",
       "thread_depth": 1,
-      "month": "2013-04"
+      "month": "2013-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2013/000392.html"
     }
   ],
   "threads": [

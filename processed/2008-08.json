@@ -17,7 +17,8 @@
       "body_snippet": "Dear \"Robustniks\",\n\nmany moons ago I had promised to create a CRAN Task view\non the topic of robust statistics in R.\n\nActually I have fulfilled the promise quite a while ago,\nbut it seems I've never a",
       "thread_id": "thread-54e2e99cac69",
       "thread_depth": 0,
-      "month": "2008-08"
+      "month": "2008-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000203.html"
     },
     {
       "id": "msg-d78fef110228",
@@ -35,7 +36,8 @@
       "body_snippet": "Dear \"Robustnik\",\n\n\n> Please look at\n>\n>    http://cran.ch.r-project.org/CRAN/web/views/Robust.html\n>                ^^\n>                put your favorite CRAN mirror here, or just drop '.ch'\n\nI looke",
       "thread_id": "thread-54e2e99cac69",
       "thread_depth": 1,
-      "month": "2008-08"
+      "month": "2008-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000205.html"
     },
     {
       "id": "msg-32217cc0beb3",
@@ -54,7 +56,8 @@
       "body_snippet": ">>>>> \"DT\" == Diman Todorov <diman.todorov at gmail.com>\n>>>>>     on Mon, 4 Aug 2008 12:48:28 +0200 writes:\n\n    DT> Dear \"Robustnik\",\n    >> Please look at\n    >> \n    >> http://cran.ch.r-project.or",
       "thread_id": "thread-54e2e99cac69",
       "thread_depth": 2,
-      "month": "2008-08"
+      "month": "2008-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000204.html"
     },
     {
       "id": "msg-e44ce4fd710d",
@@ -73,7 +76,8 @@
       "body_snippet": "Diman Todorov wrote\n\n> The URL you gave currently \n> leads to a 404 error message.\n\nTry this:\n - Go to http://cran.r-project.org/mirrors.html\n - Copy/paste to your browser address bar the \n   html add",
       "thread_id": "thread-54e2e99cac69",
       "thread_depth": 2,
-      "month": "2008-08"
+      "month": "2008-08",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000206.html"
     }
   ],
   "threads": [

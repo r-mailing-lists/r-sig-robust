@@ -17,7 +17,8 @@
       "body_snippet": "We've been using forecast::tsoutliers. In many situations it's nice, but I\nhave a MWE where it seems to get confused:\n\nlibrary(forecast)\nx <- sin(seq(0,6.28,0.01)) # There's no noise\n\ntsoutliers(ts(x)",
       "thread_id": "thread-922c341fe175",
       "thread_depth": 0,
-      "month": "2021-06"
+      "month": "2021-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2021/000503.html"
     },
     {
       "id": "msg-907f3cd2e43e",
@@ -31,11 +32,12 @@
       "references": [
         "<CA++P4r2fzdiX8vQ0BRp1fG6d=AAQkzVw+2EM8ie1D1uWCRFKmA@mail.gmail.com>"
       ],
-      "body_plain": "Dear Ajay\n\nA robust way to  find outliers in a time series is using the function\narima.rob of the R package robustarima.  Details on how  this  function is\nused can be found in its help. If you want to know more about the procedure\nused for this function you can consult Chapter 8 of Robust Statistics:\nTheory and methods (with R) of Maronna, Martin, Salibian-Barrera and Yohai.\n\nV?ctor Yohai     \n\n\n\n-----Mensaje original-----\nDe: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] En nombre de\nAjay Shah\nEnviado el: viernes, 11 de junio de 2021 6:56\nPara: r-sig-robust at r-project.org\nAsunto: [RsR] Time-series outlier problem\n\nWe've been using forecast::tsoutliers. In many situations it's nice, but I\nhave a MWE where it seems to get confused:\n\nlibrary(forecast)\nx <- sin(seq(0,6.28,0.01)) # There's no noise\n\ntsoutliers(ts(x)) # nothing is amiss.\n\nx[4]  <- 2\ntsoutliers(ts(x)) ## Weird\n\nx[4]  <-  100\ntsoutliers(ts(x)) ## Weird\n\nIt shows a lot of outliers and offers bizarre replacements.\n\nWe are working with time-series of about N=100 with gentle time series\nstructure. Do folks here have suggestions on how best to handle outlier\ndetection and correction for this?\n\n-- \nAjay Shah\najayshah at mayin.org\nhttp://www.mayin.org/ajayshah\n\n\t[[alternative HTML version deleted]]\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
+      "body_plain": "Dear Ajay\n\nA robust way to  find outliers in a time series is using the function\narima.rob of the R package robustarima.  Details on how  this  function is\nused can be found in its help. If you want to know more about the procedure\nused for this function you can consult Chapter 8 of Robust Statistics:\nTheory and methods (with R) of Maronna, Martin, Salibian-Barrera and Yohai.\n\nVíctor Yohai     \n\n\n\n-----Mensaje original-----\nDe: R-SIG-Robust [mailto:r-sig-robust-bounces at r-project.org] En nombre de\nAjay Shah\nEnviado el: viernes, 11 de junio de 2021 6:56\nPara: r-sig-robust at r-project.org\nAsunto: [RsR] Time-series outlier problem\n\nWe've been using forecast::tsoutliers. In many situations it's nice, but I\nhave a MWE where it seems to get confused:\n\nlibrary(forecast)\nx <- sin(seq(0,6.28,0.01)) # There's no noise\n\ntsoutliers(ts(x)) # nothing is amiss.\n\nx[4]  <- 2\ntsoutliers(ts(x)) ## Weird\n\nx[4]  <-  100\ntsoutliers(ts(x)) ## Weird\n\nIt shows a lot of outliers and offers bizarre replacements.\n\nWe are working with time-series of about N=100 with gentle time series\nstructure. Do folks here have suggestions on how best to handle outlier\ndetection and correction for this?\n\n-- \nAjay Shah\najayshah at mayin.org\nhttp://www.mayin.org/ajayshah\n\n\t[[alternative HTML version deleted]]\n\n_______________________________________________\nR-SIG-Robust at r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-sig-robust",
       "body_snippet": "Dear Ajay\n\nA robust way to  find outliers in a time series is using the function\narima.rob of the R package robustarima.  Details on how  this  function is\nused can be found in its help. If you want t",
       "thread_id": "thread-922c341fe175",
       "thread_depth": 1,
-      "month": "2021-06"
+      "month": "2021-06",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2021/000504.html"
     }
   ],
   "threads": [

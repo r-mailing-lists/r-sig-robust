@@ -17,7 +17,8 @@
       "body_snippet": "Hi\nI am writing a program for ridge regression using lts. I need your help please\n\nregards\nAlamgir\n\n\n\n\n      \n\t[[alternative HTML version deleted]]",
       "thread_id": "thread-99108aa8eb4b",
       "thread_depth": 0,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000291.html"
     },
     {
       "id": "msg-bbc993c8fef8",
@@ -35,7 +36,8 @@
       "body_snippet": "Hi,\nThe output of lmRob DOES provide the robust version of the R-squared \nunder \"Multiple R-Squared\". It does not directly provide a test that \ncompares the model with the model with no covariates (eq",
       "thread_id": "thread-bbc993c8fef8",
       "thread_depth": 0,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000290.html"
     },
     {
       "id": "msg-82a6f649c8e3",
@@ -51,7 +53,8 @@
       "body_snippet": "Hi dears\nI am writing a program in R for robust ridge estimator based on LTS. is there any code or package relating to it? could you please help me out?\n\nRegards\n\nAlamgir\nPh.D scholar \n\n\n\n\n      \n\t[[a",
       "thread_id": "thread-82a6f649c8e3",
       "thread_depth": 0,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000292.html"
     },
     {
       "id": "msg-068eb5c639ae",
@@ -67,7 +70,8 @@
       "body_snippet": "Hello all,\nI'm just a beginner on R issue, but improving.\n\nDoes anyone knows how can I get vote concentration to each ID by city\n(CIDADE) considering each UF (State), because my data is long and has a",
       "thread_id": "thread-068eb5c639ae",
       "thread_depth": 0,
-      "month": "2010-04"
+      "month": "2010-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2010/000293.html"
     }
   ],
   "threads": [

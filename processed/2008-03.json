@@ -17,7 +17,8 @@
       "body_snippet": "After having updated 'rrcov' I feel like updating my picture album from Banff.\n\nEnjoy:\n\nhttp://picasaweb.google.at/valentin.to/RSRBanff2007\n\nAll pictures are available from the authors in full resolut",
       "thread_id": "thread-aad46581d28f",
       "thread_depth": 0,
-      "month": "2008-03"
+      "month": "2008-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000180.html"
     },
     {
       "id": "msg-b27f86836d99",
@@ -35,7 +36,8 @@
       "body_snippet": "Some more pictures are available at\n\nhttp://www.stat.ubc.ca/~matias/RsR2007\n\nI have not had time to select them or rotate them, so they are basically \njust as they came off the memory card...\n\nMatias\n",
       "thread_id": "thread-aad46581d28f",
       "thread_depth": 1,
-      "month": "2008-03"
+      "month": "2008-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000181.html"
     },
     {
       "id": "msg-5a65ba61e18c",
@@ -51,7 +53,8 @@
       "body_snippet": "Dear R-Robustniks,\n\nI just wanted to remind you of the submission deadline\n(and early registration deadline!) of \n2008-03-31\n==========  --> Website http://www.R-project.org/useR-2008/\n\nuseR! 2008, th",
       "thread_id": "thread-5a65ba61e18c",
       "thread_depth": 0,
-      "month": "2008-03"
+      "month": "2008-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000182.html"
     },
     {
       "id": "msg-769036d8acdc",
@@ -67,7 +70,8 @@
       "body_snippet": "Hi Every One, I am novice to R and am writing programe for Least trimmed \nsquare(LTS) estimation in R. if anyone of you have done it already or if \nthere is somthing that can give me some more backgro",
       "thread_id": "thread-769036d8acdc",
       "thread_depth": 0,
-      "month": "2008-03"
+      "month": "2008-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000183.html"
     },
     {
       "id": "msg-a9fb485f2b7d",
@@ -85,7 +89,8 @@
       "body_snippet": "Dear Dost,\n\ninstall package 'robustbase' and have a look at ltsReg(), i.e.\n\ninstall.packages(\"robustbase\")\nlibrary(robustbase)\n?ltsReg\n\nThe help page will give you some references to start with.\n\nHope",
       "thread_id": "thread-769036d8acdc",
       "thread_depth": 1,
-      "month": "2008-03"
+      "month": "2008-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000184.html"
     },
     {
       "id": "msg-f64c0905819e",
@@ -103,7 +108,8 @@
       "body_snippet": "The package robustbase contains an LTS impementation. More information  \nabout the algorithm may be found in the help of the package. The  \npackage RFreak also contains an LTS algorithm, which is main",
       "thread_id": "thread-f64c0905819e",
       "thread_depth": 0,
-      "month": "2008-03"
+      "month": "2008-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000185.html"
     },
     {
       "id": "msg-67c2faabba0b",
@@ -121,7 +127,8 @@
       "body_snippet": "Hello Dost,\n\nNo need to do it yourself. Good implementations of LTS estimators have been\npublicly available for a long time. \n\nCurrently, they are available in R as part of the robustbase library, amo",
       "thread_id": "thread-769036d8acdc",
       "thread_depth": 1,
-      "month": "2008-03"
+      "month": "2008-03",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2008/000186.html"
     }
   ],
   "threads": [
