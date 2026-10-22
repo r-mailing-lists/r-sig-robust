@@ -17,7 +17,8 @@
       "body_snippet": "Dear R-sig-robust community:\n\nI would like to let you know that I have just published the early stage R package 'ferols'? <https://github.com/joachim-gassen/ferols>implementing a robust Huber Loss M-E",
       "thread_id": "thread-160f642c16c0",
       "thread_depth": 0,
-      "month": "2026-04"
+      "month": "2026-04",
+      "source_url": "https://stat.ethz.ch/pipermail/r-sig-robust/2026/000524.html"
     }
   ],
   "threads": [
